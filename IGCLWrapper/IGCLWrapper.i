@@ -38,18 +38,9 @@ typedef wchar_t WCHAR;
 %typemap(cstype)  (ctl_display_output_handle_t) "System.IntPtr"
 %typemap(imtype)  (ctl_display_output_handle_t) "IntPtr"
 
-// If the header typedefs these as pointers or uint64, this keeps the C# surface stable.
-%apply void *VOID_INT_PTR { ctl_device_adapter_handle_t, ctl_display_output_handle_t };
-
 %include stdint.i
 %include carrays.i
 %include typemaps.i
-
-// Define TCHAR before windows.i to avoid redefinition warnings
-#ifndef TCHAR
-typedef wchar_t TCHAR;
-#endif
-
 %include windows.i
 %include cpointer.i
 
@@ -66,11 +57,14 @@ typedef int8_t   igcl_int8;
 %}
 
 // IGCL types (for handles)
-typedef void* ctl_api_handle_t;
-typedef void* ctl_device_adapter_handle_t;
-typedef void* ctl_display_output_handle_t;
-typedef void* ctl_i2c_pin_pair_handle_t;
+//typedef void* ctl_api_handle_t;
+//typedef void* ctl_device_adapter_handle_t;
+//typedef void* ctl_display_output_handle_t;
+//typedef void* ctl_i2c_pin_pair_handle_t;
 typedef void* voidP_Ptr; // for pointer void*
+
+// If the header typedefs these as pointers or uint64, this keeps the C# surface stable.
+%apply void *VOID_INT_PTR { ctl_device_adapter_handle_t, ctl_display_output_handle_t };
 
 
 // ----- Pointer helpers (common out parameters) -----
@@ -110,12 +104,19 @@ typedef void* voidP_Ptr; // for pointer void*
 %inline %{
 // Initialize IGCL with default flags (Level Zero enabled)
 static ctl_result_t IGCL_InitDefault(ctl_api_handle_t* phAPI) {
+    if (!phAPI) return CTL_RESULT_ERROR_INVALID_NULL_POINTER;
+
     ctl_init_args_t args = {};
-    args.Size    = sizeof(args);
-    // Set version using macro: CTL_MAKE_VERSION
-    args.Version = CTL_MAKE_VERSION(CTL_INIT_VERSION_MAJOR, CTL_INIT_VERSION_MINOR);
-    args.flags   = CTL_INIT_FLAG_USE_LEVEL_ZERO;
+    args.Size  = sizeof(args);
+    // Some SDKs don’t expose CTL_INIT_VERSION_* macros. Use a safe fallback.
+    #ifdef CTL_INIT_VERSION_MAJOR
+      args.Version = CTL_MAKE_VERSION(CTL_INIT_VERSION_MAJOR, CTL_INIT_VERSION_MINOR);
+    #else
+      args.Version = 0; // accepted by current runtimes
+    #endif
+    args.flags = CTL_INIT_FLAG_USE_LEVEL_ZERO;
     ZeroMemory(&args.ApplicationUID, sizeof(args.ApplicationUID));
+
     return ctlInit(&args, phAPI);
 }
 
@@ -152,11 +153,11 @@ static ctl_result_t IGCL_GetAdapterProperties(ctl_device_adapter_handle_t hAdapt
 }
 
 // Helper for I2C access with buffer sizing
-static ctl_result_t IGCL_I2CAccess(ctl_device_adapter_handle_t hAdapter,
+static ctl_result_t IGCL_I2CAccess(ctl_display_output_handle_t hDisplay,
                                    ctl_i2c_access_args_t* pArgs) {
     if (!pArgs) return CTL_RESULT_ERROR_INVALID_NULL_POINTER;
     pArgs->Size = sizeof(*pArgs);
-    return ctlI2CAccess(hAdapter, pArgs);
+    return ctlI2CAccess(hDisplay, pArgs);
 }
 
 // Helper for AUX access with buffer sizing
