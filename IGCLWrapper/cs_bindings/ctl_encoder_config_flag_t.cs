@@ -10,7 +10,7 @@
 
 namespace IGCLWrapper {
 
-public enum ctl_encoder_config_flag_t {
+public enum ctl_encoder_config_flag_t : uint {
   CTL_ENCODER_CONFIG_FLAG_INTERNAL_DISPLAY = (1 << 0),
   CTL_ENCODER_CONFIG_FLAG_VESA_TILED_DISPLAY = (1 << 1),
   CTL_ENCODER_CONFIG_FLAG_TYPEC_CAPABLE = (1 << 2),

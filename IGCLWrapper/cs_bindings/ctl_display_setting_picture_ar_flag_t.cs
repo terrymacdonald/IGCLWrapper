@@ -10,7 +10,7 @@
 
 namespace IGCLWrapper {
 
-public enum ctl_display_setting_picture_ar_flag_t {
+public enum ctl_display_setting_picture_ar_flag_t : uint {
   CTL_DISPLAY_SETTING_PICTURE_AR_FLAG_DEFAULT = (1 << 0),
   CTL_DISPLAY_SETTING_PICTURE_AR_FLAG_DISABLED = (1 << 1),
   CTL_DISPLAY_SETTING_PICTURE_AR_FLAG_AR_4_3 = (1 << 2),

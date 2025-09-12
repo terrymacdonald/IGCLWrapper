@@ -6,6 +6,52 @@
 
 // ----- SWIG module & language options -----
 %module(directors="1") IGCL
+
+%define FORCE_UINT_FLAGS(TypedefName, TagName)
+/* Underlying type + “Flags” behavior in C# */
+%typemap(csbase)       TypedefName "uint"
+%typemap(csenumflags)  TypedefName "uint"
+%typemap(csbase)       TagName     "uint"
+%typemap(csenumflags)  TagName     "uint"
+/* Optional: add [Flags] for nice C# semantics */
+%csattributes          TypedefName "[System.Flags]"
+%csattributes          TagName     "[System.Flags]"
+%enddef
+
+FORCE_UINT_FLAGS(ctl_init_flag_t, _ctl_init_flag_t)
+FORCE_UINT_FLAGS(ctl_property_type_flag_t, _ctl_property_type_flag_t)
+FORCE_UINT_FLAGS(ctl_firmware_config_flag_t, _ctl_firmware_config_flag_t)
+FORCE_UINT_FLAGS(ctl_sharpness_filter_type_flag_t, _ctl_sharpness_filter_type_flag_t)
+FORCE_UINT_FLAGS(ctl_pixtx_pipe_set_config_flag_t, _ctl_pixtx_pipe_set_config_flag_t)
+FORCE_UINT_FLAGS(ctl_display_config_flag_t, _ctl_display_config_flag_t)
+FORCE_UINT_FLAGS(ctl_protocol_converter_location_flag_t, _ctl_protocol_converter_location_flag_t)
+FORCE_UINT_FLAGS(ctl_std_display_feature_flag_t, _ctl_std_display_feature_flag_t)
+FORCE_UINT_FLAGS(ctl_supported_functions_flag_t, _ctl_supported_functions_flag_t)
+FORCE_UINT_FLAGS(ctl_intel_display_feature_flag_t, _ctl_intel_display_feature_flag_t)
+FORCE_UINT_FLAGS(ctl_display_setting_flag_t, _ctl_display_setting_flag_t)
+FORCE_UINT_FLAGS(ctl_display_setting_picture_ar_flag_t, _ctl_display_setting_picture_ar_flag_t)
+FORCE_UINT_FLAGS(ctl_3d_feature_misc_flag_t, _ctl_3d_feature_misc_flag_t)
+FORCE_UINT_FLAGS(ctl_power_optimization_dpst_flag_t, _ctl_power_optimization_dpst_flag_t)
+FORCE_UINT_FLAGS(ctl_power_optimization_flag_t, _ctl_power_optimization_flag_t)
+FORCE_UINT_FLAGS(ctl_freq_throttle_reason_flag_t, _ctl_freq_throttle_reason_flag_t)
+FORCE_UINT_FLAGS(ctl_power_optimization_lrr_flag_t, _ctl_power_optimization_lrr_flag_t)
+FORCE_UINT_FLAGS(ctl_lace_trigger_flag_t, _ctl_lace_trigger_flag_t)
+FORCE_UINT_FLAGS(ctl_3d_tier_profile_flag_t, _ctl_3d_tier_profile_flag_t)
+FORCE_UINT_FLAGS(ctl_gaming_flip_mode_flag_t, _ctl_gaming_flip_mode_flag_t)
+FORCE_UINT_FLAGS(ctl_3d_tier_type_flag_t, _ctl_3d_tier_type_flag_t)
+FORCE_UINT_FLAGS(ctl_edid_management_out_flag_t, _ctl_edid_management_out_flag_t)
+FORCE_UINT_FLAGS(ctl_encoder_config_flag_t, _ctl_encoder_config_flag_t)
+FORCE_UINT_FLAGS(ctl_adapter_properties_flag_t, _ctl_adapter_properties_flag_t)
+FORCE_UINT_FLAGS(ctl_retro_scaling_type_flag_t, _ctl_retro_scaling_type_flag_t)
+FORCE_UINT_FLAGS(ctl_get_operation_flag_t, _ctl_get_operation_flag_t)
+FORCE_UINT_FLAGS(ctl_i2c_flag_t, _ctl_i2c_flag_t)
+FORCE_UINT_FLAGS(ctl_i2c_pinpair_flag_t, _ctl_i2c_pinpair_flag_t)
+FORCE_UINT_FLAGS(ctl_scaling_type_flag_t, _ctl_scaling_type_flag_t)
+FORCE_UINT_FLAGS(ctl_aux_flag_t, _ctl_aux_flag_t)
+FORCE_UINT_FLAGS(ctl_video_processing_super_resolution_flag_t, _ctl_video_processing_super_resolution_flag_t)
+FORCE_UINT_FLAGS(ctl_output_bpc_flag_t, _ctl_output_bpc_flag_t)
+
+
 %{
 // ----- C/C++ preamble visible to the generated wrapper -----
 #include <Windows.h>

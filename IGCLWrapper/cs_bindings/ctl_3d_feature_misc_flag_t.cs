@@ -10,7 +10,7 @@
 
 namespace IGCLWrapper {
 
-public enum ctl_3d_feature_misc_flag_t {
+public enum ctl_3d_feature_misc_flag_t : uint {
   CTL_3D_FEATURE_MISC_FLAG_DX9 = (1 << 0),
   CTL_3D_FEATURE_MISC_FLAG_DX11 = (1 << 1),
   CTL_3D_FEATURE_MISC_FLAG_DX12 = (1 << 2),

@@ -10,7 +10,7 @@
 
 namespace IGCLWrapper {
 
-public enum ctl_property_type_flag_t {
+public enum ctl_property_type_flag_t : uint {
   CTL_PROPERTY_TYPE_FLAG_DISPLAY = (1 << 0),
   CTL_PROPERTY_TYPE_FLAG_3D = (1 << 1),
   CTL_PROPERTY_TYPE_FLAG_MEDIA = (1 << 2),

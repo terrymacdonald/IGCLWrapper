@@ -10,7 +10,7 @@
 
 namespace IGCLWrapper {
 
-public enum ctl_init_flag_t {
+public enum ctl_init_flag_t : uint {
   CTL_INIT_FLAG_USE_LEVEL_ZERO = (1 << 0),
   CTL_INIT_FLAG_MAX = 2147483648
 }

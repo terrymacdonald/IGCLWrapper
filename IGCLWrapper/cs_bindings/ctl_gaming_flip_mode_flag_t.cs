@@ -10,7 +10,7 @@
 
 namespace IGCLWrapper {
 
-public enum ctl_gaming_flip_mode_flag_t {
+public enum ctl_gaming_flip_mode_flag_t : uint {
   CTL_GAMING_FLIP_MODE_FLAG_APPLICATION_DEFAULT = (1 << 0),
   CTL_GAMING_FLIP_MODE_FLAG_VSYNC_OFF = (1 << 1),
   CTL_GAMING_FLIP_MODE_FLAG_VSYNC_ON = (1 << 2),

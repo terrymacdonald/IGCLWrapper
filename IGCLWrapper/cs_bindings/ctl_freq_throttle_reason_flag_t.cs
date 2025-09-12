@@ -10,7 +10,7 @@
 
 namespace IGCLWrapper {
 
-public enum ctl_freq_throttle_reason_flag_t {
+public enum ctl_freq_throttle_reason_flag_t : uint {
   CTL_FREQ_THROTTLE_REASON_FLAG_AVE_PWR_CAP = (1 << 0),
   CTL_FREQ_THROTTLE_REASON_FLAG_BURST_PWR_CAP = (1 << 1),
   CTL_FREQ_THROTTLE_REASON_FLAG_CURRENT_LIMIT = (1 << 2),

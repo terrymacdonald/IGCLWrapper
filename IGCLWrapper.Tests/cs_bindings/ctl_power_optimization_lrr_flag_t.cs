@@ -10,7 +10,7 @@
 
 namespace IGCLWrapper {
 
-public enum ctl_power_optimization_lrr_flag_t {
+public enum ctl_power_optimization_lrr_flag_t : uint {
   CTL_POWER_OPTIMIZATION_LRR_FLAG_LRR10 = (1 << 0),
   CTL_POWER_OPTIMIZATION_LRR_FLAG_LRR20 = (1 << 1),
   CTL_POWER_OPTIMIZATION_LRR_FLAG_LRR25 = (1 << 2),

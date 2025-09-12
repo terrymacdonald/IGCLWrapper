@@ -10,7 +10,7 @@
 
 namespace IGCLWrapper {
 
-public enum ctl_i2c_pinpair_flag_t {
+public enum ctl_i2c_pinpair_flag_t : uint {
   CTL_I2C_PINPAIR_FLAG_ATOMICI2C = (1 << 0),
   CTL_I2C_PINPAIR_FLAG_1BYTE_INDEX = (1 << 1),
   CTL_I2C_PINPAIR_FLAG_2BYTE_INDEX = (1 << 2),

@@ -10,7 +10,7 @@
 
 namespace IGCLWrapper {
 
-public enum ctl_std_display_feature_flag_t {
+public enum ctl_std_display_feature_flag_t : uint {
   CTL_STD_DISPLAY_FEATURE_FLAG_HDCP = (1 << 0),
   CTL_STD_DISPLAY_FEATURE_FLAG_HD_AUDIO = (1 << 1),
   CTL_STD_DISPLAY_FEATURE_FLAG_PSR = (1 << 2),

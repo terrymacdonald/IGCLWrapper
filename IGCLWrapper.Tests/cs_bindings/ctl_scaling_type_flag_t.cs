@@ -10,7 +10,7 @@
 
 namespace IGCLWrapper {
 
-public enum ctl_scaling_type_flag_t {
+public enum ctl_scaling_type_flag_t : uint {
   CTL_SCALING_TYPE_FLAG_IDENTITY = (1 << 0),
   CTL_SCALING_TYPE_FLAG_CENTERED = (1 << 1),
   CTL_SCALING_TYPE_FLAG_STRETCHED = (1 << 2),

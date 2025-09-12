@@ -10,7 +10,7 @@
 
 namespace IGCLWrapper {
 
-public enum ctl_output_bpc_flag_t {
+public enum ctl_output_bpc_flag_t : uint {
   CTL_OUTPUT_BPC_FLAG_6BPC = (1 << 0),
   CTL_OUTPUT_BPC_FLAG_8BPC = (1 << 1),
   CTL_OUTPUT_BPC_FLAG_10BPC = (1 << 2),

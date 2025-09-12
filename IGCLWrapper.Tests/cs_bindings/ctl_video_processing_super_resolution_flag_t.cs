@@ -10,7 +10,7 @@
 
 namespace IGCLWrapper {
 
-public enum ctl_video_processing_super_resolution_flag_t {
+public enum ctl_video_processing_super_resolution_flag_t : uint {
   CTL_VIDEO_PROCESSING_SUPER_RESOLUTION_FLAG_DISABLE = (1 << 0),
   CTL_VIDEO_PROCESSING_SUPER_RESOLUTION_FLAG_ENABLE_DEFAULT_SCENARIO_MODE = (1 << 1),
   CTL_VIDEO_PROCESSING_SUPER_RESOLUTION_FLAG_ENABLE_CONFERENCE_SCENARIO_MODE = (1 << 2),
