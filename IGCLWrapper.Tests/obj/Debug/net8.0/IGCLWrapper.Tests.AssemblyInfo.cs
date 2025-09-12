@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("IGCLWrapper.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0ca46405b6667db4f0509a9d349cbc4e000b0e4e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+98b550b97798275524c1ed4e19345ed7cbb03918")]
 [assembly: System.Reflection.AssemblyProductAttribute("IGCLWrapper.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("IGCLWrapper.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
