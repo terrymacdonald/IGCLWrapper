@@ -72,7 +72,7 @@ namespace IGCLWrapper.Tests
             originalSettings.Size = (uint)System.Runtime.InteropServices.Marshal.SizeOf(originalSettings);
             originalSettings.Version = 1;
             originalSettings.Enable = true;
-            originalSettings.FilterType = (uint)ctl_sharpness_filter_type_flag_t.CTL_SHARPNESS_FILTER_TYPE_FLAG_ADAPTIVE;
+            originalSettings.FilterType = ctl_sharpness_filter_type_flags_t.CTL_SHARPNESS_FILTER_TYPE_FLAG_ADAPTIVE;
             originalSettings.Intensity = 0.75f;
 
             // Serialize to JSON
@@ -97,7 +97,7 @@ namespace IGCLWrapper.Tests
             originalSettings.Size = (uint)System.Runtime.InteropServices.Marshal.SizeOf(originalSettings);
             originalSettings.Version = 1;
             originalSettings.PowerOptimizationPlan = ctl_power_optimization_plan_t.CTL_POWER_OPTIMIZATION_PLAN_BALANCED;
-            originalSettings.PowerOptimizationFeature = (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_PSR;
+            originalSettings.PowerOptimizationFeature = ctl_power_optimization_flags_t.CTL_POWER_OPTIMIZATION_FLAG_PSR;
             originalSettings.Enable = true;
 
             // Serialize to JSON
@@ -122,7 +122,7 @@ namespace IGCLWrapper.Tests
             originalSettings.Size = (uint)System.Runtime.InteropServices.Marshal.SizeOf(originalSettings);
             originalSettings.Version = 1;
             originalSettings.Enable = true;
-            originalSettings.ScalingType = (uint)ctl_scaling_type_flag_t.CTL_SCALING_TYPE_FLAG_ASPECT_RATIO_CENTERED_MAX;
+            originalSettings.ScalingType = ctl_scaling_type_flag_t.CTL_SCALING_TYPE_FLAG_ASPECT_RATIO_CENTERED_MAX;
             originalSettings.CustomScalingX = 95;
             originalSettings.CustomScalingY = 95;
 
@@ -178,7 +178,7 @@ namespace IGCLWrapper.Tests
             originalState.actual = 1750.0;  // 1.75 GHz
             originalState.tdp = 2000.0;     // 2.0 GHz
             originalState.efficient = 300.0; // 300 MHz
-            originalState.throttleReasons = (uint)ctl_freq_throttle_reason_flag_t.CTL_FREQ_THROTTLE_REASON_FLAG_THERMAL_LIMIT;
+            originalState.throttleReasons = ctl_freq_throttle_reason_flags_t.CTL_FREQ_THROTTLE_REASON_FLAG_THERMAL_LIMIT;
 
             // Serialize to JSON
             string json = JsonSerializer.Serialize(originalState, new JsonSerializerOptions { WriteIndented = true });
@@ -309,7 +309,7 @@ namespace IGCLWrapper.Tests
                     Size = (uint)System.Runtime.InteropServices.Marshal.SizeOf(new ctl_scaling_settings_t()),
                     Version = 1,
                     Enable = true,
-                    ScalingType = (uint)ctl_scaling_type_flag_t.CTL_SCALING_TYPE_FLAG_ASPECT_RATIO_CENTERED_MAX
+                    ScalingType = ctl_scaling_type_flag_t.CTL_SCALING_TYPE_FLAG_ASPECT_RATIO_CENTERED_MAX
                 }
             };
 
@@ -328,6 +328,3 @@ namespace IGCLWrapper.Tests
         }
     }
 }
-
-
-
