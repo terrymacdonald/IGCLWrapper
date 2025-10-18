@@ -10,7 +10,7 @@
 
 namespace IGCLWrapper {
 
-class IGCLPINVOKE {
+public partial class IGCLPINVOKE {
 
   protected class SWIGExceptionHelper {
 
@@ -223,6 +223,9 @@ class IGCLPINVOKE {
 
   static IGCLPINVOKE() {
   }
+
+
+#nullable enable
 
 
   [global::System.Runtime.InteropServices.DllImport("IGCLWrapper", EntryPoint="CSharp_IGCLWrapper_new_igcl_uint32P")]

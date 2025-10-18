@@ -7,6 +7,25 @@
 // ----- SWIG module & language options -----
 %module(directors="1") IGCL
 
+// ----- Nullable reference type support for C# 8.0+ -----
+// This typemap makes SWIG generate nullable return types (SWIGTYPE?) for pointer wrapper methods
+// This fixes CS8600 errors where null is assigned to non-nullable reference types
+%typemap(csout, excode=SWIGEXCODE) SWIGTYPE* {
+    global::System.IntPtr cPtr = $imcall;$excode
+    $csclassname? ret = (cPtr == global::System.IntPtr.Zero) ? null : new $csclassname(cPtr, $owner);
+    return ret;
+  }
+
+%typemap(csvarout, excode=SWIGEXCODE2) SWIGTYPE* %{
+    get {
+      global::System.IntPtr cPtr = $imcall;$excode
+      $csclassname? ret = (cPtr == global::System.IntPtr.Zero) ? null : new $csclassname(cPtr, $owner);
+      return ret;
+    } %}
+
+// Make the return types nullable in method signatures
+%typemap(cstype) SWIGTYPE* "$csclassname?"
+
 %define FORCE_UINT_FLAGS(TypedefName, TagName)
 /* Underlying type + “Flags” behavior in C# */
 %typemap(csbase)       TypedefName "uint"
@@ -79,6 +98,32 @@ typedef wchar_t WCHAR;
 
 // ----- Make the opaque handle types explicit in the interface -----
 %pragma(csharp) moduleclassmodifiers="public partial class"
+%pragma(csharp) imclassclassmodifiers="public partial class"
+
+// Enable nullable reference types in the generated C# code via module code injection
+%pragma(csharp) imclasscode=%{
+#nullable enable
+%}
+
+// Add type aliases at the namespace level for easier consumption
+%pragma(csharp) modulecode=%{
+#nullable enable
+%}
+
+// Inject type aliases into the namespace (outside the IGCL class)
+%typemap(csimports) SWIGTYPE %{
+using System;
+using System.Runtime.InteropServices;
+
+#nullable enable
+%}
+
+// Add #nullable enable to all generated proxy classes (structs, enums, etc.)
+%typemap(csclassmodifiers) SWIGTYPE "public partial class"
+%typemap(cscode) SWIGTYPE %{
+#nullable enable
+%}
+
 %typemap(cstype)  (ctl_device_adapter_handle_t) "System.IntPtr"
 %typemap(imtype)  (ctl_device_adapter_handle_t) "IntPtr"
 %typemap(cstype)  (ctl_display_output_handle_t) "System.IntPtr"

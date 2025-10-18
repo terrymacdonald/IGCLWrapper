@@ -6,8 +6,8 @@ namespace IGCLWrapper.Tests
 {
     public class SystemServicesTests : IDisposable
     {
-        private ctl_api_handle_t _apiHandle;
-        private ctl_device_adapter_handle_t[] _adapters;
+        private SWIGTYPE_p__ctl_api_handle_t _apiHandle;
+        private SWIGTYPE_p_p__ctl_device_adapter_handle_t _adapters;
 
         public SystemServicesTests()
         {

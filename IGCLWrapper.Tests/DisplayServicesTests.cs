@@ -6,9 +6,9 @@ namespace IGCLWrapper.Tests
 {
     public class DisplayServicesTests : IDisposable
     {
-        private ctl_api_handle_t _apiHandle;
-        private ctl_device_adapter_handle_t[] _adapters;
-        private ctl_display_output_handle_t[] _displays;
+        private SWIGTYPE_p__ctl_api_handle_t _apiHandle;
+        private SWIGTYPE_p_p__ctl_device_adapter_handle_t _adapters;
+        private SWIGTYPE_p_p__ctl_display_output_handle_t _displays;
 
         public DisplayServicesTests()
         {
@@ -27,7 +27,7 @@ namespace IGCLWrapper.Tests
             ctl_init_args_t initArgs = new ctl_init_args_t();
             initArgs.Size = (uint)System.Runtime.InteropServices.Marshal.SizeOf(initArgs);
             initArgs.Version = 0; // Use default version
-            initArgs.flags = ctl_init_flags_t.CTL_INIT_FLAG_USE_LEVEL_ZERO;
+            initArgs.flags = IGCL.ctl_init_flags_t.CTL_INIT_FLAG_USE_LEVEL_ZERO;
             initArgs.AppVersion = 0;
             initArgs.SupportedVersion = 0;
 
