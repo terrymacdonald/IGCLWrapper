@@ -4,7 +4,10 @@ echo Rebuilding IGCL C# Wrapper...
 REM Set up Visual Studio environment
 call "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\VsDevCmd.bat" >nul 2>&1
 if errorlevel 1 (
-    call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\VsDevCmd.bat" >nul 2>&1
+call "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\Tools\VsDevCmd.bat" >nul 2>&1
+    if errorlevel 1 (
+        call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\VsDevCmd.bat" >nul 2>&1
+    )
 )
 
 REM Rebuild the native C++ project

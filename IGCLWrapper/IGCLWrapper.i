@@ -6,6 +6,52 @@
 
 // ----- SWIG module & language options -----
 %module(directors="1") IGCL
+
+%define FORCE_UINT_FLAGS(TypedefName, TagName)
+/* Underlying type + “Flags” behavior in C# */
+%typemap(csbase)       TypedefName "uint"
+%typemap(csenumflags)  TypedefName "uint"
+%typemap(csbase)       TagName     "uint"
+%typemap(csenumflags)  TagName     "uint"
+/* Optional: add [Flags] for nice C# semantics */
+%csattributes          TypedefName "[System.Flags]"
+%csattributes          TagName     "[System.Flags]"
+%enddef
+
+FORCE_UINT_FLAGS(ctl_init_flag_t, _ctl_init_flag_t)
+FORCE_UINT_FLAGS(ctl_property_type_flag_t, _ctl_property_type_flag_t)
+FORCE_UINT_FLAGS(ctl_firmware_config_flag_t, _ctl_firmware_config_flag_t)
+FORCE_UINT_FLAGS(ctl_sharpness_filter_type_flag_t, _ctl_sharpness_filter_type_flag_t)
+FORCE_UINT_FLAGS(ctl_pixtx_pipe_set_config_flag_t, _ctl_pixtx_pipe_set_config_flag_t)
+FORCE_UINT_FLAGS(ctl_display_config_flag_t, _ctl_display_config_flag_t)
+FORCE_UINT_FLAGS(ctl_protocol_converter_location_flag_t, _ctl_protocol_converter_location_flag_t)
+FORCE_UINT_FLAGS(ctl_std_display_feature_flag_t, _ctl_std_display_feature_flag_t)
+FORCE_UINT_FLAGS(ctl_supported_functions_flag_t, _ctl_supported_functions_flag_t)
+FORCE_UINT_FLAGS(ctl_intel_display_feature_flag_t, _ctl_intel_display_feature_flag_t)
+FORCE_UINT_FLAGS(ctl_display_setting_flag_t, _ctl_display_setting_flag_t)
+FORCE_UINT_FLAGS(ctl_display_setting_picture_ar_flag_t, _ctl_display_setting_picture_ar_flag_t)
+FORCE_UINT_FLAGS(ctl_3d_feature_misc_flag_t, _ctl_3d_feature_misc_flag_t)
+FORCE_UINT_FLAGS(ctl_power_optimization_dpst_flag_t, _ctl_power_optimization_dpst_flag_t)
+FORCE_UINT_FLAGS(ctl_power_optimization_flag_t, _ctl_power_optimization_flag_t)
+FORCE_UINT_FLAGS(ctl_freq_throttle_reason_flag_t, _ctl_freq_throttle_reason_flag_t)
+FORCE_UINT_FLAGS(ctl_power_optimization_lrr_flag_t, _ctl_power_optimization_lrr_flag_t)
+FORCE_UINT_FLAGS(ctl_lace_trigger_flag_t, _ctl_lace_trigger_flag_t)
+FORCE_UINT_FLAGS(ctl_3d_tier_profile_flag_t, _ctl_3d_tier_profile_flag_t)
+FORCE_UINT_FLAGS(ctl_gaming_flip_mode_flag_t, _ctl_gaming_flip_mode_flag_t)
+FORCE_UINT_FLAGS(ctl_3d_tier_type_flag_t, _ctl_3d_tier_type_flag_t)
+FORCE_UINT_FLAGS(ctl_edid_management_out_flag_t, _ctl_edid_management_out_flag_t)
+FORCE_UINT_FLAGS(ctl_encoder_config_flag_t, _ctl_encoder_config_flag_t)
+FORCE_UINT_FLAGS(ctl_adapter_properties_flag_t, _ctl_adapter_properties_flag_t)
+FORCE_UINT_FLAGS(ctl_retro_scaling_type_flag_t, _ctl_retro_scaling_type_flag_t)
+FORCE_UINT_FLAGS(ctl_get_operation_flag_t, _ctl_get_operation_flag_t)
+FORCE_UINT_FLAGS(ctl_i2c_flag_t, _ctl_i2c_flag_t)
+FORCE_UINT_FLAGS(ctl_i2c_pinpair_flag_t, _ctl_i2c_pinpair_flag_t)
+FORCE_UINT_FLAGS(ctl_scaling_type_flag_t, _ctl_scaling_type_flag_t)
+FORCE_UINT_FLAGS(ctl_aux_flag_t, _ctl_aux_flag_t)
+FORCE_UINT_FLAGS(ctl_video_processing_super_resolution_flag_t, _ctl_video_processing_super_resolution_flag_t)
+FORCE_UINT_FLAGS(ctl_output_bpc_flag_t, _ctl_output_bpc_flag_t)
+
+
 %{
 // ----- C/C++ preamble visible to the generated wrapper -----
 #include <Windows.h>
@@ -38,18 +84,9 @@ typedef wchar_t WCHAR;
 %typemap(cstype)  (ctl_display_output_handle_t) "System.IntPtr"
 %typemap(imtype)  (ctl_display_output_handle_t) "IntPtr"
 
-// If the header typedefs these as pointers or uint64, this keeps the C# surface stable.
-%apply void *VOID_INT_PTR { ctl_device_adapter_handle_t, ctl_display_output_handle_t };
-
 %include stdint.i
 %include carrays.i
 %include typemaps.i
-
-// Define TCHAR before windows.i to avoid redefinition warnings
-#ifndef TCHAR
-typedef wchar_t TCHAR;
-#endif
-
 %include windows.i
 %include cpointer.i
 
@@ -66,11 +103,14 @@ typedef int8_t   igcl_int8;
 %}
 
 // IGCL types (for handles)
-typedef void* ctl_api_handle_t;
-typedef void* ctl_device_adapter_handle_t;
-typedef void* ctl_display_output_handle_t;
-typedef void* ctl_i2c_pin_pair_handle_t;
+//typedef void* ctl_api_handle_t;
+//typedef void* ctl_device_adapter_handle_t;
+//typedef void* ctl_display_output_handle_t;
+//typedef void* ctl_i2c_pin_pair_handle_t;
 typedef void* voidP_Ptr; // for pointer void*
+
+// If the header typedefs these as pointers or uint64, this keeps the C# surface stable.
+%apply void *VOID_INT_PTR { ctl_device_adapter_handle_t, ctl_display_output_handle_t };
 
 
 // ----- Pointer helpers (common out parameters) -----
@@ -110,12 +150,19 @@ typedef void* voidP_Ptr; // for pointer void*
 %inline %{
 // Initialize IGCL with default flags (Level Zero enabled)
 static ctl_result_t IGCL_InitDefault(ctl_api_handle_t* phAPI) {
+    if (!phAPI) return CTL_RESULT_ERROR_INVALID_NULL_POINTER;
+
     ctl_init_args_t args = {};
-    args.Size    = sizeof(args);
-    // Set version using macro: CTL_MAKE_VERSION
-    args.Version = CTL_MAKE_VERSION(CTL_INIT_VERSION_MAJOR, CTL_INIT_VERSION_MINOR);
-    args.flags   = CTL_INIT_FLAG_USE_LEVEL_ZERO;
+    args.Size  = sizeof(args);
+    // Some SDKs don’t expose CTL_INIT_VERSION_* macros. Use a safe fallback.
+    #ifdef CTL_INIT_VERSION_MAJOR
+      args.Version = CTL_MAKE_VERSION(CTL_INIT_VERSION_MAJOR, CTL_INIT_VERSION_MINOR);
+    #else
+      args.Version = 0; // accepted by current runtimes
+    #endif
+    args.flags = CTL_INIT_FLAG_USE_LEVEL_ZERO;
     ZeroMemory(&args.ApplicationUID, sizeof(args.ApplicationUID));
+
     return ctlInit(&args, phAPI);
 }
 
@@ -152,11 +199,11 @@ static ctl_result_t IGCL_GetAdapterProperties(ctl_device_adapter_handle_t hAdapt
 }
 
 // Helper for I2C access with buffer sizing
-static ctl_result_t IGCL_I2CAccess(ctl_device_adapter_handle_t hAdapter,
+static ctl_result_t IGCL_I2CAccess(ctl_display_output_handle_t hDisplay,
                                    ctl_i2c_access_args_t* pArgs) {
     if (!pArgs) return CTL_RESULT_ERROR_INVALID_NULL_POINTER;
     pArgs->Size = sizeof(*pArgs);
-    return ctlI2CAccess(hAdapter, pArgs);
+    return ctlI2CAccess(hDisplay, pArgs);
 }
 
 // Helper for AUX access with buffer sizing

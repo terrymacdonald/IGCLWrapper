@@ -923,12 +923,19 @@ static ctl_wait_property_change_args_t waitPropertyChangeArgsP_value(ctl_wait_pr
 
 // Initialize IGCL with default flags (Level Zero enabled)
 static ctl_result_t IGCL_InitDefault(ctl_api_handle_t* phAPI) {
+    if (!phAPI) return CTL_RESULT_ERROR_INVALID_NULL_POINTER;
+
     ctl_init_args_t args = {};
-    args.Size    = sizeof(args);
-    // Set version using macro: CTL_MAKE_VERSION
-    args.Version = CTL_MAKE_VERSION(CTL_INIT_VERSION_MAJOR, CTL_INIT_VERSION_MINOR);
-    args.flags   = CTL_INIT_FLAG_USE_LEVEL_ZERO;
+    args.Size  = sizeof(args);
+    // Some SDKs don’t expose CTL_INIT_VERSION_* macros. Use a safe fallback.
+    #ifdef CTL_INIT_VERSION_MAJOR
+      args.Version = CTL_MAKE_VERSION(CTL_INIT_VERSION_MAJOR, CTL_INIT_VERSION_MINOR);
+    #else
+      args.Version = 0; // accepted by current runtimes
+    #endif
+    args.flags = CTL_INIT_FLAG_USE_LEVEL_ZERO;
     ZeroMemory(&args.ApplicationUID, sizeof(args.ApplicationUID));
+
     return ctlInit(&args, phAPI);
 }
 
@@ -965,11 +972,11 @@ static ctl_result_t IGCL_GetAdapterProperties(ctl_device_adapter_handle_t hAdapt
 }
 
 // Helper for I2C access with buffer sizing
-static ctl_result_t IGCL_I2CAccess(ctl_device_adapter_handle_t hAdapter,
+static ctl_result_t IGCL_I2CAccess(ctl_display_output_handle_t hDisplay,
                                    ctl_i2c_access_args_t* pArgs) {
     if (!pArgs) return CTL_RESULT_ERROR_INVALID_NULL_POINTER;
     pArgs->Size = sizeof(*pArgs);
-    return ctlI2CAccess(hAdapter, pArgs);
+    return ctlI2CAccess(hDisplay, pArgs);
 }
 
 // Helper for AUX access with buffer sizing
@@ -25930,11 +25937,11 @@ SWIGEXPORT int SWIGSTDCALL CSharp_IGCLWrapper_IGCL_GetAdapterProperties(void * j
 
 SWIGEXPORT int SWIGSTDCALL CSharp_IGCLWrapper_IGCL_I2CAccess(void * jarg1, void * jarg2) {
   int jresult ;
-  ctl_device_adapter_handle_t arg1 = (ctl_device_adapter_handle_t) 0 ;
+  ctl_display_output_handle_t arg1 = (ctl_display_output_handle_t) 0 ;
   ctl_i2c_access_args_t *arg2 = (ctl_i2c_access_args_t *) 0 ;
   ctl_result_t result;
   
-  arg1 = (ctl_device_adapter_handle_t)jarg1; 
+  arg1 = (ctl_display_output_handle_t)jarg1; 
   arg2 = (ctl_i2c_access_args_t *)jarg2; 
   result = (ctl_result_t)IGCL_I2CAccess(arg1,arg2);
   jresult = (int)result; 
