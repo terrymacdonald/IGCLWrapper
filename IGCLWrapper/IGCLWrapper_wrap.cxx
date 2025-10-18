@@ -561,6 +561,27 @@ static WCHAR wcharP_value(WCHAR *obj) {
 }
 
 
+static ctl_api_handle_t *new_apiHandleP(void) { 
+  return new ctl_api_handle_t(); 
+}
+
+static ctl_api_handle_t *copy_apiHandleP(ctl_api_handle_t value) { 
+  return new ctl_api_handle_t(value); 
+}
+
+static void delete_apiHandleP(ctl_api_handle_t *obj) { 
+  delete obj; 
+}
+
+static void apiHandleP_assign(ctl_api_handle_t *obj, ctl_api_handle_t value) {
+  *obj = value;
+}
+
+static ctl_api_handle_t apiHandleP_value(ctl_api_handle_t *obj) {
+  return *obj;
+}
+
+
 static ctl_device_adapter_handle_t *new_deviceAdapterHandleP(void) { 
   return new ctl_device_adapter_handle_t(); 
 }
@@ -1326,6 +1347,58 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_wcharP_value(void * jarg1) {
   arg1 = (WCHAR *)jarg1; 
   result = wcharP_value(arg1);
   jresult = new WCHAR(result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_apiHandleP() {
+  void * jresult ;
+  ctl_api_handle_t *result = 0 ;
+  
+  result = (ctl_api_handle_t *)new_apiHandleP();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_copy_apiHandleP(void * jarg1) {
+  void * jresult ;
+  ctl_api_handle_t arg1 = (ctl_api_handle_t) 0 ;
+  ctl_api_handle_t *result = 0 ;
+  
+  arg1 = (ctl_api_handle_t)jarg1; 
+  result = (ctl_api_handle_t *)copy_apiHandleP(arg1);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_IGCLWrapper_delete_apiHandleP(void * jarg1) {
+  ctl_api_handle_t *arg1 = (ctl_api_handle_t *) 0 ;
+  
+  arg1 = (ctl_api_handle_t *)jarg1; 
+  delete_apiHandleP(arg1);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_IGCLWrapper_apiHandleP_assign(void * jarg1, void * jarg2) {
+  ctl_api_handle_t *arg1 = (ctl_api_handle_t *) 0 ;
+  ctl_api_handle_t arg2 = (ctl_api_handle_t) 0 ;
+  
+  arg1 = (ctl_api_handle_t *)jarg1; 
+  arg2 = (ctl_api_handle_t)jarg2; 
+  apiHandleP_assign(arg1,arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_apiHandleP_value(void * jarg1) {
+  void * jresult ;
+  ctl_api_handle_t *arg1 = (ctl_api_handle_t *) 0 ;
+  ctl_api_handle_t result;
+  
+  arg1 = (ctl_api_handle_t *)jarg1; 
+  result = (ctl_api_handle_t)apiHandleP_value(arg1);
+  jresult = (void *)result; 
   return jresult;
 }
 

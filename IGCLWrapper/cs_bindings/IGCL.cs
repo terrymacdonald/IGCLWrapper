@@ -138,6 +138,32 @@ public partial class IGCL {
     return ret;
   }
 
+  public static SWIGTYPE_p_p__ctl_api_handle_t new_apiHandleP() {
+    global::System.IntPtr cPtr = IGCLPINVOKE.new_apiHandleP();
+    SWIGTYPE_p_p__ctl_api_handle_t ret = (cPtr == global::System.IntPtr.Zero) ? null : new SWIGTYPE_p_p__ctl_api_handle_t(cPtr, false);
+    return ret;
+  }
+
+  public static SWIGTYPE_p_p__ctl_api_handle_t copy_apiHandleP(SWIGTYPE_p__ctl_api_handle_t value) {
+    global::System.IntPtr cPtr = IGCLPINVOKE.copy_apiHandleP(SWIGTYPE_p__ctl_api_handle_t.getCPtr(value));
+    SWIGTYPE_p_p__ctl_api_handle_t ret = (cPtr == global::System.IntPtr.Zero) ? null : new SWIGTYPE_p_p__ctl_api_handle_t(cPtr, false);
+    return ret;
+  }
+
+  public static void delete_apiHandleP(SWIGTYPE_p_p__ctl_api_handle_t obj) {
+    IGCLPINVOKE.delete_apiHandleP(SWIGTYPE_p_p__ctl_api_handle_t.getCPtr(obj));
+  }
+
+  public static void apiHandleP_assign(SWIGTYPE_p_p__ctl_api_handle_t obj, SWIGTYPE_p__ctl_api_handle_t value) {
+    IGCLPINVOKE.apiHandleP_assign(SWIGTYPE_p_p__ctl_api_handle_t.getCPtr(obj), SWIGTYPE_p__ctl_api_handle_t.getCPtr(value));
+  }
+
+  public static SWIGTYPE_p__ctl_api_handle_t apiHandleP_value(SWIGTYPE_p_p__ctl_api_handle_t obj) {
+    global::System.IntPtr cPtr = IGCLPINVOKE.apiHandleP_value(SWIGTYPE_p_p__ctl_api_handle_t.getCPtr(obj));
+    SWIGTYPE_p__ctl_api_handle_t ret = (cPtr == global::System.IntPtr.Zero) ? null : new SWIGTYPE_p__ctl_api_handle_t(cPtr, false);
+    return ret;
+  }
+
   public static SWIGTYPE_p_p__ctl_device_adapter_handle_t new_deviceAdapterHandleP() {
     global::System.IntPtr cPtr = IGCLPINVOKE.new_deviceAdapterHandleP();
     SWIGTYPE_p_p__ctl_device_adapter_handle_t ret = (cPtr == global::System.IntPtr.Zero) ? null : new SWIGTYPE_p_p__ctl_device_adapter_handle_t(cPtr, false);

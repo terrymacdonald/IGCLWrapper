@@ -300,6 +300,21 @@ class IGCLPINVOKE {
   [global::System.Runtime.InteropServices.DllImport("IGCLWrapper", EntryPoint="CSharp_IGCLWrapper_wcharP_value")]
   public static extern global::System.IntPtr wcharP_value(global::System.Runtime.InteropServices.HandleRef jarg1);
 
+  [global::System.Runtime.InteropServices.DllImport("IGCLWrapper", EntryPoint="CSharp_IGCLWrapper_new_apiHandleP")]
+  public static extern global::System.IntPtr new_apiHandleP();
+
+  [global::System.Runtime.InteropServices.DllImport("IGCLWrapper", EntryPoint="CSharp_IGCLWrapper_copy_apiHandleP")]
+  public static extern global::System.IntPtr copy_apiHandleP(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("IGCLWrapper", EntryPoint="CSharp_IGCLWrapper_delete_apiHandleP")]
+  public static extern void delete_apiHandleP(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("IGCLWrapper", EntryPoint="CSharp_IGCLWrapper_apiHandleP_assign")]
+  public static extern void apiHandleP_assign(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("IGCLWrapper", EntryPoint="CSharp_IGCLWrapper_apiHandleP_value")]
+  public static extern global::System.IntPtr apiHandleP_value(global::System.Runtime.InteropServices.HandleRef jarg1);
+
   [global::System.Runtime.InteropServices.DllImport("IGCLWrapper", EntryPoint="CSharp_IGCLWrapper_new_deviceAdapterHandleP")]
   public static extern global::System.IntPtr new_deviceAdapterHandleP();
 

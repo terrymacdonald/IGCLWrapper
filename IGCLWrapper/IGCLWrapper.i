@@ -119,6 +119,7 @@ typedef void* voidP_Ptr; // for pointer void*
 %pointer_functions(igcl_int32,  igcl_int32P);
 %pointer_functions(igcl_int64,  igcl_int64P);
 %pointer_functions(WCHAR,       wcharP);
+%pointer_functions(ctl_api_handle_t, apiHandleP);
 %pointer_functions(ctl_device_adapter_handle_t, deviceAdapterHandleP);
 %pointer_functions(ctl_display_output_handle_t, displayOutputHandleP);
 %pointer_functions(ctl_i2c_pin_pair_handle_t, i2cPinPairHandleP);
