@@ -938,131 +938,399 @@ static ctl_wait_property_change_args_t waitPropertyChangeArgsP_value(ctl_wait_pr
   return *obj;
 }
 
+SWIGINTERN _ctl_init_args_t *new__ctl_init_args_t(){
+        ctl_init_args_t *s = (ctl_init_args_t *)calloc(1, sizeof(ctl_init_args_t));
+        if (s) {
+     s->Size = sizeof(ctl_init_args_t);
+        s->Version = 0;
+      }
+        return s;
+    }
 
 #include <string.h>
 
+SWIGINTERN _ctl_device_adapter_properties_t *new__ctl_device_adapter_properties_t(){
+        ctl_device_adapter_properties_t *s = (ctl_device_adapter_properties_t *)calloc(1, sizeof(ctl_device_adapter_properties_t));
+        if (s) {
+     s->Size = sizeof(ctl_device_adapter_properties_t);
+        s->Version = 1;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_3d_feature_caps_t *new__ctl_3d_feature_caps_t(){
+        ctl_3d_feature_caps_t *s = (ctl_3d_feature_caps_t *)calloc(1, sizeof(ctl_3d_feature_caps_t));
+        if (s) {
+     s->Size = sizeof(ctl_3d_feature_caps_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_3d_feature_getset_t *new__ctl_3d_feature_getset_t(){
+        ctl_3d_feature_getset_t *s = (ctl_3d_feature_getset_t *)calloc(1, sizeof(ctl_3d_feature_getset_t));
+        if (s) {
+     s->Size = sizeof(ctl_3d_feature_getset_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_display_properties_t *new__ctl_display_properties_t(){
+        ctl_display_properties_t *s = (ctl_display_properties_t *)calloc(1, sizeof(ctl_display_properties_t));
+        if (s) {
+     s->Size = sizeof(ctl_display_properties_t);
+        s->Version = 1;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_sharpness_caps_t *new__ctl_sharpness_caps_t(){
+        ctl_sharpness_caps_t *s = (ctl_sharpness_caps_t *)calloc(1, sizeof(ctl_sharpness_caps_t));
+        if (s) {
+     s->Size = sizeof(ctl_sharpness_caps_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_sharpness_settings_t *new__ctl_sharpness_settings_t(){
+        ctl_sharpness_settings_t *s = (ctl_sharpness_settings_t *)calloc(1, sizeof(ctl_sharpness_settings_t));
+        if (s) {
+     s->Size = sizeof(ctl_sharpness_settings_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_i2c_access_args_t *new__ctl_i2c_access_args_t(){
+        ctl_i2c_access_args_t *s = (ctl_i2c_access_args_t *)calloc(1, sizeof(ctl_i2c_access_args_t));
+        if (s) {
+     s->Size = sizeof(ctl_i2c_access_args_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_aux_access_args_t *new__ctl_aux_access_args_t(){
+        ctl_aux_access_args_t *s = (ctl_aux_access_args_t *)calloc(1, sizeof(ctl_aux_access_args_t));
+        if (s) {
+     s->Size = sizeof(ctl_aux_access_args_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_power_optimization_caps_t *new__ctl_power_optimization_caps_t(){
+        ctl_power_optimization_caps_t *s = (ctl_power_optimization_caps_t *)calloc(1, sizeof(ctl_power_optimization_caps_t));
+        if (s) {
+     s->Size = sizeof(ctl_power_optimization_caps_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_power_optimization_settings_t *new__ctl_power_optimization_settings_t(){
+        ctl_power_optimization_settings_t *s = (ctl_power_optimization_settings_t *)calloc(1, sizeof(ctl_power_optimization_settings_t));
+        if (s) {
+     s->Size = sizeof(ctl_power_optimization_settings_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_set_brightness_t *new__ctl_set_brightness_t(){
+        ctl_set_brightness_t *s = (ctl_set_brightness_t *)calloc(1, sizeof(ctl_set_brightness_t));
+        if (s) {
+     s->Size = sizeof(ctl_set_brightness_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_get_brightness_t *new__ctl_get_brightness_t(){
+        ctl_get_brightness_t *s = (ctl_get_brightness_t *)calloc(1, sizeof(ctl_get_brightness_t));
+        if (s) {
+     s->Size = sizeof(ctl_get_brightness_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_pixtx_1dlut_config_t *new__ctl_pixtx_1dlut_config_t(){
+        ctl_pixtx_1dlut_config_t *s = (ctl_pixtx_1dlut_config_t *)calloc(1, sizeof(ctl_pixtx_1dlut_config_t));
+        if (s) {
+     s->Size = sizeof(ctl_pixtx_1dlut_config_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_pixtx_3dlut_config_t *new__ctl_pixtx_3dlut_config_t(){
+        ctl_pixtx_3dlut_config_t *s = (ctl_pixtx_3dlut_config_t *)calloc(1, sizeof(ctl_pixtx_3dlut_config_t));
+        if (s) {
+     s->Size = sizeof(ctl_pixtx_3dlut_config_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_pixtx_pipe_get_config_t *new__ctl_pixtx_pipe_get_config_t(){
+        ctl_pixtx_pipe_get_config_t *s = (ctl_pixtx_pipe_get_config_t *)calloc(1, sizeof(ctl_pixtx_pipe_get_config_t));
+        if (s) {
+     s->Size = sizeof(ctl_pixtx_pipe_get_config_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_pixtx_pipe_set_config_t *new__ctl_pixtx_pipe_set_config_t(){
+        ctl_pixtx_pipe_set_config_t *s = (ctl_pixtx_pipe_set_config_t *)calloc(1, sizeof(ctl_pixtx_pipe_set_config_t));
+        if (s) {
+     s->Size = sizeof(ctl_pixtx_pipe_set_config_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_panel_descriptor_access_args_t *new__ctl_panel_descriptor_access_args_t(){
+        ctl_panel_descriptor_access_args_t *s = (ctl_panel_descriptor_access_args_t *)calloc(1, sizeof(ctl_panel_descriptor_access_args_t));
+        if (s) {
+     s->Size = sizeof(ctl_panel_descriptor_access_args_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_retro_scaling_settings_t *new__ctl_retro_scaling_settings_t(){
+        ctl_retro_scaling_settings_t *s = (ctl_retro_scaling_settings_t *)calloc(1, sizeof(ctl_retro_scaling_settings_t));
+        if (s) {
+     s->Size = sizeof(ctl_retro_scaling_settings_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_retro_scaling_caps_t *new__ctl_retro_scaling_caps_t(){
+        ctl_retro_scaling_caps_t *s = (ctl_retro_scaling_caps_t *)calloc(1, sizeof(ctl_retro_scaling_caps_t));
+        if (s) {
+     s->Size = sizeof(ctl_retro_scaling_caps_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_scaling_caps_t *new__ctl_scaling_caps_t(){
+        ctl_scaling_caps_t *s = (ctl_scaling_caps_t *)calloc(1, sizeof(ctl_scaling_caps_t));
+        if (s) {
+     s->Size = sizeof(ctl_scaling_caps_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_scaling_settings_t *new__ctl_scaling_settings_t(){
+        ctl_scaling_settings_t *s = (ctl_scaling_settings_t *)calloc(1, sizeof(ctl_scaling_settings_t));
+        if (s) {
+     s->Size = sizeof(ctl_scaling_settings_t);
+        s->Version = 1;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_intel_arc_sync_monitor_params_t *new__ctl_intel_arc_sync_monitor_params_t(){
+        ctl_intel_arc_sync_monitor_params_t *s = (ctl_intel_arc_sync_monitor_params_t *)calloc(1, sizeof(ctl_intel_arc_sync_monitor_params_t));
+        if (s) {
+     s->Size = sizeof(ctl_intel_arc_sync_monitor_params_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_intel_arc_sync_profile_params_t *new__ctl_intel_arc_sync_profile_params_t(){
+        ctl_intel_arc_sync_profile_params_t *s = (ctl_intel_arc_sync_profile_params_t *)calloc(1, sizeof(ctl_intel_arc_sync_profile_params_t));
+        if (s) {
+     s->Size = sizeof(ctl_intel_arc_sync_profile_params_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_edid_management_args_t *new__ctl_edid_management_args_t(){
+        ctl_edid_management_args_t *s = (ctl_edid_management_args_t *)calloc(1, sizeof(ctl_edid_management_args_t));
+        if (s) {
+     s->Size = sizeof(ctl_edid_management_args_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_get_set_custom_mode_args_t *new__ctl_get_set_custom_mode_args_t(){
+        ctl_get_set_custom_mode_args_t *s = (ctl_get_set_custom_mode_args_t *)calloc(1, sizeof(ctl_get_set_custom_mode_args_t));
+        if (s) {
+     s->Size = sizeof(ctl_get_set_custom_mode_args_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_combined_display_args_t *new__ctl_combined_display_args_t(){
+        ctl_combined_display_args_t *s = (ctl_combined_display_args_t *)calloc(1, sizeof(ctl_combined_display_args_t));
+        if (s) {
+     s->Size = sizeof(ctl_combined_display_args_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_engine_properties_t *new__ctl_engine_properties_t(){
+        ctl_engine_properties_t *s = (ctl_engine_properties_t *)calloc(1, sizeof(ctl_engine_properties_t));
+        if (s) {
+     s->Size = sizeof(ctl_engine_properties_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_engine_stats_t *new__ctl_engine_stats_t(){
+        ctl_engine_stats_t *s = (ctl_engine_stats_t *)calloc(1, sizeof(ctl_engine_stats_t));
+        if (s) {
+     s->Size = sizeof(ctl_engine_stats_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_fan_speed_t *new__ctl_fan_speed_t(){
+        ctl_fan_speed_t *s = (ctl_fan_speed_t *)calloc(1, sizeof(ctl_fan_speed_t));
+        if (s) {
+     s->Size = sizeof(ctl_fan_speed_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_fan_speed_table_t *new__ctl_fan_speed_table_t(){
+        ctl_fan_speed_table_t *s = (ctl_fan_speed_table_t *)calloc(1, sizeof(ctl_fan_speed_table_t));
+        if (s) {
+     s->Size = sizeof(ctl_fan_speed_table_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_fan_properties_t *new__ctl_fan_properties_t(){
+        ctl_fan_properties_t *s = (ctl_fan_properties_t *)calloc(1, sizeof(ctl_fan_properties_t));
+        if (s) {
+     s->Size = sizeof(ctl_fan_properties_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_fan_config_t *new__ctl_fan_config_t(){
+        ctl_fan_config_t *s = (ctl_fan_config_t *)calloc(1, sizeof(ctl_fan_config_t));
+        if (s) {
+     s->Size = sizeof(ctl_fan_config_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_video_processing_feature_caps_t *new__ctl_video_processing_feature_caps_t(){
+        ctl_video_processing_feature_caps_t *s = (ctl_video_processing_feature_caps_t *)calloc(1, sizeof(ctl_video_processing_feature_caps_t));
+        if (s) {
+     s->Size = sizeof(ctl_video_processing_feature_caps_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_video_processing_feature_getset_t *new__ctl_video_processing_feature_getset_t(){
+        ctl_video_processing_feature_getset_t *s = (ctl_video_processing_feature_getset_t *)calloc(1, sizeof(ctl_video_processing_feature_getset_t));
+        if (s) {
+     s->Size = sizeof(ctl_video_processing_feature_getset_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_mem_properties_t *new__ctl_mem_properties_t(){
+        ctl_mem_properties_t *s = (ctl_mem_properties_t *)calloc(1, sizeof(ctl_mem_properties_t));
+        if (s) {
+     s->Size = sizeof(ctl_mem_properties_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_mem_state_t *new__ctl_mem_state_t(){
+        ctl_mem_state_t *s = (ctl_mem_state_t *)calloc(1, sizeof(ctl_mem_state_t));
+        if (s) {
+     s->Size = sizeof(ctl_mem_state_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_mem_bandwidth_t *new__ctl_mem_bandwidth_t(){
+        ctl_mem_bandwidth_t *s = (ctl_mem_bandwidth_t *)calloc(1, sizeof(ctl_mem_bandwidth_t));
+        if (s) {
+     s->Size = sizeof(ctl_mem_bandwidth_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_power_telemetry_t *new__ctl_power_telemetry_t(){
+        ctl_power_telemetry_t *s = (ctl_power_telemetry_t *)calloc(1, sizeof(ctl_power_telemetry_t));
+        if (s) {
+     s->Size = sizeof(ctl_power_telemetry_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_power_properties_t *new__ctl_power_properties_t(){
+        ctl_power_properties_t *s = (ctl_power_properties_t *)calloc(1, sizeof(ctl_power_properties_t));
+        if (s) {
+     s->Size = sizeof(ctl_power_properties_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_power_energy_counter_t *new__ctl_power_energy_counter_t(){
+        ctl_power_energy_counter_t *s = (ctl_power_energy_counter_t *)calloc(1, sizeof(ctl_power_energy_counter_t));
+        if (s) {
+     s->Size = sizeof(ctl_power_energy_counter_t);
+        s->Version = 0;
+      }
+        return s;
+    }
+SWIGINTERN _ctl_power_limits_t *new__ctl_power_limits_t(){
+        ctl_power_limits_t *s = (ctl_power_limits_t *)calloc(1, sizeof(ctl_power_limits_t));
+        if (s) {
+     s->Size = sizeof(ctl_power_limits_t);
+        s->Version = 0;
+      }
+        return s;
+    }
 
-// Initialize IGCL with default flags (Level Zero enabled)
-static ctl_result_t IGCL_InitDefault(ctl_api_handle_t* phAPI) {
-    if (!phAPI) return CTL_RESULT_ERROR_INVALID_NULL_POINTER;
 
-    ctl_init_args_t args = {};
-    args.Size  = sizeof(args);
-    // Some SDKs don’t expose CTL_INIT_VERSION_* macros. Use a safe fallback.
-    #ifdef CTL_INIT_VERSION_MAJOR
-      args.Version = CTL_MAKE_VERSION(CTL_INIT_VERSION_MAJOR, CTL_INIT_VERSION_MINOR);
-    #else
-      args.Version = 0; // accepted by current runtimes
-    #endif
-    args.flags = CTL_INIT_FLAG_USE_LEVEL_ZERO;
-    ZeroMemory(&args.ApplicationUID, sizeof(args.ApplicationUID));
-
-    return ctlInit(&args, phAPI);
+// Initialize IGCL with default settings
+// Returns the initialized API handle through pApiHandle
+ctl_result_t IGCL_InitDefault(ctl_api_handle_t *pApiHandle)
+{
+    ctl_init_args_t initArgs;
+    memset(&initArgs, 0, sizeof(initArgs));
+    initArgs.Size = sizeof(ctl_init_args_t);
+    initArgs.Version = 0;
+    initArgs.AppVersion = CTL_MAKE_VERSION(1, 0);  // Fixed: Use 2 args (major, minor)
+    initArgs.flags = CTL_INIT_FLAG_USE_LEVEL_ZERO;
+    initArgs.SupportedVersion = CTL_IMPL_VERSION;
+    return ctlInit(&initArgs, pApiHandle);
 }
 
-// Enumerate adapters: returns count and fills pre-allocated array
-static ctl_result_t IGCL_EnumerateAdapters(ctl_api_handle_t hAPI,
-                                           igcl_uint32* pCount,
-                                           ctl_device_adapter_handle_t* pAdapters) {
-    return ctlEnumerateDevices(hAPI, pCount, pAdapters);
+// Close/cleanup IGCL API handle
+ctl_result_t IGCL_Close(ctl_api_handle_t hApiHandle)
+{
+    return ctlClose(hApiHandle);
 }
 
-// Enumerate displays for an adapter
-static ctl_result_t IGCL_EnumerateDisplays(ctl_device_adapter_handle_t hAdapter,
-                                           igcl_uint32* pCount,
-                                           ctl_display_output_handle_t* pDisplays) {
+// Enumerate all GPU adapters
+// First call with pAdapters=NULL to get count, second call to get array
+ctl_result_t IGCL_EnumerateAdapters(ctl_api_handle_t hApiHandle, uint32_t *pCount, ctl_device_adapter_handle_t *pAdapters)
+{
+    return ctlEnumerateDevices(hApiHandle, pCount, pAdapters);
+}
+
+// Enumerate displays attached to an adapter
+// First call with pDisplays=NULL to get count, second call to get array
+ctl_result_t IGCL_EnumerateDisplays(ctl_device_adapter_handle_t hAdapter, uint32_t *pCount, ctl_display_output_handle_t *pDisplays)
+{
     return ctlEnumerateDisplayOutputs(hAdapter, pCount, pDisplays);
 }
 
-// Get display properties with size set
-static ctl_result_t IGCL_GetDisplayProperties(ctl_display_output_handle_t hDisplay,
-                                              ctl_display_properties_t* pProps) {
+// Get adapter properties (GPU info)
+ctl_result_t IGCL_GetAdapterProperties(ctl_device_adapter_handle_t hAdapter, ctl_device_adapter_properties_t *pProps)
+{
     if (!pProps) return CTL_RESULT_ERROR_INVALID_NULL_POINTER;
-    pProps->Size = sizeof(*pProps);
-    pProps->Version = 1; // or CTL_CURRENT_VERSION
-    return ctlGetDisplayProperties(hDisplay, pProps);
-}
-
-// Get adapter properties with size set
-static ctl_result_t IGCL_GetAdapterProperties(ctl_device_adapter_handle_t hAdapter,
-                                              ctl_device_adapter_properties_t* pProps) {
-    if (!pProps) return CTL_RESULT_ERROR_INVALID_NULL_POINTER;
-    pProps->Size = sizeof(*pProps);
+    memset(pProps, 0, sizeof(ctl_device_adapter_properties_t));
+    pProps->Size = sizeof(ctl_device_adapter_properties_t);
     pProps->Version = 1;
     return ctlGetDeviceProperties(hAdapter, pProps);
 }
 
-// Helper for I2C access with buffer sizing
-static ctl_result_t IGCL_I2CAccess(ctl_display_output_handle_t hDisplay,
-                                   ctl_i2c_access_args_t* pArgs) {
-    if (!pArgs) return CTL_RESULT_ERROR_INVALID_NULL_POINTER;
-    pArgs->Size = sizeof(*pArgs);
-    return ctlI2CAccess(hDisplay, pArgs);
-}
-
-// Helper for AUX access with buffer sizing
-static ctl_result_t IGCL_AUXAccess(ctl_display_output_handle_t hDisplay,
-                                   ctl_aux_access_args_t* pArgs) {
-    if (!pArgs) return CTL_RESULT_ERROR_INVALID_NULL_POINTER;
-    pArgs->Size = sizeof(*pArgs);
-    return ctlAUXAccess(hDisplay, pArgs);
-}
-
-// Two-phase read of panel descriptor (EDID or panel data)
-static ctl_result_t IGCL_GetPanelDescriptor(ctl_display_output_handle_t hDisplay,
-                                            ctl_panel_descriptor_access_args_t* pArgs,
-                                            uint8_t** pBuffer) {
-    if (!pArgs || !pBuffer) return CTL_RESULT_ERROR_INVALID_NULL_POINTER;
-    pArgs->Size = sizeof(*pArgs);
-    // Phase 1: query size
-    pArgs->DescriptorDataSize = 0;
-    pArgs->pDescriptorData = nullptr;
-    ctl_result_t result = ctlPanelDescriptorAccess(hDisplay, pArgs);
-    if (result != CTL_RESULT_SUCCESS || pArgs->DescriptorDataSize == 0) return result;
-    // Allocate buffer
-    *pBuffer = (uint8_t*)malloc(pArgs->DescriptorDataSize);
-    if (!(*pBuffer)) return CTL_RESULT_ERROR_OUT_OF_HOST_MEMORY;
-    // Phase 2: actual read
-    return ctlPanelDescriptorAccess(hDisplay, pArgs);
-}
-
-
-static ctl_result_t IGCL_GetSetDCE(ctl_display_output_handle_t hDisplay,
-                                   ctl_dce_args_t* pArgs) {
-    if (!pArgs) return CTL_RESULT_ERROR_INVALID_NULL_POINTER;
-    pArgs->Size = sizeof(*pArgs);
-    pArgs->Version = 1; // depending on spec
-    return ctlGetSetDynamicContrastEnhancement(hDisplay, pArgs);
-}
-
-static ctl_result_t IGCL_EnumDisplays(ctl_device_adapter_handle_t hAdapter,
-                                      igcl_uint32* pCount,
-                                      ctl_display_output_handle_t** ppDisplays) {
-    if (!pCount || !ppDisplays) return CTL_RESULT_ERROR_INVALID_NULL_POINTER;
-    *ppDisplays = nullptr;
-    ctl_result_t res = ctlEnumerateDisplayOutputs(hAdapter, pCount, nullptr);
-    if (res != CTL_RESULT_SUCCESS || !*pCount) return res;
-    *ppDisplays = (ctl_display_output_handle_t*)malloc(sizeof(ctl_display_output_handle_t) * *pCount);
-    if (!*ppDisplays) return CTL_RESULT_ERROR_OUT_OF_HOST_MEMORY;
-    return ctlEnumerateDisplayOutputs(hAdapter, pCount, *ppDisplays);
-}
-
-// Cleanup API handle
-static ctl_result_t IGCL_Close(ctl_api_handle_t hAPI) {
-    return ctlClose(hAPI);
-}
-
-// Free malloc-allocated buffer
-static void IGCL_FreeBuffer(void* ptr) {
-    if (ptr) free(ptr);
-}
-
-// Block until a display property changes
-static ctl_result_t IGCL_WaitForDisplayChange(ctl_device_adapter_handle_t hAdapter,
-                                              ctl_wait_property_change_args_t* pArgs) {
-    if (!pArgs) return CTL_RESULT_ERROR_INVALID_NULL_POINTER;
-    pArgs->Size = sizeof(*pArgs);
-    return ctlWaitForPropertyChange(hAdapter, pArgs);
+// Get display properties (monitor info)
+ctl_result_t IGCL_GetDisplayProperties(ctl_display_output_handle_t hDisplay, ctl_display_properties_t *pProps)
+{
+    if (!pProps) return CTL_RESULT_ERROR_INVALID_NULL_POINTER;
+    memset(pProps, 0, sizeof(ctl_display_properties_t));
+pProps->Size = sizeof(ctl_display_properties_t);
+    pProps->Version = 1;
+    return ctlGetDisplayProperties(hDisplay, pProps);
 }
 
 
@@ -1739,7 +2007,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_displayPropertiesP() {
 
 SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_copy_displayPropertiesP(void * jarg1) {
   void * jresult ;
-  ctl_display_properties_t arg1 ;
+  SwigValueWrapper< _ctl_display_properties_t > arg1 ;
   ctl_display_properties_t *argp1 ;
   ctl_display_properties_t *result = 0 ;
   
@@ -1765,7 +2033,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_IGCLWrapper_delete_displayPropertiesP(void * 
 
 SWIGEXPORT void SWIGSTDCALL CSharp_IGCLWrapper_displayPropertiesP_assign(void * jarg1, void * jarg2) {
   ctl_display_properties_t *arg1 = (ctl_display_properties_t *) 0 ;
-  ctl_display_properties_t arg2 ;
+  SwigValueWrapper< _ctl_display_properties_t > arg2 ;
   ctl_display_properties_t *argp2 ;
   
   arg1 = (ctl_display_properties_t *)jarg1; 
@@ -1782,7 +2050,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_IGCLWrapper_displayPropertiesP_assign(void * 
 SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_displayPropertiesP_value(void * jarg1) {
   void * jresult ;
   ctl_display_properties_t *arg1 = (ctl_display_properties_t *) 0 ;
-  ctl_display_properties_t result;
+  SwigValueWrapper< _ctl_display_properties_t > result;
   
   arg1 = (ctl_display_properties_t *)jarg1; 
   result = displayPropertiesP_value(arg1);
@@ -1803,7 +2071,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_adapterPropertiesP() {
 
 SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_copy_adapterPropertiesP(void * jarg1) {
   void * jresult ;
-  ctl_device_adapter_properties_t arg1 ;
+  SwigValueWrapper< _ctl_device_adapter_properties_t > arg1 ;
   ctl_device_adapter_properties_t *argp1 ;
   ctl_device_adapter_properties_t *result = 0 ;
   
@@ -1829,7 +2097,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_IGCLWrapper_delete_adapterPropertiesP(void * 
 
 SWIGEXPORT void SWIGSTDCALL CSharp_IGCLWrapper_adapterPropertiesP_assign(void * jarg1, void * jarg2) {
   ctl_device_adapter_properties_t *arg1 = (ctl_device_adapter_properties_t *) 0 ;
-  ctl_device_adapter_properties_t arg2 ;
+  SwigValueWrapper< _ctl_device_adapter_properties_t > arg2 ;
   ctl_device_adapter_properties_t *argp2 ;
   
   arg1 = (ctl_device_adapter_properties_t *)jarg1; 
@@ -1846,7 +2114,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_IGCLWrapper_adapterPropertiesP_assign(void * 
 SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_adapterPropertiesP_value(void * jarg1) {
   void * jresult ;
   ctl_device_adapter_properties_t *arg1 = (ctl_device_adapter_properties_t *) 0 ;
-  ctl_device_adapter_properties_t result;
+  SwigValueWrapper< _ctl_device_adapter_properties_t > result;
   
   arg1 = (ctl_device_adapter_properties_t *)jarg1; 
   result = adapterPropertiesP_value(arg1);
@@ -1867,7 +2135,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_featureCapsP() {
 
 SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_copy_featureCapsP(void * jarg1) {
   void * jresult ;
-  ctl_3d_feature_caps_t arg1 ;
+  SwigValueWrapper< _ctl_3d_feature_caps_t > arg1 ;
   ctl_3d_feature_caps_t *argp1 ;
   ctl_3d_feature_caps_t *result = 0 ;
   
@@ -1893,7 +2161,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_IGCLWrapper_delete_featureCapsP(void * jarg1)
 
 SWIGEXPORT void SWIGSTDCALL CSharp_IGCLWrapper_featureCapsP_assign(void * jarg1, void * jarg2) {
   ctl_3d_feature_caps_t *arg1 = (ctl_3d_feature_caps_t *) 0 ;
-  ctl_3d_feature_caps_t arg2 ;
+  SwigValueWrapper< _ctl_3d_feature_caps_t > arg2 ;
   ctl_3d_feature_caps_t *argp2 ;
   
   arg1 = (ctl_3d_feature_caps_t *)jarg1; 
@@ -1910,7 +2178,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_IGCLWrapper_featureCapsP_assign(void * jarg1,
 SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_featureCapsP_value(void * jarg1) {
   void * jresult ;
   ctl_3d_feature_caps_t *arg1 = (ctl_3d_feature_caps_t *) 0 ;
-  ctl_3d_feature_caps_t result;
+  SwigValueWrapper< _ctl_3d_feature_caps_t > result;
   
   arg1 = (ctl_3d_feature_caps_t *)jarg1; 
   result = featureCapsP_value(arg1);
@@ -1931,7 +2199,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_engineStatsP() {
 
 SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_copy_engineStatsP(void * jarg1) {
   void * jresult ;
-  ctl_engine_stats_t arg1 ;
+  SwigValueWrapper< _ctl_engine_stats_t > arg1 ;
   ctl_engine_stats_t *argp1 ;
   ctl_engine_stats_t *result = 0 ;
   
@@ -1957,7 +2225,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_IGCLWrapper_delete_engineStatsP(void * jarg1)
 
 SWIGEXPORT void SWIGSTDCALL CSharp_IGCLWrapper_engineStatsP_assign(void * jarg1, void * jarg2) {
   ctl_engine_stats_t *arg1 = (ctl_engine_stats_t *) 0 ;
-  ctl_engine_stats_t arg2 ;
+  SwigValueWrapper< _ctl_engine_stats_t > arg2 ;
   ctl_engine_stats_t *argp2 ;
   
   arg1 = (ctl_engine_stats_t *)jarg1; 
@@ -1974,7 +2242,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_IGCLWrapper_engineStatsP_assign(void * jarg1,
 SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_engineStatsP_value(void * jarg1) {
   void * jresult ;
   ctl_engine_stats_t *arg1 = (ctl_engine_stats_t *) 0 ;
-  ctl_engine_stats_t result;
+  SwigValueWrapper< _ctl_engine_stats_t > result;
   
   arg1 = (ctl_engine_stats_t *)jarg1; 
   result = engineStatsP_value(arg1);
@@ -1995,7 +2263,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_memStateP() {
 
 SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_copy_memStateP(void * jarg1) {
   void * jresult ;
-  ctl_mem_state_t arg1 ;
+  SwigValueWrapper< _ctl_mem_state_t > arg1 ;
   ctl_mem_state_t *argp1 ;
   ctl_mem_state_t *result = 0 ;
   
@@ -2021,7 +2289,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_IGCLWrapper_delete_memStateP(void * jarg1) {
 
 SWIGEXPORT void SWIGSTDCALL CSharp_IGCLWrapper_memStateP_assign(void * jarg1, void * jarg2) {
   ctl_mem_state_t *arg1 = (ctl_mem_state_t *) 0 ;
-  ctl_mem_state_t arg2 ;
+  SwigValueWrapper< _ctl_mem_state_t > arg2 ;
   ctl_mem_state_t *argp2 ;
   
   arg1 = (ctl_mem_state_t *)jarg1; 
@@ -2038,7 +2306,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_IGCLWrapper_memStateP_assign(void * jarg1, vo
 SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_memStateP_value(void * jarg1) {
   void * jresult ;
   ctl_mem_state_t *arg1 = (ctl_mem_state_t *) 0 ;
-  ctl_mem_state_t result;
+  SwigValueWrapper< _ctl_mem_state_t > result;
   
   arg1 = (ctl_mem_state_t *)jarg1; 
   result = memStateP_value(arg1);
@@ -2059,7 +2327,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_powerTelemetryP() {
 
 SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_copy_powerTelemetryP(void * jarg1) {
   void * jresult ;
-  ctl_power_telemetry_t arg1 ;
+  SwigValueWrapper< _ctl_power_telemetry_t > arg1 ;
   ctl_power_telemetry_t *argp1 ;
   ctl_power_telemetry_t *result = 0 ;
   
@@ -2085,7 +2353,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_IGCLWrapper_delete_powerTelemetryP(void * jar
 
 SWIGEXPORT void SWIGSTDCALL CSharp_IGCLWrapper_powerTelemetryP_assign(void * jarg1, void * jarg2) {
   ctl_power_telemetry_t *arg1 = (ctl_power_telemetry_t *) 0 ;
-  ctl_power_telemetry_t arg2 ;
+  SwigValueWrapper< _ctl_power_telemetry_t > arg2 ;
   ctl_power_telemetry_t *argp2 ;
   
   arg1 = (ctl_power_telemetry_t *)jarg1; 
@@ -2102,7 +2370,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_IGCLWrapper_powerTelemetryP_assign(void * jar
 SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_powerTelemetryP_value(void * jarg1) {
   void * jresult ;
   ctl_power_telemetry_t *arg1 = (ctl_power_telemetry_t *) 0 ;
-  ctl_power_telemetry_t result;
+  SwigValueWrapper< _ctl_power_telemetry_t > result;
   
   arg1 = (ctl_power_telemetry_t *)jarg1; 
   result = powerTelemetryP_value(arg1);
@@ -2123,7 +2391,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_i2cAccessArgsP() {
 
 SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_copy_i2cAccessArgsP(void * jarg1) {
   void * jresult ;
-  ctl_i2c_access_args_t arg1 ;
+  SwigValueWrapper< _ctl_i2c_access_args_t > arg1 ;
   ctl_i2c_access_args_t *argp1 ;
   ctl_i2c_access_args_t *result = 0 ;
   
@@ -2149,7 +2417,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_IGCLWrapper_delete_i2cAccessArgsP(void * jarg
 
 SWIGEXPORT void SWIGSTDCALL CSharp_IGCLWrapper_i2cAccessArgsP_assign(void * jarg1, void * jarg2) {
   ctl_i2c_access_args_t *arg1 = (ctl_i2c_access_args_t *) 0 ;
-  ctl_i2c_access_args_t arg2 ;
+  SwigValueWrapper< _ctl_i2c_access_args_t > arg2 ;
   ctl_i2c_access_args_t *argp2 ;
   
   arg1 = (ctl_i2c_access_args_t *)jarg1; 
@@ -2166,7 +2434,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_IGCLWrapper_i2cAccessArgsP_assign(void * jarg
 SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_i2cAccessArgsP_value(void * jarg1) {
   void * jresult ;
   ctl_i2c_access_args_t *arg1 = (ctl_i2c_access_args_t *) 0 ;
-  ctl_i2c_access_args_t result;
+  SwigValueWrapper< _ctl_i2c_access_args_t > result;
   
   arg1 = (ctl_i2c_access_args_t *)jarg1; 
   result = i2cAccessArgsP_value(arg1);
@@ -2187,7 +2455,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_auxAccessArgsP() {
 
 SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_copy_auxAccessArgsP(void * jarg1) {
   void * jresult ;
-  ctl_aux_access_args_t arg1 ;
+  SwigValueWrapper< _ctl_aux_access_args_t > arg1 ;
   ctl_aux_access_args_t *argp1 ;
   ctl_aux_access_args_t *result = 0 ;
   
@@ -2213,7 +2481,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_IGCLWrapper_delete_auxAccessArgsP(void * jarg
 
 SWIGEXPORT void SWIGSTDCALL CSharp_IGCLWrapper_auxAccessArgsP_assign(void * jarg1, void * jarg2) {
   ctl_aux_access_args_t *arg1 = (ctl_aux_access_args_t *) 0 ;
-  ctl_aux_access_args_t arg2 ;
+  SwigValueWrapper< _ctl_aux_access_args_t > arg2 ;
   ctl_aux_access_args_t *argp2 ;
   
   arg1 = (ctl_aux_access_args_t *)jarg1; 
@@ -2230,7 +2498,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_IGCLWrapper_auxAccessArgsP_assign(void * jarg
 SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_auxAccessArgsP_value(void * jarg1) {
   void * jresult ;
   ctl_aux_access_args_t *arg1 = (ctl_aux_access_args_t *) 0 ;
-  ctl_aux_access_args_t result;
+  SwigValueWrapper< _ctl_aux_access_args_t > result;
   
   arg1 = (ctl_aux_access_args_t *)jarg1; 
   result = auxAccessArgsP_value(arg1);
@@ -2251,7 +2519,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_panelDescriptorArgsP() {
 
 SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_copy_panelDescriptorArgsP(void * jarg1) {
   void * jresult ;
-  ctl_panel_descriptor_access_args_t arg1 ;
+  SwigValueWrapper< _ctl_panel_descriptor_access_args_t > arg1 ;
   ctl_panel_descriptor_access_args_t *argp1 ;
   ctl_panel_descriptor_access_args_t *result = 0 ;
   
@@ -2277,7 +2545,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_IGCLWrapper_delete_panelDescriptorArgsP(void 
 
 SWIGEXPORT void SWIGSTDCALL CSharp_IGCLWrapper_panelDescriptorArgsP_assign(void * jarg1, void * jarg2) {
   ctl_panel_descriptor_access_args_t *arg1 = (ctl_panel_descriptor_access_args_t *) 0 ;
-  ctl_panel_descriptor_access_args_t arg2 ;
+  SwigValueWrapper< _ctl_panel_descriptor_access_args_t > arg2 ;
   ctl_panel_descriptor_access_args_t *argp2 ;
   
   arg1 = (ctl_panel_descriptor_access_args_t *)jarg1; 
@@ -2294,7 +2562,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_IGCLWrapper_panelDescriptorArgsP_assign(void 
 SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_panelDescriptorArgsP_value(void * jarg1) {
   void * jresult ;
   ctl_panel_descriptor_access_args_t *arg1 = (ctl_panel_descriptor_access_args_t *) 0 ;
-  ctl_panel_descriptor_access_args_t result;
+  SwigValueWrapper< _ctl_panel_descriptor_access_args_t > result;
   
   arg1 = (ctl_panel_descriptor_access_args_t *)jarg1; 
   result = panelDescriptorArgsP_value(arg1);
@@ -4217,7 +4485,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_init_args_t() {
   void * jresult ;
   _ctl_init_args_t *result = 0 ;
   
-  result = (_ctl_init_args_t *)new _ctl_init_args_t();
+  result = (_ctl_init_args_t *)new__ctl_init_args_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -5297,7 +5565,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_device_adapter_properti
   void * jresult ;
   _ctl_device_adapter_properties_t *result = 0 ;
   
-  result = (_ctl_device_adapter_properties_t *)new _ctl_device_adapter_properties_t();
+  result = (_ctl_device_adapter_properties_t *)new__ctl_device_adapter_properties_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -6883,7 +7151,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_3d_feature_caps_t() {
   void * jresult ;
   _ctl_3d_feature_caps_t *result = 0 ;
   
-  result = (_ctl_3d_feature_caps_t *)new _ctl_3d_feature_caps_t();
+  result = (_ctl_3d_feature_caps_t *)new__ctl_3d_feature_caps_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -7129,7 +7397,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_3d_feature_getset_t() {
   void * jresult ;
   _ctl_3d_feature_getset_t *result = 0 ;
   
-  result = (_ctl_3d_feature_getset_t *)new _ctl_3d_feature_getset_t();
+  result = (_ctl_3d_feature_getset_t *)new__ctl_3d_feature_getset_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -8165,7 +8433,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_display_properties_t() 
   void * jresult ;
   _ctl_display_properties_t *result = 0 ;
   
-  result = (_ctl_display_properties_t *)new _ctl_display_properties_t();
+  result = (_ctl_display_properties_t *)new__ctl_display_properties_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -8677,7 +8945,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_sharpness_caps_t() {
   void * jresult ;
   _ctl_sharpness_caps_t *result = 0 ;
   
-  result = (_ctl_sharpness_caps_t *)new _ctl_sharpness_caps_t();
+  result = (_ctl_sharpness_caps_t *)new__ctl_sharpness_caps_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -8805,7 +9073,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_sharpness_settings_t() 
   void * jresult ;
   _ctl_sharpness_settings_t *result = 0 ;
   
-  result = (_ctl_sharpness_settings_t *)new _ctl_sharpness_settings_t();
+  result = (_ctl_sharpness_settings_t *)new__ctl_sharpness_settings_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -9077,7 +9345,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_i2c_access_args_t() {
   void * jresult ;
   _ctl_i2c_access_args_t *result = 0 ;
   
-  result = (_ctl_i2c_access_args_t *)new _ctl_i2c_access_args_t();
+  result = (_ctl_i2c_access_args_t *)new__ctl_i2c_access_args_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -9559,7 +9827,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_aux_access_args_t() {
   void * jresult ;
   _ctl_aux_access_args_t *result = 0 ;
   
-  result = (_ctl_aux_access_args_t *)new _ctl_aux_access_args_t();
+  result = (_ctl_aux_access_args_t *)new__ctl_aux_access_args_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -9657,7 +9925,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_power_optimization_caps
   void * jresult ;
   _ctl_power_optimization_caps_t *result = 0 ;
   
-  result = (_ctl_power_optimization_caps_t *)new _ctl_power_optimization_caps_t();
+  result = (_ctl_power_optimization_caps_t *)new__ctl_power_optimization_caps_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -10355,7 +10623,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_power_optimization_sett
   void * jresult ;
   _ctl_power_optimization_settings_t *result = 0 ;
   
-  result = (_ctl_power_optimization_settings_t *)new _ctl_power_optimization_settings_t();
+  result = (_ctl_power_optimization_settings_t *)new__ctl_power_optimization_settings_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -10487,7 +10755,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_set_brightness_t() {
   void * jresult ;
   _ctl_set_brightness_t *result = 0 ;
   
-  result = (_ctl_set_brightness_t *)new _ctl_set_brightness_t();
+  result = (_ctl_set_brightness_t *)new__ctl_set_brightness_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -10619,7 +10887,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_get_brightness_t() {
   void * jresult ;
   _ctl_get_brightness_t *result = 0 ;
   
-  result = (_ctl_get_brightness_t *)new _ctl_get_brightness_t();
+  result = (_ctl_get_brightness_t *)new__ctl_get_brightness_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -11333,7 +11601,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_pixtx_1dlut_config_t() 
   void * jresult ;
   _ctl_pixtx_1dlut_config_t *result = 0 ;
   
-  result = (_ctl_pixtx_1dlut_config_t *)new _ctl_pixtx_1dlut_config_t();
+  result = (_ctl_pixtx_1dlut_config_t *)new__ctl_pixtx_1dlut_config_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -11669,7 +11937,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_pixtx_3dlut_config_t() 
   void * jresult ;
   _ctl_pixtx_3dlut_config_t *result = 0 ;
   
-  result = (_ctl_pixtx_3dlut_config_t *)new _ctl_pixtx_3dlut_config_t();
+  result = (_ctl_pixtx_3dlut_config_t *)new__ctl_pixtx_3dlut_config_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -12053,7 +12321,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_pixtx_pipe_get_config_t
   void * jresult ;
   _ctl_pixtx_pipe_get_config_t *result = 0 ;
   
-  result = (_ctl_pixtx_pipe_get_config_t *)new _ctl_pixtx_pipe_get_config_t();
+  result = (_ctl_pixtx_pipe_get_config_t *)new__ctl_pixtx_pipe_get_config_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -12203,7 +12471,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_pixtx_pipe_set_config_t
   void * jresult ;
   _ctl_pixtx_pipe_set_config_t *result = 0 ;
   
-  result = (_ctl_pixtx_pipe_set_config_t *)new _ctl_pixtx_pipe_set_config_t();
+  result = (_ctl_pixtx_pipe_set_config_t *)new__ctl_pixtx_pipe_set_config_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -12381,7 +12649,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_panel_descriptor_access
   void * jresult ;
   _ctl_panel_descriptor_access_args_t *result = 0 ;
   
-  result = (_ctl_panel_descriptor_access_args_t *)new _ctl_panel_descriptor_access_args_t();
+  result = (_ctl_panel_descriptor_access_args_t *)new__ctl_panel_descriptor_access_args_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -12523,7 +12791,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_retro_scaling_settings_
   void * jresult ;
   _ctl_retro_scaling_settings_t *result = 0 ;
   
-  result = (_ctl_retro_scaling_settings_t *)new _ctl_retro_scaling_settings_t();
+  result = (_ctl_retro_scaling_settings_t *)new__ctl_retro_scaling_settings_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -12607,7 +12875,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_retro_scaling_caps_t() 
   void * jresult ;
   _ctl_retro_scaling_caps_t *result = 0 ;
   
-  result = (_ctl_retro_scaling_caps_t *)new _ctl_retro_scaling_caps_t();
+  result = (_ctl_retro_scaling_caps_t *)new__ctl_retro_scaling_caps_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -12719,7 +12987,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_scaling_caps_t() {
   void * jresult ;
   _ctl_scaling_caps_t *result = 0 ;
   
-  result = (_ctl_scaling_caps_t *)new _ctl_scaling_caps_t();
+  result = (_ctl_scaling_caps_t *)new__ctl_scaling_caps_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -12913,7 +13181,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_scaling_settings_t() {
   void * jresult ;
   _ctl_scaling_settings_t *result = 0 ;
   
-  result = (_ctl_scaling_settings_t *)new _ctl_scaling_settings_t();
+  result = (_ctl_scaling_settings_t *)new__ctl_scaling_settings_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -13677,7 +13945,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_intel_arc_sync_monitor_
   void * jresult ;
   _ctl_intel_arc_sync_monitor_params_t *result = 0 ;
   
-  result = (_ctl_intel_arc_sync_monitor_params_t *)new _ctl_intel_arc_sync_monitor_params_t();
+  result = (_ctl_intel_arc_sync_monitor_params_t *)new__ctl_intel_arc_sync_monitor_params_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -14057,7 +14325,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_intel_arc_sync_profile_
   void * jresult ;
   _ctl_intel_arc_sync_profile_params_t *result = 0 ;
   
-  result = (_ctl_intel_arc_sync_profile_params_t *)new _ctl_intel_arc_sync_profile_params_t();
+  result = (_ctl_intel_arc_sync_profile_params_t *)new__ctl_intel_arc_sync_profile_params_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -14257,7 +14525,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_edid_management_args_t(
   void * jresult ;
   _ctl_edid_management_args_t *result = 0 ;
   
-  result = (_ctl_edid_management_args_t *)new _ctl_edid_management_args_t();
+  result = (_ctl_edid_management_args_t *)new__ctl_edid_management_args_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -14399,7 +14667,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_get_set_custom_mode_arg
   void * jresult ;
   _ctl_get_set_custom_mode_args_t *result = 0 ;
   
-  result = (_ctl_get_set_custom_mode_args_t *)new _ctl_get_set_custom_mode_args_t();
+  result = (_ctl_get_set_custom_mode_args_t *)new__ctl_get_set_custom_mode_args_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -14929,7 +15197,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_combined_display_args_t
   void * jresult ;
   _ctl_combined_display_args_t *result = 0 ;
   
-  result = (_ctl_combined_display_args_t *)new _ctl_combined_display_args_t();
+  result = (_ctl_combined_display_args_t *)new__ctl_combined_display_args_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -16865,7 +17133,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_engine_properties_t() {
   void * jresult ;
   _ctl_engine_properties_t *result = 0 ;
   
-  result = (_ctl_engine_properties_t *)new _ctl_engine_properties_t();
+  result = (_ctl_engine_properties_t *)new__ctl_engine_properties_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -16971,7 +17239,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_engine_stats_t() {
   void * jresult ;
   _ctl_engine_stats_t *result = 0 ;
   
-  result = (_ctl_engine_stats_t *)new _ctl_engine_stats_t();
+  result = (_ctl_engine_stats_t *)new__ctl_engine_stats_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -17121,7 +17389,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_fan_speed_t() {
   void * jresult ;
   _ctl_fan_speed_t *result = 0 ;
   
-  result = (_ctl_fan_speed_t *)new _ctl_fan_speed_t();
+  result = (_ctl_fan_speed_t *)new__ctl_fan_speed_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -17347,7 +17615,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_fan_speed_table_t() {
   void * jresult ;
   _ctl_fan_speed_table_t *result = 0 ;
   
-  result = (_ctl_fan_speed_table_t *)new _ctl_fan_speed_table_t();
+  result = (_ctl_fan_speed_table_t *)new__ctl_fan_speed_table_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -17519,7 +17787,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_fan_properties_t() {
   void * jresult ;
   _ctl_fan_properties_t *result = 0 ;
   
-  result = (_ctl_fan_properties_t *)new _ctl_fan_properties_t();
+  result = (_ctl_fan_properties_t *)new__ctl_fan_properties_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -17647,7 +17915,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_fan_config_t() {
   void * jresult ;
   _ctl_fan_config_t *result = 0 ;
   
-  result = (_ctl_fan_config_t *)new _ctl_fan_config_t();
+  result = (_ctl_fan_config_t *)new__ctl_fan_config_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -21442,7 +21710,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_video_processing_featur
   void * jresult ;
   _ctl_video_processing_feature_caps_t *result = 0 ;
   
-  result = (_ctl_video_processing_feature_caps_t *)new _ctl_video_processing_feature_caps_t();
+  result = (_ctl_video_processing_feature_caps_t *)new__ctl_video_processing_feature_caps_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -21714,7 +21982,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_video_processing_featur
   void * jresult ;
   _ctl_video_processing_feature_getset_t *result = 0 ;
   
-  result = (_ctl_video_processing_feature_getset_t *)new _ctl_video_processing_feature_getset_t();
+  result = (_ctl_video_processing_feature_getset_t *)new__ctl_video_processing_feature_getset_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -21914,7 +22182,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_mem_properties_t() {
   void * jresult ;
   _ctl_mem_properties_t *result = 0 ;
   
-  result = (_ctl_mem_properties_t *)new _ctl_mem_properties_t();
+  result = (_ctl_mem_properties_t *)new__ctl_mem_properties_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -22020,7 +22288,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_mem_state_t() {
   void * jresult ;
   _ctl_mem_state_t *result = 0 ;
   
-  result = (_ctl_mem_state_t *)new _ctl_mem_state_t();
+  result = (_ctl_mem_state_t *)new__ctl_mem_state_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -22170,7 +22438,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_mem_bandwidth_t() {
   void * jresult ;
   _ctl_mem_bandwidth_t *result = 0 ;
   
-  result = (_ctl_mem_bandwidth_t *)new _ctl_mem_bandwidth_t();
+  result = (_ctl_mem_bandwidth_t *)new__ctl_mem_bandwidth_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -23948,7 +24216,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_power_telemetry_t() {
   void * jresult ;
   _ctl_power_telemetry_t *result = 0 ;
   
-  result = (_ctl_power_telemetry_t *)new _ctl_power_telemetry_t();
+  result = (_ctl_power_telemetry_t *)new__ctl_power_telemetry_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -25130,7 +25398,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_power_properties_t() {
   void * jresult ;
   _ctl_power_properties_t *result = 0 ;
   
-  result = (_ctl_power_properties_t *)new _ctl_power_properties_t();
+  result = (_ctl_power_properties_t *)new__ctl_power_properties_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -25236,7 +25504,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_power_energy_counter_t(
   void * jresult ;
   _ctl_power_energy_counter_t *result = 0 ;
   
-  result = (_ctl_power_energy_counter_t *)new _ctl_power_energy_counter_t();
+  result = (_ctl_power_energy_counter_t *)new__ctl_power_energy_counter_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -25572,7 +25840,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_ctl_power_limits_t() {
   void * jresult ;
   _ctl_power_limits_t *result = 0 ;
   
-  result = (_ctl_power_limits_t *)new _ctl_power_limits_t();
+  result = (_ctl_power_limits_t *)new__ctl_power_limits_t();
   jresult = (void *)result; 
   return jresult;
 }
@@ -25948,15 +26216,27 @@ SWIGEXPORT int SWIGSTDCALL CSharp_IGCLWrapper_IGCL_InitDefault(void * jarg1) {
 }
 
 
+SWIGEXPORT int SWIGSTDCALL CSharp_IGCLWrapper_IGCL_Close(void * jarg1) {
+  int jresult ;
+  ctl_api_handle_t arg1 = (ctl_api_handle_t) 0 ;
+  ctl_result_t result;
+  
+  arg1 = (ctl_api_handle_t)jarg1; 
+  result = (ctl_result_t)IGCL_Close(arg1);
+  jresult = (int)result; 
+  return jresult;
+}
+
+
 SWIGEXPORT int SWIGSTDCALL CSharp_IGCLWrapper_IGCL_EnumerateAdapters(void * jarg1, void * jarg2, void * jarg3) {
   int jresult ;
   ctl_api_handle_t arg1 = (ctl_api_handle_t) 0 ;
-  igcl_uint32 *arg2 = (igcl_uint32 *) 0 ;
+  uint32_t *arg2 = (uint32_t *) 0 ;
   ctl_device_adapter_handle_t *arg3 = (ctl_device_adapter_handle_t *) 0 ;
   ctl_result_t result;
   
   arg1 = (ctl_api_handle_t)jarg1; 
-  arg2 = (igcl_uint32 *)jarg2; 
+  arg2 = (uint32_t *)jarg2; 
   arg3 = (ctl_device_adapter_handle_t *)jarg3; 
   result = (ctl_result_t)IGCL_EnumerateAdapters(arg1,arg2,arg3);
   jresult = (int)result; 
@@ -25967,28 +26247,14 @@ SWIGEXPORT int SWIGSTDCALL CSharp_IGCLWrapper_IGCL_EnumerateAdapters(void * jarg
 SWIGEXPORT int SWIGSTDCALL CSharp_IGCLWrapper_IGCL_EnumerateDisplays(void * jarg1, void * jarg2, void * jarg3) {
   int jresult ;
   ctl_device_adapter_handle_t arg1 = (ctl_device_adapter_handle_t) 0 ;
-  igcl_uint32 *arg2 = (igcl_uint32 *) 0 ;
+  uint32_t *arg2 = (uint32_t *) 0 ;
   ctl_display_output_handle_t *arg3 = (ctl_display_output_handle_t *) 0 ;
   ctl_result_t result;
   
   arg1 = (ctl_device_adapter_handle_t)jarg1; 
-  arg2 = (igcl_uint32 *)jarg2; 
+  arg2 = (uint32_t *)jarg2; 
   arg3 = (ctl_display_output_handle_t *)jarg3; 
   result = (ctl_result_t)IGCL_EnumerateDisplays(arg1,arg2,arg3);
-  jresult = (int)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT int SWIGSTDCALL CSharp_IGCLWrapper_IGCL_GetDisplayProperties(void * jarg1, void * jarg2) {
-  int jresult ;
-  ctl_display_output_handle_t arg1 = (ctl_display_output_handle_t) 0 ;
-  ctl_display_properties_t *arg2 = (ctl_display_properties_t *) 0 ;
-  ctl_result_t result;
-  
-  arg1 = (ctl_display_output_handle_t)jarg1; 
-  arg2 = (ctl_display_properties_t *)jarg2; 
-  result = (ctl_result_t)IGCL_GetDisplayProperties(arg1,arg2);
   jresult = (int)result; 
   return jresult;
 }
@@ -26008,109 +26274,15 @@ SWIGEXPORT int SWIGSTDCALL CSharp_IGCLWrapper_IGCL_GetAdapterProperties(void * j
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_IGCLWrapper_IGCL_I2CAccess(void * jarg1, void * jarg2) {
+SWIGEXPORT int SWIGSTDCALL CSharp_IGCLWrapper_IGCL_GetDisplayProperties(void * jarg1, void * jarg2) {
   int jresult ;
   ctl_display_output_handle_t arg1 = (ctl_display_output_handle_t) 0 ;
-  ctl_i2c_access_args_t *arg2 = (ctl_i2c_access_args_t *) 0 ;
+  ctl_display_properties_t *arg2 = (ctl_display_properties_t *) 0 ;
   ctl_result_t result;
   
   arg1 = (ctl_display_output_handle_t)jarg1; 
-  arg2 = (ctl_i2c_access_args_t *)jarg2; 
-  result = (ctl_result_t)IGCL_I2CAccess(arg1,arg2);
-  jresult = (int)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT int SWIGSTDCALL CSharp_IGCLWrapper_IGCL_AUXAccess(void * jarg1, void * jarg2) {
-  int jresult ;
-  ctl_display_output_handle_t arg1 = (ctl_display_output_handle_t) 0 ;
-  ctl_aux_access_args_t *arg2 = (ctl_aux_access_args_t *) 0 ;
-  ctl_result_t result;
-  
-  arg1 = (ctl_display_output_handle_t)jarg1; 
-  arg2 = (ctl_aux_access_args_t *)jarg2; 
-  result = (ctl_result_t)IGCL_AUXAccess(arg1,arg2);
-  jresult = (int)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT int SWIGSTDCALL CSharp_IGCLWrapper_IGCL_GetPanelDescriptor(void * jarg1, void * jarg2, void * jarg3) {
-  int jresult ;
-  ctl_display_output_handle_t arg1 = (ctl_display_output_handle_t) 0 ;
-  ctl_panel_descriptor_access_args_t *arg2 = (ctl_panel_descriptor_access_args_t *) 0 ;
-  uint8_t **arg3 = (uint8_t **) 0 ;
-  ctl_result_t result;
-  
-  arg1 = (ctl_display_output_handle_t)jarg1; 
-  arg2 = (ctl_panel_descriptor_access_args_t *)jarg2; 
-  arg3 = (uint8_t **)jarg3; 
-  result = (ctl_result_t)IGCL_GetPanelDescriptor(arg1,arg2,arg3);
-  jresult = (int)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT int SWIGSTDCALL CSharp_IGCLWrapper_IGCL_GetSetDCE(void * jarg1, void * jarg2) {
-  int jresult ;
-  ctl_display_output_handle_t arg1 = (ctl_display_output_handle_t) 0 ;
-  ctl_dce_args_t *arg2 = (ctl_dce_args_t *) 0 ;
-  ctl_result_t result;
-  
-  arg1 = (ctl_display_output_handle_t)jarg1; 
-  arg2 = (ctl_dce_args_t *)jarg2; 
-  result = (ctl_result_t)IGCL_GetSetDCE(arg1,arg2);
-  jresult = (int)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT int SWIGSTDCALL CSharp_IGCLWrapper_IGCL_EnumDisplays(void * jarg1, void * jarg2, void * jarg3) {
-  int jresult ;
-  ctl_device_adapter_handle_t arg1 = (ctl_device_adapter_handle_t) 0 ;
-  igcl_uint32 *arg2 = (igcl_uint32 *) 0 ;
-  ctl_display_output_handle_t **arg3 = (ctl_display_output_handle_t **) 0 ;
-  ctl_result_t result;
-  
-  arg1 = (ctl_device_adapter_handle_t)jarg1; 
-  arg2 = (igcl_uint32 *)jarg2; 
-  arg3 = (ctl_display_output_handle_t **)jarg3; 
-  result = (ctl_result_t)IGCL_EnumDisplays(arg1,arg2,arg3);
-  jresult = (int)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT int SWIGSTDCALL CSharp_IGCLWrapper_IGCL_Close(void * jarg1) {
-  int jresult ;
-  ctl_api_handle_t arg1 = (ctl_api_handle_t) 0 ;
-  ctl_result_t result;
-  
-  arg1 = (ctl_api_handle_t)jarg1; 
-  result = (ctl_result_t)IGCL_Close(arg1);
-  jresult = (int)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void SWIGSTDCALL CSharp_IGCLWrapper_IGCL_FreeBuffer(void * jarg1) {
-  void *arg1 = (void *) 0 ;
-  
-  arg1 = (void *)jarg1; 
-  IGCL_FreeBuffer(arg1);
-}
-
-
-SWIGEXPORT int SWIGSTDCALL CSharp_IGCLWrapper_IGCL_WaitForDisplayChange(void * jarg1, void * jarg2) {
-  int jresult ;
-  ctl_device_adapter_handle_t arg1 = (ctl_device_adapter_handle_t) 0 ;
-  ctl_wait_property_change_args_t *arg2 = (ctl_wait_property_change_args_t *) 0 ;
-  ctl_result_t result;
-  
-  arg1 = (ctl_device_adapter_handle_t)jarg1; 
-  arg2 = (ctl_wait_property_change_args_t *)jarg2; 
-  result = (ctl_result_t)IGCL_WaitForDisplayChange(arg1,arg2);
+  arg2 = (ctl_display_properties_t *)jarg2; 
+  result = (ctl_result_t)IGCL_GetDisplayProperties(arg1,arg2);
   jresult = (int)result; 
   return jresult;
 }

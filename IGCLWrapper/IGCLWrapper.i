@@ -189,146 +189,134 @@ typedef void* voidP_Ptr; // for pointer void*
 
 %include "../drivers.gpu.control-library/include/igcl_api.h"
 
+// ----- Automatic Structure Initialization for IGCL API Structures -----
+// This macro adds a constructor to each IGCL structure that automatically initializes
+// the Size and Version fields, preventing common initialization errors in C#.
+//
+// IMPORTANT: This must come AFTER %include of igcl_api.h so structures are defined!
+//
+// Usage in C#:
+//   var props = new ctl_display_properties_t(); // Size and Version are auto-initialized!
+//   IGCL.ctlGetDisplayProperties(hDisplay, props);
+//
+%define AUTO_INIT_IGCL_STRUCT(StructName, DefaultVersion)
+%extend StructName {
+    StructName() {
+        StructName *s = (StructName *)calloc(1, sizeof(StructName));
+        if (s) {
+     s->Size = sizeof(StructName);
+        s->Version = DefaultVersion;
+      }
+        return s;
+    }
+}
+%enddef
+
+// Apply automatic initialization to all IGCL API structures with Size/Version fields
+// Only include structures that actually exist in igcl_api.h
+AUTO_INIT_IGCL_STRUCT(ctl_init_args_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_device_adapter_properties_t, 1)
+AUTO_INIT_IGCL_STRUCT(ctl_display_properties_t, 1)
+AUTO_INIT_IGCL_STRUCT(ctl_3d_feature_caps_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_3d_feature_getset_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_sharpness_caps_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_sharpness_settings_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_i2c_access_args_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_aux_access_args_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_power_optimization_caps_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_power_optimization_settings_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_set_brightness_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_get_brightness_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_pixtx_pipe_get_config_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_pixtx_pipe_set_config_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_pixtx_1dlut_config_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_pixtx_3dlut_config_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_pixtx_color_config_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_panel_descriptor_access_args_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_retro_scaling_caps_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_retro_scaling_settings_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_scaling_caps_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_scaling_settings_t, 1)
+AUTO_INIT_IGCL_STRUCT(ctl_intel_arc_sync_monitor_params_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_intel_arc_sync_profile_params_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_edid_management_args_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_get_set_custom_mode_args_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_combined_display_args_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_engine_properties_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_engine_stats_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_fan_properties_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_fan_config_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_fan_speed_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_fan_speed_table_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_video_processing_feature_caps_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_video_processing_feature_getset_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_mem_properties_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_mem_state_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_mem_bandwidth_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_power_properties_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_power_energy_counter_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_power_limits_t, 0)
+AUTO_INIT_IGCL_STRUCT(ctl_power_telemetry_t, 0)
+
 // ---------- Optional: small C helpers for safer C# usage ----------
-// Examples: tiny wrappers that avoid double-pointer gymnastics from C#.
-// These are pure conveniences; you can remove if you prefer direct P/Invoke-like signatures.
 
+// ----- C# Helper Functions (defined inline for SWIG wrapping) -----
+// These helpers simplify common initialization and enumeration patterns from C#
 %inline %{
-// Initialize IGCL with default flags (Level Zero enabled)
-static ctl_result_t IGCL_InitDefault(ctl_api_handle_t* phAPI) {
-    if (!phAPI) return CTL_RESULT_ERROR_INVALID_NULL_POINTER;
 
-    ctl_init_args_t args = {};
-    args.Size  = sizeof(args);
-    // Some SDKs don’t expose CTL_INIT_VERSION_* macros. Use a safe fallback.
-    #ifdef CTL_INIT_VERSION_MAJOR
-      args.Version = CTL_MAKE_VERSION(CTL_INIT_VERSION_MAJOR, CTL_INIT_VERSION_MINOR);
-    #else
-      args.Version = 0; // accepted by current runtimes
-    #endif
-    args.flags = CTL_INIT_FLAG_USE_LEVEL_ZERO;
-    ZeroMemory(&args.ApplicationUID, sizeof(args.ApplicationUID));
-
-    return ctlInit(&args, phAPI);
+// Initialize IGCL with default settings
+// Returns the initialized API handle through pApiHandle
+ctl_result_t IGCL_InitDefault(ctl_api_handle_t *pApiHandle)
+{
+    ctl_init_args_t initArgs;
+    memset(&initArgs, 0, sizeof(initArgs));
+    initArgs.Size = sizeof(ctl_init_args_t);
+    initArgs.Version = 0;
+    initArgs.AppVersion = CTL_MAKE_VERSION(1, 0);  // Fixed: Use 2 args (major, minor)
+    initArgs.flags = CTL_INIT_FLAG_USE_LEVEL_ZERO;
+    initArgs.SupportedVersion = CTL_IMPL_VERSION;
+    return ctlInit(&initArgs, pApiHandle);
 }
 
-// Enumerate adapters: returns count and fills pre-allocated array
-static ctl_result_t IGCL_EnumerateAdapters(ctl_api_handle_t hAPI,
-                                           igcl_uint32* pCount,
-                                           ctl_device_adapter_handle_t* pAdapters) {
-    return ctlEnumerateDevices(hAPI, pCount, pAdapters);
+// Close/cleanup IGCL API handle
+ctl_result_t IGCL_Close(ctl_api_handle_t hApiHandle)
+{
+    return ctlClose(hApiHandle);
 }
 
-// Enumerate displays for an adapter
-static ctl_result_t IGCL_EnumerateDisplays(ctl_device_adapter_handle_t hAdapter,
-                                           igcl_uint32* pCount,
-                                           ctl_display_output_handle_t* pDisplays) {
+// Enumerate all GPU adapters
+// First call with pAdapters=NULL to get count, second call to get array
+ctl_result_t IGCL_EnumerateAdapters(ctl_api_handle_t hApiHandle, uint32_t *pCount, ctl_device_adapter_handle_t *pAdapters)
+{
+    return ctlEnumerateDevices(hApiHandle, pCount, pAdapters);
+}
+
+// Enumerate displays attached to an adapter
+// First call with pDisplays=NULL to get count, second call to get array
+ctl_result_t IGCL_EnumerateDisplays(ctl_device_adapter_handle_t hAdapter, uint32_t *pCount, ctl_display_output_handle_t *pDisplays)
+{
     return ctlEnumerateDisplayOutputs(hAdapter, pCount, pDisplays);
 }
 
-// Get display properties with size set
-static ctl_result_t IGCL_GetDisplayProperties(ctl_display_output_handle_t hDisplay,
-                                              ctl_display_properties_t* pProps) {
+// Get adapter properties (GPU info)
+ctl_result_t IGCL_GetAdapterProperties(ctl_device_adapter_handle_t hAdapter, ctl_device_adapter_properties_t *pProps)
+{
     if (!pProps) return CTL_RESULT_ERROR_INVALID_NULL_POINTER;
-    pProps->Size = sizeof(*pProps);
-    pProps->Version = 1; // or CTL_CURRENT_VERSION
-    return ctlGetDisplayProperties(hDisplay, pProps);
-}
-
-// Get adapter properties with size set
-static ctl_result_t IGCL_GetAdapterProperties(ctl_device_adapter_handle_t hAdapter,
-                                              ctl_device_adapter_properties_t* pProps) {
-    if (!pProps) return CTL_RESULT_ERROR_INVALID_NULL_POINTER;
-    pProps->Size = sizeof(*pProps);
+    memset(pProps, 0, sizeof(ctl_device_adapter_properties_t));
+    pProps->Size = sizeof(ctl_device_adapter_properties_t);
     pProps->Version = 1;
     return ctlGetDeviceProperties(hAdapter, pProps);
 }
 
-// Helper for I2C access with buffer sizing
-static ctl_result_t IGCL_I2CAccess(ctl_display_output_handle_t hDisplay,
-                                   ctl_i2c_access_args_t* pArgs) {
-    if (!pArgs) return CTL_RESULT_ERROR_INVALID_NULL_POINTER;
-    pArgs->Size = sizeof(*pArgs);
-    return ctlI2CAccess(hDisplay, pArgs);
-}
-
-// Helper for AUX access with buffer sizing
-static ctl_result_t IGCL_AUXAccess(ctl_display_output_handle_t hDisplay,
-                                   ctl_aux_access_args_t* pArgs) {
-    if (!pArgs) return CTL_RESULT_ERROR_INVALID_NULL_POINTER;
-    pArgs->Size = sizeof(*pArgs);
-    return ctlAUXAccess(hDisplay, pArgs);
-}
-
-// Two-phase read of panel descriptor (EDID or panel data)
-static ctl_result_t IGCL_GetPanelDescriptor(ctl_display_output_handle_t hDisplay,
-                                            ctl_panel_descriptor_access_args_t* pArgs,
-                                            uint8_t** pBuffer) {
-    if (!pArgs || !pBuffer) return CTL_RESULT_ERROR_INVALID_NULL_POINTER;
-    pArgs->Size = sizeof(*pArgs);
-    // Phase 1: query size
-    pArgs->DescriptorDataSize = 0;
-    pArgs->pDescriptorData = nullptr;
-    ctl_result_t result = ctlPanelDescriptorAccess(hDisplay, pArgs);
-    if (result != CTL_RESULT_SUCCESS || pArgs->DescriptorDataSize == 0) return result;
-    // Allocate buffer
-    *pBuffer = (uint8_t*)malloc(pArgs->DescriptorDataSize);
-    if (!(*pBuffer)) return CTL_RESULT_ERROR_OUT_OF_HOST_MEMORY;
-    // Phase 2: actual read
-    return ctlPanelDescriptorAccess(hDisplay, pArgs);
-}
-
-
-static ctl_result_t IGCL_GetSetDCE(ctl_display_output_handle_t hDisplay,
-                                   ctl_dce_args_t* pArgs) {
-    if (!pArgs) return CTL_RESULT_ERROR_INVALID_NULL_POINTER;
-    pArgs->Size = sizeof(*pArgs);
-    pArgs->Version = 1; // depending on spec
-    return ctlGetSetDynamicContrastEnhancement(hDisplay, pArgs);
-}
-
-static ctl_result_t IGCL_EnumDisplays(ctl_device_adapter_handle_t hAdapter,
-                                      igcl_uint32* pCount,
-                                      ctl_display_output_handle_t** ppDisplays) {
-    if (!pCount || !ppDisplays) return CTL_RESULT_ERROR_INVALID_NULL_POINTER;
-    *ppDisplays = nullptr;
-    ctl_result_t res = ctlEnumerateDisplayOutputs(hAdapter, pCount, nullptr);
-    if (res != CTL_RESULT_SUCCESS || !*pCount) return res;
-    *ppDisplays = (ctl_display_output_handle_t*)malloc(sizeof(ctl_display_output_handle_t) * *pCount);
-    if (!*ppDisplays) return CTL_RESULT_ERROR_OUT_OF_HOST_MEMORY;
-    return ctlEnumerateDisplayOutputs(hAdapter, pCount, *ppDisplays);
-}
-
-// Cleanup API handle
-static ctl_result_t IGCL_Close(ctl_api_handle_t hAPI) {
-    return ctlClose(hAPI);
-}
-
-// Free malloc-allocated buffer
-static void IGCL_FreeBuffer(void* ptr) {
-    if (ptr) free(ptr);
-}
-
-// Block until a display property changes
-static ctl_result_t IGCL_WaitForDisplayChange(ctl_device_adapter_handle_t hAdapter,
-                                              ctl_wait_property_change_args_t* pArgs) {
-    if (!pArgs) return CTL_RESULT_ERROR_INVALID_NULL_POINTER;
-    pArgs->Size = sizeof(*pArgs);
-    return ctlWaitForPropertyChange(hAdapter, pArgs);
+// Get display properties (monitor info)
+ctl_result_t IGCL_GetDisplayProperties(ctl_display_output_handle_t hDisplay, ctl_display_properties_t *pProps)
+{
+    if (!pProps) return CTL_RESULT_ERROR_INVALID_NULL_POINTER;
+    memset(pProps, 0, sizeof(ctl_display_properties_t));
+pProps->Size = sizeof(ctl_display_properties_t);
+    pProps->Version = 1;
+    return ctlGetDisplayProperties(hDisplay, pProps);
 }
 
 %}
-
-// ---------- Directors / callbacks ----------
-// IGCL is a C API; event/callbacks (if used) are function-pointer based,
-// so SWIG directors are not typically required. If you add callback trampolines,
-// declare them here and supply C glue that forwards to managed delegates.
-
-// ---------- Notes ----------
-// 1) Keep using Intel's cApiWrapper for runtime DLL loading in the native project.
-//    From C#, you call into our wrapper DLL; it, in turn, loads the correct IGCL runtime.
-// 2) If you need array marshaling helpers (e.g., gamma ramps, 3DLUT tables),
-//    add more %pointer_functions or %apply typemaps for the concrete structs coming from igcl_api.h.
-// 3) If you enable AUX/I2C access in C#, ensure admin/privilege requirements on the host.
-// 4) Always set Size fields in IGCL structs before calling getters.
 
