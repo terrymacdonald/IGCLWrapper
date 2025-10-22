@@ -200,14 +200,14 @@ typedef void* voidP_Ptr; // for pointer void*
 //   IGCL.ctlGetDisplayProperties(hDisplay, props);
 //
 %define AUTO_INIT_IGCL_STRUCT(StructName, DefaultVersion)
-%extend StructName {
-    StructName() {
-        StructName *s = (StructName *)calloc(1, sizeof(StructName));
+%extend _##StructName {
+    _##StructName() {
+        _##StructName *s = (_##StructName *)calloc(1, sizeof(_##StructName));
         if (s) {
-     s->Size = sizeof(StructName);
-        s->Version = DefaultVersion;
-      }
-        return s;
+            s->Size = sizeof(_##StructName);
+            s->Version = DefaultVersion;
+        }
+  return s;
     }
 }
 %enddef
@@ -231,7 +231,6 @@ AUTO_INIT_IGCL_STRUCT(ctl_pixtx_pipe_get_config_t, 0)
 AUTO_INIT_IGCL_STRUCT(ctl_pixtx_pipe_set_config_t, 0)
 AUTO_INIT_IGCL_STRUCT(ctl_pixtx_1dlut_config_t, 0)
 AUTO_INIT_IGCL_STRUCT(ctl_pixtx_3dlut_config_t, 0)
-AUTO_INIT_IGCL_STRUCT(ctl_pixtx_color_config_t, 0)
 AUTO_INIT_IGCL_STRUCT(ctl_panel_descriptor_access_args_t, 0)
 AUTO_INIT_IGCL_STRUCT(ctl_retro_scaling_caps_t, 0)
 AUTO_INIT_IGCL_STRUCT(ctl_retro_scaling_settings_t, 0)

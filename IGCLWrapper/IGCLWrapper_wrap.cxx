@@ -939,343 +939,343 @@ static ctl_wait_property_change_args_t waitPropertyChangeArgsP_value(ctl_wait_pr
 }
 
 SWIGINTERN _ctl_init_args_t *new__ctl_init_args_t(){
-        ctl_init_args_t *s = (ctl_init_args_t *)calloc(1, sizeof(ctl_init_args_t));
+        _ctl_init_args_t *s = (_ctl_init_args_t *)calloc(1, sizeof(_ctl_init_args_t));
         if (s) {
-     s->Size = sizeof(ctl_init_args_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_init_args_t);
+            s->Version = 0;
+        }
+  return s;
     }
 
 #include <string.h>
 
 SWIGINTERN _ctl_device_adapter_properties_t *new__ctl_device_adapter_properties_t(){
-        ctl_device_adapter_properties_t *s = (ctl_device_adapter_properties_t *)calloc(1, sizeof(ctl_device_adapter_properties_t));
+        _ctl_device_adapter_properties_t *s = (_ctl_device_adapter_properties_t *)calloc(1, sizeof(_ctl_device_adapter_properties_t));
         if (s) {
-     s->Size = sizeof(ctl_device_adapter_properties_t);
-        s->Version = 1;
-      }
-        return s;
+            s->Size = sizeof(_ctl_device_adapter_properties_t);
+            s->Version = 1;
+        }
+  return s;
     }
 SWIGINTERN _ctl_3d_feature_caps_t *new__ctl_3d_feature_caps_t(){
-        ctl_3d_feature_caps_t *s = (ctl_3d_feature_caps_t *)calloc(1, sizeof(ctl_3d_feature_caps_t));
+        _ctl_3d_feature_caps_t *s = (_ctl_3d_feature_caps_t *)calloc(1, sizeof(_ctl_3d_feature_caps_t));
         if (s) {
-     s->Size = sizeof(ctl_3d_feature_caps_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_3d_feature_caps_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_3d_feature_getset_t *new__ctl_3d_feature_getset_t(){
-        ctl_3d_feature_getset_t *s = (ctl_3d_feature_getset_t *)calloc(1, sizeof(ctl_3d_feature_getset_t));
+        _ctl_3d_feature_getset_t *s = (_ctl_3d_feature_getset_t *)calloc(1, sizeof(_ctl_3d_feature_getset_t));
         if (s) {
-     s->Size = sizeof(ctl_3d_feature_getset_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_3d_feature_getset_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_display_properties_t *new__ctl_display_properties_t(){
-        ctl_display_properties_t *s = (ctl_display_properties_t *)calloc(1, sizeof(ctl_display_properties_t));
+        _ctl_display_properties_t *s = (_ctl_display_properties_t *)calloc(1, sizeof(_ctl_display_properties_t));
         if (s) {
-     s->Size = sizeof(ctl_display_properties_t);
-        s->Version = 1;
-      }
-        return s;
+            s->Size = sizeof(_ctl_display_properties_t);
+            s->Version = 1;
+        }
+  return s;
     }
 SWIGINTERN _ctl_sharpness_caps_t *new__ctl_sharpness_caps_t(){
-        ctl_sharpness_caps_t *s = (ctl_sharpness_caps_t *)calloc(1, sizeof(ctl_sharpness_caps_t));
+        _ctl_sharpness_caps_t *s = (_ctl_sharpness_caps_t *)calloc(1, sizeof(_ctl_sharpness_caps_t));
         if (s) {
-     s->Size = sizeof(ctl_sharpness_caps_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_sharpness_caps_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_sharpness_settings_t *new__ctl_sharpness_settings_t(){
-        ctl_sharpness_settings_t *s = (ctl_sharpness_settings_t *)calloc(1, sizeof(ctl_sharpness_settings_t));
+        _ctl_sharpness_settings_t *s = (_ctl_sharpness_settings_t *)calloc(1, sizeof(_ctl_sharpness_settings_t));
         if (s) {
-     s->Size = sizeof(ctl_sharpness_settings_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_sharpness_settings_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_i2c_access_args_t *new__ctl_i2c_access_args_t(){
-        ctl_i2c_access_args_t *s = (ctl_i2c_access_args_t *)calloc(1, sizeof(ctl_i2c_access_args_t));
+        _ctl_i2c_access_args_t *s = (_ctl_i2c_access_args_t *)calloc(1, sizeof(_ctl_i2c_access_args_t));
         if (s) {
-     s->Size = sizeof(ctl_i2c_access_args_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_i2c_access_args_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_aux_access_args_t *new__ctl_aux_access_args_t(){
-        ctl_aux_access_args_t *s = (ctl_aux_access_args_t *)calloc(1, sizeof(ctl_aux_access_args_t));
+        _ctl_aux_access_args_t *s = (_ctl_aux_access_args_t *)calloc(1, sizeof(_ctl_aux_access_args_t));
         if (s) {
-     s->Size = sizeof(ctl_aux_access_args_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_aux_access_args_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_power_optimization_caps_t *new__ctl_power_optimization_caps_t(){
-        ctl_power_optimization_caps_t *s = (ctl_power_optimization_caps_t *)calloc(1, sizeof(ctl_power_optimization_caps_t));
+        _ctl_power_optimization_caps_t *s = (_ctl_power_optimization_caps_t *)calloc(1, sizeof(_ctl_power_optimization_caps_t));
         if (s) {
-     s->Size = sizeof(ctl_power_optimization_caps_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_power_optimization_caps_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_power_optimization_settings_t *new__ctl_power_optimization_settings_t(){
-        ctl_power_optimization_settings_t *s = (ctl_power_optimization_settings_t *)calloc(1, sizeof(ctl_power_optimization_settings_t));
+        _ctl_power_optimization_settings_t *s = (_ctl_power_optimization_settings_t *)calloc(1, sizeof(_ctl_power_optimization_settings_t));
         if (s) {
-     s->Size = sizeof(ctl_power_optimization_settings_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_power_optimization_settings_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_set_brightness_t *new__ctl_set_brightness_t(){
-        ctl_set_brightness_t *s = (ctl_set_brightness_t *)calloc(1, sizeof(ctl_set_brightness_t));
+        _ctl_set_brightness_t *s = (_ctl_set_brightness_t *)calloc(1, sizeof(_ctl_set_brightness_t));
         if (s) {
-     s->Size = sizeof(ctl_set_brightness_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_set_brightness_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_get_brightness_t *new__ctl_get_brightness_t(){
-        ctl_get_brightness_t *s = (ctl_get_brightness_t *)calloc(1, sizeof(ctl_get_brightness_t));
+        _ctl_get_brightness_t *s = (_ctl_get_brightness_t *)calloc(1, sizeof(_ctl_get_brightness_t));
         if (s) {
-     s->Size = sizeof(ctl_get_brightness_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_get_brightness_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_pixtx_1dlut_config_t *new__ctl_pixtx_1dlut_config_t(){
-        ctl_pixtx_1dlut_config_t *s = (ctl_pixtx_1dlut_config_t *)calloc(1, sizeof(ctl_pixtx_1dlut_config_t));
+        _ctl_pixtx_1dlut_config_t *s = (_ctl_pixtx_1dlut_config_t *)calloc(1, sizeof(_ctl_pixtx_1dlut_config_t));
         if (s) {
-     s->Size = sizeof(ctl_pixtx_1dlut_config_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_pixtx_1dlut_config_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_pixtx_3dlut_config_t *new__ctl_pixtx_3dlut_config_t(){
-        ctl_pixtx_3dlut_config_t *s = (ctl_pixtx_3dlut_config_t *)calloc(1, sizeof(ctl_pixtx_3dlut_config_t));
+        _ctl_pixtx_3dlut_config_t *s = (_ctl_pixtx_3dlut_config_t *)calloc(1, sizeof(_ctl_pixtx_3dlut_config_t));
         if (s) {
-     s->Size = sizeof(ctl_pixtx_3dlut_config_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_pixtx_3dlut_config_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_pixtx_pipe_get_config_t *new__ctl_pixtx_pipe_get_config_t(){
-        ctl_pixtx_pipe_get_config_t *s = (ctl_pixtx_pipe_get_config_t *)calloc(1, sizeof(ctl_pixtx_pipe_get_config_t));
+        _ctl_pixtx_pipe_get_config_t *s = (_ctl_pixtx_pipe_get_config_t *)calloc(1, sizeof(_ctl_pixtx_pipe_get_config_t));
         if (s) {
-     s->Size = sizeof(ctl_pixtx_pipe_get_config_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_pixtx_pipe_get_config_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_pixtx_pipe_set_config_t *new__ctl_pixtx_pipe_set_config_t(){
-        ctl_pixtx_pipe_set_config_t *s = (ctl_pixtx_pipe_set_config_t *)calloc(1, sizeof(ctl_pixtx_pipe_set_config_t));
+        _ctl_pixtx_pipe_set_config_t *s = (_ctl_pixtx_pipe_set_config_t *)calloc(1, sizeof(_ctl_pixtx_pipe_set_config_t));
         if (s) {
-     s->Size = sizeof(ctl_pixtx_pipe_set_config_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_pixtx_pipe_set_config_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_panel_descriptor_access_args_t *new__ctl_panel_descriptor_access_args_t(){
-        ctl_panel_descriptor_access_args_t *s = (ctl_panel_descriptor_access_args_t *)calloc(1, sizeof(ctl_panel_descriptor_access_args_t));
+        _ctl_panel_descriptor_access_args_t *s = (_ctl_panel_descriptor_access_args_t *)calloc(1, sizeof(_ctl_panel_descriptor_access_args_t));
         if (s) {
-     s->Size = sizeof(ctl_panel_descriptor_access_args_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_panel_descriptor_access_args_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_retro_scaling_settings_t *new__ctl_retro_scaling_settings_t(){
-        ctl_retro_scaling_settings_t *s = (ctl_retro_scaling_settings_t *)calloc(1, sizeof(ctl_retro_scaling_settings_t));
+        _ctl_retro_scaling_settings_t *s = (_ctl_retro_scaling_settings_t *)calloc(1, sizeof(_ctl_retro_scaling_settings_t));
         if (s) {
-     s->Size = sizeof(ctl_retro_scaling_settings_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_retro_scaling_settings_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_retro_scaling_caps_t *new__ctl_retro_scaling_caps_t(){
-        ctl_retro_scaling_caps_t *s = (ctl_retro_scaling_caps_t *)calloc(1, sizeof(ctl_retro_scaling_caps_t));
+        _ctl_retro_scaling_caps_t *s = (_ctl_retro_scaling_caps_t *)calloc(1, sizeof(_ctl_retro_scaling_caps_t));
         if (s) {
-     s->Size = sizeof(ctl_retro_scaling_caps_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_retro_scaling_caps_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_scaling_caps_t *new__ctl_scaling_caps_t(){
-        ctl_scaling_caps_t *s = (ctl_scaling_caps_t *)calloc(1, sizeof(ctl_scaling_caps_t));
+        _ctl_scaling_caps_t *s = (_ctl_scaling_caps_t *)calloc(1, sizeof(_ctl_scaling_caps_t));
         if (s) {
-     s->Size = sizeof(ctl_scaling_caps_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_scaling_caps_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_scaling_settings_t *new__ctl_scaling_settings_t(){
-        ctl_scaling_settings_t *s = (ctl_scaling_settings_t *)calloc(1, sizeof(ctl_scaling_settings_t));
+        _ctl_scaling_settings_t *s = (_ctl_scaling_settings_t *)calloc(1, sizeof(_ctl_scaling_settings_t));
         if (s) {
-     s->Size = sizeof(ctl_scaling_settings_t);
-        s->Version = 1;
-      }
-        return s;
+            s->Size = sizeof(_ctl_scaling_settings_t);
+            s->Version = 1;
+        }
+  return s;
     }
 SWIGINTERN _ctl_intel_arc_sync_monitor_params_t *new__ctl_intel_arc_sync_monitor_params_t(){
-        ctl_intel_arc_sync_monitor_params_t *s = (ctl_intel_arc_sync_monitor_params_t *)calloc(1, sizeof(ctl_intel_arc_sync_monitor_params_t));
+        _ctl_intel_arc_sync_monitor_params_t *s = (_ctl_intel_arc_sync_monitor_params_t *)calloc(1, sizeof(_ctl_intel_arc_sync_monitor_params_t));
         if (s) {
-     s->Size = sizeof(ctl_intel_arc_sync_monitor_params_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_intel_arc_sync_monitor_params_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_intel_arc_sync_profile_params_t *new__ctl_intel_arc_sync_profile_params_t(){
-        ctl_intel_arc_sync_profile_params_t *s = (ctl_intel_arc_sync_profile_params_t *)calloc(1, sizeof(ctl_intel_arc_sync_profile_params_t));
+        _ctl_intel_arc_sync_profile_params_t *s = (_ctl_intel_arc_sync_profile_params_t *)calloc(1, sizeof(_ctl_intel_arc_sync_profile_params_t));
         if (s) {
-     s->Size = sizeof(ctl_intel_arc_sync_profile_params_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_intel_arc_sync_profile_params_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_edid_management_args_t *new__ctl_edid_management_args_t(){
-        ctl_edid_management_args_t *s = (ctl_edid_management_args_t *)calloc(1, sizeof(ctl_edid_management_args_t));
+        _ctl_edid_management_args_t *s = (_ctl_edid_management_args_t *)calloc(1, sizeof(_ctl_edid_management_args_t));
         if (s) {
-     s->Size = sizeof(ctl_edid_management_args_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_edid_management_args_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_get_set_custom_mode_args_t *new__ctl_get_set_custom_mode_args_t(){
-        ctl_get_set_custom_mode_args_t *s = (ctl_get_set_custom_mode_args_t *)calloc(1, sizeof(ctl_get_set_custom_mode_args_t));
+        _ctl_get_set_custom_mode_args_t *s = (_ctl_get_set_custom_mode_args_t *)calloc(1, sizeof(_ctl_get_set_custom_mode_args_t));
         if (s) {
-     s->Size = sizeof(ctl_get_set_custom_mode_args_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_get_set_custom_mode_args_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_combined_display_args_t *new__ctl_combined_display_args_t(){
-        ctl_combined_display_args_t *s = (ctl_combined_display_args_t *)calloc(1, sizeof(ctl_combined_display_args_t));
+        _ctl_combined_display_args_t *s = (_ctl_combined_display_args_t *)calloc(1, sizeof(_ctl_combined_display_args_t));
         if (s) {
-     s->Size = sizeof(ctl_combined_display_args_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_combined_display_args_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_engine_properties_t *new__ctl_engine_properties_t(){
-        ctl_engine_properties_t *s = (ctl_engine_properties_t *)calloc(1, sizeof(ctl_engine_properties_t));
+        _ctl_engine_properties_t *s = (_ctl_engine_properties_t *)calloc(1, sizeof(_ctl_engine_properties_t));
         if (s) {
-     s->Size = sizeof(ctl_engine_properties_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_engine_properties_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_engine_stats_t *new__ctl_engine_stats_t(){
-        ctl_engine_stats_t *s = (ctl_engine_stats_t *)calloc(1, sizeof(ctl_engine_stats_t));
+        _ctl_engine_stats_t *s = (_ctl_engine_stats_t *)calloc(1, sizeof(_ctl_engine_stats_t));
         if (s) {
-     s->Size = sizeof(ctl_engine_stats_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_engine_stats_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_fan_speed_t *new__ctl_fan_speed_t(){
-        ctl_fan_speed_t *s = (ctl_fan_speed_t *)calloc(1, sizeof(ctl_fan_speed_t));
+        _ctl_fan_speed_t *s = (_ctl_fan_speed_t *)calloc(1, sizeof(_ctl_fan_speed_t));
         if (s) {
-     s->Size = sizeof(ctl_fan_speed_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_fan_speed_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_fan_speed_table_t *new__ctl_fan_speed_table_t(){
-        ctl_fan_speed_table_t *s = (ctl_fan_speed_table_t *)calloc(1, sizeof(ctl_fan_speed_table_t));
+        _ctl_fan_speed_table_t *s = (_ctl_fan_speed_table_t *)calloc(1, sizeof(_ctl_fan_speed_table_t));
         if (s) {
-     s->Size = sizeof(ctl_fan_speed_table_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_fan_speed_table_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_fan_properties_t *new__ctl_fan_properties_t(){
-        ctl_fan_properties_t *s = (ctl_fan_properties_t *)calloc(1, sizeof(ctl_fan_properties_t));
+        _ctl_fan_properties_t *s = (_ctl_fan_properties_t *)calloc(1, sizeof(_ctl_fan_properties_t));
         if (s) {
-     s->Size = sizeof(ctl_fan_properties_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_fan_properties_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_fan_config_t *new__ctl_fan_config_t(){
-        ctl_fan_config_t *s = (ctl_fan_config_t *)calloc(1, sizeof(ctl_fan_config_t));
+        _ctl_fan_config_t *s = (_ctl_fan_config_t *)calloc(1, sizeof(_ctl_fan_config_t));
         if (s) {
-     s->Size = sizeof(ctl_fan_config_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_fan_config_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_video_processing_feature_caps_t *new__ctl_video_processing_feature_caps_t(){
-        ctl_video_processing_feature_caps_t *s = (ctl_video_processing_feature_caps_t *)calloc(1, sizeof(ctl_video_processing_feature_caps_t));
+        _ctl_video_processing_feature_caps_t *s = (_ctl_video_processing_feature_caps_t *)calloc(1, sizeof(_ctl_video_processing_feature_caps_t));
         if (s) {
-     s->Size = sizeof(ctl_video_processing_feature_caps_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_video_processing_feature_caps_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_video_processing_feature_getset_t *new__ctl_video_processing_feature_getset_t(){
-        ctl_video_processing_feature_getset_t *s = (ctl_video_processing_feature_getset_t *)calloc(1, sizeof(ctl_video_processing_feature_getset_t));
+        _ctl_video_processing_feature_getset_t *s = (_ctl_video_processing_feature_getset_t *)calloc(1, sizeof(_ctl_video_processing_feature_getset_t));
         if (s) {
-     s->Size = sizeof(ctl_video_processing_feature_getset_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_video_processing_feature_getset_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_mem_properties_t *new__ctl_mem_properties_t(){
-        ctl_mem_properties_t *s = (ctl_mem_properties_t *)calloc(1, sizeof(ctl_mem_properties_t));
+        _ctl_mem_properties_t *s = (_ctl_mem_properties_t *)calloc(1, sizeof(_ctl_mem_properties_t));
         if (s) {
-     s->Size = sizeof(ctl_mem_properties_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_mem_properties_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_mem_state_t *new__ctl_mem_state_t(){
-        ctl_mem_state_t *s = (ctl_mem_state_t *)calloc(1, sizeof(ctl_mem_state_t));
+        _ctl_mem_state_t *s = (_ctl_mem_state_t *)calloc(1, sizeof(_ctl_mem_state_t));
         if (s) {
-     s->Size = sizeof(ctl_mem_state_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_mem_state_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_mem_bandwidth_t *new__ctl_mem_bandwidth_t(){
-        ctl_mem_bandwidth_t *s = (ctl_mem_bandwidth_t *)calloc(1, sizeof(ctl_mem_bandwidth_t));
+        _ctl_mem_bandwidth_t *s = (_ctl_mem_bandwidth_t *)calloc(1, sizeof(_ctl_mem_bandwidth_t));
         if (s) {
-     s->Size = sizeof(ctl_mem_bandwidth_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_mem_bandwidth_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_power_telemetry_t *new__ctl_power_telemetry_t(){
-        ctl_power_telemetry_t *s = (ctl_power_telemetry_t *)calloc(1, sizeof(ctl_power_telemetry_t));
+        _ctl_power_telemetry_t *s = (_ctl_power_telemetry_t *)calloc(1, sizeof(_ctl_power_telemetry_t));
         if (s) {
-     s->Size = sizeof(ctl_power_telemetry_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_power_telemetry_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_power_properties_t *new__ctl_power_properties_t(){
-        ctl_power_properties_t *s = (ctl_power_properties_t *)calloc(1, sizeof(ctl_power_properties_t));
+        _ctl_power_properties_t *s = (_ctl_power_properties_t *)calloc(1, sizeof(_ctl_power_properties_t));
         if (s) {
-     s->Size = sizeof(ctl_power_properties_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_power_properties_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_power_energy_counter_t *new__ctl_power_energy_counter_t(){
-        ctl_power_energy_counter_t *s = (ctl_power_energy_counter_t *)calloc(1, sizeof(ctl_power_energy_counter_t));
+        _ctl_power_energy_counter_t *s = (_ctl_power_energy_counter_t *)calloc(1, sizeof(_ctl_power_energy_counter_t));
         if (s) {
-     s->Size = sizeof(ctl_power_energy_counter_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_power_energy_counter_t);
+            s->Version = 0;
+        }
+  return s;
     }
 SWIGINTERN _ctl_power_limits_t *new__ctl_power_limits_t(){
-        ctl_power_limits_t *s = (ctl_power_limits_t *)calloc(1, sizeof(ctl_power_limits_t));
+        _ctl_power_limits_t *s = (_ctl_power_limits_t *)calloc(1, sizeof(_ctl_power_limits_t));
         if (s) {
-     s->Size = sizeof(ctl_power_limits_t);
-        s->Version = 0;
-      }
-        return s;
+            s->Size = sizeof(_ctl_power_limits_t);
+            s->Version = 0;
+        }
+  return s;
     }
 
 
