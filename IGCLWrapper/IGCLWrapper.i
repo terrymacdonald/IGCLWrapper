@@ -147,6 +147,35 @@ typedef int16_t  igcl_int16;
 typedef int8_t   igcl_int8;
 %}
 
+// ----- Expose IGCL Version Macros and Constants to C# -----
+// These helper functions allow C# code to work with IGCL version numbers
+// Note: The constants CTL_IMPL_MAJOR_VERSION, CTL_IMPL_MINOR_VERSION, and 
+// CTL_IMPL_VERSION are already defined in igcl_api.h and will be automatically
+// exposed to C# by SWIG
+
+// Inline helper functions for version manipulation
+%inline %{
+    // Create a version number from major and minor components
+    static inline uint32_t CTL_MakeVersion(uint32_t major, uint32_t minor) {
+   return (major << 16) | (minor & 0x0000ffff);
+    }
+    
+  // Extract major version from a version number
+    static inline uint32_t CTL_GetMajorVersion(uint32_t version) {
+return version >> 16;
+    }
+    
+    // Extract minor version from a version number
+static inline uint32_t CTL_GetMinorVersion(uint32_t version) {
+        return version & 0x0000ffff;
+    }
+    
+    // Get the current implementation version (wrapper around the macro)
+    static inline uint32_t CTL_GetImplVersion() {
+        return CTL_IMPL_VERSION;
+    }
+%}
+
 // IGCL types (for handles)
 //typedef void* ctl_api_handle_t;
 //typedef void* ctl_device_adapter_handle_t;
@@ -271,7 +300,7 @@ ctl_result_t IGCL_InitDefault(ctl_api_handle_t *pApiHandle)
     memset(&initArgs, 0, sizeof(initArgs));
     initArgs.Size = sizeof(ctl_init_args_t);
     initArgs.Version = 0;
-    initArgs.AppVersion = CTL_MAKE_VERSION(1, 0);  // Fixed: Use 2 args (major, minor)
+    initArgs.AppVersion = CTL_MAKE_VERSION(CTL_IMPL_MAJOR_VERSION, CTL_IMPL_MINOR_VERSION);
     initArgs.flags = CTL_INIT_FLAG_USE_LEVEL_ZERO;
     initArgs.SupportedVersion = CTL_IMPL_VERSION;
     return ctlInit(&initArgs, pApiHandle);

@@ -456,6 +456,27 @@ typedef int16_t  igcl_int16;
 typedef int8_t   igcl_int8;
 
 
+    // Create a version number from major and minor components
+    static inline uint32_t CTL_MakeVersion(uint32_t major, uint32_t minor) {
+   return (major << 16) | (minor & 0x0000ffff);
+    }
+    
+  // Extract major version from a version number
+    static inline uint32_t CTL_GetMajorVersion(uint32_t version) {
+return version >> 16;
+    }
+    
+    // Extract minor version from a version number
+static inline uint32_t CTL_GetMinorVersion(uint32_t version) {
+        return version & 0x0000ffff;
+    }
+    
+    // Get the current implementation version (wrapper around the macro)
+    static inline uint32_t CTL_GetImplVersion() {
+        return CTL_IMPL_VERSION;
+    }
+
+
 static igcl_uint32 *new_igcl_uint32P(void) { 
   return new igcl_uint32(); 
 }
@@ -1287,7 +1308,7 @@ ctl_result_t IGCL_InitDefault(ctl_api_handle_t *pApiHandle)
     memset(&initArgs, 0, sizeof(initArgs));
     initArgs.Size = sizeof(ctl_init_args_t);
     initArgs.Version = 0;
-    initArgs.AppVersion = CTL_MAKE_VERSION(1, 0);  // Fixed: Use 2 args (major, minor)
+    initArgs.AppVersion = CTL_MAKE_VERSION(CTL_IMPL_MAJOR_VERSION, CTL_IMPL_MINOR_VERSION);
     initArgs.flags = CTL_INIT_FLAG_USE_LEVEL_ZERO;
     initArgs.SupportedVersion = CTL_IMPL_VERSION;
     return ctlInit(&initArgs, pApiHandle);
@@ -1346,6 +1367,54 @@ pProps->Size = sizeof(ctl_display_properties_t);
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_IGCLWrapper_CTL_MakeVersion(unsigned int jarg1, unsigned int jarg2) {
+  unsigned int jresult ;
+  uint32_t arg1 ;
+  uint32_t arg2 ;
+  uint32_t result;
+  
+  arg1 = (uint32_t)jarg1; 
+  arg2 = (uint32_t)jarg2; 
+  result = (uint32_t)CTL_MakeVersion(arg1,arg2);
+  jresult = (unsigned int)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_IGCLWrapper_CTL_GetMajorVersion(unsigned int jarg1) {
+  unsigned int jresult ;
+  uint32_t arg1 ;
+  uint32_t result;
+  
+  arg1 = (uint32_t)jarg1; 
+  result = (uint32_t)CTL_GetMajorVersion(arg1);
+  jresult = (unsigned int)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_IGCLWrapper_CTL_GetMinorVersion(unsigned int jarg1) {
+  unsigned int jresult ;
+  uint32_t arg1 ;
+  uint32_t result;
+  
+  arg1 = (uint32_t)jarg1; 
+  result = (uint32_t)CTL_GetMinorVersion(arg1);
+  jresult = (unsigned int)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_IGCLWrapper_CTL_GetImplVersion() {
+  unsigned int jresult ;
+  uint32_t result;
+  
+  result = (uint32_t)CTL_GetImplVersion();
+  jresult = (unsigned int)result; 
+  return jresult;
+}
+
 
 SWIGEXPORT void * SWIGSTDCALL CSharp_IGCLWrapper_new_igcl_uint32P() {
   void * jresult ;
