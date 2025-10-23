@@ -228,15 +228,6 @@ public partial class IGCLPINVOKE {
 #nullable enable
 
 
-  [global::System.Runtime.InteropServices.DllImport("IGCLWrapper", EntryPoint="CSharp_IGCLWrapper_CTL_IMPL_MAJOR_VERSION_get")]
-  public static extern int CTL_IMPL_MAJOR_VERSION_get();
-
-  [global::System.Runtime.InteropServices.DllImport("IGCLWrapper", EntryPoint="CSharp_IGCLWrapper_CTL_IMPL_MINOR_VERSION_get")]
-  public static extern int CTL_IMPL_MINOR_VERSION_get();
-
-  [global::System.Runtime.InteropServices.DllImport("IGCLWrapper", EntryPoint="CSharp_IGCLWrapper_CTL_IMPL_VERSION_get")]
-  public static extern int CTL_IMPL_VERSION_get();
-
   [global::System.Runtime.InteropServices.DllImport("IGCLWrapper", EntryPoint="CSharp_IGCLWrapper_CTL_MakeVersion")]
   public static extern uint CTL_MakeVersion(uint jarg1, uint jarg2);
 
@@ -593,6 +584,15 @@ public partial class IGCLPINVOKE {
 
   [global::System.Runtime.InteropServices.DllImport("IGCLWrapper", EntryPoint="CSharp_IGCLWrapper_waitPropertyChangeArgsP_value")]
   public static extern global::System.IntPtr waitPropertyChangeArgsP_value(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("IGCLWrapper", EntryPoint="CSharp_IGCLWrapper_CTL_IMPL_MAJOR_VERSION_get")]
+  public static extern int CTL_IMPL_MAJOR_VERSION_get();
+
+  [global::System.Runtime.InteropServices.DllImport("IGCLWrapper", EntryPoint="CSharp_IGCLWrapper_CTL_IMPL_MINOR_VERSION_get")]
+  public static extern int CTL_IMPL_MINOR_VERSION_get();
+
+  [global::System.Runtime.InteropServices.DllImport("IGCLWrapper", EntryPoint="CSharp_IGCLWrapper_CTL_IMPL_VERSION_get")]
+  public static extern int CTL_IMPL_VERSION_get();
 
   [global::System.Runtime.InteropServices.DllImport("IGCLWrapper", EntryPoint="CSharp_IGCLWrapper_ctl_base_interface_t_Size_set")]
   public static extern void ctl_base_interface_t_Size_set(global::System.Runtime.InteropServices.HandleRef jarg1, uint jarg2);
