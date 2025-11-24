@@ -83,9 +83,9 @@ namespace IGCLWrapper.Tests
             ctl_result_t result = IGCL.ctlEnumerateDevices(_apiHandle, countPtr, adapterPtr);
             Assert.Equal(ctl_result_t.CTL_RESULT_SUCCESS, result);
 
-            // Get first adapter
+            // Get first adapter (IntPtr is a value type, check for IntPtr.Zero instead)
             var firstAdapter = IGCL.deviceAdapterHandleP_value(adapterPtr);
-            Assert.NotNull(firstAdapter);
+            Assert.NotEqual(IntPtr.Zero, firstAdapter);
 
             // Get properties
             var propsPtr = IGCL.new_adapterPropertiesP();

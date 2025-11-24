@@ -106,7 +106,7 @@ namespace IGCLWrapper.Tests
             Assert.Equal(ctl_result_t.CTL_RESULT_SUCCESS, result);
 
             var firstAdapter = IGCL.deviceAdapterHandleP_value(adapterPtr);
-            Assert.NotNull(firstAdapter);
+            Assert.NotEqual(IntPtr.Zero, firstAdapter);
 
             // Enumerate displays
             IGCL.igcl_uint32P_assign(countPtr, 0);
@@ -140,7 +140,7 @@ namespace IGCLWrapper.Tests
             Assert.Equal(ctl_result_t.CTL_RESULT_SUCCESS, result);
 
             var firstAdapter = IGCL.deviceAdapterHandleP_value(adapterPtr);
-            Assert.NotNull(firstAdapter);
+            Assert.NotEqual(IntPtr.Zero, firstAdapter);
 
             // Get first display
             IGCL.igcl_uint32P_assign(countPtr, _displayCount);
@@ -149,7 +149,7 @@ namespace IGCLWrapper.Tests
             Assert.Equal(ctl_result_t.CTL_RESULT_SUCCESS, result);
 
             var firstDisplay = IGCL.displayOutputHandleP_value(displayPtr);
-            Assert.NotNull(firstDisplay);
+            Assert.NotEqual(IntPtr.Zero, firstDisplay);
 
             // Get display properties - use the helper function which auto-initializes Size and Version
             var properties = new ctl_display_properties_t();
