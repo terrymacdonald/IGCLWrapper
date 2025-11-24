@@ -26,13 +26,24 @@ This repository provides a C# wrapper for IGCL (Intel Graphics Control Library),
 ### Build Instructions
 
 1. Clone the repository:
-   ```bash
+   ```powershell
    git clone https://github.com/terrymacdonald/IGCLWrapper.git
    cd IGCLWrapper
    ```
 
-2. Build the project using .NET CLI:
-   ```bash
+2. Download the latest IGCL SDK:
+   Open PowerShell, navigate to the repository root and run the following command:
+   ```powershell
+   .\prepare_igcl.ps1
+   ```
+
+3. Build the project using PowerShell script:
+   ```powershell
+   .\rebuild_igcl.ps1
+   ```
+   
+   Or using .NET CLI:
+   ```powershell
    dotnet build IGCLWrapper/IGCLWrapper.csproj
    ```
    
@@ -40,7 +51,7 @@ This repository provides a C# wrapper for IGCL (Intel Graphics Control Library),
    - Open `IGCLWrapper.sln`
    - Build the solution (Ctrl+Shift+B)
 
-3. Once the build process is complete, the generated DLL will be available in:
+4. Once the build process is complete, the generated DLL will be available in:
    - Debug: `IGCLWrapper/bin/Debug/net8.0/IGCLWrapper.dll`
    - Release: `IGCLWrapper/bin/Release/net8.0/IGCLWrapper.dll`
 
@@ -152,8 +163,13 @@ unsafe
 
 **IMPORTANT**: The unit tests will only work if run on a computer with Intel GPU hardware.
 
-Run the tests using .NET CLI:
-```bash
+Run the tests using PowerShell script:
+```powershell
+.\test_igcl.ps1
+```
+
+Or using .NET CLI:
+```powershell
 dotnet test IGCLWrapper.Tests/IGCLWrapper.Tests.csproj
 ```
 
@@ -176,9 +192,12 @@ IGCLWrapper/
 │   ├── IGCLExtensions.cs        # Extension methods and helpers
 │   └── ClangSharpConfig.rsp     # ClangSharp generator configuration
 ├── IGCLWrapper.Tests/           # Unit tests
-│   └── ClangSharp/
-│       └── BasicApiTests.cs     # Basic API functionality tests
-└── drivers.gpu.control-library/ # IGCL SDK headers (submodule)
+│   ├── BasicApiTests.cs     # Basic API functionality tests
+│   ├── CoreApiTests.cs      # Core API functionality tests
+│   ├── DisplaySerivesTests.cs   # Display-related API tests
+│   ├── GpuServicesTests.cs      # GPU-related API tests
+│   └── SystemServicesTests.cs   # System-related API tests
+└── drivers.gpu.control-library/ # IGCL SDK headers (downloaded using the prepare_igcl.ps1 powershell script)
 ```
 
 ## Regenerating Bindings
@@ -189,13 +208,13 @@ If you need to regenerate the P/Invoke bindings (e.g., after updating IGCL heade
 dotnet build IGCLWrapper/IGCLWrapper.csproj
 ```
 
-The ClangSharpPInvokeGenerator will automatically regenerate bindings during build based on `ClangSharpConfig.rsp`.
+The ClangSharpPInvokeGenerator will automatically regenerate bindings during build based on the settings in the `ClangSharpConfig.rsp`.
 
 ## Requirements
 
 - **Runtime**: .NET 8.0 or later
-- **Intel Graphics Drivers**: Must be installed for `ControlLib.dll`
-- **Platform**: Windows x64
+- **Intel Graphics Drivers**: Windows® 10 DCH Intel® Graphics Driver version 25.20.100.6618 or higher is required in order to install `ControlLib.dll` (the IGCL runtime library).
+- **Platform**: Windows 10 or 11 (x64 version only)
 
 ## Performance
 
