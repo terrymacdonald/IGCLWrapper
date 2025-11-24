@@ -151,13 +151,12 @@ namespace IGCLWrapper.Tests
             var firstDisplay = IGCL.displayOutputHandleP_value(displayPtr);
             Assert.NotNull(firstDisplay);
 
-            // Get display properties
-            var propsPtr = IGCL.new_displayPropertiesP();
-            result = IGCL.IGCL_GetDisplayProperties(firstDisplay, propsPtr);
+            // Get display properties - use the helper function which auto-initializes Size and Version
+            var properties = new ctl_display_properties_t();
+            result = IGCL.IGCL_GetDisplayProperties(firstDisplay, properties);
             Assert.Equal(ctl_result_t.CTL_RESULT_SUCCESS, result);
 
             // Cleanup
-            IGCL.delete_displayPropertiesP(propsPtr);
             IGCL.delete_displayOutputHandleP(displayPtr);
             IGCL.delete_deviceAdapterHandleP(adapterPtr);
             IGCL.delete_igcl_uint32P(countPtr);

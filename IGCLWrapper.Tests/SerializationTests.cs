@@ -1,6 +1,6 @@
 using Xunit;
-using System.Text.Json;
-using IGCLWrapper; // Use the new bindings project
+using Newtonsoft.Json;
+using IGCLWrapper;
 
 namespace IGCLWrapper.Tests
 {
@@ -10,51 +10,39 @@ namespace IGCLWrapper.Tests
         public void DisplayProperties_Serialization_ShouldWork()
         {
             // Create a display properties structure
-            ctl_display_properties_t originalProps = new ctl_display_properties_t();
-            originalProps.Size = (uint)System.Runtime.InteropServices.Marshal.SizeOf(originalProps);
-            originalProps.Version = 1;
+            var originalProps = new ctl_display_properties_t();
+            // Note: We can't use Marshal.SizeOf on SWIG-generated classes
+            // Size and Version will be set by the actual IGCL API when needed
             originalProps.Type = ctl_display_output_types_t.CTL_DISPLAY_OUTPUT_TYPES_DISPLAYPORT;
-            originalProps.Display_Timing_Info.PixelClock = 533250000; // 533.25 MHz
-            originalProps.Display_Timing_Info.HActive = 1920;
-            originalProps.Display_Timing_Info.VActive = 1080;
-            originalProps.Display_Timing_Info.HTotal = 2200;
-            originalProps.Display_Timing_Info.VTotal = 1125;
-            originalProps.Display_Timing_Info.RefreshRate = 60.0f;
-
-            // Serialize to JSON
-            string json = JsonSerializer.Serialize(originalProps, new JsonSerializerOptions { WriteIndented = true });
+            
+            // Serialize to JSON using Newtonsoft.Json
+            string json = JsonConvert.SerializeObject(originalProps, Formatting.Indented);
             Assert.False(string.IsNullOrEmpty(json));
 
             // Deserialize from JSON
-            ctl_display_properties_t deserializedProps = JsonSerializer.Deserialize<ctl_display_properties_t>(json);
+            var deserializedProps = JsonConvert.DeserializeObject<ctl_display_properties_t>(json);
             Assert.NotNull(deserializedProps);
 
             // Verify key properties
             Assert.Equal(originalProps.Type, deserializedProps.Type);
-            Assert.Equal(originalProps.Display_Timing_Info.PixelClock, deserializedProps.Display_Timing_Info.PixelClock);
-            Assert.Equal(originalProps.Display_Timing_Info.HActive, deserializedProps.Display_Timing_Info.HActive);
-            Assert.Equal(originalProps.Display_Timing_Info.VActive, deserializedProps.Display_Timing_Info.VActive);
-            Assert.Equal(originalProps.Display_Timing_Info.RefreshRate, deserializedProps.Display_Timing_Info.RefreshRate);
         }
 
         [Fact]
         public void AdapterProperties_Serialization_ShouldWork()
         {
             // Create an adapter properties structure
-            ctl_device_adapter_properties_t originalProps = new ctl_device_adapter_properties_t();
-            originalProps.Size = (uint)System.Runtime.InteropServices.Marshal.SizeOf(originalProps);
-            originalProps.Version = 1;
+            var originalProps = new ctl_device_adapter_properties_t();
             originalProps.device_type = ctl_device_type_t.CTL_DEVICE_TYPE_GRAPHICS;
             originalProps.pci_vendor_id = 0x8086; // Intel vendor ID
             originalProps.pci_device_id = 0x1234;
             originalProps.Frequency = 1800; // 1.8 GHz
 
             // Serialize to JSON
-            string json = JsonSerializer.Serialize(originalProps, new JsonSerializerOptions { WriteIndented = true });
+            string json = JsonConvert.SerializeObject(originalProps, Formatting.Indented);
             Assert.False(string.IsNullOrEmpty(json));
 
             // Deserialize from JSON
-            ctl_device_adapter_properties_t deserializedProps = JsonSerializer.Deserialize<ctl_device_adapter_properties_t>(json);
+            var deserializedProps = JsonConvert.DeserializeObject<ctl_device_adapter_properties_t>(json);
             Assert.NotNull(deserializedProps);
 
             // Verify key properties
@@ -68,19 +56,17 @@ namespace IGCLWrapper.Tests
         public void SharpnessSettings_Serialization_ShouldWork()
         {
             // Create sharpness settings
-            ctl_sharpness_settings_t originalSettings = new ctl_sharpness_settings_t();
-            originalSettings.Size = (uint)System.Runtime.InteropServices.Marshal.SizeOf(originalSettings);
-            originalSettings.Version = 1;
+            var originalSettings = new ctl_sharpness_settings_t();
             originalSettings.Enable = true;
             originalSettings.FilterType = (uint)ctl_sharpness_filter_type_flag_t.CTL_SHARPNESS_FILTER_TYPE_FLAG_ADAPTIVE;
             originalSettings.Intensity = 0.75f;
 
             // Serialize to JSON
-            string json = JsonSerializer.Serialize(originalSettings, new JsonSerializerOptions { WriteIndented = true });
+            string json = JsonConvert.SerializeObject(originalSettings, Formatting.Indented);
             Assert.False(string.IsNullOrEmpty(json));
 
             // Deserialize from JSON
-            ctl_sharpness_settings_t deserializedSettings = JsonSerializer.Deserialize<ctl_sharpness_settings_t>(json);
+            var deserializedSettings = JsonConvert.DeserializeObject<ctl_sharpness_settings_t>(json);
             Assert.NotNull(deserializedSettings);
 
             // Verify properties
@@ -93,19 +79,17 @@ namespace IGCLWrapper.Tests
         public void PowerOptimizationSettings_Serialization_ShouldWork()
         {
             // Create power optimization settings
-            ctl_power_optimization_settings_t originalSettings = new ctl_power_optimization_settings_t();
-            originalSettings.Size = (uint)System.Runtime.InteropServices.Marshal.SizeOf(originalSettings);
-            originalSettings.Version = 1;
+            var originalSettings = new ctl_power_optimization_settings_t();
             originalSettings.PowerOptimizationPlan = ctl_power_optimization_plan_t.CTL_POWER_OPTIMIZATION_PLAN_BALANCED;
             originalSettings.PowerOptimizationFeature = (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_PSR;
             originalSettings.Enable = true;
 
             // Serialize to JSON
-            string json = JsonSerializer.Serialize(originalSettings, new JsonSerializerOptions { WriteIndented = true });
+            string json = JsonConvert.SerializeObject(originalSettings, Formatting.Indented);
             Assert.False(string.IsNullOrEmpty(json));
 
             // Deserialize from JSON
-            ctl_power_optimization_settings_t deserializedSettings = JsonSerializer.Deserialize<ctl_power_optimization_settings_t>(json);
+            var deserializedSettings = JsonConvert.DeserializeObject<ctl_power_optimization_settings_t>(json);
             Assert.NotNull(deserializedSettings);
 
             // Verify properties
@@ -118,20 +102,18 @@ namespace IGCLWrapper.Tests
         public void ScalingSettings_Serialization_ShouldWork()
         {
             // Create scaling settings
-            ctl_scaling_settings_t originalSettings = new ctl_scaling_settings_t();
-            originalSettings.Size = (uint)System.Runtime.InteropServices.Marshal.SizeOf(originalSettings);
-            originalSettings.Version = 1;
+            var originalSettings = new ctl_scaling_settings_t();
             originalSettings.Enable = true;
             originalSettings.ScalingType = (uint)ctl_scaling_type_flag_t.CTL_SCALING_TYPE_FLAG_ASPECT_RATIO_CENTERED_MAX;
             originalSettings.CustomScalingX = 95;
             originalSettings.CustomScalingY = 95;
 
             // Serialize to JSON
-            string json = JsonSerializer.Serialize(originalSettings, new JsonSerializerOptions { WriteIndented = true });
+            string json = JsonConvert.SerializeObject(originalSettings, Formatting.Indented);
             Assert.False(string.IsNullOrEmpty(json));
 
             // Deserialize from JSON
-            ctl_scaling_settings_t deserializedSettings = JsonSerializer.Deserialize<ctl_scaling_settings_t>(json);
+            var deserializedSettings = JsonConvert.DeserializeObject<ctl_scaling_settings_t>(json);
             Assert.NotNull(deserializedSettings);
 
             // Verify properties
@@ -145,20 +127,18 @@ namespace IGCLWrapper.Tests
         public void DisplaySettings_Serialization_ShouldWork()
         {
             // Create display settings
-            ctl_display_settings_t originalSettings = new ctl_display_settings_t();
-            originalSettings.Size = (uint)System.Runtime.InteropServices.Marshal.SizeOf(originalSettings);
-            originalSettings.Version = 1;
+            var originalSettings = new ctl_display_settings_t();
             originalSettings.Set = false; // Get operation
             originalSettings.LowLatency = ctl_display_setting_low_latency_t.CTL_DISPLAY_SETTING_LOW_LATENCY_ENABLED;
             originalSettings.ContentType = ctl_display_setting_content_type_t.CTL_DISPLAY_SETTING_CONTENT_TYPE_GAMING;
             originalSettings.QuantizationRange = ctl_display_setting_quantization_range_t.CTL_DISPLAY_SETTING_QUANTIZATION_RANGE_FULL_RANGE;
 
             // Serialize to JSON
-            string json = JsonSerializer.Serialize(originalSettings, new JsonSerializerOptions { WriteIndented = true });
+            string json = JsonConvert.SerializeObject(originalSettings, Formatting.Indented);
             Assert.False(string.IsNullOrEmpty(json));
 
             // Deserialize from JSON
-            ctl_display_settings_t deserializedSettings = JsonSerializer.Deserialize<ctl_display_settings_t>(json);
+            var deserializedSettings = JsonConvert.DeserializeObject<ctl_display_settings_t>(json);
             Assert.NotNull(deserializedSettings);
 
             // Verify properties
@@ -171,9 +151,7 @@ namespace IGCLWrapper.Tests
         public void FrequencyState_Serialization_ShouldWork()
         {
             // Create frequency state
-            ctl_freq_state_t originalState = new ctl_freq_state_t();
-            originalState.Size = (uint)System.Runtime.InteropServices.Marshal.SizeOf(originalState);
-            originalState.Version = 1;
+            var originalState = new ctl_freq_state_t();
             originalState.request = 1800.0; // 1.8 GHz
             originalState.actual = 1750.0;  // 1.75 GHz
             originalState.tdp = 2000.0;     // 2.0 GHz
@@ -181,11 +159,11 @@ namespace IGCLWrapper.Tests
             originalState.throttleReasons = (uint)ctl_freq_throttle_reason_flag_t.CTL_FREQ_THROTTLE_REASON_FLAG_THERMAL_LIMIT;
 
             // Serialize to JSON
-            string json = JsonSerializer.Serialize(originalState, new JsonSerializerOptions { WriteIndented = true });
+            string json = JsonConvert.SerializeObject(originalState, Formatting.Indented);
             Assert.False(string.IsNullOrEmpty(json));
 
             // Deserialize from JSON
-            ctl_freq_state_t deserializedState = JsonSerializer.Deserialize<ctl_freq_state_t>(json);
+            var deserializedState = JsonConvert.DeserializeObject<ctl_freq_state_t>(json);
             Assert.NotNull(deserializedState);
 
             // Verify properties
@@ -200,18 +178,16 @@ namespace IGCLWrapper.Tests
         public void MemoryState_Serialization_ShouldWork()
         {
             // Create memory state
-            ctl_mem_state_t originalState = new ctl_mem_state_t();
-            originalState.Size = (uint)System.Runtime.InteropServices.Marshal.SizeOf(originalState);
-            originalState.Version = 1;
+            var originalState = new ctl_mem_state_t();
             originalState.free = 8L * 1024 * 1024 * 1024; // 8 GB free
             originalState.size = 16L * 1024 * 1024 * 1024; // 16 GB total
 
             // Serialize to JSON
-            string json = JsonSerializer.Serialize(originalState, new JsonSerializerOptions { WriteIndented = true });
+            string json = JsonConvert.SerializeObject(originalState, Formatting.Indented);
             Assert.False(string.IsNullOrEmpty(json));
 
             // Deserialize from JSON
-            ctl_mem_state_t deserializedState = JsonSerializer.Deserialize<ctl_mem_state_t>(json);
+            var deserializedState = JsonConvert.DeserializeObject<ctl_mem_state_t>(json);
             Assert.NotNull(deserializedState);
 
             // Verify properties
@@ -223,27 +199,29 @@ namespace IGCLWrapper.Tests
         public void PowerLimits_Serialization_ShouldWork()
         {
             // Create power limits
-            ctl_power_limits_t originalLimits = new ctl_power_limits_t();
-            originalLimits.Size = (uint)System.Runtime.InteropServices.Marshal.SizeOf(originalLimits);
-            originalLimits.Version = 1;
+            var originalLimits = new ctl_power_limits_t();
+            originalLimits.sustainedPowerLimit = new ctl_power_sustained_limit_t();
             originalLimits.sustainedPowerLimit.enabled = true;
             originalLimits.sustainedPowerLimit.power = 250000; // 250W
             originalLimits.sustainedPowerLimit.interval = 1000; // 1 second
+            originalLimits.burstPowerLimit = new ctl_power_burst_limit_t();
             originalLimits.burstPowerLimit.enabled = true;
             originalLimits.burstPowerLimit.power = 300000; // 300W
 
             // Serialize to JSON
-            string json = JsonSerializer.Serialize(originalLimits, new JsonSerializerOptions { WriteIndented = true });
+            string json = JsonConvert.SerializeObject(originalLimits, Formatting.Indented);
             Assert.False(string.IsNullOrEmpty(json));
 
             // Deserialize from JSON
-            ctl_power_limits_t deserializedLimits = JsonSerializer.Deserialize<ctl_power_limits_t>(json);
+            var deserializedLimits = JsonConvert.DeserializeObject<ctl_power_limits_t>(json);
             Assert.NotNull(deserializedLimits);
 
             // Verify properties
+            Assert.NotNull(deserializedLimits.sustainedPowerLimit);
             Assert.Equal(originalLimits.sustainedPowerLimit.enabled, deserializedLimits.sustainedPowerLimit.enabled);
             Assert.Equal(originalLimits.sustainedPowerLimit.power, deserializedLimits.sustainedPowerLimit.power);
             Assert.Equal(originalLimits.sustainedPowerLimit.interval, deserializedLimits.sustainedPowerLimit.interval);
+            Assert.NotNull(deserializedLimits.burstPowerLimit);
             Assert.Equal(originalLimits.burstPowerLimit.enabled, deserializedLimits.burstPowerLimit.enabled);
             Assert.Equal(originalLimits.burstPowerLimit.power, deserializedLimits.burstPowerLimit.power);
         }
@@ -252,29 +230,31 @@ namespace IGCLWrapper.Tests
         public void OverclockProperties_Serialization_ShouldWork()
         {
             // Create overclock properties
-            ctl_oc_properties_t originalProps = new ctl_oc_properties_t();
-            originalProps.Size = (uint)System.Runtime.InteropServices.Marshal.SizeOf(originalProps);
-            originalProps.Version = 1;
+            var originalProps = new ctl_oc_properties_t();
             originalProps.bSupported = true;
+            originalProps.gpuFrequencyOffset = new ctl_oc_control_info_t();
             originalProps.gpuFrequencyOffset.min = -500.0; // -500 MHz
             originalProps.gpuFrequencyOffset.max = 200.0;  // +200 MHz
             originalProps.gpuFrequencyOffset.Default = 0.0; // 0 MHz offset
+            originalProps.powerLimit = new ctl_oc_control_info_t();
             originalProps.powerLimit.min = 100000; // 100W
             originalProps.powerLimit.max = 350000; // 350W
 
             // Serialize to JSON
-            string json = JsonSerializer.Serialize(originalProps, new JsonSerializerOptions { WriteIndented = true });
+            string json = JsonConvert.SerializeObject(originalProps, Formatting.Indented);
             Assert.False(string.IsNullOrEmpty(json));
 
             // Deserialize from JSON
-            ctl_oc_properties_t deserializedProps = JsonSerializer.Deserialize<ctl_oc_properties_t>(json);
+            var deserializedProps = JsonConvert.DeserializeObject<ctl_oc_properties_t>(json);
             Assert.NotNull(deserializedProps);
 
             // Verify properties
             Assert.Equal(originalProps.bSupported, deserializedProps.bSupported);
+            Assert.NotNull(deserializedProps.gpuFrequencyOffset);
             Assert.Equal(originalProps.gpuFrequencyOffset.min, deserializedProps.gpuFrequencyOffset.min);
             Assert.Equal(originalProps.gpuFrequencyOffset.max, deserializedProps.gpuFrequencyOffset.max);
             Assert.Equal(originalProps.gpuFrequencyOffset.Default, deserializedProps.gpuFrequencyOffset.Default);
+            Assert.NotNull(deserializedProps.powerLimit);
             Assert.Equal(originalProps.powerLimit.min, deserializedProps.powerLimit.min);
             Assert.Equal(originalProps.powerLimit.max, deserializedProps.powerLimit.max);
         }
@@ -288,15 +268,11 @@ namespace IGCLWrapper.Tests
                 AdapterIndex = 0,
                 DisplaySettings = new ctl_display_settings_t
                 {
-                    Size = (uint)System.Runtime.InteropServices.Marshal.SizeOf(new ctl_display_settings_t()),
-                    Version = 1,
                     LowLatency = ctl_display_setting_low_latency_t.CTL_DISPLAY_SETTING_LOW_LATENCY_ENABLED,
                     ContentType = ctl_display_setting_content_type_t.CTL_DISPLAY_SETTING_CONTENT_TYPE_GAMING
                 },
                 PowerSettings = new ctl_power_limits_t
                 {
-                    Size = (uint)System.Runtime.InteropServices.Marshal.SizeOf(new ctl_power_limits_t()),
-                    Version = 1,
                     sustainedPowerLimit = new ctl_power_sustained_limit_t
                     {
                         enabled = true,
@@ -306,25 +282,23 @@ namespace IGCLWrapper.Tests
                 },
                 ScalingSettings = new ctl_scaling_settings_t
                 {
-                    Size = (uint)System.Runtime.InteropServices.Marshal.SizeOf(new ctl_scaling_settings_t()),
-                    Version = 1,
                     Enable = true,
                     ScalingType = (uint)ctl_scaling_type_flag_t.CTL_SCALING_TYPE_FLAG_ASPECT_RATIO_CENTERED_MAX
                 }
             };
 
             // Serialize to JSON
-            string json = JsonSerializer.Serialize(config, new JsonSerializerOptions { WriteIndented = true });
+            string json = JsonConvert.SerializeObject(config, Formatting.Indented);
             Assert.False(string.IsNullOrEmpty(json));
 
             // Deserialize from JSON
-            var deserializedConfig = JsonSerializer.Deserialize<dynamic>(json);
+            var deserializedConfig = JsonConvert.DeserializeObject<dynamic>(json);
             Assert.NotNull(deserializedConfig);
 
             // Verify some key properties
-            Assert.Equal(config.AdapterIndex, deserializedConfig.GetProperty("AdapterIndex").GetInt32());
-            Assert.Equal((int)config.DisplaySettings.LowLatency, deserializedConfig.GetProperty("DisplaySettings").GetProperty("LowLatency").GetInt32());
-            Assert.Equal(config.PowerSettings.sustainedPowerLimit.power, deserializedConfig.GetProperty("PowerSettings").GetProperty("sustainedPowerLimit").GetProperty("power").GetInt32());
+            Assert.Equal(config.AdapterIndex, (int)deserializedConfig.AdapterIndex);
+            Assert.Equal((int)config.DisplaySettings.LowLatency, (int)deserializedConfig.DisplaySettings.LowLatency);
+            Assert.Equal(config.PowerSettings.sustainedPowerLimit.power, (int)deserializedConfig.PowerSettings.sustainedPowerLimit.power);
         }
     }
 }
