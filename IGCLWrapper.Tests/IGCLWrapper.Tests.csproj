@@ -2,13 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>12.0</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
-    <!-- Suppress nullable warnings from SWIG-generated code -->
-    <NoWarn>$(NoWarn);CS8600;CS8601;CS8602;CS8603;CS8604;CS0472</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,10 +21,10 @@
   <ItemGroup>
     <Using Include="Xunit" />
   </ItemGroup>
-
+  
+   <!-- Reference to ClangSharp-based wrapper -->
    <ItemGroup>
-    <Compile Include="cs_bindings\*.cs" />
-    <Compile Include="*.cs" />
-  </ItemGroup>
+     <ProjectReference Include="..\IGCLWrapper\IGCLWrapper.csproj" />
+   </ItemGroup>
 
 </Project>

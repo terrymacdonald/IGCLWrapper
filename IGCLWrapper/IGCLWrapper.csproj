@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>12.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <RootNamespace>IGCLWrapper</RootNamespace>
+    <AssemblyName>IGCLWrapper</AssemblyName>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <!-- Required for ClangSharp-generated attributes -->
+    <PackageReference Include="ClangSharp" Version="18.1.0" />
+    <PackageReference Include="ClangSharp.Interop" Version="20.1.2" />
+  </ItemGroup>
+  
+</Project>

@@ -196,7 +196,12 @@
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\swigwin\swig.exe -c++ -csharp  -DSWIG_CSHARP_NO_WSTRING_HELPER  -dllimport IGCLWrapper -namespace IGCLWrapper -outdir ".\cs_bindings" IGCLWrapper.i</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)_wrap.cxx</Outputs>
     </CustomBuild>
+    <None Include="ClangSharpConfig.rsp" />
     <None Include="cs_struct.i" />
+    <None Include="IGCLApi.cs" />
+    <None Include="IGCLExtensions.cs" />
+    <None Include="IGCLWrapper.csproj" />
+    <None Include="IGCLWrapper_ClangSharp.csproj" />
     <None Include="NULLABLE_FIX_SUMMARY.md" />
     <None Include="TEST_FIX_SUMMARY.md" />
   </ItemGroup>
