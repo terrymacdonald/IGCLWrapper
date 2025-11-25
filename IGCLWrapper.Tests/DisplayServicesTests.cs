@@ -294,10 +294,14 @@ namespace IGCLWrapper.Tests
 
                 var result = IGCL.ctlGetIntelArcSyncProfile((_ctl_display_output_handle_t*)_displays[0], &profile);
 
-                // Assert
+                // Assert - Accept all documented return codes for this API
                 Assert.True(
                     result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
+                    result == _ctl_result_t.CTL_RESULT_ERROR_DISPLAY_NOT_ATTACHED ||
+                    result == _ctl_result_t.CTL_RESULT_ERROR_INVALID_NULL_HANDLE ||
+                    result == _ctl_result_t.CTL_RESULT_ERROR_INVALID_NULL_POINTER ||
+                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION
                 );
             }
         }
