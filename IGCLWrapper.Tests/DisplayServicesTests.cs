@@ -13,6 +13,7 @@ namespace IGCLWrapper.Tests
         private IGCLApi? _api;
         private IntPtr[]? _adapters;
         private IntPtr[]? _displays;
+        private bool _noDisplaysAvailable;
 
         public DisplayServicesTests()
         {
@@ -29,6 +30,11 @@ namespace IGCLWrapper.Tests
             {
                 _api = null;
             }
+            catch (IGCLException ex) when (ex.IsNoDisplayError())
+            {
+                // Mark that no displays are available so tests can skip
+                _noDisplaysAvailable = true;
+            }
         }
 
         public void Dispose()
@@ -36,28 +42,22 @@ namespace IGCLWrapper.Tests
             _api?.Dispose();
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlEnumerateDisplayOutputs_ShouldReturnDisplayCount()
         {
             // Arrange & Act
-            if (_api == null || _adapters == null || _adapters.Length == 0)
-            {
-                return; // Skip test
-            }
+            Skip.If(_api == null || _adapters == null || _adapters.Length == 0 || _noDisplaysAvailable, "No displays connected");
 
             // Assert
             Assert.NotNull(_displays);
             // Note: May be 0 if no displays connected
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlGetDisplayProperties_ShouldReturnValidProperties()
         {
             // Arrange
-            if (_api == null || _displays == null || _displays.Length == 0)
-            {
-                return; // Skip test
-            }
+            Skip.If(_api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable, "No displays connected");
 
             // Act
             unsafe
@@ -78,14 +78,11 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlGetAdaperDisplayEncoderProperties_ShouldReturnValidProperties()
         {
             // Arrange
-            if (_api == null || _displays == null || _displays.Length == 0)
-            {
-                return; // Skip test
-            }
+            Skip.If(_api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable, "No displays connected");
 
             // Act
             unsafe
@@ -106,14 +103,11 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlGetSharpnessCaps_ShouldReturnCapabilities()
         {
             // Arrange
-            if (_api == null || _displays == null || _displays.Length == 0)
-            {
-                return;
-            }
+            Skip.If(_api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable, "No displays connected");
 
             // Act
             unsafe
@@ -134,14 +128,11 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlGetCurrentSharpness_ShouldReturnSettings()
         {
             // Arrange
-            if (_api == null || _displays == null || _displays.Length == 0)
-            {
-                return;
-            }
+            Skip.If(_api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable, "No displays connected");
 
             // Act
             unsafe
@@ -162,14 +153,11 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlGetSupportedScalingCapability_ShouldReturnCapabilities()
         {
             // Arrange
-            if (_api == null || _displays == null || _displays.Length == 0)
-            {
-                return;
-            }
+            Skip.If(_api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable, "No displays connected");
 
             // Act
             unsafe
@@ -190,14 +178,11 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlGetCurrentScaling_ShouldReturnSettings()
         {
             // Arrange
-            if (_api == null || _displays == null || _displays.Length == 0)
-            {
-                return;
-            }
+            Skip.If(_api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable, "No displays connected");
 
             // Act
             unsafe
@@ -218,14 +203,11 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlGetPowerOptimizationCaps_ShouldReturnCapabilities()
         {
             // Arrange
-            if (_api == null || _displays == null || _displays.Length == 0)
-            {
-                return;
-            }
+            Skip.If(_api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable, "No displays connected");
 
             // Act
             unsafe
@@ -246,14 +228,11 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlGetIntelArcSyncInfoForMonitor_ShouldReturnInfo()
         {
             // Arrange
-            if (_api == null || _displays == null || _displays.Length == 0)
-            {
-                return;
-            }
+            Skip.If(_api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable, "No displays connected");
 
             // Act
             unsafe
@@ -274,14 +253,11 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlGetIntelArcSyncProfile_ShouldReturnProfile()
         {
             // Arrange
-            if (_api == null || _displays == null || _displays.Length == 0)
-            {
-                return;
-            }
+            Skip.If(_api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable, "No displays connected");
 
             // Act
             unsafe
@@ -306,14 +282,11 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlEnumerateI2CPinPairs_ShouldReturnCount()
         {
             // Arrange & Act
-            if (_api == null || _adapters == null || _adapters.Length == 0)
-            {
-                return;
-            }
+            Skip.If(_api == null || _adapters == null || _adapters.Length == 0 || _noDisplaysAvailable, "No displays connected");
 
             unsafe
             {
@@ -329,14 +302,11 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlPanelDescriptorAccess_WithInvalidArgs_ShouldReturnError()
         {
             // Arrange
-            if (_api == null || _displays == null || _displays.Length == 0)
-            {
-                return;
-            }
+            Skip.If(_api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable, "No displays connected");
 
             // Act & Assert
             unsafe
@@ -361,14 +331,11 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlGetSetDisplaySettings_ShouldReadSettings()
         {
             // Arrange
-            if (_api == null || _displays == null || _displays.Length == 0)
-            {
-                return;
-            }
+            Skip.If(_api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable, "No displays connected");
 
             // Act
             unsafe

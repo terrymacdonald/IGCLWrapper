@@ -15,6 +15,15 @@ namespace IGCLWrapper
         {
             Result = result;
         }
+
+        /// <summary>
+        /// Checks if this exception is due to no display being attached/connected
+        /// </summary>
+        public bool IsNoDisplayError()
+        {
+            return Result == _ctl_result_t.CTL_RESULT_ERROR_DISPLAY_NOT_ATTACHED ||
+                   Result == _ctl_result_t.CTL_RESULT_ERROR_DISPLAY_NOT_ACTIVE;
+        }
     }
 
     /// <summary>
