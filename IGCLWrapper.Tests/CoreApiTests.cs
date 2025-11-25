@@ -127,7 +127,7 @@ namespace IGCLWrapper.Tests.ClangSharp
                 Assert.ThrowsAny<Exception>(() =>
                 {
                     uint count = 0;
-                    var result = IGCL.ctlEnumerateDevices(IntPtr.Zero, &count, null);
+                    var result = IGCL.ctlEnumerateDevices((_ctl_api_handle_t*)IntPtr.Zero, &count, null);
                     if (result != _ctl_result_t.CTL_RESULT_SUCCESS)
                     {
                         throw new IGCLException(result, "Expected error with null handle");
@@ -183,14 +183,9 @@ namespace IGCLWrapper.Tests.ClangSharp
             // Act
             unsafe
             {
-                var versionInfo = new _ctl_version_info_t
-                {
-                    major_version = 1,
-                    minor_version = 0,
-                    build_number = 0
-                };
+                uint versionInfo = IGCLApi.MakeVersion(1, 0);
 
-                var result = IGCL.ctlCheckDriverVersion(adapters[0], versionInfo);
+                var result = IGCL.ctlCheckDriverVersion((_ctl_device_adapter_handle_t*)adapters[0], versionInfo);
 
                 // Assert - Should return success or unsupported version
                 Assert.True(
@@ -221,8 +216,8 @@ namespace IGCLWrapper.Tests.ClangSharp
                 var props = IGCLHelpers.GetProperties(adapters[0]);
 
                 // Assert
-                Assert.NotEqual(0, props.pci_device_id);
-                Assert.NotEqual(0, props.rev_id);
+                Assert.NotEqual(0u, props.pci_device_id);
+                Assert.NotEqual(0u, props.rev_id);
             }
         }
 
@@ -271,7 +266,7 @@ namespace IGCLWrapper.Tests.ClangSharp
             unsafe
             {
                 uint count = 0;
-                var result = IGCL.ctlEnumerateDisplayOutputs(adapters[0], &count, null);
+                var result = IGCL.ctlEnumerateDisplayOutputs((_ctl_device_adapter_handle_t*)adapters[0], &count, null);
 
                 // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
@@ -430,14 +425,14 @@ namespace IGCLWrapper.Tests.ClangSharp
                 {
                     Size = (uint)sizeof(_ctl_wait_property_change_args_t),
                     Version = 0,
-                    PropertyType = _ctl_property_type_flags_t.CTL_PROPERTY_TYPE_FLAG_DISPLAY,
+                    PropertyType = (uint)_ctl_property_type_flag_t.CTL_PROPERTY_TYPE_FLAG_DISPLAY,
                     TimeOutMilliSec = 0, // Don't wait
                     EventMiscFlags = 0,
                     pReserved = null,
                     ReservedOutFlags = 0
                 };
 
-                var result = IGCL.ctlWaitForPropertyChange(adapters[0], &args);
+                var result = IGCL.ctlWaitForPropertyChange((_ctl_device_adapter_handle_t*)adapters[0], &args);
 
                 // Assert - Should return timeout or success
                 Assert.True(
@@ -461,19 +456,10 @@ namespace IGCLWrapper.Tests.ClangSharp
             // This is implicitly tested in the initialization, but we'll verify explicitly
             unsafe
             {
-                var initArgs = new _ctl_init_args_t
-                {
-                    Size = (uint)sizeof(_ctl_init_args_t),
-                    Version = 0,
-                    AppVersion = IGCL.CTL_MAKE_VERSION(1, 1),
-                    flags = _ctl_init_flags_t.CTL_INIT_FLAG_USE_LEVEL_ZERO,
-                    SupportedVersion = 0
-                };
-
-                // We can't re-init, but we know init succeeded if _api != null
-                // Just verify that the version macros work correctly
-                var major = IGCL.CTL_MAJOR_VERSION(IGCL.CTL_IMPL_VERSION);
-                var minor = IGCL.CTL_MINOR_VERSION(IGCL.CTL_IMPL_VERSION);
+                // Use IGCLApi helper methods for version manipulation
+                var version = IGCLApi.MakeVersion(1, 1);
+                var major = IGCLApi.GetMajorVersion(IGCL.CTL_IMPL_VERSION);
+                var minor = IGCLApi.GetMinorVersion(IGCL.CTL_IMPL_VERSION);
 
                 // Assert
                 Assert.Equal(1u, major);

@@ -45,7 +45,7 @@ namespace IGCLWrapper.Tests
             unsafe
             {
                 uint count = 0;
-                var result = IGCL.ctlEnumEngineGroups(_adapters[0], &count, null);
+                var result = IGCL.ctlEnumEngineGroups((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
 
                 // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
@@ -64,13 +64,13 @@ namespace IGCLWrapper.Tests
             unsafe
             {
                 uint count = 0;
-                IGCL.ctlEnumEngineGroups(_adapters[0], &count, null);
+                IGCL.ctlEnumEngineGroups((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
                 if (count == 0) return;
 
-                var engines = new IntPtr[count];
-                fixed (IntPtr* pEngines = engines)
+                var engineHandles = new _ctl_engine_handle_t*[count];
+                fixed (_ctl_engine_handle_t** pEngines = engineHandles)
                 {
-                    IGCL.ctlEnumEngineGroups(_adapters[0], &count, pEngines);
+                    IGCL.ctlEnumEngineGroups((_ctl_device_adapter_handle_t*)_adapters[0], &count, pEngines);
                 }
 
                 // Act
@@ -80,7 +80,7 @@ namespace IGCLWrapper.Tests
                     Version = 0
                 };
 
-                var result = IGCL.ctlEngineGetProperties(engines[0], &props);
+                var result = IGCL.ctlEngineGetProperties(engineHandles[0], &props);
 
                 // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
@@ -99,13 +99,13 @@ namespace IGCLWrapper.Tests
             unsafe
             {
                 uint count = 0;
-                IGCL.ctlEnumEngineGroups(_adapters[0], &count, null);
+                IGCL.ctlEnumEngineGroups((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
                 if (count == 0) return;
 
-                var engines = new IntPtr[count];
-                fixed (IntPtr* pEngines = engines)
+                var engineHandles = new _ctl_engine_handle_t*[count];
+                fixed (_ctl_engine_handle_t** pEngines = engineHandles)
                 {
-                    IGCL.ctlEnumEngineGroups(_adapters[0], &count, pEngines);
+                    IGCL.ctlEnumEngineGroups((_ctl_device_adapter_handle_t*)_adapters[0], &count, pEngines);
                 }
 
                 // Act
@@ -115,7 +115,7 @@ namespace IGCLWrapper.Tests
                     Version = 0
                 };
 
-                var result = IGCL.ctlEngineGetActivity(engines[0], &stats);
+                var result = IGCL.ctlEngineGetActivity(engineHandles[0], &stats);
 
                 // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
@@ -138,7 +138,7 @@ namespace IGCLWrapper.Tests
             unsafe
             {
                 uint count = 0;
-                var result = IGCL.ctlEnumFans(_adapters[0], &count, null);
+                var result = IGCL.ctlEnumFans((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
 
                 // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
@@ -158,13 +158,13 @@ namespace IGCLWrapper.Tests
             unsafe
             {
                 uint count = 0;
-                IGCL.ctlEnumFans(_adapters[0], &count, null);
+                IGCL.ctlEnumFans((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
                 if (count == 0) return;
 
-                var fans = new IntPtr[count];
-                fixed (IntPtr* pFans = fans)
+                var fanHandles = new _ctl_fan_handle_t*[count];
+                fixed (_ctl_fan_handle_t** pFans = fanHandles)
                 {
-                    IGCL.ctlEnumFans(_adapters[0], &count, pFans);
+                    IGCL.ctlEnumFans((_ctl_device_adapter_handle_t*)_adapters[0], &count, pFans);
                 }
 
                 // Act
@@ -174,7 +174,7 @@ namespace IGCLWrapper.Tests
                     Version = 0
                 };
 
-                var result = IGCL.ctlFanGetProperties(fans[0], &props);
+                var result = IGCL.ctlFanGetProperties(fanHandles[0], &props);
 
                 // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
@@ -193,13 +193,13 @@ namespace IGCLWrapper.Tests
             unsafe
             {
                 uint count = 0;
-                IGCL.ctlEnumFans(_adapters[0], &count, null);
+                IGCL.ctlEnumFans((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
                 if (count == 0) return;
 
-                var fans = new IntPtr[count];
-                fixed (IntPtr* pFans = fans)
+                var fanHandles = new _ctl_fan_handle_t*[count];
+                fixed (_ctl_fan_handle_t** pFans = fanHandles)
                 {
-                    IGCL.ctlEnumFans(_adapters[0], &count, pFans);
+                    IGCL.ctlEnumFans((_ctl_device_adapter_handle_t*)_adapters[0], &count, pFans);
                 }
 
                 // Act
@@ -209,7 +209,7 @@ namespace IGCLWrapper.Tests
                     Version = 0
                 };
 
-                var result = IGCL.ctlFanGetConfig(fans[0], &config);
+                var result = IGCL.ctlFanGetConfig(fanHandles[0], &config);
 
                 // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
@@ -228,18 +228,18 @@ namespace IGCLWrapper.Tests
             unsafe
             {
                 uint count = 0;
-                IGCL.ctlEnumFans(_adapters[0], &count, null);
+                IGCL.ctlEnumFans((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
                 if (count == 0) return;
 
-                var fans = new IntPtr[count];
-                fixed (IntPtr* pFans = fans)
+                var fanHandles = new _ctl_fan_handle_t*[count];
+                fixed (_ctl_fan_handle_t** pFans = fanHandles)
                 {
-                    IGCL.ctlEnumFans(_adapters[0], &count, pFans);
+                    IGCL.ctlEnumFans((_ctl_device_adapter_handle_t*)_adapters[0], &count, pFans);
                 }
 
                 // Act
                 int speed;
-                var result = IGCL.ctlFanGetState(fans[0], _ctl_fan_speed_units_t.CTL_FAN_SPEED_UNITS_RPM, &speed);
+                var result = IGCL.ctlFanGetState(fanHandles[0], _ctl_fan_speed_units_t.CTL_FAN_SPEED_UNITS_RPM, &speed);
 
                 // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
@@ -262,7 +262,7 @@ namespace IGCLWrapper.Tests
             unsafe
             {
                 uint count = 0;
-                var result = IGCL.ctlEnumFrequencyDomains(_adapters[0], &count, null);
+                var result = IGCL.ctlEnumFrequencyDomains((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
 
                 // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
@@ -281,13 +281,13 @@ namespace IGCLWrapper.Tests
             unsafe
             {
                 uint count = 0;
-                IGCL.ctlEnumFrequencyDomains(_adapters[0], &count, null);
+                IGCL.ctlEnumFrequencyDomains((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
                 if (count == 0) return;
 
-                var freqs = new IntPtr[count];
-                fixed (IntPtr* pFreqs = freqs)
+                var freqHandles = new _ctl_freq_handle_t*[count];
+                fixed (_ctl_freq_handle_t** pFreqs = freqHandles)
                 {
-                    IGCL.ctlEnumFrequencyDomains(_adapters[0], &count, pFreqs);
+                    IGCL.ctlEnumFrequencyDomains((_ctl_device_adapter_handle_t*)_adapters[0], &count, pFreqs);
                 }
 
                 // Act
@@ -297,7 +297,7 @@ namespace IGCLWrapper.Tests
                     Version = 0
                 };
 
-                var result = IGCL.ctlFrequencyGetProperties(freqs[0], &props);
+                var result = IGCL.ctlFrequencyGetProperties(freqHandles[0], &props);
 
                 // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
@@ -316,13 +316,13 @@ namespace IGCLWrapper.Tests
             unsafe
             {
                 uint count = 0;
-                IGCL.ctlEnumFrequencyDomains(_adapters[0], &count, null);
+                IGCL.ctlEnumFrequencyDomains((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
                 if (count == 0) return;
 
-                var freqs = new IntPtr[count];
-                fixed (IntPtr* pFreqs = freqs)
+                var freqHandles = new _ctl_freq_handle_t*[count];
+                fixed (_ctl_freq_handle_t** pFreqs = freqHandles)
                 {
-                    IGCL.ctlEnumFrequencyDomains(_adapters[0], &count, pFreqs);
+                    IGCL.ctlEnumFrequencyDomains((_ctl_device_adapter_handle_t*)_adapters[0], &count, pFreqs);
                 }
 
                 // Act
@@ -332,7 +332,7 @@ namespace IGCLWrapper.Tests
                     Version = 0
                 };
 
-                var result = IGCL.ctlFrequencyGetState(freqs[0], &state);
+                var result = IGCL.ctlFrequencyGetState(freqHandles[0], &state);
 
                 // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
@@ -355,7 +355,7 @@ namespace IGCLWrapper.Tests
             unsafe
             {
                 uint count = 0;
-                var result = IGCL.ctlEnumMemoryModules(_adapters[0], &count, null);
+                var result = IGCL.ctlEnumMemoryModules((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
 
                 // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
@@ -374,13 +374,13 @@ namespace IGCLWrapper.Tests
             unsafe
             {
                 uint count = 0;
-                IGCL.ctlEnumMemoryModules(_adapters[0], &count, null);
+                IGCL.ctlEnumMemoryModules((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
                 if (count == 0) return;
 
-                var mems = new IntPtr[count];
-                fixed (IntPtr* pMems = mems)
+                var memHandles = new _ctl_mem_handle_t*[count];
+                fixed (_ctl_mem_handle_t** pMems = memHandles)
                 {
-                    IGCL.ctlEnumMemoryModules(_adapters[0], &count, pMems);
+                    IGCL.ctlEnumMemoryModules((_ctl_device_adapter_handle_t*)_adapters[0], &count, pMems);
                 }
 
                 // Act
@@ -390,7 +390,7 @@ namespace IGCLWrapper.Tests
                     Version = 0
                 };
 
-                var result = IGCL.ctlMemoryGetProperties(mems[0], &props);
+                var result = IGCL.ctlMemoryGetProperties(memHandles[0], &props);
 
                 // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
@@ -409,13 +409,13 @@ namespace IGCLWrapper.Tests
             unsafe
             {
                 uint count = 0;
-                IGCL.ctlEnumMemoryModules(_adapters[0], &count, null);
+                IGCL.ctlEnumMemoryModules((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
                 if (count == 0) return;
 
-                var mems = new IntPtr[count];
-                fixed (IntPtr* pMems = mems)
+                var memHandles = new _ctl_mem_handle_t*[count];
+                fixed (_ctl_mem_handle_t** pMems = memHandles)
                 {
-                    IGCL.ctlEnumMemoryModules(_adapters[0], &count, pMems);
+                    IGCL.ctlEnumMemoryModules((_ctl_device_adapter_handle_t*)_adapters[0], &count, pMems);
                 }
 
                 // Act
@@ -425,7 +425,7 @@ namespace IGCLWrapper.Tests
                     Version = 0
                 };
 
-                var result = IGCL.ctlMemoryGetState(mems[0], &state);
+                var result = IGCL.ctlMemoryGetState(memHandles[0], &state);
 
                 // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
@@ -448,7 +448,7 @@ namespace IGCLWrapper.Tests
             unsafe
             {
                 uint count = 0;
-                var result = IGCL.ctlEnumTemperatureSensors(_adapters[0], &count, null);
+                var result = IGCL.ctlEnumTemperatureSensors((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
 
                 // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
@@ -467,13 +467,13 @@ namespace IGCLWrapper.Tests
             unsafe
             {
                 uint count = 0;
-                IGCL.ctlEnumTemperatureSensors(_adapters[0], &count, null);
+                IGCL.ctlEnumTemperatureSensors((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
                 if (count == 0) return;
 
-                var temps = new IntPtr[count];
-                fixed (IntPtr* pTemps = temps)
+                var tempHandles = new _ctl_temp_handle_t*[count];
+                fixed (_ctl_temp_handle_t** pTemps = tempHandles)
                 {
-                    IGCL.ctlEnumTemperatureSensors(_adapters[0], &count, pTemps);
+                    IGCL.ctlEnumTemperatureSensors((_ctl_device_adapter_handle_t*)_adapters[0], &count, pTemps);
                 }
 
                 // Act
@@ -483,7 +483,7 @@ namespace IGCLWrapper.Tests
                     Version = 0
                 };
 
-                var result = IGCL.ctlTemperatureGetProperties(temps[0], &props);
+                var result = IGCL.ctlTemperatureGetProperties(tempHandles[0], &props);
 
                 // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
@@ -502,18 +502,18 @@ namespace IGCLWrapper.Tests
             unsafe
             {
                 uint count = 0;
-                IGCL.ctlEnumTemperatureSensors(_adapters[0], &count, null);
+                IGCL.ctlEnumTemperatureSensors((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
                 if (count == 0) return;
 
-                var temps = new IntPtr[count];
-                fixed (IntPtr* pTemps = temps)
+                var tempHandles = new _ctl_temp_handle_t*[count];
+                fixed (_ctl_temp_handle_t** pTemps = tempHandles)
                 {
-                    IGCL.ctlEnumTemperatureSensors(_adapters[0], &count, pTemps);
+                    IGCL.ctlEnumTemperatureSensors((_ctl_device_adapter_handle_t*)_adapters[0], &count, pTemps);
                 }
 
                 // Act
                 double temperature;
-                var result = IGCL.ctlTemperatureGetState(temps[0], &temperature);
+                var result = IGCL.ctlTemperatureGetState(tempHandles[0], &temperature);
 
                 // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
@@ -537,7 +537,7 @@ namespace IGCLWrapper.Tests
             unsafe
             {
                 uint count = 0;
-                var result = IGCL.ctlEnumPowerDomains(_adapters[0], &count, null);
+                var result = IGCL.ctlEnumPowerDomains((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
 
                 // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
@@ -556,13 +556,13 @@ namespace IGCLWrapper.Tests
             unsafe
             {
                 uint count = 0;
-                IGCL.ctlEnumPowerDomains(_adapters[0], &count, null);
+                IGCL.ctlEnumPowerDomains((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
                 if (count == 0) return;
 
-                var powers = new IntPtr[count];
-                fixed (IntPtr* pPowers = powers)
+                var powerHandles = new _ctl_pwr_handle_t*[count];
+                fixed (_ctl_pwr_handle_t** pPowers = powerHandles)
                 {
-                    IGCL.ctlEnumPowerDomains(_adapters[0], &count, pPowers);
+                    IGCL.ctlEnumPowerDomains((_ctl_device_adapter_handle_t*)_adapters[0], &count, pPowers);
                 }
 
                 // Act
@@ -572,7 +572,7 @@ namespace IGCLWrapper.Tests
                     Version = 0
                 };
 
-                var result = IGCL.ctlPowerGetProperties(powers[0], &props);
+                var result = IGCL.ctlPowerGetProperties(powerHandles[0], &props);
 
                 // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
@@ -591,13 +591,13 @@ namespace IGCLWrapper.Tests
             unsafe
             {
                 uint count = 0;
-                IGCL.ctlEnumPowerDomains(_adapters[0], &count, null);
+                IGCL.ctlEnumPowerDomains((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
                 if (count == 0) return;
 
-                var powers = new IntPtr[count];
-                fixed (IntPtr* pPowers = powers)
+                var powerHandles = new _ctl_pwr_handle_t*[count];
+                fixed (_ctl_pwr_handle_t** pPowers = powerHandles)
                 {
-                    IGCL.ctlEnumPowerDomains(_adapters[0], &count, pPowers);
+                    IGCL.ctlEnumPowerDomains((_ctl_device_adapter_handle_t*)_adapters[0], &count, pPowers);
                 }
 
                 // Act
@@ -607,7 +607,7 @@ namespace IGCLWrapper.Tests
                     Version = 0
                 };
 
-                var result = IGCL.ctlPowerGetEnergyCounter(powers[0], &energy);
+                var result = IGCL.ctlPowerGetEnergyCounter(powerHandles[0], &energy);
 
                 // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
@@ -630,7 +630,7 @@ namespace IGCLWrapper.Tests
             unsafe
             {
                 uint count = 0;
-                var result = IGCL.ctlEnumLeds(_adapters[0], &count, null);
+                var result = IGCL.ctlEnumLeds((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
 
                 // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
@@ -659,7 +659,7 @@ namespace IGCLWrapper.Tests
                     Version = 0
                 };
 
-                var result = IGCL.ctlGetFirmwareProperties(_adapters[0], &props);
+                var result = IGCL.ctlGetFirmwareProperties((_ctl_device_adapter_handle_t*)_adapters[0], &props);
 
                 // Assert
                 Assert.True(
@@ -681,7 +681,7 @@ namespace IGCLWrapper.Tests
             unsafe
             {
                 uint count = 0;
-                var result = IGCL.ctlEnumerateFirmwareComponents(_adapters[0], &count, null);
+                var result = IGCL.ctlEnumerateFirmwareComponents((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
 
                 // Assert
                 Assert.True(
@@ -712,7 +712,7 @@ namespace IGCLWrapper.Tests
                     Version = 0
                 };
 
-                var result = IGCL.ctlPciGetProperties(_adapters[0], &props);
+                var result = IGCL.ctlPciGetProperties((_ctl_device_adapter_handle_t*)_adapters[0], &props);
 
                 // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
@@ -736,7 +736,7 @@ namespace IGCLWrapper.Tests
                     Version = 0
                 };
 
-                var result = IGCL.ctlPciGetState(_adapters[0], &state);
+                var result = IGCL.ctlPciGetState((_ctl_device_adapter_handle_t*)_adapters[0], &state);
 
                 // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
@@ -764,7 +764,7 @@ namespace IGCLWrapper.Tests
                     Version = 0
                 };
 
-                var result = IGCL.ctlEccGetProperties(_adapters[0], &props);
+                var result = IGCL.ctlEccGetProperties((_ctl_device_adapter_handle_t*)_adapters[0], &props);
 
                 // Assert
                 Assert.True(
@@ -791,7 +791,7 @@ namespace IGCLWrapper.Tests
                     Version = 0
                 };
 
-                var result = IGCL.ctlEccGetState(_adapters[0], &state);
+                var result = IGCL.ctlEccGetState((_ctl_device_adapter_handle_t*)_adapters[0], &state);
 
                 // Assert
                 Assert.True(

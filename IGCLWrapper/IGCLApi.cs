@@ -22,10 +22,10 @@ namespace IGCLWrapper
     /// </summary>
     public sealed class IGCLApi : IDisposable
     {
-        private unsafe _ctl_api_handle_t* _hApi;
+        private IntPtr _hApi;
         private bool _disposed;
 
-        private unsafe IGCLApi(_ctl_api_handle_t* hApi)
+        private IGCLApi(IntPtr hApi)
         {
             _hApi = hApi;
         }
@@ -56,20 +56,20 @@ namespace IGCLWrapper
                     throw new IGCLException(result, $"Failed to initialize IGCL API");
                 }
 
-                return new IGCLApi(hApi);
+                return new IGCLApi((IntPtr)hApi);
             }
         }
 
         /// <summary>
         /// Enumerate all GPU adapters in the system
         /// </summary>
-        public unsafe _ctl_device_adapter_handle_t*[] EnumerateAdapters()
+        public unsafe IntPtr[] EnumerateAdapters()
         {
             ThrowIfDisposed();
 
             // Get adapter count
             uint adapterCount = 0;
-            var result = IGCL.ctlEnumerateDevices(_hApi, &adapterCount, null);
+            var result = IGCL.ctlEnumerateDevices((_ctl_api_handle_t*)_hApi, &adapterCount, null);
             
             if (result != _ctl_result_t.CTL_RESULT_SUCCESS)
             {
@@ -78,14 +78,14 @@ namespace IGCLWrapper
 
             if (adapterCount == 0)
             {
-                return new _ctl_device_adapter_handle_t*[0];
+                return Array.Empty<IntPtr>();
             }
 
             // Get adapters
             var adapters = new _ctl_device_adapter_handle_t*[adapterCount];
             fixed (_ctl_device_adapter_handle_t** pAdapters = adapters)
             {
-                result = IGCL.ctlEnumerateDevices(_hApi, &adapterCount, pAdapters);
+                result = IGCL.ctlEnumerateDevices((_ctl_api_handle_t*)_hApi, &adapterCount, pAdapters);
                 
                 if (result != _ctl_result_t.CTL_RESULT_SUCCESS)
                 {
@@ -93,19 +93,26 @@ namespace IGCLWrapper
                 }
             }
 
-            return adapters;
+            // Convert to IntPtr array for easier downstream use
+            var intPtrAdapters = new IntPtr[adapterCount];
+            for (int i = 0; i < adapterCount; i++)
+            {
+                intPtrAdapters[i] = (IntPtr)adapters[i];
+            }
+
+            return intPtrAdapters;
         }
 
         /// <summary>
         /// Enumerate display outputs for a given adapter
         /// </summary>
-        public unsafe _ctl_display_output_handle_t*[] EnumerateDisplays(_ctl_device_adapter_handle_t* hAdapter)
+        public unsafe IntPtr[] EnumerateDisplays(IntPtr hAdapter)
         {
             ThrowIfDisposed();
 
             // Get display count
             uint displayCount = 0;
-            var result = IGCL.ctlEnumerateDisplayOutputs(hAdapter, &displayCount, null);
+            var result = IGCL.ctlEnumerateDisplayOutputs((_ctl_device_adapter_handle_t*)hAdapter, &displayCount, null);
             
             if (result != _ctl_result_t.CTL_RESULT_SUCCESS)
             {
@@ -114,14 +121,14 @@ namespace IGCLWrapper
 
             if (displayCount == 0)
             {
-                return new _ctl_display_output_handle_t*[0];
+                return Array.Empty<IntPtr>();
             }
 
             // Get displays
             var displays = new _ctl_display_output_handle_t*[displayCount];
             fixed (_ctl_display_output_handle_t** pDisplays = displays)
             {
-                result = IGCL.ctlEnumerateDisplayOutputs(hAdapter, &displayCount, pDisplays);
+                result = IGCL.ctlEnumerateDisplayOutputs((_ctl_device_adapter_handle_t*)hAdapter, &displayCount, pDisplays);
                 
                 if (result != _ctl_result_t.CTL_RESULT_SUCCESS)
                 {
@@ -129,7 +136,14 @@ namespace IGCLWrapper
                 }
             }
 
-            return displays;
+            // Convert to IntPtr array for easier downstream use
+            var intPtrDisplays = new IntPtr[displayCount];
+            for (int i = 0; i < displayCount; i++)
+            {
+                intPtrDisplays[i] = (IntPtr)displays[i];
+            }
+
+            return intPtrDisplays;
         }
 
         public void Dispose()
@@ -139,10 +153,10 @@ namespace IGCLWrapper
 
             unsafe
             {
-                if (_hApi != null)
+                if (_hApi != IntPtr.Zero)
                 {
-                    IGCL.ctlClose(_hApi);
-                    _hApi = null;
+                    IGCL.ctlClose((_ctl_api_handle_t*)_hApi);
+                    _hApi = IntPtr.Zero;
                 }
             }
 

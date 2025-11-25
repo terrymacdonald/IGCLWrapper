@@ -49,7 +49,7 @@ namespace IGCLWrapper.Tests
                     Version = 0
                 };
 
-                var result = IGCL.ctlOverclockGetProperties(_adapters[0], &props);
+                var result = IGCL.ctlOverclockGetProperties((_ctl_device_adapter_handle_t*)_adapters[0], &props);
 
                 // Assert
                 Assert.True(
@@ -71,7 +71,7 @@ namespace IGCLWrapper.Tests
             unsafe
             {
                 double offset;
-                var result = IGCL.ctlOverclockGpuFrequencyOffsetGet(_adapters[0], &offset);
+                var result = IGCL.ctlOverclockGpuFrequencyOffsetGet((_ctl_device_adapter_handle_t*)_adapters[0], &offset);
 
                 // Assert
                 Assert.True(
@@ -94,7 +94,7 @@ namespace IGCLWrapper.Tests
             unsafe
             {
                 double offset;
-                var result = IGCL.ctlOverclockGpuVoltageOffsetGet(_adapters[0], &offset);
+                var result = IGCL.ctlOverclockGpuVoltageOffsetGet((_ctl_device_adapter_handle_t*)_adapters[0], &offset);
 
                 // Assert
                 Assert.True(
@@ -117,7 +117,7 @@ namespace IGCLWrapper.Tests
             unsafe
             {
                 double limit;
-                var result = IGCL.ctlOverclockPowerLimitGet(_adapters[0], &limit);
+                var result = IGCL.ctlOverclockPowerLimitGet((_ctl_device_adapter_handle_t*)_adapters[0], &limit);
 
                 // Assert
                 Assert.True(
@@ -140,7 +140,7 @@ namespace IGCLWrapper.Tests
             unsafe
             {
                 double limit;
-                var result = IGCL.ctlOverclockTemperatureLimitGet(_adapters[0], &limit);
+                var result = IGCL.ctlOverclockTemperatureLimitGet((_ctl_device_adapter_handle_t*)_adapters[0], &limit);
 
                 // Assert
                 Assert.True(
@@ -168,7 +168,7 @@ namespace IGCLWrapper.Tests
                     Version = 0
                 };
 
-                var result = IGCL.ctlPowerTelemetryGet(_adapters[0], &telemetry);
+                var result = IGCL.ctlPowerTelemetryGet((_ctl_device_adapter_handle_t*)_adapters[0], &telemetry);
 
                 // Assert
                 Assert.True(
@@ -190,7 +190,7 @@ namespace IGCLWrapper.Tests
             unsafe
             {
                 double offset;
-                var result = IGCL.ctlOverclockGpuFrequencyOffsetGetV2(_adapters[0], &offset);
+                var result = IGCL.ctlOverclockGpuFrequencyOffsetGetV2((_ctl_device_adapter_handle_t*)_adapters[0], &offset);
 
                 // Assert
                 Assert.True(
@@ -213,7 +213,7 @@ namespace IGCLWrapper.Tests
             unsafe
             {
                 double offset;
-                var result = IGCL.ctlOverclockGpuMaxVoltageOffsetGetV2(_adapters[0], &offset);
+                var result = IGCL.ctlOverclockGpuMaxVoltageOffsetGetV2((_ctl_device_adapter_handle_t*)_adapters[0], &offset);
 
                 // Assert
                 Assert.True(
@@ -236,7 +236,7 @@ namespace IGCLWrapper.Tests
             unsafe
             {
                 double limit;
-                var result = IGCL.ctlOverclockVramMemSpeedLimitGetV2(_adapters[0], &limit);
+                var result = IGCL.ctlOverclockVramMemSpeedLimitGetV2((_ctl_device_adapter_handle_t*)_adapters[0], &limit);
 
                 // Assert
                 Assert.True(
@@ -259,7 +259,7 @@ namespace IGCLWrapper.Tests
             unsafe
             {
                 double limit;
-                var result = IGCL.ctlOverclockPowerLimitGetV2(_adapters[0], &limit);
+                var result = IGCL.ctlOverclockPowerLimitGetV2((_ctl_device_adapter_handle_t*)_adapters[0], &limit);
 
                 // Assert
                 Assert.True(
@@ -282,7 +282,7 @@ namespace IGCLWrapper.Tests
             unsafe
             {
                 double limit;
-                var result = IGCL.ctlOverclockTemperatureLimitGetV2(_adapters[0], &limit);
+                var result = IGCL.ctlOverclockTemperatureLimitGetV2((_ctl_device_adapter_handle_t*)_adapters[0], &limit);
 
                 // Assert
                 Assert.True(
@@ -310,7 +310,7 @@ namespace IGCLWrapper.Tests
                     Version = 0
                 };
 
-                var result = IGCL.ctlOverclockGpuLockGet(_adapters[0], &vfPair);
+                var result = IGCL.ctlOverclockGpuLockGet((_ctl_device_adapter_handle_t*)_adapters[0], &vfPair);
 
                 // Assert
                 Assert.True(
@@ -345,7 +345,7 @@ namespace IGCLWrapper.Tests
                     pFeatureDetails = null
                 };
 
-                var result = IGCL.ctlGetSupported3DCapabilities(_adapters[0], &caps);
+                var result = IGCL.ctlGetSupported3DCapabilities((_ctl_device_adapter_handle_t*)_adapters[0], &caps);
 
                 // Assert
                 Assert.True(
@@ -379,7 +379,7 @@ namespace IGCLWrapper.Tests
                     pFeatureDetails = null
                 };
 
-                var result = IGCL.ctlGetSupportedVideoProcessingCapabilities(_adapters[0], &caps);
+                var result = IGCL.ctlGetSupportedVideoProcessingCapabilities((_ctl_device_adapter_handle_t*)_adapters[0], &caps);
 
                 // Assert
                 Assert.True(
@@ -410,7 +410,7 @@ namespace IGCLWrapper.Tests
                     Version = 0
                 };
 
-                var result = IGCL.ctlGetSupportedRetroScalingCapability(_adapters[0], &caps);
+                var result = IGCL.ctlGetSupportedRetroScalingCapability((_ctl_device_adapter_handle_t*)_adapters[0], &caps);
 
                 // Assert
                 Assert.True(
@@ -435,10 +435,10 @@ namespace IGCLWrapper.Tests
                 {
                     Size = (uint)sizeof(_ctl_retro_scaling_settings_t),
                     Version = 0,
-                    Get = true  // GET operation
+                    Get = 1  // GET operation (true)
                 };
 
-                var result = IGCL.ctlGetSetRetroScaling(_adapters[0], &settings);
+                var result = IGCL.ctlGetSetRetroScaling((_ctl_device_adapter_handle_t*)_adapters[0], &settings);
 
                 // Assert
                 Assert.True(
@@ -471,7 +471,7 @@ namespace IGCLWrapper.Tests
                     hLinkedAdapters = null
                 };
 
-                var result = IGCL.ctlGetLinkedDisplayAdapters(_adapters[0], &args);
+                var result = IGCL.ctlGetLinkedDisplayAdapters((_ctl_device_adapter_handle_t*)_adapters[0], &args);
 
                 // Assert
                 Assert.True(
@@ -499,7 +499,7 @@ namespace IGCLWrapper.Tests
             {
                 uint numPoints = 0;
                 var result = IGCL.ctlOverclockReadVFCurve(
-                    _adapters[0],
+                    (_ctl_device_adapter_handle_t*)_adapters[0],
                     _ctl_vf_curve_type_t.CTL_VF_CURVE_TYPE_STOCK,
                     _ctl_vf_curve_details_t.CTL_VF_CURVE_DETAILS_SIMPLIFIED,
                     &numPoints,
@@ -531,7 +531,7 @@ namespace IGCLWrapper.Tests
             // Try to set overclock without waiver - should fail
             unsafe
             {
-                var result = IGCL.ctlOverclockGpuFrequencyOffsetSet(_adapters[0], 50.0);
+                var result = IGCL.ctlOverclockGpuFrequencyOffsetSet((_ctl_device_adapter_handle_t*)_adapters[0], 50.0);
 
                 // Assert - Should fail without waiver
                 Assert.True(

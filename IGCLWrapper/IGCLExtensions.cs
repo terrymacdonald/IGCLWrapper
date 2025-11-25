@@ -1,5 +1,4 @@
 using System;
-using System.Runtime.InteropServices;
 
 namespace IGCLWrapper
 {
@@ -12,7 +11,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Get adapter properties
         /// </summary>
-        public static unsafe _ctl_device_adapter_properties_t GetProperties(_ctl_device_adapter_handle_t* hAdapter)
+        public static unsafe _ctl_device_adapter_properties_t GetProperties(IntPtr hAdapter)
         {
             var props = new _ctl_device_adapter_properties_t
             {
@@ -20,7 +19,7 @@ namespace IGCLWrapper
                 Version = 1 // Adapter properties use version 1
             };
 
-            var result = IGCL.ctlGetDeviceProperties(hAdapter, &props);
+            var result = IGCL.ctlGetDeviceProperties((_ctl_device_adapter_handle_t*)hAdapter, &props);
             
             if (result != _ctl_result_t.CTL_RESULT_SUCCESS)
             {
@@ -33,7 +32,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Get display properties
         /// </summary>
-        public static unsafe _ctl_display_properties_t GetDisplayProperties(_ctl_display_output_handle_t* hDisplay)
+        public static unsafe _ctl_display_properties_t GetDisplayProperties(IntPtr hDisplay)
         {
             var props = new _ctl_display_properties_t
             {
@@ -41,7 +40,7 @@ namespace IGCLWrapper
                 Version = 0 // Display properties use version 0
             };
 
-            var result = IGCL.ctlGetDisplayProperties(hDisplay, &props);
+            var result = IGCL.ctlGetDisplayProperties((_ctl_display_output_handle_t*)hDisplay, &props);
             
             if (result != _ctl_result_t.CTL_RESULT_SUCCESS)
             {
@@ -54,7 +53,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Get display timing information
         /// </summary>
-        public static unsafe _ctl_display_timing_t GetTiming(_ctl_display_output_handle_t* hDisplay)
+        public static unsafe _ctl_display_timing_t GetTiming(IntPtr hDisplay)
         {
             var props = GetDisplayProperties(hDisplay);
             return props.Display_Timing_Info;
@@ -63,7 +62,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Check if a display is currently active
         /// </summary>
-        public static unsafe bool IsActive(_ctl_display_output_handle_t* hDisplay)
+        public static unsafe bool IsActive(IntPtr hDisplay)
         {
             var props = GetDisplayProperties(hDisplay);
             return props.Display_Timing_Info.HActive > 0 && props.Display_Timing_Info.VActive > 0;
@@ -72,7 +71,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Get refresh rate in Hz
         /// </summary>
-        public static unsafe double GetRefreshRate(_ctl_display_output_handle_t* hDisplay)
+        public static unsafe double GetRefreshRate(IntPtr hDisplay)
         {
             var timing = GetTiming(hDisplay);
             return timing.RefreshRate / 1000.0; // Convert from mHz to Hz
@@ -81,7 +80,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Get display resolution as (width, height) tuple
         /// </summary>
-        public static unsafe (uint width, uint height) GetResolution(_ctl_display_output_handle_t* hDisplay)
+        public static unsafe (uint width, uint height) GetResolution(IntPtr hDisplay)
         {
             var timing = GetTiming(hDisplay);
             return (timing.HActive, timing.VActive);

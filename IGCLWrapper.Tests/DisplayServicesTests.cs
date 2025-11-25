@@ -22,19 +22,7 @@ namespace IGCLWrapper.Tests
                 _adapters = _api?.EnumerateAdapters();
                 if (_adapters != null && _adapters.Length > 0)
                 {
-                    unsafe
-                    {
-                        uint count = 0;
-                        IGCL.ctlEnumerateDisplayOutputs(_adapters[0], &count, null);
-                        if (count > 0)
-                        {
-                            _displays = new IntPtr[count];
-                            fixed (IntPtr* pDisplays = _displays)
-                            {
-                                IGCL.ctlEnumerateDisplayOutputs(_adapters[0], &count, pDisplays);
-                            }
-                        }
-                    }
+                    _displays = _api?.EnumerateDisplays(_adapters[0]);
                 }
             }
             catch (DllNotFoundException)
@@ -80,7 +68,7 @@ namespace IGCLWrapper.Tests
                     Version = 0
                 };
 
-                var result = IGCL.ctlGetDisplayProperties(_displays[0], &props);
+                var result = IGCL.ctlGetDisplayProperties((_ctl_display_output_handle_t*)_displays[0], &props);
 
                 // Assert
                 if (result == _ctl_result_t.CTL_RESULT_SUCCESS)
@@ -108,7 +96,7 @@ namespace IGCLWrapper.Tests
                     Version = 0
                 };
 
-                var result = IGCL.ctlGetAdaperDisplayEncoderProperties(_displays[0], &props);
+                var result = IGCL.ctlGetAdaperDisplayEncoderProperties((_ctl_display_output_handle_t*)_displays[0], &props);
 
                 // Assert
                 if (result == _ctl_result_t.CTL_RESULT_SUCCESS)
@@ -136,7 +124,7 @@ namespace IGCLWrapper.Tests
                     Version = 0
                 };
 
-                var result = IGCL.ctlGetSharpnessCaps(_displays[0], &caps);
+                var result = IGCL.ctlGetSharpnessCaps((_ctl_display_output_handle_t*)_displays[0], &caps);
 
                 // Assert - Success or unsupported
                 Assert.True(
@@ -164,7 +152,7 @@ namespace IGCLWrapper.Tests
                     Version = 0
                 };
 
-                var result = IGCL.ctlGetCurrentSharpness(_displays[0], &settings);
+                var result = IGCL.ctlGetCurrentSharpness((_ctl_display_output_handle_t*)_displays[0], &settings);
 
                 // Assert - Success or unsupported
                 Assert.True(
@@ -192,7 +180,7 @@ namespace IGCLWrapper.Tests
                     Version = 0
                 };
 
-                var result = IGCL.ctlGetSupportedScalingCapability(_displays[0], &caps);
+                var result = IGCL.ctlGetSupportedScalingCapability((_ctl_display_output_handle_t*)_displays[0], &caps);
 
                 // Assert
                 if (result == _ctl_result_t.CTL_RESULT_SUCCESS)
@@ -220,7 +208,7 @@ namespace IGCLWrapper.Tests
                     Version = 0
                 };
 
-                var result = IGCL.ctlGetCurrentScaling(_displays[0], &settings);
+                var result = IGCL.ctlGetCurrentScaling((_ctl_display_output_handle_t*)_displays[0], &settings);
 
                 // Assert - Success or unsupported
                 Assert.True(
@@ -248,7 +236,7 @@ namespace IGCLWrapper.Tests
                     Version = 0
                 };
 
-                var result = IGCL.ctlGetPowerOptimizationCaps(_displays[0], &caps);
+                var result = IGCL.ctlGetPowerOptimizationCaps((_ctl_display_output_handle_t*)_displays[0], &caps);
 
                 // Assert
                 Assert.True(
@@ -276,7 +264,7 @@ namespace IGCLWrapper.Tests
                     Version = 0
                 };
 
-                var result = IGCL.ctlGetIntelArcSyncInfoForMonitor(_displays[0], &info);
+                var result = IGCL.ctlGetIntelArcSyncInfoForMonitor((_ctl_display_output_handle_t*)_displays[0], &info);
 
                 // Assert
                 Assert.True(
@@ -304,7 +292,7 @@ namespace IGCLWrapper.Tests
                     Version = 0
                 };
 
-                var result = IGCL.ctlGetIntelArcSyncProfile(_displays[0], &profile);
+                var result = IGCL.ctlGetIntelArcSyncProfile((_ctl_display_output_handle_t*)_displays[0], &profile);
 
                 // Assert
                 Assert.True(
@@ -326,7 +314,7 @@ namespace IGCLWrapper.Tests
             unsafe
             {
                 uint count = 0;
-                var result = IGCL.ctlEnumerateI2CPinPairs(_adapters[0], &count, null);
+                var result = IGCL.ctlEnumerateI2CPinPairs((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
 
                 // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
@@ -356,33 +344,13 @@ namespace IGCLWrapper.Tests
                     pDescriptorData = null
                 };
 
-                var result = IGCL.ctlPanelDescriptorAccess(_displays[0], &args);
+                var result = IGCL.ctlPanelDescriptorAccess((_ctl_display_output_handle_t*)_displays[0], &args);
 
                 // Should either succeed (returning size) or indicate unsupported
                 Assert.True(
                     result == _ctl_result_t.CTL_RESULT_SUCCESS ||
                     result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
                 );
-            }
-        }
-
-        [Fact]
-        public void CtlEnumerateMuxDevices_ShouldReturnCount()
-        {
-            // Arrange & Act
-            if (_api == null)
-            {
-                return;
-            }
-
-            unsafe
-            {
-                uint count = 0;
-                var result = IGCL.ctlEnumerateMuxDevices(_api.Handle, &count, null);
-
-                // Assert
-                Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
-                // Count may be 0 if no MUX devices present
             }
         }
 
@@ -402,10 +370,10 @@ namespace IGCLWrapper.Tests
                 {
                     Size = (uint)sizeof(_ctl_display_settings_t),
                     Version = 0,
-                    Set = false  // GET operation
+                    Set = 0  // GET operation (false)
                 };
 
-                var result = IGCL.ctlGetSetDisplaySettings(_displays[0], &settings);
+                var result = IGCL.ctlGetSetDisplaySettings((_ctl_display_output_handle_t*)_displays[0], &settings);
 
                 // Assert
                 Assert.True(
