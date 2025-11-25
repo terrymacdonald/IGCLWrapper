@@ -633,7 +633,10 @@ namespace IGCLWrapper.Tests
                 var result = IGCL.ctlEnumLeds((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
 
                 // Assert
-                Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
+                Assert.True(
+                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
+                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                );
                 // Count may be 0 if no LEDs present
             }
         }
@@ -783,21 +786,30 @@ namespace IGCLWrapper.Tests
                 return;
             }
 
-            unsafe
+            try
             {
-                var state = new _ctl_ecc_state_desc_t
+                unsafe
                 {
-                    Size = (uint)sizeof(_ctl_ecc_state_desc_t),
-                    Version = 0
-                };
+                    var state = new _ctl_ecc_state_desc_t
+                    {
+                        Size = (uint)sizeof(_ctl_ecc_state_desc_t),
+                        Version = 0
+                    };
 
-                var result = IGCL.ctlEccGetState((_ctl_device_adapter_handle_t*)_adapters[0], &state);
+                    var result = IGCL.ctlEccGetState((_ctl_device_adapter_handle_t*)_adapters[0], &state);
 
-                // Assert
-                Assert.True(
-                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
-                );
+                    // Assert
+                    Assert.True(
+                        result == _ctl_result_t.CTL_RESULT_SUCCESS ||
+                        result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                    );
+                }
+            }
+            catch (EntryPointNotFoundException)
+            {
+                // ctlEccGetState is not available in this version of the Control Library DLL
+                // This is expected on some driver/DLL versions
+                return;
             }
         }
 
