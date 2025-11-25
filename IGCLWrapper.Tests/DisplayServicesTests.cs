@@ -271,13 +271,16 @@ namespace IGCLWrapper.Tests
                 var result = IGCL.ctlGetIntelArcSyncProfile((_ctl_display_output_handle_t*)_displays[0], &profile);
 
                 // Assert - Accept all documented return codes for this API
+                // Note: KMD_CALL can occur when kernel mode driver encounters issues
                 Assert.True(
                     result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_DISPLAY_NOT_ATTACHED ||
+                    result == _ctl_result_t.CTL_RESULT_ERROR_UNINITIALIZED ||
+                    result == _ctl_result_t.CTL_RESULT_ERROR_DEVICE_LOST ||
                     result == _ctl_result_t.CTL_RESULT_ERROR_INVALID_NULL_HANDLE ||
                     result == _ctl_result_t.CTL_RESULT_ERROR_INVALID_NULL_POINTER ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION
+                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION ||
+                    result == _ctl_result_t.CTL_RESULT_ERROR_KMD_CALL,
+                    $"Unexpected error code: {result} (0x{(uint)result:X})"
                 );
             }
         }

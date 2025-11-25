@@ -473,21 +473,21 @@ namespace IGCLWrapper.Tests
 
                 var result = IGCL.ctlGetLinkedDisplayAdapters((_ctl_device_adapter_handle_t*)_adapters[0], &args);
 
-                // Assert - Accept all documented return codes for this API
-                // This API can return various error codes depending on hardware/driver state
+                // Assert - Accept all officially documented return codes for this API
+                // Note: INSUFFICIENT_PERMISSIONS can occur when LDA operations require elevated privileges
                 Assert.True(
                     result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_ADAPTER_NOT_SUPPORTED_ON_LDA_SECONDARY ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_KMD_CALL ||
+                    result == _ctl_result_t.CTL_RESULT_ERROR_UNINITIALIZED ||
+                    result == _ctl_result_t.CTL_RESULT_ERROR_DEVICE_LOST ||
                     result == _ctl_result_t.CTL_RESULT_ERROR_INVALID_NULL_HANDLE ||
                     result == _ctl_result_t.CTL_RESULT_ERROR_INVALID_NULL_POINTER ||
                     result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION ||
                     result == _ctl_result_t.CTL_RESULT_ERROR_NULL_OS_INTERFACE ||
                     result == _ctl_result_t.CTL_RESULT_ERROR_NULL_OS_ADAPATER_HANDLE ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNINITIALIZED ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_DEVICE_LOST ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_NOT_AVAILABLE
+                    result == _ctl_result_t.CTL_RESULT_ERROR_KMD_CALL ||
+                    result == _ctl_result_t.CTL_RESULT_ERROR_ADAPTER_NOT_SUPPORTED_ON_LDA_SECONDARY ||
+                    result == _ctl_result_t.CTL_RESULT_ERROR_INSUFFICIENT_PERMISSIONS,
+                    $"Unexpected error code: {result} (0x{(uint)result:X})"
                 );
             }
         }
