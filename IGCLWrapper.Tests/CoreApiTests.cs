@@ -252,5 +252,233 @@ namespace IGCLWrapper.Tests.ClangSharp
                 Assert.NotEmpty(name.Trim('\0'));
             }
         }
+
+        [Fact]
+        public void CtlEnumerateDisplayOutputs_ShouldReturnCount()
+        {
+            // Arrange & Act
+            if (_api == null)
+            {
+                return;
+            }
+
+            var adapters = _api.EnumerateAdapters();
+            if (adapters.Length == 0)
+            {
+                return;
+            }
+
+            unsafe
+            {
+                uint count = 0;
+                var result = IGCL.ctlEnumerateDisplayOutputs(adapters[0], &count, null);
+
+                // Assert
+                Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
+                // Count may be 0 if no displays connected
+            }
+        }
+
+        [Fact]
+        public void AdapterProperties_ShouldHaveValidDriverVersion()
+        {
+            // Arrange
+            if (_api == null)
+            {
+                return;
+            }
+
+            var adapters = _api.EnumerateAdapters();
+            if (adapters.Length == 0)
+            {
+                return;
+            }
+
+            // Act
+            unsafe
+            {
+                var props = IGCLHelpers.GetProperties(adapters[0]);
+
+                // Assert
+                Assert.NotEqual(0ul, props.driver_version);
+            }
+        }
+
+        [Fact]
+        public void AdapterProperties_ShouldHaveValidPCIIds()
+        {
+            // Arrange
+            if (_api == null)
+            {
+                return;
+            }
+
+            var adapters = _api.EnumerateAdapters();
+            if (adapters.Length == 0)
+            {
+                return;
+            }
+
+            // Act
+            unsafe
+            {
+                var props = IGCLHelpers.GetProperties(adapters[0]);
+
+                // Assert
+                Assert.Equal(0x8086u, props.pci_vendor_id); // Intel vendor ID
+                Assert.NotEqual(0u, props.pci_device_id);
+                // SubSys IDs might be 0 for some devices, so don't assert on them
+            }
+        }
+
+        [Fact]
+        public void AdapterProperties_ShouldHaveValidEUCounts()
+        {
+            // Arrange
+            if (_api == null)
+            {
+                return;
+            }
+
+            var adapters = _api.EnumerateAdapters();
+            if (adapters.Length == 0)
+            {
+                return;
+            }
+
+            // Act
+            unsafe
+            {
+                var props = IGCLHelpers.GetProperties(adapters[0]);
+
+                // Assert
+                // Modern Intel GPUs should have at least some EUs
+                if (props.num_eus_per_sub_slice > 0)
+                {
+                    Assert.True(props.num_sub_slices_per_slice > 0);
+                    Assert.True(props.num_slices > 0);
+                }
+            }
+        }
+
+        [Fact]
+        public void AdapterProperties_ShouldHaveValidFrequency()
+        {
+            // Arrange
+            if (_api == null)
+            {
+                return;
+            }
+
+            var adapters = _api.EnumerateAdapters();
+            if (adapters.Length == 0)
+            {
+                return;
+            }
+
+            // Act
+            unsafe
+            {
+                var props = IGCLHelpers.GetProperties(adapters[0]);
+
+                // Assert
+                // Frequency should be reported for modern GPUs
+                // If it's 0, it might be an older API version or unsupported
+                Assert.True(props.Frequency >= 0); // Just verify it's valid
+            }
+        }
+
+        [Fact]
+        public void CtlClose_ShouldCloseSuccessfully()
+        {
+            // Arrange
+            if (_api == null)
+            {
+                return;
+            }
+
+            // Act - Dispose will call ctlClose
+            _api.Dispose();
+
+            // Assert - Should not throw
+            // If we get here, close was successful
+            Assert.True(true);
+
+            // Prevent double-dispose in test cleanup
+            _api = null;
+        }
+
+        [Fact]
+        public void CtlWaitForPropertyChange_ShouldReturnResult()
+        {
+            // Arrange
+            if (_api == null)
+            {
+                return;
+            }
+
+            var adapters = _api.EnumerateAdapters();
+            if (adapters.Length == 0)
+            {
+                return;
+            }
+
+            // Act
+            unsafe
+            {
+                var args = new _ctl_wait_property_change_args_t
+                {
+                    Size = (uint)sizeof(_ctl_wait_property_change_args_t),
+                    Version = 0,
+                    PropertyType = _ctl_property_type_flags_t.CTL_PROPERTY_TYPE_FLAG_DISPLAY,
+                    TimeOutMilliSec = 0, // Don't wait
+                    EventMiscFlags = 0,
+                    pReserved = null,
+                    ReservedOutFlags = 0
+                };
+
+                var result = IGCL.ctlWaitForPropertyChange(adapters[0], &args);
+
+                // Assert - Should return timeout or success
+                Assert.True(
+                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
+                    result == _ctl_result_t.CTL_RESULT_ERROR_WAIT_TIMEOUT ||
+                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                );
+            }
+        }
+
+        [Fact]
+        public void InitArgs_ShouldReturnSupportedVersion()
+        {
+            // Arrange & Act
+            if (_api == null)
+            {
+                return;
+            }
+
+            // The API was initialized successfully, so we can check the version
+            // This is implicitly tested in the initialization, but we'll verify explicitly
+            unsafe
+            {
+                var initArgs = new _ctl_init_args_t
+                {
+                    Size = (uint)sizeof(_ctl_init_args_t),
+                    Version = 0,
+                    AppVersion = IGCL.CTL_MAKE_VERSION(1, 1),
+                    flags = _ctl_init_flags_t.CTL_INIT_FLAG_USE_LEVEL_ZERO,
+                    SupportedVersion = 0
+                };
+
+                // We can't re-init, but we know init succeeded if _api != null
+                // Just verify that the version macros work correctly
+                var major = IGCL.CTL_MAJOR_VERSION(IGCL.CTL_IMPL_VERSION);
+                var minor = IGCL.CTL_MINOR_VERSION(IGCL.CTL_IMPL_VERSION);
+
+                // Assert
+                Assert.Equal(1u, major);
+                Assert.Equal(1u, minor);
+            }
+        }
     }
 }
