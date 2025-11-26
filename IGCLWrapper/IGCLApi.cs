@@ -215,5 +215,34 @@ namespace IGCLWrapper
         }
 
         #endregion
+
+        /// <summary>
+        /// Check if the IGCL DLL is available in the DLL search path
+        /// </summary>
+        /// <param name="errorMessage">Details about why the DLL could not be loaded</param>
+        /// <returns>True if DLL can be loaded, false otherwise</returns>
+        public static bool IsIGCLDllAvailable(out string errorMessage)
+        {
+            var dllName = IGCLNative.GetDllName();
+
+            IntPtr handle = IGCLNative.LoadLibraryEx(
+                dllName,
+                IntPtr.Zero,
+                IGCLNative.LOAD_LIBRARY_SEARCH_USER_DIRS |
+                IGCLNative.LOAD_LIBRARY_SEARCH_APPLICATION_DIR |
+                IGCLNative.LOAD_LIBRARY_SEARCH_DEFAULT_DIRS |
+                IGCLNative.LOAD_LIBRARY_SEARCH_SYSTEM32);
+
+            if (handle == IntPtr.Zero)
+            {
+                var error = Marshal.GetLastWin32Error();
+                errorMessage = $"ADLX SDK DLL '{dllName}' not found in DLL search path (Error: {error})";
+                return false;
+            }
+
+            IGCLNative.FreeLibrary(handle);
+            errorMessage = string.Empty;
+            return true;
+        }
     }
 }
