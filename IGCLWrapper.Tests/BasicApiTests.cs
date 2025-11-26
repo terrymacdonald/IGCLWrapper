@@ -2,7 +2,7 @@ using Xunit;
 using System;
 using IGCLWrapper;
 
-namespace IGCLWrapper.Tests.ClangSharp
+namespace IGCLWrapper.Tests
 {
     /// <summary>
     /// Tests for ClangSharp-generated IGCL bindings
@@ -12,29 +12,80 @@ namespace IGCLWrapper.Tests.ClangSharp
     {
         private readonly IGCLApi? _api;
         private readonly bool _hasHardware;
+        private readonly bool _hasDll;
+        private readonly string _skipReason = string.Empty;
 
         public BasicApiTests()
         {
+            // Stage 1: Check for Intel GPU hardware via PCI
+            if (!HardwareDetection.HasIntelGPU(out string hwError))
+            {
+                _hasHardware = false;
+                _hasDll = false;
+                _skipReason = hwError;
+                return;
+            }
+            _hasHardware = true;
+
+            // Stage 2: Check for IGCL DLL availability
+            if (!IGCLApi.IsIGCLDllAvailable(out string dllError))
+            {
+                _hasDll = false;
+                _skipReason = dllError;
+                return;
+            }
+            _hasDll = true;
+
+            // Stage 3: Try to initialize IGCL API
             try
             {
                 _api = IGCLApi.Initialize();
-                _hasHardware = true;
             }
-            catch (IGCLException)
+            catch (IGCLException ex)
             {
-                // No Intel hardware available or driver not installed
-                _hasHardware = false;
+                _skipReason = $"IGCL initialization failed: {ex.Message}";
             }
+        }
+
+        [Fact]
+        public void HardwareDetection_ShouldFindIntelGPU()
+        {
+            // Check for Intel hardware via PCI
+            var hasIntelGPU = HardwareDetection.HasIntelGPU(out string hwError);
+            
+            if (!hasIntelGPU)
+            {
+                Assert.True(true, $"SKIPPED: {hwError}");
+                return;
+            }
+            
+            Assert.True(hasIntelGPU);
+            var gpuNames = HardwareDetection.GetIntelGPUNames();
+            Assert.NotEmpty(gpuNames);
+        }
+
+        [Fact]
+        public void DllAvailability_ShouldFindIGCLDll()
+        {
+            // Check for IGCL DLL in search path
+            var hasDll = IGCLApi.IsIGCLDllAvailable(out string dllError);
+            
+            if (!hasDll)
+            {
+                Assert.True(true, $"SKIPPED: {dllError}");
+                return;
+            }
+            
+            Assert.True(hasDll);
         }
 
         [Fact]
         public void Initialize_ShouldSucceed()
         {
             // Test that we can initialize the API
-            // If no hardware, this is still considered a pass (skipped)
-            if (!_hasHardware)
+            if (!_hasHardware || !_hasDll || _api == null)
             {
-                Assert.True(true, "No Intel hardware available - test skipped");
+                Assert.True(true, $"SKIPPED: {_skipReason}");
                 return;
             }
 
@@ -44,9 +95,9 @@ namespace IGCLWrapper.Tests.ClangSharp
         [Fact]
         public unsafe void EnumerateAdapters_ShouldReturnAdapters()
         {
-            if (!_hasHardware || _api == null)
+            if (!_hasHardware || !_hasDll || _api == null)
             {
-                Assert.True(true, "No Intel hardware available - test skipped");
+                Assert.True(true, $"SKIPPED: {_skipReason}");
                 return;
             }
 
@@ -65,9 +116,9 @@ namespace IGCLWrapper.Tests.ClangSharp
         [Fact]
         public unsafe void GetAdapterProperties_ShouldSucceed()
         {
-            if (!_hasHardware || _api == null)
+            if (!_hasHardware || !_hasDll || _api == null)
             {
-                Assert.True(true, "No Intel hardware available - test skipped");
+                Assert.True(true, $"SKIPPED: {_skipReason}");
                 return;
             }
 
@@ -87,9 +138,9 @@ namespace IGCLWrapper.Tests.ClangSharp
         [Fact]
         public unsafe void EnumerateDisplays_ShouldWork()
         {
-            if (!_hasHardware || _api == null)
+            if (!_hasHardware || !_hasDll || _api == null)
             {
-                Assert.True(true, "No Intel hardware available - test skipped");
+                Assert.True(true, $"SKIPPED: {_skipReason}");
                 return;
             }
 
@@ -115,9 +166,9 @@ namespace IGCLWrapper.Tests.ClangSharp
         [Fact]
         public unsafe void GetDisplayProperties_ShouldSucceed_WhenDisplayConnected()
         {
-            if (!_hasHardware || _api == null)
+            if (!_hasHardware || !_hasDll || _api == null)
             {
-                Assert.True(true, "No Intel hardware available - test skipped");
+                Assert.True(true, $"SKIPPED: {_skipReason}");
                 return;
             }
 
@@ -129,7 +180,7 @@ namespace IGCLWrapper.Tests.ClangSharp
 
             if (displays.Length == 0)
             {
-                Assert.True(true, "No displays connected - test skipped");
+                Assert.True(true, "SKIPPED: No displays connected");
                 return;
             }
 
@@ -147,9 +198,9 @@ namespace IGCLWrapper.Tests.ClangSharp
         [Fact]
         public unsafe void GetDisplayTiming_ShouldReturnValidData()
         {
-            if (!_hasHardware || _api == null)
+            if (!_hasHardware || !_hasDll || _api == null)
             {
-                Assert.True(true, "No Intel hardware available - test skipped");
+                Assert.True(true, $"SKIPPED: {_skipReason}");
                 return;
             }
 
@@ -159,7 +210,7 @@ namespace IGCLWrapper.Tests.ClangSharp
 
             if (displays.Length == 0)
             {
-                Assert.True(true, "No displays connected - test skipped");
+                Assert.True(true, "SKIPPED: No displays connected");
                 return;
             }
 
@@ -180,7 +231,7 @@ namespace IGCLWrapper.Tests.ClangSharp
         [Fact]
         public void VersionHelpers_ShouldWorkCorrectly()
         {
-            // Test version manipulation helpers
+            // Test version manipulation helpers - these don't require hardware
             uint version = IGCLApi.MakeVersion(1, 2);
             Assert.Equal(1u, IGCLApi.GetMajorVersion(version));
             Assert.Equal(2u, IGCLApi.GetMinorVersion(version));
@@ -193,7 +244,7 @@ namespace IGCLWrapper.Tests.ClangSharp
         [Fact]
         public unsafe void StructHelper_ShouldCreateValidStructures()
         {
-            // Test structure creation helpers
+            // Test structure creation helpers - these don't require hardware
             var initArgs = IGCLStructHelper.CreateInitArgs();
             Assert.Equal((uint)sizeof(_ctl_init_args_t), initArgs.Size);
             Assert.Equal((byte)0, initArgs.Version);

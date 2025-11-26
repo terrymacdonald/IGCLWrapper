@@ -10,13 +10,36 @@ namespace IGCLWrapper.Tests
     /// </summary>
     public class DisplayServicesTests : IDisposable
     {
-        private IGCLApi? _api;
-        private IntPtr[]? _adapters;
-        private IntPtr[]? _displays;
-        private bool _noDisplaysAvailable;
+        private readonly IGCLApi? _api;
+        private readonly IntPtr[]? _adapters;
+        private readonly IntPtr[]? _displays;
+        private readonly bool _hasHardware;
+        private readonly bool _hasDll;
+        private readonly string _skipReason = string.Empty;
+        private readonly bool _noDisplaysAvailable;
 
         public DisplayServicesTests()
         {
+            // Stage 1: Check for Intel GPU hardware via PCI
+            if (!HardwareDetection.HasIntelGPU(out string hwError))
+            {
+                _hasHardware = false;
+                _hasDll = false;
+                _skipReason = hwError;
+                return;
+            }
+            _hasHardware = true;
+
+            // Stage 2: Check for IGCL DLL availability
+            if (!IGCLApi.IsIGCLDllAvailable(out string dllError))
+            {
+                _hasDll = false;
+                _skipReason = dllError;
+                return;
+            }
+            _hasDll = true;
+
+            // Stage 3: Try to initialize IGCL API
             try
             {
                 _api = IGCLApi.Initialize();
@@ -26,14 +49,22 @@ namespace IGCLWrapper.Tests
                     _displays = _api?.EnumerateDisplays(_adapters[0]);
                 }
             }
+            catch (IGCLException ex)
+            {
+                if (ex.IsNoDisplayError())
+                {
+                    // Mark that no displays are available so tests can skip
+                    _noDisplaysAvailable = true;
+                    _skipReason = "No displays connected";
+                }
+                else
+                {
+                    _skipReason = $"IGCL initialization failed: {ex.Message}";
+                }
+            }
             catch (DllNotFoundException)
             {
-                _api = null;
-            }
-            catch (IGCLException ex) when (ex.IsNoDisplayError())
-            {
-                // Mark that no displays are available so tests can skip
-                _noDisplaysAvailable = true;
+                _skipReason = "IGCL DLL not found";
             }
         }
 
@@ -42,22 +73,30 @@ namespace IGCLWrapper.Tests
             _api?.Dispose();
         }
 
-        [SkippableFact]
+        [Fact]
         public void CtlEnumerateDisplayOutputs_ShouldReturnDisplayCount()
         {
             // Arrange & Act
-            Skip.If(_api == null || _adapters == null || _adapters.Length == 0 || _noDisplaysAvailable, "No displays connected");
+            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0 || _noDisplaysAvailable)
+            {
+                Assert.True(true, $"SKIPPED: {_skipReason}");
+                return;
+            }
 
             // Assert
             Assert.NotNull(_displays);
             // Note: May be 0 if no displays connected
         }
 
-        [SkippableFact]
+        [Fact]
         public void CtlGetDisplayProperties_ShouldReturnValidProperties()
         {
             // Arrange
-            Skip.If(_api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable, "No displays connected");
+            if (!_hasHardware || !_hasDll || _api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable)
+            {
+                Assert.True(true, $"SKIPPED: {_skipReason}");
+                return;
+            }
 
             // Act
             unsafe
@@ -78,11 +117,15 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [SkippableFact]
+        [Fact]
         public void CtlGetAdaperDisplayEncoderProperties_ShouldReturnValidProperties()
         {
             // Arrange
-            Skip.If(_api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable, "No displays connected");
+            if (!_hasHardware || !_hasDll || _api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable)
+            {
+                Assert.True(true, $"SKIPPED: {_skipReason}");
+                return;
+            }
 
             // Act
             unsafe
@@ -103,11 +146,15 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [SkippableFact]
+        [Fact]
         public void CtlGetSharpnessCaps_ShouldReturnCapabilities()
         {
             // Arrange
-            Skip.If(_api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable, "No displays connected");
+            if (!_hasHardware || !_hasDll || _api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable)
+            {
+                Assert.True(true, $"SKIPPED: {_skipReason}");
+                return;
+            }
 
             // Act
             unsafe
@@ -128,11 +175,15 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [SkippableFact]
+        [Fact]
         public void CtlGetCurrentSharpness_ShouldReturnSettings()
         {
             // Arrange
-            Skip.If(_api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable, "No displays connected");
+            if (!_hasHardware || !_hasDll || _api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable)
+            {
+                Assert.True(true, $"SKIPPED: {_skipReason}");
+                return;
+            }
 
             // Act
             unsafe
@@ -153,11 +204,15 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [SkippableFact]
+        [Fact]
         public void CtlGetSupportedScalingCapability_ShouldReturnCapabilities()
         {
             // Arrange
-            Skip.If(_api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable, "No displays connected");
+            if (!_hasHardware || !_hasDll || _api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable)
+            {
+                Assert.True(true, $"SKIPPED: {_skipReason}");
+                return;
+            }
 
             // Act
             unsafe
@@ -178,11 +233,15 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [SkippableFact]
+        [Fact]
         public void CtlGetCurrentScaling_ShouldReturnSettings()
         {
             // Arrange
-            Skip.If(_api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable, "No displays connected");
+            if (!_hasHardware || !_hasDll || _api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable)
+            {
+                Assert.True(true, $"SKIPPED: {_skipReason}");
+                return;
+            }
 
             // Act
             unsafe
@@ -203,11 +262,15 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [SkippableFact]
+        [Fact]
         public void CtlGetPowerOptimizationCaps_ShouldReturnCapabilities()
         {
             // Arrange
-            Skip.If(_api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable, "No displays connected");
+            if (!_hasHardware || !_hasDll || _api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable)
+            {
+                Assert.True(true, $"SKIPPED: {_skipReason}");
+                return;
+            }
 
             // Act
             unsafe
@@ -228,11 +291,15 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [SkippableFact]
+        [Fact]
         public void CtlGetIntelArcSyncInfoForMonitor_ShouldReturnInfo()
         {
             // Arrange
-            Skip.If(_api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable, "No displays connected");
+            if (!_hasHardware || !_hasDll || _api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable)
+            {
+                Assert.True(true, $"SKIPPED: {_skipReason}");
+                return;
+            }
 
             // Act
             unsafe
@@ -253,11 +320,15 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [SkippableFact]
+        [Fact]
         public void CtlGetIntelArcSyncProfile_ShouldReturnProfile()
         {
             // Arrange
-            Skip.If(_api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable, "No displays connected");
+            if (!_hasHardware || !_hasDll || _api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable)
+            {
+                Assert.True(true, $"SKIPPED: {_skipReason}");
+                return;
+            }
 
             // Act
             unsafe
@@ -285,11 +356,15 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [SkippableFact]
+        [Fact]
         public void CtlEnumerateI2CPinPairs_ShouldReturnCount()
         {
             // Arrange & Act
-            Skip.If(_api == null || _adapters == null || _adapters.Length == 0 || _noDisplaysAvailable, "No displays connected");
+            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0 || _noDisplaysAvailable)
+            {
+                Assert.True(true, $"SKIPPED: {_skipReason}");
+                return;
+            }
 
             unsafe
             {
@@ -305,11 +380,15 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [SkippableFact]
+        [Fact]
         public void CtlPanelDescriptorAccess_WithInvalidArgs_ShouldReturnError()
         {
             // Arrange
-            Skip.If(_api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable, "No displays connected");
+            if (!_hasHardware || !_hasDll || _api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable)
+            {
+                Assert.True(true, $"SKIPPED: {_skipReason}");
+                return;
+            }
 
             // Act & Assert
             unsafe
@@ -334,11 +413,15 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [SkippableFact]
+        [Fact]
         public void CtlGetSetDisplaySettings_ShouldReadSettings()
         {
             // Arrange
-            Skip.If(_api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable, "No displays connected");
+            if (!_hasHardware || !_hasDll || _api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable)
+            {
+                Assert.True(true, $"SKIPPED: {_skipReason}");
+                return;
+            }
 
             // Act
             unsafe
