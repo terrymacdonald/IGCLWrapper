@@ -55,29 +55,21 @@ namespace IGCLWrapper.Tests
             _api?.Dispose();
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlInit_ShouldInitializeSuccessfully()
         {
             // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null, _skipReason);
 
             // Assert
             Assert.NotNull(_api);
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlEnumerateDevices_ShouldReturnAdapters()
         {
             // Arrange
-            if (!_hasHardware || !_hasDll || _api == null)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null, _skipReason);
 
             // Act
             var adapters = _api.EnumerateAdapters();
@@ -87,22 +79,14 @@ namespace IGCLWrapper.Tests
             // Note: May be 0 if no Intel GPU present
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlGetDeviceProperties_ShouldReturnValidProperties()
         {
             // Arrange
-            if (!_hasHardware || !_hasDll || _api == null)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null, _skipReason);
 
             var adapters = _api.EnumerateAdapters();
-            if (adapters.Length == 0)
-            {
-                Assert.True(true, "SKIPPED: No adapters enumerated");
-                return;
-            }
+            Skip.If(adapters.Length == 0, "No adapters enumerated");
 
             // Act
             unsafe
@@ -115,22 +99,14 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlGetDeviceProperties_DeviceType_ShouldBeGraphics()
         {
             // Arrange
-            if (!_hasHardware || !_hasDll || _api == null)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null, _skipReason);
 
             var adapters = _api.EnumerateAdapters();
-            if (adapters.Length == 0)
-            {
-                Assert.True(true, "SKIPPED: No adapters enumerated");
-                return;
-            }
+            Skip.If(adapters.Length == 0, "No adapters enumerated");
 
             // Act
             unsafe
@@ -142,15 +118,11 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlEnumerateDevices_WithNullHandle_ShouldThrowException()
         {
             // Arrange
-            if (!_hasHardware || !_hasDll || _api == null)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null, _skipReason);
 
             // Act & Assert
             unsafe
@@ -169,15 +141,11 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void MultipleInitializations_ShouldNotCrash()
         {
             // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null, _skipReason);
 
             // Try to initialize again (should handle gracefully)
             Exception? caughtException = null;
@@ -199,22 +167,14 @@ namespace IGCLWrapper.Tests
             Assert.True(caughtException == null || caughtException is IGCLException);
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlCheckDriverVersion_ShouldValidateVersion()
         {
             // Arrange
-            if (!_hasHardware || !_hasDll || _api == null)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null, _skipReason);
 
             var adapters = _api.EnumerateAdapters();
-            if (adapters.Length == 0)
-            {
-                Assert.True(true, "SKIPPED: No adapters enumerated");
-                return;
-            }
+            Skip.If(adapters.Length == 0, "No adapters enumerated");
 
             // Act
             unsafe
@@ -231,22 +191,14 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void AdapterProperties_ShouldContainDeviceId()
         {
             // Arrange
-            if (!_hasHardware || !_hasDll || _api == null)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null, _skipReason);
 
             var adapters = _api.EnumerateAdapters();
-            if (adapters.Length == 0)
-            {
-                Assert.True(true, "SKIPPED: No adapters enumerated");
-                return;
-            }
+            Skip.If(adapters.Length == 0, "No adapters enumerated");
 
             // Act
             unsafe
@@ -259,22 +211,14 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void AdapterProperties_ShouldHaveValidName()
         {
             // Arrange
-            if (!_hasHardware || !_hasDll || _api == null)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null, _skipReason);
 
             var adapters = _api.EnumerateAdapters();
-            if (adapters.Length == 0)
-            {
-                Assert.True(true, "SKIPPED: No adapters enumerated");
-                return;
-            }
+            Skip.If(adapters.Length == 0, "No adapters enumerated");
 
             // Act
             unsafe
@@ -288,22 +232,14 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlEnumerateDisplayOutputs_ShouldReturnCount()
         {
             // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null, _skipReason);
 
             var adapters = _api.EnumerateAdapters();
-            if (adapters.Length == 0)
-            {
-                Assert.True(true, "SKIPPED: No adapters enumerated");
-                return;
-            }
+            Skip.If(adapters.Length == 0, "No adapters enumerated");
 
             unsafe
             {
@@ -316,22 +252,14 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void AdapterProperties_ShouldHaveValidDriverVersion()
         {
             // Arrange
-            if (!_hasHardware || !_hasDll || _api == null)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null, _skipReason);
 
             var adapters = _api.EnumerateAdapters();
-            if (adapters.Length == 0)
-            {
-                Assert.True(true, "SKIPPED: No adapters enumerated");
-                return;
-            }
+            Skip.If(adapters.Length == 0, "No adapters enumerated");
 
             // Act
             unsafe
@@ -343,22 +271,14 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void AdapterProperties_ShouldHaveValidPCIIds()
         {
             // Arrange
-            if (!_hasHardware || !_hasDll || _api == null)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null, _skipReason);
 
             var adapters = _api.EnumerateAdapters();
-            if (adapters.Length == 0)
-            {
-                Assert.True(true, "SKIPPED: No adapters enumerated");
-                return;
-            }
+            Skip.If(adapters.Length == 0, "No adapters enumerated");
 
             // Act
             unsafe
@@ -372,22 +292,14 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void AdapterProperties_ShouldHaveValidEUCounts()
         {
             // Arrange
-            if (!_hasHardware || !_hasDll || _api == null)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null, _skipReason);
 
             var adapters = _api.EnumerateAdapters();
-            if (adapters.Length == 0)
-            {
-                Assert.True(true, "SKIPPED: No adapters enumerated");
-                return;
-            }
+            Skip.If(adapters.Length == 0, "No adapters enumerated");
 
             // Act
             unsafe
@@ -404,22 +316,14 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void AdapterProperties_ShouldHaveValidFrequency()
         {
             // Arrange
-            if (!_hasHardware || !_hasDll || _api == null)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null, _skipReason);
 
             var adapters = _api.EnumerateAdapters();
-            if (adapters.Length == 0)
-            {
-                Assert.True(true, "SKIPPED: No adapters enumerated");
-                return;
-            }
+            Skip.If(adapters.Length == 0, "No adapters enumerated");
 
             // Act
             unsafe
@@ -433,15 +337,11 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlClose_ShouldCloseSuccessfully()
         {
             // Arrange
-            if (!_hasHardware || !_hasDll || _api == null)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null, _skipReason);
 
             // Test that Dispose can be called without throwing
             // Note: We can't actually dispose here as it would affect other tests
@@ -449,22 +349,14 @@ namespace IGCLWrapper.Tests
             Assert.NotNull(_api);
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlWaitForPropertyChange_ShouldReturnResult()
         {
             // Arrange
-            if (!_hasHardware || !_hasDll || _api == null)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null, _skipReason);
 
             var adapters = _api.EnumerateAdapters();
-            if (adapters.Length == 0)
-            {
-                Assert.True(true, "SKIPPED: No adapters enumerated");
-                return;
-            }
+            Skip.If(adapters.Length == 0, "No adapters enumerated");
 
             // Act
             unsafe
@@ -491,15 +383,11 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void InitArgs_ShouldReturnSupportedVersion()
         {
             // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null, _skipReason);
 
             // The API was initialized successfully, so we can check the version
             // This is implicitly tested in the initialization, but we'll verify explicitly

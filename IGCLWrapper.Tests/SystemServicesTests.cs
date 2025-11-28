@@ -59,15 +59,10 @@ namespace IGCLWrapper.Tests
 
         #region Overclocking Tests
 
-        [Fact]
+        [SkippableFact]
         public void CtlOverclockGetProperties_ShouldReturnProperties()
         {
-            // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
@@ -87,15 +82,10 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlOverclockGpuFrequencyOffsetGet_ShouldReturnOffset()
         {
-            // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
@@ -111,15 +101,10 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlOverclockGpuVoltageOffsetGet_ShouldReturnOffset()
         {
-            // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
@@ -135,15 +120,10 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlOverclockPowerLimitGet_ShouldReturnLimit()
         {
-            // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
@@ -159,15 +139,10 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlOverclockTemperatureLimitGet_ShouldReturnLimit()
         {
-            // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
@@ -183,15 +158,10 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlPowerTelemetryGet_ShouldReturnTelemetry()
         {
-            // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
@@ -211,15 +181,10 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlOverclockGpuFrequencyOffsetGetV2_ShouldReturnOffset()
         {
-            // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
@@ -235,15 +200,10 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlOverclockGpuMaxVoltageOffsetGetV2_ShouldReturnOffset()
         {
-            // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
@@ -259,15 +219,10 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlOverclockVramMemSpeedLimitGetV2_ShouldReturnLimit()
         {
-            // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
@@ -283,15 +238,10 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlOverclockPowerLimitGetV2_ShouldReturnLimit()
         {
-            // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
@@ -307,15 +257,10 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlOverclockTemperatureLimitGetV2_ShouldReturnLimit()
         {
-            // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
@@ -331,15 +276,10 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlOverclockGpuLockGet_ShouldReturnLock()
         {
-            // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
@@ -364,15 +304,10 @@ namespace IGCLWrapper.Tests
 
         #region 3D Graphics Tests
 
-        [Fact]
+        [SkippableFact]
         public void CtlGetSupported3DCapabilities_ShouldReturnCapabilities()
         {
-            // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
@@ -399,15 +334,10 @@ namespace IGCLWrapper.Tests
 
         #region Media/Video Processing Tests
 
-        [Fact]
+        [SkippableFact]
         public void CtlGetSupportedVideoProcessingCapabilities_ShouldReturnCapabilities()
         {
-            // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
@@ -434,15 +364,10 @@ namespace IGCLWrapper.Tests
 
         #region Advanced Display Tests
 
-        [Fact]
+        [SkippableFact]
         public void CtlGetSupportedRetroScalingCapability_ShouldReturnCapabilities()
         {
-            // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
@@ -462,15 +387,10 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlGetSetRetroScaling_ShouldReadSettings()
         {
-            // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
@@ -495,15 +415,10 @@ namespace IGCLWrapper.Tests
 
         #region Linked Display Adapter Tests
 
-        [Fact]
+        [SkippableFact]
         public void CtlGetLinkedDisplayAdapters_ShouldReturnAdapters()
         {
-            // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
@@ -540,15 +455,10 @@ namespace IGCLWrapper.Tests
 
         #region VF Curve Tests
 
-        [Fact]
+        [SkippableFact]
         public void CtlOverclockReadVFCurve_ShouldReturnCurve()
         {
-            // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
@@ -585,15 +495,10 @@ namespace IGCLWrapper.Tests
 
         #region Error Handling Tests
 
-        [Fact]
+        [SkippableFact]
         public void CtlOverclockSetWithoutWaiver_ShouldReturnError()
         {
-            // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             // Try to set overclock without waiver - should fail
             unsafe

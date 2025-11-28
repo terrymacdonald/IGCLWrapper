@@ -60,35 +60,24 @@ namespace IGCLWrapper.Tests
 
         #region Engine Tests
 
-        [Fact]
+        [SkippableFact]
         public void CtlEnumEngineGroups_ShouldReturnCount()
         {
-            // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
                 uint count = 0;
                 var result = IGCL.ctlEnumEngineGroups((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
 
-                // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlEngineGetProperties_ShouldReturnProperties()
         {
-            // Arrange
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
@@ -102,7 +91,6 @@ namespace IGCLWrapper.Tests
                     IGCL.ctlEnumEngineGroups((_ctl_device_adapter_handle_t*)_adapters[0], &count, pEngines);
                 }
 
-                // Act
                 var props = new _ctl_engine_properties_t
                 {
                     Size = (uint)sizeof(_ctl_engine_properties_t),
@@ -111,20 +99,14 @@ namespace IGCLWrapper.Tests
 
                 var result = IGCL.ctlEngineGetProperties(engineHandles[0], &props);
 
-                // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlEngineGetActivity_ShouldReturnStats()
         {
-            // Arrange
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
@@ -138,7 +120,6 @@ namespace IGCLWrapper.Tests
                     IGCL.ctlEnumEngineGroups((_ctl_device_adapter_handle_t*)_adapters[0], &count, pEngines);
                 }
 
-                // Act
                 var stats = new _ctl_engine_stats_t
                 {
                     Size = (uint)sizeof(_ctl_engine_stats_t),
@@ -147,7 +128,6 @@ namespace IGCLWrapper.Tests
 
                 var result = IGCL.ctlEngineGetActivity(engineHandles[0], &stats);
 
-                // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
@@ -156,36 +136,24 @@ namespace IGCLWrapper.Tests
 
         #region Fan Tests
 
-        [Fact]
+        [SkippableFact]
         public void CtlEnumFans_ShouldReturnCount()
         {
-            // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
                 uint count = 0;
                 var result = IGCL.ctlEnumFans((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
 
-                // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
-                // Count may be 0 if no fans present
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlFanGetProperties_ShouldReturnProperties()
         {
-            // Arrange
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
@@ -199,7 +167,6 @@ namespace IGCLWrapper.Tests
                     IGCL.ctlEnumFans((_ctl_device_adapter_handle_t*)_adapters[0], &count, pFans);
                 }
 
-                // Act
                 var props = new _ctl_fan_properties_t
                 {
                     Size = (uint)sizeof(_ctl_fan_properties_t),
@@ -208,20 +175,14 @@ namespace IGCLWrapper.Tests
 
                 var result = IGCL.ctlFanGetProperties(fanHandles[0], &props);
 
-                // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlFanGetConfig_ShouldReturnConfig()
         {
-            // Arrange
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
@@ -235,7 +196,6 @@ namespace IGCLWrapper.Tests
                     IGCL.ctlEnumFans((_ctl_device_adapter_handle_t*)_adapters[0], &count, pFans);
                 }
 
-                // Act
                 var config = new _ctl_fan_config_t
                 {
                     Size = (uint)sizeof(_ctl_fan_config_t),
@@ -244,20 +204,14 @@ namespace IGCLWrapper.Tests
 
                 var result = IGCL.ctlFanGetConfig(fanHandles[0], &config);
 
-                // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlFanGetState_ShouldReturnState()
         {
-            // Arrange
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
@@ -271,11 +225,9 @@ namespace IGCLWrapper.Tests
                     IGCL.ctlEnumFans((_ctl_device_adapter_handle_t*)_adapters[0], &count, pFans);
                 }
 
-                // Act
                 int speed;
                 var result = IGCL.ctlFanGetState(fanHandles[0], _ctl_fan_speed_units_t.CTL_FAN_SPEED_UNITS_RPM, &speed);
 
-                // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
@@ -284,35 +236,24 @@ namespace IGCLWrapper.Tests
 
         #region Frequency Tests
 
-        [Fact]
+        [SkippableFact]
         public void CtlEnumFrequencyDomains_ShouldReturnCount()
         {
-            // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
                 uint count = 0;
                 var result = IGCL.ctlEnumFrequencyDomains((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
 
-                // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlFrequencyGetProperties_ShouldReturnProperties()
         {
-            // Arrange
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
@@ -326,7 +267,6 @@ namespace IGCLWrapper.Tests
                     IGCL.ctlEnumFrequencyDomains((_ctl_device_adapter_handle_t*)_adapters[0], &count, pFreqs);
                 }
 
-                // Act
                 var props = new _ctl_freq_properties_t
                 {
                     Size = (uint)sizeof(_ctl_freq_properties_t),
@@ -335,20 +275,14 @@ namespace IGCLWrapper.Tests
 
                 var result = IGCL.ctlFrequencyGetProperties(freqHandles[0], &props);
 
-                // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlFrequencyGetState_ShouldReturnState()
         {
-            // Arrange
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
@@ -362,7 +296,6 @@ namespace IGCLWrapper.Tests
                     IGCL.ctlEnumFrequencyDomains((_ctl_device_adapter_handle_t*)_adapters[0], &count, pFreqs);
                 }
 
-                // Act
                 var state = new _ctl_freq_state_t
                 {
                     Size = (uint)sizeof(_ctl_freq_state_t),
@@ -371,7 +304,6 @@ namespace IGCLWrapper.Tests
 
                 var result = IGCL.ctlFrequencyGetState(freqHandles[0], &state);
 
-                // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
@@ -380,35 +312,24 @@ namespace IGCLWrapper.Tests
 
         #region Memory Tests
 
-        [Fact]
+        [SkippableFact]
         public void CtlEnumMemoryModules_ShouldReturnCount()
         {
-            // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
                 uint count = 0;
                 var result = IGCL.ctlEnumMemoryModules((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
 
-                // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlMemoryGetProperties_ShouldReturnProperties()
         {
-            // Arrange
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
@@ -422,7 +343,6 @@ namespace IGCLWrapper.Tests
                     IGCL.ctlEnumMemoryModules((_ctl_device_adapter_handle_t*)_adapters[0], &count, pMems);
                 }
 
-                // Act
                 var props = new _ctl_mem_properties_t
                 {
                     Size = (uint)sizeof(_ctl_mem_properties_t),
@@ -431,19 +351,14 @@ namespace IGCLWrapper.Tests
 
                 var result = IGCL.ctlMemoryGetProperties(memHandles[0], &props);
 
-                // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlMemoryGetState_ShouldReturnState()
         {
-            // Arrange
-            if (_api == null || _adapters == null || _adapters.Length == 0)
-            {
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
@@ -457,7 +372,6 @@ namespace IGCLWrapper.Tests
                     IGCL.ctlEnumMemoryModules((_ctl_device_adapter_handle_t*)_adapters[0], &count, pMems);
                 }
 
-                // Act
                 var state = new _ctl_mem_state_t
                 {
                     Size = (uint)sizeof(_ctl_mem_state_t),
@@ -466,7 +380,6 @@ namespace IGCLWrapper.Tests
 
                 var result = IGCL.ctlMemoryGetState(memHandles[0], &state);
 
-                // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
@@ -475,35 +388,24 @@ namespace IGCLWrapper.Tests
 
         #region Temperature Tests
 
-        [Fact]
+        [SkippableFact]
         public void CtlEnumTemperatureSensors_ShouldReturnCount()
         {
-            // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
                 uint count = 0;
                 var result = IGCL.ctlEnumTemperatureSensors((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
 
-                // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlTemperatureGetProperties_ShouldReturnProperties()
         {
-            // Arrange
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
@@ -517,7 +419,6 @@ namespace IGCLWrapper.Tests
                     IGCL.ctlEnumTemperatureSensors((_ctl_device_adapter_handle_t*)_adapters[0], &count, pTemps);
                 }
 
-                // Act
                 var props = new _ctl_temp_properties_t
                 {
                     Size = (uint)sizeof(_ctl_temp_properties_t),
@@ -526,20 +427,14 @@ namespace IGCLWrapper.Tests
 
                 var result = IGCL.ctlTemperatureGetProperties(tempHandles[0], &props);
 
-                // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlTemperatureGetState_ShouldReturnTemperature()
         {
-            // Arrange
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
@@ -553,13 +448,11 @@ namespace IGCLWrapper.Tests
                     IGCL.ctlEnumTemperatureSensors((_ctl_device_adapter_handle_t*)_adapters[0], &count, pTemps);
                 }
 
-                // Act
                 double temperature;
                 var result = IGCL.ctlTemperatureGetState(tempHandles[0], &temperature);
 
-                // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
-                Assert.True(temperature > -273.15); // Above absolute zero
+                Assert.True(temperature > -273.15);
             }
         }
 
@@ -567,35 +460,24 @@ namespace IGCLWrapper.Tests
 
         #region Power Tests
 
-        [Fact]
+        [SkippableFact]
         public void CtlEnumPowerDomains_ShouldReturnCount()
         {
-            // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
                 uint count = 0;
                 var result = IGCL.ctlEnumPowerDomains((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
 
-                // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlPowerGetProperties_ShouldReturnProperties()
         {
-            // Arrange
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
@@ -609,7 +491,6 @@ namespace IGCLWrapper.Tests
                     IGCL.ctlEnumPowerDomains((_ctl_device_adapter_handle_t*)_adapters[0], &count, pPowers);
                 }
 
-                // Act
                 var props = new _ctl_power_properties_t
                 {
                     Size = (uint)sizeof(_ctl_power_properties_t),
@@ -618,20 +499,14 @@ namespace IGCLWrapper.Tests
 
                 var result = IGCL.ctlPowerGetProperties(powerHandles[0], &props);
 
-                // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlPowerGetEnergyCounter_ShouldReturnCounter()
         {
-            // Arrange
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
@@ -645,7 +520,6 @@ namespace IGCLWrapper.Tests
                     IGCL.ctlEnumPowerDomains((_ctl_device_adapter_handle_t*)_adapters[0], &count, pPowers);
                 }
 
-                // Act
                 var energy = new _ctl_power_energy_counter_t
                 {
                     Size = (uint)sizeof(_ctl_power_energy_counter_t),
@@ -654,7 +528,6 @@ namespace IGCLWrapper.Tests
 
                 var result = IGCL.ctlPowerGetEnergyCounter(powerHandles[0], &energy);
 
-                // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
@@ -663,27 +536,20 @@ namespace IGCLWrapper.Tests
 
         #region LED Tests
 
-        [Fact]
+        [SkippableFact]
         public void CtlEnumLeds_ShouldReturnCount()
         {
-            // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
                 uint count = 0;
                 var result = IGCL.ctlEnumLeds((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
 
-                // Assert
                 Assert.True(
                     result == _ctl_result_t.CTL_RESULT_SUCCESS ||
                     result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
                 );
-                // Count may be 0 if no LEDs present
             }
         }
 
@@ -691,15 +557,10 @@ namespace IGCLWrapper.Tests
 
         #region Firmware Tests
 
-        [Fact]
+        [SkippableFact]
         public void CtlGetFirmwareProperties_ShouldReturnProperties()
         {
-            // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
@@ -711,7 +572,6 @@ namespace IGCLWrapper.Tests
 
                 var result = IGCL.ctlGetFirmwareProperties((_ctl_device_adapter_handle_t*)_adapters[0], &props);
 
-                // Assert - Accept all documented return codes for this API
                 Assert.True(
                     result == _ctl_result_t.CTL_RESULT_SUCCESS ||
                     result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
@@ -724,22 +584,16 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlEnumerateFirmwareComponents_ShouldReturnCount()
         {
-            // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
                 uint count = 0;
                 var result = IGCL.ctlEnumerateFirmwareComponents((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
 
-                // Assert - Accept all documented return codes for this API
                 Assert.True(
                     result == _ctl_result_t.CTL_RESULT_SUCCESS ||
                     result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
@@ -755,15 +609,10 @@ namespace IGCLWrapper.Tests
 
         #region PCI Tests
 
-        [Fact]
+        [SkippableFact]
         public void CtlPciGetProperties_ShouldReturnProperties()
         {
-            // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
@@ -775,20 +624,14 @@ namespace IGCLWrapper.Tests
 
                 var result = IGCL.ctlPciGetProperties((_ctl_device_adapter_handle_t*)_adapters[0], &props);
 
-                // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlPciGetState_ShouldReturnState()
         {
-            // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             unsafe
             {
@@ -800,7 +643,6 @@ namespace IGCLWrapper.Tests
 
                 var result = IGCL.ctlPciGetState((_ctl_device_adapter_handle_t*)_adapters[0], &state);
 
-                // Assert
                 Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
@@ -809,15 +651,10 @@ namespace IGCLWrapper.Tests
 
         #region ECC Tests
 
-        [Fact]
+        [SkippableFact]
         public void CtlEccGetProperties_ShouldReturnProperties()
         {
-            // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             try
             {
@@ -831,7 +668,6 @@ namespace IGCLWrapper.Tests
 
                     var result = IGCL.ctlEccGetProperties((_ctl_device_adapter_handle_t*)_adapters[0], &props);
 
-                    // Assert
                     Assert.True(
                         result == _ctl_result_t.CTL_RESULT_SUCCESS ||
                         result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
@@ -840,21 +676,14 @@ namespace IGCLWrapper.Tests
             }
             catch (EntryPointNotFoundException)
             {
-                // ctlEccGetProperties is not available in this version of the Control Library DLL
-                // This is expected on some driver/DLL versions
                 return;
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void CtlEccGetState_ShouldReturnState()
         {
-            // Arrange & Act
-            if (!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0, _skipReason);
 
             try
             {
@@ -868,7 +697,6 @@ namespace IGCLWrapper.Tests
 
                     var result = IGCL.ctlEccGetState((_ctl_device_adapter_handle_t*)_adapters[0], &state);
 
-                    // Assert
                     Assert.True(
                         result == _ctl_result_t.CTL_RESULT_SUCCESS ||
                         result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
@@ -877,8 +705,6 @@ namespace IGCLWrapper.Tests
             }
             catch (EntryPointNotFoundException)
             {
-                // ctlEccGetState is not available in this version of the Control Library DLL
-                // This is expected on some driver/DLL versions
                 return;
             }
         }

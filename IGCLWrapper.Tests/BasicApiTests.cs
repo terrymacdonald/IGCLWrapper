@@ -47,59 +47,43 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void HardwareDetection_ShouldFindIntelGPU()
         {
             // Check for Intel hardware via PCI
             var hasIntelGPU = HardwareDetection.HasIntelGPU(out string hwError);
             
-            if (!hasIntelGPU)
-            {
-                Assert.True(true, $"SKIPPED: {hwError}");
-                return;
-            }
+            Skip.If(!hasIntelGPU, hwError);
             
             Assert.True(hasIntelGPU);
             var gpuNames = HardwareDetection.GetIntelGPUNames();
             Assert.NotEmpty(gpuNames);
         }
 
-        [Fact]
+        [SkippableFact]
         public void DllAvailability_ShouldFindIGCLDll()
         {
             // Check for IGCL DLL in search path
             var hasDll = IGCLApi.IsIGCLDllAvailable(out string dllError);
             
-            if (!hasDll)
-            {
-                Assert.True(true, $"SKIPPED: {dllError}");
-                return;
-            }
+            Skip.If(!hasDll, dllError);
             
             Assert.True(hasDll);
         }
 
-        [Fact]
+        [SkippableFact]
         public void Initialize_ShouldSucceed()
         {
             // Test that we can initialize the API
-            if (!_hasHardware || !_hasDll || _api == null)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null, _skipReason);
 
             Assert.NotNull(_api);
         }
 
-        [Fact]
+        [SkippableFact]
         public unsafe void EnumerateAdapters_ShouldReturnAdapters()
         {
-            if (!_hasHardware || !_hasDll || _api == null)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null, _skipReason);
 
             var adapters = _api.EnumerateAdapters();
             
@@ -113,14 +97,10 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public unsafe void GetAdapterProperties_ShouldSucceed()
         {
-            if (!_hasHardware || !_hasDll || _api == null)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null, _skipReason);
 
             var adapters = _api.EnumerateAdapters();
             Assert.NotEmpty(adapters);
@@ -135,14 +115,10 @@ namespace IGCLWrapper.Tests
             // Test passed - adapter properties retrieved successfully
         }
 
-        [Fact]
+        [SkippableFact]
         public unsafe void EnumerateDisplays_ShouldWork()
         {
-            if (!_hasHardware || !_hasDll || _api == null)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null, _skipReason);
 
             var adapters = _api.EnumerateAdapters();
             Assert.NotEmpty(adapters);
@@ -163,14 +139,10 @@ namespace IGCLWrapper.Tests
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public unsafe void GetDisplayProperties_ShouldSucceed_WhenDisplayConnected()
         {
-            if (!_hasHardware || !_hasDll || _api == null)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null, _skipReason);
 
             var adapters = _api.EnumerateAdapters();
             Assert.NotEmpty(adapters);
@@ -178,11 +150,7 @@ namespace IGCLWrapper.Tests
             var firstAdapter = adapters[0];
             var displays = _api.EnumerateDisplays(firstAdapter);
 
-            if (displays.Length == 0)
-            {
-                Assert.True(true, "SKIPPED: No displays connected");
-                return;
-            }
+            Skip.If(displays.Length == 0, "No displays connected");
 
             var firstDisplay = displays[0];
             var props = IGCLHelpers.GetDisplayProperties(firstDisplay);
@@ -195,24 +163,16 @@ namespace IGCLWrapper.Tests
             Assert.True(props.Type != 0, "Display should have valid output type");
         }
 
-        [Fact]
+        [SkippableFact]
         public unsafe void GetDisplayTiming_ShouldReturnValidData()
         {
-            if (!_hasHardware || !_hasDll || _api == null)
-            {
-                Assert.True(true, $"SKIPPED: {_skipReason}");
-                return;
-            }
+            Skip.If(!_hasHardware || !_hasDll || _api == null, _skipReason);
 
             var adapters = _api.EnumerateAdapters();
             var firstAdapter = adapters[0];
             var displays = _api.EnumerateDisplays(firstAdapter);
 
-            if (displays.Length == 0)
-            {
-                Assert.True(true, "SKIPPED: No displays connected");
-                return;
-            }
+            Skip.If(displays.Length == 0, "No displays connected");
 
             var firstDisplay = displays[0];
             
