@@ -10,7 +10,7 @@ namespace IGCLWrapper
     {
         public _ctl_result_t Result { get; }
 
-        public IGCLException(_ctl_result_t result, string message = null)
+        public IGCLException(_ctl_result_t result, string? message = null)
             : base(message ?? $"IGCL API error: {result}")
         {
             Result = result;

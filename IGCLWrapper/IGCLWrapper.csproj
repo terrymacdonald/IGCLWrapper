@@ -7,11 +7,29 @@
     <RootNamespace>IGCLWrapper</RootNamespace>
     <AssemblyName>IGCLWrapper</AssemblyName>
   </PropertyGroup>
-  
-  <ItemGroup>
-    <!-- Required for ClangSharp-generated attributes -->
-    <PackageReference Include="ClangSharp" Version="18.1.0" />
-    <PackageReference Include="ClangSharp.Interop" Version="20.1.2" />
-  </ItemGroup>
-  
+
+	<ItemGroup>
+		<!-- Required for ClangSharp-generated attributes -->
+		<PackageReference Include="ClangSharp" Version="20.1.2" PrivateAssets="all" />
+		<PackageReference Include="ClangSharp.Interop" Version="20.1.2" PrivateAssets="all" />
+		<PackageReference Include="ClangSharp.PInvokeGenerator" Version="20.1.2" PrivateAssets="all" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ClangSharpPInvokeGenerator Include="ClangSharpConfig.rsp" />
+	</ItemGroup>
+
+	<Target Name="GenerateFromClangSharp" BeforeTargets="CoreCompile" Inputs="@(ClangSharpPInvokeGenerator)" Outputs="$(BaseIntermediateOutputPath)ClangSharp.stamp">
+		<Exec Command="ClangSharpPInvokeGenerator %40&quot;@(ClangSharpPInvokeGenerator)&quot;" />
+		<ItemGroup>
+			<Compile Include="Generated\**\*.cs" />
+		</ItemGroup>
+		<Touch Files="$(BaseIntermediateOutputPath)ClangSharp.stamp" AlwaysCreate="true" />
+	</Target>
+
+	<Target Name="CleanClangSharpGenerated" BeforeTargets="BeforeClean">
+		<RemoveDir Directories="Generated" />
+		<RemoveDir Directories="$(BaseIntermediateOutputPath)" />
+	</Target>
+
 </Project>
