@@ -1,12 +1,14 @@
 using Xunit;
 using IGCLWrapper;
 using System;
+using System.Runtime.Versioning;
 
 namespace IGCLWrapper.Tests
 {
     /// <summary>
     /// Tests for System Services APIs including overclocking and system-level operations
     /// </summary>
+    [SupportedOSPlatform("windows")]
     public class SystemServicesTests : IDisposable
     {
         private readonly IGCLApi? _api;

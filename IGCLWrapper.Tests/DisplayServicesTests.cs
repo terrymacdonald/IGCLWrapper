@@ -1,6 +1,7 @@
 using Xunit;
 using IGCLWrapper;
 using System;
+using System.Runtime.Versioning;
 
 namespace IGCLWrapper.Tests
 {
@@ -8,6 +9,7 @@ namespace IGCLWrapper.Tests
     /// Tests for Display Services APIs including display enumeration, properties, scaling, sharpness,
     /// I2C/AUX access, brightness, pixel transformation, EDID management, and Intel Arc Sync
     /// </summary>
+    [SupportedOSPlatform("windows")]
     public class DisplayServicesTests : IDisposable
     {
         private readonly IGCLApi? _api;

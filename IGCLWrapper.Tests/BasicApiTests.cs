@@ -1,5 +1,6 @@
 using Xunit;
 using System;
+using System.Runtime.Versioning;
 using IGCLWrapper;
 
 namespace IGCLWrapper.Tests
@@ -8,6 +9,7 @@ namespace IGCLWrapper.Tests
     /// Tests for ClangSharp-generated IGCL bindings
     /// These tests validate that the new bindings work correctly
     /// </summary>
+    [SupportedOSPlatform("windows")]
     public class BasicApiTests : IDisposable
     {
         private readonly IGCLApi? _api;
@@ -93,7 +95,7 @@ namespace IGCLWrapper.Tests
             // Verify adapters are valid pointers
             foreach (var adapter in adapters)
             {
-                Assert.True(adapter != null, "Adapter handle should not be null");
+                Assert.True(adapter != IntPtr.Zero, "Adapter handle should not be null");
             }
         }
 
@@ -134,7 +136,7 @@ namespace IGCLWrapper.Tests
                 // If displays exist, verify they're valid
                 foreach (var display in displays)
                 {
-                    Assert.True(display != null, "Display handle should not be null");
+                    Assert.True(display != IntPtr.Zero, "Display handle should not be null");
                 }
             }
         }

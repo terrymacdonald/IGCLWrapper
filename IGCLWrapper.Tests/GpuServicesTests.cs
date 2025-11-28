@@ -1,6 +1,7 @@
 using Xunit;
 using IGCLWrapper;
 using System;
+using System.Runtime.Versioning;
 
 namespace IGCLWrapper.Tests
 {
@@ -8,6 +9,7 @@ namespace IGCLWrapper.Tests
     /// Tests for GPU Services APIs including engines, fans, frequencies, memory, temperature,
     /// power, LEDs, firmware, PCI, and ECC
     /// </summary>
+    [SupportedOSPlatform("windows")]
     public class GpuServicesTests : IDisposable
     {
         private readonly IGCLApi? _api;

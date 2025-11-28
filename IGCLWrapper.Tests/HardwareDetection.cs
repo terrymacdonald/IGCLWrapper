@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Management;
+using System.Runtime.Versioning;
 
 namespace IGCLWrapper.Tests
 {
@@ -15,6 +16,7 @@ namespace IGCLWrapper.Tests
         /// </summary>
         /// <param name="errorMessage">Details about why Intel GPU was not detected</param>
         /// <returns>True if Intel GPU hardware is detected, false otherwise</returns>
+        [SupportedOSPlatform("windows")]
         public static bool HasIntelGPU(out string errorMessage)
         {
             try
@@ -44,6 +46,7 @@ namespace IGCLWrapper.Tests
         /// Gets detailed information about detected Intel GPUs
         /// </summary>
         /// <returns>Array of GPU names, or empty array if none found</returns>
+        [SupportedOSPlatform("windows")]
         public static string[] GetIntelGPUNames()
         {
             try

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.Versioning;
 using Xunit.Abstractions;
 
 namespace IGCLWrapper.Tests
@@ -7,6 +8,7 @@ namespace IGCLWrapper.Tests
     /// Shared test fixture for IGCL tests
     /// Performs hardware detection, DLL check, and IGCL initialization once per test class
     /// </summary>
+    [SupportedOSPlatform("windows")]
     public class IGCLTestFixture : IDisposable
     {
         /// <summary>

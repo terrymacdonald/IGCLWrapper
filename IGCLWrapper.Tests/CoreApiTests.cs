@@ -1,12 +1,14 @@
 using Xunit;
 using IGCLWrapper;
 using System;
+using System.Runtime.Versioning;
 
 namespace IGCLWrapper.Tests
 {
     /// <summary>
     /// Tests for Core IGCL API functions including initialization, enumeration, and basic device operations
     /// </summary>
+    [SupportedOSPlatform("windows")]
     public class CoreApiTests : IDisposable
     {
         private readonly IGCLApi? _api;
