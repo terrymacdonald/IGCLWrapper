@@ -18,7 +18,7 @@ A modern, high-performance C# wrapper for Intel Graphics Control Library (IGCL),
 ### Prerequisites
 
 - Intel GPU with IGCL support
-- .NET 8.0 SDK or later
+- .NET 9.0 SDK or later
 - Intel Graphics drivers (version 25.20.100.6618 or higher)
 - Windows 10/11 (x64)
 
@@ -306,7 +306,7 @@ The project uses ClangSharpPInvokeGenerator to automatically generate P/Invoke b
 
 ## 📋 Requirements
 
-- **Runtime**: .NET 8.0 or later
+- **Runtime**: .NET 9.0 or later
 - **OS**: Windows 10/11 (x64 only)
 - **Drivers**: Intel Graphics drivers 25.20.100.6618+
 - **Hardware**: Intel GPU with IGCL support
