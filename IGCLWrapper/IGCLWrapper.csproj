@@ -107,7 +107,6 @@
 	<Target Name="GenerateFromClangSharp" BeforeTargets="CoreCompile" Inputs="@(ClangSharpPInvokeGenerator)" Outputs="$(BaseIntermediateOutputPath)ClangSharp.stamp">
 		<Exec Command="ClangSharpPInvokeGenerator %40&quot;@(ClangSharpPInvokeGenerator)&quot;" />
 		<ItemGroup>
-			<Compile Include="cs_generated\**\*.cs" />
 			<FileWrites Include="$(ClangSharpGeneratedDir)\**\*" />
 			<FileWrites Include="$(BaseIntermediateOutputPath)ClangSharp.stamp" />
 		</ItemGroup>
