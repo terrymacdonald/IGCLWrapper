@@ -28,8 +28,8 @@
 	</Target>
 
 	<Target Name="CleanClangSharpGenerated" BeforeTargets="BeforeClean">
-		<RemoveDir Directories="Generated" />
-		<RemoveDir Directories="$(BaseIntermediateOutputPath)" />
+		<RemoveDir Directories="cs_generated" />
+		<Delete Files="$(BaseIntermediateOutputPath)ClangSharp.stamp" />
 	</Target>
 
 </Project>
