@@ -10,8 +10,8 @@ namespace IGCLWrapper
     internal static unsafe class IGCLNative
     {
         // DLL name constants
-        private const string IGCL_DLL_NAME_64 = "igcl64.dll";
-        private const string IGCL_DLL_NAME_32 = "igcl32.dll";
+        private const string IGCL_DLL_NAME_64 = "ControlLib.dll";
+        private const string IGCL_DLL_NAME_32 = "ControlLib32.dll";
 
         // Get appropriate DLL name based on platform
         public static string GetDllName()

@@ -236,7 +236,7 @@ namespace IGCLWrapper
             if (handle == IntPtr.Zero)
             {
                 var error = Marshal.GetLastWin32Error();
-                errorMessage = $"ADLX SDK DLL '{dllName}' not found in DLL search path (Error: {error})";
+                errorMessage = $"IGCL SDK DLL '{dllName}' not found in DLL search path (Error: {error})";
                 return false;
             }
 
