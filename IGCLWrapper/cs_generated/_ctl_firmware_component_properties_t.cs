@@ -1,6 +1,8 @@
+using System.Runtime.CompilerServices;
+
 namespace IGCLWrapper
 {
-    public unsafe partial struct _ctl_firmware_component_properties_t
+    public partial struct _ctl_firmware_component_properties_t
     {
         [NativeTypeName("uint32_t")]
         public uint Size;
@@ -9,12 +11,30 @@ namespace IGCLWrapper
         public byte Version;
 
         [NativeTypeName("char[64]")]
-        public fixed sbyte name[64];
+        public _name_e__FixedBuffer name;
 
         [NativeTypeName("char[64]")]
-        public fixed sbyte version[64];
+        public _version_e__FixedBuffer version;
 
         [NativeTypeName("char[20]")]
-        public fixed sbyte reserved[20];
+        public _reserved_e__FixedBuffer reserved;
+
+        [InlineArray(64)]
+        public partial struct _name_e__FixedBuffer
+        {
+            public sbyte e0;
+        }
+
+        [InlineArray(64)]
+        public partial struct _version_e__FixedBuffer
+        {
+            public sbyte e0;
+        }
+
+        [InlineArray(20)]
+        public partial struct _reserved_e__FixedBuffer
+        {
+            public sbyte e0;
+        }
     }
 }

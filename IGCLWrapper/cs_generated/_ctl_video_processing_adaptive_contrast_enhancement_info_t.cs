@@ -1,6 +1,8 @@
+using System.Runtime.CompilerServices;
+
 namespace IGCLWrapper
 {
-    public unsafe partial struct _ctl_video_processing_adaptive_contrast_enhancement_info_t
+    public partial struct _ctl_video_processing_adaptive_contrast_enhancement_info_t
     {
         [NativeTypeName("uint32_t")]
         public uint Size;
@@ -18,6 +20,12 @@ namespace IGCLWrapper
         public _ctl_property_info_boolean_t adaptive_contrast_enhancement_coexistence;
 
         [NativeTypeName("uint32_t[16]")]
-        public fixed uint ReservedFields[16];
+        public _ReservedFields_e__FixedBuffer ReservedFields;
+
+        [InlineArray(16)]
+        public partial struct _ReservedFields_e__FixedBuffer
+        {
+            public uint e0;
+        }
     }
 }

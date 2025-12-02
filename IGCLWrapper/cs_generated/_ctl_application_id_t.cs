@@ -1,6 +1,8 @@
+using System.Runtime.CompilerServices;
+
 namespace IGCLWrapper
 {
-    public unsafe partial struct _ctl_application_id_t
+    public partial struct _ctl_application_id_t
     {
         [NativeTypeName("uint32_t")]
         public uint Data1;
@@ -12,6 +14,12 @@ namespace IGCLWrapper
         public ushort Data3;
 
         [NativeTypeName("uint8_t[8]")]
-        public fixed byte Data4[8];
+        public _Data4_e__FixedBuffer Data4;
+
+        [InlineArray(8)]
+        public partial struct _Data4_e__FixedBuffer
+        {
+            public byte e0;
+        }
     }
 }

@@ -1,6 +1,8 @@
+using System.Runtime.CompilerServices;
+
 namespace IGCLWrapper
 {
-    public unsafe partial struct _ctl_display_properties_t
+    public partial struct _ctl_display_properties_t
     {
         [NativeTypeName("uint32_t")]
         public uint Size;
@@ -48,6 +50,12 @@ namespace IGCLWrapper
         public _ctl_display_timing_t Display_Timing_Info;
 
         [NativeTypeName("uint32_t[16]")]
-        public fixed uint ReservedFields[16];
+        public _ReservedFields_e__FixedBuffer ReservedFields;
+
+        [InlineArray(16)]
+        public partial struct _ReservedFields_e__FixedBuffer
+        {
+            public uint e0;
+        }
     }
 }

@@ -1,6 +1,8 @@
+using System.Runtime.CompilerServices;
+
 namespace IGCLWrapper
 {
-    public unsafe partial struct _ctl_video_processing_standard_color_correction_t
+    public partial struct _ctl_video_processing_standard_color_correction_t
     {
         [NativeTypeName("uint32_t")]
         public uint Size;
@@ -20,6 +22,12 @@ namespace IGCLWrapper
         public float saturation;
 
         [NativeTypeName("uint32_t[16]")]
-        public fixed uint ReservedFields[16];
+        public _ReservedFields_e__FixedBuffer ReservedFields;
+
+        [InlineArray(16)]
+        public partial struct _ReservedFields_e__FixedBuffer
+        {
+            public uint e0;
+        }
     }
 }

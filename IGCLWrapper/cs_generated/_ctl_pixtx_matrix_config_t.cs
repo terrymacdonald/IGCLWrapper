@@ -1,6 +1,8 @@
+using System.Runtime.CompilerServices;
+
 namespace IGCLWrapper
 {
-    public unsafe partial struct _ctl_pixtx_matrix_config_t
+    public partial struct _ctl_pixtx_matrix_config_t
     {
         [NativeTypeName("uint32_t")]
         public uint Size;
@@ -9,12 +11,30 @@ namespace IGCLWrapper
         public byte Version;
 
         [NativeTypeName("double[3]")]
-        public fixed double PreOffsets[3];
+        public _PreOffsets_e__FixedBuffer PreOffsets;
 
         [NativeTypeName("double[3]")]
-        public fixed double PostOffsets[3];
+        public _PostOffsets_e__FixedBuffer PostOffsets;
 
         [NativeTypeName("double[3][3]")]
-        public fixed double Matrix[3 * 3];
+        public _Matrix_e__FixedBuffer Matrix;
+
+        [InlineArray(3)]
+        public partial struct _PreOffsets_e__FixedBuffer
+        {
+            public double e0;
+        }
+
+        [InlineArray(3)]
+        public partial struct _PostOffsets_e__FixedBuffer
+        {
+            public double e0;
+        }
+
+        [InlineArray(3 * 3)]
+        public partial struct _Matrix_e__FixedBuffer
+        {
+            public double e0_0;
+        }
     }
 }

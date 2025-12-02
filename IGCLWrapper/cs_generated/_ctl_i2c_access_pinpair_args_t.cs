@@ -1,6 +1,8 @@
+using System.Runtime.CompilerServices;
+
 namespace IGCLWrapper
 {
-    public unsafe partial struct _ctl_i2c_access_pinpair_args_t
+    public partial struct _ctl_i2c_access_pinpair_args_t
     {
         [NativeTypeName("uint32_t")]
         public uint Size;
@@ -24,9 +26,21 @@ namespace IGCLWrapper
         public uint Flags;
 
         [NativeTypeName("uint8_t[128]")]
-        public fixed byte Data[128];
+        public _Data_e__FixedBuffer Data;
 
         [NativeTypeName("uint32_t[4]")]
-        public fixed uint ReservedFields[4];
+        public _ReservedFields_e__FixedBuffer ReservedFields;
+
+        [InlineArray(128)]
+        public partial struct _Data_e__FixedBuffer
+        {
+            public byte e0;
+        }
+
+        [InlineArray(4)]
+        public partial struct _ReservedFields_e__FixedBuffer
+        {
+            public uint e0;
+        }
     }
 }

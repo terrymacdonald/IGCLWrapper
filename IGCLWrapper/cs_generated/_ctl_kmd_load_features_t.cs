@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+
 namespace IGCLWrapper
 {
     public unsafe partial struct _ctl_kmd_load_features_t
@@ -21,6 +23,12 @@ namespace IGCLWrapper
         public sbyte CallerComponent;
 
         [NativeTypeName("int64_t[4]")]
-        public fixed long Reserved[4];
+        public _Reserved_e__FixedBuffer Reserved;
+
+        [InlineArray(4)]
+        public partial struct _Reserved_e__FixedBuffer
+        {
+            public long e0;
+        }
     }
 }

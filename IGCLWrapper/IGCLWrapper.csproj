@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFramework>net9.0</TargetFramework>
+		<TargetFramework>net10.0</TargetFramework>
 		<LangVersion>12.0</LangVersion>
 		<Nullable>enable</Nullable>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -17,6 +17,7 @@
 		<PackageProjectUrl>https://github.com/terrymacdonald/IGCLWrapper</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/terrymacdonald/IGCLWrapper</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
+		<Platforms>AnyCPU;x64</Platforms>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -42,7 +43,7 @@
 		</PropertyGroup>
 
 		<ReadLinesFromFile File="$(VersionFile)" Condition="Exists('$(VersionFile)')">
-			<Output TaskParameter="Lines" ItemName="VersionFileLines"/>
+			<Output TaskParameter="Lines" ItemName="VersionFileLines" />
 		</ReadLinesFromFile>
 
 		<ItemGroup>
@@ -64,11 +65,7 @@
 			<SolutionRoot>$(MSBuildProjectDirectory)\..</SolutionRoot>
 		</PropertyGroup>
 
-		<Exec Command="git log -n 1 --format=%%H -- VERSION"
-			  ConsoleToMSBuild="true"
-			  IgnoreExitCode="true"
-			  WorkingDirectory="$(SolutionRoot)"
-			  StandardOutputImportance="low">
+		<Exec Command="git log -n 1 --format=%%H -- VERSION" ConsoleToMSBuild="true" IgnoreExitCode="true" WorkingDirectory="$(SolutionRoot)" StandardOutputImportance="low">
 			<Output TaskParameter="ConsoleOutput" PropertyName="LastVersionChangeHash" />
 			<Output TaskParameter="ExitCode" PropertyName="GitLogExitCode" />
 		</Exec>
@@ -80,11 +77,7 @@
 			<GitCountCommand Condition="'$(FinalHash)' == ''">git rev-list --count HEAD</GitCountCommand>
 		</PropertyGroup>
 
-		<Exec Command="$(GitCountCommand)"
-			  ConsoleToMSBuild="true"
-			  IgnoreExitCode="true"
-			  WorkingDirectory="$(SolutionRoot)"
-			  StandardOutputImportance="low">
+		<Exec Command="$(GitCountCommand)" ConsoleToMSBuild="true" IgnoreExitCode="true" WorkingDirectory="$(SolutionRoot)" StandardOutputImportance="low">
 			<Output TaskParameter="ConsoleOutput" PropertyName="GitCommitCount" />
 			<Output TaskParameter="ExitCode" PropertyName="GitCountExitCode" />
 		</Exec>
@@ -101,7 +94,7 @@
 			<InformationalVersion>$(AppVersion)</InformationalVersion>
 		</PropertyGroup>
 
-		<Message Text="-> IGCLWrapper Version: $(AppVersion) (Major/Minor from file, Patch is commits since change)" Importance="high" />
+		<Message Text="-&gt; IGCLWrapper Version: $(AppVersion) (Major/Minor from file, Patch is commits since change)" Importance="high" />
 	</Target>
 
 	<Target Name="GenerateFromClangSharp" BeforeTargets="CoreCompile" Inputs="@(ClangSharpPInvokeGenerator)" Outputs="$(BaseIntermediateOutputPath)ClangSharp.stamp">

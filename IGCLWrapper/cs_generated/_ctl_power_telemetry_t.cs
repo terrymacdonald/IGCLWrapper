@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+
 namespace IGCLWrapper
 {
     public partial struct _ctl_power_telemetry_t
@@ -119,44 +121,16 @@ namespace IGCLWrapper
         [NativeTypeName("ctl_oc_telemetry_item_t")]
         public _ctl_oc_telemetry_item_t vramWriteBandwidth;
 
+        [InlineArray(5)]
         public partial struct _psu_e__FixedBuffer
         {
             public _ctl_psu_info_t e0;
-            public _ctl_psu_info_t e1;
-            public _ctl_psu_info_t e2;
-            public _ctl_psu_info_t e3;
-            public _ctl_psu_info_t e4;
-
-            public unsafe ref _ctl_psu_info_t this[int index]
-            {
-                get
-                {
-                    fixed (_ctl_psu_info_t* pThis = &e0)
-                    {
-                        return ref pThis[index];
-                    }
-                }
-            }
         }
 
+        [InlineArray(5)]
         public partial struct _fanSpeed_e__FixedBuffer
         {
             public _ctl_oc_telemetry_item_t e0;
-            public _ctl_oc_telemetry_item_t e1;
-            public _ctl_oc_telemetry_item_t e2;
-            public _ctl_oc_telemetry_item_t e3;
-            public _ctl_oc_telemetry_item_t e4;
-
-            public unsafe ref _ctl_oc_telemetry_item_t this[int index]
-            {
-                get
-                {
-                    fixed (_ctl_oc_telemetry_item_t* pThis = &e0)
-                    {
-                        return ref pThis[index];
-                    }
-                }
-            }
         }
     }
 }

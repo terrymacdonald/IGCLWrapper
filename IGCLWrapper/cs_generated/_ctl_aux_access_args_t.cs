@@ -1,6 +1,8 @@
+using System.Runtime.CompilerServices;
+
 namespace IGCLWrapper
 {
-    public unsafe partial struct _ctl_aux_access_args_t
+    public partial struct _ctl_aux_access_args_t
     {
         [NativeTypeName("uint32_t")]
         public uint Size;
@@ -27,6 +29,12 @@ namespace IGCLWrapper
         public uint DataSize;
 
         [NativeTypeName("uint8_t[132]")]
-        public fixed byte Data[132];
+        public _Data_e__FixedBuffer Data;
+
+        [InlineArray(132)]
+        public partial struct _Data_e__FixedBuffer
+        {
+            public byte e0;
+        }
     }
 }

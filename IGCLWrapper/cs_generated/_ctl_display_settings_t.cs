@@ -1,6 +1,8 @@
+using System.Runtime.CompilerServices;
+
 namespace IGCLWrapper
 {
-    public unsafe partial struct _ctl_display_settings_t
+    public partial struct _ctl_display_settings_t
     {
         [NativeTypeName("uint32_t")]
         public uint Size;
@@ -42,6 +44,12 @@ namespace IGCLWrapper
         public _ctl_display_setting_audio_t AudioSettings;
 
         [NativeTypeName("uint32_t[25]")]
-        public fixed uint Reserved[25];
+        public _Reserved_e__FixedBuffer Reserved;
+
+        [InlineArray(25)]
+        public partial struct _Reserved_e__FixedBuffer
+        {
+            public uint e0;
+        }
     }
 }

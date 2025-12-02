@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+
 namespace IGCLWrapper
 {
     public unsafe partial struct _ctl_device_adapter_properties_t
@@ -44,7 +46,7 @@ namespace IGCLWrapper
         public uint num_slices;
 
         [NativeTypeName("char[100]")]
-        public fixed sbyte name[100];
+        public _name_e__FixedBuffer name;
 
         [NativeTypeName("ctl_adapter_properties_flags_t")]
         public uint graphics_adapter_properties;
@@ -65,6 +67,18 @@ namespace IGCLWrapper
         public uint num_xe_cores;
 
         [NativeTypeName("char[108]")]
-        public fixed sbyte reserved[108];
+        public _reserved_e__FixedBuffer reserved;
+
+        [InlineArray(100)]
+        public partial struct _name_e__FixedBuffer
+        {
+            public sbyte e0;
+        }
+
+        [InlineArray(108)]
+        public partial struct _reserved_e__FixedBuffer
+        {
+            public sbyte e0;
+        }
     }
 }
