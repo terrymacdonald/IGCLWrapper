@@ -16,7 +16,7 @@ namespace IGCLWrapper
             var props = new ctl_device_adapter_properties_t
             {
                 Size = (uint)sizeof(ctl_device_adapter_properties_t),
-                Version = 1 // Adapter properties use version 1
+                Version = (byte)1 // Adapter properties use version 1
             };
 
             var result = IGCL.ctlGetDeviceProperties((_ctl_device_adapter_handle_t*)hAdapter, &props);
@@ -37,7 +37,7 @@ namespace IGCLWrapper
             var props = new ctl_display_properties_t
             {
                 Size = (uint)sizeof(ctl_display_properties_t),
-                Version = 0 // Display properties use version 0
+                Version = (byte)0 // Display properties use version 0
             };
 
             var result = IGCL.ctlGetDisplayProperties((_ctl_display_output_handle_t*)hDisplay, &props);
@@ -95,15 +95,16 @@ namespace IGCLWrapper
         /// <summary>
         /// Create a properly initialized ctl_init_args_t structure
         /// </summary>
-        public static unsafe _ctl_init_args_t CreateInitArgs()
+        public static unsafe ctl_init_args_t CreateInitArgs()
         {
-            return new _ctl_init_args_t
+            return new ctl_init_args_t
             {
                 Size = (uint)sizeof(ctl_init_args_t),
-                Version = 0,
-                AppVersion = IGCLApi.MakeVersion(1, 0),
-                flags = (uint)(ctl_init_flag_t)(1 << 0), // CTL_INIT_FLAG_USE_LEVEL_ZERO
-                SupportedVersion = IGCLApi.GetImplVersion()
+                Version = (byte)0,
+                AppVersion = IGCLApi.GetImplVersion(),
+                flags = (uint)ctl_init_flag_t.CTL_INIT_FLAG_USE_LEVEL_ZERO,
+                SupportedVersion = IGCLApi.GetImplVersion(),
+                ApplicationUID = default
             };
         }
 
@@ -115,7 +116,7 @@ namespace IGCLWrapper
             return new ctl_device_adapter_properties_t
             {
                 Size = (uint)sizeof(ctl_device_adapter_properties_t),
-                Version = 1
+                Version = (byte)1
             };
         }
 
@@ -127,7 +128,7 @@ namespace IGCLWrapper
             return new ctl_display_properties_t
             {
                 Size = (uint)sizeof(ctl_display_properties_t),
-                Version = 0
+                Version = (byte)0
             };
         }
 
@@ -139,7 +140,7 @@ namespace IGCLWrapper
             return new ctl_3d_feature_caps_t
             {
                 Size = (uint)sizeof(ctl_3d_feature_caps_t),
-                Version = 0
+                Version = (byte)0
             };
         }
 
@@ -151,7 +152,7 @@ namespace IGCLWrapper
             return new ctl_power_telemetry_t
             {
                 Size = (uint)sizeof(ctl_power_telemetry_t),
-                Version = 0
+                Version = (byte)0
             };
         }
     }

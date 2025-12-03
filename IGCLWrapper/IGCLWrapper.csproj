@@ -30,9 +30,9 @@
 		<ClangSharpPInvokeGenerator Include="ClangSharpConfig.rsp" />
 	</ItemGroup>
 
-	<!-- Ensure generated bindings are compiled even if default globs are altered -->
+	<!-- Avoid double-including generated files when they already exist at evaluation time -->
 	<ItemGroup>
-		<Compile Include="cs_generated\**\*.cs" />
+		<Compile Remove="cs_generated\**\*.cs" />
 	</ItemGroup>
 
 	<Target Name="CleanClangSharpGenerated" AfterTargets="Clean">
@@ -104,6 +104,9 @@
 
 	<Target Name="GenerateFromClangSharp" BeforeTargets="CoreCompile" Inputs="@(ClangSharpPInvokeGenerator)" Outputs="$(BaseIntermediateOutputPath)ClangSharp.stamp">
 		<Exec Command="ClangSharpPInvokeGenerator %40&quot;@(ClangSharpPInvokeGenerator)&quot;" />
+		<ItemGroup>
+			<Compile Include="$(ClangSharpGeneratedDir)\**\*.cs" />
+		</ItemGroup>
 		<ItemGroup>
 			<FileWrites Include="$(ClangSharpGeneratedDir)\**\*" />
 			<FileWrites Include="$(BaseIntermediateOutputPath)ClangSharp.stamp" />

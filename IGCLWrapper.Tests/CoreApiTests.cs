@@ -2,6 +2,8 @@ using Xunit;
 using IGCLWrapper;
 using System;
 using System.Runtime.Versioning;
+using System.Runtime.InteropServices;
+using System.Text;
 
 namespace IGCLWrapper.Tests
 {
@@ -226,11 +228,18 @@ namespace IGCLWrapper.Tests
             unsafe
             {
                 var props = IGCLHelpers.GetProperties(adapters[0]);
-                var name = new string(props.name);
+                ReadOnlySpan<sbyte> nameSpan = MemoryMarshal.CreateReadOnlySpan(ref props.name.e0, 100);
+                int terminator = nameSpan.IndexOf((sbyte)0);
+                if (terminator >= 0)
+                {
+                    nameSpan = nameSpan.Slice(0, terminator);
+                }
+
+                var name = Encoding.UTF8.GetString(MemoryMarshal.Cast<sbyte, byte>(nameSpan));
 
                 // Assert
                 Assert.NotNull(name);
-                Assert.NotEmpty(name.Trim('\0'));
+                Assert.NotEmpty(name);
             }
         }
 

@@ -50,9 +50,9 @@ namespace IGCLWrapper
                 var initArgs = new ctl_init_args_t
                 {
                     Size = (uint)sizeof(ctl_init_args_t),
-                    Version = 0,
-                    AppVersion = MakeVersion(1, 0),
-                    flags = (uint)(ctl_init_flag_t)(1 << 0), // CTL_INIT_FLAG_USE_LEVEL_ZERO
+                    Version = (byte)0,
+                    AppVersion = GetImplVersion(),
+                    flags = (uint)ctl_init_flag_t.CTL_INIT_FLAG_USE_LEVEL_ZERO,
                     SupportedVersion = GetImplVersion()
                 };
 
@@ -209,9 +209,7 @@ namespace IGCLWrapper
         /// </summary>
         public static uint GetImplVersion()
         {
-            // CTL_IMPL_VERSION = (CTL_IMPL_MAJOR_VERSION << 16) | CTL_IMPL_MINOR_VERSION
-            // These are typically 1.0
-            return MakeVersion(1, 0);
+            return (uint)IGCL.CTL_IMPL_VERSION;
         }
 
         #endregion
