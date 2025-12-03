@@ -21,7 +21,7 @@ namespace IGCLWrapper
 
             var result = IGCL.ctlGetDeviceProperties((_ctl_device_adapter_handle_t*)hAdapter, &props);
             
-            if (result != _ctl_result_t.CTL_RESULT_SUCCESS)
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
             {
                 throw new IGCLException(result, "Failed to get adapter properties");
             }
@@ -42,7 +42,7 @@ namespace IGCLWrapper
 
             var result = IGCL.ctlGetDisplayProperties((_ctl_display_output_handle_t*)hDisplay, &props);
             
-            if (result != _ctl_result_t.CTL_RESULT_SUCCESS)
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
             {
                 throw new IGCLException(result, "Failed to get display properties");
             }
@@ -93,22 +93,22 @@ namespace IGCLWrapper
     public static class IGCLStructHelper
     {
         /// <summary>
-        /// Create a properly initialized _ctl_init_args_t structure
+        /// Create a properly initialized ctl_init_args_t structure
         /// </summary>
-        public static unsafe _ctl_init_args_t CreateInitArgs()
+        public static unsafe ctl_init_args_t CreateInitArgs()
         {
-            return new _ctl_init_args_t
+            return new ctl_init_args_t
             {
-                Size = (uint)sizeof(_ctl_init_args_t),
+                Size = (uint)sizeof(ctl_init_args_t),
                 Version = 0,
                 AppVersion = IGCLApi.MakeVersion(1, 0),
-                flags = (uint)(_ctl_init_flag_t)(1 << 0), // CTL_INIT_FLAG_USE_LEVEL_ZERO
+                flags = (uint)(ctl_init_flag_t)(1 << 0), // CTL_INIT_FLAG_USE_LEVEL_ZERO
                 SupportedVersion = IGCLApi.GetImplVersion()
             };
         }
 
         /// <summary>
-        /// Create a properly initialized _ctl_device_adapter_properties_t structure
+        /// Create a properly initialized ctl_device_adapter_properties_t structure
         /// </summary>
         public static unsafe _ctl_device_adapter_properties_t CreateAdapterProperties()
         {
@@ -120,19 +120,19 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Create a properly initialized _ctl_display_properties_t structure
+        /// Create a properly initialized ctl_display_properties_t structure
         /// </summary>
         public static unsafe _ctl_display_properties_t CreateDisplayProperties()
         {
-            return new _ctl_display_properties_t
+            return new ctl_display_properties_t
             {
-                Size = (uint)sizeof(_ctl_display_properties_t),
+                Size = (uint)sizeof(ctl_display_properties_t),
                 Version = 0
             };
         }
 
         /// <summary>
-        /// Create a properly initialized _ctl_3d_feature_caps_t structure
+        /// Create a properly initialized ctl_3d_feature_caps_t structure
         /// </summary>
         public static unsafe _ctl_3d_feature_caps_t Create3DFeatureCaps()
         {
@@ -144,7 +144,7 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Create a properly initialized _ctl_power_telemetry_t structure
+        /// Create a properly initialized ctl_power_telemetry_t structure
         /// </summary>
         public static unsafe _ctl_power_telemetry_t CreatePowerTelemetry()
         {

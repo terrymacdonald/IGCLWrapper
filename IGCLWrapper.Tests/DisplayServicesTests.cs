@@ -95,18 +95,18 @@ namespace IGCLWrapper.Tests
             // Act
             unsafe
             {
-                var props = new _ctl_display_properties_t
+                var props = new ctl_display_properties_t
                 {
-                    Size = (uint)sizeof(_ctl_display_properties_t),
+                    Size = (uint)sizeof(ctl_display_properties_t),
                     Version = 0
                 };
 
                 var result = IGCL.ctlGetDisplayProperties((_ctl_display_output_handle_t*)_displays[0], &props);
 
                 // Assert
-                if (result == _ctl_result_t.CTL_RESULT_SUCCESS)
+                if (result == ctl_result_t.CTL_RESULT_SUCCESS)
                 {
-                    Assert.True(props.Type != _ctl_display_output_types_t.CTL_DISPLAY_OUTPUT_TYPES_INVALID);
+                    Assert.True(props.Type != ctl_display_output_types_t.CTL_DISPLAY_OUTPUT_TYPES_INVALID);
                 }
             }
         }
@@ -120,18 +120,18 @@ namespace IGCLWrapper.Tests
             // Act
             unsafe
             {
-                var props = new _ctl_adapter_display_encoder_properties_t
+                var props = new ctl_adapter_display_encoder_properties_t
                 {
-                    Size = (uint)sizeof(_ctl_adapter_display_encoder_properties_t),
+                    Size = (uint)sizeof(ctl_adapter_display_encoder_properties_t),
                     Version = 0
                 };
 
                 var result = IGCL.ctlGetAdaperDisplayEncoderProperties((_ctl_display_output_handle_t*)_displays[0], &props);
 
                 // Assert
-                if (result == _ctl_result_t.CTL_RESULT_SUCCESS)
+                if (result == ctl_result_t.CTL_RESULT_SUCCESS)
                 {
-                    Assert.True(props.Type != _ctl_display_output_types_t.CTL_DISPLAY_OUTPUT_TYPES_INVALID);
+                    Assert.True(props.Type != ctl_display_output_types_t.CTL_DISPLAY_OUTPUT_TYPES_INVALID);
                 }
             }
         }
@@ -145,9 +145,9 @@ namespace IGCLWrapper.Tests
             // Act
             unsafe
             {
-                var caps = new _ctl_sharpness_caps_t
+                var caps = new ctl_sharpness_caps_t
                 {
-                    Size = (uint)sizeof(_ctl_sharpness_caps_t),
+                    Size = (uint)sizeof(ctl_sharpness_caps_t),
                     Version = 0
                 };
 
@@ -155,8 +155,8 @@ namespace IGCLWrapper.Tests
 
                 // Assert - Success or unsupported
                 Assert.True(
-                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                    result == ctl_result_t.CTL_RESULT_SUCCESS ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
                 );
             }
         }
@@ -170,9 +170,9 @@ namespace IGCLWrapper.Tests
             // Act
             unsafe
             {
-                var settings = new _ctl_sharpness_settings_t
+                var settings = new ctl_sharpness_settings_t
                 {
-                    Size = (uint)sizeof(_ctl_sharpness_settings_t),
+                    Size = (uint)sizeof(ctl_sharpness_settings_t),
                     Version = 0
                 };
 
@@ -180,8 +180,8 @@ namespace IGCLWrapper.Tests
 
                 // Assert - Success or unsupported
                 Assert.True(
-                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                    result == ctl_result_t.CTL_RESULT_SUCCESS ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
                 );
             }
         }
@@ -195,16 +195,16 @@ namespace IGCLWrapper.Tests
             // Act
             unsafe
             {
-                var caps = new _ctl_scaling_caps_t
+                var caps = new ctl_scaling_caps_t
                 {
-                    Size = (uint)sizeof(_ctl_scaling_caps_t),
+                    Size = (uint)sizeof(ctl_scaling_caps_t),
                     Version = 0
                 };
 
                 var result = IGCL.ctlGetSupportedScalingCapability((_ctl_display_output_handle_t*)_displays[0], &caps);
 
                 // Assert
-                if (result == _ctl_result_t.CTL_RESULT_SUCCESS)
+                if (result == ctl_result_t.CTL_RESULT_SUCCESS)
                 {
                     Assert.NotEqual(0u, caps.SupportedScaling);
                 }
@@ -220,9 +220,9 @@ namespace IGCLWrapper.Tests
             // Act
             unsafe
             {
-                var settings = new _ctl_scaling_settings_t
+                var settings = new ctl_scaling_settings_t
                 {
-                    Size = (uint)sizeof(_ctl_scaling_settings_t),
+                    Size = (uint)sizeof(ctl_scaling_settings_t),
                     Version = 0
                 };
 
@@ -230,8 +230,8 @@ namespace IGCLWrapper.Tests
 
                 // Assert - Success or unsupported
                 Assert.True(
-                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                    result == ctl_result_t.CTL_RESULT_SUCCESS ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
                 );
             }
         }
@@ -245,9 +245,9 @@ namespace IGCLWrapper.Tests
             // Act
             unsafe
             {
-                var caps = new _ctl_power_optimization_caps_t
+                var caps = new ctl_power_optimization_caps_t
                 {
-                    Size = (uint)sizeof(_ctl_power_optimization_caps_t),
+                    Size = (uint)sizeof(ctl_power_optimization_caps_t),
                     Version = 0
                 };
 
@@ -255,8 +255,8 @@ namespace IGCLWrapper.Tests
 
                 // Assert
                 Assert.True(
-                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                    result == ctl_result_t.CTL_RESULT_SUCCESS ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
                 );
             }
         }
@@ -270,9 +270,9 @@ namespace IGCLWrapper.Tests
             // Act
             unsafe
             {
-                var info = new _ctl_intel_arc_sync_monitor_params_t
+                var info = new ctl_intel_arc_sync_monitor_params_t
                 {
-                    Size = (uint)sizeof(_ctl_intel_arc_sync_monitor_params_t),
+                    Size = (uint)sizeof(ctl_intel_arc_sync_monitor_params_t),
                     Version = 0
                 };
 
@@ -280,8 +280,8 @@ namespace IGCLWrapper.Tests
 
                 // Assert
                 Assert.True(
-                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                    result == ctl_result_t.CTL_RESULT_SUCCESS ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
                 );
             }
         }
@@ -295,9 +295,9 @@ namespace IGCLWrapper.Tests
             // Act
             unsafe
             {
-                var profile = new _ctl_intel_arc_sync_profile_params_t
+                var profile = new ctl_intel_arc_sync_profile_params_t
                 {
-                    Size = (uint)sizeof(_ctl_intel_arc_sync_profile_params_t),
+                    Size = (uint)sizeof(ctl_intel_arc_sync_profile_params_t),
                     Version = 0
                 };
 
@@ -306,13 +306,13 @@ namespace IGCLWrapper.Tests
                 // Assert - Accept all documented return codes for this API
                 // Note: KMD_CALL can occur when kernel mode driver encounters issues
                 Assert.True(
-                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNINITIALIZED ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_DEVICE_LOST ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_INVALID_NULL_HANDLE ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_INVALID_NULL_POINTER ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_KMD_CALL,
+                    result == ctl_result_t.CTL_RESULT_SUCCESS ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNINITIALIZED ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_DEVICE_LOST ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_INVALID_NULL_HANDLE ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_INVALID_NULL_POINTER ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_KMD_CALL,
                     $"Unexpected error code: {result} (0x{(uint)result:X})"
                 );
             }
@@ -331,8 +331,8 @@ namespace IGCLWrapper.Tests
 
                 // Assert
                 Assert.True(
-                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                    result == ctl_result_t.CTL_RESULT_SUCCESS ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
                 );
                 // Count may be 0 if no I2C pin pairs available
             }
@@ -347,11 +347,11 @@ namespace IGCLWrapper.Tests
             // Act & Assert
             unsafe
             {
-                var args = new _ctl_panel_descriptor_access_args_t
+                var args = new ctl_panel_descriptor_access_args_t
                 {
-                    Size = (uint)sizeof(_ctl_panel_descriptor_access_args_t),
+                    Size = (uint)sizeof(ctl_panel_descriptor_access_args_t),
                     Version = 0,
-                    OpType = _ctl_operation_type_t.CTL_OPERATION_TYPE_READ,
+                    OpType = ctl_operation_type_t.CTL_OPERATION_TYPE_READ,
                     BlockNumber = 0,
                     DescriptorDataSize = 0,
                     pDescriptorData = null
@@ -361,8 +361,8 @@ namespace IGCLWrapper.Tests
 
                 // Should either succeed (returning size) or indicate unsupported
                 Assert.True(
-                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                    result == ctl_result_t.CTL_RESULT_SUCCESS ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
                 );
             }
         }
@@ -376,9 +376,9 @@ namespace IGCLWrapper.Tests
             // Act
             unsafe
             {
-                var settings = new _ctl_display_settings_t
+                var settings = new ctl_display_settings_t
                 {
-                    Size = (uint)sizeof(_ctl_display_settings_t),
+                    Size = (uint)sizeof(ctl_display_settings_t),
                     Version = 0,
                     Set = 0  // GET operation (false)
                 };
@@ -387,9 +387,9 @@ namespace IGCLWrapper.Tests
 
                 // Assert
                 Assert.True(
-                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_INVALID_ARGUMENT
+                    result == ctl_result_t.CTL_RESULT_SUCCESS ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_INVALID_ARGUMENT
                 );
             }
         }

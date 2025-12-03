@@ -8,9 +8,9 @@ namespace IGCLWrapper
     /// </summary>
     public class IGCLException : Exception
     {
-        public _ctl_result_t Result { get; }
+        public ctl_result_t Result { get; }
 
-        public IGCLException(_ctl_result_t result, string? message = null)
+        public IGCLException(ctl_result_t result, string? message = null)
             : base(message ?? $"IGCL API error: {result}")
         {
             Result = result;
@@ -21,8 +21,8 @@ namespace IGCLWrapper
         /// </summary>
         public bool IsNoDisplayError()
         {
-            return Result == _ctl_result_t.CTL_RESULT_ERROR_DISPLAY_NOT_ATTACHED ||
-                   Result == _ctl_result_t.CTL_RESULT_ERROR_DISPLAY_NOT_ACTIVE;
+            return Result == ctl_result_t.CTL_RESULT_ERROR_DISPLAY_NOT_ATTACHED ||
+                   Result == ctl_result_t.CTL_RESULT_ERROR_DISPLAY_NOT_ACTIVE;
         }
     }
 
@@ -47,12 +47,12 @@ namespace IGCLWrapper
             unsafe
             {
                 // Create initialization arguments
-                var initArgs = new _ctl_init_args_t
+                var initArgs = new ctl_init_args_t
                 {
-                    Size = (uint)sizeof(_ctl_init_args_t),
+                    Size = (uint)sizeof(ctl_init_args_t),
                     Version = 0,
                     AppVersion = MakeVersion(1, 0),
-                    flags = (uint)(_ctl_init_flag_t)(1 << 0), // CTL_INIT_FLAG_USE_LEVEL_ZERO
+                    flags = (uint)(ctl_init_flag_t)(1 << 0), // CTL_INIT_FLAG_USE_LEVEL_ZERO
                     SupportedVersion = GetImplVersion()
                 };
 
@@ -60,7 +60,7 @@ namespace IGCLWrapper
                 _ctl_api_handle_t* hApi;
                 var result = IGCL.ctlInit(&initArgs, &hApi);
                 
-                if (result != _ctl_result_t.CTL_RESULT_SUCCESS)
+                if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 {
                     throw new IGCLException(result, $"Failed to initialize IGCL API");
                 }
@@ -80,7 +80,7 @@ namespace IGCLWrapper
             uint adapterCount = 0;
             var result = IGCL.ctlEnumerateDevices((_ctl_api_handle_t*)_hApi, &adapterCount, null);
             
-            if (result != _ctl_result_t.CTL_RESULT_SUCCESS)
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
             {
                 throw new IGCLException(result, "Failed to get adapter count");
             }
@@ -96,7 +96,7 @@ namespace IGCLWrapper
             {
                 result = IGCL.ctlEnumerateDevices((_ctl_api_handle_t*)_hApi, &adapterCount, pAdapters);
                 
-                if (result != _ctl_result_t.CTL_RESULT_SUCCESS)
+                if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 {
                     throw new IGCLException(result, "Failed to enumerate adapters");
                 }
@@ -123,7 +123,7 @@ namespace IGCLWrapper
             uint displayCount = 0;
             var result = IGCL.ctlEnumerateDisplayOutputs((_ctl_device_adapter_handle_t*)hAdapter, &displayCount, null);
             
-            if (result != _ctl_result_t.CTL_RESULT_SUCCESS)
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
             {
                 throw new IGCLException(result, "Failed to get display count");
             }
@@ -139,7 +139,7 @@ namespace IGCLWrapper
             {
                 result = IGCL.ctlEnumerateDisplayOutputs((_ctl_device_adapter_handle_t*)hAdapter, &displayCount, pDisplays);
                 
-                if (result != _ctl_result_t.CTL_RESULT_SUCCESS)
+                if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 {
                     throw new IGCLException(result, "Failed to enumerate displays");
                 }

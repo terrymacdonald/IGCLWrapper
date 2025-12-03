@@ -68,9 +68,9 @@ namespace IGCLWrapper.Tests
 
             unsafe
             {
-                var props = new _ctl_oc_properties_t
+                var props = new ctl_oc_properties_t
                 {
-                    Size = (uint)sizeof(_ctl_oc_properties_t),
+                    Size = (uint)sizeof(ctl_oc_properties_t),
                     Version = 0
                 };
 
@@ -78,8 +78,8 @@ namespace IGCLWrapper.Tests
 
                 // Assert
                 Assert.True(
-                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                    result == ctl_result_t.CTL_RESULT_SUCCESS ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
                 );
             }
         }
@@ -96,9 +96,9 @@ namespace IGCLWrapper.Tests
 
                 // Assert
                 Assert.True(
-                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_CORE_OVERCLOCK_NOT_SUPPORTED
+                    result == ctl_result_t.CTL_RESULT_SUCCESS ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_CORE_OVERCLOCK_NOT_SUPPORTED
                 );
             }
         }
@@ -115,9 +115,9 @@ namespace IGCLWrapper.Tests
 
                 // Assert
                 Assert.True(
-                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_CORE_OVERCLOCK_NOT_SUPPORTED
+                    result == ctl_result_t.CTL_RESULT_SUCCESS ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_CORE_OVERCLOCK_NOT_SUPPORTED
                 );
             }
         }
@@ -134,9 +134,9 @@ namespace IGCLWrapper.Tests
 
                 // Assert
                 Assert.True(
-                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_CORE_OVERCLOCK_NOT_SUPPORTED
+                    result == ctl_result_t.CTL_RESULT_SUCCESS ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_CORE_OVERCLOCK_NOT_SUPPORTED
                 );
             }
         }
@@ -153,9 +153,9 @@ namespace IGCLWrapper.Tests
 
                 // Assert
                 Assert.True(
-                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_CORE_OVERCLOCK_NOT_SUPPORTED
+                    result == ctl_result_t.CTL_RESULT_SUCCESS ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_CORE_OVERCLOCK_NOT_SUPPORTED
                 );
             }
         }
@@ -167,9 +167,9 @@ namespace IGCLWrapper.Tests
 
             unsafe
             {
-                var telemetry = new _ctl_power_telemetry_t
+                var telemetry = new ctl_power_telemetry_t
                 {
-                    Size = (uint)sizeof(_ctl_power_telemetry_t),
+                    Size = (uint)sizeof(ctl_power_telemetry_t),
                     Version = 0
                 };
 
@@ -177,8 +177,8 @@ namespace IGCLWrapper.Tests
 
                 // Assert
                 Assert.True(
-                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                    result == ctl_result_t.CTL_RESULT_SUCCESS ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
                 );
             }
         }
@@ -195,9 +195,9 @@ namespace IGCLWrapper.Tests
 
                 // Assert
                 Assert.True(
-                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_CORE_OVERCLOCK_NOT_SUPPORTED
+                    result == ctl_result_t.CTL_RESULT_SUCCESS ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_CORE_OVERCLOCK_NOT_SUPPORTED
                 );
             }
         }
@@ -214,9 +214,9 @@ namespace IGCLWrapper.Tests
 
                 // Assert
                 Assert.True(
-                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_CORE_OVERCLOCK_NOT_SUPPORTED
+                    result == ctl_result_t.CTL_RESULT_SUCCESS ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_CORE_OVERCLOCK_NOT_SUPPORTED
                 );
             }
         }
@@ -233,9 +233,9 @@ namespace IGCLWrapper.Tests
 
                 // Assert
                 Assert.True(
-                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_CORE_OVERCLOCK_NOT_SUPPORTED
+                    result == ctl_result_t.CTL_RESULT_SUCCESS ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_CORE_OVERCLOCK_NOT_SUPPORTED
                 );
             }
         }
@@ -252,9 +252,9 @@ namespace IGCLWrapper.Tests
 
                 // Assert
                 Assert.True(
-                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_CORE_OVERCLOCK_NOT_SUPPORTED
+                    result == ctl_result_t.CTL_RESULT_SUCCESS ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_CORE_OVERCLOCK_NOT_SUPPORTED
                 );
             }
         }
@@ -271,9 +271,9 @@ namespace IGCLWrapper.Tests
 
                 // Assert
                 Assert.True(
-                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_CORE_OVERCLOCK_NOT_SUPPORTED
+                    result == ctl_result_t.CTL_RESULT_SUCCESS ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_CORE_OVERCLOCK_NOT_SUPPORTED
                 );
             }
         }
@@ -285,9 +285,9 @@ namespace IGCLWrapper.Tests
 
             unsafe
             {
-                var vfPair = new _ctl_oc_vf_pair_t
+                var vfPair = new ctl_oc_vf_pair_t
                 {
-                    Size = (uint)sizeof(_ctl_oc_vf_pair_t),
+                    Size = (uint)sizeof(ctl_oc_vf_pair_t),
                     Version = 0
                 };
 
@@ -295,9 +295,9 @@ namespace IGCLWrapper.Tests
 
                 // Assert
                 Assert.True(
-                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_CORE_OVERCLOCK_NOT_SUPPORTED
+                    result == ctl_result_t.CTL_RESULT_SUCCESS ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_CORE_OVERCLOCK_NOT_SUPPORTED
                 );
             }
         }
@@ -314,9 +314,9 @@ namespace IGCLWrapper.Tests
             unsafe
             {
                 // First get count
-                var caps = new _ctl_3d_feature_caps_t
+                var caps = new ctl_3d_feature_caps_t
                 {
-                    Size = (uint)sizeof(_ctl_3d_feature_caps_t),
+                    Size = (uint)sizeof(ctl_3d_feature_caps_t),
                     Version = 0,
                     NumSupportedFeatures = 0,
                     pFeatureDetails = null
@@ -326,8 +326,8 @@ namespace IGCLWrapper.Tests
 
                 // Assert
                 Assert.True(
-                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                    result == ctl_result_t.CTL_RESULT_SUCCESS ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
                 );
             }
         }
@@ -344,9 +344,9 @@ namespace IGCLWrapper.Tests
             unsafe
             {
                 // First get count
-                var caps = new _ctl_video_processing_feature_caps_t
+                var caps = new ctl_video_processing_feature_caps_t
                 {
-                    Size = (uint)sizeof(_ctl_video_processing_feature_caps_t),
+                    Size = (uint)sizeof(ctl_video_processing_feature_caps_t),
                     Version = 0,
                     NumSupportedFeatures = 0,
                     pFeatureDetails = null
@@ -356,8 +356,8 @@ namespace IGCLWrapper.Tests
 
                 // Assert
                 Assert.True(
-                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                    result == ctl_result_t.CTL_RESULT_SUCCESS ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
                 );
             }
         }
@@ -373,9 +373,9 @@ namespace IGCLWrapper.Tests
 
             unsafe
             {
-                var caps = new _ctl_retro_scaling_caps_t
+                var caps = new ctl_retro_scaling_caps_t
                 {
-                    Size = (uint)sizeof(_ctl_retro_scaling_caps_t),
+                    Size = (uint)sizeof(ctl_retro_scaling_caps_t),
                     Version = 0
                 };
 
@@ -383,8 +383,8 @@ namespace IGCLWrapper.Tests
 
                 // Assert
                 Assert.True(
-                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                    result == ctl_result_t.CTL_RESULT_SUCCESS ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
                 );
             }
         }
@@ -396,9 +396,9 @@ namespace IGCLWrapper.Tests
 
             unsafe
             {
-                var settings = new _ctl_retro_scaling_settings_t
+                var settings = new ctl_retro_scaling_settings_t
                 {
-                    Size = (uint)sizeof(_ctl_retro_scaling_settings_t),
+                    Size = (uint)sizeof(ctl_retro_scaling_settings_t),
                     Version = 0,
                     Get = 1  // GET operation (true)
                 };
@@ -407,8 +407,8 @@ namespace IGCLWrapper.Tests
 
                 // Assert
                 Assert.True(
-                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                    result == ctl_result_t.CTL_RESULT_SUCCESS ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
                 );
             }
         }
@@ -424,9 +424,9 @@ namespace IGCLWrapper.Tests
 
             unsafe
             {
-                var args = new _ctl_lda_args_t
+                var args = new ctl_lda_args_t
                 {
-                    Size = (uint)sizeof(_ctl_lda_args_t),
+                    Size = (uint)sizeof(ctl_lda_args_t),
                     Version = 0,
                     NumAdapters = 0,
                     hLinkedAdapters = null
@@ -437,17 +437,17 @@ namespace IGCLWrapper.Tests
                 // Assert - Accept all officially documented return codes for this API
                 // Note: INSUFFICIENT_PERMISSIONS can occur when LDA operations require elevated privileges
                 Assert.True(
-                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNINITIALIZED ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_DEVICE_LOST ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_INVALID_NULL_HANDLE ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_INVALID_NULL_POINTER ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_NULL_OS_INTERFACE ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_NULL_OS_ADAPATER_HANDLE ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_KMD_CALL ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_ADAPTER_NOT_SUPPORTED_ON_LDA_SECONDARY ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_INSUFFICIENT_PERMISSIONS,
+                    result == ctl_result_t.CTL_RESULT_SUCCESS ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNINITIALIZED ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_DEVICE_LOST ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_INVALID_NULL_HANDLE ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_INVALID_NULL_POINTER ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_NULL_OS_INTERFACE ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_NULL_OS_ADAPATER_HANDLE ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_KMD_CALL ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_ADAPTER_NOT_SUPPORTED_ON_LDA_SECONDARY ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_INSUFFICIENT_PERMISSIONS,
                     $"Unexpected error code: {result} (0x{(uint)result:X})"
                 );
             }
@@ -467,8 +467,8 @@ namespace IGCLWrapper.Tests
                 uint numPoints = 0;
                 var result = IGCL.ctlOverclockReadVFCurve(
                     (_ctl_device_adapter_handle_t*)_adapters[0],
-                    _ctl_vf_curve_type_t.CTL_VF_CURVE_TYPE_STOCK,
-                    _ctl_vf_curve_details_t.CTL_VF_CURVE_DETAILS_SIMPLIFIED,
+                    ctl_vf_curve_type_t.CTL_VF_CURVE_TYPE_STOCK,
+                    ctl_vf_curve_details_t.CTL_VF_CURVE_DETAILS_SIMPLIFIED,
                     &numPoints,
                     null
                 );
@@ -476,19 +476,19 @@ namespace IGCLWrapper.Tests
                 // Assert - Accept all documented return codes for this API
                 // This API can return various error codes depending on hardware/driver state and permissions
                 Assert.True(
-                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_CORE_OVERCLOCK_NOT_SUPPORTED ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_CORE_OVERCLOCK_WAIVER_NOT_SET ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_INSUFFICIENT_PERMISSIONS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_INVALID_NULL_HANDLE ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_INVALID_ENUMERATION ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNKNOWN ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNINITIALIZED ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_DEVICE_LOST ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_CORE_OVERCLOCK_DEPRECATED_API ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_DATA_READ
+                    result == ctl_result_t.CTL_RESULT_SUCCESS ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_CORE_OVERCLOCK_NOT_SUPPORTED ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_CORE_OVERCLOCK_WAIVER_NOT_SET ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_INSUFFICIENT_PERMISSIONS ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_INVALID_NULL_HANDLE ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_INVALID_ENUMERATION ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNKNOWN ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNINITIALIZED ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_DEVICE_LOST ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_CORE_OVERCLOCK_DEPRECATED_API ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_DATA_READ
                 );
             }
         }
@@ -509,13 +509,13 @@ namespace IGCLWrapper.Tests
 
                 // Assert - Accept all documented return codes for this API
                 Assert.True(
-                    result == _ctl_result_t.CTL_RESULT_ERROR_CORE_OVERCLOCK_WAIVER_NOT_SET ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_CORE_OVERCLOCK_NOT_SUPPORTED ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_INVALID_ARGUMENT ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_CORE_OVERCLOCK_FREQUENCY_OUTSIDE_RANGE ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_INVALID_NULL_HANDLE ||
-                    result == _ctl_result_t.CTL_RESULT_SUCCESS // May already have waiver from previous test run
+                    result == ctl_result_t.CTL_RESULT_ERROR_CORE_OVERCLOCK_WAIVER_NOT_SET ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_CORE_OVERCLOCK_NOT_SUPPORTED ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_INVALID_ARGUMENT ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_CORE_OVERCLOCK_FREQUENCY_OUTSIDE_RANGE ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_INVALID_NULL_HANDLE ||
+                    result == ctl_result_t.CTL_RESULT_SUCCESS // May already have waiver from previous test run
                 );
             }
         }

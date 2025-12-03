@@ -116,7 +116,7 @@ namespace IGCLWrapper.Tests
                 var props = IGCLHelpers.GetProperties(adapters[0]);
 
                 // Assert
-                Assert.Equal(_ctl_device_type_t.CTL_DEVICE_TYPE_GRAPHICS, props.device_type);
+                Assert.Equal(ctl_device_type_t.CTL_DEVICE_TYPE_GRAPHICS, props.device_type);
             }
         }
 
@@ -135,7 +135,7 @@ namespace IGCLWrapper.Tests
                 {
                     uint count = 0;
                     var result = IGCL.ctlEnumerateDevices((_ctl_api_handle_t*)IntPtr.Zero, &count, null);
-                    if (result != _ctl_result_t.CTL_RESULT_SUCCESS)
+                    if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                     {
                         throw new IGCLException(result, "Expected error with null handle");
                     }
@@ -187,8 +187,8 @@ namespace IGCLWrapper.Tests
 
                 // Assert - Should return success or unsupported version
                 Assert.True(
-                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION
+                    result == ctl_result_t.CTL_RESULT_SUCCESS ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION
                 );
             }
         }
@@ -249,7 +249,7 @@ namespace IGCLWrapper.Tests
                 var result = IGCL.ctlEnumerateDisplayOutputs((_ctl_device_adapter_handle_t*)adapters[0], &count, null);
 
                 // Assert
-                Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
+                Assert.Equal(ctl_result_t.CTL_RESULT_SUCCESS, result);
                 // Count may be 0 if no displays connected
             }
         }
@@ -363,11 +363,11 @@ namespace IGCLWrapper.Tests
             // Act
             unsafe
             {
-                var args = new _ctl_wait_property_change_args_t
+                var args = new ctl_wait_property_change_args_t
                 {
-                    Size = (uint)sizeof(_ctl_wait_property_change_args_t),
+                    Size = (uint)sizeof(ctl_wait_property_change_args_t),
                     Version = 0,
-                    PropertyType = (uint)_ctl_property_type_flag_t.CTL_PROPERTY_TYPE_FLAG_DISPLAY,
+                    PropertyType = (uint)ctl_property_type_flag_t.CTL_PROPERTY_TYPE_FLAG_DISPLAY,
                     TimeOutMilliSec = 0, // Don't wait
                     EventMiscFlags = 0,
                     pReserved = null,
@@ -378,9 +378,9 @@ namespace IGCLWrapper.Tests
 
                 // Assert - Should return timeout or success
                 Assert.True(
-                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_WAIT_TIMEOUT ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                    result == ctl_result_t.CTL_RESULT_SUCCESS ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_WAIT_TIMEOUT ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
                 );
             }
         }

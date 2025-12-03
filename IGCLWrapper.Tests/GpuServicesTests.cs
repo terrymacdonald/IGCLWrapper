@@ -72,7 +72,7 @@ namespace IGCLWrapper.Tests
                 uint count = 0;
                 var result = IGCL.ctlEnumEngineGroups((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
 
-                Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
+                Assert.Equal(ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
 
@@ -93,15 +93,15 @@ namespace IGCLWrapper.Tests
                     IGCL.ctlEnumEngineGroups((_ctl_device_adapter_handle_t*)_adapters[0], &count, pEngines);
                 }
 
-                var props = new _ctl_engine_properties_t
+                var props = new ctl_engine_properties_t
                 {
-                    Size = (uint)sizeof(_ctl_engine_properties_t),
+                    Size = (uint)sizeof(ctl_engine_properties_t),
                     Version = 0
                 };
 
                 var result = IGCL.ctlEngineGetProperties(engineHandles[0], &props);
 
-                Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
+                Assert.Equal(ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
 
@@ -122,15 +122,15 @@ namespace IGCLWrapper.Tests
                     IGCL.ctlEnumEngineGroups((_ctl_device_adapter_handle_t*)_adapters[0], &count, pEngines);
                 }
 
-                var stats = new _ctl_engine_stats_t
+                var stats = new ctl_engine_stats_t
                 {
-                    Size = (uint)sizeof(_ctl_engine_stats_t),
+                    Size = (uint)sizeof(ctl_engine_stats_t),
                     Version = 0
                 };
 
                 var result = IGCL.ctlEngineGetActivity(engineHandles[0], &stats);
 
-                Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
+                Assert.Equal(ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
 
@@ -148,7 +148,7 @@ namespace IGCLWrapper.Tests
                 uint count = 0;
                 var result = IGCL.ctlEnumFans((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
 
-                Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
+                Assert.Equal(ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
 
@@ -169,15 +169,15 @@ namespace IGCLWrapper.Tests
                     IGCL.ctlEnumFans((_ctl_device_adapter_handle_t*)_adapters[0], &count, pFans);
                 }
 
-                var props = new _ctl_fan_properties_t
+                var props = new ctl_fan_properties_t
                 {
-                    Size = (uint)sizeof(_ctl_fan_properties_t),
+                    Size = (uint)sizeof(ctl_fan_properties_t),
                     Version = 0
                 };
 
                 var result = IGCL.ctlFanGetProperties(fanHandles[0], &props);
 
-                Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
+                Assert.Equal(ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
 
@@ -198,15 +198,15 @@ namespace IGCLWrapper.Tests
                     IGCL.ctlEnumFans((_ctl_device_adapter_handle_t*)_adapters[0], &count, pFans);
                 }
 
-                var config = new _ctl_fan_config_t
+                var config = new ctl_fan_config_t
                 {
-                    Size = (uint)sizeof(_ctl_fan_config_t),
+                    Size = (uint)sizeof(ctl_fan_config_t),
                     Version = 0
                 };
 
                 var result = IGCL.ctlFanGetConfig(fanHandles[0], &config);
 
-                Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
+                Assert.Equal(ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
 
@@ -228,9 +228,9 @@ namespace IGCLWrapper.Tests
                 }
 
                 int speed;
-                var result = IGCL.ctlFanGetState(fanHandles[0], _ctl_fan_speed_units_t.CTL_FAN_SPEED_UNITS_RPM, &speed);
+                var result = IGCL.ctlFanGetState(fanHandles[0], ctl_fan_speed_units_t.CTL_FAN_SPEED_UNITS_RPM, &speed);
 
-                Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
+                Assert.Equal(ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
 
@@ -248,7 +248,7 @@ namespace IGCLWrapper.Tests
                 uint count = 0;
                 var result = IGCL.ctlEnumFrequencyDomains((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
 
-                Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
+                Assert.Equal(ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
 
@@ -269,15 +269,15 @@ namespace IGCLWrapper.Tests
                     IGCL.ctlEnumFrequencyDomains((_ctl_device_adapter_handle_t*)_adapters[0], &count, pFreqs);
                 }
 
-                var props = new _ctl_freq_properties_t
+                var props = new ctl_freq_properties_t
                 {
-                    Size = (uint)sizeof(_ctl_freq_properties_t),
+                    Size = (uint)sizeof(ctl_freq_properties_t),
                     Version = 0
                 };
 
                 var result = IGCL.ctlFrequencyGetProperties(freqHandles[0], &props);
 
-                Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
+                Assert.Equal(ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
 
@@ -298,15 +298,15 @@ namespace IGCLWrapper.Tests
                     IGCL.ctlEnumFrequencyDomains((_ctl_device_adapter_handle_t*)_adapters[0], &count, pFreqs);
                 }
 
-                var state = new _ctl_freq_state_t
+                var state = new ctl_freq_state_t
                 {
-                    Size = (uint)sizeof(_ctl_freq_state_t),
+                    Size = (uint)sizeof(ctl_freq_state_t),
                     Version = 0
                 };
 
                 var result = IGCL.ctlFrequencyGetState(freqHandles[0], &state);
 
-                Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
+                Assert.Equal(ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
 
@@ -324,7 +324,7 @@ namespace IGCLWrapper.Tests
                 uint count = 0;
                 var result = IGCL.ctlEnumMemoryModules((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
 
-                Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
+                Assert.Equal(ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
 
@@ -345,15 +345,15 @@ namespace IGCLWrapper.Tests
                     IGCL.ctlEnumMemoryModules((_ctl_device_adapter_handle_t*)_adapters[0], &count, pMems);
                 }
 
-                var props = new _ctl_mem_properties_t
+                var props = new ctl_mem_properties_t
                 {
-                    Size = (uint)sizeof(_ctl_mem_properties_t),
+                    Size = (uint)sizeof(ctl_mem_properties_t),
                     Version = 0
                 };
 
                 var result = IGCL.ctlMemoryGetProperties(memHandles[0], &props);
 
-                Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
+                Assert.Equal(ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
 
@@ -374,15 +374,15 @@ namespace IGCLWrapper.Tests
                     IGCL.ctlEnumMemoryModules((_ctl_device_adapter_handle_t*)_adapters[0], &count, pMems);
                 }
 
-                var state = new _ctl_mem_state_t
+                var state = new ctl_mem_state_t
                 {
-                    Size = (uint)sizeof(_ctl_mem_state_t),
+                    Size = (uint)sizeof(ctl_mem_state_t),
                     Version = 0
                 };
 
                 var result = IGCL.ctlMemoryGetState(memHandles[0], &state);
 
-                Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
+                Assert.Equal(ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
 
@@ -400,7 +400,7 @@ namespace IGCLWrapper.Tests
                 uint count = 0;
                 var result = IGCL.ctlEnumTemperatureSensors((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
 
-                Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
+                Assert.Equal(ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
 
@@ -421,15 +421,15 @@ namespace IGCLWrapper.Tests
                     IGCL.ctlEnumTemperatureSensors((_ctl_device_adapter_handle_t*)_adapters[0], &count, pTemps);
                 }
 
-                var props = new _ctl_temp_properties_t
+                var props = new ctl_temp_properties_t
                 {
-                    Size = (uint)sizeof(_ctl_temp_properties_t),
+                    Size = (uint)sizeof(ctl_temp_properties_t),
                     Version = 0
                 };
 
                 var result = IGCL.ctlTemperatureGetProperties(tempHandles[0], &props);
 
-                Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
+                Assert.Equal(ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
 
@@ -453,7 +453,7 @@ namespace IGCLWrapper.Tests
                 double temperature;
                 var result = IGCL.ctlTemperatureGetState(tempHandles[0], &temperature);
 
-                Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
+                Assert.Equal(ctl_result_t.CTL_RESULT_SUCCESS, result);
                 Assert.True(temperature > -273.15);
             }
         }
@@ -472,7 +472,7 @@ namespace IGCLWrapper.Tests
                 uint count = 0;
                 var result = IGCL.ctlEnumPowerDomains((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
 
-                Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
+                Assert.Equal(ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
 
@@ -493,15 +493,15 @@ namespace IGCLWrapper.Tests
                     IGCL.ctlEnumPowerDomains((_ctl_device_adapter_handle_t*)_adapters[0], &count, pPowers);
                 }
 
-                var props = new _ctl_power_properties_t
+                var props = new ctl_power_properties_t
                 {
-                    Size = (uint)sizeof(_ctl_power_properties_t),
+                    Size = (uint)sizeof(ctl_power_properties_t),
                     Version = 0
                 };
 
                 var result = IGCL.ctlPowerGetProperties(powerHandles[0], &props);
 
-                Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
+                Assert.Equal(ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
 
@@ -522,15 +522,15 @@ namespace IGCLWrapper.Tests
                     IGCL.ctlEnumPowerDomains((_ctl_device_adapter_handle_t*)_adapters[0], &count, pPowers);
                 }
 
-                var energy = new _ctl_power_energy_counter_t
+                var energy = new ctl_power_energy_counter_t
                 {
-                    Size = (uint)sizeof(_ctl_power_energy_counter_t),
+                    Size = (uint)sizeof(ctl_power_energy_counter_t),
                     Version = 0
                 };
 
                 var result = IGCL.ctlPowerGetEnergyCounter(powerHandles[0], &energy);
 
-                Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
+                Assert.Equal(ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
 
@@ -549,8 +549,8 @@ namespace IGCLWrapper.Tests
                 var result = IGCL.ctlEnumLeds((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
 
                 Assert.True(
-                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                    result == ctl_result_t.CTL_RESULT_SUCCESS ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
                 );
             }
         }
@@ -566,22 +566,22 @@ namespace IGCLWrapper.Tests
 
             unsafe
             {
-                var props = new _ctl_firmware_properties_t
+                var props = new ctl_firmware_properties_t
                 {
-                    Size = (uint)sizeof(_ctl_firmware_properties_t),
+                    Size = (uint)sizeof(ctl_firmware_properties_t),
                     Version = 0
                 };
 
                 var result = IGCL.ctlGetFirmwareProperties((_ctl_device_adapter_handle_t*)_adapters[0], &props);
 
                 Assert.True(
-                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_KMD_CALL ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_DATA_READ ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_INVALID_NULL_HANDLE ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_INVALID_NULL_POINTER ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION
+                    result == ctl_result_t.CTL_RESULT_SUCCESS ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_KMD_CALL ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_DATA_READ ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_INVALID_NULL_HANDLE ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_INVALID_NULL_POINTER ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION
                 );
             }
         }
@@ -597,12 +597,12 @@ namespace IGCLWrapper.Tests
                 var result = IGCL.ctlEnumerateFirmwareComponents((_ctl_device_adapter_handle_t*)_adapters[0], &count, null);
 
                 Assert.True(
-                    result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_KMD_CALL ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_INVALID_NULL_HANDLE ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_INVALID_NULL_POINTER ||
-                    result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION
+                    result == ctl_result_t.CTL_RESULT_SUCCESS ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_KMD_CALL ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_INVALID_NULL_HANDLE ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_INVALID_NULL_POINTER ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION
                 );
             }
         }
@@ -618,15 +618,15 @@ namespace IGCLWrapper.Tests
 
             unsafe
             {
-                var props = new _ctl_pci_properties_t
+                var props = new ctl_pci_properties_t
                 {
-                    Size = (uint)sizeof(_ctl_pci_properties_t),
+                    Size = (uint)sizeof(ctl_pci_properties_t),
                     Version = 0
                 };
 
                 var result = IGCL.ctlPciGetProperties((_ctl_device_adapter_handle_t*)_adapters[0], &props);
 
-                Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
+                Assert.Equal(ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
 
@@ -637,15 +637,15 @@ namespace IGCLWrapper.Tests
 
             unsafe
             {
-                var state = new _ctl_pci_state_t
+                var state = new ctl_pci_state_t
                 {
-                    Size = (uint)sizeof(_ctl_pci_state_t),
+                    Size = (uint)sizeof(ctl_pci_state_t),
                     Version = 0
                 };
 
                 var result = IGCL.ctlPciGetState((_ctl_device_adapter_handle_t*)_adapters[0], &state);
 
-                Assert.Equal(_ctl_result_t.CTL_RESULT_SUCCESS, result);
+                Assert.Equal(ctl_result_t.CTL_RESULT_SUCCESS, result);
             }
         }
 
@@ -662,17 +662,17 @@ namespace IGCLWrapper.Tests
             {
                 unsafe
                 {
-                    var props = new _ctl_ecc_properties_t
+                    var props = new ctl_ecc_properties_t
                     {
-                        Size = (uint)sizeof(_ctl_ecc_properties_t),
+                        Size = (uint)sizeof(ctl_ecc_properties_t),
                         Version = 0
                     };
 
                     var result = IGCL.ctlEccGetProperties((_ctl_device_adapter_handle_t*)_adapters[0], &props);
 
                     Assert.True(
-                        result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                        result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                        result == ctl_result_t.CTL_RESULT_SUCCESS ||
+                        result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
                     );
                 }
             }
@@ -691,17 +691,17 @@ namespace IGCLWrapper.Tests
             {
                 unsafe
                 {
-                    var state = new _ctl_ecc_state_desc_t
+                    var state = new ctl_ecc_state_desc_t
                     {
-                        Size = (uint)sizeof(_ctl_ecc_state_desc_t),
+                        Size = (uint)sizeof(ctl_ecc_state_desc_t),
                         Version = 0
                     };
 
                     var result = IGCL.ctlEccGetState((_ctl_device_adapter_handle_t*)_adapters[0], &state);
 
                     Assert.True(
-                        result == _ctl_result_t.CTL_RESULT_SUCCESS ||
-                        result == _ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                        result == ctl_result_t.CTL_RESULT_SUCCESS ||
+                        result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
                     );
                 }
             }

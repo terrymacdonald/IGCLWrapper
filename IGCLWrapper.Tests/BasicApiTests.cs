@@ -111,7 +111,7 @@ namespace IGCLWrapper.Tests
             var props = IGCLHelpers.GetProperties(firstAdapter);
 
             // Verify structure was filled correctly
-            Assert.Equal((uint)sizeof(_ctl_device_adapter_properties_t), props.Size);
+            Assert.Equal((uint)sizeof(ctl_device_adapter_properties_t), props.Size);
             Assert.Equal((byte)1, props.Version);
             
             // Test passed - adapter properties retrieved successfully
@@ -158,7 +158,7 @@ namespace IGCLWrapper.Tests
             var props = IGCLHelpers.GetDisplayProperties(firstDisplay);
 
             // Verify structure was filled correctly
-            Assert.Equal((uint)sizeof(_ctl_display_properties_t), props.Size);
+            Assert.Equal((uint)sizeof(ctl_display_properties_t), props.Size);
             Assert.Equal((byte)0, props.Version);
             
             // Display should have some valid type
@@ -208,15 +208,15 @@ namespace IGCLWrapper.Tests
         {
             // Test structure creation helpers - these don't require hardware
             var initArgs = IGCLStructHelper.CreateInitArgs();
-            Assert.Equal((uint)sizeof(_ctl_init_args_t), initArgs.Size);
+            Assert.Equal((uint)sizeof(ctl_init_args_t), initArgs.Size);
             Assert.Equal((byte)0, initArgs.Version);
 
             var adapterProps = IGCLStructHelper.CreateAdapterProperties();
-            Assert.Equal((uint)sizeof(_ctl_device_adapter_properties_t), adapterProps.Size);
+            Assert.Equal((uint)sizeof(ctl_device_adapter_properties_t), adapterProps.Size);
             Assert.Equal((byte)1, adapterProps.Version);
 
             var displayProps = IGCLStructHelper.CreateDisplayProperties();
-            Assert.Equal((uint)sizeof(_ctl_display_properties_t), displayProps.Size);
+            Assert.Equal((uint)sizeof(ctl_display_properties_t), displayProps.Size);
             Assert.Equal((byte)0, displayProps.Version);
         }
 
