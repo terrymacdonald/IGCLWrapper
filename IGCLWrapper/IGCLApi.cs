@@ -1,5 +1,6 @@
 using System;
 using System.Runtime.InteropServices;
+using Microsoft.Win32.SafeHandles;
 
 namespace IGCLWrapper
 {
@@ -31,12 +32,17 @@ namespace IGCLWrapper
     /// </summary>
     public sealed class IGCLApi : IDisposable
     {
-        private IntPtr _hApi;
+        private IGCLApiHandle? _hApi;
         private bool _disposed;
 
-        private IGCLApi(IntPtr hApi)
+        private IGCLApi(IGCLApiHandle hApi)
         {
             _hApi = hApi;
+        }
+
+        ~IGCLApi()
+        {
+            Dispose(false);
         }
 
         /// <summary>
@@ -65,7 +71,7 @@ namespace IGCLWrapper
                     throw new IGCLException(result, $"Failed to initialize IGCL API");
                 }
 
-                return new IGCLApi((IntPtr)hApi);
+                return new IGCLApi(new IGCLApiHandle((IntPtr)hApi));
             }
         }
 
@@ -74,42 +80,48 @@ namespace IGCLWrapper
         /// </summary>
         public unsafe IntPtr[] EnumerateAdapters()
         {
-            ThrowIfDisposed();
-
-            // Get adapter count
-            uint adapterCount = 0;
-            var result = IGCL.ctlEnumerateDevices((_ctl_api_handle_t*)_hApi, &adapterCount, null);
-            
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+            return WithApiHandle(handle =>
             {
-                throw new IGCLException(result, "Failed to get adapter count");
-            }
+                var apiHandle = (_ctl_api_handle_t*)handle;
 
-            if (adapterCount == 0)
-            {
-                return Array.Empty<IntPtr>();
-            }
+                // Get adapter count
+                uint adapterCount = 0;
+                var result = IGCL.ctlEnumerateDevices(apiHandle, &adapterCount, null);
 
-            // Get adapters
-            var adapters = new _ctl_device_adapter_handle_t*[adapterCount];
-            fixed (_ctl_device_adapter_handle_t** pAdapters = adapters)
-            {
-                result = IGCL.ctlEnumerateDevices((_ctl_api_handle_t*)_hApi, &adapterCount, pAdapters);
-                
                 if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 {
-                    throw new IGCLException(result, "Failed to enumerate adapters");
+                    throw new IGCLException(result, "Failed to get adapter count");
                 }
-            }
 
-            // Convert to IntPtr array for easier downstream use
-            var intPtrAdapters = new IntPtr[adapterCount];
-            for (int i = 0; i < adapterCount; i++)
-            {
-                intPtrAdapters[i] = (IntPtr)adapters[i];
-            }
+                if (adapterCount == 0)
+                {
+                    return Array.Empty<IntPtr>();
+                }
 
-            return intPtrAdapters;
+                // Get adapters
+                var adapters = new _ctl_device_adapter_handle_t*[adapterCount];
+                fixed (_ctl_device_adapter_handle_t** pAdapters = adapters)
+                {
+                    result = IGCL.ctlEnumerateDevices(apiHandle, &adapterCount, pAdapters);
+
+                    if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                    {
+                        throw new IGCLException(result, "Failed to enumerate adapters");
+                    }
+                }
+
+                // adapterCount may change between calls; clamp to buffer length
+                var actualCount = (int)Math.Min(adapterCount, (uint)adapters.Length);
+
+                // Convert to IntPtr array for easier downstream use
+                var intPtrAdapters = new IntPtr[actualCount];
+                for (int i = 0; i < actualCount; i++)
+                {
+                    intPtrAdapters[i] = (IntPtr)adapters[i];
+                }
+
+                return intPtrAdapters;
+            });
         }
 
         /// <summary>
@@ -122,7 +134,7 @@ namespace IGCLWrapper
             // Get display count
             uint displayCount = 0;
             var result = IGCL.ctlEnumerateDisplayOutputs((_ctl_device_adapter_handle_t*)hAdapter, &displayCount, null);
-            
+
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
             {
                 throw new IGCLException(result, "Failed to get display count");
@@ -138,16 +150,18 @@ namespace IGCLWrapper
             fixed (_ctl_display_output_handle_t** pDisplays = displays)
             {
                 result = IGCL.ctlEnumerateDisplayOutputs((_ctl_device_adapter_handle_t*)hAdapter, &displayCount, pDisplays);
-                
+
                 if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 {
                     throw new IGCLException(result, "Failed to enumerate displays");
                 }
             }
 
+            var actualCount = (int)Math.Min(displayCount, (uint)displays.Length);
+
             // Convert to IntPtr array for easier downstream use
-            var intPtrDisplays = new IntPtr[displayCount];
-            for (int i = 0; i < displayCount; i++)
+            var intPtrDisplays = new IntPtr[actualCount];
+            for (int i = 0; i < actualCount; i++)
             {
                 intPtrDisplays[i] = (IntPtr)displays[i];
             }
@@ -157,16 +171,19 @@ namespace IGCLWrapper
 
         public void Dispose()
         {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        private unsafe void Dispose(bool disposing)
+        {
             if (_disposed)
                 return;
 
-            unsafe
+            if (_hApi != null)
             {
-                if (_hApi != IntPtr.Zero)
-                {
-                    IGCL.ctlClose((_ctl_api_handle_t*)_hApi);
-                    _hApi = IntPtr.Zero;
-                }
+                _hApi.Dispose();
+                _hApi = null;
             }
 
             _disposed = true;
@@ -176,6 +193,12 @@ namespace IGCLWrapper
         {
             if (_disposed)
                 throw new ObjectDisposedException(nameof(IGCLApi));
+        }
+
+        private unsafe _ctl_api_handle_t* GetApiHandle()
+        {
+            ThrowIfDisposed();
+            return (_ctl_api_handle_t*)_hApi!.DangerousGetHandle();
         }
 
         #region Helper Methods for Version Macros
@@ -241,6 +264,24 @@ namespace IGCLWrapper
             IGCLNative.FreeLibrary(handle);
             errorMessage = string.Empty;
             return true;
+        }
+
+        private unsafe T WithApiHandle<T>(Func<IntPtr, T> action)
+        {
+            ThrowIfDisposed();
+            bool addRef = false;
+            try
+            {
+                _hApi!.DangerousAddRef(ref addRef);
+                return action(_hApi.DangerousGetHandle());
+            }
+            finally
+            {
+                if (addRef)
+                {
+                    _hApi!.DangerousRelease();
+                }
+            }
         }
     }
 }
