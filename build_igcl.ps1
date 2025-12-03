@@ -190,8 +190,8 @@ Write-Host "====================================================================
 Write-Host ""
 
 try {
-    Write-Host "dotnet clean $solutionPath --configuration Debug  /p:Version=$version /p:AssemblyVersion=$version /p:FileVersion=$version"
-    dotnet clean $solutionPath --configuration Debug  /p:Version=$version /p:AssemblyVersion=$version /p:FileVersion=$version
+    Write-Host "dotnet clean $solutionPath"
+    dotnet clean $solutionPath 
     
     if ($LASTEXITCODE -ne 0) {
         throw "Clean failed with exit code $LASTEXITCODE"

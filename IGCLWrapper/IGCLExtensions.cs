@@ -11,11 +11,11 @@ namespace IGCLWrapper
         /// <summary>
         /// Get adapter properties
         /// </summary>
-        public static unsafe _ctl_device_adapter_properties_t GetProperties(IntPtr hAdapter)
+        public static unsafe ctl_device_adapter_properties_t GetProperties(IntPtr hAdapter)
         {
-            var props = new _ctl_device_adapter_properties_t
+            var props = new ctl_device_adapter_properties_t
             {
-                Size = (uint)sizeof(_ctl_device_adapter_properties_t),
+                Size = (uint)sizeof(ctl_device_adapter_properties_t),
                 Version = 1 // Adapter properties use version 1
             };
 
@@ -32,11 +32,11 @@ namespace IGCLWrapper
         /// <summary>
         /// Get display properties
         /// </summary>
-        public static unsafe _ctl_display_properties_t GetDisplayProperties(IntPtr hDisplay)
+        public static unsafe ctl_display_properties_t GetDisplayProperties(IntPtr hDisplay)
         {
-            var props = new _ctl_display_properties_t
+            var props = new ctl_display_properties_t
             {
-                Size = (uint)sizeof(_ctl_display_properties_t),
+                Size = (uint)sizeof(ctl_display_properties_t),
                 Version = 0 // Display properties use version 0
             };
 
@@ -53,7 +53,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Get display timing information
         /// </summary>
-        public static unsafe _ctl_display_timing_t GetTiming(IntPtr hDisplay)
+        public static unsafe ctl_display_timing_t GetTiming(IntPtr hDisplay)
         {
             var props = GetDisplayProperties(hDisplay);
             return props.Display_Timing_Info;
@@ -95,9 +95,9 @@ namespace IGCLWrapper
         /// <summary>
         /// Create a properly initialized ctl_init_args_t structure
         /// </summary>
-        public static unsafe ctl_init_args_t CreateInitArgs()
+        public static unsafe _ctl_init_args_t CreateInitArgs()
         {
-            return new ctl_init_args_t
+            return new _ctl_init_args_t
             {
                 Size = (uint)sizeof(ctl_init_args_t),
                 Version = 0,
@@ -110,11 +110,11 @@ namespace IGCLWrapper
         /// <summary>
         /// Create a properly initialized ctl_device_adapter_properties_t structure
         /// </summary>
-        public static unsafe _ctl_device_adapter_properties_t CreateAdapterProperties()
+        public static unsafe ctl_device_adapter_properties_t CreateAdapterProperties()
         {
-            return new _ctl_device_adapter_properties_t
+            return new ctl_device_adapter_properties_t
             {
-                Size = (uint)sizeof(_ctl_device_adapter_properties_t),
+                Size = (uint)sizeof(ctl_device_adapter_properties_t),
                 Version = 1
             };
         }
@@ -122,7 +122,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Create a properly initialized ctl_display_properties_t structure
         /// </summary>
-        public static unsafe _ctl_display_properties_t CreateDisplayProperties()
+        public static unsafe ctl_display_properties_t CreateDisplayProperties()
         {
             return new ctl_display_properties_t
             {
@@ -134,11 +134,11 @@ namespace IGCLWrapper
         /// <summary>
         /// Create a properly initialized ctl_3d_feature_caps_t structure
         /// </summary>
-        public static unsafe _ctl_3d_feature_caps_t Create3DFeatureCaps()
+        public static unsafe ctl_3d_feature_caps_t Create3DFeatureCaps()
         {
-            return new _ctl_3d_feature_caps_t
+            return new ctl_3d_feature_caps_t
             {
-                Size = (uint)sizeof(_ctl_3d_feature_caps_t),
+                Size = (uint)sizeof(ctl_3d_feature_caps_t),
                 Version = 0
             };
         }
@@ -146,11 +146,11 @@ namespace IGCLWrapper
         /// <summary>
         /// Create a properly initialized ctl_power_telemetry_t structure
         /// </summary>
-        public static unsafe _ctl_power_telemetry_t CreatePowerTelemetry()
+        public static unsafe ctl_power_telemetry_t CreatePowerTelemetry()
         {
-            return new _ctl_power_telemetry_t
+            return new ctl_power_telemetry_t
             {
-                Size = (uint)sizeof(_ctl_power_telemetry_t),
+                Size = (uint)sizeof(ctl_power_telemetry_t),
                 Version = 0
             };
         }

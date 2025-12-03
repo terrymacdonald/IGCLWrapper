@@ -30,6 +30,11 @@
 		<ClangSharpPInvokeGenerator Include="ClangSharpConfig.rsp" />
 	</ItemGroup>
 
+	<!-- Ensure generated bindings are compiled even if default globs are altered -->
+	<ItemGroup>
+		<Compile Include="cs_generated\**\*.cs" />
+	</ItemGroup>
+
 	<Target Name="CleanClangSharpGenerated" AfterTargets="Clean">
 		<Message Text="Removing ClangSharp generated directory $(ClangSharpGeneratedDir)... " Importance="high" />
 		<RemoveDir Directories="$(ClangSharpGeneratedDir)" Condition="Exists('$(ClangSharpGeneratedDir)')" />
