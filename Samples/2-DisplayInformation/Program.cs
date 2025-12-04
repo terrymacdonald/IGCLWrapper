@@ -1,4 +1,6 @@
 using System;
+using System.Runtime.InteropServices;
+using System.Text;
 using IGCLWrapper;
 
 namespace DisplayInformation
@@ -20,7 +22,7 @@ namespace DisplayInformation
                     Console.WriteLine("? IGCL API initialized\n");
 
                     var adapters = igcl.EnumerateAdapters();
-                    
+
                     if (adapters.Length == 0)
                     {
                         Console.WriteLine("No Intel GPU adapters found.");
@@ -30,7 +32,12 @@ namespace DisplayInformation
                     foreach (var adapter in adapters)
                     {
                         var adapterProps = IGCLHelpers.GetProperties(adapter);
-                        Console.WriteLine($"GPU: {new string(adapterProps.name).TrimEnd('\0')}\n");
+                        ReadOnlySpan<sbyte> nameSpan = MemoryMarshal.CreateReadOnlySpan(ref adapterProps.name.e0, 100);
+                        int term = nameSpan.IndexOf((sbyte)0);
+                        if (term >= 0) nameSpan = nameSpan[..term];
+                        var name = Encoding.UTF8.GetString(MemoryMarshal.Cast<sbyte, byte>(nameSpan));
+
+                        Console.WriteLine($"GPU: {name}\n");
 
                         // Enumerate displays connected to this adapter
                         var displays = igcl.EnumerateDisplays(adapter);
@@ -104,9 +111,9 @@ namespace DisplayInformation
         static void PrintHeader()
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("????????????????????????????????????????????????????????????????");
-            Console.WriteLine("?          IGCLWrapper - Display Information Sample            ?");
-            Console.WriteLine("????????????????????????????????????????????????????????????????");
+            Console.WriteLine("----------------------------------------------------------------");
+            Console.WriteLine("  IGCLWrapper - Display Information Sample");
+            Console.WriteLine("----------------------------------------------------------------");
             Console.ResetColor();
             Console.WriteLine();
         }
@@ -114,9 +121,9 @@ namespace DisplayInformation
         static void PrintSectionHeader(string title)
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine($"\n????????????????????????????????????????????????????????????????");
-            Console.WriteLine($"? {title,-60} ?");
-            Console.WriteLine($"????????????????????????????????????????????????????????????????");
+            Console.WriteLine($"\n----------------------------------------------------------------");
+            Console.WriteLine($"  {title}");
+            Console.WriteLine($"----------------------------------------------------------------");
             Console.ResetColor();
         }
     }

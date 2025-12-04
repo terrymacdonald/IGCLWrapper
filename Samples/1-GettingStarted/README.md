@@ -12,13 +12,13 @@ This sample demonstrates the basic usage of IGCLWrapper, including initializatio
 
 ## Prerequisites
 - Intel GPU with IGCL support
-- .NET 8.0 SDK or later
+- .NET 10.0 SDK or later
 - Intel Graphics drivers (version 25.20.100.6618 or higher)
 
 ## How to Run
 
 ### Using .NET CLI:
-```bash
+```powershell
 cd Samples/1-GettingStarted
 dotnet run
 ```
@@ -33,17 +33,16 @@ dotnet run
 
 ### Initialization Pattern
 ```csharp
-using (var igcl = IGCLApi.Initialize())
-{
-    // All IGCL operations go here
-    // Resources are automatically cleaned up
-}
+using var igcl = IGCLApi.Initialize();
 ```
 
 ### Using Helper Methods
 ```csharp
 var props = IGCLHelpers.GetProperties(adapter);
-string gpuName = new string(props.name);
+ReadOnlySpan<sbyte> nameSpan = MemoryMarshal.CreateReadOnlySpan(ref props.name.e0, 100);
+int term = nameSpan.IndexOf((sbyte)0);
+if (term >= 0) nameSpan = nameSpan[..term];
+var gpuName = Encoding.UTF8.GetString(MemoryMarshal.Cast<sbyte, byte>(nameSpan));
 ```
 
 ## Related Samples

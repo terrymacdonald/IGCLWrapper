@@ -1,4 +1,6 @@
 using System;
+using System.Runtime.InteropServices;
+using System.Text;
 using IGCLWrapper;
 
 namespace GettingStarted
@@ -82,9 +84,14 @@ namespace GettingStarted
             // This is the recommended way to retrieve GPU information
             var props = IGCLHelpers.GetProperties(adapter);
 
+            ReadOnlySpan<sbyte> nameSpan = MemoryMarshal.CreateReadOnlySpan(ref props.name.e0, 100);
+            int term = nameSpan.IndexOf((sbyte)0);
+            if (term >= 0) nameSpan = nameSpan[..term];
+            var name = Encoding.UTF8.GetString(MemoryMarshal.Cast<sbyte, byte>(nameSpan));
+
             // Basic GPU Information
             Console.WriteLine("\nGPU Information:");
-            Console.WriteLine($"  Name         : {new string(props.name).TrimEnd('\0')}");
+            Console.WriteLine($"  Name         : {name}");
             Console.WriteLine($"  Vendor ID    : 0x{props.pci_vendor_id:X} (Intel)");
             Console.WriteLine($"  Device ID    : 0x{props.pci_device_id:X}");
             Console.WriteLine($"  Revision     : {props.rev_id}");
