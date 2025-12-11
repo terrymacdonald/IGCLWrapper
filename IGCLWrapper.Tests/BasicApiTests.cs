@@ -20,7 +20,7 @@ namespace IGCLWrapper.Tests
         public BasicApiTests()
         {
             // Stage 1: Check for Intel GPU hardware via PCI
-            if (!HardwareDetection.HasIntelGPU(out string hwError))
+            if (!IGCLHardwareDetection.HasIntelGPU(out string hwError))
             {
                 _hasHardware = false;
                 _hasDll = false;
@@ -50,15 +50,15 @@ namespace IGCLWrapper.Tests
         }
 
         [SkippableFact]
-        public void HardwareDetection_ShouldFindIntelGPU()
+        public void IGCLHardwareDetection_ShouldFindIntelGPU()
         {
             // Check for Intel hardware via PCI
-            var hasIntelGPU = HardwareDetection.HasIntelGPU(out string hwError);
+            var hasIntelGPU = IGCLHardwareDetection.HasIntelGPU(out string hwError);
             
             Skip.If(!hasIntelGPU, hwError);
             
             Assert.True(hasIntelGPU);
-            var gpuNames = HardwareDetection.GetIntelGPUNames();
+            var gpuNames = IGCLHardwareDetection.GetIntelGPUNames();
             Assert.NotEmpty(gpuNames);
         }
 

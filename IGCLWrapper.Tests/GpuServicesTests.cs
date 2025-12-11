@@ -21,7 +21,7 @@ namespace IGCLWrapper.Tests
         public GpuServicesTests()
         {
             // Stage 1: Check for Intel GPU hardware via PCI
-            if (!HardwareDetection.HasIntelGPU(out string hwError))
+            if (!IGCLHardwareDetection.HasIntelGPU(out string hwError))
             {
                 _hasHardware = false;
                 _hasDll = false;
