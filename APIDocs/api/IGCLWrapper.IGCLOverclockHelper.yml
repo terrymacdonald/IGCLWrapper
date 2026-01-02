@@ -1,0 +1,859 @@
+### YamlMime:ManagedReference
+items:
+- uid: IGCLWrapper.IGCLOverclockHelper
+  commentId: T:IGCLWrapper.IGCLOverclockHelper
+  id: IGCLOverclockHelper
+  parent: IGCLWrapper
+  children:
+  - IGCLWrapper.IGCLOverclockHelper.Dispose
+  - IGCLWrapper.IGCLOverclockHelper.GetGpuFrequencyOffset
+  - IGCLWrapper.IGCLOverclockHelper.GetGpuVoltageOffset
+  - IGCLWrapper.IGCLOverclockHelper.GetPowerLimit
+  - IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry
+  - IGCLWrapper.IGCLOverclockHelper.GetProperties
+  - IGCLWrapper.IGCLOverclockHelper.GetTemperatureLimit
+  - IGCLWrapper.IGCLOverclockHelper.GetVramFrequencyOffset
+  - IGCLWrapper.IGCLOverclockHelper.ResetToDefault
+  - IGCLWrapper.IGCLOverclockHelper.SetGpuFrequencyOffset(System.Double)
+  - IGCLWrapper.IGCLOverclockHelper.SetGpuVoltageOffset(System.Double)
+  - IGCLWrapper.IGCLOverclockHelper.SetPowerLimit(System.Double)
+  - IGCLWrapper.IGCLOverclockHelper.SetTemperatureLimit(System.Double)
+  - IGCLWrapper.IGCLOverclockHelper.SetVramFrequencyOffset(System.Double)
+  - IGCLWrapper.IGCLOverclockHelper.SetWaiver
+  langs:
+  - csharp
+  - vb
+  name: IGCLOverclockHelper
+  nameWithType: IGCLOverclockHelper
+  fullName: IGCLWrapper.IGCLOverclockHelper
+  type: Class
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IGCLOverclockHelper
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 7
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: 'Overclock helper: properties, offsets, limits, telemetry, and reset.'
+  example: []
+  syntax:
+    content: 'public sealed class IGCLOverclockHelper : IDisposable'
+    content.vb: Public NotInheritable Class IGCLOverclockHelper Implements IDisposable
+  inheritance:
+  - System.Object
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: IGCLWrapper.IGCLOverclockHelper.GetProperties
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.GetProperties
+  id: GetProperties
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: GetProperties()
+  nameWithType: IGCLOverclockHelper.GetProperties()
+  fullName: IGCLWrapper.IGCLOverclockHelper.GetProperties()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetProperties
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 19
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_oc_properties_t GetProperties()
+    return:
+      type: IGCLWrapper.ctl_oc_properties_t
+    content.vb: Public Function GetProperties() As ctl_oc_properties_t
+  overload: IGCLWrapper.IGCLOverclockHelper.GetProperties*
+- uid: IGCLWrapper.IGCLOverclockHelper.SetWaiver
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.SetWaiver
+  id: SetWaiver
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: SetWaiver()
+  nameWithType: IGCLOverclockHelper.SetWaiver()
+  fullName: IGCLWrapper.IGCLOverclockHelper.SetWaiver()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SetWaiver
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 29
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public void SetWaiver()
+    content.vb: Public Sub SetWaiver()
+  overload: IGCLWrapper.IGCLOverclockHelper.SetWaiver*
+- uid: IGCLWrapper.IGCLOverclockHelper.GetGpuFrequencyOffset
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.GetGpuFrequencyOffset
+  id: GetGpuFrequencyOffset
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: GetGpuFrequencyOffset()
+  nameWithType: IGCLOverclockHelper.GetGpuFrequencyOffset()
+  fullName: IGCLWrapper.IGCLOverclockHelper.GetGpuFrequencyOffset()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetGpuFrequencyOffset
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 37
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public double GetGpuFrequencyOffset()
+    return:
+      type: System.Double
+    content.vb: Public Function GetGpuFrequencyOffset() As Double
+  overload: IGCLWrapper.IGCLOverclockHelper.GetGpuFrequencyOffset*
+- uid: IGCLWrapper.IGCLOverclockHelper.SetGpuFrequencyOffset(System.Double)
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.SetGpuFrequencyOffset(System.Double)
+  id: SetGpuFrequencyOffset(System.Double)
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: SetGpuFrequencyOffset(double)
+  nameWithType: IGCLOverclockHelper.SetGpuFrequencyOffset(double)
+  fullName: IGCLWrapper.IGCLOverclockHelper.SetGpuFrequencyOffset(double)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SetGpuFrequencyOffset
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 47
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public void SetGpuFrequencyOffset(double offset)
+    parameters:
+    - id: offset
+      type: System.Double
+    content.vb: Public Sub SetGpuFrequencyOffset(offset As Double)
+  overload: IGCLWrapper.IGCLOverclockHelper.SetGpuFrequencyOffset*
+  nameWithType.vb: IGCLOverclockHelper.SetGpuFrequencyOffset(Double)
+  fullName.vb: IGCLWrapper.IGCLOverclockHelper.SetGpuFrequencyOffset(Double)
+  name.vb: SetGpuFrequencyOffset(Double)
+- uid: IGCLWrapper.IGCLOverclockHelper.GetGpuVoltageOffset
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.GetGpuVoltageOffset
+  id: GetGpuVoltageOffset
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: GetGpuVoltageOffset()
+  nameWithType: IGCLOverclockHelper.GetGpuVoltageOffset()
+  fullName: IGCLWrapper.IGCLOverclockHelper.GetGpuVoltageOffset()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetGpuVoltageOffset
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 55
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public double GetGpuVoltageOffset()
+    return:
+      type: System.Double
+    content.vb: Public Function GetGpuVoltageOffset() As Double
+  overload: IGCLWrapper.IGCLOverclockHelper.GetGpuVoltageOffset*
+- uid: IGCLWrapper.IGCLOverclockHelper.SetGpuVoltageOffset(System.Double)
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.SetGpuVoltageOffset(System.Double)
+  id: SetGpuVoltageOffset(System.Double)
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: SetGpuVoltageOffset(double)
+  nameWithType: IGCLOverclockHelper.SetGpuVoltageOffset(double)
+  fullName: IGCLWrapper.IGCLOverclockHelper.SetGpuVoltageOffset(double)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SetGpuVoltageOffset
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 65
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public void SetGpuVoltageOffset(double offset)
+    parameters:
+    - id: offset
+      type: System.Double
+    content.vb: Public Sub SetGpuVoltageOffset(offset As Double)
+  overload: IGCLWrapper.IGCLOverclockHelper.SetGpuVoltageOffset*
+  nameWithType.vb: IGCLOverclockHelper.SetGpuVoltageOffset(Double)
+  fullName.vb: IGCLWrapper.IGCLOverclockHelper.SetGpuVoltageOffset(Double)
+  name.vb: SetGpuVoltageOffset(Double)
+- uid: IGCLWrapper.IGCLOverclockHelper.GetVramFrequencyOffset
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.GetVramFrequencyOffset
+  id: GetVramFrequencyOffset
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: GetVramFrequencyOffset()
+  nameWithType: IGCLOverclockHelper.GetVramFrequencyOffset()
+  fullName: IGCLWrapper.IGCLOverclockHelper.GetVramFrequencyOffset()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetVramFrequencyOffset
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 73
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public double GetVramFrequencyOffset()
+    return:
+      type: System.Double
+    content.vb: Public Function GetVramFrequencyOffset() As Double
+  overload: IGCLWrapper.IGCLOverclockHelper.GetVramFrequencyOffset*
+- uid: IGCLWrapper.IGCLOverclockHelper.SetVramFrequencyOffset(System.Double)
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.SetVramFrequencyOffset(System.Double)
+  id: SetVramFrequencyOffset(System.Double)
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: SetVramFrequencyOffset(double)
+  nameWithType: IGCLOverclockHelper.SetVramFrequencyOffset(double)
+  fullName: IGCLWrapper.IGCLOverclockHelper.SetVramFrequencyOffset(double)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SetVramFrequencyOffset
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 83
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public void SetVramFrequencyOffset(double offset)
+    parameters:
+    - id: offset
+      type: System.Double
+    content.vb: Public Sub SetVramFrequencyOffset(offset As Double)
+  overload: IGCLWrapper.IGCLOverclockHelper.SetVramFrequencyOffset*
+  nameWithType.vb: IGCLOverclockHelper.SetVramFrequencyOffset(Double)
+  fullName.vb: IGCLWrapper.IGCLOverclockHelper.SetVramFrequencyOffset(Double)
+  name.vb: SetVramFrequencyOffset(Double)
+- uid: IGCLWrapper.IGCLOverclockHelper.GetPowerLimit
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.GetPowerLimit
+  id: GetPowerLimit
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: GetPowerLimit()
+  nameWithType: IGCLOverclockHelper.GetPowerLimit()
+  fullName: IGCLWrapper.IGCLOverclockHelper.GetPowerLimit()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetPowerLimit
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 91
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public double GetPowerLimit()
+    return:
+      type: System.Double
+    content.vb: Public Function GetPowerLimit() As Double
+  overload: IGCLWrapper.IGCLOverclockHelper.GetPowerLimit*
+- uid: IGCLWrapper.IGCLOverclockHelper.SetPowerLimit(System.Double)
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.SetPowerLimit(System.Double)
+  id: SetPowerLimit(System.Double)
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: SetPowerLimit(double)
+  nameWithType: IGCLOverclockHelper.SetPowerLimit(double)
+  fullName: IGCLWrapper.IGCLOverclockHelper.SetPowerLimit(double)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SetPowerLimit
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 101
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public void SetPowerLimit(double limit)
+    parameters:
+    - id: limit
+      type: System.Double
+    content.vb: Public Sub SetPowerLimit(limit As Double)
+  overload: IGCLWrapper.IGCLOverclockHelper.SetPowerLimit*
+  nameWithType.vb: IGCLOverclockHelper.SetPowerLimit(Double)
+  fullName.vb: IGCLWrapper.IGCLOverclockHelper.SetPowerLimit(Double)
+  name.vb: SetPowerLimit(Double)
+- uid: IGCLWrapper.IGCLOverclockHelper.GetTemperatureLimit
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.GetTemperatureLimit
+  id: GetTemperatureLimit
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: GetTemperatureLimit()
+  nameWithType: IGCLOverclockHelper.GetTemperatureLimit()
+  fullName: IGCLWrapper.IGCLOverclockHelper.GetTemperatureLimit()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetTemperatureLimit
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 109
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public double GetTemperatureLimit()
+    return:
+      type: System.Double
+    content.vb: Public Function GetTemperatureLimit() As Double
+  overload: IGCLWrapper.IGCLOverclockHelper.GetTemperatureLimit*
+- uid: IGCLWrapper.IGCLOverclockHelper.SetTemperatureLimit(System.Double)
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.SetTemperatureLimit(System.Double)
+  id: SetTemperatureLimit(System.Double)
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: SetTemperatureLimit(double)
+  nameWithType: IGCLOverclockHelper.SetTemperatureLimit(double)
+  fullName: IGCLWrapper.IGCLOverclockHelper.SetTemperatureLimit(double)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SetTemperatureLimit
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 119
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public void SetTemperatureLimit(double value)
+    parameters:
+    - id: value
+      type: System.Double
+    content.vb: Public Sub SetTemperatureLimit(value As Double)
+  overload: IGCLWrapper.IGCLOverclockHelper.SetTemperatureLimit*
+  nameWithType.vb: IGCLOverclockHelper.SetTemperatureLimit(Double)
+  fullName.vb: IGCLWrapper.IGCLOverclockHelper.SetTemperatureLimit(Double)
+  name.vb: SetTemperatureLimit(Double)
+- uid: IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry
+  id: GetPowerTelemetry
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: GetPowerTelemetry()
+  nameWithType: IGCLOverclockHelper.GetPowerTelemetry()
+  fullName: IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetPowerTelemetry
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 127
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_power_telemetry_t GetPowerTelemetry()
+    return:
+      type: IGCLWrapper.ctl_power_telemetry_t
+    content.vb: Public Function GetPowerTelemetry() As ctl_power_telemetry_t
+  overload: IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry*
+- uid: IGCLWrapper.IGCLOverclockHelper.ResetToDefault
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.ResetToDefault
+  id: ResetToDefault
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: ResetToDefault()
+  nameWithType: IGCLOverclockHelper.ResetToDefault()
+  fullName: IGCLWrapper.IGCLOverclockHelper.ResetToDefault()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: ResetToDefault
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 137
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public void ResetToDefault()
+    content.vb: Public Sub ResetToDefault()
+  overload: IGCLWrapper.IGCLOverclockHelper.ResetToDefault*
+- uid: IGCLWrapper.IGCLOverclockHelper.Dispose
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.Dispose
+  id: Dispose
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: IGCLOverclockHelper.Dispose()
+  fullName: IGCLWrapper.IGCLOverclockHelper.Dispose()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Dispose
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 151
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: IGCLWrapper.IGCLOverclockHelper.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+references:
+- uid: IGCLWrapper
+  commentId: N:IGCLWrapper
+  href: IGCLWrapper.html
+  name: IGCLWrapper
+  nameWithType: IGCLWrapper
+  fullName: IGCLWrapper
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: IGCLWrapper.IGCLOverclockHelper.GetProperties*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.GetProperties
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_GetProperties
+  name: GetProperties
+  nameWithType: IGCLOverclockHelper.GetProperties
+  fullName: IGCLWrapper.IGCLOverclockHelper.GetProperties
+- uid: IGCLWrapper.ctl_oc_properties_t
+  commentId: T:IGCLWrapper.ctl_oc_properties_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_oc_properties_t.html
+  name: ctl_oc_properties_t
+  nameWithType: ctl_oc_properties_t
+  fullName: IGCLWrapper.ctl_oc_properties_t
+- uid: IGCLWrapper.IGCLOverclockHelper.SetWaiver*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.SetWaiver
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_SetWaiver
+  name: SetWaiver
+  nameWithType: IGCLOverclockHelper.SetWaiver
+  fullName: IGCLWrapper.IGCLOverclockHelper.SetWaiver
+- uid: IGCLWrapper.IGCLOverclockHelper.GetGpuFrequencyOffset*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.GetGpuFrequencyOffset
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_GetGpuFrequencyOffset
+  name: GetGpuFrequencyOffset
+  nameWithType: IGCLOverclockHelper.GetGpuFrequencyOffset
+  fullName: IGCLWrapper.IGCLOverclockHelper.GetGpuFrequencyOffset
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: IGCLWrapper.IGCLOverclockHelper.SetGpuFrequencyOffset*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.SetGpuFrequencyOffset
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_SetGpuFrequencyOffset_System_Double_
+  name: SetGpuFrequencyOffset
+  nameWithType: IGCLOverclockHelper.SetGpuFrequencyOffset
+  fullName: IGCLWrapper.IGCLOverclockHelper.SetGpuFrequencyOffset
+- uid: IGCLWrapper.IGCLOverclockHelper.GetGpuVoltageOffset*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.GetGpuVoltageOffset
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_GetGpuVoltageOffset
+  name: GetGpuVoltageOffset
+  nameWithType: IGCLOverclockHelper.GetGpuVoltageOffset
+  fullName: IGCLWrapper.IGCLOverclockHelper.GetGpuVoltageOffset
+- uid: IGCLWrapper.IGCLOverclockHelper.SetGpuVoltageOffset*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.SetGpuVoltageOffset
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_SetGpuVoltageOffset_System_Double_
+  name: SetGpuVoltageOffset
+  nameWithType: IGCLOverclockHelper.SetGpuVoltageOffset
+  fullName: IGCLWrapper.IGCLOverclockHelper.SetGpuVoltageOffset
+- uid: IGCLWrapper.IGCLOverclockHelper.GetVramFrequencyOffset*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.GetVramFrequencyOffset
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_GetVramFrequencyOffset
+  name: GetVramFrequencyOffset
+  nameWithType: IGCLOverclockHelper.GetVramFrequencyOffset
+  fullName: IGCLWrapper.IGCLOverclockHelper.GetVramFrequencyOffset
+- uid: IGCLWrapper.IGCLOverclockHelper.SetVramFrequencyOffset*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.SetVramFrequencyOffset
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_SetVramFrequencyOffset_System_Double_
+  name: SetVramFrequencyOffset
+  nameWithType: IGCLOverclockHelper.SetVramFrequencyOffset
+  fullName: IGCLWrapper.IGCLOverclockHelper.SetVramFrequencyOffset
+- uid: IGCLWrapper.IGCLOverclockHelper.GetPowerLimit*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.GetPowerLimit
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_GetPowerLimit
+  name: GetPowerLimit
+  nameWithType: IGCLOverclockHelper.GetPowerLimit
+  fullName: IGCLWrapper.IGCLOverclockHelper.GetPowerLimit
+- uid: IGCLWrapper.IGCLOverclockHelper.SetPowerLimit*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.SetPowerLimit
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_SetPowerLimit_System_Double_
+  name: SetPowerLimit
+  nameWithType: IGCLOverclockHelper.SetPowerLimit
+  fullName: IGCLWrapper.IGCLOverclockHelper.SetPowerLimit
+- uid: IGCLWrapper.IGCLOverclockHelper.GetTemperatureLimit*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.GetTemperatureLimit
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_GetTemperatureLimit
+  name: GetTemperatureLimit
+  nameWithType: IGCLOverclockHelper.GetTemperatureLimit
+  fullName: IGCLWrapper.IGCLOverclockHelper.GetTemperatureLimit
+- uid: IGCLWrapper.IGCLOverclockHelper.SetTemperatureLimit*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.SetTemperatureLimit
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_SetTemperatureLimit_System_Double_
+  name: SetTemperatureLimit
+  nameWithType: IGCLOverclockHelper.SetTemperatureLimit
+  fullName: IGCLWrapper.IGCLOverclockHelper.SetTemperatureLimit
+- uid: IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_GetPowerTelemetry
+  name: GetPowerTelemetry
+  nameWithType: IGCLOverclockHelper.GetPowerTelemetry
+  fullName: IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry
+- uid: IGCLWrapper.ctl_power_telemetry_t
+  commentId: T:IGCLWrapper.ctl_power_telemetry_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_power_telemetry_t.html
+  name: ctl_power_telemetry_t
+  nameWithType: ctl_power_telemetry_t
+  fullName: IGCLWrapper.ctl_power_telemetry_t
+- uid: IGCLWrapper.IGCLOverclockHelper.ResetToDefault*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.ResetToDefault
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_ResetToDefault
+  name: ResetToDefault
+  nameWithType: IGCLOverclockHelper.ResetToDefault
+  fullName: IGCLWrapper.IGCLOverclockHelper.ResetToDefault
+- uid: IGCLWrapper.IGCLOverclockHelper.Dispose*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.Dispose
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_Dispose
+  name: Dispose
+  nameWithType: IGCLOverclockHelper.Dispose
+  fullName: IGCLWrapper.IGCLOverclockHelper.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )

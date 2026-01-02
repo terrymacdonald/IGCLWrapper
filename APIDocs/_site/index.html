@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>ADLXWrapper API Docs | ADLXWrapper </title>
+      <title>IGCLWrapper API Docs | IGCLWrapper </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="ADLXWrapper API Docs | ADLXWrapper ">
+      <meta name="title" content="IGCLWrapper API Docs | IGCLWrapper ">
       
       
       <link rel="icon" href="favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="">
       
       
-      <meta name="docfx:docurl" content="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/APIDocs/index.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/APIDocs/index.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -44,8 +44,8 @@
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
           <a class="navbar-brand" href="index.html">
-            <img id="logo" class="svg" src="logo.svg" alt="ADLXWrapper">
-            ADLXWrapper
+            <img id="logo" class="svg" src="logo.svg" alt="IGCLWrapper">
+            IGCLWrapper
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi bi-three-dots"></i>
@@ -71,31 +71,30 @@
         </div>
 
         <article data-uid="">
-<h1 id="adlxwrapper-api-docs">ADLXWrapper API Docs</h1>
+<h1 id="igclwrapper-api-docs">IGCLWrapper API Docs</h1>
 
-<p>Welcome to the generated API reference for <strong>ADLXWrapper</strong>, a C# façade over the AMD ADLX SDK. Use this site to explore the public classes, helpers, and DTOs that make up the wrapper.</p>
-<p>The goal of ADLXWrapper project is to provide a lightweight, simpler way to access the AMD ADLX API, to read settings and make changes to the AMD GPU settings. The ADLXWrapper project provides Helper objects that provide a pointer-free, simple ergonomic API surface to make it easy to use, and it still exposies the native handles if you need to do something advanced.</p>
+<p>Welcome to the generated API reference for <strong>IGCLWrapper</strong>, a C# façade over the Intel AMD IGCL SDK. Use this site to explore the public classes, helpers, and DTOs that make up the wrapper.</p>
+<p>The goal of IGCLWrapper project is to provide a lightweight, simpler way to access the Intel IGCL API, to read settings and make changes to the Intel GPU settings on a PC. The IGCLWrapper project provides Helper objects that provide a pointer-free, simple ergonomic API surface to make it easy to use, and it still exposies the native handles if you need to do something advanced.</p>
 <h2 id="how-to-use">How to use</h2>
 <ul>
-<li>Start at the API landing page: <a href="/api/ADLXWrapper.html">ADLXWrapper API Reference</a>.</li>
-<li>Navigate by feature: helpers like <code>ADLXDisplayServicesHelper</code>, <code>ADLXDesktopServicesHelper</code>, and <code>ADLXSystemServicesHelper</code> list the available operations and event hooks.</li>
-<li>Façade types (<code>ADLXDisplay</code>, <code>ADLXDesktop</code>, <code>ADLXGPU</code>) show the pointer-free workflows; use the <code>...Native()</code>/<code>...Handle()</code> methods only when you need raw ADLX handles.</li>
+<li>Start at the API landing page: <a href="/api/IGCLWrapper.html">IGCLWrapper API Reference</a>.</li>
+<li>Navigate by feature: helpers like <code>IGCLDisplayHelper</code>, <code>IGCLOverclockHelper</code>, and <code>IGCLPowerHelper</code> list the available operations and event hooks.</li>
 </ul>
 <h2 id="where-to-learn-more">Where to Learn More</h2>
 <ul>
-<li><strong>Project overview &amp; usage</strong>: See <code>README.md</code> at the repository root or the repo at <a href="https://github.com/terrymacdonald/ADLXWrapper">https://github.com/terrymacdonald/ADLXWrapper</a> for quick-start examples and patterns.</li>
-<li><strong>ADLX SDK reference</strong>: The upstream ADLX SDK official docs are at <a href="https://gpuopen.com/manuals/adlx/">https://gpuopen.com/manuals/adlx/</a>.</li>
-<li><strong>ADLX SDK repository</strong>: The upstream ADLX SDK repository is at <a href="https://github.com/GPUOpen-LibrariesAndSDKs/ADLX">https://github.com/GPUOpen-LibrariesAndSDKs/ADLX</a></li>
-<li><strong>Samples</strong>: Runnable samples demonstrating display, desktop, GPU, and event-listener flows are under <code>Samples/</code>.</li>
-<li><strong>Wrapper internals</strong>: Core helpers and façades are in <code>ADLXWrapper/</code> (e.g., <code>ADLXDisplayServicesHelper</code>, <code>ADLXDesktopServicesHelper</code>, <code>ADLXSystemServicesHelper</code>).</li>
+<li><strong>Project overview &amp; usage</strong>: See <code>README.md</code> at the repository root or the repo at <a href="https://github.com/terrymacdonald/IGCLWrapper">https://github.com/terrymacdonald/IGCLWrapper</a> for quick-start examples and patterns.</li>
+<li><strong>IGCL SDK reference</strong>: The upstream IGCL SDK official docs are at <a href="https://intel.github.io/drivers.gpu.control-library/Control/INTRO.html">https://intel.github.io/drivers.gpu.control-library/Control/INTRO.html</a>.</li>
+<li><strong>IGCL SDK repository</strong>: The upstream IGCL SDK repository is at <a href="https://github.com/intel/drivers.gpu.control-library">https://github.com/intel/drivers.gpu.control-library</a>. Samples provided by Intel are available at <code>..\drivers.gpu.control-library\Samples</code>.</li>
+<li><strong>IGCLWrapper Samples</strong>: Runnable samples demonstrating display, desktop, GPU, and event-listener flows are under <code>Samples/</code>.</li>
+<li><strong>Wrapper internals</strong>: Core helpers and façades are in <code>IGCLWrapper/</code> (e.g., <code>IGCLDisplayHelper</code>, <code>IGCLOverclockHelper</code>, <code>IGCLPowerHelper</code>).</li>
 </ul>
 <h2 id="regenerating-docs">Regenerating Docs</h2>
-<p>Use <code>.\refresh_adlx_api_docs.ps1</code> from the repo root to rebuild the DocFX site and serve it locally on port 8000.</p>
+<p>Use <code>.\refresh_IGCL_api_docs.ps1</code> from the repo root to rebuild the DocFX site and serve it locally on port 8000.</p>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/APIDocs/index.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/APIDocs/index.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

@@ -1,889 +1,979 @@
 ### YamlMime:TableOfContent
 items:
-- uid: ADLXWrapper
-  name: ADLXWrapper
+- uid: IGCLWrapper
+  name: IGCLWrapper
   type: Namespace
   items:
-  - uid: ADLXWrapper.ADLX
-    name: ADLX
+  - uid: IGCLWrapper.IGCL
+    name: IGCL
     type: Class
-  - uid: ADLXWrapper.ADLX3DSettingsServicesHelper
-    name: ADLX3DSettingsServicesHelper
+  - uid: IGCLWrapper.IGCL3DHelper
+    name: IGCL3DHelper
     type: Class
-  - uid: ADLXWrapper.ADLXApiHelper
-    name: ADLXApiHelper
+  - uid: IGCLWrapper.IGCLAdapterHelper
+    name: IGCLAdapterHelper
     type: Class
-  - uid: ADLXWrapper.ADLXDesktop
-    name: ADLXDesktop
+  - uid: IGCLWrapper.IGCLApi
+    name: IGCLApi
     type: Class
-  - uid: ADLXWrapper.ADLXDesktopServicesHelper
-    name: ADLXDesktopServicesHelper
+  - uid: IGCLWrapper.IGCLApiHelper
+    name: IGCLApiHelper
     type: Class
-  - uid: ADLXWrapper.ADLXDisplay
-    name: ADLXDisplay
+  - uid: IGCLWrapper.IGCLDisplayHelper
+    name: IGCLDisplayHelper
     type: Class
-  - uid: ADLXWrapper.ADLXDisplayServicesHelper
-    name: ADLXDisplayServicesHelper
+  - uid: IGCLWrapper.IGCLEccHelper
+    name: IGCLEccHelper
     type: Class
-  - uid: ADLXWrapper.ADLXException
-    name: ADLXException
+  - uid: IGCLWrapper.IGCLEngineHelper
+    name: IGCLEngineHelper
     type: Class
-  - uid: ADLXWrapper.ADLXGPU
-    name: ADLXGPU
+  - uid: IGCLWrapper.IGCLException
+    name: IGCLException
     type: Class
-  - uid: ADLXWrapper.ADLXGPUTuningServicesHelper
-    name: ADLXGPUTuningServicesHelper
+  - uid: IGCLWrapper.IGCLFanHelper
+    name: IGCLFanHelper
     type: Class
-  - uid: ADLXWrapper.ADLXHardwareDetection
-    name: ADLXHardwareDetection
+  - uid: IGCLWrapper.IGCLFirmwareHelper
+    name: IGCLFirmwareHelper
     type: Class
-  - uid: ADLXWrapper.ADLXInterfaceHandle
-    name: ADLXInterfaceHandle
-    type: Struct
-  - uid: ADLXWrapper.ADLXListHelpers
-    name: ADLXListHelpers
+  - uid: IGCLWrapper.IGCLFrequencyHelper
+    name: IGCLFrequencyHelper
     type: Class
-  - uid: ADLXWrapper.ADLXMultimediaServicesHelper
-    name: ADLXMultimediaServicesHelper
+  - uid: IGCLWrapper.IGCLHardwareDetection
+    name: IGCLHardwareDetection
     type: Class
-  - uid: ADLXWrapper.ADLXNative
-    name: ADLXNative
+  - uid: IGCLWrapper.IGCLHelpers
+    name: IGCLHelpers
     type: Class
-  - uid: ADLXWrapper.ADLXNative.ADLXInitializeWithCallerAdl_Fn
-    name: ADLXNative.ADLXInitializeWithCallerAdl_Fn
-    type: Delegate
-  - uid: ADLXWrapper.ADLXNative.ADLXInitialize_Fn
-    name: ADLXNative.ADLXInitialize_Fn
-    type: Delegate
-  - uid: ADLXWrapper.ADLXNative.ADLXQueryFullVersion_Fn
-    name: ADLXNative.ADLXQueryFullVersion_Fn
-    type: Delegate
-  - uid: ADLXWrapper.ADLXNative.ADLXQueryVersion_Fn
-    name: ADLXNative.ADLXQueryVersion_Fn
-    type: Delegate
-  - uid: ADLXWrapper.ADLXNative.ADLXTerminate_Fn
-    name: ADLXNative.ADLXTerminate_Fn
-    type: Delegate
-  - uid: ADLXWrapper.ADLXPerformanceMonitoringServicesHelper
-    name: ADLXPerformanceMonitoringServicesHelper
+  - uid: IGCLWrapper.IGCLLedHelper
+    name: IGCLLedHelper
     type: Class
-  - uid: ADLXWrapper.ADLXPowerTuningServicesHelper
-    name: ADLXPowerTuningServicesHelper
+  - uid: IGCLWrapper.IGCLMediaHelper
+    name: IGCLMediaHelper
     type: Class
-  - uid: ADLXWrapper.ADLXSystemServicesHelper
-    name: ADLXSystemServicesHelper
+  - uid: IGCLWrapper.IGCLMemoryHelper
+    name: IGCLMemoryHelper
     type: Class
-  - uid: ADLXWrapper.ADLXUtils
-    name: ADLXUtils
+  - uid: IGCLWrapper.IGCLOverclockHelper
+    name: IGCLOverclockHelper
     type: Class
-  - uid: ADLXWrapper.ADLX_3DLUT_COLORSPACE
-    name: ADLX_3DLUT_COLORSPACE
-    type: Enum
-  - uid: ADLXWrapper.ADLX_3DLUT_Data
-    name: ADLX_3DLUT_Data
-    type: Struct
-  - uid: ADLXWrapper.ADLX_3DLUT_Data._data_e__FixedBuffer
-    name: ADLX_3DLUT_Data._data_e__FixedBuffer
-    type: Struct
-  - uid: ADLXWrapper.ADLX_3DLUT_TRANSFER_FUNCTION
-    name: ADLX_3DLUT_TRANSFER_FUNCTION
-    type: Enum
-  - uid: ADLXWrapper.ADLX_ANISOTROPIC_FILTERING_LEVEL
-    name: ADLX_ANISOTROPIC_FILTERING_LEVEL
-    type: Enum
-  - uid: ADLXWrapper.ADLX_ANTILAG_STATE
-    name: ADLX_ANTILAG_STATE
-    type: Enum
-  - uid: ADLXWrapper.ADLX_ANTI_ALIASING_LEVEL
-    name: ADLX_ANTI_ALIASING_LEVEL
-    type: Enum
-  - uid: ADLXWrapper.ADLX_ANTI_ALIASING_METHOD
-    name: ADLX_ANTI_ALIASING_METHOD
-    type: Enum
-  - uid: ADLXWrapper.ADLX_ANTI_ALIASING_MODE
-    name: ADLX_ANTI_ALIASING_MODE
-    type: Enum
-  - uid: ADLXWrapper.ADLX_APP_GPU_DEPENDENCY
-    name: ADLX_APP_GPU_DEPENDENCY
-    type: Enum
-  - uid: ADLXWrapper.ADLX_ASIC_FAMILY_TYPE
-    name: ADLX_ASIC_FAMILY_TYPE
-    type: Enum
-  - uid: ADLXWrapper.ADLX_COLOR_DEPTH
-    name: ADLX_COLOR_DEPTH
-    type: Enum
-  - uid: ADLXWrapper.ADLX_CustomResolution
-    name: ADLX_CustomResolution
-    type: Struct
-  - uid: ADLXWrapper.ADLX_DESKTOP_TYPE
-    name: ADLX_DESKTOP_TYPE
-    type: Enum
-  - uid: ADLXWrapper.ADLX_DISPLAY_CONNECTOR_TYPE
-    name: ADLX_DISPLAY_CONNECTOR_TYPE
-    type: Enum
-  - uid: ADLXWrapper.ADLX_DISPLAY_SCAN_TYPE
-    name: ADLX_DISPLAY_SCAN_TYPE
-    type: Enum
-  - uid: ADLXWrapper.ADLX_DISPLAY_TIMING_LIMITATION
-    name: ADLX_DISPLAY_TIMING_LIMITATION
-    type: Enum
-  - uid: ADLXWrapper.ADLX_DISPLAY_TIMING_POLARITY
-    name: ADLX_DISPLAY_TIMING_POLARITY
-    type: Enum
-  - uid: ADLXWrapper.ADLX_DISPLAY_TYPE
-    name: ADLX_DISPLAY_TYPE
-    type: Enum
-  - uid: ADLXWrapper.ADLX_DP_LINK_RATE
-    name: ADLX_DP_LINK_RATE
-    type: Enum
-  - uid: ADLXWrapper.ADLX_GAMMA_TYPE
-    name: ADLX_GAMMA_TYPE
-    type: Enum
-  - uid: ADLXWrapper.ADLX_GAMUT_SPACE
-    name: ADLX_GAMUT_SPACE
-    type: Enum
-  - uid: ADLXWrapper.ADLX_GPU_TYPE
-    name: ADLX_GPU_TYPE
-    type: Enum
-  - uid: ADLXWrapper.ADLX_GammaRamp
-    name: ADLX_GammaRamp
-    type: Struct
-  - uid: ADLXWrapper.ADLX_GammaRamp._gamma_e__FixedBuffer
-    name: ADLX_GammaRamp._gamma_e__FixedBuffer
-    type: Struct
-  - uid: ADLXWrapper.ADLX_GamutColorSpace
-    name: ADLX_GamutColorSpace
-    type: Struct
-  - uid: ADLXWrapper.ADLX_HG_TYPE
-    name: ADLX_HG_TYPE
-    type: Enum
-  - uid: ADLXWrapper.ADLX_I2C_LINE
-    name: ADLX_I2C_LINE
-    type: Enum
-  - uid: ADLXWrapper.ADLX_IntRange
-    name: ADLX_IntRange
-    type: Struct
-  - uid: ADLXWrapper.ADLX_LOG_DESTINATION
-    name: ADLX_LOG_DESTINATION
-    type: Enum
-  - uid: ADLXWrapper.ADLX_LOG_SEVERITY
-    name: ADLX_LOG_SEVERITY
-    type: Enum
-  - uid: ADLXWrapper.ADLX_LUID
-    name: ADLX_LUID
-    type: Struct
-  - uid: ADLXWrapper.ADLX_MEMORYTIMING_DESCRIPTION
-    name: ADLX_MEMORYTIMING_DESCRIPTION
-    type: Enum
-  - uid: ADLXWrapper.ADLX_MGPU_MODE
-    name: ADLX_MGPU_MODE
-    type: Enum
-  - uid: ADLXWrapper.ADLX_ORIENTATION
-    name: ADLX_ORIENTATION
-    type: Enum
-  - uid: ADLXWrapper.ADLX_PCI_BUS_TYPE
-    name: ADLX_PCI_BUS_TYPE
-    type: Enum
-  - uid: ADLXWrapper.ADLX_PIXEL_FORMAT
-    name: ADLX_PIXEL_FORMAT
-    type: Enum
-  - uid: ADLXWrapper.ADLX_Point
-    name: ADLX_Point
-    type: Struct
-  - uid: ADLXWrapper.ADLX_RESULT
-    name: ADLX_RESULT
-    type: Enum
-  - uid: ADLXWrapper.ADLX_RGB
-    name: ADLX_RGB
-    type: Struct
-  - uid: ADLXWrapper.ADLX_RegammaCoeff
-    name: ADLX_RegammaCoeff
-    type: Struct
-  - uid: ADLXWrapper.ADLX_SCALE_MODE
-    name: ADLX_SCALE_MODE
-    type: Enum
-  - uid: ADLXWrapper.ADLX_SMARTSHIFT_ECO_INACTIVE_REASON
-    name: ADLX_SMARTSHIFT_ECO_INACTIVE_REASON
-    type: Enum
-  - uid: ADLXWrapper.ADLX_SSM_BIAS_MODE
-    name: ADLX_SSM_BIAS_MODE
-    type: Enum
-  - uid: ADLXWrapper.ADLX_SYNC_ORIGIN
-    name: ADLX_SYNC_ORIGIN
-    type: Enum
-  - uid: ADLXWrapper.ADLX_TESSELLATION_LEVEL
-    name: ADLX_TESSELLATION_LEVEL
-    type: Enum
-  - uid: ADLXWrapper.ADLX_TESSELLATION_MODE
-    name: ADLX_TESSELLATION_MODE
-    type: Enum
-  - uid: ADLXWrapper.ADLX_TIMING_STANDARD
-    name: ADLX_TIMING_STANDARD
-    type: Enum
-  - uid: ADLXWrapper.ADLX_TimingInfo
-    name: ADLX_TimingInfo
-    type: Struct
-  - uid: ADLXWrapper.ADLX_UINT16_RGB
-    name: ADLX_UINT16_RGB
-    type: Struct
-  - uid: ADLXWrapper.ADLX_WAIT_FOR_VERTICAL_REFRESH_MODE
-    name: ADLX_WAIT_FOR_VERTICAL_REFRESH_MODE
-    type: Enum
-  - uid: ADLXWrapper.ADLX_WHITE_POINT
-    name: ADLX_WHITE_POINT
-    type: Enum
-  - uid: ADLXWrapper.All3DSettingsInfo
-    name: All3DSettingsInfo
-    type: Struct
-  - uid: ADLXWrapper.AllMetricsSnapshotInfo
-    name: AllMetricsSnapshotInfo
-    type: Struct
-  - uid: ADLXWrapper.AnisotropicFilteringInfo
-    name: AnisotropicFilteringInfo
-    type: Struct
-  - uid: ADLXWrapper.AntiAliasingInfo
-    name: AntiAliasingInfo
-    type: Struct
-  - uid: ADLXWrapper.AntiLagInfo
-    name: AntiLagInfo
-    type: Struct
-  - uid: ADLXWrapper.AutoTuningInfo
-    name: AutoTuningInfo
-    type: Struct
-  - uid: ADLXWrapper.BoostInfo
-    name: BoostInfo
-    type: Struct
-  - uid: ADLXWrapper.ComPtr`1
-    name: ComPtr<T>
-    type: Struct
-  - uid: ADLXWrapper.ConnectivityExperienceInfo
-    name: ConnectivityExperienceInfo
-    type: Struct
-  - uid: ADLXWrapper.CustomColorInfo
-    name: CustomColorInfo
-    type: Struct
-  - uid: ADLXWrapper.CustomResolutionInfo
-    name: CustomResolutionInfo
-    type: Struct
-  - uid: ADLXWrapper.DesktopInfo
-    name: DesktopInfo
-    type: Struct
-  - uid: ADLXWrapper.DesktopListListenerHandle
-    name: DesktopListListenerHandle
+  - uid: IGCLWrapper.IGCLPciHelper
+    name: IGCLPciHelper
     type: Class
-  - uid: ADLXWrapper.DesktopListListenerHandle.OnDesktopListChanged
-    name: DesktopListListenerHandle.OnDesktopListChanged
-    type: Delegate
-  - uid: ADLXWrapper.Display3DLutListenerHandle
-    name: Display3DLutListenerHandle
+  - uid: IGCLWrapper.IGCLPowerHelper
+    name: IGCLPowerHelper
     type: Class
-  - uid: ADLXWrapper.Display3DLutListenerHandle.OnDisplay3DLutChanged
-    name: Display3DLutListenerHandle.OnDisplay3DLutChanged
-    type: Delegate
-  - uid: ADLXWrapper.DisplayGammaListenerHandle
-    name: DisplayGammaListenerHandle
+  - uid: IGCLWrapper.IGCLStructHelper
+    name: IGCLStructHelper
     type: Class
-  - uid: ADLXWrapper.DisplayGammaListenerHandle.OnDisplayGammaChanged
-    name: DisplayGammaListenerHandle.OnDisplayGammaChanged
-    type: Delegate
-  - uid: ADLXWrapper.DisplayGamutListenerHandle
-    name: DisplayGamutListenerHandle
+  - uid: IGCLWrapper.IGCLTemperatureHelper
+    name: IGCLTemperatureHelper
     type: Class
-  - uid: ADLXWrapper.DisplayGamutListenerHandle.OnDisplayGamutChanged
-    name: DisplayGamutListenerHandle.OnDisplayGamutChanged
-    type: Delegate
-  - uid: ADLXWrapper.DisplayInfo
-    name: DisplayInfo
+  - uid: IGCLWrapper._ctl_api_handle_t
+    name: _ctl_api_handle_t
     type: Struct
-  - uid: ADLXWrapper.DisplayListListenerHandle
-    name: DisplayListListenerHandle
-    type: Class
-  - uid: ADLXWrapper.DisplayListListenerHandle.OnDisplayListChanged
-    name: DisplayListListenerHandle.OnDisplayListChanged
-    type: Delegate
-  - uid: ADLXWrapper.DisplayResolutionInfo
-    name: DisplayResolutionInfo
+  - uid: IGCLWrapper._ctl_device_adapter_handle_t
+    name: _ctl_device_adapter_handle_t
     type: Struct
-  - uid: ADLXWrapper.DisplaySettingsListenerHandle
-    name: DisplaySettingsListenerHandle
-    type: Class
-  - uid: ADLXWrapper.DisplaySettingsListenerHandle.OnDisplaySettingsChanged
-    name: DisplaySettingsListenerHandle.OnDisplaySettingsChanged
-    type: Delegate
-  - uid: ADLXWrapper.EnhancedSyncInfo
-    name: EnhancedSyncInfo
+  - uid: IGCLWrapper._ctl_display_output_handle_t
+    name: _ctl_display_output_handle_t
     type: Struct
-  - uid: ADLXWrapper.EyefinityDesktopInfo
-    name: EyefinityDesktopInfo
+  - uid: IGCLWrapper._ctl_engine_handle_t
+    name: _ctl_engine_handle_t
     type: Struct
-  - uid: ADLXWrapper.FanPoint
-    name: FanPoint
+  - uid: IGCLWrapper._ctl_fan_handle_t
+    name: _ctl_fan_handle_t
     type: Struct
-  - uid: ADLXWrapper.FluidMotionFramesInfo
-    name: FluidMotionFramesInfo
+  - uid: IGCLWrapper._ctl_firmware_component_handle_t
+    name: _ctl_firmware_component_handle_t
     type: Struct
-  - uid: ADLXWrapper.FrameRateTargetControlInfo
-    name: FrameRateTargetControlInfo
+  - uid: IGCLWrapper._ctl_freq_handle_t
+    name: _ctl_freq_handle_t
     type: Struct
-  - uid: ADLXWrapper.GammaInfo
-    name: GammaInfo
+  - uid: IGCLWrapper._ctl_i2c_pin_pair_handle_t
+    name: _ctl_i2c_pin_pair_handle_t
     type: Struct
-  - uid: ADLXWrapper.GamutInfo
-    name: GamutInfo
+  - uid: IGCLWrapper._ctl_led_handle_t
+    name: _ctl_led_handle_t
     type: Struct
-  - uid: ADLXWrapper.GpuInfo
-    name: GpuInfo
+  - uid: IGCLWrapper._ctl_mem_handle_t
+    name: _ctl_mem_handle_t
     type: Struct
-  - uid: ADLXWrapper.GpuMetricsEntryInfo
-    name: GpuMetricsEntryInfo
+  - uid: IGCLWrapper._ctl_mux_output_handle_t
+    name: _ctl_mux_output_handle_t
     type: Struct
-  - uid: ADLXWrapper.GpuMetricsSnapshotInfo
-    name: GpuMetricsSnapshotInfo
+  - uid: IGCLWrapper._ctl_pwr_handle_t
+    name: _ctl_pwr_handle_t
     type: Struct
-  - uid: ADLXWrapper.GpuMetricsSupportInfo
-    name: GpuMetricsSupportInfo
+  - uid: IGCLWrapper._ctl_temp_handle_t
+    name: _ctl_temp_handle_t
     type: Struct
-  - uid: ADLXWrapper.GpuTuningCapabilitiesInfo
-    name: GpuTuningCapabilitiesInfo
-    type: Struct
-  - uid: ADLXWrapper.GpuTuningListenerHandle
-    name: GpuTuningListenerHandle
-    type: Class
-  - uid: ADLXWrapper.GpuTuningListenerHandle.GpuTuningChangedCallback
-    name: GpuTuningListenerHandle.GpuTuningChangedCallback
-    type: Delegate
-  - uid: ADLXWrapper.IADLMapping
-    name: IADLMapping
-    type: Struct
-  - uid: ADLXWrapper.IADLX3DAMDFluidMotionFrames
-    name: IADLX3DAMDFluidMotionFrames
-    type: Struct
-  - uid: ADLXWrapper.IADLX3DAnisotropicFiltering
-    name: IADLX3DAnisotropicFiltering
-    type: Struct
-  - uid: ADLXWrapper.IADLX3DAntiAliasing
-    name: IADLX3DAntiAliasing
-    type: Struct
-  - uid: ADLXWrapper.IADLX3DAntiLag
-    name: IADLX3DAntiLag
-    type: Struct
-  - uid: ADLXWrapper.IADLX3DAntiLag1
-    name: IADLX3DAntiLag1
-    type: Struct
-  - uid: ADLXWrapper.IADLX3DBoost
-    name: IADLX3DBoost
-    type: Struct
-  - uid: ADLXWrapper.IADLX3DChill
-    name: IADLX3DChill
-    type: Struct
-  - uid: ADLXWrapper.IADLX3DEnhancedSync
-    name: IADLX3DEnhancedSync
-    type: Struct
-  - uid: ADLXWrapper.IADLX3DFrameRateTargetControl
-    name: IADLX3DFrameRateTargetControl
-    type: Struct
-  - uid: ADLXWrapper.IADLX3DImageSharpenDesktop
-    name: IADLX3DImageSharpenDesktop
-    type: Struct
-  - uid: ADLXWrapper.IADLX3DImageSharpening
-    name: IADLX3DImageSharpening
-    type: Struct
-  - uid: ADLXWrapper.IADLX3DMorphologicalAntiAliasing
-    name: IADLX3DMorphologicalAntiAliasing
-    type: Struct
-  - uid: ADLXWrapper.IADLX3DRadeonSuperResolution
-    name: IADLX3DRadeonSuperResolution
-    type: Struct
-  - uid: ADLXWrapper.IADLX3DResetShaderCache
-    name: IADLX3DResetShaderCache
-    type: Struct
-  - uid: ADLXWrapper.IADLX3DSettingsChangedEvent
-    name: IADLX3DSettingsChangedEvent
-    type: Struct
-  - uid: ADLXWrapper.IADLX3DSettingsChangedEvent1
-    name: IADLX3DSettingsChangedEvent1
-    type: Struct
-  - uid: ADLXWrapper.IADLX3DSettingsChangedEvent2
-    name: IADLX3DSettingsChangedEvent2
-    type: Struct
-  - uid: ADLXWrapper.IADLX3DSettingsChangedHandling
-    name: IADLX3DSettingsChangedHandling
-    type: Struct
-  - uid: ADLXWrapper.IADLX3DSettingsChangedListener
-    name: IADLX3DSettingsChangedListener
-    type: Struct
-  - uid: ADLXWrapper.IADLX3DSettingsServices
-    name: IADLX3DSettingsServices
-    type: Struct
-  - uid: ADLXWrapper.IADLX3DSettingsServices1
-    name: IADLX3DSettingsServices1
-    type: Struct
-  - uid: ADLXWrapper.IADLX3DSettingsServices2
-    name: IADLX3DSettingsServices2
-    type: Struct
-  - uid: ADLXWrapper.IADLX3DTessellation
-    name: IADLX3DTessellation
-    type: Struct
-  - uid: ADLXWrapper.IADLX3DWaitForVerticalRefresh
-    name: IADLX3DWaitForVerticalRefresh
-    type: Struct
-  - uid: ADLXWrapper.IADLXAllMetrics
-    name: IADLXAllMetrics
-    type: Struct
-  - uid: ADLXWrapper.IADLXAllMetricsList
-    name: IADLXAllMetricsList
-    type: Struct
-  - uid: ADLXWrapper.IADLXApplication
-    name: IADLXApplication
-    type: Struct
-  - uid: ADLXWrapper.IADLXApplicationList
-    name: IADLXApplicationList
-    type: Struct
-  - uid: ADLXWrapper.IADLXChangedEvent
-    name: IADLXChangedEvent
-    type: Struct
-  - uid: ADLXWrapper.IADLXDesktop
-    name: IADLXDesktop
-    type: Struct
-  - uid: ADLXWrapper.IADLXDesktopChangedHandling
-    name: IADLXDesktopChangedHandling
-    type: Struct
-  - uid: ADLXWrapper.IADLXDesktopList
-    name: IADLXDesktopList
-    type: Struct
-  - uid: ADLXWrapper.IADLXDesktopListChangedListener
-    name: IADLXDesktopListChangedListener
-    type: Struct
-  - uid: ADLXWrapper.IADLXDesktopServices
-    name: IADLXDesktopServices
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplay
-    name: IADLXDisplay
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplay3DLUT
-    name: IADLXDisplay3DLUT
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplay3DLUTChangedEvent
-    name: IADLXDisplay3DLUTChangedEvent
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplay3DLUTChangedListener
-    name: IADLXDisplay3DLUTChangedListener
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplayBlanking
-    name: IADLXDisplayBlanking
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplayChangedHandling
-    name: IADLXDisplayChangedHandling
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplayColorDepth
-    name: IADLXDisplayColorDepth
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplayConnectivityExperience
-    name: IADLXDisplayConnectivityExperience
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplayCustomColor
-    name: IADLXDisplayCustomColor
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplayCustomResolution
-    name: IADLXDisplayCustomResolution
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplayDynamicRefreshRateControl
-    name: IADLXDisplayDynamicRefreshRateControl
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplayFreeSync
-    name: IADLXDisplayFreeSync
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplayFreeSyncColorAccuracy
-    name: IADLXDisplayFreeSyncColorAccuracy
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplayGPUScaling
-    name: IADLXDisplayGPUScaling
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplayGamma
-    name: IADLXDisplayGamma
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplayGammaChangedEvent
-    name: IADLXDisplayGammaChangedEvent
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplayGammaChangedListener
-    name: IADLXDisplayGammaChangedListener
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplayGamut
-    name: IADLXDisplayGamut
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplayGamutChangedEvent
-    name: IADLXDisplayGamutChangedEvent
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplayGamutChangedListener
-    name: IADLXDisplayGamutChangedListener
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplayHDCP
-    name: IADLXDisplayHDCP
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplayIntegerScaling
-    name: IADLXDisplayIntegerScaling
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplayList
-    name: IADLXDisplayList
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplayListChangedListener
-    name: IADLXDisplayListChangedListener
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplayPixelFormat
-    name: IADLXDisplayPixelFormat
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplayResolution
-    name: IADLXDisplayResolution
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplayResolutionList
-    name: IADLXDisplayResolutionList
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplayScalingMode
-    name: IADLXDisplayScalingMode
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplayServices
-    name: IADLXDisplayServices
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplayServices1
-    name: IADLXDisplayServices1
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplayServices2
-    name: IADLXDisplayServices2
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplayServices3
-    name: IADLXDisplayServices3
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplaySettingsChangedEvent
-    name: IADLXDisplaySettingsChangedEvent
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplaySettingsChangedEvent1
-    name: IADLXDisplaySettingsChangedEvent1
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplaySettingsChangedEvent2
-    name: IADLXDisplaySettingsChangedEvent2
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplaySettingsChangedEvent3
-    name: IADLXDisplaySettingsChangedEvent3
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplaySettingsChangedListener
-    name: IADLXDisplaySettingsChangedListener
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplayVSR
-    name: IADLXDisplayVSR
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplayVariBright
-    name: IADLXDisplayVariBright
-    type: Struct
-  - uid: ADLXWrapper.IADLXDisplayVariBright1
-    name: IADLXDisplayVariBright1
-    type: Struct
-  - uid: ADLXWrapper.IADLXEyefinityDesktop
-    name: IADLXEyefinityDesktop
-    type: Struct
-  - uid: ADLXWrapper.IADLXFPS
-    name: IADLXFPS
-    type: Struct
-  - uid: ADLXWrapper.IADLXFPSList
-    name: IADLXFPSList
-    type: Struct
-  - uid: ADLXWrapper.IADLXGPU
-    name: IADLXGPU
-    type: Struct
-  - uid: ADLXWrapper.IADLXGPU1
-    name: IADLXGPU1
-    type: Struct
-  - uid: ADLXWrapper.IADLXGPU2
-    name: IADLXGPU2
-    type: Struct
-  - uid: ADLXWrapper.IADLXGPU2List
-    name: IADLXGPU2List
-    type: Struct
-  - uid: ADLXWrapper.IADLXGPUAppsListChangedHandling
-    name: IADLXGPUAppsListChangedHandling
-    type: Struct
-  - uid: ADLXWrapper.IADLXGPUAppsListEventListener
-    name: IADLXGPUAppsListEventListener
-    type: Struct
-  - uid: ADLXWrapper.IADLXGPUAutoTuning
-    name: IADLXGPUAutoTuning
-    type: Struct
-  - uid: ADLXWrapper.IADLXGPUAutoTuningCompleteEvent
-    name: IADLXGPUAutoTuningCompleteEvent
-    type: Struct
-  - uid: ADLXWrapper.IADLXGPUAutoTuningCompleteListener
-    name: IADLXGPUAutoTuningCompleteListener
-    type: Struct
-  - uid: ADLXWrapper.IADLXGPUConnectChangedEvent
-    name: IADLXGPUConnectChangedEvent
-    type: Struct
-  - uid: ADLXWrapper.IADLXGPUConnectChangedListener
-    name: IADLXGPUConnectChangedListener
-    type: Struct
-  - uid: ADLXWrapper.IADLXGPUList
-    name: IADLXGPUList
-    type: Struct
-  - uid: ADLXWrapper.IADLXGPUMetrics
-    name: IADLXGPUMetrics
-    type: Struct
-  - uid: ADLXWrapper.IADLXGPUMetrics1
-    name: IADLXGPUMetrics1
-    type: Struct
-  - uid: ADLXWrapper.IADLXGPUMetrics2
-    name: IADLXGPUMetrics2
-    type: Struct
-  - uid: ADLXWrapper.IADLXGPUMetricsList
-    name: IADLXGPUMetricsList
-    type: Struct
-  - uid: ADLXWrapper.IADLXGPUMetricsSupport
-    name: IADLXGPUMetricsSupport
-    type: Struct
-  - uid: ADLXWrapper.IADLXGPUMetricsSupport1
-    name: IADLXGPUMetricsSupport1
-    type: Struct
-  - uid: ADLXWrapper.IADLXGPUMetricsSupport2
-    name: IADLXGPUMetricsSupport2
-    type: Struct
-  - uid: ADLXWrapper.IADLXGPUPresetTuning
-    name: IADLXGPUPresetTuning
-    type: Struct
-  - uid: ADLXWrapper.IADLXGPUTuningChangedEvent
-    name: IADLXGPUTuningChangedEvent
-    type: Struct
-  - uid: ADLXWrapper.IADLXGPUTuningChangedEvent1
-    name: IADLXGPUTuningChangedEvent1
-    type: Struct
-  - uid: ADLXWrapper.IADLXGPUTuningChangedHandling
-    name: IADLXGPUTuningChangedHandling
-    type: Struct
-  - uid: ADLXWrapper.IADLXGPUTuningChangedListener
-    name: IADLXGPUTuningChangedListener
-    type: Struct
-  - uid: ADLXWrapper.IADLXGPUTuningServices
-    name: IADLXGPUTuningServices
-    type: Struct
-  - uid: ADLXWrapper.IADLXGPUTuningServices1
-    name: IADLXGPUTuningServices1
-    type: Struct
-  - uid: ADLXWrapper.IADLXGPUsChangedHandling
-    name: IADLXGPUsChangedHandling
-    type: Struct
-  - uid: ADLXWrapper.IADLXGPUsEventListener
-    name: IADLXGPUsEventListener
-    type: Struct
-  - uid: ADLXWrapper.IADLXI2C
-    name: IADLXI2C
-    type: Struct
-  - uid: ADLXWrapper.IADLXInterface
-    name: IADLXInterface
-    type: Struct
-  - uid: ADLXWrapper.IADLXList
-    name: IADLXList
-    type: Struct
-  - uid: ADLXWrapper.IADLXLog
-    name: IADLXLog
-    type: Struct
-  - uid: ADLXWrapper.IADLXManualFanTuning
-    name: IADLXManualFanTuning
-    type: Struct
-  - uid: ADLXWrapper.IADLXManualFanTuning1
-    name: IADLXManualFanTuning1
-    type: Struct
-  - uid: ADLXWrapper.IADLXManualFanTuningState
-    name: IADLXManualFanTuningState
-    type: Struct
-  - uid: ADLXWrapper.IADLXManualFanTuningStateList
-    name: IADLXManualFanTuningStateList
-    type: Struct
-  - uid: ADLXWrapper.IADLXManualGraphicsTuning1
-    name: IADLXManualGraphicsTuning1
-    type: Struct
-  - uid: ADLXWrapper.IADLXManualGraphicsTuning2
-    name: IADLXManualGraphicsTuning2
-    type: Struct
-  - uid: ADLXWrapper.IADLXManualGraphicsTuning2_1
-    name: IADLXManualGraphicsTuning2_1
-    type: Struct
-  - uid: ADLXWrapper.IADLXManualPowerTuning
-    name: IADLXManualPowerTuning
-    type: Struct
-  - uid: ADLXWrapper.IADLXManualPowerTuning1
-    name: IADLXManualPowerTuning1
-    type: Struct
-  - uid: ADLXWrapper.IADLXManualTuningState
-    name: IADLXManualTuningState
-    type: Struct
-  - uid: ADLXWrapper.IADLXManualTuningStateList
-    name: IADLXManualTuningStateList
-    type: Struct
-  - uid: ADLXWrapper.IADLXManualVRAMTuning1
-    name: IADLXManualVRAMTuning1
-    type: Struct
-  - uid: ADLXWrapper.IADLXManualVRAMTuning2
-    name: IADLXManualVRAMTuning2
-    type: Struct
-  - uid: ADLXWrapper.IADLXManualVRAMTuning2_1
-    name: IADLXManualVRAMTuning2_1
-    type: Struct
-  - uid: ADLXWrapper.IADLXMemoryTimingDescription
-    name: IADLXMemoryTimingDescription
-    type: Struct
-  - uid: ADLXWrapper.IADLXMemoryTimingDescriptionList
-    name: IADLXMemoryTimingDescriptionList
-    type: Struct
-  - uid: ADLXWrapper.IADLXMultimediaChangedEvent
-    name: IADLXMultimediaChangedEvent
-    type: Struct
-  - uid: ADLXWrapper.IADLXMultimediaChangedEventListener
-    name: IADLXMultimediaChangedEventListener
-    type: Struct
-  - uid: ADLXWrapper.IADLXMultimediaChangedHandling
-    name: IADLXMultimediaChangedHandling
-    type: Struct
-  - uid: ADLXWrapper.IADLXMultimediaServices
-    name: IADLXMultimediaServices
-    type: Struct
-  - uid: ADLXWrapper.IADLXPerformanceMonitoringServices
-    name: IADLXPerformanceMonitoringServices
-    type: Struct
-  - uid: ADLXWrapper.IADLXPowerTuningChangedEvent
-    name: IADLXPowerTuningChangedEvent
-    type: Struct
-  - uid: ADLXWrapper.IADLXPowerTuningChangedEvent1
-    name: IADLXPowerTuningChangedEvent1
-    type: Struct
-  - uid: ADLXWrapper.IADLXPowerTuningChangedHandling
-    name: IADLXPowerTuningChangedHandling
-    type: Struct
-  - uid: ADLXWrapper.IADLXPowerTuningChangedListener
-    name: IADLXPowerTuningChangedListener
-    type: Struct
-  - uid: ADLXWrapper.IADLXPowerTuningServices
-    name: IADLXPowerTuningServices
-    type: Struct
-  - uid: ADLXWrapper.IADLXPowerTuningServices1
-    name: IADLXPowerTuningServices1
-    type: Struct
-  - uid: ADLXWrapper.IADLXSimpleEyefinity
-    name: IADLXSimpleEyefinity
-    type: Struct
-  - uid: ADLXWrapper.IADLXSmartAccessMemory
-    name: IADLXSmartAccessMemory
-    type: Struct
-  - uid: ADLXWrapper.IADLXSmartShiftEco
-    name: IADLXSmartShiftEco
-    type: Struct
-  - uid: ADLXWrapper.IADLXSmartShiftMax
-    name: IADLXSmartShiftMax
-    type: Struct
-  - uid: ADLXWrapper.IADLXSystem
-    name: IADLXSystem
-    type: Struct
-  - uid: ADLXWrapper.IADLXSystem1
-    name: IADLXSystem1
-    type: Struct
-  - uid: ADLXWrapper.IADLXSystem2
-    name: IADLXSystem2
-    type: Struct
-  - uid: ADLXWrapper.IADLXSystemMetrics
-    name: IADLXSystemMetrics
-    type: Struct
-  - uid: ADLXWrapper.IADLXSystemMetrics1
-    name: IADLXSystemMetrics1
-    type: Struct
-  - uid: ADLXWrapper.IADLXSystemMetricsList
-    name: IADLXSystemMetricsList
-    type: Struct
-  - uid: ADLXWrapper.IADLXSystemMetricsSupport
-    name: IADLXSystemMetricsSupport
-    type: Struct
-  - uid: ADLXWrapper.IADLXSystemMetricsSupport1
-    name: IADLXSystemMetricsSupport1
-    type: Struct
-  - uid: ADLXWrapper.IADLXVideoSuperResolution
-    name: IADLXVideoSuperResolution
-    type: Struct
-  - uid: ADLXWrapper.IADLXVideoUpscale
-    name: IADLXVideoUpscale
-    type: Struct
-  - uid: ADLXWrapper.ManualFanTuningInfo
-    name: ManualFanTuningInfo
-    type: Struct
-  - uid: ADLXWrapper.ManualGfxTuningInfo
-    name: ManualGfxTuningInfo
-    type: Struct
-  - uid: ADLXWrapper.ManualPowerTuningInfo
-    name: ManualPowerTuningInfo
-    type: Struct
-  - uid: ADLXWrapper.ManualVramTuningInfo
-    name: ManualVramTuningInfo
-    type: Struct
-  - uid: ADLXWrapper.MultimediaListenerHandle
-    name: MultimediaListenerHandle
-    type: Class
-  - uid: ADLXWrapper.MultimediaListenerHandle.MultimediaChangedCallback
-    name: MultimediaListenerHandle.MultimediaChangedCallback
-    type: Delegate
-  - uid: ADLXWrapper.PerformanceMonitoringSettingsInfo
-    name: PerformanceMonitoringSettingsInfo
-    type: Struct
-  - uid: ADLXWrapper.PowerDistributionSnapshotInfo
-    name: PowerDistributionSnapshotInfo
-    type: Struct
-  - uid: ADLXWrapper.PowerTuningListenerHandle
-    name: PowerTuningListenerHandle
-    type: Class
-  - uid: ADLXWrapper.PowerTuningListenerHandle.PowerTuningChangedCallback
-    name: PowerTuningListenerHandle.PowerTuningChangedCallback
-    type: Delegate
-  - uid: ADLXWrapper.PresetKind
-    name: PresetKind
+  - uid: IGCLWrapper.ctl_3d_adaptive_tessellation_types_t
+    name: ctl_3d_adaptive_tessellation_types_t
     type: Enum
-  - uid: ADLXWrapper.PresetTuningInfo
-    name: PresetTuningInfo
-    type: Struct
-  - uid: ADLXWrapper.RadeonImageSharpeningInfo
-    name: RadeonImageSharpeningInfo
-    type: Struct
-  - uid: ADLXWrapper.RadeonSuperResolutionInfo
-    name: RadeonSuperResolutionInfo
-    type: Struct
-  - uid: ADLXWrapper.SimpleEyefinityInfo
-    name: SimpleEyefinityInfo
-    type: Struct
-  - uid: ADLXWrapper.SmartShiftEcoInfo
-    name: SmartShiftEcoInfo
-    type: Struct
-  - uid: ADLXWrapper.SmartShiftMaxInfo
-    name: SmartShiftMaxInfo
-    type: Struct
-  - uid: ADLXWrapper.SystemMetricsSnapshotInfo
-    name: SystemMetricsSnapshotInfo
-    type: Struct
-  - uid: ADLXWrapper.TessellationInfo
-    name: TessellationInfo
-    type: Struct
-  - uid: ADLXWrapper.ThreeDLUTInfo
-    name: ThreeDLUTInfo
-    type: Struct
-  - uid: ADLXWrapper.ThreeDSettingsListenerHandle
-    name: ThreeDSettingsListenerHandle
-    type: Class
-  - uid: ADLXWrapper.ThreeDSettingsListenerHandle.ThreeDSettingsChangedCallback
-    name: ThreeDSettingsListenerHandle.ThreeDSettingsChangedCallback
-    type: Delegate
-  - uid: ADLXWrapper.VariBrightMode
-    name: VariBrightMode
+  - uid: IGCLWrapper.ctl_3d_anisotropic_types_t
+    name: ctl_3d_anisotropic_types_t
     type: Enum
-  - uid: ADLXWrapper.VideoSuperResolutionInfo
-    name: VideoSuperResolutionInfo
+  - uid: IGCLWrapper.ctl_3d_app_profiles_caps_t
+    name: ctl_3d_app_profiles_caps_t
     type: Struct
-  - uid: ADLXWrapper.VideoUpscaleInfo
-    name: VideoUpscaleInfo
+  - uid: IGCLWrapper.ctl_3d_app_profiles_t
+    name: ctl_3d_app_profiles_t
     type: Struct
-  - uid: ADLXWrapper.VramState
-    name: VramState
+  - uid: IGCLWrapper.ctl_3d_cmaa_types_t
+    name: ctl_3d_cmaa_types_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_3d_endurance_gaming_control_t
+    name: ctl_3d_endurance_gaming_control_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_3d_endurance_gaming_mode_t
+    name: ctl_3d_endurance_gaming_mode_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_3d_feature_caps_t
+    name: ctl_3d_feature_caps_t
     type: Struct
-  - uid: ADLXWrapper.WaitForVerticalRefreshInfo
-    name: WaitForVerticalRefreshInfo
+  - uid: IGCLWrapper.ctl_3d_feature_details_t
+    name: ctl_3d_feature_details_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_3d_feature_getset_t
+    name: ctl_3d_feature_getset_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_3d_feature_misc_flag_t
+    name: ctl_3d_feature_misc_flag_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_3d_feature_t
+    name: ctl_3d_feature_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_3d_frame_pacing_types_t
+    name: ctl_3d_frame_pacing_types_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_3d_global_or_per_app_types_t
+    name: ctl_3d_global_or_per_app_types_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_3d_low_latency_types_t
+    name: ctl_3d_low_latency_types_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_3d_msaa_types_t
+    name: ctl_3d_msaa_types_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_3d_sharpening_filter_types_t
+    name: ctl_3d_sharpening_filter_types_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_3d_texture_filtering_quality_types_t
+    name: ctl_3d_texture_filtering_quality_types_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_3d_tier_details_t
+    name: ctl_3d_tier_details_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_3d_tier_details_t._Reserved_e__FixedBuffer
+    name: ctl_3d_tier_details_t._Reserved_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_3d_tier_profile_flag_t
+    name: ctl_3d_tier_profile_flag_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_3d_tier_type_flag_t
+    name: ctl_3d_tier_type_flag_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_3d_vrr_windowed_blt_reserved_t
+    name: ctl_3d_vrr_windowed_blt_reserved_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_adapter_bdf_t
+    name: ctl_adapter_bdf_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_adapter_display_encoder_properties_t
+    name: ctl_adapter_display_encoder_properties_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer
+    name: ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_adapter_properties_flag_t
+    name: ctl_adapter_properties_flag_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_adaptivesync_caps_t
+    name: ctl_adaptivesync_caps_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_adaptivesync_getset_t
+    name: ctl_adaptivesync_getset_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_application_id_t
+    name: ctl_application_id_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_application_id_t._Data4_e__FixedBuffer
+    name: ctl_application_id_t._Data4_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_attached_display_mux_type_t
+    name: ctl_attached_display_mux_type_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_aux_access_args_t
+    name: ctl_aux_access_args_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_aux_access_args_t._Data_e__FixedBuffer
+    name: ctl_aux_access_args_t._Data_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_aux_flag_t
+    name: ctl_aux_flag_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_base_interface_t
+    name: ctl_base_interface_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_base_properties_t
+    name: ctl_base_properties_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_child_display_target_mode_t
+    name: ctl_child_display_target_mode_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_child_display_target_mode_t._ReservedFields_e__FixedBuffer
+    name: ctl_child_display_target_mode_t._ReservedFields_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_combined_display_args_t
+    name: ctl_combined_display_args_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_combined_display_child_info_t
+    name: ctl_combined_display_child_info_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_combined_display_optype_t
+    name: ctl_combined_display_optype_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_custom_mode_operation_types_t
+    name: ctl_custom_mode_operation_types_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_custom_src_mode_t
+    name: ctl_custom_src_mode_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_data_type_t
+    name: ctl_data_type_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_data_value_t
+    name: ctl_data_value_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_dce_args_t
+    name: ctl_dce_args_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_device_adapter_properties_t
+    name: ctl_device_adapter_properties_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_device_adapter_properties_t._name_e__FixedBuffer
+    name: ctl_device_adapter_properties_t._name_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_device_adapter_properties_t._reserved_e__FixedBuffer
+    name: ctl_device_adapter_properties_t._reserved_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_device_type_t
+    name: ctl_device_type_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_display_config_flag_t
+    name: ctl_display_config_flag_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_display_orientation_t
+    name: ctl_display_orientation_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_display_output_types_t
+    name: ctl_display_output_types_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_display_properties_t
+    name: ctl_display_properties_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_display_properties_t._ReservedFields_e__FixedBuffer
+    name: ctl_display_properties_t._ReservedFields_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_display_setting_audio_t
+    name: ctl_display_setting_audio_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_display_setting_content_type_t
+    name: ctl_display_setting_content_type_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_display_setting_flag_t
+    name: ctl_display_setting_flag_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_display_setting_low_latency_t
+    name: ctl_display_setting_low_latency_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_display_setting_picture_ar_flag_t
+    name: ctl_display_setting_picture_ar_flag_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_display_setting_quantization_range_t
+    name: ctl_display_setting_quantization_range_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_display_setting_sourcetm_t
+    name: ctl_display_setting_sourcetm_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_display_settings_t
+    name: ctl_display_settings_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_display_settings_t._Reserved_e__FixedBuffer
+    name: ctl_display_settings_t._Reserved_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_display_timing_t
+    name: ctl_display_timing_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_ecc_properties_t
+    name: ctl_ecc_properties_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_ecc_state_desc_t
+    name: ctl_ecc_state_desc_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_ecc_state_t
+    name: ctl_ecc_state_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_edid_management_args_t
+    name: ctl_edid_management_args_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_edid_management_optype_t
+    name: ctl_edid_management_optype_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_edid_management_out_flag_t
+    name: ctl_edid_management_out_flag_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_edid_type_t
+    name: ctl_edid_type_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_emulated_typed_64bit_atomics_types_t
+    name: ctl_emulated_typed_64bit_atomics_types_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_encoder_config_flag_t
+    name: ctl_encoder_config_flag_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_endurance_gaming2_t
+    name: ctl_endurance_gaming2_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_endurance_gaming2_t._Reserved_e__FixedBuffer
+    name: ctl_endurance_gaming2_t._Reserved_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_endurance_gaming_caps_t
+    name: ctl_endurance_gaming_caps_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_endurance_gaming_t
+    name: ctl_endurance_gaming_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_energy_threshold_t
+    name: ctl_energy_threshold_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_engine_group_t
+    name: ctl_engine_group_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_engine_properties_t
+    name: ctl_engine_properties_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_engine_stats_t
+    name: ctl_engine_stats_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_fan_config_t
+    name: ctl_fan_config_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_fan_properties_t
+    name: ctl_fan_properties_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_fan_speed_mode_t
+    name: ctl_fan_speed_mode_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_fan_speed_t
+    name: ctl_fan_speed_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_fan_speed_table_t
+    name: ctl_fan_speed_table_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_fan_speed_table_t._table_e__FixedBuffer
+    name: ctl_fan_speed_table_t._table_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_fan_speed_units_t
+    name: ctl_fan_speed_units_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_fan_temp_speed_t
+    name: ctl_fan_temp_speed_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_firmware_component_properties_t
+    name: ctl_firmware_component_properties_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_firmware_component_properties_t._name_e__FixedBuffer
+    name: ctl_firmware_component_properties_t._name_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_firmware_component_properties_t._reserved_e__FixedBuffer
+    name: ctl_firmware_component_properties_t._reserved_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_firmware_component_properties_t._version_e__FixedBuffer
+    name: ctl_firmware_component_properties_t._version_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_firmware_config_flag_t
+    name: ctl_firmware_config_flag_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_firmware_properties_t
+    name: ctl_firmware_properties_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_firmware_properties_t._name_e__FixedBuffer
+    name: ctl_firmware_properties_t._name_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_firmware_properties_t._reserved_e__FixedBuffer
+    name: ctl_firmware_properties_t._reserved_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_firmware_properties_t._version_e__FixedBuffer
+    name: ctl_firmware_properties_t._version_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_firmware_version_t
+    name: ctl_firmware_version_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_freq_domain_t
+    name: ctl_freq_domain_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_freq_properties_t
+    name: ctl_freq_properties_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_freq_range_t
+    name: ctl_freq_range_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_freq_state_t
+    name: ctl_freq_state_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_freq_throttle_reason_flag_t
+    name: ctl_freq_throttle_reason_flag_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_freq_throttle_time_t
+    name: ctl_freq_throttle_time_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_gaming_flip_mode_flag_t
+    name: ctl_gaming_flip_mode_flag_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_generic_void_datatype_t
+    name: ctl_generic_void_datatype_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_genlock_args_t
+    name: ctl_genlock_args_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_genlock_display_info_t
+    name: ctl_genlock_display_info_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_genlock_operation_t
+    name: ctl_genlock_operation_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_genlock_target_mode_list_t
+    name: ctl_genlock_target_mode_list_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_genlock_topology_t
+    name: ctl_genlock_topology_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_get_brightness_t
+    name: ctl_get_brightness_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_get_brightness_t._ReservedFields_e__FixedBuffer
+    name: ctl_get_brightness_t._ReservedFields_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_get_operation_flag_t
+    name: ctl_get_operation_flag_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_get_set_custom_mode_args_t
+    name: ctl_get_set_custom_mode_args_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_get_set_wire_format_config_t
+    name: ctl_get_set_wire_format_config_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_get_set_wire_format_config_t._SupportedWireFormat_e__FixedBuffer
+    name: ctl_get_set_wire_format_config_t._SupportedWireFormat_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_i2c_access_args_t
+    name: ctl_i2c_access_args_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_i2c_access_args_t._Data_e__FixedBuffer
+    name: ctl_i2c_access_args_t._Data_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_i2c_access_pinpair_args_t
+    name: ctl_i2c_access_pinpair_args_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_i2c_access_pinpair_args_t._Data_e__FixedBuffer
+    name: ctl_i2c_access_pinpair_args_t._Data_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_i2c_access_pinpair_args_t._ReservedFields_e__FixedBuffer
+    name: ctl_i2c_access_pinpair_args_t._ReservedFields_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_i2c_flag_t
+    name: ctl_i2c_flag_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_i2c_pinpair_flag_t
+    name: ctl_i2c_pinpair_flag_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_init_args_t
+    name: ctl_init_args_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_init_flag_t
+    name: ctl_init_flag_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_intel_arc_sync_monitor_params_t
+    name: ctl_intel_arc_sync_monitor_params_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_intel_arc_sync_profile_params_t
+    name: ctl_intel_arc_sync_profile_params_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_intel_arc_sync_profile_t
+    name: ctl_intel_arc_sync_profile_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_intel_display_feature_flag_t
+    name: ctl_intel_display_feature_flag_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_kmd_load_features_t
+    name: ctl_kmd_load_features_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_kmd_load_features_t._Reserved_e__FixedBuffer
+    name: ctl_kmd_load_features_t._Reserved_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_lace_aggr_config_t
+    name: ctl_lace_aggr_config_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_lace_config_t
+    name: ctl_lace_config_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_lace_lux_aggr_map_entry_t
+    name: ctl_lace_lux_aggr_map_entry_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_lace_lux_aggr_map_t
+    name: ctl_lace_lux_aggr_map_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_lace_trigger_flag_t
+    name: ctl_lace_trigger_flag_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_lda_args_t
+    name: ctl_lda_args_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_lda_args_t._Reserved_e__FixedBuffer
+    name: ctl_lda_args_t._Reserved_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_led_color_t
+    name: ctl_led_color_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_led_properties_t
+    name: ctl_led_properties_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_led_state_t
+    name: ctl_led_state_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_mem_bandwidth_t
+    name: ctl_mem_bandwidth_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_mem_loc_t
+    name: ctl_mem_loc_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_mem_properties_t
+    name: ctl_mem_properties_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_mem_state_t
+    name: ctl_mem_state_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_mem_type_t
+    name: ctl_mem_type_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_mux_properties_t
+    name: ctl_mux_properties_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_oc_control_info_t
+    name: ctl_oc_control_info_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_oc_properties_t
+    name: ctl_oc_properties_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_oc_telemetry_item_t
+    name: ctl_oc_telemetry_item_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_oc_vf_pair_t
+    name: ctl_oc_vf_pair_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_operation_type_t
+    name: ctl_operation_type_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_os_display_encoder_identifier_t
+    name: ctl_os_display_encoder_identifier_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_output_bpc_flag_t
+    name: ctl_output_bpc_flag_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_panel_descriptor_access_args_t
+    name: ctl_panel_descriptor_access_args_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_pci_address_t
+    name: ctl_pci_address_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_pci_properties_t
+    name: ctl_pci_properties_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_pci_speed_t
+    name: ctl_pci_speed_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_pci_state_t
+    name: ctl_pci_state_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_pixtx_1dlut_config_t
+    name: ctl_pixtx_1dlut_config_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_pixtx_3dlut_config_t
+    name: ctl_pixtx_3dlut_config_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_pixtx_3dlut_sample_t
+    name: ctl_pixtx_3dlut_sample_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_pixtx_block_config_t
+    name: ctl_pixtx_block_config_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_pixtx_block_type_t
+    name: ctl_pixtx_block_type_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_pixtx_color_model_t
+    name: ctl_pixtx_color_model_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_pixtx_color_primaries_t
+    name: ctl_pixtx_color_primaries_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_pixtx_color_space_t
+    name: ctl_pixtx_color_space_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_pixtx_config_opertaion_type_t
+    name: ctl_pixtx_config_opertaion_type_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_pixtx_config_query_type_t
+    name: ctl_pixtx_config_query_type_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_pixtx_config_t
+    name: ctl_pixtx_config_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_pixtx_gamma_encoding_type_t
+    name: ctl_pixtx_gamma_encoding_type_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_pixtx_lut_sampling_type_t
+    name: ctl_pixtx_lut_sampling_type_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_pixtx_matrix_config_t
+    name: ctl_pixtx_matrix_config_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_pixtx_matrix_config_t._Matrix_e__FixedBuffer
+    name: ctl_pixtx_matrix_config_t._Matrix_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_pixtx_matrix_config_t._PostOffsets_e__FixedBuffer
+    name: ctl_pixtx_matrix_config_t._PostOffsets_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_pixtx_matrix_config_t._PreOffsets_e__FixedBuffer
+    name: ctl_pixtx_matrix_config_t._PreOffsets_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_pixtx_pipe_get_config_t
+    name: ctl_pixtx_pipe_get_config_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_pixtx_pipe_set_config_flag_t
+    name: ctl_pixtx_pipe_set_config_flag_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_pixtx_pipe_set_config_t
+    name: ctl_pixtx_pipe_set_config_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_pixtx_pixel_format_t
+    name: ctl_pixtx_pixel_format_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_power_burst_limit_t
+    name: ctl_power_burst_limit_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_power_energy_counter_t
+    name: ctl_power_energy_counter_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_power_limits_t
+    name: ctl_power_limits_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_power_optimization_caps_t
+    name: ctl_power_optimization_caps_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_power_optimization_dpst_flag_t
+    name: ctl_power_optimization_dpst_flag_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_power_optimization_dpst_t
+    name: ctl_power_optimization_dpst_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_power_optimization_feature_specific_info_t
+    name: ctl_power_optimization_feature_specific_info_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_power_optimization_flag_t
+    name: ctl_power_optimization_flag_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_power_optimization_lrr_flag_t
+    name: ctl_power_optimization_lrr_flag_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_power_optimization_lrr_t
+    name: ctl_power_optimization_lrr_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_power_optimization_plan_t
+    name: ctl_power_optimization_plan_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_power_optimization_psr_t
+    name: ctl_power_optimization_psr_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_power_optimization_settings_t
+    name: ctl_power_optimization_settings_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_power_peak_limit_t
+    name: ctl_power_peak_limit_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_power_properties_t
+    name: ctl_power_properties_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_power_source_t
+    name: ctl_power_source_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_power_sustained_limit_t
+    name: ctl_power_sustained_limit_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_power_telemetry_t
+    name: ctl_power_telemetry_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_power_telemetry_t._fanSpeed_e__FixedBuffer
+    name: ctl_power_telemetry_t._fanSpeed_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_power_telemetry_t._psu_e__FixedBuffer
+    name: ctl_power_telemetry_t._psu_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_property_boolean_t
+    name: ctl_property_boolean_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_property_enum_t
+    name: ctl_property_enum_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_property_float_t
+    name: ctl_property_float_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_property_info_boolean_t
+    name: ctl_property_info_boolean_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_property_info_enum_t
+    name: ctl_property_info_enum_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_property_info_float_t
+    name: ctl_property_info_float_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_property_info_int_t
+    name: ctl_property_info_int_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_property_info_t
+    name: ctl_property_info_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_property_info_uint_t
+    name: ctl_property_info_uint_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_property_int_t
+    name: ctl_property_int_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_property_range_info_int_t
+    name: ctl_property_range_info_int_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_property_range_info_t
+    name: ctl_property_range_info_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_property_range_info_uint_t
+    name: ctl_property_range_info_uint_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_property_t
+    name: ctl_property_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_property_type_flag_t
+    name: ctl_property_type_flag_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_property_uint_t
+    name: ctl_property_uint_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_property_value_type_t
+    name: ctl_property_value_type_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_protocol_converter_location_flag_t
+    name: ctl_protocol_converter_location_flag_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_psu_info_t
+    name: ctl_psu_info_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_psu_type_t
+    name: ctl_psu_type_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_rect_t
+    name: ctl_rect_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_reserved_args_base_t
+    name: ctl_reserved_args_base_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_reserved_args_t
+    name: ctl_reserved_args_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_result_t
+    name: ctl_result_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_retro_scaling_caps_t
+    name: ctl_retro_scaling_caps_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_retro_scaling_settings_t
+    name: ctl_retro_scaling_settings_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_retro_scaling_type_flag_t
+    name: ctl_retro_scaling_type_flag_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_revision_datatype_t
+    name: ctl_revision_datatype_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_runtime_path_args_t
+    name: ctl_runtime_path_args_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_scaling_caps_t
+    name: ctl_scaling_caps_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_scaling_settings_t
+    name: ctl_scaling_settings_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_scaling_type_flag_t
+    name: ctl_scaling_type_flag_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_set_brightness_t
+    name: ctl_set_brightness_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_set_brightness_t._ReservedFields_e__FixedBuffer
+    name: ctl_set_brightness_t._ReservedFields_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_set_operation_t
+    name: ctl_set_operation_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_sharpness_caps_t
+    name: ctl_sharpness_caps_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_sharpness_filter_properties_t
+    name: ctl_sharpness_filter_properties_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_sharpness_filter_type_flag_t
+    name: ctl_sharpness_filter_type_flag_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_sharpness_settings_t
+    name: ctl_sharpness_settings_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_signal_standard_type_t
+    name: ctl_signal_standard_type_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_std_display_feature_flag_t
+    name: ctl_std_display_feature_flag_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_supported_functions_flag_t
+    name: ctl_supported_functions_flag_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_sw_psr_settings_t
+    name: ctl_sw_psr_settings_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_temp_properties_t
+    name: ctl_temp_properties_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_temp_sensors_t
+    name: ctl_temp_sensors_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_units_t
+    name: ctl_units_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_unlock_capability_t
+    name: ctl_unlock_capability_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_vblank_ts_args_t
+    name: ctl_vblank_ts_args_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_vblank_ts_args_t._VblankTS_e__FixedBuffer
+    name: ctl_vblank_ts_args_t._VblankTS_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_vf_curve_details_t
+    name: ctl_vf_curve_details_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_vf_curve_type_t
+    name: ctl_vf_curve_type_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_video_processing_adaptive_contrast_enhancement_info_t
+    name: ctl_video_processing_adaptive_contrast_enhancement_info_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_video_processing_adaptive_contrast_enhancement_info_t._ReservedFields_e__FixedBuffer
+    name: ctl_video_processing_adaptive_contrast_enhancement_info_t._ReservedFields_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_video_processing_adaptive_contrast_enhancement_t
+    name: ctl_video_processing_adaptive_contrast_enhancement_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_video_processing_adaptive_contrast_enhancement_t._ReservedFields_e__FixedBuffer
+    name: ctl_video_processing_adaptive_contrast_enhancement_t._ReservedFields_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_video_processing_feature_caps_t
+    name: ctl_video_processing_feature_caps_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_video_processing_feature_caps_t._ReservedFields_e__FixedBuffer
+    name: ctl_video_processing_feature_caps_t._ReservedFields_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_video_processing_feature_details_t
+    name: ctl_video_processing_feature_details_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_video_processing_feature_details_t._ReservedFields_e__FixedBuffer
+    name: ctl_video_processing_feature_details_t._ReservedFields_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_video_processing_feature_getset_t
+    name: ctl_video_processing_feature_getset_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_video_processing_feature_getset_t._ReservedFields_e__FixedBuffer
+    name: ctl_video_processing_feature_getset_t._ReservedFields_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_video_processing_feature_t
+    name: ctl_video_processing_feature_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_video_processing_noise_reduction_info_t
+    name: ctl_video_processing_noise_reduction_info_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_video_processing_noise_reduction_info_t._ReservedFields_e__FixedBuffer
+    name: ctl_video_processing_noise_reduction_info_t._ReservedFields_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_video_processing_noise_reduction_t
+    name: ctl_video_processing_noise_reduction_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_video_processing_noise_reduction_t._ReservedFields_e__FixedBuffer
+    name: ctl_video_processing_noise_reduction_t._ReservedFields_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_video_processing_standard_color_correction_info_t
+    name: ctl_video_processing_standard_color_correction_info_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_video_processing_standard_color_correction_info_t._ReservedFields_e__FixedBuffer
+    name: ctl_video_processing_standard_color_correction_info_t._ReservedFields_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_video_processing_standard_color_correction_t
+    name: ctl_video_processing_standard_color_correction_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_video_processing_standard_color_correction_t._ReservedFields_e__FixedBuffer
+    name: ctl_video_processing_standard_color_correction_t._ReservedFields_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_video_processing_super_resolution_flag_t
+    name: ctl_video_processing_super_resolution_flag_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_video_processing_super_resolution_info_t
+    name: ctl_video_processing_super_resolution_info_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_video_processing_super_resolution_info_t._ReservedFields_e__FixedBuffer
+    name: ctl_video_processing_super_resolution_info_t._ReservedFields_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_video_processing_super_resolution_t
+    name: ctl_video_processing_super_resolution_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_video_processing_super_resolution_t._ReservedBytes_e__FixedBuffer
+    name: ctl_video_processing_super_resolution_t._ReservedBytes_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_video_processing_super_resolution_t._ReservedFields_e__FixedBuffer
+    name: ctl_video_processing_super_resolution_t._ReservedFields_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_video_processing_total_color_correction_info_t
+    name: ctl_video_processing_total_color_correction_info_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_video_processing_total_color_correction_info_t._ReservedFields_e__FixedBuffer
+    name: ctl_video_processing_total_color_correction_info_t._ReservedFields_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_video_processing_total_color_correction_t
+    name: ctl_video_processing_total_color_correction_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_video_processing_total_color_correction_t._ReservedFields_e__FixedBuffer
+    name: ctl_video_processing_total_color_correction_t._ReservedFields_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_voltage_frequency_point_t
+    name: ctl_voltage_frequency_point_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_wait_property_change_args_t
+    name: ctl_wait_property_change_args_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_wire_format_color_model_t
+    name: ctl_wire_format_color_model_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_wire_format_operation_type_t
+    name: ctl_wire_format_operation_type_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_wire_format_t
+    name: ctl_wire_format_t
     type: Struct
 memberLayout: SamePage

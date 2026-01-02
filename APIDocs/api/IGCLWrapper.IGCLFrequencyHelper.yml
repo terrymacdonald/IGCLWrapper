@@ -1,0 +1,771 @@
+### YamlMime:ManagedReference
+items:
+- uid: IGCLWrapper.IGCLFrequencyHelper
+  commentId: T:IGCLWrapper.IGCLFrequencyHelper
+  id: IGCLFrequencyHelper
+  parent: IGCLWrapper
+  children:
+  - IGCLWrapper.IGCLFrequencyHelper.Dispose
+  - IGCLWrapper.IGCLFrequencyHelper.EnumerateDomains
+  - IGCLWrapper.IGCLFrequencyHelper.GetAvailableClocks(System.IntPtr)
+  - IGCLWrapper.IGCLFrequencyHelper.GetProperties(System.IntPtr)
+  - IGCLWrapper.IGCLFrequencyHelper.GetRange(System.IntPtr)
+  - IGCLWrapper.IGCLFrequencyHelper.GetState(System.IntPtr)
+  - IGCLWrapper.IGCLFrequencyHelper.GetThrottleTime(System.IntPtr)
+  - IGCLWrapper.IGCLFrequencyHelper.SetRange(System.IntPtr,IGCLWrapper.ctl_freq_range_t)
+  langs:
+  - csharp
+  - vb
+  name: IGCLFrequencyHelper
+  nameWithType: IGCLFrequencyHelper
+  fullName: IGCLWrapper.IGCLFrequencyHelper
+  type: Class
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFrequencyHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IGCLFrequencyHelper
+    path: ../IGCLWrapper/IGCLFrequencyHelper.cs
+    startLine: 8
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: 'Frequency helper: enumerate domains, query properties/state, and set ranges.'
+  example: []
+  syntax:
+    content: 'public sealed class IGCLFrequencyHelper : IDisposable'
+    content.vb: Public NotInheritable Class IGCLFrequencyHelper Implements IDisposable
+  inheritance:
+  - System.Object
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: IGCLWrapper.IGCLFrequencyHelper.EnumerateDomains
+  commentId: M:IGCLWrapper.IGCLFrequencyHelper.EnumerateDomains
+  id: EnumerateDomains
+  parent: IGCLWrapper.IGCLFrequencyHelper
+  langs:
+  - csharp
+  - vb
+  name: EnumerateDomains()
+  nameWithType: IGCLFrequencyHelper.EnumerateDomains()
+  fullName: IGCLWrapper.IGCLFrequencyHelper.EnumerateDomains()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFrequencyHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: EnumerateDomains
+    path: ../IGCLWrapper/IGCLFrequencyHelper.cs
+    startLine: 20
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public IReadOnlyList<nint> EnumerateDomains()
+    return:
+      type: System.Collections.Generic.IReadOnlyList{System.IntPtr}
+    content.vb: Public Function EnumerateDomains() As IReadOnlyList(Of IntPtr)
+  overload: IGCLWrapper.IGCLFrequencyHelper.EnumerateDomains*
+- uid: IGCLWrapper.IGCLFrequencyHelper.GetProperties(System.IntPtr)
+  commentId: M:IGCLWrapper.IGCLFrequencyHelper.GetProperties(System.IntPtr)
+  id: GetProperties(System.IntPtr)
+  parent: IGCLWrapper.IGCLFrequencyHelper
+  langs:
+  - csharp
+  - vb
+  name: GetProperties(nint)
+  nameWithType: IGCLFrequencyHelper.GetProperties(nint)
+  fullName: IGCLWrapper.IGCLFrequencyHelper.GetProperties(nint)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFrequencyHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetProperties
+    path: ../IGCLWrapper/IGCLFrequencyHelper.cs
+    startLine: 26
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_freq_properties_t GetProperties(nint freqHandle)
+    parameters:
+    - id: freqHandle
+      type: System.IntPtr
+    return:
+      type: IGCLWrapper.ctl_freq_properties_t
+    content.vb: Public Function GetProperties(freqHandle As IntPtr) As ctl_freq_properties_t
+  overload: IGCLWrapper.IGCLFrequencyHelper.GetProperties*
+  nameWithType.vb: IGCLFrequencyHelper.GetProperties(IntPtr)
+  fullName.vb: IGCLWrapper.IGCLFrequencyHelper.GetProperties(System.IntPtr)
+  name.vb: GetProperties(IntPtr)
+- uid: IGCLWrapper.IGCLFrequencyHelper.GetAvailableClocks(System.IntPtr)
+  commentId: M:IGCLWrapper.IGCLFrequencyHelper.GetAvailableClocks(System.IntPtr)
+  id: GetAvailableClocks(System.IntPtr)
+  parent: IGCLWrapper.IGCLFrequencyHelper
+  langs:
+  - csharp
+  - vb
+  name: GetAvailableClocks(nint)
+  nameWithType: IGCLFrequencyHelper.GetAvailableClocks(nint)
+  fullName: IGCLWrapper.IGCLFrequencyHelper.GetAvailableClocks(nint)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFrequencyHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetAvailableClocks
+    path: ../IGCLWrapper/IGCLFrequencyHelper.cs
+    startLine: 36
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public double[] GetAvailableClocks(nint freqHandle)
+    parameters:
+    - id: freqHandle
+      type: System.IntPtr
+    return:
+      type: System.Double[]
+    content.vb: Public Function GetAvailableClocks(freqHandle As IntPtr) As Double()
+  overload: IGCLWrapper.IGCLFrequencyHelper.GetAvailableClocks*
+  nameWithType.vb: IGCLFrequencyHelper.GetAvailableClocks(IntPtr)
+  fullName.vb: IGCLWrapper.IGCLFrequencyHelper.GetAvailableClocks(System.IntPtr)
+  name.vb: GetAvailableClocks(IntPtr)
+- uid: IGCLWrapper.IGCLFrequencyHelper.GetRange(System.IntPtr)
+  commentId: M:IGCLWrapper.IGCLFrequencyHelper.GetRange(System.IntPtr)
+  id: GetRange(System.IntPtr)
+  parent: IGCLWrapper.IGCLFrequencyHelper
+  langs:
+  - csharp
+  - vb
+  name: GetRange(nint)
+  nameWithType: IGCLFrequencyHelper.GetRange(nint)
+  fullName: IGCLWrapper.IGCLFrequencyHelper.GetRange(nint)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFrequencyHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetRange
+    path: ../IGCLWrapper/IGCLFrequencyHelper.cs
+    startLine: 55
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_freq_range_t GetRange(nint freqHandle)
+    parameters:
+    - id: freqHandle
+      type: System.IntPtr
+    return:
+      type: IGCLWrapper.ctl_freq_range_t
+    content.vb: Public Function GetRange(freqHandle As IntPtr) As ctl_freq_range_t
+  overload: IGCLWrapper.IGCLFrequencyHelper.GetRange*
+  nameWithType.vb: IGCLFrequencyHelper.GetRange(IntPtr)
+  fullName.vb: IGCLWrapper.IGCLFrequencyHelper.GetRange(System.IntPtr)
+  name.vb: GetRange(IntPtr)
+- uid: IGCLWrapper.IGCLFrequencyHelper.SetRange(System.IntPtr,IGCLWrapper.ctl_freq_range_t)
+  commentId: M:IGCLWrapper.IGCLFrequencyHelper.SetRange(System.IntPtr,IGCLWrapper.ctl_freq_range_t)
+  id: SetRange(System.IntPtr,IGCLWrapper.ctl_freq_range_t)
+  parent: IGCLWrapper.IGCLFrequencyHelper
+  langs:
+  - csharp
+  - vb
+  name: SetRange(nint, ctl_freq_range_t)
+  nameWithType: IGCLFrequencyHelper.SetRange(nint, ctl_freq_range_t)
+  fullName: IGCLWrapper.IGCLFrequencyHelper.SetRange(nint, IGCLWrapper.ctl_freq_range_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFrequencyHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SetRange
+    path: ../IGCLWrapper/IGCLFrequencyHelper.cs
+    startLine: 65
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public void SetRange(nint freqHandle, ctl_freq_range_t range)
+    parameters:
+    - id: freqHandle
+      type: System.IntPtr
+    - id: range
+      type: IGCLWrapper.ctl_freq_range_t
+    content.vb: Public Sub SetRange(freqHandle As IntPtr, range As ctl_freq_range_t)
+  overload: IGCLWrapper.IGCLFrequencyHelper.SetRange*
+  nameWithType.vb: IGCLFrequencyHelper.SetRange(IntPtr, ctl_freq_range_t)
+  fullName.vb: IGCLWrapper.IGCLFrequencyHelper.SetRange(System.IntPtr, IGCLWrapper.ctl_freq_range_t)
+  name.vb: SetRange(IntPtr, ctl_freq_range_t)
+- uid: IGCLWrapper.IGCLFrequencyHelper.GetState(System.IntPtr)
+  commentId: M:IGCLWrapper.IGCLFrequencyHelper.GetState(System.IntPtr)
+  id: GetState(System.IntPtr)
+  parent: IGCLWrapper.IGCLFrequencyHelper
+  langs:
+  - csharp
+  - vb
+  name: GetState(nint)
+  nameWithType: IGCLFrequencyHelper.GetState(nint)
+  fullName: IGCLWrapper.IGCLFrequencyHelper.GetState(nint)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFrequencyHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetState
+    path: ../IGCLWrapper/IGCLFrequencyHelper.cs
+    startLine: 73
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_freq_state_t GetState(nint freqHandle)
+    parameters:
+    - id: freqHandle
+      type: System.IntPtr
+    return:
+      type: IGCLWrapper.ctl_freq_state_t
+    content.vb: Public Function GetState(freqHandle As IntPtr) As ctl_freq_state_t
+  overload: IGCLWrapper.IGCLFrequencyHelper.GetState*
+  nameWithType.vb: IGCLFrequencyHelper.GetState(IntPtr)
+  fullName.vb: IGCLWrapper.IGCLFrequencyHelper.GetState(System.IntPtr)
+  name.vb: GetState(IntPtr)
+- uid: IGCLWrapper.IGCLFrequencyHelper.GetThrottleTime(System.IntPtr)
+  commentId: M:IGCLWrapper.IGCLFrequencyHelper.GetThrottleTime(System.IntPtr)
+  id: GetThrottleTime(System.IntPtr)
+  parent: IGCLWrapper.IGCLFrequencyHelper
+  langs:
+  - csharp
+  - vb
+  name: GetThrottleTime(nint)
+  nameWithType: IGCLFrequencyHelper.GetThrottleTime(nint)
+  fullName: IGCLWrapper.IGCLFrequencyHelper.GetThrottleTime(nint)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFrequencyHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetThrottleTime
+    path: ../IGCLWrapper/IGCLFrequencyHelper.cs
+    startLine: 83
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_freq_throttle_time_t GetThrottleTime(nint freqHandle)
+    parameters:
+    - id: freqHandle
+      type: System.IntPtr
+    return:
+      type: IGCLWrapper.ctl_freq_throttle_time_t
+    content.vb: Public Function GetThrottleTime(freqHandle As IntPtr) As ctl_freq_throttle_time_t
+  overload: IGCLWrapper.IGCLFrequencyHelper.GetThrottleTime*
+  nameWithType.vb: IGCLFrequencyHelper.GetThrottleTime(IntPtr)
+  fullName.vb: IGCLWrapper.IGCLFrequencyHelper.GetThrottleTime(System.IntPtr)
+  name.vb: GetThrottleTime(IntPtr)
+- uid: IGCLWrapper.IGCLFrequencyHelper.Dispose
+  commentId: M:IGCLWrapper.IGCLFrequencyHelper.Dispose
+  id: Dispose
+  parent: IGCLWrapper.IGCLFrequencyHelper
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: IGCLFrequencyHelper.Dispose()
+  fullName: IGCLWrapper.IGCLFrequencyHelper.Dispose()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFrequencyHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Dispose
+    path: ../IGCLWrapper/IGCLFrequencyHelper.cs
+    startLine: 117
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: IGCLWrapper.IGCLFrequencyHelper.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+references:
+- uid: IGCLWrapper
+  commentId: N:IGCLWrapper
+  href: IGCLWrapper.html
+  name: IGCLWrapper
+  nameWithType: IGCLWrapper
+  fullName: IGCLWrapper
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: IGCLWrapper.IGCLFrequencyHelper.EnumerateDomains*
+  commentId: Overload:IGCLWrapper.IGCLFrequencyHelper.EnumerateDomains
+  href: IGCLWrapper.IGCLFrequencyHelper.html#IGCLWrapper_IGCLFrequencyHelper_EnumerateDomains
+  name: EnumerateDomains
+  nameWithType: IGCLFrequencyHelper.EnumerateDomains
+  fullName: IGCLWrapper.IGCLFrequencyHelper.EnumerateDomains
+- uid: System.Collections.Generic.IReadOnlyList{System.IntPtr}
+  commentId: T:System.Collections.Generic.IReadOnlyList{System.IntPtr}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<nint>
+  nameWithType: IReadOnlyList<nint>
+  fullName: System.Collections.Generic.IReadOnlyList<nint>
+  nameWithType.vb: IReadOnlyList(Of IntPtr)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of System.IntPtr)
+  name.vb: IReadOnlyList(Of IntPtr)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: System.IntPtr
+    name: nint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.intptr
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.IntPtr
+    name: IntPtr
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.intptr
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: IGCLWrapper.IGCLFrequencyHelper.GetProperties*
+  commentId: Overload:IGCLWrapper.IGCLFrequencyHelper.GetProperties
+  href: IGCLWrapper.IGCLFrequencyHelper.html#IGCLWrapper_IGCLFrequencyHelper_GetProperties_System_IntPtr_
+  name: GetProperties
+  nameWithType: IGCLFrequencyHelper.GetProperties
+  fullName: IGCLWrapper.IGCLFrequencyHelper.GetProperties
+- uid: System.IntPtr
+  commentId: T:System.IntPtr
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.intptr
+  name: nint
+  nameWithType: nint
+  fullName: nint
+  nameWithType.vb: IntPtr
+  fullName.vb: System.IntPtr
+  name.vb: IntPtr
+- uid: IGCLWrapper.ctl_freq_properties_t
+  commentId: T:IGCLWrapper.ctl_freq_properties_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_freq_properties_t.html
+  name: ctl_freq_properties_t
+  nameWithType: ctl_freq_properties_t
+  fullName: IGCLWrapper.ctl_freq_properties_t
+- uid: IGCLWrapper.IGCLFrequencyHelper.GetAvailableClocks*
+  commentId: Overload:IGCLWrapper.IGCLFrequencyHelper.GetAvailableClocks
+  href: IGCLWrapper.IGCLFrequencyHelper.html#IGCLWrapper_IGCLFrequencyHelper_GetAvailableClocks_System_IntPtr_
+  name: GetAvailableClocks
+  nameWithType: IGCLFrequencyHelper.GetAvailableClocks
+  fullName: IGCLWrapper.IGCLFrequencyHelper.GetAvailableClocks
+- uid: System.Double[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double[]
+  nameWithType: double[]
+  fullName: double[]
+  nameWithType.vb: Double()
+  fullName.vb: Double()
+  name.vb: Double()
+  spec.csharp:
+  - uid: System.Double
+    name: double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: (
+  - name: )
+- uid: IGCLWrapper.IGCLFrequencyHelper.GetRange*
+  commentId: Overload:IGCLWrapper.IGCLFrequencyHelper.GetRange
+  href: IGCLWrapper.IGCLFrequencyHelper.html#IGCLWrapper_IGCLFrequencyHelper_GetRange_System_IntPtr_
+  name: GetRange
+  nameWithType: IGCLFrequencyHelper.GetRange
+  fullName: IGCLWrapper.IGCLFrequencyHelper.GetRange
+- uid: IGCLWrapper.ctl_freq_range_t
+  commentId: T:IGCLWrapper.ctl_freq_range_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_freq_range_t.html
+  name: ctl_freq_range_t
+  nameWithType: ctl_freq_range_t
+  fullName: IGCLWrapper.ctl_freq_range_t
+- uid: IGCLWrapper.IGCLFrequencyHelper.SetRange*
+  commentId: Overload:IGCLWrapper.IGCLFrequencyHelper.SetRange
+  href: IGCLWrapper.IGCLFrequencyHelper.html#IGCLWrapper_IGCLFrequencyHelper_SetRange_System_IntPtr_IGCLWrapper_ctl_freq_range_t_
+  name: SetRange
+  nameWithType: IGCLFrequencyHelper.SetRange
+  fullName: IGCLWrapper.IGCLFrequencyHelper.SetRange
+- uid: IGCLWrapper.IGCLFrequencyHelper.GetState*
+  commentId: Overload:IGCLWrapper.IGCLFrequencyHelper.GetState
+  href: IGCLWrapper.IGCLFrequencyHelper.html#IGCLWrapper_IGCLFrequencyHelper_GetState_System_IntPtr_
+  name: GetState
+  nameWithType: IGCLFrequencyHelper.GetState
+  fullName: IGCLWrapper.IGCLFrequencyHelper.GetState
+- uid: IGCLWrapper.ctl_freq_state_t
+  commentId: T:IGCLWrapper.ctl_freq_state_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_freq_state_t.html
+  name: ctl_freq_state_t
+  nameWithType: ctl_freq_state_t
+  fullName: IGCLWrapper.ctl_freq_state_t
+- uid: IGCLWrapper.IGCLFrequencyHelper.GetThrottleTime*
+  commentId: Overload:IGCLWrapper.IGCLFrequencyHelper.GetThrottleTime
+  href: IGCLWrapper.IGCLFrequencyHelper.html#IGCLWrapper_IGCLFrequencyHelper_GetThrottleTime_System_IntPtr_
+  name: GetThrottleTime
+  nameWithType: IGCLFrequencyHelper.GetThrottleTime
+  fullName: IGCLWrapper.IGCLFrequencyHelper.GetThrottleTime
+- uid: IGCLWrapper.ctl_freq_throttle_time_t
+  commentId: T:IGCLWrapper.ctl_freq_throttle_time_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_freq_throttle_time_t.html
+  name: ctl_freq_throttle_time_t
+  nameWithType: ctl_freq_throttle_time_t
+  fullName: IGCLWrapper.ctl_freq_throttle_time_t
+- uid: IGCLWrapper.IGCLFrequencyHelper.Dispose*
+  commentId: Overload:IGCLWrapper.IGCLFrequencyHelper.Dispose
+  href: IGCLWrapper.IGCLFrequencyHelper.html#IGCLWrapper_IGCLFrequencyHelper_Dispose
+  name: Dispose
+  nameWithType: IGCLFrequencyHelper.Dispose
+  fullName: IGCLWrapper.IGCLFrequencyHelper.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )

@@ -1,0 +1,675 @@
+### YamlMime:ManagedReference
+items:
+- uid: IGCLWrapper.IGCLHelpers
+  commentId: T:IGCLWrapper.IGCLHelpers
+  id: IGCLHelpers
+  parent: IGCLWrapper
+  children:
+  - IGCLWrapper.IGCLHelpers.GetDisplayProperties(System.IntPtr)
+  - IGCLWrapper.IGCLHelpers.GetProperties(System.IntPtr)
+  - IGCLWrapper.IGCLHelpers.GetRefreshRate(System.IntPtr)
+  - IGCLWrapper.IGCLHelpers.GetResolution(System.IntPtr)
+  - IGCLWrapper.IGCLHelpers.GetTiming(System.IntPtr)
+  - IGCLWrapper.IGCLHelpers.IsActive(System.IntPtr)
+  langs:
+  - csharp
+  - vb
+  name: IGCLHelpers
+  nameWithType: IGCLHelpers
+  fullName: IGCLWrapper.IGCLHelpers
+  type: Class
+  source:
+    remote:
+      path: IGCLWrapper/IGCLExtensions.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IGCLHelpers
+    path: ../IGCLWrapper/IGCLExtensions.cs
+    startLine: 8
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: >-
+    Helper methods for IGCL structures and handles
+
+    NOTE: These are static methods, not extensions, because C# doesn't allow extension methods on pointers
+  example: []
+  syntax:
+    content: public static class IGCLHelpers
+    content.vb: Public Module IGCLHelpers
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: IGCLWrapper.IGCLHelpers.GetProperties(System.IntPtr)
+  commentId: M:IGCLWrapper.IGCLHelpers.GetProperties(System.IntPtr)
+  id: GetProperties(System.IntPtr)
+  parent: IGCLWrapper.IGCLHelpers
+  langs:
+  - csharp
+  - vb
+  name: GetProperties(nint)
+  nameWithType: IGCLHelpers.GetProperties(nint)
+  fullName: IGCLWrapper.IGCLHelpers.GetProperties(nint)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLExtensions.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetProperties
+    path: ../IGCLWrapper/IGCLExtensions.cs
+    startLine: 13
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get adapter properties
+  example: []
+  syntax:
+    content: public static ctl_device_adapter_properties_t GetProperties(nint hAdapter)
+    parameters:
+    - id: hAdapter
+      type: System.IntPtr
+    return:
+      type: IGCLWrapper.ctl_device_adapter_properties_t
+    content.vb: Public Shared Function GetProperties(hAdapter As IntPtr) As ctl_device_adapter_properties_t
+  overload: IGCLWrapper.IGCLHelpers.GetProperties*
+  nameWithType.vb: IGCLHelpers.GetProperties(IntPtr)
+  fullName.vb: IGCLWrapper.IGCLHelpers.GetProperties(System.IntPtr)
+  name.vb: GetProperties(IntPtr)
+- uid: IGCLWrapper.IGCLHelpers.GetDisplayProperties(System.IntPtr)
+  commentId: M:IGCLWrapper.IGCLHelpers.GetDisplayProperties(System.IntPtr)
+  id: GetDisplayProperties(System.IntPtr)
+  parent: IGCLWrapper.IGCLHelpers
+  langs:
+  - csharp
+  - vb
+  name: GetDisplayProperties(nint)
+  nameWithType: IGCLHelpers.GetDisplayProperties(nint)
+  fullName: IGCLWrapper.IGCLHelpers.GetDisplayProperties(nint)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLExtensions.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetDisplayProperties
+    path: ../IGCLWrapper/IGCLExtensions.cs
+    startLine: 34
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get display properties
+  example: []
+  syntax:
+    content: public static ctl_display_properties_t GetDisplayProperties(nint hDisplay)
+    parameters:
+    - id: hDisplay
+      type: System.IntPtr
+    return:
+      type: IGCLWrapper.ctl_display_properties_t
+    content.vb: Public Shared Function GetDisplayProperties(hDisplay As IntPtr) As ctl_display_properties_t
+  overload: IGCLWrapper.IGCLHelpers.GetDisplayProperties*
+  nameWithType.vb: IGCLHelpers.GetDisplayProperties(IntPtr)
+  fullName.vb: IGCLWrapper.IGCLHelpers.GetDisplayProperties(System.IntPtr)
+  name.vb: GetDisplayProperties(IntPtr)
+- uid: IGCLWrapper.IGCLHelpers.GetTiming(System.IntPtr)
+  commentId: M:IGCLWrapper.IGCLHelpers.GetTiming(System.IntPtr)
+  id: GetTiming(System.IntPtr)
+  parent: IGCLWrapper.IGCLHelpers
+  langs:
+  - csharp
+  - vb
+  name: GetTiming(nint)
+  nameWithType: IGCLHelpers.GetTiming(nint)
+  fullName: IGCLWrapper.IGCLHelpers.GetTiming(nint)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLExtensions.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetTiming
+    path: ../IGCLWrapper/IGCLExtensions.cs
+    startLine: 55
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get display timing information
+  example: []
+  syntax:
+    content: public static ctl_display_timing_t GetTiming(nint hDisplay)
+    parameters:
+    - id: hDisplay
+      type: System.IntPtr
+    return:
+      type: IGCLWrapper.ctl_display_timing_t
+    content.vb: Public Shared Function GetTiming(hDisplay As IntPtr) As ctl_display_timing_t
+  overload: IGCLWrapper.IGCLHelpers.GetTiming*
+  nameWithType.vb: IGCLHelpers.GetTiming(IntPtr)
+  fullName.vb: IGCLWrapper.IGCLHelpers.GetTiming(System.IntPtr)
+  name.vb: GetTiming(IntPtr)
+- uid: IGCLWrapper.IGCLHelpers.IsActive(System.IntPtr)
+  commentId: M:IGCLWrapper.IGCLHelpers.IsActive(System.IntPtr)
+  id: IsActive(System.IntPtr)
+  parent: IGCLWrapper.IGCLHelpers
+  langs:
+  - csharp
+  - vb
+  name: IsActive(nint)
+  nameWithType: IGCLHelpers.IsActive(nint)
+  fullName: IGCLWrapper.IGCLHelpers.IsActive(nint)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLExtensions.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsActive
+    path: ../IGCLWrapper/IGCLExtensions.cs
+    startLine: 64
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Check if a display is currently active
+  example: []
+  syntax:
+    content: public static bool IsActive(nint hDisplay)
+    parameters:
+    - id: hDisplay
+      type: System.IntPtr
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsActive(hDisplay As IntPtr) As Boolean
+  overload: IGCLWrapper.IGCLHelpers.IsActive*
+  nameWithType.vb: IGCLHelpers.IsActive(IntPtr)
+  fullName.vb: IGCLWrapper.IGCLHelpers.IsActive(System.IntPtr)
+  name.vb: IsActive(IntPtr)
+- uid: IGCLWrapper.IGCLHelpers.GetRefreshRate(System.IntPtr)
+  commentId: M:IGCLWrapper.IGCLHelpers.GetRefreshRate(System.IntPtr)
+  id: GetRefreshRate(System.IntPtr)
+  parent: IGCLWrapper.IGCLHelpers
+  langs:
+  - csharp
+  - vb
+  name: GetRefreshRate(nint)
+  nameWithType: IGCLHelpers.GetRefreshRate(nint)
+  fullName: IGCLWrapper.IGCLHelpers.GetRefreshRate(nint)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLExtensions.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetRefreshRate
+    path: ../IGCLWrapper/IGCLExtensions.cs
+    startLine: 73
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get refresh rate in Hz
+  example: []
+  syntax:
+    content: public static double GetRefreshRate(nint hDisplay)
+    parameters:
+    - id: hDisplay
+      type: System.IntPtr
+    return:
+      type: System.Double
+    content.vb: Public Shared Function GetRefreshRate(hDisplay As IntPtr) As Double
+  overload: IGCLWrapper.IGCLHelpers.GetRefreshRate*
+  nameWithType.vb: IGCLHelpers.GetRefreshRate(IntPtr)
+  fullName.vb: IGCLWrapper.IGCLHelpers.GetRefreshRate(System.IntPtr)
+  name.vb: GetRefreshRate(IntPtr)
+- uid: IGCLWrapper.IGCLHelpers.GetResolution(System.IntPtr)
+  commentId: M:IGCLWrapper.IGCLHelpers.GetResolution(System.IntPtr)
+  id: GetResolution(System.IntPtr)
+  parent: IGCLWrapper.IGCLHelpers
+  langs:
+  - csharp
+  - vb
+  name: GetResolution(nint)
+  nameWithType: IGCLHelpers.GetResolution(nint)
+  fullName: IGCLWrapper.IGCLHelpers.GetResolution(nint)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLExtensions.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetResolution
+    path: ../IGCLWrapper/IGCLExtensions.cs
+    startLine: 82
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get display resolution as (width, height) tuple
+  example: []
+  syntax:
+    content: public static (uint width, uint height) GetResolution(nint hDisplay)
+    parameters:
+    - id: hDisplay
+      type: System.IntPtr
+    return:
+      type: System.ValueTuple{System.UInt32,System.UInt32}
+    content.vb: Public Shared Function GetResolution(hDisplay As IntPtr) As (width As UInteger, height As UInteger)
+  overload: IGCLWrapper.IGCLHelpers.GetResolution*
+  nameWithType.vb: IGCLHelpers.GetResolution(IntPtr)
+  fullName.vb: IGCLWrapper.IGCLHelpers.GetResolution(System.IntPtr)
+  name.vb: GetResolution(IntPtr)
+references:
+- uid: IGCLWrapper
+  commentId: N:IGCLWrapper
+  href: IGCLWrapper.html
+  name: IGCLWrapper
+  nameWithType: IGCLWrapper
+  fullName: IGCLWrapper
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: IGCLWrapper.IGCLHelpers.GetProperties*
+  commentId: Overload:IGCLWrapper.IGCLHelpers.GetProperties
+  href: IGCLWrapper.IGCLHelpers.html#IGCLWrapper_IGCLHelpers_GetProperties_System_IntPtr_
+  name: GetProperties
+  nameWithType: IGCLHelpers.GetProperties
+  fullName: IGCLWrapper.IGCLHelpers.GetProperties
+- uid: System.IntPtr
+  commentId: T:System.IntPtr
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.intptr
+  name: nint
+  nameWithType: nint
+  fullName: nint
+  nameWithType.vb: IntPtr
+  fullName.vb: System.IntPtr
+  name.vb: IntPtr
+- uid: IGCLWrapper.ctl_device_adapter_properties_t
+  commentId: T:IGCLWrapper.ctl_device_adapter_properties_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_device_adapter_properties_t.html
+  name: ctl_device_adapter_properties_t
+  nameWithType: ctl_device_adapter_properties_t
+  fullName: IGCLWrapper.ctl_device_adapter_properties_t
+- uid: IGCLWrapper.IGCLHelpers.GetDisplayProperties*
+  commentId: Overload:IGCLWrapper.IGCLHelpers.GetDisplayProperties
+  href: IGCLWrapper.IGCLHelpers.html#IGCLWrapper_IGCLHelpers_GetDisplayProperties_System_IntPtr_
+  name: GetDisplayProperties
+  nameWithType: IGCLHelpers.GetDisplayProperties
+  fullName: IGCLWrapper.IGCLHelpers.GetDisplayProperties
+- uid: IGCLWrapper.ctl_display_properties_t
+  commentId: T:IGCLWrapper.ctl_display_properties_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_display_properties_t.html
+  name: ctl_display_properties_t
+  nameWithType: ctl_display_properties_t
+  fullName: IGCLWrapper.ctl_display_properties_t
+- uid: IGCLWrapper.IGCLHelpers.GetTiming*
+  commentId: Overload:IGCLWrapper.IGCLHelpers.GetTiming
+  href: IGCLWrapper.IGCLHelpers.html#IGCLWrapper_IGCLHelpers_GetTiming_System_IntPtr_
+  name: GetTiming
+  nameWithType: IGCLHelpers.GetTiming
+  fullName: IGCLWrapper.IGCLHelpers.GetTiming
+- uid: IGCLWrapper.ctl_display_timing_t
+  commentId: T:IGCLWrapper.ctl_display_timing_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_display_timing_t.html
+  name: ctl_display_timing_t
+  nameWithType: ctl_display_timing_t
+  fullName: IGCLWrapper.ctl_display_timing_t
+- uid: IGCLWrapper.IGCLHelpers.IsActive*
+  commentId: Overload:IGCLWrapper.IGCLHelpers.IsActive
+  href: IGCLWrapper.IGCLHelpers.html#IGCLWrapper_IGCLHelpers_IsActive_System_IntPtr_
+  name: IsActive
+  nameWithType: IGCLHelpers.IsActive
+  fullName: IGCLWrapper.IGCLHelpers.IsActive
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: IGCLWrapper.IGCLHelpers.GetRefreshRate*
+  commentId: Overload:IGCLWrapper.IGCLHelpers.GetRefreshRate
+  href: IGCLWrapper.IGCLHelpers.html#IGCLWrapper_IGCLHelpers_GetRefreshRate_System_IntPtr_
+  name: GetRefreshRate
+  nameWithType: IGCLHelpers.GetRefreshRate
+  fullName: IGCLWrapper.IGCLHelpers.GetRefreshRate
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: IGCLWrapper.IGCLHelpers.GetResolution*
+  commentId: Overload:IGCLWrapper.IGCLHelpers.GetResolution
+  href: IGCLWrapper.IGCLHelpers.html#IGCLWrapper_IGCLHelpers_GetResolution_System_IntPtr_
+  name: GetResolution
+  nameWithType: IGCLHelpers.GetResolution
+  fullName: IGCLWrapper.IGCLHelpers.GetResolution
+- uid: System.ValueTuple{System.UInt32,System.UInt32}
+  commentId: T:System.ValueTuple{System.UInt32,System.UInt32}
+  parent: System
+  definition: System.ValueTuple`2
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: (uint width, uint height)
+  nameWithType: (uint width, uint height)
+  fullName: (uint width, uint height)
+  nameWithType.vb: (width As UInteger, height As UInteger)
+  fullName.vb: (width As UInteger, height As UInteger)
+  name.vb: (width As UInteger, height As UInteger)
+  spec.csharp:
+  - name: (
+  - uid: System.UInt32
+    name: uint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: " "
+  - uid: System.ValueTuple{System.UInt32,System.UInt32}.width
+    name: width
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.uint32,system.uint32-.width
+  - name: ','
+  - name: " "
+  - uid: System.UInt32
+    name: uint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: " "
+  - uid: System.ValueTuple{System.UInt32,System.UInt32}.height
+    name: height
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.uint32,system.uint32-.height
+  - name: )
+  spec.vb:
+  - name: (
+  - uid: System.ValueTuple{System.UInt32,System.UInt32}.width
+    name: width
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.uint32,system.uint32-.width
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.UInt32
+    name: UInteger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.UInt32,System.UInt32}.height
+    name: height
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.uint32,system.uint32-.height
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.UInt32
+    name: UInteger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: )
+- uid: System.ValueTuple`2
+  commentId: T:System.ValueTuple`2
+  name: (T1, T2)
+  nameWithType: (T1, T2)
+  fullName: (T1, T2)
+  spec.csharp:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+  spec.vb:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )

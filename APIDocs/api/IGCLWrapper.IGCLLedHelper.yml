@@ -1,0 +1,611 @@
+### YamlMime:ManagedReference
+items:
+- uid: IGCLWrapper.IGCLLedHelper
+  commentId: T:IGCLWrapper.IGCLLedHelper
+  id: IGCLLedHelper
+  parent: IGCLWrapper
+  children:
+  - IGCLWrapper.IGCLLedHelper.Dispose
+  - IGCLWrapper.IGCLLedHelper.EnumerateLeds
+  - IGCLWrapper.IGCLLedHelper.GetProperties(System.IntPtr)
+  - IGCLWrapper.IGCLLedHelper.GetState(System.IntPtr)
+  - IGCLWrapper.IGCLLedHelper.SetState(System.IntPtr,IGCLWrapper.ctl_led_state_t)
+  langs:
+  - csharp
+  - vb
+  name: IGCLLedHelper
+  nameWithType: IGCLLedHelper
+  fullName: IGCLWrapper.IGCLLedHelper
+  type: Class
+  source:
+    remote:
+      path: IGCLWrapper/IGCLLedHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IGCLLedHelper
+    path: ../IGCLWrapper/IGCLLedHelper.cs
+    startLine: 8
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: 'LED helper: enumerate LEDs and get/set state.'
+  example: []
+  syntax:
+    content: 'public sealed class IGCLLedHelper : IDisposable'
+    content.vb: Public NotInheritable Class IGCLLedHelper Implements IDisposable
+  inheritance:
+  - System.Object
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: IGCLWrapper.IGCLLedHelper.EnumerateLeds
+  commentId: M:IGCLWrapper.IGCLLedHelper.EnumerateLeds
+  id: EnumerateLeds
+  parent: IGCLWrapper.IGCLLedHelper
+  langs:
+  - csharp
+  - vb
+  name: EnumerateLeds()
+  nameWithType: IGCLLedHelper.EnumerateLeds()
+  fullName: IGCLWrapper.IGCLLedHelper.EnumerateLeds()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLLedHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: EnumerateLeds
+    path: ../IGCLWrapper/IGCLLedHelper.cs
+    startLine: 20
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public IReadOnlyList<nint> EnumerateLeds()
+    return:
+      type: System.Collections.Generic.IReadOnlyList{System.IntPtr}
+    content.vb: Public Function EnumerateLeds() As IReadOnlyList(Of IntPtr)
+  overload: IGCLWrapper.IGCLLedHelper.EnumerateLeds*
+- uid: IGCLWrapper.IGCLLedHelper.GetProperties(System.IntPtr)
+  commentId: M:IGCLWrapper.IGCLLedHelper.GetProperties(System.IntPtr)
+  id: GetProperties(System.IntPtr)
+  parent: IGCLWrapper.IGCLLedHelper
+  langs:
+  - csharp
+  - vb
+  name: GetProperties(nint)
+  nameWithType: IGCLLedHelper.GetProperties(nint)
+  fullName: IGCLWrapper.IGCLLedHelper.GetProperties(nint)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLLedHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetProperties
+    path: ../IGCLWrapper/IGCLLedHelper.cs
+    startLine: 26
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_led_properties_t GetProperties(nint ledHandle)
+    parameters:
+    - id: ledHandle
+      type: System.IntPtr
+    return:
+      type: IGCLWrapper.ctl_led_properties_t
+    content.vb: Public Function GetProperties(ledHandle As IntPtr) As ctl_led_properties_t
+  overload: IGCLWrapper.IGCLLedHelper.GetProperties*
+  nameWithType.vb: IGCLLedHelper.GetProperties(IntPtr)
+  fullName.vb: IGCLWrapper.IGCLLedHelper.GetProperties(System.IntPtr)
+  name.vb: GetProperties(IntPtr)
+- uid: IGCLWrapper.IGCLLedHelper.GetState(System.IntPtr)
+  commentId: M:IGCLWrapper.IGCLLedHelper.GetState(System.IntPtr)
+  id: GetState(System.IntPtr)
+  parent: IGCLWrapper.IGCLLedHelper
+  langs:
+  - csharp
+  - vb
+  name: GetState(nint)
+  nameWithType: IGCLLedHelper.GetState(nint)
+  fullName: IGCLWrapper.IGCLLedHelper.GetState(nint)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLLedHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetState
+    path: ../IGCLWrapper/IGCLLedHelper.cs
+    startLine: 36
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_led_state_t GetState(nint ledHandle)
+    parameters:
+    - id: ledHandle
+      type: System.IntPtr
+    return:
+      type: IGCLWrapper.ctl_led_state_t
+    content.vb: Public Function GetState(ledHandle As IntPtr) As ctl_led_state_t
+  overload: IGCLWrapper.IGCLLedHelper.GetState*
+  nameWithType.vb: IGCLLedHelper.GetState(IntPtr)
+  fullName.vb: IGCLWrapper.IGCLLedHelper.GetState(System.IntPtr)
+  name.vb: GetState(IntPtr)
+- uid: IGCLWrapper.IGCLLedHelper.SetState(System.IntPtr,IGCLWrapper.ctl_led_state_t)
+  commentId: M:IGCLWrapper.IGCLLedHelper.SetState(System.IntPtr,IGCLWrapper.ctl_led_state_t)
+  id: SetState(System.IntPtr,IGCLWrapper.ctl_led_state_t)
+  parent: IGCLWrapper.IGCLLedHelper
+  langs:
+  - csharp
+  - vb
+  name: SetState(nint, ctl_led_state_t)
+  nameWithType: IGCLLedHelper.SetState(nint, ctl_led_state_t)
+  fullName: IGCLWrapper.IGCLLedHelper.SetState(nint, IGCLWrapper.ctl_led_state_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLLedHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SetState
+    path: ../IGCLWrapper/IGCLLedHelper.cs
+    startLine: 46
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public void SetState(nint ledHandle, ctl_led_state_t state)
+    parameters:
+    - id: ledHandle
+      type: System.IntPtr
+    - id: state
+      type: IGCLWrapper.ctl_led_state_t
+    content.vb: Public Sub SetState(ledHandle As IntPtr, state As ctl_led_state_t)
+  overload: IGCLWrapper.IGCLLedHelper.SetState*
+  nameWithType.vb: IGCLLedHelper.SetState(IntPtr, ctl_led_state_t)
+  fullName.vb: IGCLWrapper.IGCLLedHelper.SetState(System.IntPtr, IGCLWrapper.ctl_led_state_t)
+  name.vb: SetState(IntPtr, ctl_led_state_t)
+- uid: IGCLWrapper.IGCLLedHelper.Dispose
+  commentId: M:IGCLWrapper.IGCLLedHelper.Dispose
+  id: Dispose
+  parent: IGCLWrapper.IGCLLedHelper
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: IGCLLedHelper.Dispose()
+  fullName: IGCLWrapper.IGCLLedHelper.Dispose()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLLedHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Dispose
+    path: ../IGCLWrapper/IGCLLedHelper.cs
+    startLine: 78
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: IGCLWrapper.IGCLLedHelper.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+references:
+- uid: IGCLWrapper
+  commentId: N:IGCLWrapper
+  href: IGCLWrapper.html
+  name: IGCLWrapper
+  nameWithType: IGCLWrapper
+  fullName: IGCLWrapper
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: IGCLWrapper.IGCLLedHelper.EnumerateLeds*
+  commentId: Overload:IGCLWrapper.IGCLLedHelper.EnumerateLeds
+  href: IGCLWrapper.IGCLLedHelper.html#IGCLWrapper_IGCLLedHelper_EnumerateLeds
+  name: EnumerateLeds
+  nameWithType: IGCLLedHelper.EnumerateLeds
+  fullName: IGCLWrapper.IGCLLedHelper.EnumerateLeds
+- uid: System.Collections.Generic.IReadOnlyList{System.IntPtr}
+  commentId: T:System.Collections.Generic.IReadOnlyList{System.IntPtr}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<nint>
+  nameWithType: IReadOnlyList<nint>
+  fullName: System.Collections.Generic.IReadOnlyList<nint>
+  nameWithType.vb: IReadOnlyList(Of IntPtr)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of System.IntPtr)
+  name.vb: IReadOnlyList(Of IntPtr)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: System.IntPtr
+    name: nint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.intptr
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.IntPtr
+    name: IntPtr
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.intptr
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: IGCLWrapper.IGCLLedHelper.GetProperties*
+  commentId: Overload:IGCLWrapper.IGCLLedHelper.GetProperties
+  href: IGCLWrapper.IGCLLedHelper.html#IGCLWrapper_IGCLLedHelper_GetProperties_System_IntPtr_
+  name: GetProperties
+  nameWithType: IGCLLedHelper.GetProperties
+  fullName: IGCLWrapper.IGCLLedHelper.GetProperties
+- uid: System.IntPtr
+  commentId: T:System.IntPtr
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.intptr
+  name: nint
+  nameWithType: nint
+  fullName: nint
+  nameWithType.vb: IntPtr
+  fullName.vb: System.IntPtr
+  name.vb: IntPtr
+- uid: IGCLWrapper.ctl_led_properties_t
+  commentId: T:IGCLWrapper.ctl_led_properties_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_led_properties_t.html
+  name: ctl_led_properties_t
+  nameWithType: ctl_led_properties_t
+  fullName: IGCLWrapper.ctl_led_properties_t
+- uid: IGCLWrapper.IGCLLedHelper.GetState*
+  commentId: Overload:IGCLWrapper.IGCLLedHelper.GetState
+  href: IGCLWrapper.IGCLLedHelper.html#IGCLWrapper_IGCLLedHelper_GetState_System_IntPtr_
+  name: GetState
+  nameWithType: IGCLLedHelper.GetState
+  fullName: IGCLWrapper.IGCLLedHelper.GetState
+- uid: IGCLWrapper.ctl_led_state_t
+  commentId: T:IGCLWrapper.ctl_led_state_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_led_state_t.html
+  name: ctl_led_state_t
+  nameWithType: ctl_led_state_t
+  fullName: IGCLWrapper.ctl_led_state_t
+- uid: IGCLWrapper.IGCLLedHelper.SetState*
+  commentId: Overload:IGCLWrapper.IGCLLedHelper.SetState
+  href: IGCLWrapper.IGCLLedHelper.html#IGCLWrapper_IGCLLedHelper_SetState_System_IntPtr_IGCLWrapper_ctl_led_state_t_
+  name: SetState
+  nameWithType: IGCLLedHelper.SetState
+  fullName: IGCLWrapper.IGCLLedHelper.SetState
+- uid: IGCLWrapper.IGCLLedHelper.Dispose*
+  commentId: Overload:IGCLWrapper.IGCLLedHelper.Dispose
+  href: IGCLWrapper.IGCLLedHelper.html#IGCLWrapper_IGCLLedHelper_Dispose
+  name: Dispose
+  nameWithType: IGCLLedHelper.Dispose
+  fullName: IGCLWrapper.IGCLLedHelper.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )

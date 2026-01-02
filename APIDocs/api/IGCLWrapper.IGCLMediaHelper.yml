@@ -1,0 +1,458 @@
+### YamlMime:ManagedReference
+items:
+- uid: IGCLWrapper.IGCLMediaHelper
+  commentId: T:IGCLWrapper.IGCLMediaHelper
+  id: IGCLMediaHelper
+  parent: IGCLWrapper
+  children:
+  - IGCLWrapper.IGCLMediaHelper.Dispose
+  - IGCLWrapper.IGCLMediaHelper.GetCapabilities
+  - IGCLWrapper.IGCLMediaHelper.GetFeature(IGCLWrapper.ctl_video_processing_feature_t)
+  - IGCLWrapper.IGCLMediaHelper.SetFeature(IGCLWrapper.ctl_video_processing_feature_getset_t)
+  langs:
+  - csharp
+  - vb
+  name: IGCLMediaHelper
+  nameWithType: IGCLMediaHelper
+  fullName: IGCLWrapper.IGCLMediaHelper
+  type: Class
+  source:
+    remote:
+      path: IGCLWrapper/IGCLMediaHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IGCLMediaHelper
+    path: ../IGCLWrapper/IGCLMediaHelper.cs
+    startLine: 7
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: 'Media helper: video processing capabilities and get/set.'
+  example: []
+  syntax:
+    content: 'public sealed class IGCLMediaHelper : IDisposable'
+    content.vb: Public NotInheritable Class IGCLMediaHelper Implements IDisposable
+  inheritance:
+  - System.Object
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: IGCLWrapper.IGCLMediaHelper.GetCapabilities
+  commentId: M:IGCLWrapper.IGCLMediaHelper.GetCapabilities
+  id: GetCapabilities
+  parent: IGCLWrapper.IGCLMediaHelper
+  langs:
+  - csharp
+  - vb
+  name: GetCapabilities()
+  nameWithType: IGCLMediaHelper.GetCapabilities()
+  fullName: IGCLWrapper.IGCLMediaHelper.GetCapabilities()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLMediaHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetCapabilities
+    path: ../IGCLWrapper/IGCLMediaHelper.cs
+    startLine: 19
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_video_processing_feature_caps_t GetCapabilities()
+    return:
+      type: IGCLWrapper.ctl_video_processing_feature_caps_t
+    content.vb: Public Function GetCapabilities() As ctl_video_processing_feature_caps_t
+  overload: IGCLWrapper.IGCLMediaHelper.GetCapabilities*
+- uid: IGCLWrapper.IGCLMediaHelper.GetFeature(IGCLWrapper.ctl_video_processing_feature_t)
+  commentId: M:IGCLWrapper.IGCLMediaHelper.GetFeature(IGCLWrapper.ctl_video_processing_feature_t)
+  id: GetFeature(IGCLWrapper.ctl_video_processing_feature_t)
+  parent: IGCLWrapper.IGCLMediaHelper
+  langs:
+  - csharp
+  - vb
+  name: GetFeature(ctl_video_processing_feature_t)
+  nameWithType: IGCLMediaHelper.GetFeature(ctl_video_processing_feature_t)
+  fullName: IGCLWrapper.IGCLMediaHelper.GetFeature(IGCLWrapper.ctl_video_processing_feature_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLMediaHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetFeature
+    path: ../IGCLWrapper/IGCLMediaHelper.cs
+    startLine: 29
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_video_processing_feature_getset_t GetFeature(ctl_video_processing_feature_t feature)
+    parameters:
+    - id: feature
+      type: IGCLWrapper.ctl_video_processing_feature_t
+    return:
+      type: IGCLWrapper.ctl_video_processing_feature_getset_t
+    content.vb: Public Function GetFeature(feature As ctl_video_processing_feature_t) As ctl_video_processing_feature_getset_t
+  overload: IGCLWrapper.IGCLMediaHelper.GetFeature*
+- uid: IGCLWrapper.IGCLMediaHelper.SetFeature(IGCLWrapper.ctl_video_processing_feature_getset_t)
+  commentId: M:IGCLWrapper.IGCLMediaHelper.SetFeature(IGCLWrapper.ctl_video_processing_feature_getset_t)
+  id: SetFeature(IGCLWrapper.ctl_video_processing_feature_getset_t)
+  parent: IGCLWrapper.IGCLMediaHelper
+  langs:
+  - csharp
+  - vb
+  name: SetFeature(ctl_video_processing_feature_getset_t)
+  nameWithType: IGCLMediaHelper.SetFeature(ctl_video_processing_feature_getset_t)
+  fullName: IGCLWrapper.IGCLMediaHelper.SetFeature(IGCLWrapper.ctl_video_processing_feature_getset_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLMediaHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SetFeature
+    path: ../IGCLWrapper/IGCLMediaHelper.cs
+    startLine: 40
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public void SetFeature(ctl_video_processing_feature_getset_t feature)
+    parameters:
+    - id: feature
+      type: IGCLWrapper.ctl_video_processing_feature_getset_t
+    content.vb: Public Sub SetFeature(feature As ctl_video_processing_feature_getset_t)
+  overload: IGCLWrapper.IGCLMediaHelper.SetFeature*
+- uid: IGCLWrapper.IGCLMediaHelper.Dispose
+  commentId: M:IGCLWrapper.IGCLMediaHelper.Dispose
+  id: Dispose
+  parent: IGCLWrapper.IGCLMediaHelper
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: IGCLMediaHelper.Dispose()
+  fullName: IGCLWrapper.IGCLMediaHelper.Dispose()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLMediaHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Dispose
+    path: ../IGCLWrapper/IGCLMediaHelper.cs
+    startLine: 55
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: IGCLWrapper.IGCLMediaHelper.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+references:
+- uid: IGCLWrapper
+  commentId: N:IGCLWrapper
+  href: IGCLWrapper.html
+  name: IGCLWrapper
+  nameWithType: IGCLWrapper
+  fullName: IGCLWrapper
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: IGCLWrapper.IGCLMediaHelper.GetCapabilities*
+  commentId: Overload:IGCLWrapper.IGCLMediaHelper.GetCapabilities
+  href: IGCLWrapper.IGCLMediaHelper.html#IGCLWrapper_IGCLMediaHelper_GetCapabilities
+  name: GetCapabilities
+  nameWithType: IGCLMediaHelper.GetCapabilities
+  fullName: IGCLWrapper.IGCLMediaHelper.GetCapabilities
+- uid: IGCLWrapper.ctl_video_processing_feature_caps_t
+  commentId: T:IGCLWrapper.ctl_video_processing_feature_caps_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_video_processing_feature_caps_t.html
+  name: ctl_video_processing_feature_caps_t
+  nameWithType: ctl_video_processing_feature_caps_t
+  fullName: IGCLWrapper.ctl_video_processing_feature_caps_t
+- uid: IGCLWrapper.IGCLMediaHelper.GetFeature*
+  commentId: Overload:IGCLWrapper.IGCLMediaHelper.GetFeature
+  href: IGCLWrapper.IGCLMediaHelper.html#IGCLWrapper_IGCLMediaHelper_GetFeature_IGCLWrapper_ctl_video_processing_feature_t_
+  name: GetFeature
+  nameWithType: IGCLMediaHelper.GetFeature
+  fullName: IGCLWrapper.IGCLMediaHelper.GetFeature
+- uid: IGCLWrapper.ctl_video_processing_feature_t
+  commentId: T:IGCLWrapper.ctl_video_processing_feature_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_video_processing_feature_t.html
+  name: ctl_video_processing_feature_t
+  nameWithType: ctl_video_processing_feature_t
+  fullName: IGCLWrapper.ctl_video_processing_feature_t
+- uid: IGCLWrapper.ctl_video_processing_feature_getset_t
+  commentId: T:IGCLWrapper.ctl_video_processing_feature_getset_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_video_processing_feature_getset_t.html
+  name: ctl_video_processing_feature_getset_t
+  nameWithType: ctl_video_processing_feature_getset_t
+  fullName: IGCLWrapper.ctl_video_processing_feature_getset_t
+- uid: IGCLWrapper.IGCLMediaHelper.SetFeature*
+  commentId: Overload:IGCLWrapper.IGCLMediaHelper.SetFeature
+  href: IGCLWrapper.IGCLMediaHelper.html#IGCLWrapper_IGCLMediaHelper_SetFeature_IGCLWrapper_ctl_video_processing_feature_getset_t_
+  name: SetFeature
+  nameWithType: IGCLMediaHelper.SetFeature
+  fullName: IGCLWrapper.IGCLMediaHelper.SetFeature
+- uid: IGCLWrapper.IGCLMediaHelper.Dispose*
+  commentId: Overload:IGCLWrapper.IGCLMediaHelper.Dispose
+  href: IGCLWrapper.IGCLMediaHelper.html#IGCLWrapper_IGCLMediaHelper_Dispose
+  name: Dispose
+  nameWithType: IGCLMediaHelper.Dispose
+  fullName: IGCLWrapper.IGCLMediaHelper.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )

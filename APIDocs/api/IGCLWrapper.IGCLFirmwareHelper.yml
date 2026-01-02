@@ -1,0 +1,614 @@
+### YamlMime:ManagedReference
+items:
+- uid: IGCLWrapper.IGCLFirmwareHelper
+  commentId: T:IGCLWrapper.IGCLFirmwareHelper
+  id: IGCLFirmwareHelper
+  parent: IGCLWrapper
+  children:
+  - IGCLWrapper.IGCLFirmwareHelper.AllowPcieLinkSpeedUpdate(System.Boolean)
+  - IGCLWrapper.IGCLFirmwareHelper.Dispose
+  - IGCLWrapper.IGCLFirmwareHelper.EnumerateComponents
+  - IGCLWrapper.IGCLFirmwareHelper.GetComponentProperties(System.IntPtr)
+  - IGCLWrapper.IGCLFirmwareHelper.GetProperties
+  langs:
+  - csharp
+  - vb
+  name: IGCLFirmwareHelper
+  nameWithType: IGCLFirmwareHelper
+  fullName: IGCLWrapper.IGCLFirmwareHelper
+  type: Class
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFirmwareHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IGCLFirmwareHelper
+    path: ../IGCLWrapper/IGCLFirmwareHelper.cs
+    startLine: 8
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: 'Firmware helper: base and component firmware queries, PCIe link speed control.'
+  example: []
+  syntax:
+    content: 'public sealed class IGCLFirmwareHelper : IDisposable'
+    content.vb: Public NotInheritable Class IGCLFirmwareHelper Implements IDisposable
+  inheritance:
+  - System.Object
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: IGCLWrapper.IGCLFirmwareHelper.GetProperties
+  commentId: M:IGCLWrapper.IGCLFirmwareHelper.GetProperties
+  id: GetProperties
+  parent: IGCLWrapper.IGCLFirmwareHelper
+  langs:
+  - csharp
+  - vb
+  name: GetProperties()
+  nameWithType: IGCLFirmwareHelper.GetProperties()
+  fullName: IGCLWrapper.IGCLFirmwareHelper.GetProperties()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFirmwareHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetProperties
+    path: ../IGCLWrapper/IGCLFirmwareHelper.cs
+    startLine: 20
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_firmware_properties_t GetProperties()
+    return:
+      type: IGCLWrapper.ctl_firmware_properties_t
+    content.vb: Public Function GetProperties() As ctl_firmware_properties_t
+  overload: IGCLWrapper.IGCLFirmwareHelper.GetProperties*
+- uid: IGCLWrapper.IGCLFirmwareHelper.EnumerateComponents
+  commentId: M:IGCLWrapper.IGCLFirmwareHelper.EnumerateComponents
+  id: EnumerateComponents
+  parent: IGCLWrapper.IGCLFirmwareHelper
+  langs:
+  - csharp
+  - vb
+  name: EnumerateComponents()
+  nameWithType: IGCLFirmwareHelper.EnumerateComponents()
+  fullName: IGCLWrapper.IGCLFirmwareHelper.EnumerateComponents()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFirmwareHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: EnumerateComponents
+    path: ../IGCLWrapper/IGCLFirmwareHelper.cs
+    startLine: 30
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public IReadOnlyList<nint> EnumerateComponents()
+    return:
+      type: System.Collections.Generic.IReadOnlyList{System.IntPtr}
+    content.vb: Public Function EnumerateComponents() As IReadOnlyList(Of IntPtr)
+  overload: IGCLWrapper.IGCLFirmwareHelper.EnumerateComponents*
+- uid: IGCLWrapper.IGCLFirmwareHelper.GetComponentProperties(System.IntPtr)
+  commentId: M:IGCLWrapper.IGCLFirmwareHelper.GetComponentProperties(System.IntPtr)
+  id: GetComponentProperties(System.IntPtr)
+  parent: IGCLWrapper.IGCLFirmwareHelper
+  langs:
+  - csharp
+  - vb
+  name: GetComponentProperties(nint)
+  nameWithType: IGCLFirmwareHelper.GetComponentProperties(nint)
+  fullName: IGCLWrapper.IGCLFirmwareHelper.GetComponentProperties(nint)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFirmwareHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetComponentProperties
+    path: ../IGCLWrapper/IGCLFirmwareHelper.cs
+    startLine: 36
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_firmware_component_properties_t GetComponentProperties(nint firmwareHandle)
+    parameters:
+    - id: firmwareHandle
+      type: System.IntPtr
+    return:
+      type: IGCLWrapper.ctl_firmware_component_properties_t
+    content.vb: Public Function GetComponentProperties(firmwareHandle As IntPtr) As ctl_firmware_component_properties_t
+  overload: IGCLWrapper.IGCLFirmwareHelper.GetComponentProperties*
+  nameWithType.vb: IGCLFirmwareHelper.GetComponentProperties(IntPtr)
+  fullName.vb: IGCLWrapper.IGCLFirmwareHelper.GetComponentProperties(System.IntPtr)
+  name.vb: GetComponentProperties(IntPtr)
+- uid: IGCLWrapper.IGCLFirmwareHelper.AllowPcieLinkSpeedUpdate(System.Boolean)
+  commentId: M:IGCLWrapper.IGCLFirmwareHelper.AllowPcieLinkSpeedUpdate(System.Boolean)
+  id: AllowPcieLinkSpeedUpdate(System.Boolean)
+  parent: IGCLWrapper.IGCLFirmwareHelper
+  langs:
+  - csharp
+  - vb
+  name: AllowPcieLinkSpeedUpdate(bool)
+  nameWithType: IGCLFirmwareHelper.AllowPcieLinkSpeedUpdate(bool)
+  fullName: IGCLWrapper.IGCLFirmwareHelper.AllowPcieLinkSpeedUpdate(bool)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFirmwareHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: AllowPcieLinkSpeedUpdate
+    path: ../IGCLWrapper/IGCLFirmwareHelper.cs
+    startLine: 46
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public void AllowPcieLinkSpeedUpdate(bool allow)
+    parameters:
+    - id: allow
+      type: System.Boolean
+    content.vb: Public Sub AllowPcieLinkSpeedUpdate(allow As Boolean)
+  overload: IGCLWrapper.IGCLFirmwareHelper.AllowPcieLinkSpeedUpdate*
+  nameWithType.vb: IGCLFirmwareHelper.AllowPcieLinkSpeedUpdate(Boolean)
+  fullName.vb: IGCLWrapper.IGCLFirmwareHelper.AllowPcieLinkSpeedUpdate(Boolean)
+  name.vb: AllowPcieLinkSpeedUpdate(Boolean)
+- uid: IGCLWrapper.IGCLFirmwareHelper.Dispose
+  commentId: M:IGCLWrapper.IGCLFirmwareHelper.Dispose
+  id: Dispose
+  parent: IGCLWrapper.IGCLFirmwareHelper
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: IGCLFirmwareHelper.Dispose()
+  fullName: IGCLWrapper.IGCLFirmwareHelper.Dispose()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFirmwareHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Dispose
+    path: ../IGCLWrapper/IGCLFirmwareHelper.cs
+    startLine: 78
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: IGCLWrapper.IGCLFirmwareHelper.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+references:
+- uid: IGCLWrapper
+  commentId: N:IGCLWrapper
+  href: IGCLWrapper.html
+  name: IGCLWrapper
+  nameWithType: IGCLWrapper
+  fullName: IGCLWrapper
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: IGCLWrapper.IGCLFirmwareHelper.GetProperties*
+  commentId: Overload:IGCLWrapper.IGCLFirmwareHelper.GetProperties
+  href: IGCLWrapper.IGCLFirmwareHelper.html#IGCLWrapper_IGCLFirmwareHelper_GetProperties
+  name: GetProperties
+  nameWithType: IGCLFirmwareHelper.GetProperties
+  fullName: IGCLWrapper.IGCLFirmwareHelper.GetProperties
+- uid: IGCLWrapper.ctl_firmware_properties_t
+  commentId: T:IGCLWrapper.ctl_firmware_properties_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_firmware_properties_t.html
+  name: ctl_firmware_properties_t
+  nameWithType: ctl_firmware_properties_t
+  fullName: IGCLWrapper.ctl_firmware_properties_t
+- uid: IGCLWrapper.IGCLFirmwareHelper.EnumerateComponents*
+  commentId: Overload:IGCLWrapper.IGCLFirmwareHelper.EnumerateComponents
+  href: IGCLWrapper.IGCLFirmwareHelper.html#IGCLWrapper_IGCLFirmwareHelper_EnumerateComponents
+  name: EnumerateComponents
+  nameWithType: IGCLFirmwareHelper.EnumerateComponents
+  fullName: IGCLWrapper.IGCLFirmwareHelper.EnumerateComponents
+- uid: System.Collections.Generic.IReadOnlyList{System.IntPtr}
+  commentId: T:System.Collections.Generic.IReadOnlyList{System.IntPtr}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<nint>
+  nameWithType: IReadOnlyList<nint>
+  fullName: System.Collections.Generic.IReadOnlyList<nint>
+  nameWithType.vb: IReadOnlyList(Of IntPtr)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of System.IntPtr)
+  name.vb: IReadOnlyList(Of IntPtr)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: System.IntPtr
+    name: nint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.intptr
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.IntPtr
+    name: IntPtr
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.intptr
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: IGCLWrapper.IGCLFirmwareHelper.GetComponentProperties*
+  commentId: Overload:IGCLWrapper.IGCLFirmwareHelper.GetComponentProperties
+  href: IGCLWrapper.IGCLFirmwareHelper.html#IGCLWrapper_IGCLFirmwareHelper_GetComponentProperties_System_IntPtr_
+  name: GetComponentProperties
+  nameWithType: IGCLFirmwareHelper.GetComponentProperties
+  fullName: IGCLWrapper.IGCLFirmwareHelper.GetComponentProperties
+- uid: System.IntPtr
+  commentId: T:System.IntPtr
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.intptr
+  name: nint
+  nameWithType: nint
+  fullName: nint
+  nameWithType.vb: IntPtr
+  fullName.vb: System.IntPtr
+  name.vb: IntPtr
+- uid: IGCLWrapper.ctl_firmware_component_properties_t
+  commentId: T:IGCLWrapper.ctl_firmware_component_properties_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_firmware_component_properties_t.html
+  name: ctl_firmware_component_properties_t
+  nameWithType: ctl_firmware_component_properties_t
+  fullName: IGCLWrapper.ctl_firmware_component_properties_t
+- uid: IGCLWrapper.IGCLFirmwareHelper.AllowPcieLinkSpeedUpdate*
+  commentId: Overload:IGCLWrapper.IGCLFirmwareHelper.AllowPcieLinkSpeedUpdate
+  href: IGCLWrapper.IGCLFirmwareHelper.html#IGCLWrapper_IGCLFirmwareHelper_AllowPcieLinkSpeedUpdate_System_Boolean_
+  name: AllowPcieLinkSpeedUpdate
+  nameWithType: IGCLFirmwareHelper.AllowPcieLinkSpeedUpdate
+  fullName: IGCLWrapper.IGCLFirmwareHelper.AllowPcieLinkSpeedUpdate
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: IGCLWrapper.IGCLFirmwareHelper.Dispose*
+  commentId: Overload:IGCLWrapper.IGCLFirmwareHelper.Dispose
+  href: IGCLWrapper.IGCLFirmwareHelper.html#IGCLWrapper_IGCLFirmwareHelper_Dispose
+  name: Dispose
+  nameWithType: IGCLFirmwareHelper.Dispose
+  fullName: IGCLWrapper.IGCLFirmwareHelper.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
