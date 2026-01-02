@@ -21,7 +21,7 @@ namespace IGCLWrapper
         public unsafe IReadOnlyList<IntPtr> EnumeratePowerDomains()
         {
             ThrowIfDisposed();
-            return EnumerateHandles((_ctl_device_adapter_handle_t*)_adapter, IGCL.ctlEnumPowerDomains);
+            return EnumerateHandles((_ctl_device_adapter_handle_t*)_adapter);
         }
 
         public unsafe ctl_power_properties_t GetProperties(IntPtr powerHandle)
@@ -62,10 +62,10 @@ namespace IGCLWrapper
                 throw new IGCLException(result, "Failed to set power limits");
         }
 
-        private static unsafe IReadOnlyList<IntPtr> EnumerateHandles(_ctl_device_adapter_handle_t* adapter, delegate* unmanaged[Cdecl]< _ctl_device_adapter_handle_t*, uint*, _ctl_pwr_handle_t**, ctl_result_t> enumerateFn)
+        private static unsafe IReadOnlyList<IntPtr> EnumerateHandles(_ctl_device_adapter_handle_t* adapter)
         {
             uint count = 0;
-            var result = enumerateFn(adapter, &count, null);
+            var result = IGCL.ctlEnumPowerDomains(adapter, &count, null);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS && count == 0)
                 throw new IGCLException(result, "Failed to get power domain count");
             if (count == 0)
@@ -73,7 +73,7 @@ namespace IGCLWrapper
             var handles = new IntPtr[count];
             fixed (IntPtr* pHandles = handles)
             {
-                result = enumerateFn(adapter, &count, (_ctl_pwr_handle_t**)pHandles);
+                result = IGCL.ctlEnumPowerDomains(adapter, &count, (_ctl_pwr_handle_t**)pHandles);
                 if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                     throw new IGCLException(result, "Failed to enumerate power domains");
             }

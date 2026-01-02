@@ -1,22 +1,24 @@
 using System;
 using System.Linq;
 using Xunit;
-using Xunit.Sdk;
+
+using System.Runtime.Versioning;
 
 namespace IGCLWrapper.FacadeTests
 {
+    [SupportedOSPlatform("windows")]
     public class BasicFacadeTests
     {
         private static void SkipIfNoHardwareOrDll()
         {
             if (!IGCLApiHelper.IsIGCLDllAvailable(out var dllError))
             {
-                throw new SkipException($"IGCL DLL unavailable: {dllError}");
+                throw new Xunit.SkipException($"IGCL DLL unavailable: {dllError}");
             }
 
             if (!IGCLHardwareDetection.HasIntelGPU(out var hwError))
             {
-                throw new SkipException($"Intel GPU not detected: {hwError}");
+                throw new Xunit.SkipException($"Intel GPU not detected: {hwError}");
             }
         }
 

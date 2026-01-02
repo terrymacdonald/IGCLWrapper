@@ -41,7 +41,7 @@ namespace IGCLWrapper
         public unsafe void SetFeature(ctl_video_processing_feature_getset_t feature)
         {
             ThrowIfDisposed();
-            feature.bSet = true;
+            feature.bSet = 1;
             var result = IGCL.ctlGetSetVideoProcessingFeature((_ctl_device_adapter_handle_t*)_adapter, &feature);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, $"Failed to set video processing feature {feature.FeatureType}");

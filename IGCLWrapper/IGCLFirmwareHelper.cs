@@ -31,7 +31,7 @@ namespace IGCLWrapper
         public unsafe IReadOnlyList<IntPtr> EnumerateComponents()
         {
             ThrowIfDisposed();
-            return EnumerateHandles((_ctl_device_adapter_handle_t*)_adapter, IGCL.ctlEnumerateFirmwareComponents);
+            return EnumerateHandles((_ctl_device_adapter_handle_t*)_adapter);
         }
 
         public unsafe ctl_firmware_component_properties_t GetComponentProperties(IntPtr firmwareHandle)
@@ -47,15 +47,15 @@ namespace IGCLWrapper
         public unsafe void AllowPcieLinkSpeedUpdate(bool allow)
         {
             ThrowIfDisposed();
-            var result = IGCL.ctlAllowPCIeLinkSpeedUpdate((_ctl_device_adapter_handle_t*)_adapter, allow);
+            var result = IGCL.ctlAllowPCIeLinkSpeedUpdate((_ctl_device_adapter_handle_t*)_adapter, (byte)(allow ? 1 : 0));
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to update PCIe link speed allowance");
         }
 
-        private static unsafe IReadOnlyList<IntPtr> EnumerateHandles(_ctl_device_adapter_handle_t* adapter, delegate* unmanaged[Cdecl]< _ctl_device_adapter_handle_t*, uint*, _ctl_firmware_component_handle_t**, ctl_result_t> enumerateFn)
+        private static unsafe IReadOnlyList<IntPtr> EnumerateHandles(_ctl_device_adapter_handle_t* adapter)
         {
             uint count = 0;
-            var result = enumerateFn(adapter, &count, null);
+            var result = IGCL.ctlEnumerateFirmwareComponents(adapter, &count, null);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS && count == 0)
                 throw new IGCLException(result, "Failed to get firmware component count");
             if (count == 0)
@@ -63,7 +63,7 @@ namespace IGCLWrapper
             var handles = new IntPtr[count];
             fixed (IntPtr* pHandles = handles)
             {
-                result = enumerateFn(adapter, &count, (_ctl_firmware_component_handle_t**)pHandles);
+                result = IGCL.ctlEnumerateFirmwareComponents(adapter, &count, (_ctl_firmware_component_handle_t**)pHandles);
                 if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                     throw new IGCLException(result, "Failed to enumerate firmware components");
             }

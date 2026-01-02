@@ -21,7 +21,7 @@ namespace IGCLWrapper
         public unsafe IReadOnlyList<IntPtr> EnumerateDomains()
         {
             ThrowIfDisposed();
-            return EnumerateHandles((_ctl_device_adapter_handle_t*)_adapter, IGCL.ctlEnumFrequencyDomains);
+            return EnumerateHandles((_ctl_device_adapter_handle_t*)_adapter);
         }
 
         public unsafe ctl_freq_properties_t GetProperties(IntPtr freqHandle)
@@ -91,10 +91,10 @@ namespace IGCLWrapper
             return tt;
         }
 
-        private static unsafe IReadOnlyList<IntPtr> EnumerateHandles(_ctl_device_adapter_handle_t* adapter, delegate* unmanaged[Cdecl]< _ctl_device_adapter_handle_t*, uint*, _ctl_freq_handle_t**, ctl_result_t> enumerateFn)
+        private static unsafe IReadOnlyList<IntPtr> EnumerateHandles(_ctl_device_adapter_handle_t* adapter)
         {
             uint count = 0;
-            var result = enumerateFn(adapter, &count, null);
+            var result = IGCL.ctlEnumFrequencyDomains(adapter, &count, null);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS && count == 0)
                 throw new IGCLException(result, "Failed to get frequency domain count");
             if (count == 0)
@@ -102,7 +102,7 @@ namespace IGCLWrapper
             var handles = new IntPtr[count];
             fixed (IntPtr* pHandles = handles)
             {
-                result = enumerateFn(adapter, &count, (_ctl_freq_handle_t**)pHandles);
+                result = IGCL.ctlEnumFrequencyDomains(adapter, &count, (_ctl_freq_handle_t**)pHandles);
                 if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                     throw new IGCLException(result, "Failed to enumerate frequency domains");
             }

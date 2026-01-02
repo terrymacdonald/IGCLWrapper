@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 namespace IGCLWrapper
 {
@@ -230,8 +231,17 @@ namespace IGCLWrapper
             return displays;
         }
 
-        public string Name => GetProperties().NameString;
-        public string PciVendorId => GetProperties().PCIVendorID;
+        public unsafe string Name
+        {
+            get
+            {
+                var props = GetProperties();
+                var pName = (sbyte*)Unsafe.AsPointer(ref props.name);
+                return new string(pName);
+            }
+        }
+
+        public string PciVendorId => GetProperties().pci_vendor_id.ToString("X4");
 
         internal void ThrowIfDisposed()
         {
@@ -305,7 +315,7 @@ namespace IGCLWrapper
             return timing.RefreshRate / 1000.0;
         }
 
-        public string Name => GetProperties().DisplayName;
+        public string Name => $"Display-{DisplayHandle.ToInt64():X}";
 
         internal void ThrowIfDisposed()
         {
