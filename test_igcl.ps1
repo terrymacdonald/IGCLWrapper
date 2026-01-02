@@ -14,7 +14,7 @@ Write-Host "Working directory: $scriptRoot" -ForegroundColor Cyan
 Write-Host ""
 
 Write-Host "============================================================================" -ForegroundColor Cyan
-Write-Host "IGCLWrapper Test Suite (ClangSharp Implementation)" -ForegroundColor Cyan
+Write-Host "IGCLWrapper Test Suite (Native + Facade)" -ForegroundColor Cyan
 Write-Host "============================================================================" -ForegroundColor Cyan
 Write-Host ""
 
@@ -121,64 +121,55 @@ try {
 }
 
 # ============================================================================
-# Verify test project exists
+# Verify test projects exist
 # ============================================================================
-$testProjectPath = Join-Path $scriptRoot "IGCLWrapper.Tests\IGCLWrapper.Tests.csproj"
+$nativeProjectPath = Join-Path $scriptRoot "IGCLWrapper.NativeTests\IGCLWrapper.NativeTests.csproj"
+$facadeProjectPath = Join-Path $scriptRoot "IGCLWrapper.FacadeTests\IGCLWrapper.FacadeTests.csproj"
 
-if (-not (Test-Path $testProjectPath)) {
-    Write-Host "ERROR: Test project not found at: $testProjectPath" -ForegroundColor Red
-    Write-Host ""
-    Read-Host "Press Enter to exit"
-    exit 1
+foreach ($path in @($nativeProjectPath, $facadeProjectPath)) {
+    if (-not (Test-Path $path)) {
+        Write-Host "ERROR: Test project not found at: $path" -ForegroundColor Red
+        Write-Host ""
+        Read-Host "Press Enter to exit"
+        exit 1
+    }
+    Write-Host "Test project found: $path" -ForegroundColor Green
 }
-
-Write-Host "Test project found: $testProjectPath" -ForegroundColor Green
 Write-Host ""
 
 # ============================================================================
 # Build and run unit tests
 # ============================================================================
 Write-Host "============================================================================" -ForegroundColor Cyan
-Write-Host "Building and running ClangSharp-based unit tests..." -ForegroundColor Cyan
+Write-Host "Building and running Native + Facade unit tests..." -ForegroundColor Cyan
 Write-Host "============================================================================" -ForegroundColor Cyan
 Write-Host ""
 
-try {
-    # Run tests with detailed console output
-    & dotnet test $testProjectPath --configuration Debug --verbosity normal
-    
-    if ($LASTEXITCODE -eq 0) {
+foreach ($path in @($nativeProjectPath, $facadeProjectPath)) {
+    Write-Host ""
+    Write-Host "Running tests in $path" -ForegroundColor Yellow
+    try {
+        & dotnet test $path --configuration Debug --verbosity normal
+        if ($LASTEXITCODE -ne 0) {
+            Write-Host ""
+            Write-Host "*** TESTS FAILED OR SKIPPED IN $path ***" -ForegroundColor Yellow
+            Read-Host "Press Enter to exit..."
+            exit 1
+        }
+    } catch {
         Write-Host ""
-        Write-Host "============================================================================" -ForegroundColor Green
-        Write-Host "*** ALL TESTS PASSED! ***" -ForegroundColor Green
-        Write-Host "============================================================================" -ForegroundColor Green
-        Write-Host "All unit tests completed successfully using .NET 10.0" -ForegroundColor Green
+        Write-Host "ERROR: Failed to run unit tests in $path" -ForegroundColor Red
+        Write-Host "Error: $_" -ForegroundColor Yellow
         Write-Host ""
-    } else {
-        Write-Host ""
-        Write-Host "============================================================================" -ForegroundColor Yellow
-        Write-Host "*** SOME TESTS FAILED OR WERE SKIPPED ***" -ForegroundColor Yellow
-        Write-Host "============================================================================" -ForegroundColor Yellow
-        Write-Host "Exit code: $LASTEXITCODE" -ForegroundColor Yellow
-        Write-Host ""
-        Write-Host "Troubleshooting tips:" -ForegroundColor Yellow
-        Write-Host "  - Tests gracefully skip if Intel hardware is not available" -ForegroundColor Gray
-        Write-Host "  - Ensure Intel GPU with IGCL support is present" -ForegroundColor Gray
-        Write-Host "  - Verify latest Intel Video drivers are installed" -ForegroundColor Gray
-        Write-Host "  - Review test output above for specific failure details" -ForegroundColor Gray
-        Write-Host ""
-        Write-Host "Note: Tests automatically skip if hardware/drivers don't support them." -ForegroundColor Cyan
-        Write-Host ""
-        
         Read-Host "Press Enter to exit..."
         exit 1
     }
-} catch {
-    Write-Host ""
-    Write-Host "ERROR: Failed to run unit tests!" -ForegroundColor Red
-    Write-Host "Error: $_" -ForegroundColor Yellow
-    Write-Host ""
-    Read-Host "Press Enter to exit..."
-    exit 1
 }
+
+Write-Host ""
+Write-Host "============================================================================" -ForegroundColor Green
+Write-Host "*** ALL TESTS COMPLETED (Native + Facade) ***" -ForegroundColor Green
+Write-Host "============================================================================" -ForegroundColor Green
+Write-Host "Tests auto-skip when hardware/driver prerequisites are missing." -ForegroundColor Gray
+Write-Host ""
 Read-Host "Press Enter to exit..."

@@ -1,4 +1,4 @@
-# IGCLWrapper
+ï»¿# IGCLWrapper
 
 A modern C# wrapper for Intel Graphics Control Library (IGCL), providing easy access to Intel GPU features and settings.
 
@@ -10,6 +10,9 @@ A modern C# wrapper for Intel Graphics Control Library (IGCL), providing easy ac
 - Helper methods for common adapter/display queries
 - ClangSharp-generated bindings kept in sync with the SDK
 - Tests skip gracefully when hardware is absent
+- Split test suites:
+  - `IGCLWrapper.NativeTests` exercises only ClangSharp-generated APIs.
+  - `IGCLWrapper.FacadeTests` exercises the new facade helpers.
 
 ## Quick Start
 
@@ -99,13 +102,13 @@ When Intel releases a new IGCL:
 ```
 
 ## Project structure
-- `IGCLWrapper/` – main wrapper
-  - `cs_generated/` – ClangSharp output (auto-generated)
-  - `IGCLApi.cs` – high-level API
-  - `IGCLExtensions.cs` – helpers for common ops
-- `IGCLWrapper.Tests/` – test suite
-- `Samples/` – sample apps
-- `drivers.gpu.control-library/` – IGCL SDK payload (populated by prepare script)
+- `IGCLWrapper/` â€“ main wrapper
+  - `cs_generated/` â€“ ClangSharp output (auto-generated)
+  - `IGCLApi.cs` â€“ high-level API
+  - `IGCLExtensions.cs` â€“ helpers for common ops
+- `IGCLWrapper.Tests/` â€“ test suite
+- `Samples/` â€“ sample apps
+- `drivers.gpu.control-library/` â€“ IGCL SDK payload (populated by prepare script)
 
 ## Usage notes
 - Always dispose `IGCLApi` (use `using`); SafeHandle + finalizer backstops leaks.
@@ -113,4 +116,4 @@ When Intel releases a new IGCL:
 - Struct `Version` fields are bytes; use `(byte)0/1` as shown in helpers.
 
 ## Contributing
-PRs welcome—please add/keep tests passing and let the generator own `cs_generated`.
+PRs welcomeâ€”please add/keep tests passing and let the generator own `cs_generated`.
