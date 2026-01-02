@@ -1,0 +1,110 @@
+using System;
+using System.Collections.Generic;
+
+namespace IGCLWrapper
+{
+    /// <summary>
+    /// Fan helper: enumerate fans, query properties, and set modes.
+    /// </summary>
+    public sealed class IGCLFanHelper : IDisposable
+    {
+        private readonly IGCLApiHelper _api;
+        private readonly IntPtr _adapter;
+        private bool _disposed;
+
+        internal IGCLFanHelper(IGCLApiHelper api, IntPtr adapter)
+        {
+            _api = api;
+            _adapter = adapter;
+        }
+
+        public unsafe IReadOnlyList<IntPtr> EnumerateFans()
+        {
+            ThrowIfDisposed();
+            return EnumerateHandles((_ctl_device_adapter_handle_t*)_adapter, IGCL.ctlEnumFans);
+        }
+
+        public unsafe ctl_fan_properties_t GetProperties(IntPtr fanHandle)
+        {
+            ThrowIfDisposed();
+            var props = IGCLApiHelper.CreateFanProperties();
+            var result = IGCL.ctlFanGetProperties((_ctl_fan_handle_t*)fanHandle, &props);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, "Failed to get fan properties");
+            return props;
+        }
+
+        public unsafe ctl_fan_config_t GetConfig(IntPtr fanHandle)
+        {
+            ThrowIfDisposed();
+            var config = IGCLApiHelper.CreateFanConfig();
+            var result = IGCL.ctlFanGetConfig((_ctl_fan_handle_t*)fanHandle, &config);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, "Failed to get fan config");
+            return config;
+        }
+
+        public unsafe void SetDefaultMode(IntPtr fanHandle)
+        {
+            ThrowIfDisposed();
+            var result = IGCL.ctlFanSetDefaultMode((_ctl_fan_handle_t*)fanHandle);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, "Failed to set fan default mode");
+        }
+
+        public unsafe void SetFixedSpeed(IntPtr fanHandle, ctl_fan_speed_t speed)
+        {
+            ThrowIfDisposed();
+            var result = IGCL.ctlFanSetFixedSpeedMode((_ctl_fan_handle_t*)fanHandle, &speed);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, "Failed to set fan fixed speed");
+        }
+
+        public unsafe void SetSpeedTable(IntPtr fanHandle, ctl_fan_speed_table_t table)
+        {
+            ThrowIfDisposed();
+            var result = IGCL.ctlFanSetSpeedTableMode((_ctl_fan_handle_t*)fanHandle, &table);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, "Failed to set fan speed table");
+        }
+
+        public unsafe int GetState(IntPtr fanHandle, ctl_fan_speed_units_t units)
+        {
+            ThrowIfDisposed();
+            int speed = 0;
+            var result = IGCL.ctlFanGetState((_ctl_fan_handle_t*)fanHandle, units, &speed);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, "Failed to get fan state");
+            return speed;
+        }
+
+        private static unsafe IReadOnlyList<IntPtr> EnumerateHandles(_ctl_device_adapter_handle_t* adapter, delegate* unmanaged[Cdecl]< _ctl_device_adapter_handle_t*, uint*, _ctl_fan_handle_t**, ctl_result_t> enumerateFn)
+        {
+            uint count = 0;
+            var result = enumerateFn(adapter, &count, null);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS && count == 0)
+                throw new IGCLException(result, "Failed to get fan count");
+            if (count == 0)
+                return Array.Empty<IntPtr>();
+            var handles = new IntPtr[count];
+            fixed (IntPtr* pHandles = handles)
+            {
+                result = enumerateFn(adapter, &count, (_ctl_fan_handle_t**)pHandles);
+                if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                    throw new IGCLException(result, "Failed to enumerate fans");
+            }
+            return handles;
+        }
+
+        private void ThrowIfDisposed()
+        {
+            if (_disposed)
+                throw new ObjectDisposedException(nameof(IGCLFanHelper));
+        }
+
+        public void Dispose()
+        {
+            _disposed = true;
+        }
+    }
+}
