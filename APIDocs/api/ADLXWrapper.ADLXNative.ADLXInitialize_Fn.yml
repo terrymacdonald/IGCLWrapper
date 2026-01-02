@@ -1,0 +1,88 @@
+### YamlMime:ManagedReference
+items:
+- uid: ADLXWrapper.ADLXNative.ADLXInitialize_Fn
+  commentId: T:ADLXWrapper.ADLXNative.ADLXInitialize_Fn
+  id: ADLXNative.ADLXInitialize_Fn
+  parent: ADLXWrapper
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: ADLXNative.ADLXInitialize_Fn
+  nameWithType: ADLXNative.ADLXInitialize_Fn
+  fullName: ADLXWrapper.ADLXNative.ADLXInitialize_Fn
+  type: Delegate
+  source:
+    remote:
+      path: ADLXWrapper/ADLXNative.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: ADLXInitialize_Fn
+    path: ../ADLXWrapper/ADLXNative.cs
+    startLine: 36
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public delegate ADLX_RESULT ADLXNative.ADLXInitialize_Fn(ulong version, nint* ppSystem)
+    parameters:
+    - id: version
+      type: System.UInt64
+    - id: ppSystem
+      type: System.IntPtr*
+    return:
+      type: ADLXWrapper.ADLX_RESULT
+    content.vb: Public Delegate Function ADLXNative.ADLXInitialize_Fn(version As ULong, ppSystem As IntPtr*) As ADLX_RESULT
+references:
+- uid: ADLXWrapper
+  commentId: N:ADLXWrapper
+  href: ADLXWrapper.html
+  name: ADLXWrapper
+  nameWithType: ADLXWrapper
+  fullName: ADLXWrapper
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint64
+  name: ulong
+  nameWithType: ulong
+  fullName: ulong
+  nameWithType.vb: ULong
+  fullName.vb: ULong
+  name.vb: ULong
+- uid: System.IntPtr*
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.intptr
+  name: nint*
+  nameWithType: nint*
+  fullName: nint*
+  nameWithType.vb: IntPtr*
+  fullName.vb: System.IntPtr*
+  name.vb: IntPtr*
+  spec.csharp:
+  - uid: System.IntPtr
+    name: nint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.intptr
+  - name: '*'
+  spec.vb:
+  - uid: System.IntPtr
+    name: IntPtr
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.intptr
+  - name: '*'
+- uid: ADLXWrapper.ADLX_RESULT
+  commentId: T:ADLXWrapper.ADLX_RESULT
+  parent: ADLXWrapper
+  href: ADLXWrapper.ADLX_RESULT.html
+  name: ADLX_RESULT
+  nameWithType: ADLX_RESULT
+  fullName: ADLXWrapper.ADLX_RESULT
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

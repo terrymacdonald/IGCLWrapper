@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ADLX3DSettingsServicesHelper | ADLXWrapper </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ADLX3DSettingsServicesHelper | ADLXWrapper ">
+      
+      <meta name="description" content="Wrapper over IADLX3DSettingsServices selecting the highest available interface and exposing change handling.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/terrymacdonald/ADLXWrapper/new/feature-facade-tests-v3/apiSpec/new?filename=ADLXWrapper_ADLX3DSettingsServicesHelper.md&amp;value=---%0Auid%3A%20ADLXWrapper.ADLX3DSettingsServicesHelper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="ADLXWrapper">
+            ADLXWrapper
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper">
+
+
+
+  <h1 id="ADLXWrapper_ADLX3DSettingsServicesHelper" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper" class="text-break">
+Class ADLX3DSettingsServicesHelper  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLX3DSettingsServicesHelper.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ADLXWrapper.html">ADLXWrapper</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ADLXWrapper.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Wrapper over IADLX3DSettingsServices selecting the highest available interface and exposing change handling.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class ADLX3DSettingsServicesHelper : IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ADLX3DSettingsServicesHelper</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="ADLXWrapper_ADLX3DSettingsServicesHelper__ctor_" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.#ctor*"></a>
+
+  <h3 id="ADLXWrapper_ADLX3DSettingsServicesHelper__ctor_ADLXWrapper_IADLX3DSettingsServices__System_Boolean_" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.#ctor(ADLXWrapper.IADLX3DSettingsServices*,System.Boolean)">
+  ADLX3DSettingsServicesHelper(IADLX3DSettingsServices*, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLX3DSettingsServicesHelper.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a 3D settings helper from the native services interface, upgrading to v1/v2 when available.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ADLX3DSettingsServicesHelper(IADLX3DSettingsServices* services, bool addRef = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>services</code> <a class="xref" href="ADLXWrapper.IADLX3DSettingsServices.html">IADLX3DSettingsServices</a>*</dt>
+    <dd><p>Native 3D settings services pointer.</p>
+</dd>
+    <dt><code>addRef</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True to AddRef the pointer for this helper.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ADLXWrapper_ADLX3DSettingsServicesHelper_Add3DSettingsEventListener_" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.Add3DSettingsEventListener*"></a>
+
+  <h3 id="ADLXWrapper_ADLX3DSettingsServicesHelper_Add3DSettingsEventListener_ADLXWrapper_ThreeDSettingsListenerHandle_ThreeDSettingsChangedCallback_" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.Add3DSettingsEventListener(ADLXWrapper.ThreeDSettingsListenerHandle.ThreeDSettingsChangedCallback)">
+  Add3DSettingsEventListener(ThreeDSettingsChangedCallback)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLX3DSettingsServicesHelper.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a 3D settings change listener.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ThreeDSettingsListenerHandle Add3DSettingsEventListener(ThreeDSettingsListenerHandle.ThreeDSettingsChangedCallback callback)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>callback</code> <a class="xref" href="ADLXWrapper.ThreeDSettingsListenerHandle.html">ThreeDSettingsListenerHandle</a>.<a class="xref" href="ADLXWrapper.ThreeDSettingsListenerHandle.ThreeDSettingsChangedCallback.html">ThreeDSettingsChangedCallback</a></dt>
+    <dd><p>Callback invoked on 3D settings changes.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ThreeDSettingsListenerHandle.html">ThreeDSettingsListenerHandle</a></dt>
+    <dd><p>Listener handle that must be disposed to unsubscribe.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If registration fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLX3DSettingsServicesHelper_ApplyAll3DSettings_" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.ApplyAll3DSettings*"></a>
+
+  <h3 id="ADLXWrapper_ADLX3DSettingsServicesHelper_ApplyAll3DSettings_ADLXWrapper_IADLXGPU__ADLXWrapper_All3DSettingsInfo_" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.ApplyAll3DSettings(ADLXWrapper.IADLXGPU*,ADLXWrapper.All3DSettingsInfo)">
+  ApplyAll3DSettings(IADLXGPU*, All3DSettingsInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLX3DSettingsServicesHelper.cs/#L210"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Applies all provided 3D settings to a GPU (only non-null fields are applied).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ApplyAll3DSettings(IADLXGPU* gpu, All3DSettingsInfo info)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd><p>Native GPU pointer.</p>
+</dd>
+    <dt><code>info</code> <a class="xref" href="ADLXWrapper.All3DSettingsInfo.html">All3DSettingsInfo</a></dt>
+    <dd><p>Settings to apply.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>If <code class="paramref">gpu</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If any underlying call fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLX3DSettingsServicesHelper_Dispose_" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.Dispose*"></a>
+
+  <h3 id="ADLXWrapper_ADLX3DSettingsServicesHelper_Dispose" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.Dispose">
+  Dispose()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLX3DSettingsServicesHelper.cs/#L243"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLX3DSettingsServicesHelper_Finalize_" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.Finalize*"></a>
+
+  <h3 id="ADLXWrapper_ADLX3DSettingsServicesHelper_Finalize" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.Finalize">
+  ~ADLX3DSettingsServicesHelper()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLX3DSettingsServicesHelper.cs/#L260"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ~ADLX3DSettingsServicesHelper()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLX3DSettingsServicesHelper_Get3DSettingsChangedHandling_" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsChangedHandling*"></a>
+
+  <h3 id="ADLXWrapper_ADLX3DSettingsServicesHelper_Get3DSettingsChangedHandling" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsChangedHandling">
+  Get3DSettingsChangedHandling()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLX3DSettingsServicesHelper.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ADLXInterfaceHandle Get3DSettingsChangedHandling()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.AdlxInterfaceHandle.html">ADLXInterfaceHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLX3DSettingsServicesHelper_Get3DSettingsChangedHandlingNative_" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsChangedHandlingNative*"></a>
+
+  <h3 id="ADLXWrapper_ADLX3DSettingsServicesHelper_Get3DSettingsChangedHandlingNative" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsChangedHandlingNative">
+  Get3DSettingsChangedHandlingNative()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLX3DSettingsServicesHelper.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the 3D settings change handling interface (native). Cached after first query.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IADLX3DSettingsChangedHandling* Get3DSettingsChangedHandlingNative()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.IADLX3DSettingsChangedHandling.html">IADLX3DSettingsChangedHandling</a>*</dt>
+    <dd><p>Native 3D settings change handling pointer.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If unsupported or retrieval fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLX3DSettingsServicesHelper_Get3DSettingsServicesHandle_" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsServicesHandle*"></a>
+
+  <h3 id="ADLXWrapper_ADLX3DSettingsServicesHelper_Get3DSettingsServicesHandle" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsServicesHandle">
+  Get3DSettingsServicesHandle()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLX3DSettingsServicesHelper.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an AddRef'd handle to the highest available 3D settings services interface.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ADLXInterfaceHandle Get3DSettingsServicesHandle()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.AdlxInterfaceHandle.html">ADLXInterfaceHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLX3DSettingsServicesHelper_Get3DSettingsServicesNative_" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsServicesNative*"></a>
+
+  <h3 id="ADLXWrapper_ADLX3DSettingsServicesHelper_Get3DSettingsServicesNative" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsServicesNative">
+  Get3DSettingsServicesNative()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLX3DSettingsServicesHelper.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IADLX3DSettingsServices* Get3DSettingsServicesNative()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.IADLX3DSettingsServices.html">IADLX3DSettingsServices</a>*</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLX3DSettingsServicesHelper_GetAll3DSettings_" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.GetAll3DSettings*"></a>
+
+  <h3 id="ADLXWrapper_ADLX3DSettingsServicesHelper_GetAll3DSettings_ADLXWrapper_IADLXGPU__" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.GetAll3DSettings(ADLXWrapper.IADLXGPU*)">
+  GetAll3DSettings(IADLXGPU*)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLX3DSettingsServicesHelper.cs/#L139"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public All3DSettingsInfo GetAll3DSettings(IADLXGPU* gpu)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.All3DSettingsInfo.html">All3DSettingsInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLX3DSettingsServicesHelper_GetFluidMotionFrames_" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.GetFluidMotionFrames*"></a>
+
+  <h3 id="ADLXWrapper_ADLX3DSettingsServicesHelper_GetFluidMotionFrames_ADLXWrapper_IADLXGPU__" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.GetFluidMotionFrames(ADLXWrapper.IADLXGPU*)">
+  GetFluidMotionFrames(IADLXGPU*)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLX3DSettingsServicesHelper.cs/#L399"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FluidMotionFramesInfo GetFluidMotionFrames(IADLXGPU* gpu)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.FluidMotionFramesInfo.html">FluidMotionFramesInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLX3DSettingsServicesHelper_GetRadeonSuperResolution_" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.GetRadeonSuperResolution*"></a>
+
+  <h3 id="ADLXWrapper_ADLX3DSettingsServicesHelper_GetRadeonSuperResolution" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.GetRadeonSuperResolution">
+  GetRadeonSuperResolution()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLX3DSettingsServicesHelper.cs/#L472"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RadeonSuperResolutionInfo GetRadeonSuperResolution()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.RadeonSuperResolutionInfo.html">RadeonSuperResolutionInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLX3DSettingsServicesHelper_Remove3DSettingsEventListener_" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.Remove3DSettingsEventListener*"></a>
+
+  <h3 id="ADLXWrapper_ADLX3DSettingsServicesHelper_Remove3DSettingsEventListener_ADLXWrapper_ThreeDSettingsListenerHandle_System_Boolean_" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.Remove3DSettingsEventListener(ADLXWrapper.ThreeDSettingsListenerHandle,System.Boolean)">
+  Remove3DSettingsEventListener(ThreeDSettingsListenerHandle, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLX3DSettingsServicesHelper.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Remove3DSettingsEventListener(ThreeDSettingsListenerHandle handle, bool disposeHandle = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handle</code> <a class="xref" href="ADLXWrapper.ThreeDSettingsListenerHandle.html">ThreeDSettingsListenerHandle</a></dt>
+    <dd></dd>
+    <dt><code>disposeHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLX3DSettingsServicesHelper_TryApplyAll3DSettings_" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.TryApplyAll3DSettings*"></a>
+
+  <h3 id="ADLXWrapper_ADLX3DSettingsServicesHelper_TryApplyAll3DSettings_ADLXWrapper_IADLXGPU__ADLXWrapper_All3DSettingsInfo_" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.TryApplyAll3DSettings(ADLXWrapper.IADLXGPU*,ADLXWrapper.All3DSettingsInfo)">
+  TryApplyAll3DSettings(IADLXGPU*, All3DSettingsInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLX3DSettingsServicesHelper.cs/#L230"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tries to apply all provided 3D settings; returns false when the feature set is unsupported.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryApplyAll3DSettings(IADLXGPU* gpu, All3DSettingsInfo info)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd></dd>
+    <dt><code>info</code> <a class="xref" href="ADLXWrapper.All3DSettingsInfo.html">All3DSettingsInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLX3DSettingsServicesHelper_TryGet3DSettingsChangedHandlingNative_" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.TryGet3DSettingsChangedHandlingNative*"></a>
+
+  <h3 id="ADLXWrapper_ADLX3DSettingsServicesHelper_TryGet3DSettingsChangedHandlingNative_ADLXWrapper_IADLX3DSettingsChangedHandling___" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.TryGet3DSettingsChangedHandlingNative(ADLXWrapper.IADLX3DSettingsChangedHandling*@)">
+  TryGet3DSettingsChangedHandlingNative(out IADLX3DSettingsChangedHandling*)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLX3DSettingsServicesHelper.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tries to get 3D settings change handling; returns false when unsupported.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGet3DSettingsChangedHandlingNative(out IADLX3DSettingsChangedHandling* handling)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handling</code> <a class="xref" href="ADLXWrapper.IADLX3DSettingsChangedHandling.html">IADLX3DSettingsChangedHandling</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLX3DSettingsServicesHelper_TryGetAll3DSettings_" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.TryGetAll3DSettings*"></a>
+
+  <h3 id="ADLXWrapper_ADLX3DSettingsServicesHelper_TryGetAll3DSettings_ADLXWrapper_IADLXGPU__ADLXWrapper_All3DSettingsInfo__" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.TryGetAll3DSettings(ADLXWrapper.IADLXGPU*,ADLXWrapper.All3DSettingsInfo@)">
+  TryGetAll3DSettings(IADLXGPU*, out All3DSettingsInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLX3DSettingsServicesHelper.cs/#L188"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tries to get all 3D settings; returns false when unsupported.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetAll3DSettings(IADLXGPU* gpu, out All3DSettingsInfo info)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd></dd>
+    <dt><code>info</code> <a class="xref" href="ADLXWrapper.All3DSettingsInfo.html">All3DSettingsInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLX3DSettingsServicesHelper_TryGetFluidMotionFrames_" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.TryGetFluidMotionFrames*"></a>
+
+  <h3 id="ADLXWrapper_ADLX3DSettingsServicesHelper_TryGetFluidMotionFrames_ADLXWrapper_IADLXGPU__ADLXWrapper_FluidMotionFramesInfo__" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.TryGetFluidMotionFrames(ADLXWrapper.IADLXGPU*,ADLXWrapper.FluidMotionFramesInfo@)">
+  TryGetFluidMotionFrames(IADLXGPU*, out FluidMotionFramesInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLX3DSettingsServicesHelper.cs/#L458"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetFluidMotionFrames(IADLXGPU* gpu, out FluidMotionFramesInfo info)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd></dd>
+    <dt><code>info</code> <a class="xref" href="ADLXWrapper.FluidMotionFramesInfo.html">FluidMotionFramesInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLX3DSettingsServicesHelper_TryGetRadeonSuperResolution_" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.TryGetRadeonSuperResolution*"></a>
+
+  <h3 id="ADLXWrapper_ADLX3DSettingsServicesHelper_TryGetRadeonSuperResolution_ADLXWrapper_RadeonSuperResolutionInfo__" data-uid="ADLXWrapper.ADLX3DSettingsServicesHelper.TryGetRadeonSuperResolution(ADLXWrapper.RadeonSuperResolutionInfo@)">
+  TryGetRadeonSuperResolution(out RadeonSuperResolutionInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLX3DSettingsServicesHelper.cs/#L510"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetRadeonSuperResolution(out RadeonSuperResolutionInfo info)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>info</code> <a class="xref" href="ADLXWrapper.RadeonSuperResolutionInfo.html">RadeonSuperResolutionInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLX3DSettingsServicesHelper.cs/#L11" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

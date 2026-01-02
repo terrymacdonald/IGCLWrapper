@@ -1,0 +1,1457 @@
+### YamlMime:ManagedReference
+items:
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper
+  commentId: T:ADLXWrapper.ADLXMultimediaServicesHelper
+  id: ADLXMultimediaServicesHelper
+  parent: ADLXWrapper
+  children:
+  - ADLXWrapper.ADLXMultimediaServicesHelper.#ctor(ADLXWrapper.IADLXMultimediaServices*,System.Boolean)
+  - ADLXWrapper.ADLXMultimediaServicesHelper.AddMultimediaEventListener(ADLXWrapper.MultimediaListenerHandle.MultimediaChangedCallback)
+  - ADLXWrapper.ADLXMultimediaServicesHelper.Dispose
+  - ADLXWrapper.ADLXMultimediaServicesHelper.Finalize
+  - ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaChangedHandling
+  - ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaChangedHandlingNative
+  - ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaServicesHandle
+  - ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaServicesNative
+  - ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoSuperResolution(ADLXWrapper.IADLXGPU*)
+  - ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoSuperResolutionNative(ADLXWrapper.IADLXGPU*)
+  - ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoUpscale(ADLXWrapper.IADLXGPU*)
+  - ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoUpscaleNative(ADLXWrapper.IADLXGPU*)
+  - ADLXWrapper.ADLXMultimediaServicesHelper.RemoveMultimediaEventListener(ADLXWrapper.MultimediaListenerHandle,System.Boolean)
+  - ADLXWrapper.ADLXMultimediaServicesHelper.SetVideoSuperResolutionEnabled(ADLXWrapper.IADLXVideoSuperResolution*,System.Boolean)
+  - ADLXWrapper.ADLXMultimediaServicesHelper.SetVideoUpscaleEnabled(ADLXWrapper.IADLXVideoUpscale*,System.Boolean)
+  - ADLXWrapper.ADLXMultimediaServicesHelper.SetVideoUpscaleSharpness(ADLXWrapper.IADLXVideoUpscale*,System.Int32)
+  - ADLXWrapper.ADLXMultimediaServicesHelper.TryGetMultimediaChangedHandlingNative(ADLXWrapper.IADLXMultimediaChangedHandling*@)
+  - ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoSuperResolution(ADLXWrapper.IADLXGPU*,ADLXWrapper.VideoSuperResolutionInfo@)
+  - ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoSuperResolutionNative(ADLXWrapper.IADLXGPU*,ADLXWrapper.IADLXVideoSuperResolution*@)
+  - ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoUpscale(ADLXWrapper.IADLXGPU*,ADLXWrapper.VideoUpscaleInfo@)
+  - ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoUpscaleNative(ADLXWrapper.IADLXGPU*,ADLXWrapper.IADLXVideoUpscale*@)
+  - ADLXWrapper.ADLXMultimediaServicesHelper.TrySetVideoSuperResolutionEnabled(ADLXWrapper.IADLXVideoSuperResolution*,System.Boolean)
+  - ADLXWrapper.ADLXMultimediaServicesHelper.TrySetVideoUpscaleEnabled(ADLXWrapper.IADLXVideoUpscale*,System.Boolean)
+  - ADLXWrapper.ADLXMultimediaServicesHelper.TrySetVideoUpscaleSharpness(ADLXWrapper.IADLXVideoUpscale*,System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: ADLXMultimediaServicesHelper
+  nameWithType: ADLXMultimediaServicesHelper
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper
+  type: Class
+  source:
+    remote:
+      path: ADLXWrapper/ADLXMultimediaServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: ADLXMultimediaServicesHelper
+    path: ../ADLXWrapper/ADLXMultimediaServicesHelper.cs
+    startLine: 11
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Wrapper over IADLXMultimediaServices exposing managed/native accessors and change handling.
+  example: []
+  syntax:
+    content: 'public sealed class ADLXMultimediaServicesHelper : IDisposable'
+    content.vb: Public NotInheritable Class ADLXMultimediaServicesHelper Implements IDisposable
+  inheritance:
+  - System.Object
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.#ctor(ADLXWrapper.IADLXMultimediaServices*,System.Boolean)
+  commentId: M:ADLXWrapper.ADLXMultimediaServicesHelper.#ctor(ADLXWrapper.IADLXMultimediaServices*,System.Boolean)
+  id: '#ctor(ADLXWrapper.IADLXMultimediaServices*,System.Boolean)'
+  parent: ADLXWrapper.ADLXMultimediaServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: ADLXMultimediaServicesHelper(IADLXMultimediaServices*, bool)
+  nameWithType: ADLXMultimediaServicesHelper.ADLXMultimediaServicesHelper(IADLXMultimediaServices*, bool)
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.ADLXMultimediaServicesHelper(ADLXWrapper.IADLXMultimediaServices*, bool)
+  type: Constructor
+  source:
+    remote:
+      path: ADLXWrapper/ADLXMultimediaServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: .ctor
+    path: ../ADLXWrapper/ADLXMultimediaServicesHelper.cs
+    startLine: 22
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Creates a multimedia services helper from the native services interface.
+  example: []
+  syntax:
+    content: public ADLXMultimediaServicesHelper(IADLXMultimediaServices* services, bool addRef = true)
+    parameters:
+    - id: services
+      type: ADLXWrapper.IADLXMultimediaServices*
+      description: Native multimedia services pointer.
+    - id: addRef
+      type: System.Boolean
+      description: True to AddRef the pointer for this helper.
+    content.vb: Public Sub New(services As IADLXMultimediaServices*, addRef As Boolean = True)
+  overload: ADLXWrapper.ADLXMultimediaServicesHelper.#ctor*
+  nameWithType.vb: ADLXMultimediaServicesHelper.New(IADLXMultimediaServices*, Boolean)
+  fullName.vb: ADLXWrapper.ADLXMultimediaServicesHelper.New(ADLXWrapper.IADLXMultimediaServices*, Boolean)
+  name.vb: New(IADLXMultimediaServices*, Boolean)
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaServicesNative
+  commentId: M:ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaServicesNative
+  id: GetMultimediaServicesNative
+  parent: ADLXWrapper.ADLXMultimediaServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetMultimediaServicesNative()
+  nameWithType: ADLXMultimediaServicesHelper.GetMultimediaServicesNative()
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaServicesNative()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXMultimediaServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetMultimediaServicesNative
+    path: ../ADLXWrapper/ADLXMultimediaServicesHelper.cs
+    startLine: 36
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Returns the native multimedia services interface owned by this helper.
+  example: []
+  syntax:
+    content: public IADLXMultimediaServices* GetMultimediaServicesNative()
+    return:
+      type: ADLXWrapper.IADLXMultimediaServices*
+    content.vb: Public Function GetMultimediaServicesNative() As IADLXMultimediaServices*
+  overload: ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaServicesNative*
+  exceptions:
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If disposed.
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaServicesHandle
+  commentId: M:ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaServicesHandle
+  id: GetMultimediaServicesHandle
+  parent: ADLXWrapper.ADLXMultimediaServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetMultimediaServicesHandle()
+  nameWithType: ADLXMultimediaServicesHelper.GetMultimediaServicesHandle()
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaServicesHandle()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXMultimediaServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetMultimediaServicesHandle
+    path: ../ADLXWrapper/ADLXMultimediaServicesHelper.cs
+    startLine: 47
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Returns an AddRef'd handle to the multimedia services interface.
+  example: []
+  syntax:
+    content: public ADLXInterfaceHandle GetMultimediaServicesHandle()
+    return:
+      type: ADLXWrapper.ADLXInterfaceHandle
+    content.vb: Public Function GetMultimediaServicesHandle() As ADLXInterfaceHandle
+  overload: ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaServicesHandle*
+  exceptions:
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If disposed.
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaChangedHandlingNative
+  commentId: M:ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaChangedHandlingNative
+  id: GetMultimediaChangedHandlingNative
+  parent: ADLXWrapper.ADLXMultimediaServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetMultimediaChangedHandlingNative()
+  nameWithType: ADLXMultimediaServicesHelper.GetMultimediaChangedHandlingNative()
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaChangedHandlingNative()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXMultimediaServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetMultimediaChangedHandlingNative
+    path: ../ADLXWrapper/ADLXMultimediaServicesHelper.cs
+    startLine: 60
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Gets the multimedia change handling interface (native). Cached after first query.
+  example: []
+  syntax:
+    content: public IADLXMultimediaChangedHandling* GetMultimediaChangedHandlingNative()
+    return:
+      type: ADLXWrapper.IADLXMultimediaChangedHandling*
+      description: Native multimedia change handling pointer.
+    content.vb: Public Function GetMultimediaChangedHandlingNative() As IADLXMultimediaChangedHandling*
+  overload: ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaChangedHandlingNative*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If unsupported or retrieval fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If disposed.
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.TryGetMultimediaChangedHandlingNative(ADLXWrapper.IADLXMultimediaChangedHandling*@)
+  commentId: M:ADLXWrapper.ADLXMultimediaServicesHelper.TryGetMultimediaChangedHandlingNative(ADLXWrapper.IADLXMultimediaChangedHandling*@)
+  id: TryGetMultimediaChangedHandlingNative(ADLXWrapper.IADLXMultimediaChangedHandling*@)
+  parent: ADLXWrapper.ADLXMultimediaServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: TryGetMultimediaChangedHandlingNative(out IADLXMultimediaChangedHandling*)
+  nameWithType: ADLXMultimediaServicesHelper.TryGetMultimediaChangedHandlingNative(out IADLXMultimediaChangedHandling*)
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.TryGetMultimediaChangedHandlingNative(out ADLXWrapper.IADLXMultimediaChangedHandling*)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXMultimediaServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: TryGetMultimediaChangedHandlingNative
+    path: ../ADLXWrapper/ADLXMultimediaServicesHelper.cs
+    startLine: 81
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Tries to get multimedia change handling; returns false when unsupported.
+  example: []
+  syntax:
+    content: public bool TryGetMultimediaChangedHandlingNative(out IADLXMultimediaChangedHandling* handling)
+    parameters:
+    - id: handling
+      type: ADLXWrapper.IADLXMultimediaChangedHandling*
+    return:
+      type: System.Boolean
+    content.vb: Public Function TryGetMultimediaChangedHandlingNative(handling As IADLXMultimediaChangedHandling*) As Boolean
+  overload: ADLXWrapper.ADLXMultimediaServicesHelper.TryGetMultimediaChangedHandlingNative*
+  nameWithType.vb: ADLXMultimediaServicesHelper.TryGetMultimediaChangedHandlingNative(IADLXMultimediaChangedHandling*)
+  fullName.vb: ADLXWrapper.ADLXMultimediaServicesHelper.TryGetMultimediaChangedHandlingNative(ADLXWrapper.IADLXMultimediaChangedHandling*)
+  name.vb: TryGetMultimediaChangedHandlingNative(IADLXMultimediaChangedHandling*)
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaChangedHandling
+  commentId: M:ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaChangedHandling
+  id: GetMultimediaChangedHandling
+  parent: ADLXWrapper.ADLXMultimediaServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetMultimediaChangedHandling()
+  nameWithType: ADLXMultimediaServicesHelper.GetMultimediaChangedHandling()
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaChangedHandling()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXMultimediaServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetMultimediaChangedHandling
+    path: ../ADLXWrapper/ADLXMultimediaServicesHelper.cs
+    startLine: 95
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public ADLXInterfaceHandle GetMultimediaChangedHandling()
+    return:
+      type: ADLXWrapper.ADLXInterfaceHandle
+    content.vb: Public Function GetMultimediaChangedHandling() As ADLXInterfaceHandle
+  overload: ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaChangedHandling*
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.AddMultimediaEventListener(ADLXWrapper.MultimediaListenerHandle.MultimediaChangedCallback)
+  commentId: M:ADLXWrapper.ADLXMultimediaServicesHelper.AddMultimediaEventListener(ADLXWrapper.MultimediaListenerHandle.MultimediaChangedCallback)
+  id: AddMultimediaEventListener(ADLXWrapper.MultimediaListenerHandle.MultimediaChangedCallback)
+  parent: ADLXWrapper.ADLXMultimediaServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: AddMultimediaEventListener(MultimediaChangedCallback)
+  nameWithType: ADLXMultimediaServicesHelper.AddMultimediaEventListener(MultimediaListenerHandle.MultimediaChangedCallback)
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.AddMultimediaEventListener(ADLXWrapper.MultimediaListenerHandle.MultimediaChangedCallback)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXMultimediaServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: AddMultimediaEventListener
+    path: ../ADLXWrapper/ADLXMultimediaServicesHelper.cs
+    startLine: 100
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public MultimediaListenerHandle AddMultimediaEventListener(MultimediaListenerHandle.MultimediaChangedCallback callback)
+    parameters:
+    - id: callback
+      type: ADLXWrapper.MultimediaListenerHandle.MultimediaChangedCallback
+    return:
+      type: ADLXWrapper.MultimediaListenerHandle
+    content.vb: Public Function AddMultimediaEventListener(callback As MultimediaListenerHandle.MultimediaChangedCallback) As MultimediaListenerHandle
+  overload: ADLXWrapper.ADLXMultimediaServicesHelper.AddMultimediaEventListener*
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.RemoveMultimediaEventListener(ADLXWrapper.MultimediaListenerHandle,System.Boolean)
+  commentId: M:ADLXWrapper.ADLXMultimediaServicesHelper.RemoveMultimediaEventListener(ADLXWrapper.MultimediaListenerHandle,System.Boolean)
+  id: RemoveMultimediaEventListener(ADLXWrapper.MultimediaListenerHandle,System.Boolean)
+  parent: ADLXWrapper.ADLXMultimediaServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: RemoveMultimediaEventListener(MultimediaListenerHandle, bool)
+  nameWithType: ADLXMultimediaServicesHelper.RemoveMultimediaEventListener(MultimediaListenerHandle, bool)
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.RemoveMultimediaEventListener(ADLXWrapper.MultimediaListenerHandle, bool)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXMultimediaServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: RemoveMultimediaEventListener
+    path: ../ADLXWrapper/ADLXMultimediaServicesHelper.cs
+    startLine: 116
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public void RemoveMultimediaEventListener(MultimediaListenerHandle handle, bool disposeHandle = true)
+    parameters:
+    - id: handle
+      type: ADLXWrapper.MultimediaListenerHandle
+    - id: disposeHandle
+      type: System.Boolean
+    content.vb: Public Sub RemoveMultimediaEventListener(handle As MultimediaListenerHandle, disposeHandle As Boolean = True)
+  overload: ADLXWrapper.ADLXMultimediaServicesHelper.RemoveMultimediaEventListener*
+  nameWithType.vb: ADLXMultimediaServicesHelper.RemoveMultimediaEventListener(MultimediaListenerHandle, Boolean)
+  fullName.vb: ADLXWrapper.ADLXMultimediaServicesHelper.RemoveMultimediaEventListener(ADLXWrapper.MultimediaListenerHandle, Boolean)
+  name.vb: RemoveMultimediaEventListener(MultimediaListenerHandle, Boolean)
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoUpscaleNative(ADLXWrapper.IADLXGPU*)
+  commentId: M:ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoUpscaleNative(ADLXWrapper.IADLXGPU*)
+  id: GetVideoUpscaleNative(ADLXWrapper.IADLXGPU*)
+  parent: ADLXWrapper.ADLXMultimediaServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetVideoUpscaleNative(IADLXGPU*)
+  nameWithType: ADLXMultimediaServicesHelper.GetVideoUpscaleNative(IADLXGPU*)
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoUpscaleNative(ADLXWrapper.IADLXGPU*)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXMultimediaServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetVideoUpscaleNative
+    path: ../ADLXWrapper/ADLXMultimediaServicesHelper.cs
+    startLine: 131
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public IADLXVideoUpscale* GetVideoUpscaleNative(IADLXGPU* gpu)
+    parameters:
+    - id: gpu
+      type: ADLXWrapper.IADLXGPU*
+    return:
+      type: ADLXWrapper.IADLXVideoUpscale*
+    content.vb: Public Function GetVideoUpscaleNative(gpu As IADLXGPU*) As IADLXVideoUpscale*
+  overload: ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoUpscaleNative*
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoUpscaleNative(ADLXWrapper.IADLXGPU*,ADLXWrapper.IADLXVideoUpscale*@)
+  commentId: M:ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoUpscaleNative(ADLXWrapper.IADLXGPU*,ADLXWrapper.IADLXVideoUpscale*@)
+  id: TryGetVideoUpscaleNative(ADLXWrapper.IADLXGPU*,ADLXWrapper.IADLXVideoUpscale*@)
+  parent: ADLXWrapper.ADLXMultimediaServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: TryGetVideoUpscaleNative(IADLXGPU*, out IADLXVideoUpscale*)
+  nameWithType: ADLXMultimediaServicesHelper.TryGetVideoUpscaleNative(IADLXGPU*, out IADLXVideoUpscale*)
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoUpscaleNative(ADLXWrapper.IADLXGPU*, out ADLXWrapper.IADLXVideoUpscale*)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXMultimediaServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: TryGetVideoUpscaleNative
+    path: ../ADLXWrapper/ADLXMultimediaServicesHelper.cs
+    startLine: 150
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Tries to get the native video upscale interface; returns false when unsupported.
+  example: []
+  syntax:
+    content: public bool TryGetVideoUpscaleNative(IADLXGPU* gpu, out IADLXVideoUpscale* upscale)
+    parameters:
+    - id: gpu
+      type: ADLXWrapper.IADLXGPU*
+    - id: upscale
+      type: ADLXWrapper.IADLXVideoUpscale*
+    return:
+      type: System.Boolean
+    content.vb: Public Function TryGetVideoUpscaleNative(gpu As IADLXGPU*, upscale As IADLXVideoUpscale*) As Boolean
+  overload: ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoUpscaleNative*
+  nameWithType.vb: ADLXMultimediaServicesHelper.TryGetVideoUpscaleNative(IADLXGPU*, IADLXVideoUpscale*)
+  fullName.vb: ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoUpscaleNative(ADLXWrapper.IADLXGPU*, ADLXWrapper.IADLXVideoUpscale*)
+  name.vb: TryGetVideoUpscaleNative(IADLXGPU*, IADLXVideoUpscale*)
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoUpscale(ADLXWrapper.IADLXGPU*)
+  commentId: M:ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoUpscale(ADLXWrapper.IADLXGPU*)
+  id: GetVideoUpscale(ADLXWrapper.IADLXGPU*)
+  parent: ADLXWrapper.ADLXMultimediaServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetVideoUpscale(IADLXGPU*)
+  nameWithType: ADLXMultimediaServicesHelper.GetVideoUpscale(IADLXGPU*)
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoUpscale(ADLXWrapper.IADLXGPU*)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXMultimediaServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetVideoUpscale
+    path: ../ADLXWrapper/ADLXMultimediaServicesHelper.cs
+    startLine: 164
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public VideoUpscaleInfo GetVideoUpscale(IADLXGPU* gpu)
+    parameters:
+    - id: gpu
+      type: ADLXWrapper.IADLXGPU*
+    return:
+      type: ADLXWrapper.VideoUpscaleInfo
+    content.vb: Public Function GetVideoUpscale(gpu As IADLXGPU*) As VideoUpscaleInfo
+  overload: ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoUpscale*
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoUpscale(ADLXWrapper.IADLXGPU*,ADLXWrapper.VideoUpscaleInfo@)
+  commentId: M:ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoUpscale(ADLXWrapper.IADLXGPU*,ADLXWrapper.VideoUpscaleInfo@)
+  id: TryGetVideoUpscale(ADLXWrapper.IADLXGPU*,ADLXWrapper.VideoUpscaleInfo@)
+  parent: ADLXWrapper.ADLXMultimediaServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: TryGetVideoUpscale(IADLXGPU*, out VideoUpscaleInfo)
+  nameWithType: ADLXMultimediaServicesHelper.TryGetVideoUpscale(IADLXGPU*, out VideoUpscaleInfo)
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoUpscale(ADLXWrapper.IADLXGPU*, out ADLXWrapper.VideoUpscaleInfo)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXMultimediaServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: TryGetVideoUpscale
+    path: ../ADLXWrapper/ADLXMultimediaServicesHelper.cs
+    startLine: 177
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Tries to query video upscale info; returns false when unsupported.
+  example: []
+  syntax:
+    content: public bool TryGetVideoUpscale(IADLXGPU* gpu, out VideoUpscaleInfo info)
+    parameters:
+    - id: gpu
+      type: ADLXWrapper.IADLXGPU*
+    - id: info
+      type: ADLXWrapper.VideoUpscaleInfo
+    return:
+      type: System.Boolean
+    content.vb: Public Function TryGetVideoUpscale(gpu As IADLXGPU*, info As VideoUpscaleInfo) As Boolean
+  overload: ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoUpscale*
+  nameWithType.vb: ADLXMultimediaServicesHelper.TryGetVideoUpscale(IADLXGPU*, VideoUpscaleInfo)
+  fullName.vb: ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoUpscale(ADLXWrapper.IADLXGPU*, ADLXWrapper.VideoUpscaleInfo)
+  name.vb: TryGetVideoUpscale(IADLXGPU*, VideoUpscaleInfo)
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.SetVideoUpscaleEnabled(ADLXWrapper.IADLXVideoUpscale*,System.Boolean)
+  commentId: M:ADLXWrapper.ADLXMultimediaServicesHelper.SetVideoUpscaleEnabled(ADLXWrapper.IADLXVideoUpscale*,System.Boolean)
+  id: SetVideoUpscaleEnabled(ADLXWrapper.IADLXVideoUpscale*,System.Boolean)
+  parent: ADLXWrapper.ADLXMultimediaServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: SetVideoUpscaleEnabled(IADLXVideoUpscale*, bool)
+  nameWithType: ADLXMultimediaServicesHelper.SetVideoUpscaleEnabled(IADLXVideoUpscale*, bool)
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.SetVideoUpscaleEnabled(ADLXWrapper.IADLXVideoUpscale*, bool)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXMultimediaServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: SetVideoUpscaleEnabled
+    path: ../ADLXWrapper/ADLXMultimediaServicesHelper.cs
+    startLine: 191
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public void SetVideoUpscaleEnabled(IADLXVideoUpscale* upscale, bool enable)
+    parameters:
+    - id: upscale
+      type: ADLXWrapper.IADLXVideoUpscale*
+    - id: enable
+      type: System.Boolean
+    content.vb: Public Sub SetVideoUpscaleEnabled(upscale As IADLXVideoUpscale*, enable As Boolean)
+  overload: ADLXWrapper.ADLXMultimediaServicesHelper.SetVideoUpscaleEnabled*
+  nameWithType.vb: ADLXMultimediaServicesHelper.SetVideoUpscaleEnabled(IADLXVideoUpscale*, Boolean)
+  fullName.vb: ADLXWrapper.ADLXMultimediaServicesHelper.SetVideoUpscaleEnabled(ADLXWrapper.IADLXVideoUpscale*, Boolean)
+  name.vb: SetVideoUpscaleEnabled(IADLXVideoUpscale*, Boolean)
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.TrySetVideoUpscaleEnabled(ADLXWrapper.IADLXVideoUpscale*,System.Boolean)
+  commentId: M:ADLXWrapper.ADLXMultimediaServicesHelper.TrySetVideoUpscaleEnabled(ADLXWrapper.IADLXVideoUpscale*,System.Boolean)
+  id: TrySetVideoUpscaleEnabled(ADLXWrapper.IADLXVideoUpscale*,System.Boolean)
+  parent: ADLXWrapper.ADLXMultimediaServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: TrySetVideoUpscaleEnabled(IADLXVideoUpscale*, bool)
+  nameWithType: ADLXMultimediaServicesHelper.TrySetVideoUpscaleEnabled(IADLXVideoUpscale*, bool)
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.TrySetVideoUpscaleEnabled(ADLXWrapper.IADLXVideoUpscale*, bool)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXMultimediaServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: TrySetVideoUpscaleEnabled
+    path: ../ADLXWrapper/ADLXMultimediaServicesHelper.cs
+    startLine: 205
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Tries to set video upscale enabled; returns false when the feature is unsupported.
+  example: []
+  syntax:
+    content: public bool TrySetVideoUpscaleEnabled(IADLXVideoUpscale* upscale, bool enable)
+    parameters:
+    - id: upscale
+      type: ADLXWrapper.IADLXVideoUpscale*
+    - id: enable
+      type: System.Boolean
+    return:
+      type: System.Boolean
+    content.vb: Public Function TrySetVideoUpscaleEnabled(upscale As IADLXVideoUpscale*, enable As Boolean) As Boolean
+  overload: ADLXWrapper.ADLXMultimediaServicesHelper.TrySetVideoUpscaleEnabled*
+  nameWithType.vb: ADLXMultimediaServicesHelper.TrySetVideoUpscaleEnabled(IADLXVideoUpscale*, Boolean)
+  fullName.vb: ADLXWrapper.ADLXMultimediaServicesHelper.TrySetVideoUpscaleEnabled(ADLXWrapper.IADLXVideoUpscale*, Boolean)
+  name.vb: TrySetVideoUpscaleEnabled(IADLXVideoUpscale*, Boolean)
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.SetVideoUpscaleSharpness(ADLXWrapper.IADLXVideoUpscale*,System.Int32)
+  commentId: M:ADLXWrapper.ADLXMultimediaServicesHelper.SetVideoUpscaleSharpness(ADLXWrapper.IADLXVideoUpscale*,System.Int32)
+  id: SetVideoUpscaleSharpness(ADLXWrapper.IADLXVideoUpscale*,System.Int32)
+  parent: ADLXWrapper.ADLXMultimediaServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: SetVideoUpscaleSharpness(IADLXVideoUpscale*, int)
+  nameWithType: ADLXMultimediaServicesHelper.SetVideoUpscaleSharpness(IADLXVideoUpscale*, int)
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.SetVideoUpscaleSharpness(ADLXWrapper.IADLXVideoUpscale*, int)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXMultimediaServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: SetVideoUpscaleSharpness
+    path: ../ADLXWrapper/ADLXMultimediaServicesHelper.cs
+    startLine: 218
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public void SetVideoUpscaleSharpness(IADLXVideoUpscale* upscale, int sharpness)
+    parameters:
+    - id: upscale
+      type: ADLXWrapper.IADLXVideoUpscale*
+    - id: sharpness
+      type: System.Int32
+    content.vb: Public Sub SetVideoUpscaleSharpness(upscale As IADLXVideoUpscale*, sharpness As Integer)
+  overload: ADLXWrapper.ADLXMultimediaServicesHelper.SetVideoUpscaleSharpness*
+  nameWithType.vb: ADLXMultimediaServicesHelper.SetVideoUpscaleSharpness(IADLXVideoUpscale*, Integer)
+  fullName.vb: ADLXWrapper.ADLXMultimediaServicesHelper.SetVideoUpscaleSharpness(ADLXWrapper.IADLXVideoUpscale*, Integer)
+  name.vb: SetVideoUpscaleSharpness(IADLXVideoUpscale*, Integer)
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.TrySetVideoUpscaleSharpness(ADLXWrapper.IADLXVideoUpscale*,System.Int32)
+  commentId: M:ADLXWrapper.ADLXMultimediaServicesHelper.TrySetVideoUpscaleSharpness(ADLXWrapper.IADLXVideoUpscale*,System.Int32)
+  id: TrySetVideoUpscaleSharpness(ADLXWrapper.IADLXVideoUpscale*,System.Int32)
+  parent: ADLXWrapper.ADLXMultimediaServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: TrySetVideoUpscaleSharpness(IADLXVideoUpscale*, int)
+  nameWithType: ADLXMultimediaServicesHelper.TrySetVideoUpscaleSharpness(IADLXVideoUpscale*, int)
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.TrySetVideoUpscaleSharpness(ADLXWrapper.IADLXVideoUpscale*, int)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXMultimediaServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: TrySetVideoUpscaleSharpness
+    path: ../ADLXWrapper/ADLXMultimediaServicesHelper.cs
+    startLine: 232
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Tries to set video upscale sharpness; returns false when the feature is unsupported.
+  example: []
+  syntax:
+    content: public bool TrySetVideoUpscaleSharpness(IADLXVideoUpscale* upscale, int sharpness)
+    parameters:
+    - id: upscale
+      type: ADLXWrapper.IADLXVideoUpscale*
+    - id: sharpness
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Function TrySetVideoUpscaleSharpness(upscale As IADLXVideoUpscale*, sharpness As Integer) As Boolean
+  overload: ADLXWrapper.ADLXMultimediaServicesHelper.TrySetVideoUpscaleSharpness*
+  nameWithType.vb: ADLXMultimediaServicesHelper.TrySetVideoUpscaleSharpness(IADLXVideoUpscale*, Integer)
+  fullName.vb: ADLXWrapper.ADLXMultimediaServicesHelper.TrySetVideoUpscaleSharpness(ADLXWrapper.IADLXVideoUpscale*, Integer)
+  name.vb: TrySetVideoUpscaleSharpness(IADLXVideoUpscale*, Integer)
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoSuperResolutionNative(ADLXWrapper.IADLXGPU*)
+  commentId: M:ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoSuperResolutionNative(ADLXWrapper.IADLXGPU*)
+  id: GetVideoSuperResolutionNative(ADLXWrapper.IADLXGPU*)
+  parent: ADLXWrapper.ADLXMultimediaServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetVideoSuperResolutionNative(IADLXGPU*)
+  nameWithType: ADLXMultimediaServicesHelper.GetVideoSuperResolutionNative(IADLXGPU*)
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoSuperResolutionNative(ADLXWrapper.IADLXGPU*)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXMultimediaServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetVideoSuperResolutionNative
+    path: ../ADLXWrapper/ADLXMultimediaServicesHelper.cs
+    startLine: 245
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public IADLXVideoSuperResolution* GetVideoSuperResolutionNative(IADLXGPU* gpu)
+    parameters:
+    - id: gpu
+      type: ADLXWrapper.IADLXGPU*
+    return:
+      type: ADLXWrapper.IADLXVideoSuperResolution*
+    content.vb: Public Function GetVideoSuperResolutionNative(gpu As IADLXGPU*) As IADLXVideoSuperResolution*
+  overload: ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoSuperResolutionNative*
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoSuperResolutionNative(ADLXWrapper.IADLXGPU*,ADLXWrapper.IADLXVideoSuperResolution*@)
+  commentId: M:ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoSuperResolutionNative(ADLXWrapper.IADLXGPU*,ADLXWrapper.IADLXVideoSuperResolution*@)
+  id: TryGetVideoSuperResolutionNative(ADLXWrapper.IADLXGPU*,ADLXWrapper.IADLXVideoSuperResolution*@)
+  parent: ADLXWrapper.ADLXMultimediaServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: TryGetVideoSuperResolutionNative(IADLXGPU*, out IADLXVideoSuperResolution*)
+  nameWithType: ADLXMultimediaServicesHelper.TryGetVideoSuperResolutionNative(IADLXGPU*, out IADLXVideoSuperResolution*)
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoSuperResolutionNative(ADLXWrapper.IADLXGPU*, out ADLXWrapper.IADLXVideoSuperResolution*)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXMultimediaServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: TryGetVideoSuperResolutionNative
+    path: ../ADLXWrapper/ADLXMultimediaServicesHelper.cs
+    startLine: 264
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Tries to get the native video super resolution interface; returns false when unsupported.
+  example: []
+  syntax:
+    content: public bool TryGetVideoSuperResolutionNative(IADLXGPU* gpu, out IADLXVideoSuperResolution* vsr)
+    parameters:
+    - id: gpu
+      type: ADLXWrapper.IADLXGPU*
+    - id: vsr
+      type: ADLXWrapper.IADLXVideoSuperResolution*
+    return:
+      type: System.Boolean
+    content.vb: Public Function TryGetVideoSuperResolutionNative(gpu As IADLXGPU*, vsr As IADLXVideoSuperResolution*) As Boolean
+  overload: ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoSuperResolutionNative*
+  nameWithType.vb: ADLXMultimediaServicesHelper.TryGetVideoSuperResolutionNative(IADLXGPU*, IADLXVideoSuperResolution*)
+  fullName.vb: ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoSuperResolutionNative(ADLXWrapper.IADLXGPU*, ADLXWrapper.IADLXVideoSuperResolution*)
+  name.vb: TryGetVideoSuperResolutionNative(IADLXGPU*, IADLXVideoSuperResolution*)
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoSuperResolution(ADLXWrapper.IADLXGPU*)
+  commentId: M:ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoSuperResolution(ADLXWrapper.IADLXGPU*)
+  id: GetVideoSuperResolution(ADLXWrapper.IADLXGPU*)
+  parent: ADLXWrapper.ADLXMultimediaServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetVideoSuperResolution(IADLXGPU*)
+  nameWithType: ADLXMultimediaServicesHelper.GetVideoSuperResolution(IADLXGPU*)
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoSuperResolution(ADLXWrapper.IADLXGPU*)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXMultimediaServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetVideoSuperResolution
+    path: ../ADLXWrapper/ADLXMultimediaServicesHelper.cs
+    startLine: 278
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public VideoSuperResolutionInfo GetVideoSuperResolution(IADLXGPU* gpu)
+    parameters:
+    - id: gpu
+      type: ADLXWrapper.IADLXGPU*
+    return:
+      type: ADLXWrapper.VideoSuperResolutionInfo
+    content.vb: Public Function GetVideoSuperResolution(gpu As IADLXGPU*) As VideoSuperResolutionInfo
+  overload: ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoSuperResolution*
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoSuperResolution(ADLXWrapper.IADLXGPU*,ADLXWrapper.VideoSuperResolutionInfo@)
+  commentId: M:ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoSuperResolution(ADLXWrapper.IADLXGPU*,ADLXWrapper.VideoSuperResolutionInfo@)
+  id: TryGetVideoSuperResolution(ADLXWrapper.IADLXGPU*,ADLXWrapper.VideoSuperResolutionInfo@)
+  parent: ADLXWrapper.ADLXMultimediaServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: TryGetVideoSuperResolution(IADLXGPU*, out VideoSuperResolutionInfo)
+  nameWithType: ADLXMultimediaServicesHelper.TryGetVideoSuperResolution(IADLXGPU*, out VideoSuperResolutionInfo)
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoSuperResolution(ADLXWrapper.IADLXGPU*, out ADLXWrapper.VideoSuperResolutionInfo)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXMultimediaServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: TryGetVideoSuperResolution
+    path: ../ADLXWrapper/ADLXMultimediaServicesHelper.cs
+    startLine: 291
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Tries to query video super resolution info; returns false when unsupported.
+  example: []
+  syntax:
+    content: public bool TryGetVideoSuperResolution(IADLXGPU* gpu, out VideoSuperResolutionInfo info)
+    parameters:
+    - id: gpu
+      type: ADLXWrapper.IADLXGPU*
+    - id: info
+      type: ADLXWrapper.VideoSuperResolutionInfo
+    return:
+      type: System.Boolean
+    content.vb: Public Function TryGetVideoSuperResolution(gpu As IADLXGPU*, info As VideoSuperResolutionInfo) As Boolean
+  overload: ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoSuperResolution*
+  nameWithType.vb: ADLXMultimediaServicesHelper.TryGetVideoSuperResolution(IADLXGPU*, VideoSuperResolutionInfo)
+  fullName.vb: ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoSuperResolution(ADLXWrapper.IADLXGPU*, ADLXWrapper.VideoSuperResolutionInfo)
+  name.vb: TryGetVideoSuperResolution(IADLXGPU*, VideoSuperResolutionInfo)
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.SetVideoSuperResolutionEnabled(ADLXWrapper.IADLXVideoSuperResolution*,System.Boolean)
+  commentId: M:ADLXWrapper.ADLXMultimediaServicesHelper.SetVideoSuperResolutionEnabled(ADLXWrapper.IADLXVideoSuperResolution*,System.Boolean)
+  id: SetVideoSuperResolutionEnabled(ADLXWrapper.IADLXVideoSuperResolution*,System.Boolean)
+  parent: ADLXWrapper.ADLXMultimediaServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: SetVideoSuperResolutionEnabled(IADLXVideoSuperResolution*, bool)
+  nameWithType: ADLXMultimediaServicesHelper.SetVideoSuperResolutionEnabled(IADLXVideoSuperResolution*, bool)
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.SetVideoSuperResolutionEnabled(ADLXWrapper.IADLXVideoSuperResolution*, bool)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXMultimediaServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: SetVideoSuperResolutionEnabled
+    path: ../ADLXWrapper/ADLXMultimediaServicesHelper.cs
+    startLine: 305
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public void SetVideoSuperResolutionEnabled(IADLXVideoSuperResolution* vsr, bool enable)
+    parameters:
+    - id: vsr
+      type: ADLXWrapper.IADLXVideoSuperResolution*
+    - id: enable
+      type: System.Boolean
+    content.vb: Public Sub SetVideoSuperResolutionEnabled(vsr As IADLXVideoSuperResolution*, enable As Boolean)
+  overload: ADLXWrapper.ADLXMultimediaServicesHelper.SetVideoSuperResolutionEnabled*
+  nameWithType.vb: ADLXMultimediaServicesHelper.SetVideoSuperResolutionEnabled(IADLXVideoSuperResolution*, Boolean)
+  fullName.vb: ADLXWrapper.ADLXMultimediaServicesHelper.SetVideoSuperResolutionEnabled(ADLXWrapper.IADLXVideoSuperResolution*, Boolean)
+  name.vb: SetVideoSuperResolutionEnabled(IADLXVideoSuperResolution*, Boolean)
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.TrySetVideoSuperResolutionEnabled(ADLXWrapper.IADLXVideoSuperResolution*,System.Boolean)
+  commentId: M:ADLXWrapper.ADLXMultimediaServicesHelper.TrySetVideoSuperResolutionEnabled(ADLXWrapper.IADLXVideoSuperResolution*,System.Boolean)
+  id: TrySetVideoSuperResolutionEnabled(ADLXWrapper.IADLXVideoSuperResolution*,System.Boolean)
+  parent: ADLXWrapper.ADLXMultimediaServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: TrySetVideoSuperResolutionEnabled(IADLXVideoSuperResolution*, bool)
+  nameWithType: ADLXMultimediaServicesHelper.TrySetVideoSuperResolutionEnabled(IADLXVideoSuperResolution*, bool)
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.TrySetVideoSuperResolutionEnabled(ADLXWrapper.IADLXVideoSuperResolution*, bool)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXMultimediaServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: TrySetVideoSuperResolutionEnabled
+    path: ../ADLXWrapper/ADLXMultimediaServicesHelper.cs
+    startLine: 319
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Tries to set video super resolution enabled; returns false when the feature is unsupported.
+  example: []
+  syntax:
+    content: public bool TrySetVideoSuperResolutionEnabled(IADLXVideoSuperResolution* vsr, bool enable)
+    parameters:
+    - id: vsr
+      type: ADLXWrapper.IADLXVideoSuperResolution*
+    - id: enable
+      type: System.Boolean
+    return:
+      type: System.Boolean
+    content.vb: Public Function TrySetVideoSuperResolutionEnabled(vsr As IADLXVideoSuperResolution*, enable As Boolean) As Boolean
+  overload: ADLXWrapper.ADLXMultimediaServicesHelper.TrySetVideoSuperResolutionEnabled*
+  nameWithType.vb: ADLXMultimediaServicesHelper.TrySetVideoSuperResolutionEnabled(IADLXVideoSuperResolution*, Boolean)
+  fullName.vb: ADLXWrapper.ADLXMultimediaServicesHelper.TrySetVideoSuperResolutionEnabled(ADLXWrapper.IADLXVideoSuperResolution*, Boolean)
+  name.vb: TrySetVideoSuperResolutionEnabled(IADLXVideoSuperResolution*, Boolean)
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.Dispose
+  commentId: M:ADLXWrapper.ADLXMultimediaServicesHelper.Dispose
+  id: Dispose
+  parent: ADLXWrapper.ADLXMultimediaServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: ADLXMultimediaServicesHelper.Dispose()
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.Dispose()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXMultimediaServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: Dispose
+    path: ../ADLXWrapper/ADLXMultimediaServicesHelper.cs
+    startLine: 332
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: ADLXWrapper.ADLXMultimediaServicesHelper.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.Finalize
+  commentId: M:ADLXWrapper.ADLXMultimediaServicesHelper.Finalize
+  id: Finalize
+  parent: ADLXWrapper.ADLXMultimediaServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: ~ADLXMultimediaServicesHelper()
+  nameWithType: ADLXMultimediaServicesHelper.~ADLXMultimediaServicesHelper()
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.~ADLXMultimediaServicesHelper()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXMultimediaServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: Finalize
+    path: ../ADLXWrapper/ADLXMultimediaServicesHelper.cs
+    startLine: 347
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: protected ~ADLXMultimediaServicesHelper()
+    content.vb: 'Protected '
+  overload: ADLXWrapper.ADLXMultimediaServicesHelper.Finalize*
+  nameWithType.vb: ''
+  fullName.vb: ''
+  name.vb: ''
+references:
+- uid: ADLXWrapper
+  commentId: N:ADLXWrapper
+  href: ADLXWrapper.html
+  name: ADLXWrapper
+  nameWithType: ADLXWrapper
+  fullName: ADLXWrapper
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.#ctor*
+  commentId: Overload:ADLXWrapper.ADLXMultimediaServicesHelper.#ctor
+  href: ADLXWrapper.ADLXMultimediaServicesHelper.html#ADLXWrapper_ADLXMultimediaServicesHelper__ctor_ADLXWrapper_IADLXMultimediaServices__System_Boolean_
+  name: ADLXMultimediaServicesHelper
+  nameWithType: ADLXMultimediaServicesHelper.ADLXMultimediaServicesHelper
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.ADLXMultimediaServicesHelper
+  nameWithType.vb: ADLXMultimediaServicesHelper.New
+  fullName.vb: ADLXWrapper.ADLXMultimediaServicesHelper.New
+  name.vb: New
+- uid: ADLXWrapper.IADLXMultimediaServices*
+  isExternal: true
+  href: ADLXWrapper.IADLXMultimediaServices.html
+  name: IADLXMultimediaServices*
+  nameWithType: IADLXMultimediaServices*
+  fullName: ADLXWrapper.IADLXMultimediaServices*
+  spec.csharp:
+  - uid: ADLXWrapper.IADLXMultimediaServices
+    name: IADLXMultimediaServices
+    href: ADLXWrapper.IADLXMultimediaServices.html
+  - name: '*'
+  spec.vb:
+  - uid: ADLXWrapper.IADLXMultimediaServices
+    name: IADLXMultimediaServices
+    href: ADLXWrapper.IADLXMultimediaServices.html
+  - name: '*'
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.ObjectDisposedException
+  commentId: T:System.ObjectDisposedException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.objectdisposedexception
+  name: ObjectDisposedException
+  nameWithType: ObjectDisposedException
+  fullName: System.ObjectDisposedException
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaServicesNative*
+  commentId: Overload:ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaServicesNative
+  href: ADLXWrapper.ADLXMultimediaServicesHelper.html#ADLXWrapper_ADLXMultimediaServicesHelper_GetMultimediaServicesNative
+  name: GetMultimediaServicesNative
+  nameWithType: ADLXMultimediaServicesHelper.GetMultimediaServicesNative
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaServicesNative
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaServicesHandle*
+  commentId: Overload:ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaServicesHandle
+  href: ADLXWrapper.ADLXMultimediaServicesHelper.html#ADLXWrapper_ADLXMultimediaServicesHelper_GetMultimediaServicesHandle
+  name: GetMultimediaServicesHandle
+  nameWithType: ADLXMultimediaServicesHelper.GetMultimediaServicesHandle
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaServicesHandle
+- uid: ADLXWrapper.ADLXInterfaceHandle
+  commentId: T:ADLXWrapper.ADLXInterfaceHandle
+  parent: ADLXWrapper
+  href: ADLXWrapper.ADLXInterfaceHandle.html
+  name: ADLXInterfaceHandle
+  nameWithType: ADLXInterfaceHandle
+  fullName: ADLXWrapper.ADLXInterfaceHandle
+- uid: ADLXWrapper.ADLXException
+  commentId: T:ADLXWrapper.ADLXException
+  href: ADLXWrapper.ADLXException.html
+  name: ADLXException
+  nameWithType: ADLXException
+  fullName: ADLXWrapper.ADLXException
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaChangedHandlingNative*
+  commentId: Overload:ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaChangedHandlingNative
+  href: ADLXWrapper.ADLXMultimediaServicesHelper.html#ADLXWrapper_ADLXMultimediaServicesHelper_GetMultimediaChangedHandlingNative
+  name: GetMultimediaChangedHandlingNative
+  nameWithType: ADLXMultimediaServicesHelper.GetMultimediaChangedHandlingNative
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaChangedHandlingNative
+- uid: ADLXWrapper.IADLXMultimediaChangedHandling*
+  isExternal: true
+  href: ADLXWrapper.IADLXMultimediaChangedHandling.html
+  name: IADLXMultimediaChangedHandling*
+  nameWithType: IADLXMultimediaChangedHandling*
+  fullName: ADLXWrapper.IADLXMultimediaChangedHandling*
+  spec.csharp:
+  - uid: ADLXWrapper.IADLXMultimediaChangedHandling
+    name: IADLXMultimediaChangedHandling
+    href: ADLXWrapper.IADLXMultimediaChangedHandling.html
+  - name: '*'
+  spec.vb:
+  - uid: ADLXWrapper.IADLXMultimediaChangedHandling
+    name: IADLXMultimediaChangedHandling
+    href: ADLXWrapper.IADLXMultimediaChangedHandling.html
+  - name: '*'
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.TryGetMultimediaChangedHandlingNative*
+  commentId: Overload:ADLXWrapper.ADLXMultimediaServicesHelper.TryGetMultimediaChangedHandlingNative
+  href: ADLXWrapper.ADLXMultimediaServicesHelper.html#ADLXWrapper_ADLXMultimediaServicesHelper_TryGetMultimediaChangedHandlingNative_ADLXWrapper_IADLXMultimediaChangedHandling___
+  name: TryGetMultimediaChangedHandlingNative
+  nameWithType: ADLXMultimediaServicesHelper.TryGetMultimediaChangedHandlingNative
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.TryGetMultimediaChangedHandlingNative
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaChangedHandling*
+  commentId: Overload:ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaChangedHandling
+  href: ADLXWrapper.ADLXMultimediaServicesHelper.html#ADLXWrapper_ADLXMultimediaServicesHelper_GetMultimediaChangedHandling
+  name: GetMultimediaChangedHandling
+  nameWithType: ADLXMultimediaServicesHelper.GetMultimediaChangedHandling
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaChangedHandling
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.AddMultimediaEventListener*
+  commentId: Overload:ADLXWrapper.ADLXMultimediaServicesHelper.AddMultimediaEventListener
+  href: ADLXWrapper.ADLXMultimediaServicesHelper.html#ADLXWrapper_ADLXMultimediaServicesHelper_AddMultimediaEventListener_ADLXWrapper_MultimediaListenerHandle_MultimediaChangedCallback_
+  name: AddMultimediaEventListener
+  nameWithType: ADLXMultimediaServicesHelper.AddMultimediaEventListener
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.AddMultimediaEventListener
+- uid: ADLXWrapper.MultimediaListenerHandle.MultimediaChangedCallback
+  commentId: T:ADLXWrapper.MultimediaListenerHandle.MultimediaChangedCallback
+  parent: ADLXWrapper
+  href: ADLXWrapper.MultimediaListenerHandle.html
+  name: MultimediaListenerHandle.MultimediaChangedCallback
+  nameWithType: MultimediaListenerHandle.MultimediaChangedCallback
+  fullName: ADLXWrapper.MultimediaListenerHandle.MultimediaChangedCallback
+  spec.csharp:
+  - uid: ADLXWrapper.MultimediaListenerHandle
+    name: MultimediaListenerHandle
+    href: ADLXWrapper.MultimediaListenerHandle.html
+  - name: .
+  - uid: ADLXWrapper.MultimediaListenerHandle.MultimediaChangedCallback
+    name: MultimediaChangedCallback
+    href: ADLXWrapper.MultimediaListenerHandle.MultimediaChangedCallback.html
+  spec.vb:
+  - uid: ADLXWrapper.MultimediaListenerHandle
+    name: MultimediaListenerHandle
+    href: ADLXWrapper.MultimediaListenerHandle.html
+  - name: .
+  - uid: ADLXWrapper.MultimediaListenerHandle.MultimediaChangedCallback
+    name: MultimediaChangedCallback
+    href: ADLXWrapper.MultimediaListenerHandle.MultimediaChangedCallback.html
+- uid: ADLXWrapper.MultimediaListenerHandle
+  commentId: T:ADLXWrapper.MultimediaListenerHandle
+  parent: ADLXWrapper
+  href: ADLXWrapper.MultimediaListenerHandle.html
+  name: MultimediaListenerHandle
+  nameWithType: MultimediaListenerHandle
+  fullName: ADLXWrapper.MultimediaListenerHandle
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.RemoveMultimediaEventListener*
+  commentId: Overload:ADLXWrapper.ADLXMultimediaServicesHelper.RemoveMultimediaEventListener
+  href: ADLXWrapper.ADLXMultimediaServicesHelper.html#ADLXWrapper_ADLXMultimediaServicesHelper_RemoveMultimediaEventListener_ADLXWrapper_MultimediaListenerHandle_System_Boolean_
+  name: RemoveMultimediaEventListener
+  nameWithType: ADLXMultimediaServicesHelper.RemoveMultimediaEventListener
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.RemoveMultimediaEventListener
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoUpscaleNative*
+  commentId: Overload:ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoUpscaleNative
+  href: ADLXWrapper.ADLXMultimediaServicesHelper.html#ADLXWrapper_ADLXMultimediaServicesHelper_GetVideoUpscaleNative_ADLXWrapper_IADLXGPU__
+  name: GetVideoUpscaleNative
+  nameWithType: ADLXMultimediaServicesHelper.GetVideoUpscaleNative
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoUpscaleNative
+- uid: ADLXWrapper.IADLXGPU*
+  isExternal: true
+  href: ADLXWrapper.IADLXGPU.html
+  name: IADLXGPU*
+  nameWithType: IADLXGPU*
+  fullName: ADLXWrapper.IADLXGPU*
+  spec.csharp:
+  - uid: ADLXWrapper.IADLXGPU
+    name: IADLXGPU
+    href: ADLXWrapper.IADLXGPU.html
+  - name: '*'
+  spec.vb:
+  - uid: ADLXWrapper.IADLXGPU
+    name: IADLXGPU
+    href: ADLXWrapper.IADLXGPU.html
+  - name: '*'
+- uid: ADLXWrapper.IADLXVideoUpscale*
+  isExternal: true
+  href: ADLXWrapper.IADLXVideoUpscale.html
+  name: IADLXVideoUpscale*
+  nameWithType: IADLXVideoUpscale*
+  fullName: ADLXWrapper.IADLXVideoUpscale*
+  spec.csharp:
+  - uid: ADLXWrapper.IADLXVideoUpscale
+    name: IADLXVideoUpscale
+    href: ADLXWrapper.IADLXVideoUpscale.html
+  - name: '*'
+  spec.vb:
+  - uid: ADLXWrapper.IADLXVideoUpscale
+    name: IADLXVideoUpscale
+    href: ADLXWrapper.IADLXVideoUpscale.html
+  - name: '*'
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoUpscaleNative*
+  commentId: Overload:ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoUpscaleNative
+  href: ADLXWrapper.ADLXMultimediaServicesHelper.html#ADLXWrapper_ADLXMultimediaServicesHelper_TryGetVideoUpscaleNative_ADLXWrapper_IADLXGPU__ADLXWrapper_IADLXVideoUpscale___
+  name: TryGetVideoUpscaleNative
+  nameWithType: ADLXMultimediaServicesHelper.TryGetVideoUpscaleNative
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoUpscaleNative
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoUpscale*
+  commentId: Overload:ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoUpscale
+  href: ADLXWrapper.ADLXMultimediaServicesHelper.html#ADLXWrapper_ADLXMultimediaServicesHelper_GetVideoUpscale_ADLXWrapper_IADLXGPU__
+  name: GetVideoUpscale
+  nameWithType: ADLXMultimediaServicesHelper.GetVideoUpscale
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoUpscale
+- uid: ADLXWrapper.VideoUpscaleInfo
+  commentId: T:ADLXWrapper.VideoUpscaleInfo
+  parent: ADLXWrapper
+  href: ADLXWrapper.VideoUpscaleInfo.html
+  name: VideoUpscaleInfo
+  nameWithType: VideoUpscaleInfo
+  fullName: ADLXWrapper.VideoUpscaleInfo
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoUpscale*
+  commentId: Overload:ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoUpscale
+  href: ADLXWrapper.ADLXMultimediaServicesHelper.html#ADLXWrapper_ADLXMultimediaServicesHelper_TryGetVideoUpscale_ADLXWrapper_IADLXGPU__ADLXWrapper_VideoUpscaleInfo__
+  name: TryGetVideoUpscale
+  nameWithType: ADLXMultimediaServicesHelper.TryGetVideoUpscale
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoUpscale
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.SetVideoUpscaleEnabled*
+  commentId: Overload:ADLXWrapper.ADLXMultimediaServicesHelper.SetVideoUpscaleEnabled
+  href: ADLXWrapper.ADLXMultimediaServicesHelper.html#ADLXWrapper_ADLXMultimediaServicesHelper_SetVideoUpscaleEnabled_ADLXWrapper_IADLXVideoUpscale__System_Boolean_
+  name: SetVideoUpscaleEnabled
+  nameWithType: ADLXMultimediaServicesHelper.SetVideoUpscaleEnabled
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.SetVideoUpscaleEnabled
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.TrySetVideoUpscaleEnabled*
+  commentId: Overload:ADLXWrapper.ADLXMultimediaServicesHelper.TrySetVideoUpscaleEnabled
+  href: ADLXWrapper.ADLXMultimediaServicesHelper.html#ADLXWrapper_ADLXMultimediaServicesHelper_TrySetVideoUpscaleEnabled_ADLXWrapper_IADLXVideoUpscale__System_Boolean_
+  name: TrySetVideoUpscaleEnabled
+  nameWithType: ADLXMultimediaServicesHelper.TrySetVideoUpscaleEnabled
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.TrySetVideoUpscaleEnabled
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.SetVideoUpscaleSharpness*
+  commentId: Overload:ADLXWrapper.ADLXMultimediaServicesHelper.SetVideoUpscaleSharpness
+  href: ADLXWrapper.ADLXMultimediaServicesHelper.html#ADLXWrapper_ADLXMultimediaServicesHelper_SetVideoUpscaleSharpness_ADLXWrapper_IADLXVideoUpscale__System_Int32_
+  name: SetVideoUpscaleSharpness
+  nameWithType: ADLXMultimediaServicesHelper.SetVideoUpscaleSharpness
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.SetVideoUpscaleSharpness
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.TrySetVideoUpscaleSharpness*
+  commentId: Overload:ADLXWrapper.ADLXMultimediaServicesHelper.TrySetVideoUpscaleSharpness
+  href: ADLXWrapper.ADLXMultimediaServicesHelper.html#ADLXWrapper_ADLXMultimediaServicesHelper_TrySetVideoUpscaleSharpness_ADLXWrapper_IADLXVideoUpscale__System_Int32_
+  name: TrySetVideoUpscaleSharpness
+  nameWithType: ADLXMultimediaServicesHelper.TrySetVideoUpscaleSharpness
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.TrySetVideoUpscaleSharpness
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoSuperResolutionNative*
+  commentId: Overload:ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoSuperResolutionNative
+  href: ADLXWrapper.ADLXMultimediaServicesHelper.html#ADLXWrapper_ADLXMultimediaServicesHelper_GetVideoSuperResolutionNative_ADLXWrapper_IADLXGPU__
+  name: GetVideoSuperResolutionNative
+  nameWithType: ADLXMultimediaServicesHelper.GetVideoSuperResolutionNative
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoSuperResolutionNative
+- uid: ADLXWrapper.IADLXVideoSuperResolution*
+  isExternal: true
+  href: ADLXWrapper.IADLXVideoSuperResolution.html
+  name: IADLXVideoSuperResolution*
+  nameWithType: IADLXVideoSuperResolution*
+  fullName: ADLXWrapper.IADLXVideoSuperResolution*
+  spec.csharp:
+  - uid: ADLXWrapper.IADLXVideoSuperResolution
+    name: IADLXVideoSuperResolution
+    href: ADLXWrapper.IADLXVideoSuperResolution.html
+  - name: '*'
+  spec.vb:
+  - uid: ADLXWrapper.IADLXVideoSuperResolution
+    name: IADLXVideoSuperResolution
+    href: ADLXWrapper.IADLXVideoSuperResolution.html
+  - name: '*'
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoSuperResolutionNative*
+  commentId: Overload:ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoSuperResolutionNative
+  href: ADLXWrapper.ADLXMultimediaServicesHelper.html#ADLXWrapper_ADLXMultimediaServicesHelper_TryGetVideoSuperResolutionNative_ADLXWrapper_IADLXGPU__ADLXWrapper_IADLXVideoSuperResolution___
+  name: TryGetVideoSuperResolutionNative
+  nameWithType: ADLXMultimediaServicesHelper.TryGetVideoSuperResolutionNative
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoSuperResolutionNative
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoSuperResolution*
+  commentId: Overload:ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoSuperResolution
+  href: ADLXWrapper.ADLXMultimediaServicesHelper.html#ADLXWrapper_ADLXMultimediaServicesHelper_GetVideoSuperResolution_ADLXWrapper_IADLXGPU__
+  name: GetVideoSuperResolution
+  nameWithType: ADLXMultimediaServicesHelper.GetVideoSuperResolution
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoSuperResolution
+- uid: ADLXWrapper.VideoSuperResolutionInfo
+  commentId: T:ADLXWrapper.VideoSuperResolutionInfo
+  parent: ADLXWrapper
+  href: ADLXWrapper.VideoSuperResolutionInfo.html
+  name: VideoSuperResolutionInfo
+  nameWithType: VideoSuperResolutionInfo
+  fullName: ADLXWrapper.VideoSuperResolutionInfo
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoSuperResolution*
+  commentId: Overload:ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoSuperResolution
+  href: ADLXWrapper.ADLXMultimediaServicesHelper.html#ADLXWrapper_ADLXMultimediaServicesHelper_TryGetVideoSuperResolution_ADLXWrapper_IADLXGPU__ADLXWrapper_VideoSuperResolutionInfo__
+  name: TryGetVideoSuperResolution
+  nameWithType: ADLXMultimediaServicesHelper.TryGetVideoSuperResolution
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoSuperResolution
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.SetVideoSuperResolutionEnabled*
+  commentId: Overload:ADLXWrapper.ADLXMultimediaServicesHelper.SetVideoSuperResolutionEnabled
+  href: ADLXWrapper.ADLXMultimediaServicesHelper.html#ADLXWrapper_ADLXMultimediaServicesHelper_SetVideoSuperResolutionEnabled_ADLXWrapper_IADLXVideoSuperResolution__System_Boolean_
+  name: SetVideoSuperResolutionEnabled
+  nameWithType: ADLXMultimediaServicesHelper.SetVideoSuperResolutionEnabled
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.SetVideoSuperResolutionEnabled
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.TrySetVideoSuperResolutionEnabled*
+  commentId: Overload:ADLXWrapper.ADLXMultimediaServicesHelper.TrySetVideoSuperResolutionEnabled
+  href: ADLXWrapper.ADLXMultimediaServicesHelper.html#ADLXWrapper_ADLXMultimediaServicesHelper_TrySetVideoSuperResolutionEnabled_ADLXWrapper_IADLXVideoSuperResolution__System_Boolean_
+  name: TrySetVideoSuperResolutionEnabled
+  nameWithType: ADLXMultimediaServicesHelper.TrySetVideoSuperResolutionEnabled
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.TrySetVideoSuperResolutionEnabled
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.Dispose*
+  commentId: Overload:ADLXWrapper.ADLXMultimediaServicesHelper.Dispose
+  href: ADLXWrapper.ADLXMultimediaServicesHelper.html#ADLXWrapper_ADLXMultimediaServicesHelper_Dispose
+  name: Dispose
+  nameWithType: ADLXMultimediaServicesHelper.Dispose
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.Finalize*
+  commentId: Overload:ADLXWrapper.ADLXMultimediaServicesHelper.Finalize
+  href: ADLXWrapper.ADLXMultimediaServicesHelper.html#ADLXWrapper_ADLXMultimediaServicesHelper_Finalize
+  name: ~ADLXMultimediaServicesHelper
+  nameWithType: ADLXMultimediaServicesHelper.~ADLXMultimediaServicesHelper
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.~ADLXMultimediaServicesHelper
+  spec.csharp:
+  - name: "~"
+  - uid: ADLXWrapper.ADLXMultimediaServicesHelper.Finalize*
+    name: ADLXMultimediaServicesHelper
+    href: ADLXWrapper.ADLXMultimediaServicesHelper.html#ADLXWrapper_ADLXMultimediaServicesHelper_Finalize

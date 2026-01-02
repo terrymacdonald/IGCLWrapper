@@ -1,0 +1,68 @@
+### YamlMime:ManagedReference
+items:
+- uid: ADLXWrapper.ADLXNative.ADLXQueryFullVersion_Fn
+  commentId: T:ADLXWrapper.ADLXNative.ADLXQueryFullVersion_Fn
+  id: ADLXNative.ADLXQueryFullVersion_Fn
+  parent: ADLXWrapper
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: ADLXNative.ADLXQueryFullVersion_Fn
+  nameWithType: ADLXNative.ADLXQueryFullVersion_Fn
+  fullName: ADLXWrapper.ADLXNative.ADLXQueryFullVersion_Fn
+  type: Delegate
+  source:
+    remote:
+      path: ADLXWrapper/ADLXNative.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: ADLXQueryFullVersion_Fn
+    path: ../ADLXWrapper/ADLXNative.cs
+    startLine: 30
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public delegate ADLX_RESULT ADLXNative.ADLXQueryFullVersion_Fn(ulong* fullVersion)
+    parameters:
+    - id: fullVersion
+      type: System.UInt64*
+    return:
+      type: ADLXWrapper.ADLX_RESULT
+    content.vb: Public Delegate Function ADLXNative.ADLXQueryFullVersion_Fn(fullVersion As ULong*) As ADLX_RESULT
+references:
+- uid: ADLXWrapper
+  commentId: N:ADLXWrapper
+  href: ADLXWrapper.html
+  name: ADLXWrapper
+  nameWithType: ADLXWrapper
+  fullName: ADLXWrapper
+- uid: System.UInt64*
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint64
+  name: ulong*
+  nameWithType: ulong*
+  fullName: ulong*
+  nameWithType.vb: ULong*
+  fullName.vb: ULong*
+  name.vb: ULong*
+  spec.csharp:
+  - uid: System.UInt64
+    name: ulong
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint64
+  - name: '*'
+  spec.vb:
+  - uid: System.UInt64
+    name: ULong
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint64
+  - name: '*'
+- uid: ADLXWrapper.ADLX_RESULT
+  commentId: T:ADLXWrapper.ADLX_RESULT
+  parent: ADLXWrapper
+  href: ADLXWrapper.ADLX_RESULT.html
+  name: ADLX_RESULT
+  nameWithType: ADLX_RESULT
+  fullName: ADLXWrapper.ADLX_RESULT

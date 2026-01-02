@@ -1,0 +1,1177 @@
+### YamlMime:ManagedReference
+items:
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper
+  commentId: T:ADLXWrapper.ADLX3DSettingsServicesHelper
+  id: ADLX3DSettingsServicesHelper
+  parent: ADLXWrapper
+  children:
+  - ADLXWrapper.ADLX3DSettingsServicesHelper.#ctor(ADLXWrapper.IADLX3DSettingsServices*,System.Boolean)
+  - ADLXWrapper.ADLX3DSettingsServicesHelper.Add3DSettingsEventListener(ADLXWrapper.ThreeDSettingsListenerHandle.ThreeDSettingsChangedCallback)
+  - ADLXWrapper.ADLX3DSettingsServicesHelper.ApplyAll3DSettings(ADLXWrapper.IADLXGPU*,ADLXWrapper.All3DSettingsInfo)
+  - ADLXWrapper.ADLX3DSettingsServicesHelper.Dispose
+  - ADLXWrapper.ADLX3DSettingsServicesHelper.Finalize
+  - ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsChangedHandling
+  - ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsChangedHandlingNative
+  - ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsServicesHandle
+  - ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsServicesNative
+  - ADLXWrapper.ADLX3DSettingsServicesHelper.GetAll3DSettings(ADLXWrapper.IADLXGPU*)
+  - ADLXWrapper.ADLX3DSettingsServicesHelper.GetFluidMotionFrames(ADLXWrapper.IADLXGPU*)
+  - ADLXWrapper.ADLX3DSettingsServicesHelper.GetRadeonSuperResolution
+  - ADLXWrapper.ADLX3DSettingsServicesHelper.Remove3DSettingsEventListener(ADLXWrapper.ThreeDSettingsListenerHandle,System.Boolean)
+  - ADLXWrapper.ADLX3DSettingsServicesHelper.TryApplyAll3DSettings(ADLXWrapper.IADLXGPU*,ADLXWrapper.All3DSettingsInfo)
+  - ADLXWrapper.ADLX3DSettingsServicesHelper.TryGet3DSettingsChangedHandlingNative(ADLXWrapper.IADLX3DSettingsChangedHandling*@)
+  - ADLXWrapper.ADLX3DSettingsServicesHelper.TryGetAll3DSettings(ADLXWrapper.IADLXGPU*,ADLXWrapper.All3DSettingsInfo@)
+  - ADLXWrapper.ADLX3DSettingsServicesHelper.TryGetFluidMotionFrames(ADLXWrapper.IADLXGPU*,ADLXWrapper.FluidMotionFramesInfo@)
+  - ADLXWrapper.ADLX3DSettingsServicesHelper.TryGetRadeonSuperResolution(ADLXWrapper.RadeonSuperResolutionInfo@)
+  langs:
+  - csharp
+  - vb
+  name: ADLX3DSettingsServicesHelper
+  nameWithType: ADLX3DSettingsServicesHelper
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper
+  type: Class
+  source:
+    remote:
+      path: ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: ADLX3DSettingsServicesHelper
+    path: ../ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+    startLine: 10
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Wrapper over IADLX3DSettingsServices selecting the highest available interface and exposing change handling.
+  example: []
+  syntax:
+    content: 'public sealed class ADLX3DSettingsServicesHelper : IDisposable'
+    content.vb: Public NotInheritable Class ADLX3DSettingsServicesHelper Implements IDisposable
+  inheritance:
+  - System.Object
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.#ctor(ADLXWrapper.IADLX3DSettingsServices*,System.Boolean)
+  commentId: M:ADLXWrapper.ADLX3DSettingsServicesHelper.#ctor(ADLXWrapper.IADLX3DSettingsServices*,System.Boolean)
+  id: '#ctor(ADLXWrapper.IADLX3DSettingsServices*,System.Boolean)'
+  parent: ADLXWrapper.ADLX3DSettingsServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: ADLX3DSettingsServicesHelper(IADLX3DSettingsServices*, bool)
+  nameWithType: ADLX3DSettingsServicesHelper.ADLX3DSettingsServicesHelper(IADLX3DSettingsServices*, bool)
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.ADLX3DSettingsServicesHelper(ADLXWrapper.IADLX3DSettingsServices*, bool)
+  type: Constructor
+  source:
+    remote:
+      path: ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: .ctor
+    path: ../ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+    startLine: 23
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Creates a 3D settings helper from the native services interface, upgrading to v1/v2 when available.
+  example: []
+  syntax:
+    content: public ADLX3DSettingsServicesHelper(IADLX3DSettingsServices* services, bool addRef = true)
+    parameters:
+    - id: services
+      type: ADLXWrapper.IADLX3DSettingsServices*
+      description: Native 3D settings services pointer.
+    - id: addRef
+      type: System.Boolean
+      description: True to AddRef the pointer for this helper.
+    content.vb: Public Sub New(services As IADLX3DSettingsServices*, addRef As Boolean = True)
+  overload: ADLXWrapper.ADLX3DSettingsServicesHelper.#ctor*
+  nameWithType.vb: ADLX3DSettingsServicesHelper.New(IADLX3DSettingsServices*, Boolean)
+  fullName.vb: ADLXWrapper.ADLX3DSettingsServicesHelper.New(ADLXWrapper.IADLX3DSettingsServices*, Boolean)
+  name.vb: New(IADLX3DSettingsServices*, Boolean)
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsServicesNative
+  commentId: M:ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsServicesNative
+  id: Get3DSettingsServicesNative
+  parent: ADLXWrapper.ADLX3DSettingsServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: Get3DSettingsServicesNative()
+  nameWithType: ADLX3DSettingsServicesHelper.Get3DSettingsServicesNative()
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsServicesNative()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: Get3DSettingsServicesNative
+    path: ../ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+    startLine: 34
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public IADLX3DSettingsServices* Get3DSettingsServicesNative()
+    return:
+      type: ADLXWrapper.IADLX3DSettingsServices*
+    content.vb: Public Function Get3DSettingsServicesNative() As IADLX3DSettingsServices*
+  overload: ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsServicesNative*
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsServicesHandle
+  commentId: M:ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsServicesHandle
+  id: Get3DSettingsServicesHandle
+  parent: ADLXWrapper.ADLX3DSettingsServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: Get3DSettingsServicesHandle()
+  nameWithType: ADLX3DSettingsServicesHelper.Get3DSettingsServicesHandle()
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsServicesHandle()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: Get3DSettingsServicesHandle
+    path: ../ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+    startLine: 45
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Returns an AddRef'd handle to the highest available 3D settings services interface.
+  example: []
+  syntax:
+    content: public ADLXInterfaceHandle Get3DSettingsServicesHandle()
+    return:
+      type: ADLXWrapper.ADLXInterfaceHandle
+    content.vb: Public Function Get3DSettingsServicesHandle() As ADLXInterfaceHandle
+  overload: ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsServicesHandle*
+  exceptions:
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If disposed.
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsChangedHandlingNative
+  commentId: M:ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsChangedHandlingNative
+  id: Get3DSettingsChangedHandlingNative
+  parent: ADLXWrapper.ADLX3DSettingsServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: Get3DSettingsChangedHandlingNative()
+  nameWithType: ADLX3DSettingsServicesHelper.Get3DSettingsChangedHandlingNative()
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsChangedHandlingNative()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: Get3DSettingsChangedHandlingNative
+    path: ../ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+    startLine: 58
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Gets the 3D settings change handling interface (native). Cached after first query.
+  example: []
+  syntax:
+    content: public IADLX3DSettingsChangedHandling* Get3DSettingsChangedHandlingNative()
+    return:
+      type: ADLXWrapper.IADLX3DSettingsChangedHandling*
+      description: Native 3D settings change handling pointer.
+    content.vb: Public Function Get3DSettingsChangedHandlingNative() As IADLX3DSettingsChangedHandling*
+  overload: ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsChangedHandlingNative*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If unsupported or retrieval fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If disposed.
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.TryGet3DSettingsChangedHandlingNative(ADLXWrapper.IADLX3DSettingsChangedHandling*@)
+  commentId: M:ADLXWrapper.ADLX3DSettingsServicesHelper.TryGet3DSettingsChangedHandlingNative(ADLXWrapper.IADLX3DSettingsChangedHandling*@)
+  id: TryGet3DSettingsChangedHandlingNative(ADLXWrapper.IADLX3DSettingsChangedHandling*@)
+  parent: ADLXWrapper.ADLX3DSettingsServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: TryGet3DSettingsChangedHandlingNative(out IADLX3DSettingsChangedHandling*)
+  nameWithType: ADLX3DSettingsServicesHelper.TryGet3DSettingsChangedHandlingNative(out IADLX3DSettingsChangedHandling*)
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.TryGet3DSettingsChangedHandlingNative(out ADLXWrapper.IADLX3DSettingsChangedHandling*)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: TryGet3DSettingsChangedHandlingNative
+    path: ../ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+    startLine: 79
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Tries to get 3D settings change handling; returns false when unsupported.
+  example: []
+  syntax:
+    content: public bool TryGet3DSettingsChangedHandlingNative(out IADLX3DSettingsChangedHandling* handling)
+    parameters:
+    - id: handling
+      type: ADLXWrapper.IADLX3DSettingsChangedHandling*
+    return:
+      type: System.Boolean
+    content.vb: Public Function TryGet3DSettingsChangedHandlingNative(handling As IADLX3DSettingsChangedHandling*) As Boolean
+  overload: ADLXWrapper.ADLX3DSettingsServicesHelper.TryGet3DSettingsChangedHandlingNative*
+  nameWithType.vb: ADLX3DSettingsServicesHelper.TryGet3DSettingsChangedHandlingNative(IADLX3DSettingsChangedHandling*)
+  fullName.vb: ADLXWrapper.ADLX3DSettingsServicesHelper.TryGet3DSettingsChangedHandlingNative(ADLXWrapper.IADLX3DSettingsChangedHandling*)
+  name.vb: TryGet3DSettingsChangedHandlingNative(IADLX3DSettingsChangedHandling*)
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsChangedHandling
+  commentId: M:ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsChangedHandling
+  id: Get3DSettingsChangedHandling
+  parent: ADLXWrapper.ADLX3DSettingsServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: Get3DSettingsChangedHandling()
+  nameWithType: ADLX3DSettingsServicesHelper.Get3DSettingsChangedHandling()
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsChangedHandling()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: Get3DSettingsChangedHandling
+    path: ../ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+    startLine: 93
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public ADLXInterfaceHandle Get3DSettingsChangedHandling()
+    return:
+      type: ADLXWrapper.ADLXInterfaceHandle
+    content.vb: Public Function Get3DSettingsChangedHandling() As ADLXInterfaceHandle
+  overload: ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsChangedHandling*
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.Add3DSettingsEventListener(ADLXWrapper.ThreeDSettingsListenerHandle.ThreeDSettingsChangedCallback)
+  commentId: M:ADLXWrapper.ADLX3DSettingsServicesHelper.Add3DSettingsEventListener(ADLXWrapper.ThreeDSettingsListenerHandle.ThreeDSettingsChangedCallback)
+  id: Add3DSettingsEventListener(ADLXWrapper.ThreeDSettingsListenerHandle.ThreeDSettingsChangedCallback)
+  parent: ADLXWrapper.ADLX3DSettingsServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: Add3DSettingsEventListener(ThreeDSettingsChangedCallback)
+  nameWithType: ADLX3DSettingsServicesHelper.Add3DSettingsEventListener(ThreeDSettingsListenerHandle.ThreeDSettingsChangedCallback)
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.Add3DSettingsEventListener(ADLXWrapper.ThreeDSettingsListenerHandle.ThreeDSettingsChangedCallback)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: Add3DSettingsEventListener
+    path: ../ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+    startLine: 105
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Adds a 3D settings change listener.
+  example: []
+  syntax:
+    content: public ThreeDSettingsListenerHandle Add3DSettingsEventListener(ThreeDSettingsListenerHandle.ThreeDSettingsChangedCallback callback)
+    parameters:
+    - id: callback
+      type: ADLXWrapper.ThreeDSettingsListenerHandle.ThreeDSettingsChangedCallback
+      description: Callback invoked on 3D settings changes.
+    return:
+      type: ADLXWrapper.ThreeDSettingsListenerHandle
+      description: Listener handle that must be disposed to unsubscribe.
+    content.vb: Public Function Add3DSettingsEventListener(callback As ThreeDSettingsListenerHandle.ThreeDSettingsChangedCallback) As ThreeDSettingsListenerHandle
+  overload: ADLXWrapper.ADLX3DSettingsServicesHelper.Add3DSettingsEventListener*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If registration fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If disposed.
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.Remove3DSettingsEventListener(ADLXWrapper.ThreeDSettingsListenerHandle,System.Boolean)
+  commentId: M:ADLXWrapper.ADLX3DSettingsServicesHelper.Remove3DSettingsEventListener(ADLXWrapper.ThreeDSettingsListenerHandle,System.Boolean)
+  id: Remove3DSettingsEventListener(ADLXWrapper.ThreeDSettingsListenerHandle,System.Boolean)
+  parent: ADLXWrapper.ADLX3DSettingsServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: Remove3DSettingsEventListener(ThreeDSettingsListenerHandle, bool)
+  nameWithType: ADLX3DSettingsServicesHelper.Remove3DSettingsEventListener(ThreeDSettingsListenerHandle, bool)
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.Remove3DSettingsEventListener(ADLXWrapper.ThreeDSettingsListenerHandle, bool)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: Remove3DSettingsEventListener
+    path: ../ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+    startLine: 123
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public void Remove3DSettingsEventListener(ThreeDSettingsListenerHandle handle, bool disposeHandle = true)
+    parameters:
+    - id: handle
+      type: ADLXWrapper.ThreeDSettingsListenerHandle
+    - id: disposeHandle
+      type: System.Boolean
+    content.vb: Public Sub Remove3DSettingsEventListener(handle As ThreeDSettingsListenerHandle, disposeHandle As Boolean = True)
+  overload: ADLXWrapper.ADLX3DSettingsServicesHelper.Remove3DSettingsEventListener*
+  nameWithType.vb: ADLX3DSettingsServicesHelper.Remove3DSettingsEventListener(ThreeDSettingsListenerHandle, Boolean)
+  fullName.vb: ADLXWrapper.ADLX3DSettingsServicesHelper.Remove3DSettingsEventListener(ADLXWrapper.ThreeDSettingsListenerHandle, Boolean)
+  name.vb: Remove3DSettingsEventListener(ThreeDSettingsListenerHandle, Boolean)
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.GetAll3DSettings(ADLXWrapper.IADLXGPU*)
+  commentId: M:ADLXWrapper.ADLX3DSettingsServicesHelper.GetAll3DSettings(ADLXWrapper.IADLXGPU*)
+  id: GetAll3DSettings(ADLXWrapper.IADLXGPU*)
+  parent: ADLXWrapper.ADLX3DSettingsServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetAll3DSettings(IADLXGPU*)
+  nameWithType: ADLX3DSettingsServicesHelper.GetAll3DSettings(IADLXGPU*)
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.GetAll3DSettings(ADLXWrapper.IADLXGPU*)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetAll3DSettings
+    path: ../ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+    startLine: 138
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public All3DSettingsInfo GetAll3DSettings(IADLXGPU* gpu)
+    parameters:
+    - id: gpu
+      type: ADLXWrapper.IADLXGPU*
+    return:
+      type: ADLXWrapper.All3DSettingsInfo
+    content.vb: Public Function GetAll3DSettings(gpu As IADLXGPU*) As All3DSettingsInfo
+  overload: ADLXWrapper.ADLX3DSettingsServicesHelper.GetAll3DSettings*
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.TryGetAll3DSettings(ADLXWrapper.IADLXGPU*,ADLXWrapper.All3DSettingsInfo@)
+  commentId: M:ADLXWrapper.ADLX3DSettingsServicesHelper.TryGetAll3DSettings(ADLXWrapper.IADLXGPU*,ADLXWrapper.All3DSettingsInfo@)
+  id: TryGetAll3DSettings(ADLXWrapper.IADLXGPU*,ADLXWrapper.All3DSettingsInfo@)
+  parent: ADLXWrapper.ADLX3DSettingsServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: TryGetAll3DSettings(IADLXGPU*, out All3DSettingsInfo)
+  nameWithType: ADLX3DSettingsServicesHelper.TryGetAll3DSettings(IADLXGPU*, out All3DSettingsInfo)
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.TryGetAll3DSettings(ADLXWrapper.IADLXGPU*, out ADLXWrapper.All3DSettingsInfo)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: TryGetAll3DSettings
+    path: ../ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+    startLine: 187
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Tries to get all 3D settings; returns false when unsupported.
+  example: []
+  syntax:
+    content: public bool TryGetAll3DSettings(IADLXGPU* gpu, out All3DSettingsInfo info)
+    parameters:
+    - id: gpu
+      type: ADLXWrapper.IADLXGPU*
+    - id: info
+      type: ADLXWrapper.All3DSettingsInfo
+    return:
+      type: System.Boolean
+    content.vb: Public Function TryGetAll3DSettings(gpu As IADLXGPU*, info As All3DSettingsInfo) As Boolean
+  overload: ADLXWrapper.ADLX3DSettingsServicesHelper.TryGetAll3DSettings*
+  nameWithType.vb: ADLX3DSettingsServicesHelper.TryGetAll3DSettings(IADLXGPU*, All3DSettingsInfo)
+  fullName.vb: ADLXWrapper.ADLX3DSettingsServicesHelper.TryGetAll3DSettings(ADLXWrapper.IADLXGPU*, ADLXWrapper.All3DSettingsInfo)
+  name.vb: TryGetAll3DSettings(IADLXGPU*, All3DSettingsInfo)
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.ApplyAll3DSettings(ADLXWrapper.IADLXGPU*,ADLXWrapper.All3DSettingsInfo)
+  commentId: M:ADLXWrapper.ADLX3DSettingsServicesHelper.ApplyAll3DSettings(ADLXWrapper.IADLXGPU*,ADLXWrapper.All3DSettingsInfo)
+  id: ApplyAll3DSettings(ADLXWrapper.IADLXGPU*,ADLXWrapper.All3DSettingsInfo)
+  parent: ADLXWrapper.ADLX3DSettingsServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: ApplyAll3DSettings(IADLXGPU*, All3DSettingsInfo)
+  nameWithType: ADLX3DSettingsServicesHelper.ApplyAll3DSettings(IADLXGPU*, All3DSettingsInfo)
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.ApplyAll3DSettings(ADLXWrapper.IADLXGPU*, ADLXWrapper.All3DSettingsInfo)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: ApplyAll3DSettings
+    path: ../ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+    startLine: 209
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Applies all provided 3D settings to a GPU (only non-null fields are applied).
+  example: []
+  syntax:
+    content: public void ApplyAll3DSettings(IADLXGPU* gpu, All3DSettingsInfo info)
+    parameters:
+    - id: gpu
+      type: ADLXWrapper.IADLXGPU*
+      description: Native GPU pointer.
+    - id: info
+      type: ADLXWrapper.All3DSettingsInfo
+      description: Settings to apply.
+    content.vb: Public Sub ApplyAll3DSettings(gpu As IADLXGPU*, info As All3DSettingsInfo)
+  overload: ADLXWrapper.ADLX3DSettingsServicesHelper.ApplyAll3DSettings*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: If <code class="paramref">gpu</code> is null.
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If any underlying call fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If disposed.
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.TryApplyAll3DSettings(ADLXWrapper.IADLXGPU*,ADLXWrapper.All3DSettingsInfo)
+  commentId: M:ADLXWrapper.ADLX3DSettingsServicesHelper.TryApplyAll3DSettings(ADLXWrapper.IADLXGPU*,ADLXWrapper.All3DSettingsInfo)
+  id: TryApplyAll3DSettings(ADLXWrapper.IADLXGPU*,ADLXWrapper.All3DSettingsInfo)
+  parent: ADLXWrapper.ADLX3DSettingsServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: TryApplyAll3DSettings(IADLXGPU*, All3DSettingsInfo)
+  nameWithType: ADLX3DSettingsServicesHelper.TryApplyAll3DSettings(IADLXGPU*, All3DSettingsInfo)
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.TryApplyAll3DSettings(ADLXWrapper.IADLXGPU*, ADLXWrapper.All3DSettingsInfo)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: TryApplyAll3DSettings
+    path: ../ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+    startLine: 229
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Tries to apply all provided 3D settings; returns false when the feature set is unsupported.
+  example: []
+  syntax:
+    content: public bool TryApplyAll3DSettings(IADLXGPU* gpu, All3DSettingsInfo info)
+    parameters:
+    - id: gpu
+      type: ADLXWrapper.IADLXGPU*
+    - id: info
+      type: ADLXWrapper.All3DSettingsInfo
+    return:
+      type: System.Boolean
+    content.vb: Public Function TryApplyAll3DSettings(gpu As IADLXGPU*, info As All3DSettingsInfo) As Boolean
+  overload: ADLXWrapper.ADLX3DSettingsServicesHelper.TryApplyAll3DSettings*
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.Dispose
+  commentId: M:ADLXWrapper.ADLX3DSettingsServicesHelper.Dispose
+  id: Dispose
+  parent: ADLXWrapper.ADLX3DSettingsServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: ADLX3DSettingsServicesHelper.Dispose()
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.Dispose()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: Dispose
+    path: ../ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+    startLine: 242
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: ADLXWrapper.ADLX3DSettingsServicesHelper.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.Finalize
+  commentId: M:ADLXWrapper.ADLX3DSettingsServicesHelper.Finalize
+  id: Finalize
+  parent: ADLXWrapper.ADLX3DSettingsServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: ~ADLX3DSettingsServicesHelper()
+  nameWithType: ADLX3DSettingsServicesHelper.~ADLX3DSettingsServicesHelper()
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.~ADLX3DSettingsServicesHelper()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: Finalize
+    path: ../ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+    startLine: 259
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: protected ~ADLX3DSettingsServicesHelper()
+    content.vb: 'Protected '
+  overload: ADLXWrapper.ADLX3DSettingsServicesHelper.Finalize*
+  nameWithType.vb: ''
+  fullName.vb: ''
+  name.vb: ''
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.GetFluidMotionFrames(ADLXWrapper.IADLXGPU*)
+  commentId: M:ADLXWrapper.ADLX3DSettingsServicesHelper.GetFluidMotionFrames(ADLXWrapper.IADLXGPU*)
+  id: GetFluidMotionFrames(ADLXWrapper.IADLXGPU*)
+  parent: ADLXWrapper.ADLX3DSettingsServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetFluidMotionFrames(IADLXGPU*)
+  nameWithType: ADLX3DSettingsServicesHelper.GetFluidMotionFrames(IADLXGPU*)
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.GetFluidMotionFrames(ADLXWrapper.IADLXGPU*)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetFluidMotionFrames
+    path: ../ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+    startLine: 398
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public FluidMotionFramesInfo GetFluidMotionFrames(IADLXGPU* gpu)
+    parameters:
+    - id: gpu
+      type: ADLXWrapper.IADLXGPU*
+    return:
+      type: ADLXWrapper.FluidMotionFramesInfo
+    content.vb: Public Function GetFluidMotionFrames(gpu As IADLXGPU*) As FluidMotionFramesInfo
+  overload: ADLXWrapper.ADLX3DSettingsServicesHelper.GetFluidMotionFrames*
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.TryGetFluidMotionFrames(ADLXWrapper.IADLXGPU*,ADLXWrapper.FluidMotionFramesInfo@)
+  commentId: M:ADLXWrapper.ADLX3DSettingsServicesHelper.TryGetFluidMotionFrames(ADLXWrapper.IADLXGPU*,ADLXWrapper.FluidMotionFramesInfo@)
+  id: TryGetFluidMotionFrames(ADLXWrapper.IADLXGPU*,ADLXWrapper.FluidMotionFramesInfo@)
+  parent: ADLXWrapper.ADLX3DSettingsServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: TryGetFluidMotionFrames(IADLXGPU*, out FluidMotionFramesInfo)
+  nameWithType: ADLX3DSettingsServicesHelper.TryGetFluidMotionFrames(IADLXGPU*, out FluidMotionFramesInfo)
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.TryGetFluidMotionFrames(ADLXWrapper.IADLXGPU*, out ADLXWrapper.FluidMotionFramesInfo)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: TryGetFluidMotionFrames
+    path: ../ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+    startLine: 457
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public bool TryGetFluidMotionFrames(IADLXGPU* gpu, out FluidMotionFramesInfo info)
+    parameters:
+    - id: gpu
+      type: ADLXWrapper.IADLXGPU*
+    - id: info
+      type: ADLXWrapper.FluidMotionFramesInfo
+    return:
+      type: System.Boolean
+    content.vb: Public Function TryGetFluidMotionFrames(gpu As IADLXGPU*, info As FluidMotionFramesInfo) As Boolean
+  overload: ADLXWrapper.ADLX3DSettingsServicesHelper.TryGetFluidMotionFrames*
+  nameWithType.vb: ADLX3DSettingsServicesHelper.TryGetFluidMotionFrames(IADLXGPU*, FluidMotionFramesInfo)
+  fullName.vb: ADLXWrapper.ADLX3DSettingsServicesHelper.TryGetFluidMotionFrames(ADLXWrapper.IADLXGPU*, ADLXWrapper.FluidMotionFramesInfo)
+  name.vb: TryGetFluidMotionFrames(IADLXGPU*, FluidMotionFramesInfo)
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.GetRadeonSuperResolution
+  commentId: M:ADLXWrapper.ADLX3DSettingsServicesHelper.GetRadeonSuperResolution
+  id: GetRadeonSuperResolution
+  parent: ADLXWrapper.ADLX3DSettingsServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetRadeonSuperResolution()
+  nameWithType: ADLX3DSettingsServicesHelper.GetRadeonSuperResolution()
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.GetRadeonSuperResolution()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetRadeonSuperResolution
+    path: ../ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+    startLine: 471
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public RadeonSuperResolutionInfo GetRadeonSuperResolution()
+    return:
+      type: ADLXWrapper.RadeonSuperResolutionInfo
+    content.vb: Public Function GetRadeonSuperResolution() As RadeonSuperResolutionInfo
+  overload: ADLXWrapper.ADLX3DSettingsServicesHelper.GetRadeonSuperResolution*
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.TryGetRadeonSuperResolution(ADLXWrapper.RadeonSuperResolutionInfo@)
+  commentId: M:ADLXWrapper.ADLX3DSettingsServicesHelper.TryGetRadeonSuperResolution(ADLXWrapper.RadeonSuperResolutionInfo@)
+  id: TryGetRadeonSuperResolution(ADLXWrapper.RadeonSuperResolutionInfo@)
+  parent: ADLXWrapper.ADLX3DSettingsServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: TryGetRadeonSuperResolution(out RadeonSuperResolutionInfo)
+  nameWithType: ADLX3DSettingsServicesHelper.TryGetRadeonSuperResolution(out RadeonSuperResolutionInfo)
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.TryGetRadeonSuperResolution(out ADLXWrapper.RadeonSuperResolutionInfo)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: TryGetRadeonSuperResolution
+    path: ../ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+    startLine: 509
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public bool TryGetRadeonSuperResolution(out RadeonSuperResolutionInfo info)
+    parameters:
+    - id: info
+      type: ADLXWrapper.RadeonSuperResolutionInfo
+    return:
+      type: System.Boolean
+    content.vb: Public Function TryGetRadeonSuperResolution(info As RadeonSuperResolutionInfo) As Boolean
+  overload: ADLXWrapper.ADLX3DSettingsServicesHelper.TryGetRadeonSuperResolution*
+  nameWithType.vb: ADLX3DSettingsServicesHelper.TryGetRadeonSuperResolution(RadeonSuperResolutionInfo)
+  fullName.vb: ADLXWrapper.ADLX3DSettingsServicesHelper.TryGetRadeonSuperResolution(ADLXWrapper.RadeonSuperResolutionInfo)
+  name.vb: TryGetRadeonSuperResolution(RadeonSuperResolutionInfo)
+references:
+- uid: ADLXWrapper
+  commentId: N:ADLXWrapper
+  href: ADLXWrapper.html
+  name: ADLXWrapper
+  nameWithType: ADLXWrapper
+  fullName: ADLXWrapper
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.#ctor*
+  commentId: Overload:ADLXWrapper.ADLX3DSettingsServicesHelper.#ctor
+  href: ADLXWrapper.ADLX3DSettingsServicesHelper.html#ADLXWrapper_ADLX3DSettingsServicesHelper__ctor_ADLXWrapper_IADLX3DSettingsServices__System_Boolean_
+  name: ADLX3DSettingsServicesHelper
+  nameWithType: ADLX3DSettingsServicesHelper.ADLX3DSettingsServicesHelper
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.ADLX3DSettingsServicesHelper
+  nameWithType.vb: ADLX3DSettingsServicesHelper.New
+  fullName.vb: ADLXWrapper.ADLX3DSettingsServicesHelper.New
+  name.vb: New
+- uid: ADLXWrapper.IADLX3DSettingsServices*
+  isExternal: true
+  href: ADLXWrapper.IADLX3DSettingsServices.html
+  name: IADLX3DSettingsServices*
+  nameWithType: IADLX3DSettingsServices*
+  fullName: ADLXWrapper.IADLX3DSettingsServices*
+  spec.csharp:
+  - uid: ADLXWrapper.IADLX3DSettingsServices
+    name: IADLX3DSettingsServices
+    href: ADLXWrapper.IADLX3DSettingsServices.html
+  - name: '*'
+  spec.vb:
+  - uid: ADLXWrapper.IADLX3DSettingsServices
+    name: IADLX3DSettingsServices
+    href: ADLXWrapper.IADLX3DSettingsServices.html
+  - name: '*'
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsServicesNative*
+  commentId: Overload:ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsServicesNative
+  href: ADLXWrapper.ADLX3DSettingsServicesHelper.html#ADLXWrapper_ADLX3DSettingsServicesHelper_Get3DSettingsServicesNative
+  name: Get3DSettingsServicesNative
+  nameWithType: ADLX3DSettingsServicesHelper.Get3DSettingsServicesNative
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsServicesNative
+- uid: System.ObjectDisposedException
+  commentId: T:System.ObjectDisposedException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.objectdisposedexception
+  name: ObjectDisposedException
+  nameWithType: ObjectDisposedException
+  fullName: System.ObjectDisposedException
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsServicesHandle*
+  commentId: Overload:ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsServicesHandle
+  href: ADLXWrapper.ADLX3DSettingsServicesHelper.html#ADLXWrapper_ADLX3DSettingsServicesHelper_Get3DSettingsServicesHandle
+  name: Get3DSettingsServicesHandle
+  nameWithType: ADLX3DSettingsServicesHelper.Get3DSettingsServicesHandle
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsServicesHandle
+- uid: ADLXWrapper.ADLXInterfaceHandle
+  commentId: T:ADLXWrapper.ADLXInterfaceHandle
+  parent: ADLXWrapper
+  href: ADLXWrapper.ADLXInterfaceHandle.html
+  name: ADLXInterfaceHandle
+  nameWithType: ADLXInterfaceHandle
+  fullName: ADLXWrapper.ADLXInterfaceHandle
+- uid: ADLXWrapper.ADLXException
+  commentId: T:ADLXWrapper.ADLXException
+  href: ADLXWrapper.ADLXException.html
+  name: ADLXException
+  nameWithType: ADLXException
+  fullName: ADLXWrapper.ADLXException
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsChangedHandlingNative*
+  commentId: Overload:ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsChangedHandlingNative
+  href: ADLXWrapper.ADLX3DSettingsServicesHelper.html#ADLXWrapper_ADLX3DSettingsServicesHelper_Get3DSettingsChangedHandlingNative
+  name: Get3DSettingsChangedHandlingNative
+  nameWithType: ADLX3DSettingsServicesHelper.Get3DSettingsChangedHandlingNative
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsChangedHandlingNative
+- uid: ADLXWrapper.IADLX3DSettingsChangedHandling*
+  isExternal: true
+  href: ADLXWrapper.IADLX3DSettingsChangedHandling.html
+  name: IADLX3DSettingsChangedHandling*
+  nameWithType: IADLX3DSettingsChangedHandling*
+  fullName: ADLXWrapper.IADLX3DSettingsChangedHandling*
+  spec.csharp:
+  - uid: ADLXWrapper.IADLX3DSettingsChangedHandling
+    name: IADLX3DSettingsChangedHandling
+    href: ADLXWrapper.IADLX3DSettingsChangedHandling.html
+  - name: '*'
+  spec.vb:
+  - uid: ADLXWrapper.IADLX3DSettingsChangedHandling
+    name: IADLX3DSettingsChangedHandling
+    href: ADLXWrapper.IADLX3DSettingsChangedHandling.html
+  - name: '*'
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.TryGet3DSettingsChangedHandlingNative*
+  commentId: Overload:ADLXWrapper.ADLX3DSettingsServicesHelper.TryGet3DSettingsChangedHandlingNative
+  href: ADLXWrapper.ADLX3DSettingsServicesHelper.html#ADLXWrapper_ADLX3DSettingsServicesHelper_TryGet3DSettingsChangedHandlingNative_ADLXWrapper_IADLX3DSettingsChangedHandling___
+  name: TryGet3DSettingsChangedHandlingNative
+  nameWithType: ADLX3DSettingsServicesHelper.TryGet3DSettingsChangedHandlingNative
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.TryGet3DSettingsChangedHandlingNative
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsChangedHandling*
+  commentId: Overload:ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsChangedHandling
+  href: ADLXWrapper.ADLX3DSettingsServicesHelper.html#ADLXWrapper_ADLX3DSettingsServicesHelper_Get3DSettingsChangedHandling
+  name: Get3DSettingsChangedHandling
+  nameWithType: ADLX3DSettingsServicesHelper.Get3DSettingsChangedHandling
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.Get3DSettingsChangedHandling
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.Add3DSettingsEventListener*
+  commentId: Overload:ADLXWrapper.ADLX3DSettingsServicesHelper.Add3DSettingsEventListener
+  href: ADLXWrapper.ADLX3DSettingsServicesHelper.html#ADLXWrapper_ADLX3DSettingsServicesHelper_Add3DSettingsEventListener_ADLXWrapper_ThreeDSettingsListenerHandle_ThreeDSettingsChangedCallback_
+  name: Add3DSettingsEventListener
+  nameWithType: ADLX3DSettingsServicesHelper.Add3DSettingsEventListener
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.Add3DSettingsEventListener
+- uid: ADLXWrapper.ThreeDSettingsListenerHandle.ThreeDSettingsChangedCallback
+  commentId: T:ADLXWrapper.ThreeDSettingsListenerHandle.ThreeDSettingsChangedCallback
+  parent: ADLXWrapper
+  href: ADLXWrapper.ThreeDSettingsListenerHandle.html
+  name: ThreeDSettingsListenerHandle.ThreeDSettingsChangedCallback
+  nameWithType: ThreeDSettingsListenerHandle.ThreeDSettingsChangedCallback
+  fullName: ADLXWrapper.ThreeDSettingsListenerHandle.ThreeDSettingsChangedCallback
+  spec.csharp:
+  - uid: ADLXWrapper.ThreeDSettingsListenerHandle
+    name: ThreeDSettingsListenerHandle
+    href: ADLXWrapper.ThreeDSettingsListenerHandle.html
+  - name: .
+  - uid: ADLXWrapper.ThreeDSettingsListenerHandle.ThreeDSettingsChangedCallback
+    name: ThreeDSettingsChangedCallback
+    href: ADLXWrapper.ThreeDSettingsListenerHandle.ThreeDSettingsChangedCallback.html
+  spec.vb:
+  - uid: ADLXWrapper.ThreeDSettingsListenerHandle
+    name: ThreeDSettingsListenerHandle
+    href: ADLXWrapper.ThreeDSettingsListenerHandle.html
+  - name: .
+  - uid: ADLXWrapper.ThreeDSettingsListenerHandle.ThreeDSettingsChangedCallback
+    name: ThreeDSettingsChangedCallback
+    href: ADLXWrapper.ThreeDSettingsListenerHandle.ThreeDSettingsChangedCallback.html
+- uid: ADLXWrapper.ThreeDSettingsListenerHandle
+  commentId: T:ADLXWrapper.ThreeDSettingsListenerHandle
+  parent: ADLXWrapper
+  href: ADLXWrapper.ThreeDSettingsListenerHandle.html
+  name: ThreeDSettingsListenerHandle
+  nameWithType: ThreeDSettingsListenerHandle
+  fullName: ADLXWrapper.ThreeDSettingsListenerHandle
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.Remove3DSettingsEventListener*
+  commentId: Overload:ADLXWrapper.ADLX3DSettingsServicesHelper.Remove3DSettingsEventListener
+  href: ADLXWrapper.ADLX3DSettingsServicesHelper.html#ADLXWrapper_ADLX3DSettingsServicesHelper_Remove3DSettingsEventListener_ADLXWrapper_ThreeDSettingsListenerHandle_System_Boolean_
+  name: Remove3DSettingsEventListener
+  nameWithType: ADLX3DSettingsServicesHelper.Remove3DSettingsEventListener
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.Remove3DSettingsEventListener
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.GetAll3DSettings*
+  commentId: Overload:ADLXWrapper.ADLX3DSettingsServicesHelper.GetAll3DSettings
+  href: ADLXWrapper.ADLX3DSettingsServicesHelper.html#ADLXWrapper_ADLX3DSettingsServicesHelper_GetAll3DSettings_ADLXWrapper_IADLXGPU__
+  name: GetAll3DSettings
+  nameWithType: ADLX3DSettingsServicesHelper.GetAll3DSettings
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.GetAll3DSettings
+- uid: ADLXWrapper.IADLXGPU*
+  isExternal: true
+  href: ADLXWrapper.IADLXGPU.html
+  name: IADLXGPU*
+  nameWithType: IADLXGPU*
+  fullName: ADLXWrapper.IADLXGPU*
+  spec.csharp:
+  - uid: ADLXWrapper.IADLXGPU
+    name: IADLXGPU
+    href: ADLXWrapper.IADLXGPU.html
+  - name: '*'
+  spec.vb:
+  - uid: ADLXWrapper.IADLXGPU
+    name: IADLXGPU
+    href: ADLXWrapper.IADLXGPU.html
+  - name: '*'
+- uid: ADLXWrapper.All3DSettingsInfo
+  commentId: T:ADLXWrapper.All3DSettingsInfo
+  parent: ADLXWrapper
+  href: ADLXWrapper.All3DSettingsInfo.html
+  name: All3DSettingsInfo
+  nameWithType: All3DSettingsInfo
+  fullName: ADLXWrapper.All3DSettingsInfo
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.TryGetAll3DSettings*
+  commentId: Overload:ADLXWrapper.ADLX3DSettingsServicesHelper.TryGetAll3DSettings
+  href: ADLXWrapper.ADLX3DSettingsServicesHelper.html#ADLXWrapper_ADLX3DSettingsServicesHelper_TryGetAll3DSettings_ADLXWrapper_IADLXGPU__ADLXWrapper_All3DSettingsInfo__
+  name: TryGetAll3DSettings
+  nameWithType: ADLX3DSettingsServicesHelper.TryGetAll3DSettings
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.TryGetAll3DSettings
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.ApplyAll3DSettings*
+  commentId: Overload:ADLXWrapper.ADLX3DSettingsServicesHelper.ApplyAll3DSettings
+  href: ADLXWrapper.ADLX3DSettingsServicesHelper.html#ADLXWrapper_ADLX3DSettingsServicesHelper_ApplyAll3DSettings_ADLXWrapper_IADLXGPU__ADLXWrapper_All3DSettingsInfo_
+  name: ApplyAll3DSettings
+  nameWithType: ADLX3DSettingsServicesHelper.ApplyAll3DSettings
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.ApplyAll3DSettings
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.TryApplyAll3DSettings*
+  commentId: Overload:ADLXWrapper.ADLX3DSettingsServicesHelper.TryApplyAll3DSettings
+  href: ADLXWrapper.ADLX3DSettingsServicesHelper.html#ADLXWrapper_ADLX3DSettingsServicesHelper_TryApplyAll3DSettings_ADLXWrapper_IADLXGPU__ADLXWrapper_All3DSettingsInfo_
+  name: TryApplyAll3DSettings
+  nameWithType: ADLX3DSettingsServicesHelper.TryApplyAll3DSettings
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.TryApplyAll3DSettings
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.Dispose*
+  commentId: Overload:ADLXWrapper.ADLX3DSettingsServicesHelper.Dispose
+  href: ADLXWrapper.ADLX3DSettingsServicesHelper.html#ADLXWrapper_ADLX3DSettingsServicesHelper_Dispose
+  name: Dispose
+  nameWithType: ADLX3DSettingsServicesHelper.Dispose
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.Finalize*
+  commentId: Overload:ADLXWrapper.ADLX3DSettingsServicesHelper.Finalize
+  href: ADLXWrapper.ADLX3DSettingsServicesHelper.html#ADLXWrapper_ADLX3DSettingsServicesHelper_Finalize
+  name: ~ADLX3DSettingsServicesHelper
+  nameWithType: ADLX3DSettingsServicesHelper.~ADLX3DSettingsServicesHelper
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.~ADLX3DSettingsServicesHelper
+  spec.csharp:
+  - name: "~"
+  - uid: ADLXWrapper.ADLX3DSettingsServicesHelper.Finalize*
+    name: ADLX3DSettingsServicesHelper
+    href: ADLXWrapper.ADLX3DSettingsServicesHelper.html#ADLXWrapper_ADLX3DSettingsServicesHelper_Finalize
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.GetFluidMotionFrames*
+  commentId: Overload:ADLXWrapper.ADLX3DSettingsServicesHelper.GetFluidMotionFrames
+  href: ADLXWrapper.ADLX3DSettingsServicesHelper.html#ADLXWrapper_ADLX3DSettingsServicesHelper_GetFluidMotionFrames_ADLXWrapper_IADLXGPU__
+  name: GetFluidMotionFrames
+  nameWithType: ADLX3DSettingsServicesHelper.GetFluidMotionFrames
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.GetFluidMotionFrames
+- uid: ADLXWrapper.FluidMotionFramesInfo
+  commentId: T:ADLXWrapper.FluidMotionFramesInfo
+  parent: ADLXWrapper
+  href: ADLXWrapper.FluidMotionFramesInfo.html
+  name: FluidMotionFramesInfo
+  nameWithType: FluidMotionFramesInfo
+  fullName: ADLXWrapper.FluidMotionFramesInfo
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.TryGetFluidMotionFrames*
+  commentId: Overload:ADLXWrapper.ADLX3DSettingsServicesHelper.TryGetFluidMotionFrames
+  href: ADLXWrapper.ADLX3DSettingsServicesHelper.html#ADLXWrapper_ADLX3DSettingsServicesHelper_TryGetFluidMotionFrames_ADLXWrapper_IADLXGPU__ADLXWrapper_FluidMotionFramesInfo__
+  name: TryGetFluidMotionFrames
+  nameWithType: ADLX3DSettingsServicesHelper.TryGetFluidMotionFrames
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.TryGetFluidMotionFrames
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.GetRadeonSuperResolution*
+  commentId: Overload:ADLXWrapper.ADLX3DSettingsServicesHelper.GetRadeonSuperResolution
+  href: ADLXWrapper.ADLX3DSettingsServicesHelper.html#ADLXWrapper_ADLX3DSettingsServicesHelper_GetRadeonSuperResolution
+  name: GetRadeonSuperResolution
+  nameWithType: ADLX3DSettingsServicesHelper.GetRadeonSuperResolution
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.GetRadeonSuperResolution
+- uid: ADLXWrapper.RadeonSuperResolutionInfo
+  commentId: T:ADLXWrapper.RadeonSuperResolutionInfo
+  parent: ADLXWrapper
+  href: ADLXWrapper.RadeonSuperResolutionInfo.html
+  name: RadeonSuperResolutionInfo
+  nameWithType: RadeonSuperResolutionInfo
+  fullName: ADLXWrapper.RadeonSuperResolutionInfo
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper.TryGetRadeonSuperResolution*
+  commentId: Overload:ADLXWrapper.ADLX3DSettingsServicesHelper.TryGetRadeonSuperResolution
+  href: ADLXWrapper.ADLX3DSettingsServicesHelper.html#ADLXWrapper_ADLX3DSettingsServicesHelper_TryGetRadeonSuperResolution_ADLXWrapper_RadeonSuperResolutionInfo__
+  name: TryGetRadeonSuperResolution
+  nameWithType: ADLX3DSettingsServicesHelper.TryGetRadeonSuperResolution
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper.TryGetRadeonSuperResolution

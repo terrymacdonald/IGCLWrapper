@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ADLXMultimediaServicesHelper | ADLXWrapper </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ADLXMultimediaServicesHelper | ADLXWrapper ">
+      
+      <meta name="description" content="Wrapper over IADLXMultimediaServices exposing managed/native accessors and change handling.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/terrymacdonald/ADLXWrapper/new/feature-facade-tests-v3/apiSpec/new?filename=ADLXWrapper_ADLXMultimediaServicesHelper.md&amp;value=---%0Auid%3A%20ADLXWrapper.ADLXMultimediaServicesHelper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="ADLXWrapper">
+            ADLXWrapper
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ADLXWrapper.ADLXMultimediaServicesHelper">
+
+
+
+  <h1 id="ADLXWrapper_ADLXMultimediaServicesHelper" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper" class="text-break">
+Class ADLXMultimediaServicesHelper  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXMultimediaServicesHelper.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ADLXWrapper.html">ADLXWrapper</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ADLXWrapper.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Wrapper over IADLXMultimediaServices exposing managed/native accessors and change handling.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class ADLXMultimediaServicesHelper : IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ADLXMultimediaServicesHelper</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="ADLXWrapper_ADLXMultimediaServicesHelper__ctor_" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.#ctor*"></a>
+
+  <h3 id="ADLXWrapper_ADLXMultimediaServicesHelper__ctor_ADLXWrapper_IADLXMultimediaServices__System_Boolean_" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.#ctor(ADLXWrapper.IADLXMultimediaServices*,System.Boolean)">
+  ADLXMultimediaServicesHelper(IADLXMultimediaServices*, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXMultimediaServicesHelper.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a multimedia services helper from the native services interface.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ADLXMultimediaServicesHelper(IADLXMultimediaServices* services, bool addRef = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>services</code> <a class="xref" href="ADLXWrapper.IADLXMultimediaServices.html">IADLXMultimediaServices</a>*</dt>
+    <dd><p>Native multimedia services pointer.</p>
+</dd>
+    <dt><code>addRef</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True to AddRef the pointer for this helper.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ADLXWrapper_ADLXMultimediaServicesHelper_AddMultimediaEventListener_" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.AddMultimediaEventListener*"></a>
+
+  <h3 id="ADLXWrapper_ADLXMultimediaServicesHelper_AddMultimediaEventListener_ADLXWrapper_MultimediaListenerHandle_MultimediaChangedCallback_" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.AddMultimediaEventListener(ADLXWrapper.MultimediaListenerHandle.MultimediaChangedCallback)">
+  AddMultimediaEventListener(MultimediaChangedCallback)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXMultimediaServicesHelper.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultimediaListenerHandle AddMultimediaEventListener(MultimediaListenerHandle.MultimediaChangedCallback callback)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>callback</code> <a class="xref" href="ADLXWrapper.MultimediaListenerHandle.html">MultimediaListenerHandle</a>.<a class="xref" href="ADLXWrapper.MultimediaListenerHandle.MultimediaChangedCallback.html">MultimediaChangedCallback</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.MultimediaListenerHandle.html">MultimediaListenerHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXMultimediaServicesHelper_Dispose_" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.Dispose*"></a>
+
+  <h3 id="ADLXWrapper_ADLXMultimediaServicesHelper_Dispose" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.Dispose">
+  Dispose()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXMultimediaServicesHelper.cs/#L333"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXMultimediaServicesHelper_Finalize_" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.Finalize*"></a>
+
+  <h3 id="ADLXWrapper_ADLXMultimediaServicesHelper_Finalize" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.Finalize">
+  ~ADLXMultimediaServicesHelper()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXMultimediaServicesHelper.cs/#L348"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ~ADLXMultimediaServicesHelper()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXMultimediaServicesHelper_GetMultimediaChangedHandling_" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaChangedHandling*"></a>
+
+  <h3 id="ADLXWrapper_ADLXMultimediaServicesHelper_GetMultimediaChangedHandling" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaChangedHandling">
+  GetMultimediaChangedHandling()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXMultimediaServicesHelper.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ADLXInterfaceHandle GetMultimediaChangedHandling()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.AdlxInterfaceHandle.html">ADLXInterfaceHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXMultimediaServicesHelper_GetMultimediaChangedHandlingNative_" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaChangedHandlingNative*"></a>
+
+  <h3 id="ADLXWrapper_ADLXMultimediaServicesHelper_GetMultimediaChangedHandlingNative" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaChangedHandlingNative">
+  GetMultimediaChangedHandlingNative()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXMultimediaServicesHelper.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the multimedia change handling interface (native). Cached after first query.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IADLXMultimediaChangedHandling* GetMultimediaChangedHandlingNative()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.IADLXMultimediaChangedHandling.html">IADLXMultimediaChangedHandling</a>*</dt>
+    <dd><p>Native multimedia change handling pointer.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If unsupported or retrieval fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXMultimediaServicesHelper_GetMultimediaServicesHandle_" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaServicesHandle*"></a>
+
+  <h3 id="ADLXWrapper_ADLXMultimediaServicesHelper_GetMultimediaServicesHandle" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaServicesHandle">
+  GetMultimediaServicesHandle()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXMultimediaServicesHelper.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an AddRef'd handle to the multimedia services interface.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ADLXInterfaceHandle GetMultimediaServicesHandle()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.AdlxInterfaceHandle.html">ADLXInterfaceHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXMultimediaServicesHelper_GetMultimediaServicesNative_" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaServicesNative*"></a>
+
+  <h3 id="ADLXWrapper_ADLXMultimediaServicesHelper_GetMultimediaServicesNative" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.GetMultimediaServicesNative">
+  GetMultimediaServicesNative()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXMultimediaServicesHelper.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the native multimedia services interface owned by this helper.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IADLXMultimediaServices* GetMultimediaServicesNative()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.IADLXMultimediaServices.html">IADLXMultimediaServices</a>*</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXMultimediaServicesHelper_GetVideoSuperResolution_" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoSuperResolution*"></a>
+
+  <h3 id="ADLXWrapper_ADLXMultimediaServicesHelper_GetVideoSuperResolution_ADLXWrapper_IADLXGPU__" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoSuperResolution(ADLXWrapper.IADLXGPU*)">
+  GetVideoSuperResolution(IADLXGPU*)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXMultimediaServicesHelper.cs/#L279"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VideoSuperResolutionInfo GetVideoSuperResolution(IADLXGPU* gpu)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.VideoSuperResolutionInfo.html">VideoSuperResolutionInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXMultimediaServicesHelper_GetVideoSuperResolutionNative_" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoSuperResolutionNative*"></a>
+
+  <h3 id="ADLXWrapper_ADLXMultimediaServicesHelper_GetVideoSuperResolutionNative_ADLXWrapper_IADLXGPU__" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoSuperResolutionNative(ADLXWrapper.IADLXGPU*)">
+  GetVideoSuperResolutionNative(IADLXGPU*)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXMultimediaServicesHelper.cs/#L246"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IADLXVideoSuperResolution* GetVideoSuperResolutionNative(IADLXGPU* gpu)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.IADLXVideoSuperResolution.html">IADLXVideoSuperResolution</a>*</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXMultimediaServicesHelper_GetVideoUpscale_" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoUpscale*"></a>
+
+  <h3 id="ADLXWrapper_ADLXMultimediaServicesHelper_GetVideoUpscale_ADLXWrapper_IADLXGPU__" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoUpscale(ADLXWrapper.IADLXGPU*)">
+  GetVideoUpscale(IADLXGPU*)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXMultimediaServicesHelper.cs/#L165"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VideoUpscaleInfo GetVideoUpscale(IADLXGPU* gpu)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.VideoUpscaleInfo.html">VideoUpscaleInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXMultimediaServicesHelper_GetVideoUpscaleNative_" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoUpscaleNative*"></a>
+
+  <h3 id="ADLXWrapper_ADLXMultimediaServicesHelper_GetVideoUpscaleNative_ADLXWrapper_IADLXGPU__" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.GetVideoUpscaleNative(ADLXWrapper.IADLXGPU*)">
+  GetVideoUpscaleNative(IADLXGPU*)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXMultimediaServicesHelper.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IADLXVideoUpscale* GetVideoUpscaleNative(IADLXGPU* gpu)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.IADLXVideoUpscale.html">IADLXVideoUpscale</a>*</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXMultimediaServicesHelper_RemoveMultimediaEventListener_" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.RemoveMultimediaEventListener*"></a>
+
+  <h3 id="ADLXWrapper_ADLXMultimediaServicesHelper_RemoveMultimediaEventListener_ADLXWrapper_MultimediaListenerHandle_System_Boolean_" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.RemoveMultimediaEventListener(ADLXWrapper.MultimediaListenerHandle,System.Boolean)">
+  RemoveMultimediaEventListener(MultimediaListenerHandle, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXMultimediaServicesHelper.cs/#L117"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveMultimediaEventListener(MultimediaListenerHandle handle, bool disposeHandle = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handle</code> <a class="xref" href="ADLXWrapper.MultimediaListenerHandle.html">MultimediaListenerHandle</a></dt>
+    <dd></dd>
+    <dt><code>disposeHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXMultimediaServicesHelper_SetVideoSuperResolutionEnabled_" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.SetVideoSuperResolutionEnabled*"></a>
+
+  <h3 id="ADLXWrapper_ADLXMultimediaServicesHelper_SetVideoSuperResolutionEnabled_ADLXWrapper_IADLXVideoSuperResolution__System_Boolean_" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.SetVideoSuperResolutionEnabled(ADLXWrapper.IADLXVideoSuperResolution*,System.Boolean)">
+  SetVideoSuperResolutionEnabled(IADLXVideoSuperResolution*, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXMultimediaServicesHelper.cs/#L306"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetVideoSuperResolutionEnabled(IADLXVideoSuperResolution* vsr, bool enable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vsr</code> <a class="xref" href="ADLXWrapper.IADLXVideoSuperResolution.html">IADLXVideoSuperResolution</a>*</dt>
+    <dd></dd>
+    <dt><code>enable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXMultimediaServicesHelper_SetVideoUpscaleEnabled_" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.SetVideoUpscaleEnabled*"></a>
+
+  <h3 id="ADLXWrapper_ADLXMultimediaServicesHelper_SetVideoUpscaleEnabled_ADLXWrapper_IADLXVideoUpscale__System_Boolean_" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.SetVideoUpscaleEnabled(ADLXWrapper.IADLXVideoUpscale*,System.Boolean)">
+  SetVideoUpscaleEnabled(IADLXVideoUpscale*, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXMultimediaServicesHelper.cs/#L192"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetVideoUpscaleEnabled(IADLXVideoUpscale* upscale, bool enable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>upscale</code> <a class="xref" href="ADLXWrapper.IADLXVideoUpscale.html">IADLXVideoUpscale</a>*</dt>
+    <dd></dd>
+    <dt><code>enable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXMultimediaServicesHelper_SetVideoUpscaleSharpness_" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.SetVideoUpscaleSharpness*"></a>
+
+  <h3 id="ADLXWrapper_ADLXMultimediaServicesHelper_SetVideoUpscaleSharpness_ADLXWrapper_IADLXVideoUpscale__System_Int32_" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.SetVideoUpscaleSharpness(ADLXWrapper.IADLXVideoUpscale*,System.Int32)">
+  SetVideoUpscaleSharpness(IADLXVideoUpscale*, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXMultimediaServicesHelper.cs/#L219"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetVideoUpscaleSharpness(IADLXVideoUpscale* upscale, int sharpness)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>upscale</code> <a class="xref" href="ADLXWrapper.IADLXVideoUpscale.html">IADLXVideoUpscale</a>*</dt>
+    <dd></dd>
+    <dt><code>sharpness</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXMultimediaServicesHelper_TryGetMultimediaChangedHandlingNative_" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.TryGetMultimediaChangedHandlingNative*"></a>
+
+  <h3 id="ADLXWrapper_ADLXMultimediaServicesHelper_TryGetMultimediaChangedHandlingNative_ADLXWrapper_IADLXMultimediaChangedHandling___" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.TryGetMultimediaChangedHandlingNative(ADLXWrapper.IADLXMultimediaChangedHandling*@)">
+  TryGetMultimediaChangedHandlingNative(out IADLXMultimediaChangedHandling*)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXMultimediaServicesHelper.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tries to get multimedia change handling; returns false when unsupported.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetMultimediaChangedHandlingNative(out IADLXMultimediaChangedHandling* handling)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handling</code> <a class="xref" href="ADLXWrapper.IADLXMultimediaChangedHandling.html">IADLXMultimediaChangedHandling</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXMultimediaServicesHelper_TryGetVideoSuperResolution_" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoSuperResolution*"></a>
+
+  <h3 id="ADLXWrapper_ADLXMultimediaServicesHelper_TryGetVideoSuperResolution_ADLXWrapper_IADLXGPU__ADLXWrapper_VideoSuperResolutionInfo__" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoSuperResolution(ADLXWrapper.IADLXGPU*,ADLXWrapper.VideoSuperResolutionInfo@)">
+  TryGetVideoSuperResolution(IADLXGPU*, out VideoSuperResolutionInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXMultimediaServicesHelper.cs/#L292"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tries to query video super resolution info; returns false when unsupported.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetVideoSuperResolution(IADLXGPU* gpu, out VideoSuperResolutionInfo info)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd></dd>
+    <dt><code>info</code> <a class="xref" href="ADLXWrapper.VideoSuperResolutionInfo.html">VideoSuperResolutionInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXMultimediaServicesHelper_TryGetVideoSuperResolutionNative_" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoSuperResolutionNative*"></a>
+
+  <h3 id="ADLXWrapper_ADLXMultimediaServicesHelper_TryGetVideoSuperResolutionNative_ADLXWrapper_IADLXGPU__ADLXWrapper_IADLXVideoSuperResolution___" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoSuperResolutionNative(ADLXWrapper.IADLXGPU*,ADLXWrapper.IADLXVideoSuperResolution*@)">
+  TryGetVideoSuperResolutionNative(IADLXGPU*, out IADLXVideoSuperResolution*)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXMultimediaServicesHelper.cs/#L265"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tries to get the native video super resolution interface; returns false when unsupported.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetVideoSuperResolutionNative(IADLXGPU* gpu, out IADLXVideoSuperResolution* vsr)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd></dd>
+    <dt><code>vsr</code> <a class="xref" href="ADLXWrapper.IADLXVideoSuperResolution.html">IADLXVideoSuperResolution</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXMultimediaServicesHelper_TryGetVideoUpscale_" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoUpscale*"></a>
+
+  <h3 id="ADLXWrapper_ADLXMultimediaServicesHelper_TryGetVideoUpscale_ADLXWrapper_IADLXGPU__ADLXWrapper_VideoUpscaleInfo__" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoUpscale(ADLXWrapper.IADLXGPU*,ADLXWrapper.VideoUpscaleInfo@)">
+  TryGetVideoUpscale(IADLXGPU*, out VideoUpscaleInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXMultimediaServicesHelper.cs/#L178"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tries to query video upscale info; returns false when unsupported.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetVideoUpscale(IADLXGPU* gpu, out VideoUpscaleInfo info)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd></dd>
+    <dt><code>info</code> <a class="xref" href="ADLXWrapper.VideoUpscaleInfo.html">VideoUpscaleInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXMultimediaServicesHelper_TryGetVideoUpscaleNative_" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoUpscaleNative*"></a>
+
+  <h3 id="ADLXWrapper_ADLXMultimediaServicesHelper_TryGetVideoUpscaleNative_ADLXWrapper_IADLXGPU__ADLXWrapper_IADLXVideoUpscale___" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.TryGetVideoUpscaleNative(ADLXWrapper.IADLXGPU*,ADLXWrapper.IADLXVideoUpscale*@)">
+  TryGetVideoUpscaleNative(IADLXGPU*, out IADLXVideoUpscale*)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXMultimediaServicesHelper.cs/#L151"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tries to get the native video upscale interface; returns false when unsupported.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetVideoUpscaleNative(IADLXGPU* gpu, out IADLXVideoUpscale* upscale)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd></dd>
+    <dt><code>upscale</code> <a class="xref" href="ADLXWrapper.IADLXVideoUpscale.html">IADLXVideoUpscale</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXMultimediaServicesHelper_TrySetVideoSuperResolutionEnabled_" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.TrySetVideoSuperResolutionEnabled*"></a>
+
+  <h3 id="ADLXWrapper_ADLXMultimediaServicesHelper_TrySetVideoSuperResolutionEnabled_ADLXWrapper_IADLXVideoSuperResolution__System_Boolean_" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.TrySetVideoSuperResolutionEnabled(ADLXWrapper.IADLXVideoSuperResolution*,System.Boolean)">
+  TrySetVideoSuperResolutionEnabled(IADLXVideoSuperResolution*, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXMultimediaServicesHelper.cs/#L320"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tries to set video super resolution enabled; returns false when the feature is unsupported.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TrySetVideoSuperResolutionEnabled(IADLXVideoSuperResolution* vsr, bool enable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vsr</code> <a class="xref" href="ADLXWrapper.IADLXVideoSuperResolution.html">IADLXVideoSuperResolution</a>*</dt>
+    <dd></dd>
+    <dt><code>enable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXMultimediaServicesHelper_TrySetVideoUpscaleEnabled_" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.TrySetVideoUpscaleEnabled*"></a>
+
+  <h3 id="ADLXWrapper_ADLXMultimediaServicesHelper_TrySetVideoUpscaleEnabled_ADLXWrapper_IADLXVideoUpscale__System_Boolean_" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.TrySetVideoUpscaleEnabled(ADLXWrapper.IADLXVideoUpscale*,System.Boolean)">
+  TrySetVideoUpscaleEnabled(IADLXVideoUpscale*, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXMultimediaServicesHelper.cs/#L206"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tries to set video upscale enabled; returns false when the feature is unsupported.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TrySetVideoUpscaleEnabled(IADLXVideoUpscale* upscale, bool enable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>upscale</code> <a class="xref" href="ADLXWrapper.IADLXVideoUpscale.html">IADLXVideoUpscale</a>*</dt>
+    <dd></dd>
+    <dt><code>enable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXMultimediaServicesHelper_TrySetVideoUpscaleSharpness_" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.TrySetVideoUpscaleSharpness*"></a>
+
+  <h3 id="ADLXWrapper_ADLXMultimediaServicesHelper_TrySetVideoUpscaleSharpness_ADLXWrapper_IADLXVideoUpscale__System_Int32_" data-uid="ADLXWrapper.ADLXMultimediaServicesHelper.TrySetVideoUpscaleSharpness(ADLXWrapper.IADLXVideoUpscale*,System.Int32)">
+  TrySetVideoUpscaleSharpness(IADLXVideoUpscale*, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXMultimediaServicesHelper.cs/#L233"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tries to set video upscale sharpness; returns false when the feature is unsupported.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TrySetVideoUpscaleSharpness(IADLXVideoUpscale* upscale, int sharpness)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>upscale</code> <a class="xref" href="ADLXWrapper.IADLXVideoUpscale.html">IADLXVideoUpscale</a>*</dt>
+    <dd></dd>
+    <dt><code>sharpness</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXMultimediaServicesHelper.cs/#L12" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ADLXGPUTuningServicesHelper | ADLXWrapper </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ADLXGPUTuningServicesHelper | ADLXWrapper ">
+      
+      <meta name="description" content="Wrapper over IADLXGPUTuningServices selecting the highest available interface and exposing change handling helpers.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/terrymacdonald/ADLXWrapper/new/feature-facade-tests-v3/apiSpec/new?filename=ADLXWrapper_ADLXGPUTuningServicesHelper.md&amp;value=---%0Auid%3A%20ADLXWrapper.ADLXGPUTuningServicesHelper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="ADLXWrapper">
+            ADLXWrapper
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper">
+
+
+
+  <h1 id="ADLXWrapper_ADLXGPUTuningServicesHelper" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper" class="text-break">
+Class ADLXGPUTuningServicesHelper  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXGPUTuningServicesHelper.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ADLXWrapper.html">ADLXWrapper</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ADLXWrapper.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Wrapper over IADLXGPUTuningServices selecting the highest available interface and exposing change handling helpers.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class ADLXGPUTuningServicesHelper : IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ADLXGPUTuningServicesHelper</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="ADLXWrapper_ADLXGPUTuningServicesHelper__ctor_" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.#ctor*"></a>
+
+  <h3 id="ADLXWrapper_ADLXGPUTuningServicesHelper__ctor_ADLXWrapper_IADLXGPUTuningServices__System_Boolean_" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.#ctor(ADLXWrapper.IADLXGPUTuningServices*,System.Boolean)">
+  ADLXGPUTuningServicesHelper(IADLXGPUTuningServices*, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXGPUTuningServicesHelper.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a GPU tuning helper from the native services interface, upgrading to v1 when available.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ADLXGPUTuningServicesHelper(IADLXGPUTuningServices* services, bool addRef = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>services</code> <a class="xref" href="ADLXWrapper.IADLXGPUTuningServices.html">IADLXGPUTuningServices</a>*</dt>
+    <dd><p>Native GPU tuning services pointer.</p>
+</dd>
+    <dt><code>addRef</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True to AddRef the pointer for this helper.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ADLXWrapper_ADLXGPUTuningServicesHelper_AddGPUTuningEventListener_" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.AddGPUTuningEventListener*"></a>
+
+  <h3 id="ADLXWrapper_ADLXGPUTuningServicesHelper_AddGPUTuningEventListener_ADLXWrapper_GpuTuningListenerHandle_GpuTuningChangedCallback_" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.AddGPUTuningEventListener(ADLXWrapper.GpuTuningListenerHandle.GpuTuningChangedCallback)">
+  AddGPUTuningEventListener(GpuTuningChangedCallback)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXGPUTuningServicesHelper.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a GPU tuning change listener.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GpuTuningListenerHandle AddGPUTuningEventListener(GpuTuningListenerHandle.GpuTuningChangedCallback callback)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>callback</code> <a class="xref" href="ADLXWrapper.GpuTuningListenerHandle.html">GpuTuningListenerHandle</a>.<a class="xref" href="ADLXWrapper.GpuTuningListenerHandle.GpuTuningChangedCallback.html">GpuTuningChangedCallback</a></dt>
+    <dd><p>Callback invoked on tuning changes.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.GpuTuningListenerHandle.html">GpuTuningListenerHandle</a></dt>
+    <dd><p>Listener handle that must be disposed to unsubscribe.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If registration fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXGPUTuningServicesHelper_Dispose_" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.Dispose*"></a>
+
+  <h3 id="ADLXWrapper_ADLXGPUTuningServicesHelper_Dispose" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.Dispose">
+  Dispose()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXGPUTuningServicesHelper.cs/#L433"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXGPUTuningServicesHelper_Finalize_" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.Finalize*"></a>
+
+  <h3 id="ADLXWrapper_ADLXGPUTuningServicesHelper_Finalize" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.Finalize">
+  ~ADLXGPUTuningServicesHelper()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXGPUTuningServicesHelper.cs/#L449"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ~ADLXGPUTuningServicesHelper()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXGPUTuningServicesHelper_GetCapabilities_" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.GetCapabilities*"></a>
+
+  <h3 id="ADLXWrapper_ADLXGPUTuningServicesHelper_GetCapabilities_ADLXWrapper_IADLXGPU__" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.GetCapabilities(ADLXWrapper.IADLXGPU*)">
+  GetCapabilities(IADLXGPU*)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXGPUTuningServicesHelper.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GpuTuningCapabilitiesInfo GetCapabilities(IADLXGPU* gpu)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.GpuTuningCapabilitiesInfo.html">GpuTuningCapabilitiesInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXGPUTuningServicesHelper_GetGPUTuningChangedHandling_" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.GetGPUTuningChangedHandling*"></a>
+
+  <h3 id="ADLXWrapper_ADLXGPUTuningServicesHelper_GetGPUTuningChangedHandling" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.GetGPUTuningChangedHandling">
+  GetGPUTuningChangedHandling()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXGPUTuningServicesHelper.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ADLXInterfaceHandle GetGPUTuningChangedHandling()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.AdlxInterfaceHandle.html">ADLXInterfaceHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXGPUTuningServicesHelper_GetGPUTuningChangedHandlingNative_" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.GetGPUTuningChangedHandlingNative*"></a>
+
+  <h3 id="ADLXWrapper_ADLXGPUTuningServicesHelper_GetGPUTuningChangedHandlingNative" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.GetGPUTuningChangedHandlingNative">
+  GetGPUTuningChangedHandlingNative()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXGPUTuningServicesHelper.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the GPU tuning change handling interface (native). Cached after first query.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IADLXGPUTuningChangedHandling* GetGPUTuningChangedHandlingNative()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.IADLXGPUTuningChangedHandling.html">IADLXGPUTuningChangedHandling</a>*</dt>
+    <dd><p>Native change handling pointer.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If unsupported or retrieval fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXGPUTuningServicesHelper_GetGPUTuningServicesHandle_" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.GetGPUTuningServicesHandle*"></a>
+
+  <h3 id="ADLXWrapper_ADLXGPUTuningServicesHelper_GetGPUTuningServicesHandle" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.GetGPUTuningServicesHandle">
+  GetGPUTuningServicesHandle()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXGPUTuningServicesHelper.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an AddRef'd handle to the highest available GPU tuning services interface.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ADLXInterfaceHandle GetGPUTuningServicesHandle()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.AdlxInterfaceHandle.html">ADLXInterfaceHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXGPUTuningServicesHelper_GetGPUTuningServicesNative_" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.GetGPUTuningServicesNative*"></a>
+
+  <h3 id="ADLXWrapper_ADLXGPUTuningServicesHelper_GetGPUTuningServicesNative" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.GetGPUTuningServicesNative">
+  GetGPUTuningServicesNative()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXGPUTuningServicesHelper.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IADLXGPUTuningServices* GetGPUTuningServicesNative()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.IADLXGPUTuningServices.html">IADLXGPUTuningServices</a>*</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXGPUTuningServicesHelper_GetManualFanTuning_" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.GetManualFanTuning*"></a>
+
+  <h3 id="ADLXWrapper_ADLXGPUTuningServicesHelper_GetManualFanTuning_ADLXWrapper_IADLXGPU__" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.GetManualFanTuning(ADLXWrapper.IADLXGPU*)">
+  GetManualFanTuning(IADLXGPU*)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXGPUTuningServicesHelper.cs/#L313"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ManualFanTuningInfo GetManualFanTuning(IADLXGPU* gpu)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ManualFanTuningInfo.html">ManualFanTuningInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXGPUTuningServicesHelper_GetManualGfxTuning_" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.GetManualGfxTuning*"></a>
+
+  <h3 id="ADLXWrapper_ADLXGPUTuningServicesHelper_GetManualGfxTuning_ADLXWrapper_IADLXGPU__" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.GetManualGfxTuning(ADLXWrapper.IADLXGPU*)">
+  GetManualGfxTuning(IADLXGPU*)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXGPUTuningServicesHelper.cs/#L373"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ManualGfxTuningInfo GetManualGfxTuning(IADLXGPU* gpu)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ManualGfxTuningInfo.html">ManualGfxTuningInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXGPUTuningServicesHelper_GetManualVramTuning_" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.GetManualVramTuning*"></a>
+
+  <h3 id="ADLXWrapper_ADLXGPUTuningServicesHelper_GetManualVramTuning_ADLXWrapper_IADLXGPU__" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.GetManualVramTuning(ADLXWrapper.IADLXGPU*)">
+  GetManualVramTuning(IADLXGPU*)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXGPUTuningServicesHelper.cs/#L343"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ManualVramTuningInfo GetManualVramTuning(IADLXGPU* gpu)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ManualVramTuningInfo.html">ManualVramTuningInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXGPUTuningServicesHelper_GetPresetTuning_" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.GetPresetTuning*"></a>
+
+  <h3 id="ADLXWrapper_ADLXGPUTuningServicesHelper_GetPresetTuning_ADLXWrapper_IADLXGPU__" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.GetPresetTuning(ADLXWrapper.IADLXGPU*)">
+  GetPresetTuning(IADLXGPU*)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXGPUTuningServicesHelper.cs/#L403"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PresetTuningInfo GetPresetTuning(IADLXGPU* gpu)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.PresetTuningInfo.html">PresetTuningInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXGPUTuningServicesHelper_IsAutoTuningSupported_" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.IsAutoTuningSupported*"></a>
+
+  <h3 id="ADLXWrapper_ADLXGPUTuningServicesHelper_IsAutoTuningSupported_ADLXWrapper_IADLXGPU__" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.IsAutoTuningSupported(ADLXWrapper.IADLXGPU*)">
+  IsAutoTuningSupported(IADLXGPU*)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXGPUTuningServicesHelper.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsAutoTuningSupported(IADLXGPU* gpu)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXGPUTuningServicesHelper_IsManualFanTuningSupported_" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.IsManualFanTuningSupported*"></a>
+
+  <h3 id="ADLXWrapper_ADLXGPUTuningServicesHelper_IsManualFanTuningSupported_ADLXWrapper_IADLXGPU__" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.IsManualFanTuningSupported(ADLXWrapper.IADLXGPU*)">
+  IsManualFanTuningSupported(IADLXGPU*)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXGPUTuningServicesHelper.cs/#L255"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsManualFanTuningSupported(IADLXGPU* gpu)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXGPUTuningServicesHelper_IsManualGfxTuningSupported_" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.IsManualGfxTuningSupported*"></a>
+
+  <h3 id="ADLXWrapper_ADLXGPUTuningServicesHelper_IsManualGfxTuningSupported_ADLXWrapper_IADLXGPU__" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.IsManualGfxTuningSupported(ADLXWrapper.IADLXGPU*)">
+  IsManualGfxTuningSupported(IADLXGPU*)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXGPUTuningServicesHelper.cs/#L197"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsManualGfxTuningSupported(IADLXGPU* gpu)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXGPUTuningServicesHelper_IsManualPowerTuningSupported_" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.IsManualPowerTuningSupported*"></a>
+
+  <h3 id="ADLXWrapper_ADLXGPUTuningServicesHelper_IsManualPowerTuningSupported_ADLXWrapper_IADLXGPU__" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.IsManualPowerTuningSupported(ADLXWrapper.IADLXGPU*)">
+  IsManualPowerTuningSupported(IADLXGPU*)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXGPUTuningServicesHelper.cs/#L284"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsManualPowerTuningSupported(IADLXGPU* gpu)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXGPUTuningServicesHelper_IsManualVramTuningSupported_" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.IsManualVramTuningSupported*"></a>
+
+  <h3 id="ADLXWrapper_ADLXGPUTuningServicesHelper_IsManualVramTuningSupported_ADLXWrapper_IADLXGPU__" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.IsManualVramTuningSupported(ADLXWrapper.IADLXGPU*)">
+  IsManualVramTuningSupported(IADLXGPU*)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXGPUTuningServicesHelper.cs/#L226"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsManualVramTuningSupported(IADLXGPU* gpu)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXGPUTuningServicesHelper_IsPresetTuningSupported_" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.IsPresetTuningSupported*"></a>
+
+  <h3 id="ADLXWrapper_ADLXGPUTuningServicesHelper_IsPresetTuningSupported_ADLXWrapper_IADLXGPU__" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.IsPresetTuningSupported(ADLXWrapper.IADLXGPU*)">
+  IsPresetTuningSupported(IADLXGPU*)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXGPUTuningServicesHelper.cs/#L168"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsPresetTuningSupported(IADLXGPU* gpu)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXGPUTuningServicesHelper_RemoveGPUTuningEventListener_" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.RemoveGPUTuningEventListener*"></a>
+
+  <h3 id="ADLXWrapper_ADLXGPUTuningServicesHelper_RemoveGPUTuningEventListener_ADLXWrapper_GpuTuningListenerHandle_System_Boolean_" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.RemoveGPUTuningEventListener(ADLXWrapper.GpuTuningListenerHandle,System.Boolean)">
+  RemoveGPUTuningEventListener(GpuTuningListenerHandle, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXGPUTuningServicesHelper.cs/#L113"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a GPU tuning change listener.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveGPUTuningEventListener(GpuTuningListenerHandle handle, bool disposeHandle = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handle</code> <a class="xref" href="ADLXWrapper.GpuTuningListenerHandle.html">GpuTuningListenerHandle</a></dt>
+    <dd><p>Handle returned by add.</p>
+</dd>
+    <dt><code>disposeHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True to dispose the handle after removal.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXGPUTuningServicesHelper_TryGetManualFanTuning_" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.TryGetManualFanTuning*"></a>
+
+  <h3 id="ADLXWrapper_ADLXGPUTuningServicesHelper_TryGetManualFanTuning_ADLXWrapper_IADLXGPU__ADLXWrapper_ManualFanTuningInfo__" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.TryGetManualFanTuning(ADLXWrapper.IADLXGPU*,ADLXWrapper.ManualFanTuningInfo@)">
+  TryGetManualFanTuning(IADLXGPU*, out ManualFanTuningInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXGPUTuningServicesHelper.cs/#L329"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetManualFanTuning(IADLXGPU* gpu, out ManualFanTuningInfo info)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd></dd>
+    <dt><code>info</code> <a class="xref" href="ADLXWrapper.ManualFanTuningInfo.html">ManualFanTuningInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXGPUTuningServicesHelper_TryGetManualGfxTuning_" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.TryGetManualGfxTuning*"></a>
+
+  <h3 id="ADLXWrapper_ADLXGPUTuningServicesHelper_TryGetManualGfxTuning_ADLXWrapper_IADLXGPU__ADLXWrapper_ManualGfxTuningInfo__" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.TryGetManualGfxTuning(ADLXWrapper.IADLXGPU*,ADLXWrapper.ManualGfxTuningInfo@)">
+  TryGetManualGfxTuning(IADLXGPU*, out ManualGfxTuningInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXGPUTuningServicesHelper.cs/#L389"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetManualGfxTuning(IADLXGPU* gpu, out ManualGfxTuningInfo info)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd></dd>
+    <dt><code>info</code> <a class="xref" href="ADLXWrapper.ManualGfxTuningInfo.html">ManualGfxTuningInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXGPUTuningServicesHelper_TryGetManualVramTuning_" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.TryGetManualVramTuning*"></a>
+
+  <h3 id="ADLXWrapper_ADLXGPUTuningServicesHelper_TryGetManualVramTuning_ADLXWrapper_IADLXGPU__ADLXWrapper_ManualVramTuningInfo__" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.TryGetManualVramTuning(ADLXWrapper.IADLXGPU*,ADLXWrapper.ManualVramTuningInfo@)">
+  TryGetManualVramTuning(IADLXGPU*, out ManualVramTuningInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXGPUTuningServicesHelper.cs/#L359"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetManualVramTuning(IADLXGPU* gpu, out ManualVramTuningInfo info)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd></dd>
+    <dt><code>info</code> <a class="xref" href="ADLXWrapper.ManualVramTuningInfo.html">ManualVramTuningInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXGPUTuningServicesHelper_TryGetPresetTuning_" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.TryGetPresetTuning*"></a>
+
+  <h3 id="ADLXWrapper_ADLXGPUTuningServicesHelper_TryGetPresetTuning_ADLXWrapper_IADLXGPU__ADLXWrapper_PresetTuningInfo__" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.TryGetPresetTuning(ADLXWrapper.IADLXGPU*,ADLXWrapper.PresetTuningInfo@)">
+  TryGetPresetTuning(IADLXGPU*, out PresetTuningInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXGPUTuningServicesHelper.cs/#L419"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetPresetTuning(IADLXGPU* gpu, out PresetTuningInfo info)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd></dd>
+    <dt><code>info</code> <a class="xref" href="ADLXWrapper.PresetTuningInfo.html">PresetTuningInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXGPUTuningServicesHelper_TryIsAutoTuningSupported_" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.TryIsAutoTuningSupported*"></a>
+
+  <h3 id="ADLXWrapper_ADLXGPUTuningServicesHelper_TryIsAutoTuningSupported_ADLXWrapper_IADLXGPU__System_Boolean__" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.TryIsAutoTuningSupported(ADLXWrapper.IADLXGPU*,System.Boolean@)">
+  TryIsAutoTuningSupported(IADLXGPU*, out bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXGPUTuningServicesHelper.cs/#L154"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tries to query auto tuning support; returns false when not supported.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryIsAutoTuningSupported(IADLXGPU* gpu, out bool supported)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd></dd>
+    <dt><code>supported</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXGPUTuningServicesHelper_TryIsManualFanTuningSupported_" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.TryIsManualFanTuningSupported*"></a>
+
+  <h3 id="ADLXWrapper_ADLXGPUTuningServicesHelper_TryIsManualFanTuningSupported_ADLXWrapper_IADLXGPU__System_Boolean__" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.TryIsManualFanTuningSupported(ADLXWrapper.IADLXGPU*,System.Boolean@)">
+  TryIsManualFanTuningSupported(IADLXGPU*, out bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXGPUTuningServicesHelper.cs/#L270"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryIsManualFanTuningSupported(IADLXGPU* gpu, out bool supported)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd></dd>
+    <dt><code>supported</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXGPUTuningServicesHelper_TryIsManualGfxTuningSupported_" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.TryIsManualGfxTuningSupported*"></a>
+
+  <h3 id="ADLXWrapper_ADLXGPUTuningServicesHelper_TryIsManualGfxTuningSupported_ADLXWrapper_IADLXGPU__System_Boolean__" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.TryIsManualGfxTuningSupported(ADLXWrapper.IADLXGPU*,System.Boolean@)">
+  TryIsManualGfxTuningSupported(IADLXGPU*, out bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXGPUTuningServicesHelper.cs/#L212"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryIsManualGfxTuningSupported(IADLXGPU* gpu, out bool supported)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd></dd>
+    <dt><code>supported</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXGPUTuningServicesHelper_TryIsManualPowerTuningSupported_" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.TryIsManualPowerTuningSupported*"></a>
+
+  <h3 id="ADLXWrapper_ADLXGPUTuningServicesHelper_TryIsManualPowerTuningSupported_ADLXWrapper_IADLXGPU__System_Boolean__" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.TryIsManualPowerTuningSupported(ADLXWrapper.IADLXGPU*,System.Boolean@)">
+  TryIsManualPowerTuningSupported(IADLXGPU*, out bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXGPUTuningServicesHelper.cs/#L299"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryIsManualPowerTuningSupported(IADLXGPU* gpu, out bool supported)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd></dd>
+    <dt><code>supported</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXGPUTuningServicesHelper_TryIsManualVramTuningSupported_" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.TryIsManualVramTuningSupported*"></a>
+
+  <h3 id="ADLXWrapper_ADLXGPUTuningServicesHelper_TryIsManualVramTuningSupported_ADLXWrapper_IADLXGPU__System_Boolean__" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.TryIsManualVramTuningSupported(ADLXWrapper.IADLXGPU*,System.Boolean@)">
+  TryIsManualVramTuningSupported(IADLXGPU*, out bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXGPUTuningServicesHelper.cs/#L241"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryIsManualVramTuningSupported(IADLXGPU* gpu, out bool supported)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd></dd>
+    <dt><code>supported</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXGPUTuningServicesHelper_TryIsPresetTuningSupported_" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.TryIsPresetTuningSupported*"></a>
+
+  <h3 id="ADLXWrapper_ADLXGPUTuningServicesHelper_TryIsPresetTuningSupported_ADLXWrapper_IADLXGPU__System_Boolean__" data-uid="ADLXWrapper.ADLXGPUTuningServicesHelper.TryIsPresetTuningSupported(ADLXWrapper.IADLXGPU*,System.Boolean@)">
+  TryIsPresetTuningSupported(IADLXGPU*, out bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXGPUTuningServicesHelper.cs/#L183"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryIsPresetTuningSupported(IADLXGPU* gpu, out bool supported)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd></dd>
+    <dt><code>supported</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXGPUTuningServicesHelper.cs/#L13" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

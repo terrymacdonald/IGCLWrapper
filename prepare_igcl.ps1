@@ -17,6 +17,7 @@ $zipUrl = "https://github.com/intel/drivers.gpu.control-library/archive/refs/hea
 $zipFilePath = Join-Path $scriptRoot "master.zip"
 $destinationFolder = Join-Path $scriptRoot "drivers.gpu.control-library"
 $tempExtractFolder = Join-Path $scriptRoot "drivers.gpu.control-library-master"
+$outFolder = Join-Path $scriptRoot "out"
 
 # Function to validate IGCL SDK completeness
 function Test-IGCLSDKCompleteness {
@@ -161,12 +162,6 @@ if (Test-Path -Path $destinationFolder) {
     Write-Host "Existing drivers.gpu.control-library folder found. Validating completeness..."
     if (Test-IGCLSDKCompleteness -IGCLPath $destinationFolder) {
         Write-Host "Existing IGCL SDK is complete. Skipping download." -ForegroundColor Green
-        
-        # Still create the out folder if it doesn't exist
-        if (-not (Test-Path -Path $outFolder)) {
-            Write-Host "Creating the out folder..."
-            New-Item -ItemType Directory -Path $outFolder | Out-Null
-        }
         
         Write-Host "Project pre-build tasks completed successfully." -ForegroundColor Green
         exit 0

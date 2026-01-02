@@ -1,0 +1,578 @@
+### YamlMime:ManagedReference
+items:
+- uid: ADLXWrapper.SystemMetricsSnapshotInfo
+  commentId: T:ADLXWrapper.SystemMetricsSnapshotInfo
+  id: SystemMetricsSnapshotInfo
+  parent: ADLXWrapper
+  children:
+  - ADLXWrapper.SystemMetricsSnapshotInfo.#ctor(System.Int64,System.Double,System.Int32,System.Int32,System.Nullable{ADLXWrapper.PowerDistributionSnapshotInfo})
+  - ADLXWrapper.SystemMetricsSnapshotInfo.CpuUsage
+  - ADLXWrapper.SystemMetricsSnapshotInfo.PowerDistribution
+  - ADLXWrapper.SystemMetricsSnapshotInfo.SmartShift
+  - ADLXWrapper.SystemMetricsSnapshotInfo.SystemRam
+  - ADLXWrapper.SystemMetricsSnapshotInfo.TimestampMs
+  langs:
+  - csharp
+  - vb
+  name: SystemMetricsSnapshotInfo
+  nameWithType: SystemMetricsSnapshotInfo
+  fullName: ADLXWrapper.SystemMetricsSnapshotInfo
+  type: Struct
+  source:
+    remote:
+      path: ADLXWrapper/ADLXPerformanceMonitoringServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: SystemMetricsSnapshotInfo
+    path: ../ADLXWrapper/ADLXPerformanceMonitoringServicesHelper.cs
+    startLine: 682
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public readonly struct SystemMetricsSnapshotInfo
+    content.vb: Public Structure SystemMetricsSnapshotInfo
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: ADLXWrapper.SystemMetricsSnapshotInfo.TimestampMs
+  commentId: P:ADLXWrapper.SystemMetricsSnapshotInfo.TimestampMs
+  id: TimestampMs
+  parent: ADLXWrapper.SystemMetricsSnapshotInfo
+  langs:
+  - csharp
+  - vb
+  name: TimestampMs
+  nameWithType: SystemMetricsSnapshotInfo.TimestampMs
+  fullName: ADLXWrapper.SystemMetricsSnapshotInfo.TimestampMs
+  type: Property
+  source:
+    remote:
+      path: ADLXWrapper/ADLXPerformanceMonitoringServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: TimestampMs
+    path: ../ADLXWrapper/ADLXPerformanceMonitoringServicesHelper.cs
+    startLine: 684
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public long TimestampMs { get; init; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property TimestampMs As Long
+  overload: ADLXWrapper.SystemMetricsSnapshotInfo.TimestampMs*
+- uid: ADLXWrapper.SystemMetricsSnapshotInfo.CpuUsage
+  commentId: P:ADLXWrapper.SystemMetricsSnapshotInfo.CpuUsage
+  id: CpuUsage
+  parent: ADLXWrapper.SystemMetricsSnapshotInfo
+  langs:
+  - csharp
+  - vb
+  name: CpuUsage
+  nameWithType: SystemMetricsSnapshotInfo.CpuUsage
+  fullName: ADLXWrapper.SystemMetricsSnapshotInfo.CpuUsage
+  type: Property
+  source:
+    remote:
+      path: ADLXWrapper/ADLXPerformanceMonitoringServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: CpuUsage
+    path: ../ADLXWrapper/ADLXPerformanceMonitoringServicesHelper.cs
+    startLine: 685
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public double CpuUsage { get; init; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property CpuUsage As Double
+  overload: ADLXWrapper.SystemMetricsSnapshotInfo.CpuUsage*
+- uid: ADLXWrapper.SystemMetricsSnapshotInfo.SystemRam
+  commentId: P:ADLXWrapper.SystemMetricsSnapshotInfo.SystemRam
+  id: SystemRam
+  parent: ADLXWrapper.SystemMetricsSnapshotInfo
+  langs:
+  - csharp
+  - vb
+  name: SystemRam
+  nameWithType: SystemMetricsSnapshotInfo.SystemRam
+  fullName: ADLXWrapper.SystemMetricsSnapshotInfo.SystemRam
+  type: Property
+  source:
+    remote:
+      path: ADLXWrapper/ADLXPerformanceMonitoringServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: SystemRam
+    path: ../ADLXWrapper/ADLXPerformanceMonitoringServicesHelper.cs
+    startLine: 686
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public int SystemRam { get; init; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property SystemRam As Integer
+  overload: ADLXWrapper.SystemMetricsSnapshotInfo.SystemRam*
+- uid: ADLXWrapper.SystemMetricsSnapshotInfo.SmartShift
+  commentId: P:ADLXWrapper.SystemMetricsSnapshotInfo.SmartShift
+  id: SmartShift
+  parent: ADLXWrapper.SystemMetricsSnapshotInfo
+  langs:
+  - csharp
+  - vb
+  name: SmartShift
+  nameWithType: SystemMetricsSnapshotInfo.SmartShift
+  fullName: ADLXWrapper.SystemMetricsSnapshotInfo.SmartShift
+  type: Property
+  source:
+    remote:
+      path: ADLXWrapper/ADLXPerformanceMonitoringServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: SmartShift
+    path: ../ADLXWrapper/ADLXPerformanceMonitoringServicesHelper.cs
+    startLine: 687
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public int SmartShift { get; init; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property SmartShift As Integer
+  overload: ADLXWrapper.SystemMetricsSnapshotInfo.SmartShift*
+- uid: ADLXWrapper.SystemMetricsSnapshotInfo.PowerDistribution
+  commentId: P:ADLXWrapper.SystemMetricsSnapshotInfo.PowerDistribution
+  id: PowerDistribution
+  parent: ADLXWrapper.SystemMetricsSnapshotInfo
+  langs:
+  - csharp
+  - vb
+  name: PowerDistribution
+  nameWithType: SystemMetricsSnapshotInfo.PowerDistribution
+  fullName: ADLXWrapper.SystemMetricsSnapshotInfo.PowerDistribution
+  type: Property
+  source:
+    remote:
+      path: ADLXWrapper/ADLXPerformanceMonitoringServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: PowerDistribution
+    path: ../ADLXWrapper/ADLXPerformanceMonitoringServicesHelper.cs
+    startLine: 688
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public PowerDistributionSnapshotInfo? PowerDistribution { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{ADLXWrapper.PowerDistributionSnapshotInfo}
+    content.vb: Public Property PowerDistribution As PowerDistributionSnapshotInfo?
+  overload: ADLXWrapper.SystemMetricsSnapshotInfo.PowerDistribution*
+- uid: ADLXWrapper.SystemMetricsSnapshotInfo.#ctor(System.Int64,System.Double,System.Int32,System.Int32,System.Nullable{ADLXWrapper.PowerDistributionSnapshotInfo})
+  commentId: M:ADLXWrapper.SystemMetricsSnapshotInfo.#ctor(System.Int64,System.Double,System.Int32,System.Int32,System.Nullable{ADLXWrapper.PowerDistributionSnapshotInfo})
+  id: '#ctor(System.Int64,System.Double,System.Int32,System.Int32,System.Nullable{ADLXWrapper.PowerDistributionSnapshotInfo})'
+  parent: ADLXWrapper.SystemMetricsSnapshotInfo
+  langs:
+  - csharp
+  - vb
+  name: SystemMetricsSnapshotInfo(long, double, int, int, PowerDistributionSnapshotInfo?)
+  nameWithType: SystemMetricsSnapshotInfo.SystemMetricsSnapshotInfo(long, double, int, int, PowerDistributionSnapshotInfo?)
+  fullName: ADLXWrapper.SystemMetricsSnapshotInfo.SystemMetricsSnapshotInfo(long, double, int, int, ADLXWrapper.PowerDistributionSnapshotInfo?)
+  type: Constructor
+  source:
+    remote:
+      path: ADLXWrapper/ADLXPerformanceMonitoringServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: .ctor
+    path: ../ADLXWrapper/ADLXPerformanceMonitoringServicesHelper.cs
+    startLine: 690
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: >-
+      [JsonConstructor]
+
+      public SystemMetricsSnapshotInfo(long timestampMs, double cpuUsage, int systemRam, int smartShift, PowerDistributionSnapshotInfo? powerDistribution)
+    parameters:
+    - id: timestampMs
+      type: System.Int64
+    - id: cpuUsage
+      type: System.Double
+    - id: systemRam
+      type: System.Int32
+    - id: smartShift
+      type: System.Int32
+    - id: powerDistribution
+      type: System.Nullable{ADLXWrapper.PowerDistributionSnapshotInfo}
+    content.vb: >-
+      <JsonConstructor>
+
+      Public Sub New(timestampMs As Long, cpuUsage As Double, systemRam As Integer, smartShift As Integer, powerDistribution As PowerDistributionSnapshotInfo?)
+  overload: ADLXWrapper.SystemMetricsSnapshotInfo.#ctor*
+  attributes:
+  - type: Newtonsoft.Json.JsonConstructorAttribute
+    ctor: Newtonsoft.Json.JsonConstructorAttribute.#ctor
+    arguments: []
+  nameWithType.vb: SystemMetricsSnapshotInfo.New(Long, Double, Integer, Integer, PowerDistributionSnapshotInfo?)
+  fullName.vb: ADLXWrapper.SystemMetricsSnapshotInfo.New(Long, Double, Integer, Integer, ADLXWrapper.PowerDistributionSnapshotInfo?)
+  name.vb: New(Long, Double, Integer, Integer, PowerDistributionSnapshotInfo?)
+references:
+- uid: ADLXWrapper
+  commentId: N:ADLXWrapper
+  href: ADLXWrapper.html
+  name: ADLXWrapper
+  nameWithType: ADLXWrapper
+  fullName: ADLXWrapper
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ADLXWrapper.SystemMetricsSnapshotInfo.TimestampMs*
+  commentId: Overload:ADLXWrapper.SystemMetricsSnapshotInfo.TimestampMs
+  href: ADLXWrapper.SystemMetricsSnapshotInfo.html#ADLXWrapper_SystemMetricsSnapshotInfo_TimestampMs
+  name: TimestampMs
+  nameWithType: SystemMetricsSnapshotInfo.TimestampMs
+  fullName: ADLXWrapper.SystemMetricsSnapshotInfo.TimestampMs
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: ADLXWrapper.SystemMetricsSnapshotInfo.CpuUsage*
+  commentId: Overload:ADLXWrapper.SystemMetricsSnapshotInfo.CpuUsage
+  href: ADLXWrapper.SystemMetricsSnapshotInfo.html#ADLXWrapper_SystemMetricsSnapshotInfo_CpuUsage
+  name: CpuUsage
+  nameWithType: SystemMetricsSnapshotInfo.CpuUsage
+  fullName: ADLXWrapper.SystemMetricsSnapshotInfo.CpuUsage
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: ADLXWrapper.SystemMetricsSnapshotInfo.SystemRam*
+  commentId: Overload:ADLXWrapper.SystemMetricsSnapshotInfo.SystemRam
+  href: ADLXWrapper.SystemMetricsSnapshotInfo.html#ADLXWrapper_SystemMetricsSnapshotInfo_SystemRam
+  name: SystemRam
+  nameWithType: SystemMetricsSnapshotInfo.SystemRam
+  fullName: ADLXWrapper.SystemMetricsSnapshotInfo.SystemRam
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ADLXWrapper.SystemMetricsSnapshotInfo.SmartShift*
+  commentId: Overload:ADLXWrapper.SystemMetricsSnapshotInfo.SmartShift
+  href: ADLXWrapper.SystemMetricsSnapshotInfo.html#ADLXWrapper_SystemMetricsSnapshotInfo_SmartShift
+  name: SmartShift
+  nameWithType: SystemMetricsSnapshotInfo.SmartShift
+  fullName: ADLXWrapper.SystemMetricsSnapshotInfo.SmartShift
+- uid: ADLXWrapper.SystemMetricsSnapshotInfo.PowerDistribution*
+  commentId: Overload:ADLXWrapper.SystemMetricsSnapshotInfo.PowerDistribution
+  href: ADLXWrapper.SystemMetricsSnapshotInfo.html#ADLXWrapper_SystemMetricsSnapshotInfo_PowerDistribution
+  name: PowerDistribution
+  nameWithType: SystemMetricsSnapshotInfo.PowerDistribution
+  fullName: ADLXWrapper.SystemMetricsSnapshotInfo.PowerDistribution
+- uid: System.Nullable{ADLXWrapper.PowerDistributionSnapshotInfo}
+  commentId: T:System.Nullable{ADLXWrapper.PowerDistributionSnapshotInfo}
+  parent: System
+  definition: System.Nullable`1
+  href: ADLXWrapper.PowerDistributionSnapshotInfo.html
+  name: PowerDistributionSnapshotInfo?
+  nameWithType: PowerDistributionSnapshotInfo?
+  fullName: ADLXWrapper.PowerDistributionSnapshotInfo?
+  spec.csharp:
+  - uid: ADLXWrapper.PowerDistributionSnapshotInfo
+    name: PowerDistributionSnapshotInfo
+    href: ADLXWrapper.PowerDistributionSnapshotInfo.html
+  - name: '?'
+  spec.vb:
+  - uid: ADLXWrapper.PowerDistributionSnapshotInfo
+    name: PowerDistributionSnapshotInfo
+    href: ADLXWrapper.PowerDistributionSnapshotInfo.html
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ADLXWrapper.SystemMetricsSnapshotInfo.#ctor*
+  commentId: Overload:ADLXWrapper.SystemMetricsSnapshotInfo.#ctor
+  href: ADLXWrapper.SystemMetricsSnapshotInfo.html#ADLXWrapper_SystemMetricsSnapshotInfo__ctor_System_Int64_System_Double_System_Int32_System_Int32_System_Nullable_ADLXWrapper_PowerDistributionSnapshotInfo__
+  name: SystemMetricsSnapshotInfo
+  nameWithType: SystemMetricsSnapshotInfo.SystemMetricsSnapshotInfo
+  fullName: ADLXWrapper.SystemMetricsSnapshotInfo.SystemMetricsSnapshotInfo
+  nameWithType.vb: SystemMetricsSnapshotInfo.New
+  fullName.vb: ADLXWrapper.SystemMetricsSnapshotInfo.New
+  name.vb: New

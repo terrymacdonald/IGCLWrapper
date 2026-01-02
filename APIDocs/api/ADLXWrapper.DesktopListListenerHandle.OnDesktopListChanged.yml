@@ -1,0 +1,54 @@
+### YamlMime:ManagedReference
+items:
+- uid: ADLXWrapper.DesktopListListenerHandle.OnDesktopListChanged
+  commentId: T:ADLXWrapper.DesktopListListenerHandle.OnDesktopListChanged
+  id: DesktopListListenerHandle.OnDesktopListChanged
+  parent: ADLXWrapper
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: DesktopListListenerHandle.OnDesktopListChanged
+  nameWithType: DesktopListListenerHandle.OnDesktopListChanged
+  fullName: ADLXWrapper.DesktopListListenerHandle.OnDesktopListChanged
+  type: Delegate
+  source:
+    remote:
+      path: ADLXWrapper/ADLXDesktopServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: OnDesktopListChanged
+    path: ../ADLXWrapper/ADLXDesktopServicesHelper.cs
+    startLine: 723
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public delegate void DesktopListListenerHandle.OnDesktopListChanged(IADLXDesktopList* pNewDesktops)
+    parameters:
+    - id: pNewDesktops
+      type: ADLXWrapper.IADLXDesktopList*
+    content.vb: Public Delegate Sub DesktopListListenerHandle.OnDesktopListChanged(pNewDesktops As IADLXDesktopList*)
+references:
+- uid: ADLXWrapper
+  commentId: N:ADLXWrapper
+  href: ADLXWrapper.html
+  name: ADLXWrapper
+  nameWithType: ADLXWrapper
+  fullName: ADLXWrapper
+- uid: ADLXWrapper.IADLXDesktopList*
+  isExternal: true
+  href: ADLXWrapper.IADLXDesktopList.html
+  name: IADLXDesktopList*
+  nameWithType: IADLXDesktopList*
+  fullName: ADLXWrapper.IADLXDesktopList*
+  spec.csharp:
+  - uid: ADLXWrapper.IADLXDesktopList
+    name: IADLXDesktopList
+    href: ADLXWrapper.IADLXDesktopList.html
+  - name: '*'
+  spec.vb:
+  - uid: ADLXWrapper.IADLXDesktopList
+    name: IADLXDesktopList
+    href: ADLXWrapper.IADLXDesktopList.html
+  - name: '*'

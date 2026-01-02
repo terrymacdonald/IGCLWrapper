@@ -1,0 +1,398 @@
+### YamlMime:ManagedReference
+items:
+- uid: ADLXWrapper.SmartShiftEcoInfo
+  commentId: T:ADLXWrapper.SmartShiftEcoInfo
+  id: SmartShiftEcoInfo
+  parent: ADLXWrapper
+  children:
+  - ADLXWrapper.SmartShiftEcoInfo.#ctor(System.Boolean,System.Boolean)
+  - ADLXWrapper.SmartShiftEcoInfo.IsEnabled
+  - ADLXWrapper.SmartShiftEcoInfo.IsSupported
+  langs:
+  - csharp
+  - vb
+  name: SmartShiftEcoInfo
+  nameWithType: SmartShiftEcoInfo
+  fullName: ADLXWrapper.SmartShiftEcoInfo
+  type: Struct
+  source:
+    remote:
+      path: ADLXWrapper/ADLXPowerTuningServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: SmartShiftEcoInfo
+    path: ../ADLXWrapper/ADLXPowerTuningServicesHelper.cs
+    startLine: 594
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Represents the collected information for SmartShift Eco.
+  example: []
+  syntax:
+    content: public readonly struct SmartShiftEcoInfo
+    content.vb: Public Structure SmartShiftEcoInfo
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: ADLXWrapper.SmartShiftEcoInfo.IsSupported
+  commentId: P:ADLXWrapper.SmartShiftEcoInfo.IsSupported
+  id: IsSupported
+  parent: ADLXWrapper.SmartShiftEcoInfo
+  langs:
+  - csharp
+  - vb
+  name: IsSupported
+  nameWithType: SmartShiftEcoInfo.IsSupported
+  fullName: ADLXWrapper.SmartShiftEcoInfo.IsSupported
+  type: Property
+  source:
+    remote:
+      path: ADLXWrapper/ADLXPowerTuningServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: IsSupported
+    path: ../ADLXWrapper/ADLXPowerTuningServicesHelper.cs
+    startLine: 596
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public bool IsSupported { get; init; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsSupported As Boolean
+  overload: ADLXWrapper.SmartShiftEcoInfo.IsSupported*
+- uid: ADLXWrapper.SmartShiftEcoInfo.IsEnabled
+  commentId: P:ADLXWrapper.SmartShiftEcoInfo.IsEnabled
+  id: IsEnabled
+  parent: ADLXWrapper.SmartShiftEcoInfo
+  langs:
+  - csharp
+  - vb
+  name: IsEnabled
+  nameWithType: SmartShiftEcoInfo.IsEnabled
+  fullName: ADLXWrapper.SmartShiftEcoInfo.IsEnabled
+  type: Property
+  source:
+    remote:
+      path: ADLXWrapper/ADLXPowerTuningServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: IsEnabled
+    path: ../ADLXWrapper/ADLXPowerTuningServicesHelper.cs
+    startLine: 597
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public bool IsEnabled { get; init; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsEnabled As Boolean
+  overload: ADLXWrapper.SmartShiftEcoInfo.IsEnabled*
+- uid: ADLXWrapper.SmartShiftEcoInfo.#ctor(System.Boolean,System.Boolean)
+  commentId: M:ADLXWrapper.SmartShiftEcoInfo.#ctor(System.Boolean,System.Boolean)
+  id: '#ctor(System.Boolean,System.Boolean)'
+  parent: ADLXWrapper.SmartShiftEcoInfo
+  langs:
+  - csharp
+  - vb
+  name: SmartShiftEcoInfo(bool, bool)
+  nameWithType: SmartShiftEcoInfo.SmartShiftEcoInfo(bool, bool)
+  fullName: ADLXWrapper.SmartShiftEcoInfo.SmartShiftEcoInfo(bool, bool)
+  type: Constructor
+  source:
+    remote:
+      path: ADLXWrapper/ADLXPowerTuningServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: .ctor
+    path: ../ADLXWrapper/ADLXPowerTuningServicesHelper.cs
+    startLine: 599
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: >-
+      [JsonConstructor]
+
+      public SmartShiftEcoInfo(bool isSupported, bool isEnabled)
+    parameters:
+    - id: isSupported
+      type: System.Boolean
+    - id: isEnabled
+      type: System.Boolean
+    content.vb: >-
+      <JsonConstructor>
+
+      Public Sub New(isSupported As Boolean, isEnabled As Boolean)
+  overload: ADLXWrapper.SmartShiftEcoInfo.#ctor*
+  attributes:
+  - type: Newtonsoft.Json.JsonConstructorAttribute
+    ctor: Newtonsoft.Json.JsonConstructorAttribute.#ctor
+    arguments: []
+  nameWithType.vb: SmartShiftEcoInfo.New(Boolean, Boolean)
+  fullName.vb: ADLXWrapper.SmartShiftEcoInfo.New(Boolean, Boolean)
+  name.vb: New(Boolean, Boolean)
+references:
+- uid: ADLXWrapper
+  commentId: N:ADLXWrapper
+  href: ADLXWrapper.html
+  name: ADLXWrapper
+  nameWithType: ADLXWrapper
+  fullName: ADLXWrapper
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ADLXWrapper.SmartShiftEcoInfo.IsSupported*
+  commentId: Overload:ADLXWrapper.SmartShiftEcoInfo.IsSupported
+  href: ADLXWrapper.SmartShiftEcoInfo.html#ADLXWrapper_SmartShiftEcoInfo_IsSupported
+  name: IsSupported
+  nameWithType: SmartShiftEcoInfo.IsSupported
+  fullName: ADLXWrapper.SmartShiftEcoInfo.IsSupported
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ADLXWrapper.SmartShiftEcoInfo.IsEnabled*
+  commentId: Overload:ADLXWrapper.SmartShiftEcoInfo.IsEnabled
+  href: ADLXWrapper.SmartShiftEcoInfo.html#ADLXWrapper_SmartShiftEcoInfo_IsEnabled
+  name: IsEnabled
+  nameWithType: SmartShiftEcoInfo.IsEnabled
+  fullName: ADLXWrapper.SmartShiftEcoInfo.IsEnabled
+- uid: ADLXWrapper.SmartShiftEcoInfo.#ctor*
+  commentId: Overload:ADLXWrapper.SmartShiftEcoInfo.#ctor
+  href: ADLXWrapper.SmartShiftEcoInfo.html#ADLXWrapper_SmartShiftEcoInfo__ctor_System_Boolean_System_Boolean_
+  name: SmartShiftEcoInfo
+  nameWithType: SmartShiftEcoInfo.SmartShiftEcoInfo
+  fullName: ADLXWrapper.SmartShiftEcoInfo.SmartShiftEcoInfo
+  nameWithType.vb: SmartShiftEcoInfo.New
+  fullName.vb: ADLXWrapper.SmartShiftEcoInfo.New
+  name.vb: New

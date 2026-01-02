@@ -1,0 +1,2833 @@
+### YamlMime:ManagedReference
+items:
+- uid: ADLXWrapper.ADLXSystemServicesHelper
+  commentId: T:ADLXWrapper.ADLXSystemServicesHelper
+  id: ADLXSystemServicesHelper
+  parent: ADLXWrapper
+  children:
+  - ADLXWrapper.ADLXSystemServicesHelper.#ctor(ADLXWrapper.IADLXSystem*,System.Boolean)
+  - ADLXWrapper.ADLXSystemServicesHelper.Dispose
+  - ADLXWrapper.ADLXSystemServicesHelper.EnumerateADLXGPUs
+  - ADLXWrapper.ADLXSystemServicesHelper.EnumerateDesktops
+  - ADLXWrapper.ADLXSystemServicesHelper.EnumerateDisplays
+  - ADLXWrapper.ADLXSystemServicesHelper.EnumerateDisplaysInUse
+  - ADLXWrapper.ADLXSystemServicesHelper.EnumerateGPUs
+  - ADLXWrapper.ADLXSystemServicesHelper.EnumerateGPUsHandle
+  - ADLXWrapper.ADLXSystemServicesHelper.EnumerateGPUsNative
+  - ADLXWrapper.ADLXSystemServicesHelper.Finalize
+  - ADLXWrapper.ADLXSystemServicesHelper.Get3DSettingsServices
+  - ADLXWrapper.ADLXSystemServicesHelper.Get3DSettingsServicesHandle
+  - ADLXWrapper.ADLXSystemServicesHelper.Get3DSettingsServicesNative
+  - ADLXWrapper.ADLXSystemServicesHelper.GetDesktopServices
+  - ADLXWrapper.ADLXSystemServicesHelper.GetDesktopServicesHandle
+  - ADLXWrapper.ADLXSystemServicesHelper.GetDesktopServicesNative
+  - ADLXWrapper.ADLXSystemServicesHelper.GetDisplayServices
+  - ADLXWrapper.ADLXSystemServicesHelper.GetDisplayServicesHandle
+  - ADLXWrapper.ADLXSystemServicesHelper.GetDisplayServicesNative
+  - ADLXWrapper.ADLXSystemServicesHelper.GetGPUAppsListChangedHandling
+  - ADLXWrapper.ADLXSystemServicesHelper.GetGPUAppsListChangedHandlingNative
+  - ADLXWrapper.ADLXSystemServicesHelper.GetGPUTuningServices
+  - ADLXWrapper.ADLXSystemServicesHelper.GetGPUTuningServicesHandle
+  - ADLXWrapper.ADLXSystemServicesHelper.GetGPUTuningServicesNative
+  - ADLXWrapper.ADLXSystemServicesHelper.GetGPUsChangedHandling
+  - ADLXWrapper.ADLXSystemServicesHelper.GetGPUsChangedHandlingNative
+  - ADLXWrapper.ADLXSystemServicesHelper.GetGpuInfo(ADLXWrapper.IADLXGPU*)
+  - ADLXWrapper.ADLXSystemServicesHelper.GetMultimediaServices
+  - ADLXWrapper.ADLXSystemServicesHelper.GetMultimediaServicesHandle
+  - ADLXWrapper.ADLXSystemServicesHelper.GetMultimediaServicesNative
+  - ADLXWrapper.ADLXSystemServicesHelper.GetPerformanceMonitoringServices
+  - ADLXWrapper.ADLXSystemServicesHelper.GetPerformanceMonitoringServicesHandle
+  - ADLXWrapper.ADLXSystemServicesHelper.GetPerformanceMonitoringServicesNative
+  - ADLXWrapper.ADLXSystemServicesHelper.GetPowerTuningServices
+  - ADLXWrapper.ADLXSystemServicesHelper.GetPowerTuningServicesHandle
+  - ADLXWrapper.ADLXSystemServicesHelper.GetPowerTuningServicesNative
+  - ADLXWrapper.ADLXSystemServicesHelper.GetSystemServicesHandle
+  - ADLXWrapper.ADLXSystemServicesHelper.GetSystemServicesNative
+  - ADLXWrapper.ADLXSystemServicesHelper.TryGet3DSettingsServicesNative(ADLXWrapper.IADLX3DSettingsServices*@)
+  - ADLXWrapper.ADLXSystemServicesHelper.TryGetDesktopServicesNative(ADLXWrapper.IADLXDesktopServices*@)
+  - ADLXWrapper.ADLXSystemServicesHelper.TryGetDisplayServicesNative(ADLXWrapper.IADLXDisplayServices*@)
+  - ADLXWrapper.ADLXSystemServicesHelper.TryGetGPUTuningServicesNative(ADLXWrapper.IADLXGPUTuningServices*@)
+  - ADLXWrapper.ADLXSystemServicesHelper.TryGetMultimediaServicesNative(ADLXWrapper.IADLXMultimediaServices*@)
+  - ADLXWrapper.ADLXSystemServicesHelper.TryGetPerformanceMonitoringServicesNative(ADLXWrapper.IADLXPerformanceMonitoringServices*@)
+  - ADLXWrapper.ADLXSystemServicesHelper.TryGetPowerTuningServicesNative(ADLXWrapper.IADLXPowerTuningServices*@)
+  langs:
+  - csharp
+  - vb
+  name: ADLXSystemServicesHelper
+  nameWithType: ADLXSystemServicesHelper
+  fullName: ADLXWrapper.ADLXSystemServicesHelper
+  type: Class
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: ADLXSystemServicesHelper
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 9
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Helper wrapper over IADLXSystem exposing per-feature service accessors and GPU enumeration.
+  example: []
+  syntax:
+    content: 'public sealed class ADLXSystemServicesHelper : IDisposable'
+    content.vb: Public NotInheritable Class ADLXSystemServicesHelper Implements IDisposable
+  inheritance:
+  - System.Object
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ADLXWrapper.ADLXSystemServicesHelper.#ctor(ADLXWrapper.IADLXSystem*,System.Boolean)
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.#ctor(ADLXWrapper.IADLXSystem*,System.Boolean)
+  id: '#ctor(ADLXWrapper.IADLXSystem*,System.Boolean)'
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: ADLXSystemServicesHelper(IADLXSystem*, bool)
+  nameWithType: ADLXSystemServicesHelper.ADLXSystemServicesHelper(IADLXSystem*, bool)
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.ADLXSystemServicesHelper(ADLXWrapper.IADLXSystem*, bool)
+  type: Constructor
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: .ctor
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 30
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Creates a system-services helper from an ADLX system pointer.
+  example: []
+  syntax:
+    content: public ADLXSystemServicesHelper(IADLXSystem* system, bool addRef = false)
+    parameters:
+    - id: system
+      type: ADLXWrapper.IADLXSystem*
+      description: Native ADLX system pointer.
+    - id: addRef
+      type: System.Boolean
+      description: Ignored; kept for API compatibility. IADLXSystem is not ref-counted.
+    content.vb: Public Sub New(system As IADLXSystem*, addRef As Boolean = False)
+  overload: ADLXWrapper.ADLXSystemServicesHelper.#ctor*
+  nameWithType.vb: ADLXSystemServicesHelper.New(IADLXSystem*, Boolean)
+  fullName.vb: ADLXWrapper.ADLXSystemServicesHelper.New(ADLXWrapper.IADLXSystem*, Boolean)
+  name.vb: New(IADLXSystem*, Boolean)
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetSystemServicesNative
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.GetSystemServicesNative
+  id: GetSystemServicesNative
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetSystemServicesNative()
+  nameWithType: ADLXSystemServicesHelper.GetSystemServicesNative()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetSystemServicesNative()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetSystemServicesNative
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 43
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: >-
+    Returns the most capable available system interface (IADLXSystem2, then 1, else base).
+
+    Caller must not Release the returned pointer.
+  example: []
+  syntax:
+    content: public IADLXSystem* GetSystemServicesNative()
+    return:
+      type: ADLXWrapper.IADLXSystem*
+      description: Native system interface pointer owned by this helper.
+    content.vb: Public Function GetSystemServicesNative() As IADLXSystem*
+  overload: ADLXWrapper.ADLXSystemServicesHelper.GetSystemServicesNative*
+  exceptions:
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetSystemServicesHandle
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.GetSystemServicesHandle
+  id: GetSystemServicesHandle
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetSystemServicesHandle()
+  nameWithType: ADLXSystemServicesHelper.GetSystemServicesHandle()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetSystemServicesHandle()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetSystemServicesHandle
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 66
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Returns an AddRef'd handle to the system services interface for external ownership.
+  example: []
+  syntax:
+    content: public ADLXInterfaceHandle GetSystemServicesHandle()
+    return:
+      type: ADLXWrapper.ADLXInterfaceHandle
+      description: Managed handle to the native system interface.
+    content.vb: Public Function GetSystemServicesHandle() As ADLXInterfaceHandle
+  overload: ADLXWrapper.ADLXSystemServicesHelper.GetSystemServicesHandle*
+  exceptions:
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetDisplayServicesNative
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.GetDisplayServicesNative
+  id: GetDisplayServicesNative
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetDisplayServicesNative()
+  nameWithType: ADLXSystemServicesHelper.GetDisplayServicesNative()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetDisplayServicesNative()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetDisplayServicesNative
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 78
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Gets the native display services interface, querying lazily if needed.
+  example: []
+  syntax:
+    content: public IADLXDisplayServices* GetDisplayServicesNative()
+    return:
+      type: ADLXWrapper.IADLXDisplayServices*
+      description: Native display services pointer owned by this helper.
+    content.vb: Public Function GetDisplayServicesNative() As IADLXDisplayServices*
+  overload: ADLXWrapper.ADLXSystemServicesHelper.GetDisplayServicesNative*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If display services are unsupported or retrieval fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetDisplayServicesHandle
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.GetDisplayServicesHandle
+  id: GetDisplayServicesHandle
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetDisplayServicesHandle()
+  nameWithType: ADLXSystemServicesHelper.GetDisplayServicesHandle()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetDisplayServicesHandle()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetDisplayServicesHandle
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 93
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Returns an AddRef'd handle to the display services interface for external ownership.
+  example: []
+  syntax:
+    content: public ADLXInterfaceHandle GetDisplayServicesHandle()
+    return:
+      type: ADLXWrapper.ADLXInterfaceHandle
+      description: Managed handle to the native display services interface.
+    content.vb: Public Function GetDisplayServicesHandle() As ADLXInterfaceHandle
+  overload: ADLXWrapper.ADLXSystemServicesHelper.GetDisplayServicesHandle*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If display services are unsupported or retrieval fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.TryGetDisplayServicesNative(ADLXWrapper.IADLXDisplayServices*@)
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.TryGetDisplayServicesNative(ADLXWrapper.IADLXDisplayServices*@)
+  id: TryGetDisplayServicesNative(ADLXWrapper.IADLXDisplayServices*@)
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: TryGetDisplayServicesNative(out IADLXDisplayServices*)
+  nameWithType: ADLXSystemServicesHelper.TryGetDisplayServicesNative(out IADLXDisplayServices*)
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.TryGetDisplayServicesNative(out ADLXWrapper.IADLXDisplayServices*)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: TryGetDisplayServicesNative
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 102
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Tries to get the native display services interface without throwing when unsupported.
+  example: []
+  syntax:
+    content: public bool TryGetDisplayServicesNative(out IADLXDisplayServices* services)
+    parameters:
+    - id: services
+      type: ADLXWrapper.IADLXDisplayServices*
+    return:
+      type: System.Boolean
+      description: True if services are available; false when not supported.
+    content.vb: Public Function TryGetDisplayServicesNative(services As IADLXDisplayServices*) As Boolean
+  overload: ADLXWrapper.ADLXSystemServicesHelper.TryGetDisplayServicesNative*
+  nameWithType.vb: ADLXSystemServicesHelper.TryGetDisplayServicesNative(IADLXDisplayServices*)
+  fullName.vb: ADLXWrapper.ADLXSystemServicesHelper.TryGetDisplayServicesNative(ADLXWrapper.IADLXDisplayServices*)
+  name.vb: TryGetDisplayServicesNative(IADLXDisplayServices*)
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetDisplayServices
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.GetDisplayServices
+  id: GetDisplayServices
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetDisplayServices()
+  nameWithType: ADLXSystemServicesHelper.GetDisplayServices()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetDisplayServices()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetDisplayServices
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 122
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Creates a managed display-services helper with shared system lifetime.
+  example: []
+  syntax:
+    content: public ADLXDisplayServicesHelper GetDisplayServices()
+    return:
+      type: ADLXWrapper.ADLXDisplayServicesHelper
+      description: Display services helper wrapping native interfaces.
+    content.vb: Public Function GetDisplayServices() As ADLXDisplayServicesHelper
+  overload: ADLXWrapper.ADLXSystemServicesHelper.GetDisplayServices*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If display/desktop services are unsupported or retrieval fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetDesktopServicesNative
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.GetDesktopServicesNative
+  id: GetDesktopServicesNative
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetDesktopServicesNative()
+  nameWithType: ADLXSystemServicesHelper.GetDesktopServicesNative()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetDesktopServicesNative()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetDesktopServicesNative
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 136
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Gets the native desktop services interface, querying lazily if needed.
+  example: []
+  syntax:
+    content: public IADLXDesktopServices* GetDesktopServicesNative()
+    return:
+      type: ADLXWrapper.IADLXDesktopServices*
+      description: Native desktop services pointer owned by this helper.
+    content.vb: Public Function GetDesktopServicesNative() As IADLXDesktopServices*
+  overload: ADLXWrapper.ADLXSystemServicesHelper.GetDesktopServicesNative*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If desktop services are unsupported or retrieval fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetDesktopServicesHandle
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.GetDesktopServicesHandle
+  id: GetDesktopServicesHandle
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetDesktopServicesHandle()
+  nameWithType: ADLXSystemServicesHelper.GetDesktopServicesHandle()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetDesktopServicesHandle()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetDesktopServicesHandle
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 151
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Returns an AddRef'd handle to the desktop services interface for external ownership.
+  example: []
+  syntax:
+    content: public ADLXInterfaceHandle GetDesktopServicesHandle()
+    return:
+      type: ADLXWrapper.ADLXInterfaceHandle
+      description: Managed handle to the native desktop services interface.
+    content.vb: Public Function GetDesktopServicesHandle() As ADLXInterfaceHandle
+  overload: ADLXWrapper.ADLXSystemServicesHelper.GetDesktopServicesHandle*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If desktop services are unsupported or retrieval fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.TryGetDesktopServicesNative(ADLXWrapper.IADLXDesktopServices*@)
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.TryGetDesktopServicesNative(ADLXWrapper.IADLXDesktopServices*@)
+  id: TryGetDesktopServicesNative(ADLXWrapper.IADLXDesktopServices*@)
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: TryGetDesktopServicesNative(out IADLXDesktopServices*)
+  nameWithType: ADLXSystemServicesHelper.TryGetDesktopServicesNative(out IADLXDesktopServices*)
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.TryGetDesktopServicesNative(out ADLXWrapper.IADLXDesktopServices*)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: TryGetDesktopServicesNative
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 160
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Tries to get the native desktop services interface without throwing when unsupported.
+  example: []
+  syntax:
+    content: public bool TryGetDesktopServicesNative(out IADLXDesktopServices* services)
+    parameters:
+    - id: services
+      type: ADLXWrapper.IADLXDesktopServices*
+    return:
+      type: System.Boolean
+      description: True if services are available; false when not supported.
+    content.vb: Public Function TryGetDesktopServicesNative(services As IADLXDesktopServices*) As Boolean
+  overload: ADLXWrapper.ADLXSystemServicesHelper.TryGetDesktopServicesNative*
+  nameWithType.vb: ADLXSystemServicesHelper.TryGetDesktopServicesNative(IADLXDesktopServices*)
+  fullName.vb: ADLXWrapper.ADLXSystemServicesHelper.TryGetDesktopServicesNative(ADLXWrapper.IADLXDesktopServices*)
+  name.vb: TryGetDesktopServicesNative(IADLXDesktopServices*)
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetDesktopServices
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.GetDesktopServices
+  id: GetDesktopServices
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetDesktopServices()
+  nameWithType: ADLXSystemServicesHelper.GetDesktopServices()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetDesktopServices()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetDesktopServices
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 180
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Creates a managed desktop-services helper with shared system lifetime.
+  example: []
+  syntax:
+    content: public ADLXDesktopServicesHelper GetDesktopServices()
+    return:
+      type: ADLXWrapper.ADLXDesktopServicesHelper
+      description: Desktop services helper wrapping native interfaces.
+    content.vb: Public Function GetDesktopServices() As ADLXDesktopServicesHelper
+  overload: ADLXWrapper.ADLXSystemServicesHelper.GetDesktopServices*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If desktop/display services are unsupported or retrieval fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.Get3DSettingsServicesNative
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.Get3DSettingsServicesNative
+  id: Get3DSettingsServicesNative
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: Get3DSettingsServicesNative()
+  nameWithType: ADLXSystemServicesHelper.Get3DSettingsServicesNative()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.Get3DSettingsServicesNative()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: Get3DSettingsServicesNative
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 194
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Gets the native 3D settings services interface, querying lazily if needed.
+  example: []
+  syntax:
+    content: public IADLX3DSettingsServices* Get3DSettingsServicesNative()
+    return:
+      type: ADLXWrapper.IADLX3DSettingsServices*
+      description: Native 3D settings services pointer owned by this helper.
+    content.vb: Public Function Get3DSettingsServicesNative() As IADLX3DSettingsServices*
+  overload: ADLXWrapper.ADLXSystemServicesHelper.Get3DSettingsServicesNative*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If 3D settings services are unsupported or retrieval fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.Get3DSettingsServicesHandle
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.Get3DSettingsServicesHandle
+  id: Get3DSettingsServicesHandle
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: Get3DSettingsServicesHandle()
+  nameWithType: ADLXSystemServicesHelper.Get3DSettingsServicesHandle()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.Get3DSettingsServicesHandle()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: Get3DSettingsServicesHandle
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 209
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Returns an AddRef'd handle to the 3D settings services interface for external ownership.
+  example: []
+  syntax:
+    content: public ADLXInterfaceHandle Get3DSettingsServicesHandle()
+    return:
+      type: ADLXWrapper.ADLXInterfaceHandle
+      description: Managed handle to the native 3D settings services interface.
+    content.vb: Public Function Get3DSettingsServicesHandle() As ADLXInterfaceHandle
+  overload: ADLXWrapper.ADLXSystemServicesHelper.Get3DSettingsServicesHandle*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If 3D settings services are unsupported or retrieval fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.TryGet3DSettingsServicesNative(ADLXWrapper.IADLX3DSettingsServices*@)
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.TryGet3DSettingsServicesNative(ADLXWrapper.IADLX3DSettingsServices*@)
+  id: TryGet3DSettingsServicesNative(ADLXWrapper.IADLX3DSettingsServices*@)
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: TryGet3DSettingsServicesNative(out IADLX3DSettingsServices*)
+  nameWithType: ADLXSystemServicesHelper.TryGet3DSettingsServicesNative(out IADLX3DSettingsServices*)
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.TryGet3DSettingsServicesNative(out ADLXWrapper.IADLX3DSettingsServices*)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: TryGet3DSettingsServicesNative
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 218
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Tries to get the native 3D settings services interface without throwing when unsupported.
+  example: []
+  syntax:
+    content: public bool TryGet3DSettingsServicesNative(out IADLX3DSettingsServices* services)
+    parameters:
+    - id: services
+      type: ADLXWrapper.IADLX3DSettingsServices*
+    return:
+      type: System.Boolean
+      description: True if services are available; false when not supported.
+    content.vb: Public Function TryGet3DSettingsServicesNative(services As IADLX3DSettingsServices*) As Boolean
+  overload: ADLXWrapper.ADLXSystemServicesHelper.TryGet3DSettingsServicesNative*
+  nameWithType.vb: ADLXSystemServicesHelper.TryGet3DSettingsServicesNative(IADLX3DSettingsServices*)
+  fullName.vb: ADLXWrapper.ADLXSystemServicesHelper.TryGet3DSettingsServicesNative(ADLXWrapper.IADLX3DSettingsServices*)
+  name.vb: TryGet3DSettingsServicesNative(IADLX3DSettingsServices*)
+- uid: ADLXWrapper.ADLXSystemServicesHelper.Get3DSettingsServices
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.Get3DSettingsServices
+  id: Get3DSettingsServices
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: Get3DSettingsServices()
+  nameWithType: ADLXSystemServicesHelper.Get3DSettingsServices()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.Get3DSettingsServices()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: Get3DSettingsServices
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 238
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Creates a managed 3D settings helper with shared system lifetime.
+  example: []
+  syntax:
+    content: public ADLX3DSettingsServicesHelper Get3DSettingsServices()
+    return:
+      type: ADLXWrapper.ADLX3DSettingsServicesHelper
+      description: 3D settings services helper wrapping native interfaces.
+    content.vb: Public Function Get3DSettingsServices() As ADLX3DSettingsServicesHelper
+  overload: ADLXWrapper.ADLXSystemServicesHelper.Get3DSettingsServices*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If 3D settings services are unsupported or retrieval fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetGPUTuningServicesNative
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.GetGPUTuningServicesNative
+  id: GetGPUTuningServicesNative
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetGPUTuningServicesNative()
+  nameWithType: ADLXSystemServicesHelper.GetGPUTuningServicesNative()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetGPUTuningServicesNative()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetGPUTuningServicesNative
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 251
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Gets the native GPU tuning services interface, querying lazily if needed.
+  example: []
+  syntax:
+    content: public IADLXGPUTuningServices* GetGPUTuningServicesNative()
+    return:
+      type: ADLXWrapper.IADLXGPUTuningServices*
+      description: Native GPU tuning services pointer owned by this helper.
+    content.vb: Public Function GetGPUTuningServicesNative() As IADLXGPUTuningServices*
+  overload: ADLXWrapper.ADLXSystemServicesHelper.GetGPUTuningServicesNative*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If GPU tuning services are unsupported or retrieval fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetGPUTuningServicesHandle
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.GetGPUTuningServicesHandle
+  id: GetGPUTuningServicesHandle
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetGPUTuningServicesHandle()
+  nameWithType: ADLXSystemServicesHelper.GetGPUTuningServicesHandle()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetGPUTuningServicesHandle()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetGPUTuningServicesHandle
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 266
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Returns an AddRef'd handle to the GPU tuning services interface for external ownership.
+  example: []
+  syntax:
+    content: public ADLXInterfaceHandle GetGPUTuningServicesHandle()
+    return:
+      type: ADLXWrapper.ADLXInterfaceHandle
+      description: Managed handle to the native GPU tuning services interface.
+    content.vb: Public Function GetGPUTuningServicesHandle() As ADLXInterfaceHandle
+  overload: ADLXWrapper.ADLXSystemServicesHelper.GetGPUTuningServicesHandle*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If GPU tuning services are unsupported or retrieval fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.TryGetGPUTuningServicesNative(ADLXWrapper.IADLXGPUTuningServices*@)
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.TryGetGPUTuningServicesNative(ADLXWrapper.IADLXGPUTuningServices*@)
+  id: TryGetGPUTuningServicesNative(ADLXWrapper.IADLXGPUTuningServices*@)
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: TryGetGPUTuningServicesNative(out IADLXGPUTuningServices*)
+  nameWithType: ADLXSystemServicesHelper.TryGetGPUTuningServicesNative(out IADLXGPUTuningServices*)
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.TryGetGPUTuningServicesNative(out ADLXWrapper.IADLXGPUTuningServices*)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: TryGetGPUTuningServicesNative
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 275
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Tries to get the native GPU tuning services interface without throwing when unsupported.
+  example: []
+  syntax:
+    content: public bool TryGetGPUTuningServicesNative(out IADLXGPUTuningServices* services)
+    parameters:
+    - id: services
+      type: ADLXWrapper.IADLXGPUTuningServices*
+    return:
+      type: System.Boolean
+      description: True if services are available; false when not supported.
+    content.vb: Public Function TryGetGPUTuningServicesNative(services As IADLXGPUTuningServices*) As Boolean
+  overload: ADLXWrapper.ADLXSystemServicesHelper.TryGetGPUTuningServicesNative*
+  nameWithType.vb: ADLXSystemServicesHelper.TryGetGPUTuningServicesNative(IADLXGPUTuningServices*)
+  fullName.vb: ADLXWrapper.ADLXSystemServicesHelper.TryGetGPUTuningServicesNative(ADLXWrapper.IADLXGPUTuningServices*)
+  name.vb: TryGetGPUTuningServicesNative(IADLXGPUTuningServices*)
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetGPUTuningServices
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.GetGPUTuningServices
+  id: GetGPUTuningServices
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetGPUTuningServices()
+  nameWithType: ADLXSystemServicesHelper.GetGPUTuningServices()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetGPUTuningServices()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetGPUTuningServices
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 295
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Creates a managed GPU tuning helper with shared system lifetime.
+  example: []
+  syntax:
+    content: public ADLXGPUTuningServicesHelper GetGPUTuningServices()
+    return:
+      type: ADLXWrapper.ADLXGPUTuningServicesHelper
+      description: GPU tuning services helper wrapping native interfaces.
+    content.vb: Public Function GetGPUTuningServices() As ADLXGPUTuningServicesHelper
+  overload: ADLXWrapper.ADLXSystemServicesHelper.GetGPUTuningServices*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If GPU tuning services are unsupported or retrieval fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetPerformanceMonitoringServicesNative
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.GetPerformanceMonitoringServicesNative
+  id: GetPerformanceMonitoringServicesNative
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetPerformanceMonitoringServicesNative()
+  nameWithType: ADLXSystemServicesHelper.GetPerformanceMonitoringServicesNative()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetPerformanceMonitoringServicesNative()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetPerformanceMonitoringServicesNative
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 308
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Gets the native performance monitoring services interface, querying lazily if needed.
+  example: []
+  syntax:
+    content: public IADLXPerformanceMonitoringServices* GetPerformanceMonitoringServicesNative()
+    return:
+      type: ADLXWrapper.IADLXPerformanceMonitoringServices*
+      description: Native performance monitoring services pointer owned by this helper.
+    content.vb: Public Function GetPerformanceMonitoringServicesNative() As IADLXPerformanceMonitoringServices*
+  overload: ADLXWrapper.ADLXSystemServicesHelper.GetPerformanceMonitoringServicesNative*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If performance monitoring services are unsupported or retrieval fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetPerformanceMonitoringServicesHandle
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.GetPerformanceMonitoringServicesHandle
+  id: GetPerformanceMonitoringServicesHandle
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetPerformanceMonitoringServicesHandle()
+  nameWithType: ADLXSystemServicesHelper.GetPerformanceMonitoringServicesHandle()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetPerformanceMonitoringServicesHandle()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetPerformanceMonitoringServicesHandle
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 323
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Returns an AddRef'd handle to the performance monitoring services interface for external ownership.
+  example: []
+  syntax:
+    content: public ADLXInterfaceHandle GetPerformanceMonitoringServicesHandle()
+    return:
+      type: ADLXWrapper.ADLXInterfaceHandle
+      description: Managed handle to the native performance monitoring services interface.
+    content.vb: Public Function GetPerformanceMonitoringServicesHandle() As ADLXInterfaceHandle
+  overload: ADLXWrapper.ADLXSystemServicesHelper.GetPerformanceMonitoringServicesHandle*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If performance monitoring services are unsupported or retrieval fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.TryGetPerformanceMonitoringServicesNative(ADLXWrapper.IADLXPerformanceMonitoringServices*@)
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.TryGetPerformanceMonitoringServicesNative(ADLXWrapper.IADLXPerformanceMonitoringServices*@)
+  id: TryGetPerformanceMonitoringServicesNative(ADLXWrapper.IADLXPerformanceMonitoringServices*@)
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: TryGetPerformanceMonitoringServicesNative(out IADLXPerformanceMonitoringServices*)
+  nameWithType: ADLXSystemServicesHelper.TryGetPerformanceMonitoringServicesNative(out IADLXPerformanceMonitoringServices*)
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.TryGetPerformanceMonitoringServicesNative(out ADLXWrapper.IADLXPerformanceMonitoringServices*)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: TryGetPerformanceMonitoringServicesNative
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 332
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Tries to get the native performance monitoring services without throwing when unsupported.
+  example: []
+  syntax:
+    content: public bool TryGetPerformanceMonitoringServicesNative(out IADLXPerformanceMonitoringServices* services)
+    parameters:
+    - id: services
+      type: ADLXWrapper.IADLXPerformanceMonitoringServices*
+    return:
+      type: System.Boolean
+      description: True if services are available; false when not supported.
+    content.vb: Public Function TryGetPerformanceMonitoringServicesNative(services As IADLXPerformanceMonitoringServices*) As Boolean
+  overload: ADLXWrapper.ADLXSystemServicesHelper.TryGetPerformanceMonitoringServicesNative*
+  nameWithType.vb: ADLXSystemServicesHelper.TryGetPerformanceMonitoringServicesNative(IADLXPerformanceMonitoringServices*)
+  fullName.vb: ADLXWrapper.ADLXSystemServicesHelper.TryGetPerformanceMonitoringServicesNative(ADLXWrapper.IADLXPerformanceMonitoringServices*)
+  name.vb: TryGetPerformanceMonitoringServicesNative(IADLXPerformanceMonitoringServices*)
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetPerformanceMonitoringServices
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.GetPerformanceMonitoringServices
+  id: GetPerformanceMonitoringServices
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetPerformanceMonitoringServices()
+  nameWithType: ADLXSystemServicesHelper.GetPerformanceMonitoringServices()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetPerformanceMonitoringServices()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetPerformanceMonitoringServices
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 352
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Creates a managed performance monitoring helper with shared system lifetime.
+  example: []
+  syntax:
+    content: public ADLXPerformanceMonitoringServicesHelper GetPerformanceMonitoringServices()
+    return:
+      type: ADLXWrapper.ADLXPerformanceMonitoringServicesHelper
+      description: Performance monitoring services helper wrapping native interfaces.
+    content.vb: Public Function GetPerformanceMonitoringServices() As ADLXPerformanceMonitoringServicesHelper
+  overload: ADLXWrapper.ADLXSystemServicesHelper.GetPerformanceMonitoringServices*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If performance monitoring services are unsupported or retrieval fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetPowerTuningServicesNative
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.GetPowerTuningServicesNative
+  id: GetPowerTuningServicesNative
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetPowerTuningServicesNative()
+  nameWithType: ADLXSystemServicesHelper.GetPowerTuningServicesNative()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetPowerTuningServicesNative()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetPowerTuningServicesNative
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 365
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Gets the native power tuning services interface, querying lazily if needed.
+  example: []
+  syntax:
+    content: public IADLXPowerTuningServices* GetPowerTuningServicesNative()
+    return:
+      type: ADLXWrapper.IADLXPowerTuningServices*
+      description: Native power tuning services pointer owned by this helper.
+    content.vb: Public Function GetPowerTuningServicesNative() As IADLXPowerTuningServices*
+  overload: ADLXWrapper.ADLXSystemServicesHelper.GetPowerTuningServicesNative*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If power tuning services are unsupported or retrieval fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetPowerTuningServicesHandle
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.GetPowerTuningServicesHandle
+  id: GetPowerTuningServicesHandle
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetPowerTuningServicesHandle()
+  nameWithType: ADLXSystemServicesHelper.GetPowerTuningServicesHandle()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetPowerTuningServicesHandle()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetPowerTuningServicesHandle
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 380
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Returns an AddRef'd handle to the power tuning services interface for external ownership.
+  example: []
+  syntax:
+    content: public ADLXInterfaceHandle GetPowerTuningServicesHandle()
+    return:
+      type: ADLXWrapper.ADLXInterfaceHandle
+      description: Managed handle to the native power tuning services interface.
+    content.vb: Public Function GetPowerTuningServicesHandle() As ADLXInterfaceHandle
+  overload: ADLXWrapper.ADLXSystemServicesHelper.GetPowerTuningServicesHandle*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If power tuning services are unsupported or retrieval fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.TryGetPowerTuningServicesNative(ADLXWrapper.IADLXPowerTuningServices*@)
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.TryGetPowerTuningServicesNative(ADLXWrapper.IADLXPowerTuningServices*@)
+  id: TryGetPowerTuningServicesNative(ADLXWrapper.IADLXPowerTuningServices*@)
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: TryGetPowerTuningServicesNative(out IADLXPowerTuningServices*)
+  nameWithType: ADLXSystemServicesHelper.TryGetPowerTuningServicesNative(out IADLXPowerTuningServices*)
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.TryGetPowerTuningServicesNative(out ADLXWrapper.IADLXPowerTuningServices*)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: TryGetPowerTuningServicesNative
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 389
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Tries to get the native power tuning services without throwing when unsupported.
+  example: []
+  syntax:
+    content: public bool TryGetPowerTuningServicesNative(out IADLXPowerTuningServices* services)
+    parameters:
+    - id: services
+      type: ADLXWrapper.IADLXPowerTuningServices*
+    return:
+      type: System.Boolean
+      description: True if services are available; false when not supported.
+    content.vb: Public Function TryGetPowerTuningServicesNative(services As IADLXPowerTuningServices*) As Boolean
+  overload: ADLXWrapper.ADLXSystemServicesHelper.TryGetPowerTuningServicesNative*
+  nameWithType.vb: ADLXSystemServicesHelper.TryGetPowerTuningServicesNative(IADLXPowerTuningServices*)
+  fullName.vb: ADLXWrapper.ADLXSystemServicesHelper.TryGetPowerTuningServicesNative(ADLXWrapper.IADLXPowerTuningServices*)
+  name.vb: TryGetPowerTuningServicesNative(IADLXPowerTuningServices*)
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetPowerTuningServices
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.GetPowerTuningServices
+  id: GetPowerTuningServices
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetPowerTuningServices()
+  nameWithType: ADLXSystemServicesHelper.GetPowerTuningServices()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetPowerTuningServices()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetPowerTuningServices
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 409
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Creates a managed power tuning helper with shared system lifetime.
+  example: []
+  syntax:
+    content: public ADLXPowerTuningServicesHelper GetPowerTuningServices()
+    return:
+      type: ADLXWrapper.ADLXPowerTuningServicesHelper
+      description: Power tuning services helper wrapping native interfaces.
+    content.vb: Public Function GetPowerTuningServices() As ADLXPowerTuningServicesHelper
+  overload: ADLXWrapper.ADLXSystemServicesHelper.GetPowerTuningServices*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If power tuning services are unsupported or retrieval fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetMultimediaServicesNative
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.GetMultimediaServicesNative
+  id: GetMultimediaServicesNative
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetMultimediaServicesNative()
+  nameWithType: ADLXSystemServicesHelper.GetMultimediaServicesNative()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetMultimediaServicesNative()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetMultimediaServicesNative
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 422
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Gets the native multimedia services interface, querying lazily if needed.
+  example: []
+  syntax:
+    content: public IADLXMultimediaServices* GetMultimediaServicesNative()
+    return:
+      type: ADLXWrapper.IADLXMultimediaServices*
+      description: Native multimedia services pointer owned by this helper.
+    content.vb: Public Function GetMultimediaServicesNative() As IADLXMultimediaServices*
+  overload: ADLXWrapper.ADLXSystemServicesHelper.GetMultimediaServicesNative*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If multimedia services are unsupported or retrieval fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetMultimediaServicesHandle
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.GetMultimediaServicesHandle
+  id: GetMultimediaServicesHandle
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetMultimediaServicesHandle()
+  nameWithType: ADLXSystemServicesHelper.GetMultimediaServicesHandle()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetMultimediaServicesHandle()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetMultimediaServicesHandle
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 437
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Returns an AddRef'd handle to the multimedia services interface for external ownership.
+  example: []
+  syntax:
+    content: public ADLXInterfaceHandle GetMultimediaServicesHandle()
+    return:
+      type: ADLXWrapper.ADLXInterfaceHandle
+      description: Managed handle to the native multimedia services interface.
+    content.vb: Public Function GetMultimediaServicesHandle() As ADLXInterfaceHandle
+  overload: ADLXWrapper.ADLXSystemServicesHelper.GetMultimediaServicesHandle*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If multimedia services are unsupported or retrieval fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.TryGetMultimediaServicesNative(ADLXWrapper.IADLXMultimediaServices*@)
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.TryGetMultimediaServicesNative(ADLXWrapper.IADLXMultimediaServices*@)
+  id: TryGetMultimediaServicesNative(ADLXWrapper.IADLXMultimediaServices*@)
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: TryGetMultimediaServicesNative(out IADLXMultimediaServices*)
+  nameWithType: ADLXSystemServicesHelper.TryGetMultimediaServicesNative(out IADLXMultimediaServices*)
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.TryGetMultimediaServicesNative(out ADLXWrapper.IADLXMultimediaServices*)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: TryGetMultimediaServicesNative
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 446
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Tries to get the native multimedia services without throwing when unsupported.
+  example: []
+  syntax:
+    content: public bool TryGetMultimediaServicesNative(out IADLXMultimediaServices* services)
+    parameters:
+    - id: services
+      type: ADLXWrapper.IADLXMultimediaServices*
+    return:
+      type: System.Boolean
+      description: True if services are available; false when not supported.
+    content.vb: Public Function TryGetMultimediaServicesNative(services As IADLXMultimediaServices*) As Boolean
+  overload: ADLXWrapper.ADLXSystemServicesHelper.TryGetMultimediaServicesNative*
+  nameWithType.vb: ADLXSystemServicesHelper.TryGetMultimediaServicesNative(IADLXMultimediaServices*)
+  fullName.vb: ADLXWrapper.ADLXSystemServicesHelper.TryGetMultimediaServicesNative(ADLXWrapper.IADLXMultimediaServices*)
+  name.vb: TryGetMultimediaServicesNative(IADLXMultimediaServices*)
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetMultimediaServices
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.GetMultimediaServices
+  id: GetMultimediaServices
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetMultimediaServices()
+  nameWithType: ADLXSystemServicesHelper.GetMultimediaServices()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetMultimediaServices()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetMultimediaServices
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 466
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Creates a managed multimedia services helper with shared system lifetime.
+  example: []
+  syntax:
+    content: public ADLXMultimediaServicesHelper GetMultimediaServices()
+    return:
+      type: ADLXWrapper.ADLXMultimediaServicesHelper
+      description: Multimedia services helper wrapping native interfaces.
+    content.vb: Public Function GetMultimediaServices() As ADLXMultimediaServicesHelper
+  overload: ADLXWrapper.ADLXSystemServicesHelper.GetMultimediaServices*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If multimedia services are unsupported or retrieval fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetGPUsChangedHandlingNative
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.GetGPUsChangedHandlingNative
+  id: GetGPUsChangedHandlingNative
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetGPUsChangedHandlingNative()
+  nameWithType: ADLXSystemServicesHelper.GetGPUsChangedHandlingNative()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetGPUsChangedHandlingNative()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetGPUsChangedHandlingNative
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 479
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Gets the native GPU change handling interface (for GPU list/display change events).
+  example: []
+  syntax:
+    content: public IADLXGPUsChangedHandling* GetGPUsChangedHandlingNative()
+    return:
+      type: ADLXWrapper.IADLXGPUsChangedHandling*
+      description: Native GPU change handling pointer owned by this helper.
+    content.vb: Public Function GetGPUsChangedHandlingNative() As IADLXGPUsChangedHandling*
+  overload: ADLXWrapper.ADLXSystemServicesHelper.GetGPUsChangedHandlingNative*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If change handling is unsupported or retrieval fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetGPUsChangedHandling
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.GetGPUsChangedHandling
+  id: GetGPUsChangedHandling
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetGPUsChangedHandling()
+  nameWithType: ADLXSystemServicesHelper.GetGPUsChangedHandling()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetGPUsChangedHandling()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetGPUsChangedHandling
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 494
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Returns an AddRef'd handle to the GPU change handling interface for external ownership.
+  example: []
+  syntax:
+    content: public ADLXInterfaceHandle GetGPUsChangedHandling()
+    return:
+      type: ADLXWrapper.ADLXInterfaceHandle
+      description: Managed handle to the native GPU change handling interface.
+    content.vb: Public Function GetGPUsChangedHandling() As ADLXInterfaceHandle
+  overload: ADLXWrapper.ADLXSystemServicesHelper.GetGPUsChangedHandling*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If change handling is unsupported or retrieval fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetGPUAppsListChangedHandlingNative
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.GetGPUAppsListChangedHandlingNative
+  id: GetGPUAppsListChangedHandlingNative
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetGPUAppsListChangedHandlingNative()
+  nameWithType: ADLXSystemServicesHelper.GetGPUAppsListChangedHandlingNative()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetGPUAppsListChangedHandlingNative()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetGPUAppsListChangedHandlingNative
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 505
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Gets the native GPU applications list change handling interface (IADLXSystem2).
+  example: []
+  syntax:
+    content: public IADLXGPUAppsListChangedHandling* GetGPUAppsListChangedHandlingNative()
+    return:
+      type: ADLXWrapper.IADLXGPUAppsListChangedHandling*
+      description: Native GPU apps list change handling pointer owned by this helper.
+    content.vb: Public Function GetGPUAppsListChangedHandlingNative() As IADLXGPUAppsListChangedHandling*
+  overload: ADLXWrapper.ADLXSystemServicesHelper.GetGPUAppsListChangedHandlingNative*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If the extended interface is unsupported or retrieval fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetGPUAppsListChangedHandling
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.GetGPUAppsListChangedHandling
+  id: GetGPUAppsListChangedHandling
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetGPUAppsListChangedHandling()
+  nameWithType: ADLXSystemServicesHelper.GetGPUAppsListChangedHandling()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetGPUAppsListChangedHandling()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetGPUAppsListChangedHandling
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 520
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Returns an AddRef'd handle to the GPU applications list change handling interface for external ownership.
+  example: []
+  syntax:
+    content: public ADLXInterfaceHandle GetGPUAppsListChangedHandling()
+    return:
+      type: ADLXWrapper.ADLXInterfaceHandle
+      description: Managed handle to the native GPU apps list change handling interface.
+    content.vb: Public Function GetGPUAppsListChangedHandling() As ADLXInterfaceHandle
+  overload: ADLXWrapper.ADLXSystemServicesHelper.GetGPUAppsListChangedHandling*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If the extended interface is unsupported or retrieval fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.EnumerateADLXGPUs
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.EnumerateADLXGPUs
+  id: EnumerateADLXGPUs
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: EnumerateADLXGPUs()
+  nameWithType: ADLXSystemServicesHelper.EnumerateADLXGPUs()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.EnumerateADLXGPUs()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: EnumerateADLXGPUs
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 531
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Enumerates GPU facades with display/desktop helpers wired in.
+  example: []
+  syntax:
+    content: public IReadOnlyList<ADLXGPU> EnumerateADLXGPUs()
+    return:
+      type: System.Collections.Generic.IReadOnlyList{ADLXWrapper.ADLXGPU}
+      description: List of managed GPU facades. Callers must Dispose each GPU when finished.
+    content.vb: Public Function EnumerateADLXGPUs() As IReadOnlyList(Of ADLXGPU)
+  overload: ADLXWrapper.ADLXSystemServicesHelper.EnumerateADLXGPUs*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If enumeration is unsupported or fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.EnumerateDisplays
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.EnumerateDisplays
+  id: EnumerateDisplays
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: EnumerateDisplays()
+  nameWithType: ADLXSystemServicesHelper.EnumerateDisplays()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.EnumerateDisplays()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: EnumerateDisplays
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 563
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Enumerates display facades via the display services helper.
+  example: []
+  syntax:
+    content: public IReadOnlyList<ADLXDisplay> EnumerateDisplays()
+    return:
+      type: System.Collections.Generic.IReadOnlyList{ADLXWrapper.ADLXDisplay}
+      description: List of managed displays.
+    content.vb: Public Function EnumerateDisplays() As IReadOnlyList(Of ADLXDisplay)
+  overload: ADLXWrapper.ADLXSystemServicesHelper.EnumerateDisplays*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If enumeration fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.EnumerateDisplaysInUse
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.EnumerateDisplaysInUse
+  id: EnumerateDisplaysInUse
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: EnumerateDisplaysInUse()
+  nameWithType: ADLXSystemServicesHelper.EnumerateDisplaysInUse()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.EnumerateDisplaysInUse()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: EnumerateDisplaysInUse
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 620
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Enumerates displays that are part of an active desktop (in use) via the display services helper.
+  example: []
+  syntax:
+    content: public IReadOnlyList<ADLXDisplay> EnumerateDisplaysInUse()
+    return:
+      type: System.Collections.Generic.IReadOnlyList{ADLXWrapper.ADLXDisplay}
+      description: List of managed displays in use.
+    content.vb: Public Function EnumerateDisplaysInUse() As IReadOnlyList(Of ADLXDisplay)
+  overload: ADLXWrapper.ADLXSystemServicesHelper.EnumerateDisplaysInUse*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If enumeration fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.EnumerateDesktops
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.EnumerateDesktops
+  id: EnumerateDesktops
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: EnumerateDesktops()
+  nameWithType: ADLXSystemServicesHelper.EnumerateDesktops()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.EnumerateDesktops()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: EnumerateDesktops
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 734
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Enumerates desktop facades via the desktop services helper.
+  example: []
+  syntax:
+    content: public IReadOnlyList<ADLXDesktop> EnumerateDesktops()
+    return:
+      type: System.Collections.Generic.IReadOnlyList{ADLXWrapper.ADLXDesktop}
+      description: List of managed desktops.
+    content.vb: Public Function EnumerateDesktops() As IReadOnlyList(Of ADLXDesktop)
+  overload: ADLXWrapper.ADLXSystemServicesHelper.EnumerateDesktops*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If enumeration fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.EnumerateGPUsHandle
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.EnumerateGPUsHandle
+  id: EnumerateGPUsHandle
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: EnumerateGPUsHandle()
+  nameWithType: ADLXSystemServicesHelper.EnumerateGPUsHandle()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.EnumerateGPUsHandle()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: EnumerateGPUsHandle
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 787
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Enumerates GPU native handles (AddRef'd for caller ownership).
+  example: []
+  syntax:
+    content: public ADLXInterfaceHandle[] EnumerateGPUsHandle()
+    return:
+      type: ADLXWrapper.ADLXInterfaceHandle[]
+      description: Array of native GPU interface handles.
+    content.vb: Public Function EnumerateGPUsHandle() As ADLXInterfaceHandle()
+  overload: ADLXWrapper.ADLXSystemServicesHelper.EnumerateGPUsHandle*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If enumeration fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.EnumerateGPUs
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.EnumerateGPUs
+  id: EnumerateGPUs
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: EnumerateGPUs()
+  nameWithType: ADLXSystemServicesHelper.EnumerateGPUs()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.EnumerateGPUs()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: EnumerateGPUs
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 815
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Enumerates GPU DTOs with identity and capability information.
+  example: []
+  syntax:
+    content: public IEnumerable<GpuInfo> EnumerateGPUs()
+    return:
+      type: System.Collections.Generic.IEnumerable{ADLXWrapper.GpuInfo}
+      description: Sequence of GPU info records.
+    content.vb: Public Function EnumerateGPUs() As IEnumerable(Of GpuInfo)
+  overload: ADLXWrapper.ADLXSystemServicesHelper.EnumerateGPUs*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If enumeration is unsupported or fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetGpuInfo(ADLXWrapper.IADLXGPU*)
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.GetGpuInfo(ADLXWrapper.IADLXGPU*)
+  id: GetGpuInfo(ADLXWrapper.IADLXGPU*)
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: GetGpuInfo(IADLXGPU*)
+  nameWithType: ADLXSystemServicesHelper.GetGpuInfo(IADLXGPU*)
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetGpuInfo(ADLXWrapper.IADLXGPU*)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetGpuInfo
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 839
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Builds a GPU info DTO from a native GPU pointer.
+  example: []
+  syntax:
+    content: public GpuInfo GetGpuInfo(IADLXGPU* gpu)
+    parameters:
+    - id: gpu
+      type: ADLXWrapper.IADLXGPU*
+      description: Native GPU pointer.
+    return:
+      type: ADLXWrapper.GpuInfo
+      description: GPU info record.
+    content.vb: Public Function GetGpuInfo(gpu As IADLXGPU*) As GpuInfo
+  overload: ADLXWrapper.ADLXSystemServicesHelper.GetGpuInfo*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: If <code class="paramref">gpu</code> is null.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.EnumerateGPUsNative
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.EnumerateGPUsNative
+  id: EnumerateGPUsNative
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: EnumerateGPUsNative()
+  nameWithType: ADLXSystemServicesHelper.EnumerateGPUsNative()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.EnumerateGPUsNative()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: EnumerateGPUsNative
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 852
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Enumerates native GPU interfaces. Caller must dispose the returned list/entries.
+  example: []
+  syntax:
+    content: public IADLXGPUList* EnumerateGPUsNative()
+    return:
+      type: ADLXWrapper.IADLXGPUList*
+      description: Native GPU list pointer.
+    content.vb: Public Function EnumerateGPUsNative() As IADLXGPUList*
+  overload: ADLXWrapper.ADLXSystemServicesHelper.EnumerateGPUsNative*
+  exceptions:
+  - type: ADLXWrapper.ADLXException
+    commentId: T:ADLXWrapper.ADLXException
+    description: If enumeration is unsupported or fails.
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: If the helper has been disposed.
+- uid: ADLXWrapper.ADLXSystemServicesHelper.Dispose
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.Dispose
+  id: Dispose
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: ADLXSystemServicesHelper.Dispose()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.Dispose()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: Dispose
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 871
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Disposes cached COM pointers and releases references.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: ADLXWrapper.ADLXSystemServicesHelper.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+- uid: ADLXWrapper.ADLXSystemServicesHelper.Finalize
+  commentId: M:ADLXWrapper.ADLXSystemServicesHelper.Finalize
+  id: Finalize
+  parent: ADLXWrapper.ADLXSystemServicesHelper
+  langs:
+  - csharp
+  - vb
+  name: ~ADLXSystemServicesHelper()
+  nameWithType: ADLXSystemServicesHelper.~ADLXSystemServicesHelper()
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.~ADLXSystemServicesHelper()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: Finalize
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 897
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: protected ~ADLXSystemServicesHelper()
+    content.vb: 'Protected '
+  overload: ADLXWrapper.ADLXSystemServicesHelper.Finalize*
+  nameWithType.vb: ''
+  fullName.vb: ''
+  name.vb: ''
+references:
+- uid: ADLXWrapper
+  commentId: N:ADLXWrapper
+  href: ADLXWrapper.html
+  name: ADLXWrapper
+  nameWithType: ADLXWrapper
+  fullName: ADLXWrapper
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ADLXWrapper.ADLXSystemServicesHelper.#ctor*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.#ctor
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper__ctor_ADLXWrapper_IADLXSystem__System_Boolean_
+  name: ADLXSystemServicesHelper
+  nameWithType: ADLXSystemServicesHelper.ADLXSystemServicesHelper
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.ADLXSystemServicesHelper
+  nameWithType.vb: ADLXSystemServicesHelper.New
+  fullName.vb: ADLXWrapper.ADLXSystemServicesHelper.New
+  name.vb: New
+- uid: ADLXWrapper.IADLXSystem*
+  isExternal: true
+  href: ADLXWrapper.IADLXSystem.html
+  name: IADLXSystem*
+  nameWithType: IADLXSystem*
+  fullName: ADLXWrapper.IADLXSystem*
+  spec.csharp:
+  - uid: ADLXWrapper.IADLXSystem
+    name: IADLXSystem
+    href: ADLXWrapper.IADLXSystem.html
+  - name: '*'
+  spec.vb:
+  - uid: ADLXWrapper.IADLXSystem
+    name: IADLXSystem
+    href: ADLXWrapper.IADLXSystem.html
+  - name: '*'
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.ObjectDisposedException
+  commentId: T:System.ObjectDisposedException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.objectdisposedexception
+  name: ObjectDisposedException
+  nameWithType: ObjectDisposedException
+  fullName: System.ObjectDisposedException
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetSystemServicesNative*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.GetSystemServicesNative
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_GetSystemServicesNative
+  name: GetSystemServicesNative
+  nameWithType: ADLXSystemServicesHelper.GetSystemServicesNative
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetSystemServicesNative
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetSystemServicesHandle*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.GetSystemServicesHandle
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_GetSystemServicesHandle
+  name: GetSystemServicesHandle
+  nameWithType: ADLXSystemServicesHelper.GetSystemServicesHandle
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetSystemServicesHandle
+- uid: ADLXWrapper.ADLXInterfaceHandle
+  commentId: T:ADLXWrapper.ADLXInterfaceHandle
+  parent: ADLXWrapper
+  href: ADLXWrapper.ADLXInterfaceHandle.html
+  name: ADLXInterfaceHandle
+  nameWithType: ADLXInterfaceHandle
+  fullName: ADLXWrapper.ADLXInterfaceHandle
+- uid: ADLXWrapper.ADLXException
+  commentId: T:ADLXWrapper.ADLXException
+  href: ADLXWrapper.ADLXException.html
+  name: ADLXException
+  nameWithType: ADLXException
+  fullName: ADLXWrapper.ADLXException
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetDisplayServicesNative*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.GetDisplayServicesNative
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_GetDisplayServicesNative
+  name: GetDisplayServicesNative
+  nameWithType: ADLXSystemServicesHelper.GetDisplayServicesNative
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetDisplayServicesNative
+- uid: ADLXWrapper.IADLXDisplayServices*
+  isExternal: true
+  href: ADLXWrapper.IADLXDisplayServices.html
+  name: IADLXDisplayServices*
+  nameWithType: IADLXDisplayServices*
+  fullName: ADLXWrapper.IADLXDisplayServices*
+  spec.csharp:
+  - uid: ADLXWrapper.IADLXDisplayServices
+    name: IADLXDisplayServices
+    href: ADLXWrapper.IADLXDisplayServices.html
+  - name: '*'
+  spec.vb:
+  - uid: ADLXWrapper.IADLXDisplayServices
+    name: IADLXDisplayServices
+    href: ADLXWrapper.IADLXDisplayServices.html
+  - name: '*'
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetDisplayServicesHandle*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.GetDisplayServicesHandle
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_GetDisplayServicesHandle
+  name: GetDisplayServicesHandle
+  nameWithType: ADLXSystemServicesHelper.GetDisplayServicesHandle
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetDisplayServicesHandle
+- uid: ADLXWrapper.ADLXSystemServicesHelper.TryGetDisplayServicesNative*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.TryGetDisplayServicesNative
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_TryGetDisplayServicesNative_ADLXWrapper_IADLXDisplayServices___
+  name: TryGetDisplayServicesNative
+  nameWithType: ADLXSystemServicesHelper.TryGetDisplayServicesNative
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.TryGetDisplayServicesNative
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetDisplayServices*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.GetDisplayServices
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_GetDisplayServices
+  name: GetDisplayServices
+  nameWithType: ADLXSystemServicesHelper.GetDisplayServices
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetDisplayServices
+- uid: ADLXWrapper.ADLXDisplayServicesHelper
+  commentId: T:ADLXWrapper.ADLXDisplayServicesHelper
+  parent: ADLXWrapper
+  href: ADLXWrapper.ADLXDisplayServicesHelper.html
+  name: ADLXDisplayServicesHelper
+  nameWithType: ADLXDisplayServicesHelper
+  fullName: ADLXWrapper.ADLXDisplayServicesHelper
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetDesktopServicesNative*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.GetDesktopServicesNative
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_GetDesktopServicesNative
+  name: GetDesktopServicesNative
+  nameWithType: ADLXSystemServicesHelper.GetDesktopServicesNative
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetDesktopServicesNative
+- uid: ADLXWrapper.IADLXDesktopServices*
+  isExternal: true
+  href: ADLXWrapper.IADLXDesktopServices.html
+  name: IADLXDesktopServices*
+  nameWithType: IADLXDesktopServices*
+  fullName: ADLXWrapper.IADLXDesktopServices*
+  spec.csharp:
+  - uid: ADLXWrapper.IADLXDesktopServices
+    name: IADLXDesktopServices
+    href: ADLXWrapper.IADLXDesktopServices.html
+  - name: '*'
+  spec.vb:
+  - uid: ADLXWrapper.IADLXDesktopServices
+    name: IADLXDesktopServices
+    href: ADLXWrapper.IADLXDesktopServices.html
+  - name: '*'
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetDesktopServicesHandle*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.GetDesktopServicesHandle
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_GetDesktopServicesHandle
+  name: GetDesktopServicesHandle
+  nameWithType: ADLXSystemServicesHelper.GetDesktopServicesHandle
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetDesktopServicesHandle
+- uid: ADLXWrapper.ADLXSystemServicesHelper.TryGetDesktopServicesNative*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.TryGetDesktopServicesNative
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_TryGetDesktopServicesNative_ADLXWrapper_IADLXDesktopServices___
+  name: TryGetDesktopServicesNative
+  nameWithType: ADLXSystemServicesHelper.TryGetDesktopServicesNative
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.TryGetDesktopServicesNative
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetDesktopServices*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.GetDesktopServices
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_GetDesktopServices
+  name: GetDesktopServices
+  nameWithType: ADLXSystemServicesHelper.GetDesktopServices
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetDesktopServices
+- uid: ADLXWrapper.ADLXDesktopServicesHelper
+  commentId: T:ADLXWrapper.ADLXDesktopServicesHelper
+  parent: ADLXWrapper
+  href: ADLXWrapper.ADLXDesktopServicesHelper.html
+  name: ADLXDesktopServicesHelper
+  nameWithType: ADLXDesktopServicesHelper
+  fullName: ADLXWrapper.ADLXDesktopServicesHelper
+- uid: ADLXWrapper.ADLXSystemServicesHelper.Get3DSettingsServicesNative*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.Get3DSettingsServicesNative
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_Get3DSettingsServicesNative
+  name: Get3DSettingsServicesNative
+  nameWithType: ADLXSystemServicesHelper.Get3DSettingsServicesNative
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.Get3DSettingsServicesNative
+- uid: ADLXWrapper.IADLX3DSettingsServices*
+  isExternal: true
+  href: ADLXWrapper.IADLX3DSettingsServices.html
+  name: IADLX3DSettingsServices*
+  nameWithType: IADLX3DSettingsServices*
+  fullName: ADLXWrapper.IADLX3DSettingsServices*
+  spec.csharp:
+  - uid: ADLXWrapper.IADLX3DSettingsServices
+    name: IADLX3DSettingsServices
+    href: ADLXWrapper.IADLX3DSettingsServices.html
+  - name: '*'
+  spec.vb:
+  - uid: ADLXWrapper.IADLX3DSettingsServices
+    name: IADLX3DSettingsServices
+    href: ADLXWrapper.IADLX3DSettingsServices.html
+  - name: '*'
+- uid: ADLXWrapper.ADLXSystemServicesHelper.Get3DSettingsServicesHandle*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.Get3DSettingsServicesHandle
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_Get3DSettingsServicesHandle
+  name: Get3DSettingsServicesHandle
+  nameWithType: ADLXSystemServicesHelper.Get3DSettingsServicesHandle
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.Get3DSettingsServicesHandle
+- uid: ADLXWrapper.ADLXSystemServicesHelper.TryGet3DSettingsServicesNative*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.TryGet3DSettingsServicesNative
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_TryGet3DSettingsServicesNative_ADLXWrapper_IADLX3DSettingsServices___
+  name: TryGet3DSettingsServicesNative
+  nameWithType: ADLXSystemServicesHelper.TryGet3DSettingsServicesNative
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.TryGet3DSettingsServicesNative
+- uid: ADLXWrapper.ADLXSystemServicesHelper.Get3DSettingsServices*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.Get3DSettingsServices
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_Get3DSettingsServices
+  name: Get3DSettingsServices
+  nameWithType: ADLXSystemServicesHelper.Get3DSettingsServices
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.Get3DSettingsServices
+- uid: ADLXWrapper.ADLX3DSettingsServicesHelper
+  commentId: T:ADLXWrapper.ADLX3DSettingsServicesHelper
+  parent: ADLXWrapper
+  href: ADLXWrapper.ADLX3DSettingsServicesHelper.html
+  name: ADLX3DSettingsServicesHelper
+  nameWithType: ADLX3DSettingsServicesHelper
+  fullName: ADLXWrapper.ADLX3DSettingsServicesHelper
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetGPUTuningServicesNative*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.GetGPUTuningServicesNative
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_GetGPUTuningServicesNative
+  name: GetGPUTuningServicesNative
+  nameWithType: ADLXSystemServicesHelper.GetGPUTuningServicesNative
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetGPUTuningServicesNative
+- uid: ADLXWrapper.IADLXGPUTuningServices*
+  isExternal: true
+  href: ADLXWrapper.IADLXGPUTuningServices.html
+  name: IADLXGPUTuningServices*
+  nameWithType: IADLXGPUTuningServices*
+  fullName: ADLXWrapper.IADLXGPUTuningServices*
+  spec.csharp:
+  - uid: ADLXWrapper.IADLXGPUTuningServices
+    name: IADLXGPUTuningServices
+    href: ADLXWrapper.IADLXGPUTuningServices.html
+  - name: '*'
+  spec.vb:
+  - uid: ADLXWrapper.IADLXGPUTuningServices
+    name: IADLXGPUTuningServices
+    href: ADLXWrapper.IADLXGPUTuningServices.html
+  - name: '*'
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetGPUTuningServicesHandle*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.GetGPUTuningServicesHandle
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_GetGPUTuningServicesHandle
+  name: GetGPUTuningServicesHandle
+  nameWithType: ADLXSystemServicesHelper.GetGPUTuningServicesHandle
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetGPUTuningServicesHandle
+- uid: ADLXWrapper.ADLXSystemServicesHelper.TryGetGPUTuningServicesNative*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.TryGetGPUTuningServicesNative
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_TryGetGPUTuningServicesNative_ADLXWrapper_IADLXGPUTuningServices___
+  name: TryGetGPUTuningServicesNative
+  nameWithType: ADLXSystemServicesHelper.TryGetGPUTuningServicesNative
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.TryGetGPUTuningServicesNative
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetGPUTuningServices*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.GetGPUTuningServices
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_GetGPUTuningServices
+  name: GetGPUTuningServices
+  nameWithType: ADLXSystemServicesHelper.GetGPUTuningServices
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetGPUTuningServices
+- uid: ADLXWrapper.ADLXGPUTuningServicesHelper
+  commentId: T:ADLXWrapper.ADLXGPUTuningServicesHelper
+  parent: ADLXWrapper
+  href: ADLXWrapper.ADLXGPUTuningServicesHelper.html
+  name: ADLXGPUTuningServicesHelper
+  nameWithType: ADLXGPUTuningServicesHelper
+  fullName: ADLXWrapper.ADLXGPUTuningServicesHelper
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetPerformanceMonitoringServicesNative*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.GetPerformanceMonitoringServicesNative
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_GetPerformanceMonitoringServicesNative
+  name: GetPerformanceMonitoringServicesNative
+  nameWithType: ADLXSystemServicesHelper.GetPerformanceMonitoringServicesNative
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetPerformanceMonitoringServicesNative
+- uid: ADLXWrapper.IADLXPerformanceMonitoringServices*
+  isExternal: true
+  href: ADLXWrapper.IADLXPerformanceMonitoringServices.html
+  name: IADLXPerformanceMonitoringServices*
+  nameWithType: IADLXPerformanceMonitoringServices*
+  fullName: ADLXWrapper.IADLXPerformanceMonitoringServices*
+  spec.csharp:
+  - uid: ADLXWrapper.IADLXPerformanceMonitoringServices
+    name: IADLXPerformanceMonitoringServices
+    href: ADLXWrapper.IADLXPerformanceMonitoringServices.html
+  - name: '*'
+  spec.vb:
+  - uid: ADLXWrapper.IADLXPerformanceMonitoringServices
+    name: IADLXPerformanceMonitoringServices
+    href: ADLXWrapper.IADLXPerformanceMonitoringServices.html
+  - name: '*'
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetPerformanceMonitoringServicesHandle*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.GetPerformanceMonitoringServicesHandle
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_GetPerformanceMonitoringServicesHandle
+  name: GetPerformanceMonitoringServicesHandle
+  nameWithType: ADLXSystemServicesHelper.GetPerformanceMonitoringServicesHandle
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetPerformanceMonitoringServicesHandle
+- uid: ADLXWrapper.ADLXSystemServicesHelper.TryGetPerformanceMonitoringServicesNative*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.TryGetPerformanceMonitoringServicesNative
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_TryGetPerformanceMonitoringServicesNative_ADLXWrapper_IADLXPerformanceMonitoringServices___
+  name: TryGetPerformanceMonitoringServicesNative
+  nameWithType: ADLXSystemServicesHelper.TryGetPerformanceMonitoringServicesNative
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.TryGetPerformanceMonitoringServicesNative
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetPerformanceMonitoringServices*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.GetPerformanceMonitoringServices
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_GetPerformanceMonitoringServices
+  name: GetPerformanceMonitoringServices
+  nameWithType: ADLXSystemServicesHelper.GetPerformanceMonitoringServices
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetPerformanceMonitoringServices
+- uid: ADLXWrapper.ADLXPerformanceMonitoringServicesHelper
+  commentId: T:ADLXWrapper.ADLXPerformanceMonitoringServicesHelper
+  parent: ADLXWrapper
+  href: ADLXWrapper.ADLXPerformanceMonitoringServicesHelper.html
+  name: ADLXPerformanceMonitoringServicesHelper
+  nameWithType: ADLXPerformanceMonitoringServicesHelper
+  fullName: ADLXWrapper.ADLXPerformanceMonitoringServicesHelper
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetPowerTuningServicesNative*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.GetPowerTuningServicesNative
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_GetPowerTuningServicesNative
+  name: GetPowerTuningServicesNative
+  nameWithType: ADLXSystemServicesHelper.GetPowerTuningServicesNative
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetPowerTuningServicesNative
+- uid: ADLXWrapper.IADLXPowerTuningServices*
+  isExternal: true
+  href: ADLXWrapper.IADLXPowerTuningServices.html
+  name: IADLXPowerTuningServices*
+  nameWithType: IADLXPowerTuningServices*
+  fullName: ADLXWrapper.IADLXPowerTuningServices*
+  spec.csharp:
+  - uid: ADLXWrapper.IADLXPowerTuningServices
+    name: IADLXPowerTuningServices
+    href: ADLXWrapper.IADLXPowerTuningServices.html
+  - name: '*'
+  spec.vb:
+  - uid: ADLXWrapper.IADLXPowerTuningServices
+    name: IADLXPowerTuningServices
+    href: ADLXWrapper.IADLXPowerTuningServices.html
+  - name: '*'
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetPowerTuningServicesHandle*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.GetPowerTuningServicesHandle
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_GetPowerTuningServicesHandle
+  name: GetPowerTuningServicesHandle
+  nameWithType: ADLXSystemServicesHelper.GetPowerTuningServicesHandle
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetPowerTuningServicesHandle
+- uid: ADLXWrapper.ADLXSystemServicesHelper.TryGetPowerTuningServicesNative*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.TryGetPowerTuningServicesNative
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_TryGetPowerTuningServicesNative_ADLXWrapper_IADLXPowerTuningServices___
+  name: TryGetPowerTuningServicesNative
+  nameWithType: ADLXSystemServicesHelper.TryGetPowerTuningServicesNative
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.TryGetPowerTuningServicesNative
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetPowerTuningServices*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.GetPowerTuningServices
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_GetPowerTuningServices
+  name: GetPowerTuningServices
+  nameWithType: ADLXSystemServicesHelper.GetPowerTuningServices
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetPowerTuningServices
+- uid: ADLXWrapper.ADLXPowerTuningServicesHelper
+  commentId: T:ADLXWrapper.ADLXPowerTuningServicesHelper
+  parent: ADLXWrapper
+  href: ADLXWrapper.ADLXPowerTuningServicesHelper.html
+  name: ADLXPowerTuningServicesHelper
+  nameWithType: ADLXPowerTuningServicesHelper
+  fullName: ADLXWrapper.ADLXPowerTuningServicesHelper
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetMultimediaServicesNative*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.GetMultimediaServicesNative
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_GetMultimediaServicesNative
+  name: GetMultimediaServicesNative
+  nameWithType: ADLXSystemServicesHelper.GetMultimediaServicesNative
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetMultimediaServicesNative
+- uid: ADLXWrapper.IADLXMultimediaServices*
+  isExternal: true
+  href: ADLXWrapper.IADLXMultimediaServices.html
+  name: IADLXMultimediaServices*
+  nameWithType: IADLXMultimediaServices*
+  fullName: ADLXWrapper.IADLXMultimediaServices*
+  spec.csharp:
+  - uid: ADLXWrapper.IADLXMultimediaServices
+    name: IADLXMultimediaServices
+    href: ADLXWrapper.IADLXMultimediaServices.html
+  - name: '*'
+  spec.vb:
+  - uid: ADLXWrapper.IADLXMultimediaServices
+    name: IADLXMultimediaServices
+    href: ADLXWrapper.IADLXMultimediaServices.html
+  - name: '*'
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetMultimediaServicesHandle*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.GetMultimediaServicesHandle
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_GetMultimediaServicesHandle
+  name: GetMultimediaServicesHandle
+  nameWithType: ADLXSystemServicesHelper.GetMultimediaServicesHandle
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetMultimediaServicesHandle
+- uid: ADLXWrapper.ADLXSystemServicesHelper.TryGetMultimediaServicesNative*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.TryGetMultimediaServicesNative
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_TryGetMultimediaServicesNative_ADLXWrapper_IADLXMultimediaServices___
+  name: TryGetMultimediaServicesNative
+  nameWithType: ADLXSystemServicesHelper.TryGetMultimediaServicesNative
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.TryGetMultimediaServicesNative
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetMultimediaServices*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.GetMultimediaServices
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_GetMultimediaServices
+  name: GetMultimediaServices
+  nameWithType: ADLXSystemServicesHelper.GetMultimediaServices
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetMultimediaServices
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper
+  commentId: T:ADLXWrapper.ADLXMultimediaServicesHelper
+  parent: ADLXWrapper
+  href: ADLXWrapper.ADLXMultimediaServicesHelper.html
+  name: ADLXMultimediaServicesHelper
+  nameWithType: ADLXMultimediaServicesHelper
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetGPUsChangedHandlingNative*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.GetGPUsChangedHandlingNative
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_GetGPUsChangedHandlingNative
+  name: GetGPUsChangedHandlingNative
+  nameWithType: ADLXSystemServicesHelper.GetGPUsChangedHandlingNative
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetGPUsChangedHandlingNative
+- uid: ADLXWrapper.IADLXGPUsChangedHandling*
+  isExternal: true
+  href: ADLXWrapper.IADLXGPUsChangedHandling.html
+  name: IADLXGPUsChangedHandling*
+  nameWithType: IADLXGPUsChangedHandling*
+  fullName: ADLXWrapper.IADLXGPUsChangedHandling*
+  spec.csharp:
+  - uid: ADLXWrapper.IADLXGPUsChangedHandling
+    name: IADLXGPUsChangedHandling
+    href: ADLXWrapper.IADLXGPUsChangedHandling.html
+  - name: '*'
+  spec.vb:
+  - uid: ADLXWrapper.IADLXGPUsChangedHandling
+    name: IADLXGPUsChangedHandling
+    href: ADLXWrapper.IADLXGPUsChangedHandling.html
+  - name: '*'
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetGPUsChangedHandling*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.GetGPUsChangedHandling
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_GetGPUsChangedHandling
+  name: GetGPUsChangedHandling
+  nameWithType: ADLXSystemServicesHelper.GetGPUsChangedHandling
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetGPUsChangedHandling
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetGPUAppsListChangedHandlingNative*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.GetGPUAppsListChangedHandlingNative
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_GetGPUAppsListChangedHandlingNative
+  name: GetGPUAppsListChangedHandlingNative
+  nameWithType: ADLXSystemServicesHelper.GetGPUAppsListChangedHandlingNative
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetGPUAppsListChangedHandlingNative
+- uid: ADLXWrapper.IADLXGPUAppsListChangedHandling*
+  isExternal: true
+  href: ADLXWrapper.IADLXGPUAppsListChangedHandling.html
+  name: IADLXGPUAppsListChangedHandling*
+  nameWithType: IADLXGPUAppsListChangedHandling*
+  fullName: ADLXWrapper.IADLXGPUAppsListChangedHandling*
+  spec.csharp:
+  - uid: ADLXWrapper.IADLXGPUAppsListChangedHandling
+    name: IADLXGPUAppsListChangedHandling
+    href: ADLXWrapper.IADLXGPUAppsListChangedHandling.html
+  - name: '*'
+  spec.vb:
+  - uid: ADLXWrapper.IADLXGPUAppsListChangedHandling
+    name: IADLXGPUAppsListChangedHandling
+    href: ADLXWrapper.IADLXGPUAppsListChangedHandling.html
+  - name: '*'
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetGPUAppsListChangedHandling*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.GetGPUAppsListChangedHandling
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_GetGPUAppsListChangedHandling
+  name: GetGPUAppsListChangedHandling
+  nameWithType: ADLXSystemServicesHelper.GetGPUAppsListChangedHandling
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetGPUAppsListChangedHandling
+- uid: ADLXWrapper.ADLXSystemServicesHelper.EnumerateADLXGPUs*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.EnumerateADLXGPUs
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_EnumerateADLXGPUs
+  name: EnumerateADLXGPUs
+  nameWithType: ADLXSystemServicesHelper.EnumerateADLXGPUs
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.EnumerateADLXGPUs
+- uid: System.Collections.Generic.IReadOnlyList{ADLXWrapper.ADLXGPU}
+  commentId: T:System.Collections.Generic.IReadOnlyList{ADLXWrapper.ADLXGPU}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<ADLXGPU>
+  nameWithType: IReadOnlyList<ADLXGPU>
+  fullName: System.Collections.Generic.IReadOnlyList<ADLXWrapper.ADLXGPU>
+  nameWithType.vb: IReadOnlyList(Of ADLXGPU)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of ADLXWrapper.ADLXGPU)
+  name.vb: IReadOnlyList(Of ADLXGPU)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: ADLXWrapper.ADLXGPU
+    name: ADLXGPU
+    href: ADLXWrapper.ADLXGPU.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ADLXWrapper.ADLXGPU
+    name: ADLXGPU
+    href: ADLXWrapper.ADLXGPU.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ADLXWrapper.ADLXSystemServicesHelper.EnumerateDisplays*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.EnumerateDisplays
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_EnumerateDisplays
+  name: EnumerateDisplays
+  nameWithType: ADLXSystemServicesHelper.EnumerateDisplays
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.EnumerateDisplays
+- uid: System.Collections.Generic.IReadOnlyList{ADLXWrapper.ADLXDisplay}
+  commentId: T:System.Collections.Generic.IReadOnlyList{ADLXWrapper.ADLXDisplay}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<ADLXDisplay>
+  nameWithType: IReadOnlyList<ADLXDisplay>
+  fullName: System.Collections.Generic.IReadOnlyList<ADLXWrapper.ADLXDisplay>
+  nameWithType.vb: IReadOnlyList(Of ADLXDisplay)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of ADLXWrapper.ADLXDisplay)
+  name.vb: IReadOnlyList(Of ADLXDisplay)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: ADLXWrapper.ADLXDisplay
+    name: ADLXDisplay
+    href: ADLXWrapper.ADLXDisplay.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ADLXWrapper.ADLXDisplay
+    name: ADLXDisplay
+    href: ADLXWrapper.ADLXDisplay.html
+  - name: )
+- uid: ADLXWrapper.ADLXSystemServicesHelper.EnumerateDisplaysInUse*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.EnumerateDisplaysInUse
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_EnumerateDisplaysInUse
+  name: EnumerateDisplaysInUse
+  nameWithType: ADLXSystemServicesHelper.EnumerateDisplaysInUse
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.EnumerateDisplaysInUse
+- uid: ADLXWrapper.ADLXSystemServicesHelper.EnumerateDesktops*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.EnumerateDesktops
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_EnumerateDesktops
+  name: EnumerateDesktops
+  nameWithType: ADLXSystemServicesHelper.EnumerateDesktops
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.EnumerateDesktops
+- uid: System.Collections.Generic.IReadOnlyList{ADLXWrapper.ADLXDesktop}
+  commentId: T:System.Collections.Generic.IReadOnlyList{ADLXWrapper.ADLXDesktop}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<ADLXDesktop>
+  nameWithType: IReadOnlyList<ADLXDesktop>
+  fullName: System.Collections.Generic.IReadOnlyList<ADLXWrapper.ADLXDesktop>
+  nameWithType.vb: IReadOnlyList(Of ADLXDesktop)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of ADLXWrapper.ADLXDesktop)
+  name.vb: IReadOnlyList(Of ADLXDesktop)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: ADLXWrapper.ADLXDesktop
+    name: ADLXDesktop
+    href: ADLXWrapper.ADLXDesktop.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ADLXWrapper.ADLXDesktop
+    name: ADLXDesktop
+    href: ADLXWrapper.ADLXDesktop.html
+  - name: )
+- uid: ADLXWrapper.ADLXSystemServicesHelper.EnumerateGPUsHandle*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.EnumerateGPUsHandle
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_EnumerateGPUsHandle
+  name: EnumerateGPUsHandle
+  nameWithType: ADLXSystemServicesHelper.EnumerateGPUsHandle
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.EnumerateGPUsHandle
+- uid: ADLXWrapper.ADLXInterfaceHandle[]
+  isExternal: true
+  href: ADLXWrapper.ADLXInterfaceHandle.html
+  name: ADLXInterfaceHandle[]
+  nameWithType: ADLXInterfaceHandle[]
+  fullName: ADLXWrapper.ADLXInterfaceHandle[]
+  nameWithType.vb: ADLXInterfaceHandle()
+  fullName.vb: ADLXWrapper.ADLXInterfaceHandle()
+  name.vb: ADLXInterfaceHandle()
+  spec.csharp:
+  - uid: ADLXWrapper.ADLXInterfaceHandle
+    name: ADLXInterfaceHandle
+    href: ADLXWrapper.ADLXInterfaceHandle.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: ADLXWrapper.ADLXInterfaceHandle
+    name: ADLXInterfaceHandle
+    href: ADLXWrapper.ADLXInterfaceHandle.html
+  - name: (
+  - name: )
+- uid: ADLXWrapper.ADLXSystemServicesHelper.EnumerateGPUs*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.EnumerateGPUs
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_EnumerateGPUs
+  name: EnumerateGPUs
+  nameWithType: ADLXSystemServicesHelper.EnumerateGPUs
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.EnumerateGPUs
+- uid: System.Collections.Generic.IEnumerable{ADLXWrapper.GpuInfo}
+  commentId: T:System.Collections.Generic.IEnumerable{ADLXWrapper.GpuInfo}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<GpuInfo>
+  nameWithType: IEnumerable<GpuInfo>
+  fullName: System.Collections.Generic.IEnumerable<ADLXWrapper.GpuInfo>
+  nameWithType.vb: IEnumerable(Of GpuInfo)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of ADLXWrapper.GpuInfo)
+  name.vb: IEnumerable(Of GpuInfo)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: ADLXWrapper.GpuInfo
+    name: GpuInfo
+    href: ADLXWrapper.GpuInfo.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ADLXWrapper.GpuInfo
+    name: GpuInfo
+    href: ADLXWrapper.GpuInfo.html
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: ADLXWrapper.ADLXSystemServicesHelper.GetGpuInfo*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.GetGpuInfo
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_GetGpuInfo_ADLXWrapper_IADLXGPU__
+  name: GetGpuInfo
+  nameWithType: ADLXSystemServicesHelper.GetGpuInfo
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.GetGpuInfo
+- uid: ADLXWrapper.IADLXGPU*
+  isExternal: true
+  href: ADLXWrapper.IADLXGPU.html
+  name: IADLXGPU*
+  nameWithType: IADLXGPU*
+  fullName: ADLXWrapper.IADLXGPU*
+  spec.csharp:
+  - uid: ADLXWrapper.IADLXGPU
+    name: IADLXGPU
+    href: ADLXWrapper.IADLXGPU.html
+  - name: '*'
+  spec.vb:
+  - uid: ADLXWrapper.IADLXGPU
+    name: IADLXGPU
+    href: ADLXWrapper.IADLXGPU.html
+  - name: '*'
+- uid: ADLXWrapper.GpuInfo
+  commentId: T:ADLXWrapper.GpuInfo
+  parent: ADLXWrapper
+  href: ADLXWrapper.GpuInfo.html
+  name: GpuInfo
+  nameWithType: GpuInfo
+  fullName: ADLXWrapper.GpuInfo
+- uid: ADLXWrapper.ADLXSystemServicesHelper.EnumerateGPUsNative*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.EnumerateGPUsNative
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_EnumerateGPUsNative
+  name: EnumerateGPUsNative
+  nameWithType: ADLXSystemServicesHelper.EnumerateGPUsNative
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.EnumerateGPUsNative
+- uid: ADLXWrapper.IADLXGPUList*
+  isExternal: true
+  href: ADLXWrapper.IADLXGPUList.html
+  name: IADLXGPUList*
+  nameWithType: IADLXGPUList*
+  fullName: ADLXWrapper.IADLXGPUList*
+  spec.csharp:
+  - uid: ADLXWrapper.IADLXGPUList
+    name: IADLXGPUList
+    href: ADLXWrapper.IADLXGPUList.html
+  - name: '*'
+  spec.vb:
+  - uid: ADLXWrapper.IADLXGPUList
+    name: IADLXGPUList
+    href: ADLXWrapper.IADLXGPUList.html
+  - name: '*'
+- uid: ADLXWrapper.ADLXSystemServicesHelper.Dispose*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.Dispose
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_Dispose
+  name: Dispose
+  nameWithType: ADLXSystemServicesHelper.Dispose
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: ADLXWrapper.ADLXSystemServicesHelper.Finalize*
+  commentId: Overload:ADLXWrapper.ADLXSystemServicesHelper.Finalize
+  href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_Finalize
+  name: ~ADLXSystemServicesHelper
+  nameWithType: ADLXSystemServicesHelper.~ADLXSystemServicesHelper
+  fullName: ADLXWrapper.ADLXSystemServicesHelper.~ADLXSystemServicesHelper
+  spec.csharp:
+  - name: "~"
+  - uid: ADLXWrapper.ADLXSystemServicesHelper.Finalize*
+    name: ADLXSystemServicesHelper
+    href: ADLXWrapper.ADLXSystemServicesHelper.html#ADLXWrapper_ADLXSystemServicesHelper_Finalize

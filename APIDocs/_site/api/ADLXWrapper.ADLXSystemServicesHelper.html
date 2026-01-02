@@ -1,0 +1,2014 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ADLXSystemServicesHelper | ADLXWrapper </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ADLXSystemServicesHelper | ADLXWrapper ">
+      
+      <meta name="description" content="Helper wrapper over IADLXSystem exposing per-feature service accessors and GPU enumeration.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/terrymacdonald/ADLXWrapper/new/feature-facade-tests-v3/apiSpec/new?filename=ADLXWrapper_ADLXSystemServicesHelper.md&amp;value=---%0Auid%3A%20ADLXWrapper.ADLXSystemServicesHelper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="ADLXWrapper">
+            ADLXWrapper
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ADLXWrapper.ADLXSystemServicesHelper">
+
+
+
+  <h1 id="ADLXWrapper_ADLXSystemServicesHelper" data-uid="ADLXWrapper.ADLXSystemServicesHelper" class="text-break">
+Class ADLXSystemServicesHelper  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ADLXWrapper.html">ADLXWrapper</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ADLXWrapper.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Helper wrapper over IADLXSystem exposing per-feature service accessors and GPU enumeration.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class ADLXSystemServicesHelper : IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ADLXSystemServicesHelper</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper__ctor_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.#ctor*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper__ctor_ADLXWrapper_IADLXSystem__System_Boolean_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.#ctor(ADLXWrapper.IADLXSystem*,System.Boolean)">
+  ADLXSystemServicesHelper(IADLXSystem*, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a system-services helper from an ADLX system pointer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ADLXSystemServicesHelper(IADLXSystem* system, bool addRef = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>system</code> <a class="xref" href="ADLXWrapper.IADLXSystem.html">IADLXSystem</a>*</dt>
+    <dd><p>Native ADLX system pointer.</p>
+</dd>
+    <dt><code>addRef</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Ignored; kept for API compatibility. IADLXSystem is not ref-counted.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_Dispose_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.Dispose*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_Dispose" data-uid="ADLXWrapper.ADLXSystemServicesHelper.Dispose">
+  Dispose()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L872"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Disposes cached COM pointers and releases references.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_EnumerateADLXGPUs_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.EnumerateADLXGPUs*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_EnumerateADLXGPUs" data-uid="ADLXWrapper.ADLXSystemServicesHelper.EnumerateADLXGPUs">
+  EnumerateADLXGPUs()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L532"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Enumerates GPU facades with display/desktop helpers wired in.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;ADLXGPU&gt; EnumerateADLXGPUs()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="ADLXWrapper.ADLXGPU.html">ADLXGPU</a>&gt;</dt>
+    <dd><p>List of managed GPU facades. Callers must Dispose each GPU when finished.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If enumeration is unsupported or fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_EnumerateDesktops_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.EnumerateDesktops*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_EnumerateDesktops" data-uid="ADLXWrapper.ADLXSystemServicesHelper.EnumerateDesktops">
+  EnumerateDesktops()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L735"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Enumerates desktop facades via the desktop services helper.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;ADLXDesktop&gt; EnumerateDesktops()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="ADLXWrapper.ADLXDesktop.html">ADLXDesktop</a>&gt;</dt>
+    <dd><p>List of managed desktops.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If enumeration fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_EnumerateDisplays_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.EnumerateDisplays*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_EnumerateDisplays" data-uid="ADLXWrapper.ADLXSystemServicesHelper.EnumerateDisplays">
+  EnumerateDisplays()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L564"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Enumerates display facades via the display services helper.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;ADLXDisplay&gt; EnumerateDisplays()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="ADLXWrapper.ADLXDisplay.html">ADLXDisplay</a>&gt;</dt>
+    <dd><p>List of managed displays.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If enumeration fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_EnumerateDisplaysInUse_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.EnumerateDisplaysInUse*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_EnumerateDisplaysInUse" data-uid="ADLXWrapper.ADLXSystemServicesHelper.EnumerateDisplaysInUse">
+  EnumerateDisplaysInUse()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L621"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Enumerates displays that are part of an active desktop (in use) via the display services helper.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;ADLXDisplay&gt; EnumerateDisplaysInUse()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="ADLXWrapper.ADLXDisplay.html">ADLXDisplay</a>&gt;</dt>
+    <dd><p>List of managed displays in use.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If enumeration fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_EnumerateGPUs_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.EnumerateGPUs*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_EnumerateGPUs" data-uid="ADLXWrapper.ADLXSystemServicesHelper.EnumerateGPUs">
+  EnumerateGPUs()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L816"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Enumerates GPU DTOs with identity and capability information.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;GpuInfo&gt; EnumerateGPUs()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="ADLXWrapper.GpuInfo.html">GpuInfo</a>&gt;</dt>
+    <dd><p>Sequence of GPU info records.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If enumeration is unsupported or fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_EnumerateGPUsHandle_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.EnumerateGPUsHandle*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_EnumerateGPUsHandle" data-uid="ADLXWrapper.ADLXSystemServicesHelper.EnumerateGPUsHandle">
+  EnumerateGPUsHandle()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L788"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Enumerates GPU native handles (AddRef'd for caller ownership).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ADLXInterfaceHandle[] EnumerateGPUsHandle()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXInterfaceHandle.html">ADLXInterfaceHandle</a>[]</dt>
+    <dd><p>Array of native GPU interface handles.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If enumeration fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_EnumerateGPUsNative_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.EnumerateGPUsNative*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_EnumerateGPUsNative" data-uid="ADLXWrapper.ADLXSystemServicesHelper.EnumerateGPUsNative">
+  EnumerateGPUsNative()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L853"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Enumerates native GPU interfaces. Caller must dispose the returned list/entries.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IADLXGPUList* EnumerateGPUsNative()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.IADLXGPUList.html">IADLXGPUList</a>*</dt>
+    <dd><p>Native GPU list pointer.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If enumeration is unsupported or fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_Finalize_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.Finalize*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_Finalize" data-uid="ADLXWrapper.ADLXSystemServicesHelper.Finalize">
+  ~ADLXSystemServicesHelper()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L898"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ~ADLXSystemServicesHelper()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_Get3DSettingsServices_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.Get3DSettingsServices*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_Get3DSettingsServices" data-uid="ADLXWrapper.ADLXSystemServicesHelper.Get3DSettingsServices">
+  Get3DSettingsServices()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L239"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a managed 3D settings helper with shared system lifetime.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ADLX3DSettingsServicesHelper Get3DSettingsServices()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLX3DSettingsServicesHelper.html">ADLX3DSettingsServicesHelper</a></dt>
+    <dd><p>3D settings services helper wrapping native interfaces.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If 3D settings services are unsupported or retrieval fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_Get3DSettingsServicesHandle_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.Get3DSettingsServicesHandle*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_Get3DSettingsServicesHandle" data-uid="ADLXWrapper.ADLXSystemServicesHelper.Get3DSettingsServicesHandle">
+  Get3DSettingsServicesHandle()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L210"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an AddRef'd handle to the 3D settings services interface for external ownership.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ADLXInterfaceHandle Get3DSettingsServicesHandle()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.AdlxInterfaceHandle.html">ADLXInterfaceHandle</a></dt>
+    <dd><p>Managed handle to the native 3D settings services interface.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If 3D settings services are unsupported or retrieval fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_Get3DSettingsServicesNative_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.Get3DSettingsServicesNative*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_Get3DSettingsServicesNative" data-uid="ADLXWrapper.ADLXSystemServicesHelper.Get3DSettingsServicesNative">
+  Get3DSettingsServicesNative()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L195"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the native 3D settings services interface, querying lazily if needed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IADLX3DSettingsServices* Get3DSettingsServicesNative()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.IADLX3DSettingsServices.html">IADLX3DSettingsServices</a>*</dt>
+    <dd><p>Native 3D settings services pointer owned by this helper.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If 3D settings services are unsupported or retrieval fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_GetDesktopServices_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetDesktopServices*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_GetDesktopServices" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetDesktopServices">
+  GetDesktopServices()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L181"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a managed desktop-services helper with shared system lifetime.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ADLXDesktopServicesHelper GetDesktopServices()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXDesktopServicesHelper.html">ADLXDesktopServicesHelper</a></dt>
+    <dd><p>Desktop services helper wrapping native interfaces.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If desktop/display services are unsupported or retrieval fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_GetDesktopServicesHandle_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetDesktopServicesHandle*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_GetDesktopServicesHandle" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetDesktopServicesHandle">
+  GetDesktopServicesHandle()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L152"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an AddRef'd handle to the desktop services interface for external ownership.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ADLXInterfaceHandle GetDesktopServicesHandle()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.AdlxInterfaceHandle.html">ADLXInterfaceHandle</a></dt>
+    <dd><p>Managed handle to the native desktop services interface.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If desktop services are unsupported or retrieval fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_GetDesktopServicesNative_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetDesktopServicesNative*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_GetDesktopServicesNative" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetDesktopServicesNative">
+  GetDesktopServicesNative()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the native desktop services interface, querying lazily if needed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IADLXDesktopServices* GetDesktopServicesNative()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.IADLXDesktopServices.html">IADLXDesktopServices</a>*</dt>
+    <dd><p>Native desktop services pointer owned by this helper.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If desktop services are unsupported or retrieval fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_GetDisplayServices_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetDisplayServices*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_GetDisplayServices" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetDisplayServices">
+  GetDisplayServices()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L123"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a managed display-services helper with shared system lifetime.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ADLXDisplayServicesHelper GetDisplayServices()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXDisplayServicesHelper.html">ADLXDisplayServicesHelper</a></dt>
+    <dd><p>Display services helper wrapping native interfaces.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If display/desktop services are unsupported or retrieval fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_GetDisplayServicesHandle_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetDisplayServicesHandle*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_GetDisplayServicesHandle" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetDisplayServicesHandle">
+  GetDisplayServicesHandle()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an AddRef'd handle to the display services interface for external ownership.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ADLXInterfaceHandle GetDisplayServicesHandle()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.AdlxInterfaceHandle.html">ADLXInterfaceHandle</a></dt>
+    <dd><p>Managed handle to the native display services interface.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If display services are unsupported or retrieval fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_GetDisplayServicesNative_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetDisplayServicesNative*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_GetDisplayServicesNative" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetDisplayServicesNative">
+  GetDisplayServicesNative()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the native display services interface, querying lazily if needed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IADLXDisplayServices* GetDisplayServicesNative()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.IADLXDisplayServices.html">IADLXDisplayServices</a>*</dt>
+    <dd><p>Native display services pointer owned by this helper.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If display services are unsupported or retrieval fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_GetGPUAppsListChangedHandling_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetGPUAppsListChangedHandling*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_GetGPUAppsListChangedHandling" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetGPUAppsListChangedHandling">
+  GetGPUAppsListChangedHandling()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L521"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an AddRef'd handle to the GPU applications list change handling interface for external ownership.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ADLXInterfaceHandle GetGPUAppsListChangedHandling()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.AdlxInterfaceHandle.html">ADLXInterfaceHandle</a></dt>
+    <dd><p>Managed handle to the native GPU apps list change handling interface.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If the extended interface is unsupported or retrieval fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_GetGPUAppsListChangedHandlingNative_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetGPUAppsListChangedHandlingNative*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_GetGPUAppsListChangedHandlingNative" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetGPUAppsListChangedHandlingNative">
+  GetGPUAppsListChangedHandlingNative()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L506"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the native GPU applications list change handling interface (IADLXSystem2).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IADLXGPUAppsListChangedHandling* GetGPUAppsListChangedHandlingNative()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.IADLXGPUAppsListChangedHandling.html">IADLXGPUAppsListChangedHandling</a>*</dt>
+    <dd><p>Native GPU apps list change handling pointer owned by this helper.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If the extended interface is unsupported or retrieval fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_GetGPUTuningServices_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetGPUTuningServices*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_GetGPUTuningServices" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetGPUTuningServices">
+  GetGPUTuningServices()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L296"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a managed GPU tuning helper with shared system lifetime.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ADLXGPUTuningServicesHelper GetGPUTuningServices()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXGPUTuningServicesHelper.html">ADLXGPUTuningServicesHelper</a></dt>
+    <dd><p>GPU tuning services helper wrapping native interfaces.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If GPU tuning services are unsupported or retrieval fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_GetGPUTuningServicesHandle_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetGPUTuningServicesHandle*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_GetGPUTuningServicesHandle" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetGPUTuningServicesHandle">
+  GetGPUTuningServicesHandle()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L267"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an AddRef'd handle to the GPU tuning services interface for external ownership.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ADLXInterfaceHandle GetGPUTuningServicesHandle()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.AdlxInterfaceHandle.html">ADLXInterfaceHandle</a></dt>
+    <dd><p>Managed handle to the native GPU tuning services interface.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If GPU tuning services are unsupported or retrieval fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_GetGPUTuningServicesNative_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetGPUTuningServicesNative*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_GetGPUTuningServicesNative" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetGPUTuningServicesNative">
+  GetGPUTuningServicesNative()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L252"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the native GPU tuning services interface, querying lazily if needed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IADLXGPUTuningServices* GetGPUTuningServicesNative()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.IADLXGPUTuningServices.html">IADLXGPUTuningServices</a>*</dt>
+    <dd><p>Native GPU tuning services pointer owned by this helper.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If GPU tuning services are unsupported or retrieval fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_GetGPUsChangedHandling_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetGPUsChangedHandling*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_GetGPUsChangedHandling" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetGPUsChangedHandling">
+  GetGPUsChangedHandling()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L495"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an AddRef'd handle to the GPU change handling interface for external ownership.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ADLXInterfaceHandle GetGPUsChangedHandling()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.AdlxInterfaceHandle.html">ADLXInterfaceHandle</a></dt>
+    <dd><p>Managed handle to the native GPU change handling interface.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If change handling is unsupported or retrieval fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_GetGPUsChangedHandlingNative_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetGPUsChangedHandlingNative*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_GetGPUsChangedHandlingNative" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetGPUsChangedHandlingNative">
+  GetGPUsChangedHandlingNative()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L480"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the native GPU change handling interface (for GPU list/display change events).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IADLXGPUsChangedHandling* GetGPUsChangedHandlingNative()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.IADLXGPUsChangedHandling.html">IADLXGPUsChangedHandling</a>*</dt>
+    <dd><p>Native GPU change handling pointer owned by this helper.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If change handling is unsupported or retrieval fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_GetGpuInfo_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetGpuInfo*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_GetGpuInfo_ADLXWrapper_IADLXGPU__" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetGpuInfo(ADLXWrapper.IADLXGPU*)">
+  GetGpuInfo(IADLXGPU*)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L840"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Builds a GPU info DTO from a native GPU pointer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GpuInfo GetGpuInfo(IADLXGPU* gpu)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gpu</code> <a class="xref" href="ADLXWrapper.IADLXGPU.html">IADLXGPU</a>*</dt>
+    <dd><p>Native GPU pointer.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.GpuInfo.html">GpuInfo</a></dt>
+    <dd><p>GPU info record.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>If <code class="paramref">gpu</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_GetMultimediaServices_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetMultimediaServices*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_GetMultimediaServices" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetMultimediaServices">
+  GetMultimediaServices()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L467"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a managed multimedia services helper with shared system lifetime.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ADLXMultimediaServicesHelper GetMultimediaServices()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXMultimediaServicesHelper.html">ADLXMultimediaServicesHelper</a></dt>
+    <dd><p>Multimedia services helper wrapping native interfaces.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If multimedia services are unsupported or retrieval fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_GetMultimediaServicesHandle_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetMultimediaServicesHandle*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_GetMultimediaServicesHandle" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetMultimediaServicesHandle">
+  GetMultimediaServicesHandle()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L438"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an AddRef'd handle to the multimedia services interface for external ownership.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ADLXInterfaceHandle GetMultimediaServicesHandle()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.AdlxInterfaceHandle.html">ADLXInterfaceHandle</a></dt>
+    <dd><p>Managed handle to the native multimedia services interface.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If multimedia services are unsupported or retrieval fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_GetMultimediaServicesNative_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetMultimediaServicesNative*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_GetMultimediaServicesNative" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetMultimediaServicesNative">
+  GetMultimediaServicesNative()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L423"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the native multimedia services interface, querying lazily if needed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IADLXMultimediaServices* GetMultimediaServicesNative()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.IADLXMultimediaServices.html">IADLXMultimediaServices</a>*</dt>
+    <dd><p>Native multimedia services pointer owned by this helper.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If multimedia services are unsupported or retrieval fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_GetPerformanceMonitoringServices_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetPerformanceMonitoringServices*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_GetPerformanceMonitoringServices" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetPerformanceMonitoringServices">
+  GetPerformanceMonitoringServices()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L353"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a managed performance monitoring helper with shared system lifetime.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ADLXPerformanceMonitoringServicesHelper GetPerformanceMonitoringServices()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXPerformanceMonitoringServicesHelper.html">ADLXPerformanceMonitoringServicesHelper</a></dt>
+    <dd><p>Performance monitoring services helper wrapping native interfaces.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If performance monitoring services are unsupported or retrieval fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_GetPerformanceMonitoringServicesHandle_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetPerformanceMonitoringServicesHandle*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_GetPerformanceMonitoringServicesHandle" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetPerformanceMonitoringServicesHandle">
+  GetPerformanceMonitoringServicesHandle()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L324"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an AddRef'd handle to the performance monitoring services interface for external ownership.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ADLXInterfaceHandle GetPerformanceMonitoringServicesHandle()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.AdlxInterfaceHandle.html">ADLXInterfaceHandle</a></dt>
+    <dd><p>Managed handle to the native performance monitoring services interface.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If performance monitoring services are unsupported or retrieval fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_GetPerformanceMonitoringServicesNative_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetPerformanceMonitoringServicesNative*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_GetPerformanceMonitoringServicesNative" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetPerformanceMonitoringServicesNative">
+  GetPerformanceMonitoringServicesNative()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L309"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the native performance monitoring services interface, querying lazily if needed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IADLXPerformanceMonitoringServices* GetPerformanceMonitoringServicesNative()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.IADLXPerformanceMonitoringServices.html">IADLXPerformanceMonitoringServices</a>*</dt>
+    <dd><p>Native performance monitoring services pointer owned by this helper.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If performance monitoring services are unsupported or retrieval fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_GetPowerTuningServices_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetPowerTuningServices*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_GetPowerTuningServices" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetPowerTuningServices">
+  GetPowerTuningServices()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L410"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a managed power tuning helper with shared system lifetime.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ADLXPowerTuningServicesHelper GetPowerTuningServices()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXPowerTuningServicesHelper.html">ADLXPowerTuningServicesHelper</a></dt>
+    <dd><p>Power tuning services helper wrapping native interfaces.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If power tuning services are unsupported or retrieval fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_GetPowerTuningServicesHandle_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetPowerTuningServicesHandle*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_GetPowerTuningServicesHandle" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetPowerTuningServicesHandle">
+  GetPowerTuningServicesHandle()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L381"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an AddRef'd handle to the power tuning services interface for external ownership.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ADLXInterfaceHandle GetPowerTuningServicesHandle()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.AdlxInterfaceHandle.html">ADLXInterfaceHandle</a></dt>
+    <dd><p>Managed handle to the native power tuning services interface.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If power tuning services are unsupported or retrieval fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_GetPowerTuningServicesNative_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetPowerTuningServicesNative*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_GetPowerTuningServicesNative" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetPowerTuningServicesNative">
+  GetPowerTuningServicesNative()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L366"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the native power tuning services interface, querying lazily if needed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IADLXPowerTuningServices* GetPowerTuningServicesNative()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.IADLXPowerTuningServices.html">IADLXPowerTuningServices</a>*</dt>
+    <dd><p>Native power tuning services pointer owned by this helper.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.ADLXException.html">ADLXException</a></dt>
+    <dd><p>If power tuning services are unsupported or retrieval fails.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_GetSystemServicesHandle_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetSystemServicesHandle*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_GetSystemServicesHandle" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetSystemServicesHandle">
+  GetSystemServicesHandle()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an AddRef'd handle to the system services interface for external ownership.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ADLXInterfaceHandle GetSystemServicesHandle()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.AdlxInterfaceHandle.html">ADLXInterfaceHandle</a></dt>
+    <dd><p>Managed handle to the native system interface.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_GetSystemServicesNative_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetSystemServicesNative*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_GetSystemServicesNative" data-uid="ADLXWrapper.ADLXSystemServicesHelper.GetSystemServicesNative">
+  GetSystemServicesNative()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the most capable available system interface (IADLXSystem2, then 1, else base).
+Caller must not Release the returned pointer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IADLXSystem* GetSystemServicesNative()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ADLXWrapper.IADLXSystem.html">IADLXSystem</a>*</dt>
+    <dd><p>Native system interface pointer owned by this helper.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>If the helper has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_TryGet3DSettingsServicesNative_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.TryGet3DSettingsServicesNative*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_TryGet3DSettingsServicesNative_ADLXWrapper_IADLX3DSettingsServices___" data-uid="ADLXWrapper.ADLXSystemServicesHelper.TryGet3DSettingsServicesNative(ADLXWrapper.IADLX3DSettingsServices*@)">
+  TryGet3DSettingsServicesNative(out IADLX3DSettingsServices*)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L219"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tries to get the native 3D settings services interface without throwing when unsupported.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGet3DSettingsServicesNative(out IADLX3DSettingsServices* services)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>services</code> <a class="xref" href="ADLXWrapper.IADLX3DSettingsServices.html">IADLX3DSettingsServices</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if services are available; false when not supported.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_TryGetDesktopServicesNative_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.TryGetDesktopServicesNative*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_TryGetDesktopServicesNative_ADLXWrapper_IADLXDesktopServices___" data-uid="ADLXWrapper.ADLXSystemServicesHelper.TryGetDesktopServicesNative(ADLXWrapper.IADLXDesktopServices*@)">
+  TryGetDesktopServicesNative(out IADLXDesktopServices*)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L161"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tries to get the native desktop services interface without throwing when unsupported.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetDesktopServicesNative(out IADLXDesktopServices* services)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>services</code> <a class="xref" href="ADLXWrapper.IADLXDesktopServices.html">IADLXDesktopServices</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if services are available; false when not supported.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_TryGetDisplayServicesNative_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.TryGetDisplayServicesNative*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_TryGetDisplayServicesNative_ADLXWrapper_IADLXDisplayServices___" data-uid="ADLXWrapper.ADLXSystemServicesHelper.TryGetDisplayServicesNative(ADLXWrapper.IADLXDisplayServices*@)">
+  TryGetDisplayServicesNative(out IADLXDisplayServices*)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tries to get the native display services interface without throwing when unsupported.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetDisplayServicesNative(out IADLXDisplayServices* services)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>services</code> <a class="xref" href="ADLXWrapper.IADLXDisplayServices.html">IADLXDisplayServices</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if services are available; false when not supported.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_TryGetGPUTuningServicesNative_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.TryGetGPUTuningServicesNative*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_TryGetGPUTuningServicesNative_ADLXWrapper_IADLXGPUTuningServices___" data-uid="ADLXWrapper.ADLXSystemServicesHelper.TryGetGPUTuningServicesNative(ADLXWrapper.IADLXGPUTuningServices*@)">
+  TryGetGPUTuningServicesNative(out IADLXGPUTuningServices*)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L276"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tries to get the native GPU tuning services interface without throwing when unsupported.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetGPUTuningServicesNative(out IADLXGPUTuningServices* services)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>services</code> <a class="xref" href="ADLXWrapper.IADLXGPUTuningServices.html">IADLXGPUTuningServices</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if services are available; false when not supported.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_TryGetMultimediaServicesNative_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.TryGetMultimediaServicesNative*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_TryGetMultimediaServicesNative_ADLXWrapper_IADLXMultimediaServices___" data-uid="ADLXWrapper.ADLXSystemServicesHelper.TryGetMultimediaServicesNative(ADLXWrapper.IADLXMultimediaServices*@)">
+  TryGetMultimediaServicesNative(out IADLXMultimediaServices*)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L447"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tries to get the native multimedia services without throwing when unsupported.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetMultimediaServicesNative(out IADLXMultimediaServices* services)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>services</code> <a class="xref" href="ADLXWrapper.IADLXMultimediaServices.html">IADLXMultimediaServices</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if services are available; false when not supported.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_TryGetPerformanceMonitoringServicesNative_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.TryGetPerformanceMonitoringServicesNative*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_TryGetPerformanceMonitoringServicesNative_ADLXWrapper_IADLXPerformanceMonitoringServices___" data-uid="ADLXWrapper.ADLXSystemServicesHelper.TryGetPerformanceMonitoringServicesNative(ADLXWrapper.IADLXPerformanceMonitoringServices*@)">
+  TryGetPerformanceMonitoringServicesNative(out IADLXPerformanceMonitoringServices*)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L333"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tries to get the native performance monitoring services without throwing when unsupported.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetPerformanceMonitoringServicesNative(out IADLXPerformanceMonitoringServices* services)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>services</code> <a class="xref" href="ADLXWrapper.IADLXPerformanceMonitoringServices.html">IADLXPerformanceMonitoringServices</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if services are available; false when not supported.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ADLXWrapper_ADLXSystemServicesHelper_TryGetPowerTuningServicesNative_" data-uid="ADLXWrapper.ADLXSystemServicesHelper.TryGetPowerTuningServicesNative*"></a>
+
+  <h3 id="ADLXWrapper_ADLXSystemServicesHelper_TryGetPowerTuningServicesNative_ADLXWrapper_IADLXPowerTuningServices___" data-uid="ADLXWrapper.ADLXSystemServicesHelper.TryGetPowerTuningServicesNative(ADLXWrapper.IADLXPowerTuningServices*@)">
+  TryGetPowerTuningServicesNative(out IADLXPowerTuningServices*)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L390"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tries to get the native power tuning services without throwing when unsupported.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetPowerTuningServicesNative(out IADLXPowerTuningServices* services)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>services</code> <a class="xref" href="ADLXWrapper.IADLXPowerTuningServices.html">IADLXPowerTuningServices</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if services are available; false when not supported.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/terrymacdonald/ADLXWrapper/blob/feature-facade-tests-v3/ADLXWrapper/ADLXSystemServicesHelper.cs/#L10" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

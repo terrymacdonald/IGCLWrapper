@@ -1,0 +1,69 @@
+### YamlMime:ManagedReference
+items:
+- uid: ADLXWrapper.DisplaySettingsListenerHandle.OnDisplaySettingsChanged
+  commentId: T:ADLXWrapper.DisplaySettingsListenerHandle.OnDisplaySettingsChanged
+  id: DisplaySettingsListenerHandle.OnDisplaySettingsChanged
+  parent: ADLXWrapper
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: DisplaySettingsListenerHandle.OnDisplaySettingsChanged
+  nameWithType: DisplaySettingsListenerHandle.OnDisplaySettingsChanged
+  fullName: ADLXWrapper.DisplaySettingsListenerHandle.OnDisplaySettingsChanged
+  type: Delegate
+  source:
+    remote:
+      path: ADLXWrapper/ADLXDisplayServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: OnDisplaySettingsChanged
+    path: ../ADLXWrapper/ADLXDisplayServicesHelper.cs
+    startLine: 3096
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public delegate bool DisplaySettingsListenerHandle.OnDisplaySettingsChanged(nint pEvent)
+    parameters:
+    - id: pEvent
+      type: System.IntPtr
+    return:
+      type: System.Boolean
+    content.vb: Public Delegate Function DisplaySettingsListenerHandle.OnDisplaySettingsChanged(pEvent As IntPtr) As Boolean
+references:
+- uid: ADLXWrapper
+  commentId: N:ADLXWrapper
+  href: ADLXWrapper.html
+  name: ADLXWrapper
+  nameWithType: ADLXWrapper
+  fullName: ADLXWrapper
+- uid: System.IntPtr
+  commentId: T:System.IntPtr
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.intptr
+  name: nint
+  nameWithType: nint
+  fullName: nint
+  nameWithType.vb: IntPtr
+  fullName.vb: System.IntPtr
+  name.vb: IntPtr
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

@@ -1,0 +1,770 @@
+### YamlMime:ManagedReference
+items:
+- uid: ADLXWrapper.ADLXApiHelper
+  commentId: T:ADLXWrapper.ADLXApiHelper
+  id: ADLXApiHelper
+  parent: ADLXWrapper
+  children:
+  - ADLXWrapper.ADLXApiHelper.Dispose
+  - ADLXWrapper.ADLXApiHelper.Finalize
+  - ADLXWrapper.ADLXApiHelper.GetFullVersion
+  - ADLXWrapper.ADLXApiHelper.GetSystemServices
+  - ADLXWrapper.ADLXApiHelper.GetSystemServicesHandle
+  - ADLXWrapper.ADLXApiHelper.GetSystemServicesNative
+  - ADLXWrapper.ADLXApiHelper.GetVersion
+  - ADLXWrapper.ADLXApiHelper.Initialize
+  - ADLXWrapper.ADLXApiHelper.InitializeWithCallerAdl(System.IntPtr,System.IntPtr)
+  - ADLXWrapper.ADLXApiHelper.IsADLXDllAvailable(System.String@)
+  langs:
+  - csharp
+  - vb
+  name: ADLXApiHelper
+  nameWithType: ADLXApiHelper
+  fullName: ADLXWrapper.ADLXApiHelper
+  type: Class
+  source:
+    remote:
+      path: ADLXWrapper/ADLXApiHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: ADLXApiHelper
+    path: ../ADLXWrapper/ADLXApiHelper.cs
+    startLine: 51
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: >-
+    Main ADLX API wrapper providing safe access to AMD ADLX Library
+
+    Implements IDisposable for proper resource cleanup
+  example: []
+  syntax:
+    content: 'public sealed class ADLXApiHelper : IDisposable'
+    content.vb: Public NotInheritable Class ADLXApiHelper Implements IDisposable
+  inheritance:
+  - System.Object
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ADLXWrapper.ADLXApiHelper.Initialize
+  commentId: M:ADLXWrapper.ADLXApiHelper.Initialize
+  id: Initialize
+  parent: ADLXWrapper.ADLXApiHelper
+  langs:
+  - csharp
+  - vb
+  name: Initialize()
+  nameWithType: ADLXApiHelper.Initialize()
+  fullName: ADLXWrapper.ADLXApiHelper.Initialize()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXApiHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: Initialize
+    path: ../ADLXWrapper/ADLXApiHelper.cs
+    startLine: 77
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Initialize the ADLX API with default settings
+  example: []
+  syntax:
+    content: public static ADLXApiHelper Initialize()
+    return:
+      type: ADLXWrapper.ADLXApiHelper
+    content.vb: Public Shared Function Initialize() As ADLXApiHelper
+  overload: ADLXWrapper.ADLXApiHelper.Initialize*
+- uid: ADLXWrapper.ADLXApiHelper.InitializeWithCallerAdl(System.IntPtr,System.IntPtr)
+  commentId: M:ADLXWrapper.ADLXApiHelper.InitializeWithCallerAdl(System.IntPtr,System.IntPtr)
+  id: InitializeWithCallerAdl(System.IntPtr,System.IntPtr)
+  parent: ADLXWrapper.ADLXApiHelper
+  langs:
+  - csharp
+  - vb
+  name: InitializeWithCallerAdl(nint, nint)
+  nameWithType: ADLXApiHelper.InitializeWithCallerAdl(nint, nint)
+  fullName: ADLXWrapper.ADLXApiHelper.InitializeWithCallerAdl(nint, nint)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXApiHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: InitializeWithCallerAdl
+    path: ../ADLXWrapper/ADLXApiHelper.cs
+    startLine: 149
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Initialize ADLX with an existing ADL context (for applications migrating from ADL)
+  example: []
+  syntax:
+    content: public static ADLXApiHelper InitializeWithCallerAdl(nint adlContext, nint adlMainMemoryFree)
+    parameters:
+    - id: adlContext
+      type: System.IntPtr
+    - id: adlMainMemoryFree
+      type: System.IntPtr
+    return:
+      type: ADLXWrapper.ADLXApiHelper
+    content.vb: Public Shared Function InitializeWithCallerAdl(adlContext As IntPtr, adlMainMemoryFree As IntPtr) As ADLXApiHelper
+  overload: ADLXWrapper.ADLXApiHelper.InitializeWithCallerAdl*
+  nameWithType.vb: ADLXApiHelper.InitializeWithCallerAdl(IntPtr, IntPtr)
+  fullName.vb: ADLXWrapper.ADLXApiHelper.InitializeWithCallerAdl(System.IntPtr, System.IntPtr)
+  name.vb: InitializeWithCallerAdl(IntPtr, IntPtr)
+- uid: ADLXWrapper.ADLXApiHelper.GetFullVersion
+  commentId: M:ADLXWrapper.ADLXApiHelper.GetFullVersion
+  id: GetFullVersion
+  parent: ADLXWrapper.ADLXApiHelper
+  langs:
+  - csharp
+  - vb
+  name: GetFullVersion()
+  nameWithType: ADLXApiHelper.GetFullVersion()
+  fullName: ADLXWrapper.ADLXApiHelper.GetFullVersion()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXApiHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetFullVersion
+    path: ../ADLXWrapper/ADLXApiHelper.cs
+    startLine: 225
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Get the ADLX full version number
+  example: []
+  syntax:
+    content: public ulong GetFullVersion()
+    return:
+      type: System.UInt64
+    content.vb: Public Function GetFullVersion() As ULong
+  overload: ADLXWrapper.ADLXApiHelper.GetFullVersion*
+- uid: ADLXWrapper.ADLXApiHelper.GetVersion
+  commentId: M:ADLXWrapper.ADLXApiHelper.GetVersion
+  id: GetVersion
+  parent: ADLXWrapper.ADLXApiHelper
+  langs:
+  - csharp
+  - vb
+  name: GetVersion()
+  nameWithType: ADLXApiHelper.GetVersion()
+  fullName: ADLXWrapper.ADLXApiHelper.GetVersion()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXApiHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetVersion
+    path: ../ADLXWrapper/ADLXApiHelper.cs
+    startLine: 234
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Get the ADLX version string
+  example: []
+  syntax:
+    content: public string GetVersion()
+    return:
+      type: System.String
+    content.vb: Public Function GetVersion() As String
+  overload: ADLXWrapper.ADLXApiHelper.GetVersion*
+- uid: ADLXWrapper.ADLXApiHelper.GetSystemServicesNative
+  commentId: M:ADLXWrapper.ADLXApiHelper.GetSystemServicesNative
+  id: GetSystemServicesNative
+  parent: ADLXWrapper.ADLXApiHelper
+  langs:
+  - csharp
+  - vb
+  name: GetSystemServicesNative()
+  nameWithType: ADLXApiHelper.GetSystemServicesNative()
+  fullName: ADLXWrapper.ADLXApiHelper.GetSystemServicesNative()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXApiHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetSystemServicesNative
+    path: ../ADLXWrapper/ADLXApiHelper.cs
+    startLine: 244
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: >-
+    Get the system services native pointer (lifetime owned by this API helper).
+
+    Callers must not Release() it directly.
+  example: []
+  syntax:
+    content: public IADLXSystem* GetSystemServicesNative()
+    return:
+      type: ADLXWrapper.IADLXSystem*
+    content.vb: Public Function GetSystemServicesNative() As IADLXSystem*
+  overload: ADLXWrapper.ADLXApiHelper.GetSystemServicesNative*
+- uid: ADLXWrapper.ADLXApiHelper.GetSystemServicesHandle
+  commentId: M:ADLXWrapper.ADLXApiHelper.GetSystemServicesHandle
+  id: GetSystemServicesHandle
+  parent: ADLXWrapper.ADLXApiHelper
+  langs:
+  - csharp
+  - vb
+  name: GetSystemServicesHandle()
+  nameWithType: ADLXApiHelper.GetSystemServicesHandle()
+  fullName: ADLXWrapper.ADLXApiHelper.GetSystemServicesHandle()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXApiHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetSystemServicesHandle
+    path: ../ADLXWrapper/ADLXApiHelper.cs
+    startLine: 253
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Get the system services as an ADLXInterfaceHandle (AddRef'd for caller ownership).
+  example: []
+  syntax:
+    content: public ADLXInterfaceHandle GetSystemServicesHandle()
+    return:
+      type: ADLXWrapper.ADLXInterfaceHandle
+    content.vb: Public Function GetSystemServicesHandle() As ADLXInterfaceHandle
+  overload: ADLXWrapper.ADLXApiHelper.GetSystemServicesHandle*
+- uid: ADLXWrapper.ADLXApiHelper.GetSystemServices
+  commentId: M:ADLXWrapper.ADLXApiHelper.GetSystemServices
+  id: GetSystemServices
+  parent: ADLXWrapper.ADLXApiHelper
+  langs:
+  - csharp
+  - vb
+  name: GetSystemServices()
+  nameWithType: ADLXApiHelper.GetSystemServices()
+  fullName: ADLXWrapper.ADLXApiHelper.GetSystemServices()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXApiHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetSystemServices
+    path: ../ADLXWrapper/ADLXApiHelper.cs
+    startLine: 263
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Get the system services wrapped in an ADLXSystemServicesHelper.
+  example: []
+  syntax:
+    content: public ADLXSystemServicesHelper GetSystemServices()
+    return:
+      type: ADLXWrapper.ADLXSystemServicesHelper
+    content.vb: Public Function GetSystemServices() As ADLXSystemServicesHelper
+  overload: ADLXWrapper.ADLXApiHelper.GetSystemServices*
+- uid: ADLXWrapper.ADLXApiHelper.Dispose
+  commentId: M:ADLXWrapper.ADLXApiHelper.Dispose
+  id: Dispose
+  parent: ADLXWrapper.ADLXApiHelper
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: ADLXApiHelper.Dispose()
+  fullName: ADLXWrapper.ADLXApiHelper.Dispose()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXApiHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: Dispose
+    path: ../ADLXWrapper/ADLXApiHelper.cs
+    startLine: 273
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Dispose pattern implementation
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: ADLXWrapper.ADLXApiHelper.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+- uid: ADLXWrapper.ADLXApiHelper.Finalize
+  commentId: M:ADLXWrapper.ADLXApiHelper.Finalize
+  id: Finalize
+  parent: ADLXWrapper.ADLXApiHelper
+  langs:
+  - csharp
+  - vb
+  name: ~ADLXApiHelper()
+  nameWithType: ADLXApiHelper.~ADLXApiHelper()
+  fullName: ADLXWrapper.ADLXApiHelper.~ADLXApiHelper()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXApiHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: Finalize
+    path: ../ADLXWrapper/ADLXApiHelper.cs
+    startLine: 302
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Finalizer
+  example: []
+  syntax:
+    content: protected ~ADLXApiHelper()
+    content.vb: 'Protected '
+  overload: ADLXWrapper.ADLXApiHelper.Finalize*
+  nameWithType.vb: ''
+  fullName.vb: ''
+  name.vb: ''
+- uid: ADLXWrapper.ADLXApiHelper.IsADLXDllAvailable(System.String@)
+  commentId: M:ADLXWrapper.ADLXApiHelper.IsADLXDllAvailable(System.String@)
+  id: IsADLXDllAvailable(System.String@)
+  parent: ADLXWrapper.ADLXApiHelper
+  langs:
+  - csharp
+  - vb
+  name: IsADLXDllAvailable(out string)
+  nameWithType: ADLXApiHelper.IsADLXDllAvailable(out string)
+  fullName: ADLXWrapper.ADLXApiHelper.IsADLXDllAvailable(out string)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXApiHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: IsADLXDllAvailable
+    path: ../ADLXWrapper/ADLXApiHelper.cs
+    startLine: 349
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: Check if the ADLX DLL is available in the DLL search path
+  example: []
+  syntax:
+    content: public static bool IsADLXDllAvailable(out string errorMessage)
+    parameters:
+    - id: errorMessage
+      type: System.String
+      description: Details about why the DLL could not be loaded
+    return:
+      type: System.Boolean
+      description: True if DLL can be loaded, false otherwise
+    content.vb: Public Shared Function IsADLXDllAvailable(errorMessage As String) As Boolean
+  overload: ADLXWrapper.ADLXApiHelper.IsADLXDllAvailable*
+  nameWithType.vb: ADLXApiHelper.IsADLXDllAvailable(String)
+  fullName.vb: ADLXWrapper.ADLXApiHelper.IsADLXDllAvailable(String)
+  name.vb: IsADLXDllAvailable(String)
+references:
+- uid: ADLXWrapper
+  commentId: N:ADLXWrapper
+  href: ADLXWrapper.html
+  name: ADLXWrapper
+  nameWithType: ADLXWrapper
+  fullName: ADLXWrapper
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ADLXWrapper.ADLXApiHelper.Initialize*
+  commentId: Overload:ADLXWrapper.ADLXApiHelper.Initialize
+  href: ADLXWrapper.ADLXApiHelper.html#ADLXWrapper_ADLXApiHelper_Initialize
+  name: Initialize
+  nameWithType: ADLXApiHelper.Initialize
+  fullName: ADLXWrapper.ADLXApiHelper.Initialize
+- uid: ADLXWrapper.ADLXApiHelper
+  commentId: T:ADLXWrapper.ADLXApiHelper
+  parent: ADLXWrapper
+  href: ADLXWrapper.ADLXApiHelper.html
+  name: ADLXApiHelper
+  nameWithType: ADLXApiHelper
+  fullName: ADLXWrapper.ADLXApiHelper
+- uid: ADLXWrapper.ADLXApiHelper.InitializeWithCallerAdl*
+  commentId: Overload:ADLXWrapper.ADLXApiHelper.InitializeWithCallerAdl
+  href: ADLXWrapper.ADLXApiHelper.html#ADLXWrapper_ADLXApiHelper_InitializeWithCallerAdl_System_IntPtr_System_IntPtr_
+  name: InitializeWithCallerAdl
+  nameWithType: ADLXApiHelper.InitializeWithCallerAdl
+  fullName: ADLXWrapper.ADLXApiHelper.InitializeWithCallerAdl
+- uid: System.IntPtr
+  commentId: T:System.IntPtr
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.intptr
+  name: nint
+  nameWithType: nint
+  fullName: nint
+  nameWithType.vb: IntPtr
+  fullName.vb: System.IntPtr
+  name.vb: IntPtr
+- uid: ADLXWrapper.ADLXApiHelper.GetFullVersion*
+  commentId: Overload:ADLXWrapper.ADLXApiHelper.GetFullVersion
+  href: ADLXWrapper.ADLXApiHelper.html#ADLXWrapper_ADLXApiHelper_GetFullVersion
+  name: GetFullVersion
+  nameWithType: ADLXApiHelper.GetFullVersion
+  fullName: ADLXWrapper.ADLXApiHelper.GetFullVersion
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint64
+  name: ulong
+  nameWithType: ulong
+  fullName: ulong
+  nameWithType.vb: ULong
+  fullName.vb: ULong
+  name.vb: ULong
+- uid: ADLXWrapper.ADLXApiHelper.GetVersion*
+  commentId: Overload:ADLXWrapper.ADLXApiHelper.GetVersion
+  href: ADLXWrapper.ADLXApiHelper.html#ADLXWrapper_ADLXApiHelper_GetVersion
+  name: GetVersion
+  nameWithType: ADLXApiHelper.GetVersion
+  fullName: ADLXWrapper.ADLXApiHelper.GetVersion
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ADLXWrapper.ADLXApiHelper.GetSystemServicesNative*
+  commentId: Overload:ADLXWrapper.ADLXApiHelper.GetSystemServicesNative
+  href: ADLXWrapper.ADLXApiHelper.html#ADLXWrapper_ADLXApiHelper_GetSystemServicesNative
+  name: GetSystemServicesNative
+  nameWithType: ADLXApiHelper.GetSystemServicesNative
+  fullName: ADLXWrapper.ADLXApiHelper.GetSystemServicesNative
+- uid: ADLXWrapper.IADLXSystem*
+  isExternal: true
+  href: ADLXWrapper.IADLXSystem.html
+  name: IADLXSystem*
+  nameWithType: IADLXSystem*
+  fullName: ADLXWrapper.IADLXSystem*
+  spec.csharp:
+  - uid: ADLXWrapper.IADLXSystem
+    name: IADLXSystem
+    href: ADLXWrapper.IADLXSystem.html
+  - name: '*'
+  spec.vb:
+  - uid: ADLXWrapper.IADLXSystem
+    name: IADLXSystem
+    href: ADLXWrapper.IADLXSystem.html
+  - name: '*'
+- uid: ADLXWrapper.ADLXApiHelper.GetSystemServicesHandle*
+  commentId: Overload:ADLXWrapper.ADLXApiHelper.GetSystemServicesHandle
+  href: ADLXWrapper.ADLXApiHelper.html#ADLXWrapper_ADLXApiHelper_GetSystemServicesHandle
+  name: GetSystemServicesHandle
+  nameWithType: ADLXApiHelper.GetSystemServicesHandle
+  fullName: ADLXWrapper.ADLXApiHelper.GetSystemServicesHandle
+- uid: ADLXWrapper.ADLXInterfaceHandle
+  commentId: T:ADLXWrapper.ADLXInterfaceHandle
+  parent: ADLXWrapper
+  href: ADLXWrapper.ADLXInterfaceHandle.html
+  name: ADLXInterfaceHandle
+  nameWithType: ADLXInterfaceHandle
+  fullName: ADLXWrapper.ADLXInterfaceHandle
+- uid: ADLXWrapper.ADLXApiHelper.GetSystemServices*
+  commentId: Overload:ADLXWrapper.ADLXApiHelper.GetSystemServices
+  href: ADLXWrapper.ADLXApiHelper.html#ADLXWrapper_ADLXApiHelper_GetSystemServices
+  name: GetSystemServices
+  nameWithType: ADLXApiHelper.GetSystemServices
+  fullName: ADLXWrapper.ADLXApiHelper.GetSystemServices
+- uid: ADLXWrapper.ADLXSystemServicesHelper
+  commentId: T:ADLXWrapper.ADLXSystemServicesHelper
+  parent: ADLXWrapper
+  href: ADLXWrapper.ADLXSystemServicesHelper.html
+  name: ADLXSystemServicesHelper
+  nameWithType: ADLXSystemServicesHelper
+  fullName: ADLXWrapper.ADLXSystemServicesHelper
+- uid: ADLXWrapper.ADLXApiHelper.Dispose*
+  commentId: Overload:ADLXWrapper.ADLXApiHelper.Dispose
+  href: ADLXWrapper.ADLXApiHelper.html#ADLXWrapper_ADLXApiHelper_Dispose
+  name: Dispose
+  nameWithType: ADLXApiHelper.Dispose
+  fullName: ADLXWrapper.ADLXApiHelper.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: ADLXWrapper.ADLXApiHelper.Finalize*
+  commentId: Overload:ADLXWrapper.ADLXApiHelper.Finalize
+  href: ADLXWrapper.ADLXApiHelper.html#ADLXWrapper_ADLXApiHelper_Finalize
+  name: ~ADLXApiHelper
+  nameWithType: ADLXApiHelper.~ADLXApiHelper
+  fullName: ADLXWrapper.ADLXApiHelper.~ADLXApiHelper
+  spec.csharp:
+  - name: "~"
+  - uid: ADLXWrapper.ADLXApiHelper.Finalize*
+    name: ADLXApiHelper
+    href: ADLXWrapper.ADLXApiHelper.html#ADLXWrapper_ADLXApiHelper_Finalize
+- uid: ADLXWrapper.ADLXApiHelper.IsADLXDllAvailable*
+  commentId: Overload:ADLXWrapper.ADLXApiHelper.IsADLXDllAvailable
+  href: ADLXWrapper.ADLXApiHelper.html#ADLXWrapper_ADLXApiHelper_IsADLXDllAvailable_System_String__
+  name: IsADLXDllAvailable
+  nameWithType: ADLXApiHelper.IsADLXDllAvailable
+  fullName: ADLXWrapper.ADLXApiHelper.IsADLXDllAvailable
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean

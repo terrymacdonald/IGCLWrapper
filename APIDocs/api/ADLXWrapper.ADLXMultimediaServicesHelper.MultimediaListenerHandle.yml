@@ -1,0 +1,782 @@
+### YamlMime:ManagedReference
+items:
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle
+  commentId: T:ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle
+  id: ADLXMultimediaServicesHelper.MultimediaListenerHandle
+  parent: ADLXWrapper
+  children:
+  - ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.Create(ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.MultimediaChangedCallback)
+  - ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.GetListener
+  - ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.IsInvalid
+  - ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.ReleaseHandle
+  langs:
+  - csharp
+  - vb
+  name: ADLXMultimediaServicesHelper.MultimediaListenerHandle
+  nameWithType: ADLXMultimediaServicesHelper.MultimediaListenerHandle
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle
+  type: Class
+  source:
+    remote:
+      path: ADLXWrapper/ADLXMultimediaServicesHelper.cs
+      branch: feature-api-tweaks-v2
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: MultimediaListenerHandle
+    path: ../ADLXWrapper/ADLXMultimediaServicesHelper.cs
+    startLine: 234
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: 'public sealed class ADLXMultimediaServicesHelper.MultimediaListenerHandle : SafeHandle, IDisposable'
+    content.vb: Public NotInheritable Class ADLXMultimediaServicesHelper.MultimediaListenerHandle Inherits SafeHandle Implements IDisposable
+  inheritance:
+  - System.Object
+  - System.Runtime.ConstrainedExecution.CriticalFinalizerObject
+  - System.Runtime.InteropServices.SafeHandle
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.Runtime.InteropServices.SafeHandle.Close
+  - System.Runtime.InteropServices.SafeHandle.DangerousAddRef(System.Boolean@)
+  - System.Runtime.InteropServices.SafeHandle.DangerousGetHandle
+  - System.Runtime.InteropServices.SafeHandle.DangerousRelease
+  - System.Runtime.InteropServices.SafeHandle.Dispose
+  - System.Runtime.InteropServices.SafeHandle.SetHandleAsInvalid
+  - System.Runtime.InteropServices.SafeHandle.IsClosed
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.Create(ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.MultimediaChangedCallback)
+  commentId: M:ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.Create(ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.MultimediaChangedCallback)
+  id: Create(ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.MultimediaChangedCallback)
+  parent: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle
+  langs:
+  - csharp
+  - vb
+  name: Create(MultimediaChangedCallback)
+  nameWithType: ADLXMultimediaServicesHelper.MultimediaListenerHandle.Create(ADLXMultimediaServicesHelper.MultimediaListenerHandle.MultimediaChangedCallback)
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.Create(ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.MultimediaChangedCallback)
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXMultimediaServicesHelper.cs
+      branch: feature-api-tweaks-v2
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: Create
+    path: ../ADLXWrapper/ADLXMultimediaServicesHelper.cs
+    startLine: 255
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public static ADLXMultimediaServicesHelper.MultimediaListenerHandle Create(ADLXMultimediaServicesHelper.MultimediaListenerHandle.MultimediaChangedCallback cb)
+    parameters:
+    - id: cb
+      type: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.MultimediaChangedCallback
+    return:
+      type: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle
+    content.vb: Public Shared Function Create(cb As ADLXMultimediaServicesHelper.MultimediaListenerHandle.MultimediaChangedCallback) As ADLXMultimediaServicesHelper.MultimediaListenerHandle
+  overload: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.Create*
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.GetListener
+  commentId: M:ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.GetListener
+  id: GetListener
+  parent: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle
+  langs:
+  - csharp
+  - vb
+  name: GetListener()
+  nameWithType: ADLXMultimediaServicesHelper.MultimediaListenerHandle.GetListener()
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.GetListener()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXMultimediaServicesHelper.cs
+      branch: feature-api-tweaks-v2
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GetListener
+    path: ../ADLXWrapper/ADLXMultimediaServicesHelper.cs
+    startLine: 261
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public IADLXMultimediaChangedEventListener* GetListener()
+    return:
+      type: ADLXWrapper.IADLXMultimediaChangedEventListener*
+    content.vb: Public Function GetListener() As IADLXMultimediaChangedEventListener*
+  overload: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.GetListener*
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.ReleaseHandle
+  commentId: M:ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.ReleaseHandle
+  id: ReleaseHandle
+  parent: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle
+  langs:
+  - csharp
+  - vb
+  name: ReleaseHandle()
+  nameWithType: ADLXMultimediaServicesHelper.MultimediaListenerHandle.ReleaseHandle()
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.ReleaseHandle()
+  type: Method
+  source:
+    remote:
+      path: ADLXWrapper/ADLXMultimediaServicesHelper.cs
+      branch: feature-api-tweaks-v2
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: ReleaseHandle
+    path: ../ADLXWrapper/ADLXMultimediaServicesHelper.cs
+    startLine: 263
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: When overridden in a derived class, executes the code required to free the handle.
+  example: []
+  syntax:
+    content: protected override bool ReleaseHandle()
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the handle is released successfully; otherwise, in the event of a catastrophic failure, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>. In this case, it generates a releaseHandleFailed Managed Debugging Assistant.
+    content.vb: Protected Overrides Function ReleaseHandle() As Boolean
+  overridden: System.Runtime.InteropServices.SafeHandle.ReleaseHandle
+  overload: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.ReleaseHandle*
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.IsInvalid
+  commentId: P:ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.IsInvalid
+  id: IsInvalid
+  parent: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle
+  langs:
+  - csharp
+  - vb
+  name: IsInvalid
+  nameWithType: ADLXMultimediaServicesHelper.MultimediaListenerHandle.IsInvalid
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.IsInvalid
+  type: Property
+  source:
+    remote:
+      path: ADLXWrapper/ADLXMultimediaServicesHelper.cs
+      branch: feature-api-tweaks-v2
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: IsInvalid
+    path: ../ADLXWrapper/ADLXMultimediaServicesHelper.cs
+    startLine: 272
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  summary: When overridden in a derived class, gets a value indicating whether the handle value is invalid.
+  example: []
+  syntax:
+    content: public override bool IsInvalid { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the handle value is invalid; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides ReadOnly Property IsInvalid As Boolean
+  overridden: System.Runtime.InteropServices.SafeHandle.IsInvalid
+  overload: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.IsInvalid*
+references:
+- uid: ADLXWrapper
+  commentId: N:ADLXWrapper
+  href: ADLXWrapper.html
+  name: ADLXWrapper
+  nameWithType: ADLXWrapper
+  fullName: ADLXWrapper
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Runtime.ConstrainedExecution.CriticalFinalizerObject
+  commentId: T:System.Runtime.ConstrainedExecution.CriticalFinalizerObject
+  parent: System.Runtime.ConstrainedExecution
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.runtime.constrainedexecution.criticalfinalizerobject
+  name: CriticalFinalizerObject
+  nameWithType: CriticalFinalizerObject
+  fullName: System.Runtime.ConstrainedExecution.CriticalFinalizerObject
+- uid: System.Runtime.InteropServices.SafeHandle
+  commentId: T:System.Runtime.InteropServices.SafeHandle
+  parent: System.Runtime.InteropServices
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.runtime.interopservices.safehandle
+  name: SafeHandle
+  nameWithType: SafeHandle
+  fullName: System.Runtime.InteropServices.SafeHandle
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.Runtime.InteropServices.SafeHandle.Close
+  commentId: M:System.Runtime.InteropServices.SafeHandle.Close
+  parent: System.Runtime.InteropServices.SafeHandle
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.runtime.interopservices.safehandle.close
+  name: Close()
+  nameWithType: SafeHandle.Close()
+  fullName: System.Runtime.InteropServices.SafeHandle.Close()
+  spec.csharp:
+  - uid: System.Runtime.InteropServices.SafeHandle.Close
+    name: Close
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.interopservices.safehandle.close
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Runtime.InteropServices.SafeHandle.Close
+    name: Close
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.interopservices.safehandle.close
+  - name: (
+  - name: )
+- uid: System.Runtime.InteropServices.SafeHandle.DangerousAddRef(System.Boolean@)
+  commentId: M:System.Runtime.InteropServices.SafeHandle.DangerousAddRef(System.Boolean@)
+  parent: System.Runtime.InteropServices.SafeHandle
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.runtime.interopservices.safehandle.dangerousaddref
+  name: DangerousAddRef(ref bool)
+  nameWithType: SafeHandle.DangerousAddRef(ref bool)
+  fullName: System.Runtime.InteropServices.SafeHandle.DangerousAddRef(ref bool)
+  nameWithType.vb: SafeHandle.DangerousAddRef(Boolean)
+  fullName.vb: System.Runtime.InteropServices.SafeHandle.DangerousAddRef(Boolean)
+  name.vb: DangerousAddRef(Boolean)
+  spec.csharp:
+  - uid: System.Runtime.InteropServices.SafeHandle.DangerousAddRef(System.Boolean@)
+    name: DangerousAddRef
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.interopservices.safehandle.dangerousaddref
+  - name: (
+  - name: ref
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: System.Runtime.InteropServices.SafeHandle.DangerousAddRef(System.Boolean@)
+    name: DangerousAddRef
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.interopservices.safehandle.dangerousaddref
+  - name: (
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Runtime.InteropServices.SafeHandle.DangerousGetHandle
+  commentId: M:System.Runtime.InteropServices.SafeHandle.DangerousGetHandle
+  parent: System.Runtime.InteropServices.SafeHandle
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.runtime.interopservices.safehandle.dangerousgethandle
+  name: DangerousGetHandle()
+  nameWithType: SafeHandle.DangerousGetHandle()
+  fullName: System.Runtime.InteropServices.SafeHandle.DangerousGetHandle()
+  spec.csharp:
+  - uid: System.Runtime.InteropServices.SafeHandle.DangerousGetHandle
+    name: DangerousGetHandle
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.interopservices.safehandle.dangerousgethandle
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Runtime.InteropServices.SafeHandle.DangerousGetHandle
+    name: DangerousGetHandle
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.interopservices.safehandle.dangerousgethandle
+  - name: (
+  - name: )
+- uid: System.Runtime.InteropServices.SafeHandle.DangerousRelease
+  commentId: M:System.Runtime.InteropServices.SafeHandle.DangerousRelease
+  parent: System.Runtime.InteropServices.SafeHandle
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.runtime.interopservices.safehandle.dangerousrelease
+  name: DangerousRelease()
+  nameWithType: SafeHandle.DangerousRelease()
+  fullName: System.Runtime.InteropServices.SafeHandle.DangerousRelease()
+  spec.csharp:
+  - uid: System.Runtime.InteropServices.SafeHandle.DangerousRelease
+    name: DangerousRelease
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.interopservices.safehandle.dangerousrelease
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Runtime.InteropServices.SafeHandle.DangerousRelease
+    name: DangerousRelease
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.interopservices.safehandle.dangerousrelease
+  - name: (
+  - name: )
+- uid: System.Runtime.InteropServices.SafeHandle.Dispose
+  commentId: M:System.Runtime.InteropServices.SafeHandle.Dispose
+  parent: System.Runtime.InteropServices.SafeHandle
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.runtime.interopservices.safehandle.dispose#system-runtime-interopservices-safehandle-dispose
+  name: Dispose()
+  nameWithType: SafeHandle.Dispose()
+  fullName: System.Runtime.InteropServices.SafeHandle.Dispose()
+  spec.csharp:
+  - uid: System.Runtime.InteropServices.SafeHandle.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.interopservices.safehandle.dispose#system-runtime-interopservices-safehandle-dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Runtime.InteropServices.SafeHandle.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.interopservices.safehandle.dispose#system-runtime-interopservices-safehandle-dispose
+  - name: (
+  - name: )
+- uid: System.Runtime.InteropServices.SafeHandle.SetHandleAsInvalid
+  commentId: M:System.Runtime.InteropServices.SafeHandle.SetHandleAsInvalid
+  parent: System.Runtime.InteropServices.SafeHandle
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.runtime.interopservices.safehandle.sethandleasinvalid
+  name: SetHandleAsInvalid()
+  nameWithType: SafeHandle.SetHandleAsInvalid()
+  fullName: System.Runtime.InteropServices.SafeHandle.SetHandleAsInvalid()
+  spec.csharp:
+  - uid: System.Runtime.InteropServices.SafeHandle.SetHandleAsInvalid
+    name: SetHandleAsInvalid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.interopservices.safehandle.sethandleasinvalid
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Runtime.InteropServices.SafeHandle.SetHandleAsInvalid
+    name: SetHandleAsInvalid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.interopservices.safehandle.sethandleasinvalid
+  - name: (
+  - name: )
+- uid: System.Runtime.InteropServices.SafeHandle.IsClosed
+  commentId: P:System.Runtime.InteropServices.SafeHandle.IsClosed
+  parent: System.Runtime.InteropServices.SafeHandle
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.runtime.interopservices.safehandle.isclosed
+  name: IsClosed
+  nameWithType: SafeHandle.IsClosed
+  fullName: System.Runtime.InteropServices.SafeHandle.IsClosed
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Runtime.ConstrainedExecution
+  commentId: N:System.Runtime.ConstrainedExecution
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Runtime.ConstrainedExecution
+  nameWithType: System.Runtime.ConstrainedExecution
+  fullName: System.Runtime.ConstrainedExecution
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Runtime
+    name: Runtime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime
+  - name: .
+  - uid: System.Runtime.ConstrainedExecution
+    name: ConstrainedExecution
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.constrainedexecution
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Runtime
+    name: Runtime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime
+  - name: .
+  - uid: System.Runtime.ConstrainedExecution
+    name: ConstrainedExecution
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.constrainedexecution
+- uid: System.Runtime.InteropServices
+  commentId: N:System.Runtime.InteropServices
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Runtime.InteropServices
+  nameWithType: System.Runtime.InteropServices
+  fullName: System.Runtime.InteropServices
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Runtime
+    name: Runtime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime
+  - name: .
+  - uid: System.Runtime.InteropServices
+    name: InteropServices
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.interopservices
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Runtime
+    name: Runtime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime
+  - name: .
+  - uid: System.Runtime.InteropServices
+    name: InteropServices
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.interopservices
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.Create*
+  commentId: Overload:ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.Create
+  href: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.html#ADLXWrapper_ADLXMultimediaServicesHelper_MultimediaListenerHandle_Create_ADLXWrapper_ADLXMultimediaServicesHelper_MultimediaListenerHandle_MultimediaChangedCallback_
+  name: Create
+  nameWithType: ADLXMultimediaServicesHelper.MultimediaListenerHandle.Create
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.Create
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.MultimediaChangedCallback
+  commentId: T:ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.MultimediaChangedCallback
+  parent: ADLXWrapper
+  href: ADLXWrapper.ADLXMultimediaServicesHelper.html
+  name: ADLXMultimediaServicesHelper.MultimediaListenerHandle.MultimediaChangedCallback
+  nameWithType: ADLXMultimediaServicesHelper.MultimediaListenerHandle.MultimediaChangedCallback
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.MultimediaChangedCallback
+  spec.csharp:
+  - uid: ADLXWrapper.ADLXMultimediaServicesHelper
+    name: ADLXMultimediaServicesHelper
+    href: ADLXWrapper.ADLXMultimediaServicesHelper.html
+  - name: .
+  - uid: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle
+    name: MultimediaListenerHandle
+    href: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.html
+  - name: .
+  - uid: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.MultimediaChangedCallback
+    name: MultimediaChangedCallback
+    href: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.MultimediaChangedCallback.html
+  spec.vb:
+  - uid: ADLXWrapper.ADLXMultimediaServicesHelper
+    name: ADLXMultimediaServicesHelper
+    href: ADLXWrapper.ADLXMultimediaServicesHelper.html
+  - name: .
+  - uid: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle
+    name: MultimediaListenerHandle
+    href: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.html
+  - name: .
+  - uid: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.MultimediaChangedCallback
+    name: MultimediaChangedCallback
+    href: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.MultimediaChangedCallback.html
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle
+  commentId: T:ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle
+  parent: ADLXWrapper
+  href: ADLXWrapper.ADLXMultimediaServicesHelper.html
+  name: ADLXMultimediaServicesHelper.MultimediaListenerHandle
+  nameWithType: ADLXMultimediaServicesHelper.MultimediaListenerHandle
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle
+  spec.csharp:
+  - uid: ADLXWrapper.ADLXMultimediaServicesHelper
+    name: ADLXMultimediaServicesHelper
+    href: ADLXWrapper.ADLXMultimediaServicesHelper.html
+  - name: .
+  - uid: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle
+    name: MultimediaListenerHandle
+    href: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.html
+  spec.vb:
+  - uid: ADLXWrapper.ADLXMultimediaServicesHelper
+    name: ADLXMultimediaServicesHelper
+    href: ADLXWrapper.ADLXMultimediaServicesHelper.html
+  - name: .
+  - uid: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle
+    name: MultimediaListenerHandle
+    href: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.html
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.GetListener*
+  commentId: Overload:ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.GetListener
+  href: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.html#ADLXWrapper_ADLXMultimediaServicesHelper_MultimediaListenerHandle_GetListener
+  name: GetListener
+  nameWithType: ADLXMultimediaServicesHelper.MultimediaListenerHandle.GetListener
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.GetListener
+- uid: ADLXWrapper.IADLXMultimediaChangedEventListener*
+  isExternal: true
+  href: ADLXWrapper.IADLXMultimediaChangedEventListener.html
+  name: IADLXMultimediaChangedEventListener*
+  nameWithType: IADLXMultimediaChangedEventListener*
+  fullName: ADLXWrapper.IADLXMultimediaChangedEventListener*
+  spec.csharp:
+  - uid: ADLXWrapper.IADLXMultimediaChangedEventListener
+    name: IADLXMultimediaChangedEventListener
+    href: ADLXWrapper.IADLXMultimediaChangedEventListener.html
+  - name: '*'
+  spec.vb:
+  - uid: ADLXWrapper.IADLXMultimediaChangedEventListener
+    name: IADLXMultimediaChangedEventListener
+    href: ADLXWrapper.IADLXMultimediaChangedEventListener.html
+  - name: '*'
+- uid: System.Runtime.InteropServices.SafeHandle.ReleaseHandle
+  commentId: M:System.Runtime.InteropServices.SafeHandle.ReleaseHandle
+  parent: System.Runtime.InteropServices.SafeHandle
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.runtime.interopservices.safehandle.releasehandle
+  name: ReleaseHandle()
+  nameWithType: SafeHandle.ReleaseHandle()
+  fullName: System.Runtime.InteropServices.SafeHandle.ReleaseHandle()
+  spec.csharp:
+  - uid: System.Runtime.InteropServices.SafeHandle.ReleaseHandle
+    name: ReleaseHandle
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.interopservices.safehandle.releasehandle
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Runtime.InteropServices.SafeHandle.ReleaseHandle
+    name: ReleaseHandle
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.interopservices.safehandle.releasehandle
+  - name: (
+  - name: )
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.ReleaseHandle*
+  commentId: Overload:ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.ReleaseHandle
+  href: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.html#ADLXWrapper_ADLXMultimediaServicesHelper_MultimediaListenerHandle_ReleaseHandle
+  name: ReleaseHandle
+  nameWithType: ADLXMultimediaServicesHelper.MultimediaListenerHandle.ReleaseHandle
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.ReleaseHandle
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Runtime.InteropServices.SafeHandle.IsInvalid
+  commentId: P:System.Runtime.InteropServices.SafeHandle.IsInvalid
+  parent: System.Runtime.InteropServices.SafeHandle
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.runtime.interopservices.safehandle.isinvalid
+  name: IsInvalid
+  nameWithType: SafeHandle.IsInvalid
+  fullName: System.Runtime.InteropServices.SafeHandle.IsInvalid
+- uid: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.IsInvalid*
+  commentId: Overload:ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.IsInvalid
+  href: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.html#ADLXWrapper_ADLXMultimediaServicesHelper_MultimediaListenerHandle_IsInvalid
+  name: IsInvalid
+  nameWithType: ADLXMultimediaServicesHelper.MultimediaListenerHandle.IsInvalid
+  fullName: ADLXWrapper.ADLXMultimediaServicesHelper.MultimediaListenerHandle.IsInvalid

@@ -1,0 +1,403 @@
+### YamlMime:ManagedReference
+items:
+- uid: ADLXWrapper.AnisotropicFilteringInfo
+  commentId: T:ADLXWrapper.AnisotropicFilteringInfo
+  id: AnisotropicFilteringInfo
+  parent: ADLXWrapper
+  children:
+  - ADLXWrapper.AnisotropicFilteringInfo.#ctor(System.Boolean,ADLXWrapper.ADLX_ANISOTROPIC_FILTERING_LEVEL)
+  - ADLXWrapper.AnisotropicFilteringInfo.IsSupported
+  - ADLXWrapper.AnisotropicFilteringInfo.Level
+  langs:
+  - csharp
+  - vb
+  name: AnisotropicFilteringInfo
+  nameWithType: AnisotropicFilteringInfo
+  fullName: ADLXWrapper.AnisotropicFilteringInfo
+  type: Struct
+  source:
+    remote:
+      path: ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: AnisotropicFilteringInfo
+    path: ../ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+    startLine: 839
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public readonly struct AnisotropicFilteringInfo
+    content.vb: Public Structure AnisotropicFilteringInfo
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: ADLXWrapper.AnisotropicFilteringInfo.IsSupported
+  commentId: P:ADLXWrapper.AnisotropicFilteringInfo.IsSupported
+  id: IsSupported
+  parent: ADLXWrapper.AnisotropicFilteringInfo
+  langs:
+  - csharp
+  - vb
+  name: IsSupported
+  nameWithType: AnisotropicFilteringInfo.IsSupported
+  fullName: ADLXWrapper.AnisotropicFilteringInfo.IsSupported
+  type: Property
+  source:
+    remote:
+      path: ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: IsSupported
+    path: ../ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+    startLine: 841
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public bool IsSupported { get; init; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsSupported As Boolean
+  overload: ADLXWrapper.AnisotropicFilteringInfo.IsSupported*
+- uid: ADLXWrapper.AnisotropicFilteringInfo.Level
+  commentId: P:ADLXWrapper.AnisotropicFilteringInfo.Level
+  id: Level
+  parent: ADLXWrapper.AnisotropicFilteringInfo
+  langs:
+  - csharp
+  - vb
+  name: Level
+  nameWithType: AnisotropicFilteringInfo.Level
+  fullName: ADLXWrapper.AnisotropicFilteringInfo.Level
+  type: Property
+  source:
+    remote:
+      path: ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: Level
+    path: ../ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+    startLine: 842
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public ADLX_ANISOTROPIC_FILTERING_LEVEL Level { get; init; }
+    parameters: []
+    return:
+      type: ADLXWrapper.ADLX_ANISOTROPIC_FILTERING_LEVEL
+    content.vb: Public Property Level As ADLX_ANISOTROPIC_FILTERING_LEVEL
+  overload: ADLXWrapper.AnisotropicFilteringInfo.Level*
+- uid: ADLXWrapper.AnisotropicFilteringInfo.#ctor(System.Boolean,ADLXWrapper.ADLX_ANISOTROPIC_FILTERING_LEVEL)
+  commentId: M:ADLXWrapper.AnisotropicFilteringInfo.#ctor(System.Boolean,ADLXWrapper.ADLX_ANISOTROPIC_FILTERING_LEVEL)
+  id: '#ctor(System.Boolean,ADLXWrapper.ADLX_ANISOTROPIC_FILTERING_LEVEL)'
+  parent: ADLXWrapper.AnisotropicFilteringInfo
+  langs:
+  - csharp
+  - vb
+  name: AnisotropicFilteringInfo(bool, ADLX_ANISOTROPIC_FILTERING_LEVEL)
+  nameWithType: AnisotropicFilteringInfo.AnisotropicFilteringInfo(bool, ADLX_ANISOTROPIC_FILTERING_LEVEL)
+  fullName: ADLXWrapper.AnisotropicFilteringInfo.AnisotropicFilteringInfo(bool, ADLXWrapper.ADLX_ANISOTROPIC_FILTERING_LEVEL)
+  type: Constructor
+  source:
+    remote:
+      path: ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: .ctor
+    path: ../ADLXWrapper/ADLX3DSettingsServicesHelper.cs
+    startLine: 844
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: >-
+      [JsonConstructor]
+
+      public AnisotropicFilteringInfo(bool isSupported, ADLX_ANISOTROPIC_FILTERING_LEVEL level)
+    parameters:
+    - id: isSupported
+      type: System.Boolean
+    - id: level
+      type: ADLXWrapper.ADLX_ANISOTROPIC_FILTERING_LEVEL
+    content.vb: >-
+      <JsonConstructor>
+
+      Public Sub New(isSupported As Boolean, level As ADLX_ANISOTROPIC_FILTERING_LEVEL)
+  overload: ADLXWrapper.AnisotropicFilteringInfo.#ctor*
+  attributes:
+  - type: Newtonsoft.Json.JsonConstructorAttribute
+    ctor: Newtonsoft.Json.JsonConstructorAttribute.#ctor
+    arguments: []
+  nameWithType.vb: AnisotropicFilteringInfo.New(Boolean, ADLX_ANISOTROPIC_FILTERING_LEVEL)
+  fullName.vb: ADLXWrapper.AnisotropicFilteringInfo.New(Boolean, ADLXWrapper.ADLX_ANISOTROPIC_FILTERING_LEVEL)
+  name.vb: New(Boolean, ADLX_ANISOTROPIC_FILTERING_LEVEL)
+references:
+- uid: ADLXWrapper
+  commentId: N:ADLXWrapper
+  href: ADLXWrapper.html
+  name: ADLXWrapper
+  nameWithType: ADLXWrapper
+  fullName: ADLXWrapper
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ADLXWrapper.AnisotropicFilteringInfo.IsSupported*
+  commentId: Overload:ADLXWrapper.AnisotropicFilteringInfo.IsSupported
+  href: ADLXWrapper.AnisotropicFilteringInfo.html#ADLXWrapper_AnisotropicFilteringInfo_IsSupported
+  name: IsSupported
+  nameWithType: AnisotropicFilteringInfo.IsSupported
+  fullName: ADLXWrapper.AnisotropicFilteringInfo.IsSupported
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ADLXWrapper.AnisotropicFilteringInfo.Level*
+  commentId: Overload:ADLXWrapper.AnisotropicFilteringInfo.Level
+  href: ADLXWrapper.AnisotropicFilteringInfo.html#ADLXWrapper_AnisotropicFilteringInfo_Level
+  name: Level
+  nameWithType: AnisotropicFilteringInfo.Level
+  fullName: ADLXWrapper.AnisotropicFilteringInfo.Level
+- uid: ADLXWrapper.ADLX_ANISOTROPIC_FILTERING_LEVEL
+  commentId: T:ADLXWrapper.ADLX_ANISOTROPIC_FILTERING_LEVEL
+  parent: ADLXWrapper
+  href: ADLXWrapper.ADLX_ANISOTROPIC_FILTERING_LEVEL.html
+  name: ADLX_ANISOTROPIC_FILTERING_LEVEL
+  nameWithType: ADLX_ANISOTROPIC_FILTERING_LEVEL
+  fullName: ADLXWrapper.ADLX_ANISOTROPIC_FILTERING_LEVEL
+- uid: ADLXWrapper.AnisotropicFilteringInfo.#ctor*
+  commentId: Overload:ADLXWrapper.AnisotropicFilteringInfo.#ctor
+  href: ADLXWrapper.AnisotropicFilteringInfo.html#ADLXWrapper_AnisotropicFilteringInfo__ctor_System_Boolean_ADLXWrapper_ADLX_ANISOTROPIC_FILTERING_LEVEL_
+  name: AnisotropicFilteringInfo
+  nameWithType: AnisotropicFilteringInfo.AnisotropicFilteringInfo
+  fullName: ADLXWrapper.AnisotropicFilteringInfo.AnisotropicFilteringInfo
+  nameWithType.vb: AnisotropicFilteringInfo.New
+  fullName.vb: ADLXWrapper.AnisotropicFilteringInfo.New
+  name.vb: New

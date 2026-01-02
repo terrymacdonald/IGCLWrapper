@@ -1,0 +1,1308 @@
+### YamlMime:ManagedReference
+items:
+- uid: ADLXWrapper.GpuInfo
+  commentId: T:ADLXWrapper.GpuInfo
+  id: GpuInfo
+  parent: ADLXWrapper
+  children:
+  - ADLXWrapper.GpuInfo.#ctor(System.String,System.String,System.Int32,System.UInt32,System.String,System.Boolean,System.Boolean,System.String,System.String,System.String,ADLXWrapper.ADLX_GPU_TYPE,ADLXWrapper.ADLX_ASIC_FAMILY_TYPE,ADLXWrapper.ADLX_PCI_BUS_TYPE,System.UInt32,ADLXWrapper.ADLX_MGPU_MODE,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{ADLXWrapper.ADLX_LUID})
+  - ADLXWrapper.GpuInfo.AMDSoftwareVersion
+  - ADLXWrapper.GpuInfo.AMDWindowsDriverVersion
+  - ADLXWrapper.GpuInfo.AsicFamilyType
+  - ADLXWrapper.GpuInfo.DeviceId
+  - ADLXWrapper.GpuInfo.DriverPath
+  - ADLXWrapper.GpuInfo.DriverVersion
+  - ADLXWrapper.GpuInfo.GPUType
+  - ADLXWrapper.GpuInfo.HasDesktops
+  - ADLXWrapper.GpuInfo.IsExternal
+  - ADLXWrapper.GpuInfo.Luid
+  - ADLXWrapper.GpuInfo.MultiGpuMode
+  - ADLXWrapper.GpuInfo.Name
+  - ADLXWrapper.GpuInfo.PNPString
+  - ADLXWrapper.GpuInfo.PciBusLaneWidth
+  - ADLXWrapper.GpuInfo.PciBusType
+  - ADLXWrapper.GpuInfo.ProductName
+  - ADLXWrapper.GpuInfo.RevisionId
+  - ADLXWrapper.GpuInfo.SubSystemId
+  - ADLXWrapper.GpuInfo.SubSystemVendorId
+  - ADLXWrapper.GpuInfo.TotalVRAM
+  - ADLXWrapper.GpuInfo.UniqueId
+  - ADLXWrapper.GpuInfo.VRAMType
+  - ADLXWrapper.GpuInfo.VendorId
+  langs:
+  - csharp
+  - vb
+  name: GpuInfo
+  nameWithType: GpuInfo
+  fullName: ADLXWrapper.GpuInfo
+  type: Struct
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GpuInfo
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 1110
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public readonly struct GpuInfo
+    content.vb: Public Structure GpuInfo
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: ADLXWrapper.GpuInfo.Name
+  commentId: P:ADLXWrapper.GpuInfo.Name
+  id: Name
+  parent: ADLXWrapper.GpuInfo
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: GpuInfo.Name
+  fullName: ADLXWrapper.GpuInfo.Name
+  type: Property
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: Name
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 1112
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public string Name { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: ADLXWrapper.GpuInfo.Name*
+- uid: ADLXWrapper.GpuInfo.VendorId
+  commentId: P:ADLXWrapper.GpuInfo.VendorId
+  id: VendorId
+  parent: ADLXWrapper.GpuInfo
+  langs:
+  - csharp
+  - vb
+  name: VendorId
+  nameWithType: GpuInfo.VendorId
+  fullName: ADLXWrapper.GpuInfo.VendorId
+  type: Property
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: VendorId
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 1113
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public string VendorId { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property VendorId As String
+  overload: ADLXWrapper.GpuInfo.VendorId*
+- uid: ADLXWrapper.GpuInfo.UniqueId
+  commentId: P:ADLXWrapper.GpuInfo.UniqueId
+  id: UniqueId
+  parent: ADLXWrapper.GpuInfo
+  langs:
+  - csharp
+  - vb
+  name: UniqueId
+  nameWithType: GpuInfo.UniqueId
+  fullName: ADLXWrapper.GpuInfo.UniqueId
+  type: Property
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: UniqueId
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 1114
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public int UniqueId { get; init; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property UniqueId As Integer
+  overload: ADLXWrapper.GpuInfo.UniqueId*
+- uid: ADLXWrapper.GpuInfo.TotalVRAM
+  commentId: P:ADLXWrapper.GpuInfo.TotalVRAM
+  id: TotalVRAM
+  parent: ADLXWrapper.GpuInfo
+  langs:
+  - csharp
+  - vb
+  name: TotalVRAM
+  nameWithType: GpuInfo.TotalVRAM
+  fullName: ADLXWrapper.GpuInfo.TotalVRAM
+  type: Property
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: TotalVRAM
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 1115
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public uint TotalVRAM { get; init; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public Property TotalVRAM As UInteger
+  overload: ADLXWrapper.GpuInfo.TotalVRAM*
+- uid: ADLXWrapper.GpuInfo.VRAMType
+  commentId: P:ADLXWrapper.GpuInfo.VRAMType
+  id: VRAMType
+  parent: ADLXWrapper.GpuInfo
+  langs:
+  - csharp
+  - vb
+  name: VRAMType
+  nameWithType: GpuInfo.VRAMType
+  fullName: ADLXWrapper.GpuInfo.VRAMType
+  type: Property
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: VRAMType
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 1116
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public string VRAMType { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property VRAMType As String
+  overload: ADLXWrapper.GpuInfo.VRAMType*
+- uid: ADLXWrapper.GpuInfo.IsExternal
+  commentId: P:ADLXWrapper.GpuInfo.IsExternal
+  id: IsExternal
+  parent: ADLXWrapper.GpuInfo
+  langs:
+  - csharp
+  - vb
+  name: IsExternal
+  nameWithType: GpuInfo.IsExternal
+  fullName: ADLXWrapper.GpuInfo.IsExternal
+  type: Property
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: IsExternal
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 1117
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public bool IsExternal { get; init; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsExternal As Boolean
+  overload: ADLXWrapper.GpuInfo.IsExternal*
+- uid: ADLXWrapper.GpuInfo.HasDesktops
+  commentId: P:ADLXWrapper.GpuInfo.HasDesktops
+  id: HasDesktops
+  parent: ADLXWrapper.GpuInfo
+  langs:
+  - csharp
+  - vb
+  name: HasDesktops
+  nameWithType: GpuInfo.HasDesktops
+  fullName: ADLXWrapper.GpuInfo.HasDesktops
+  type: Property
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: HasDesktops
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 1118
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public bool HasDesktops { get; init; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property HasDesktops As Boolean
+  overload: ADLXWrapper.GpuInfo.HasDesktops*
+- uid: ADLXWrapper.GpuInfo.DeviceId
+  commentId: P:ADLXWrapper.GpuInfo.DeviceId
+  id: DeviceId
+  parent: ADLXWrapper.GpuInfo
+  langs:
+  - csharp
+  - vb
+  name: DeviceId
+  nameWithType: GpuInfo.DeviceId
+  fullName: ADLXWrapper.GpuInfo.DeviceId
+  type: Property
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: DeviceId
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 1119
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public string DeviceId { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property DeviceId As String
+  overload: ADLXWrapper.GpuInfo.DeviceId*
+- uid: ADLXWrapper.GpuInfo.PNPString
+  commentId: P:ADLXWrapper.GpuInfo.PNPString
+  id: PNPString
+  parent: ADLXWrapper.GpuInfo
+  langs:
+  - csharp
+  - vb
+  name: PNPString
+  nameWithType: GpuInfo.PNPString
+  fullName: ADLXWrapper.GpuInfo.PNPString
+  type: Property
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: PNPString
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 1120
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public string PNPString { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PNPString As String
+  overload: ADLXWrapper.GpuInfo.PNPString*
+- uid: ADLXWrapper.GpuInfo.DriverPath
+  commentId: P:ADLXWrapper.GpuInfo.DriverPath
+  id: DriverPath
+  parent: ADLXWrapper.GpuInfo
+  langs:
+  - csharp
+  - vb
+  name: DriverPath
+  nameWithType: GpuInfo.DriverPath
+  fullName: ADLXWrapper.GpuInfo.DriverPath
+  type: Property
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: DriverPath
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 1121
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public string DriverPath { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property DriverPath As String
+  overload: ADLXWrapper.GpuInfo.DriverPath*
+- uid: ADLXWrapper.GpuInfo.GPUType
+  commentId: P:ADLXWrapper.GpuInfo.GPUType
+  id: GPUType
+  parent: ADLXWrapper.GpuInfo
+  langs:
+  - csharp
+  - vb
+  name: GPUType
+  nameWithType: GpuInfo.GPUType
+  fullName: ADLXWrapper.GpuInfo.GPUType
+  type: Property
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: GPUType
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 1122
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public ADLX_GPU_TYPE GPUType { get; init; }
+    parameters: []
+    return:
+      type: ADLXWrapper.ADLX_GPU_TYPE
+    content.vb: Public Property GPUType As ADLX_GPU_TYPE
+  overload: ADLXWrapper.GpuInfo.GPUType*
+- uid: ADLXWrapper.GpuInfo.AsicFamilyType
+  commentId: P:ADLXWrapper.GpuInfo.AsicFamilyType
+  id: AsicFamilyType
+  parent: ADLXWrapper.GpuInfo
+  langs:
+  - csharp
+  - vb
+  name: AsicFamilyType
+  nameWithType: GpuInfo.AsicFamilyType
+  fullName: ADLXWrapper.GpuInfo.AsicFamilyType
+  type: Property
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: AsicFamilyType
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 1123
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public ADLX_ASIC_FAMILY_TYPE AsicFamilyType { get; init; }
+    parameters: []
+    return:
+      type: ADLXWrapper.ADLX_ASIC_FAMILY_TYPE
+    content.vb: Public Property AsicFamilyType As ADLX_ASIC_FAMILY_TYPE
+  overload: ADLXWrapper.GpuInfo.AsicFamilyType*
+- uid: ADLXWrapper.GpuInfo.PciBusType
+  commentId: P:ADLXWrapper.GpuInfo.PciBusType
+  id: PciBusType
+  parent: ADLXWrapper.GpuInfo
+  langs:
+  - csharp
+  - vb
+  name: PciBusType
+  nameWithType: GpuInfo.PciBusType
+  fullName: ADLXWrapper.GpuInfo.PciBusType
+  type: Property
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: PciBusType
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 1124
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public ADLX_PCI_BUS_TYPE PciBusType { get; init; }
+    parameters: []
+    return:
+      type: ADLXWrapper.ADLX_PCI_BUS_TYPE
+    content.vb: Public Property PciBusType As ADLX_PCI_BUS_TYPE
+  overload: ADLXWrapper.GpuInfo.PciBusType*
+- uid: ADLXWrapper.GpuInfo.PciBusLaneWidth
+  commentId: P:ADLXWrapper.GpuInfo.PciBusLaneWidth
+  id: PciBusLaneWidth
+  parent: ADLXWrapper.GpuInfo
+  langs:
+  - csharp
+  - vb
+  name: PciBusLaneWidth
+  nameWithType: GpuInfo.PciBusLaneWidth
+  fullName: ADLXWrapper.GpuInfo.PciBusLaneWidth
+  type: Property
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: PciBusLaneWidth
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 1125
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public uint PciBusLaneWidth { get; init; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public Property PciBusLaneWidth As UInteger
+  overload: ADLXWrapper.GpuInfo.PciBusLaneWidth*
+- uid: ADLXWrapper.GpuInfo.MultiGpuMode
+  commentId: P:ADLXWrapper.GpuInfo.MultiGpuMode
+  id: MultiGpuMode
+  parent: ADLXWrapper.GpuInfo
+  langs:
+  - csharp
+  - vb
+  name: MultiGpuMode
+  nameWithType: GpuInfo.MultiGpuMode
+  fullName: ADLXWrapper.GpuInfo.MultiGpuMode
+  type: Property
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: MultiGpuMode
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 1126
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public ADLX_MGPU_MODE MultiGpuMode { get; init; }
+    parameters: []
+    return:
+      type: ADLXWrapper.ADLX_MGPU_MODE
+    content.vb: Public Property MultiGpuMode As ADLX_MGPU_MODE
+  overload: ADLXWrapper.GpuInfo.MultiGpuMode*
+- uid: ADLXWrapper.GpuInfo.ProductName
+  commentId: P:ADLXWrapper.GpuInfo.ProductName
+  id: ProductName
+  parent: ADLXWrapper.GpuInfo
+  langs:
+  - csharp
+  - vb
+  name: ProductName
+  nameWithType: GpuInfo.ProductName
+  fullName: ADLXWrapper.GpuInfo.ProductName
+  type: Property
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: ProductName
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 1127
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public string ProductName { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ProductName As String
+  overload: ADLXWrapper.GpuInfo.ProductName*
+- uid: ADLXWrapper.GpuInfo.SubSystemId
+  commentId: P:ADLXWrapper.GpuInfo.SubSystemId
+  id: SubSystemId
+  parent: ADLXWrapper.GpuInfo
+  langs:
+  - csharp
+  - vb
+  name: SubSystemId
+  nameWithType: GpuInfo.SubSystemId
+  fullName: ADLXWrapper.GpuInfo.SubSystemId
+  type: Property
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: SubSystemId
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 1128
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public string SubSystemId { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SubSystemId As String
+  overload: ADLXWrapper.GpuInfo.SubSystemId*
+- uid: ADLXWrapper.GpuInfo.SubSystemVendorId
+  commentId: P:ADLXWrapper.GpuInfo.SubSystemVendorId
+  id: SubSystemVendorId
+  parent: ADLXWrapper.GpuInfo
+  langs:
+  - csharp
+  - vb
+  name: SubSystemVendorId
+  nameWithType: GpuInfo.SubSystemVendorId
+  fullName: ADLXWrapper.GpuInfo.SubSystemVendorId
+  type: Property
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: SubSystemVendorId
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 1129
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public string SubSystemVendorId { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SubSystemVendorId As String
+  overload: ADLXWrapper.GpuInfo.SubSystemVendorId*
+- uid: ADLXWrapper.GpuInfo.RevisionId
+  commentId: P:ADLXWrapper.GpuInfo.RevisionId
+  id: RevisionId
+  parent: ADLXWrapper.GpuInfo
+  langs:
+  - csharp
+  - vb
+  name: RevisionId
+  nameWithType: GpuInfo.RevisionId
+  fullName: ADLXWrapper.GpuInfo.RevisionId
+  type: Property
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: RevisionId
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 1130
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public string RevisionId { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property RevisionId As String
+  overload: ADLXWrapper.GpuInfo.RevisionId*
+- uid: ADLXWrapper.GpuInfo.DriverVersion
+  commentId: P:ADLXWrapper.GpuInfo.DriverVersion
+  id: DriverVersion
+  parent: ADLXWrapper.GpuInfo
+  langs:
+  - csharp
+  - vb
+  name: DriverVersion
+  nameWithType: GpuInfo.DriverVersion
+  fullName: ADLXWrapper.GpuInfo.DriverVersion
+  type: Property
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: DriverVersion
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 1131
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public string DriverVersion { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property DriverVersion As String
+  overload: ADLXWrapper.GpuInfo.DriverVersion*
+- uid: ADLXWrapper.GpuInfo.AMDSoftwareVersion
+  commentId: P:ADLXWrapper.GpuInfo.AMDSoftwareVersion
+  id: AMDSoftwareVersion
+  parent: ADLXWrapper.GpuInfo
+  langs:
+  - csharp
+  - vb
+  name: AMDSoftwareVersion
+  nameWithType: GpuInfo.AMDSoftwareVersion
+  fullName: ADLXWrapper.GpuInfo.AMDSoftwareVersion
+  type: Property
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: AMDSoftwareVersion
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 1132
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public string AMDSoftwareVersion { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property AMDSoftwareVersion As String
+  overload: ADLXWrapper.GpuInfo.AMDSoftwareVersion*
+- uid: ADLXWrapper.GpuInfo.AMDWindowsDriverVersion
+  commentId: P:ADLXWrapper.GpuInfo.AMDWindowsDriverVersion
+  id: AMDWindowsDriverVersion
+  parent: ADLXWrapper.GpuInfo
+  langs:
+  - csharp
+  - vb
+  name: AMDWindowsDriverVersion
+  nameWithType: GpuInfo.AMDWindowsDriverVersion
+  fullName: ADLXWrapper.GpuInfo.AMDWindowsDriverVersion
+  type: Property
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: AMDWindowsDriverVersion
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 1133
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public string AMDWindowsDriverVersion { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property AMDWindowsDriverVersion As String
+  overload: ADLXWrapper.GpuInfo.AMDWindowsDriverVersion*
+- uid: ADLXWrapper.GpuInfo.Luid
+  commentId: P:ADLXWrapper.GpuInfo.Luid
+  id: Luid
+  parent: ADLXWrapper.GpuInfo
+  langs:
+  - csharp
+  - vb
+  name: Luid
+  nameWithType: GpuInfo.Luid
+  fullName: ADLXWrapper.GpuInfo.Luid
+  type: Property
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: Luid
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 1134
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public ADLX_LUID Luid { get; init; }
+    parameters: []
+    return:
+      type: ADLXWrapper.ADLX_LUID
+    content.vb: Public Property Luid As ADLX_LUID
+  overload: ADLXWrapper.GpuInfo.Luid*
+- uid: ADLXWrapper.GpuInfo.#ctor(System.String,System.String,System.Int32,System.UInt32,System.String,System.Boolean,System.Boolean,System.String,System.String,System.String,ADLXWrapper.ADLX_GPU_TYPE,ADLXWrapper.ADLX_ASIC_FAMILY_TYPE,ADLXWrapper.ADLX_PCI_BUS_TYPE,System.UInt32,ADLXWrapper.ADLX_MGPU_MODE,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{ADLXWrapper.ADLX_LUID})
+  commentId: M:ADLXWrapper.GpuInfo.#ctor(System.String,System.String,System.Int32,System.UInt32,System.String,System.Boolean,System.Boolean,System.String,System.String,System.String,ADLXWrapper.ADLX_GPU_TYPE,ADLXWrapper.ADLX_ASIC_FAMILY_TYPE,ADLXWrapper.ADLX_PCI_BUS_TYPE,System.UInt32,ADLXWrapper.ADLX_MGPU_MODE,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{ADLXWrapper.ADLX_LUID})
+  id: '#ctor(System.String,System.String,System.Int32,System.UInt32,System.String,System.Boolean,System.Boolean,System.String,System.String,System.String,ADLXWrapper.ADLX_GPU_TYPE,ADLXWrapper.ADLX_ASIC_FAMILY_TYPE,ADLXWrapper.ADLX_PCI_BUS_TYPE,System.UInt32,ADLXWrapper.ADLX_MGPU_MODE,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{ADLXWrapper.ADLX_LUID})'
+  parent: ADLXWrapper.GpuInfo
+  langs:
+  - csharp
+  - vb
+  name: GpuInfo(string, string, int, uint, string, bool, bool, string, string, string, ADLX_GPU_TYPE, ADLX_ASIC_FAMILY_TYPE, ADLX_PCI_BUS_TYPE, uint, ADLX_MGPU_MODE, string, string, string, string, string, string, string, ADLX_LUID?)
+  nameWithType: GpuInfo.GpuInfo(string, string, int, uint, string, bool, bool, string, string, string, ADLX_GPU_TYPE, ADLX_ASIC_FAMILY_TYPE, ADLX_PCI_BUS_TYPE, uint, ADLX_MGPU_MODE, string, string, string, string, string, string, string, ADLX_LUID?)
+  fullName: ADLXWrapper.GpuInfo.GpuInfo(string, string, int, uint, string, bool, bool, string, string, string, ADLXWrapper.ADLX_GPU_TYPE, ADLXWrapper.ADLX_ASIC_FAMILY_TYPE, ADLXWrapper.ADLX_PCI_BUS_TYPE, uint, ADLXWrapper.ADLX_MGPU_MODE, string, string, string, string, string, string, string, ADLXWrapper.ADLX_LUID?)
+  type: Constructor
+  source:
+    remote:
+      path: ADLXWrapper/ADLXSystemServicesHelper.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: .ctor
+    path: ../ADLXWrapper/ADLXSystemServicesHelper.cs
+    startLine: 1136
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: >-
+      [JsonConstructor]
+
+      public GpuInfo(string name, string vendorId, int uniqueId, uint totalVRAM, string vramType, bool isExternal, bool hasDesktops, string deviceId, string pnpString, string driverPath, ADLX_GPU_TYPE gpuType = ADLX_GPU_TYPE.GPUTYPE_UNDEFINED, ADLX_ASIC_FAMILY_TYPE asicFamilyType = ADLX_ASIC_FAMILY_TYPE.ASIC_UNDEFINED, ADLX_PCI_BUS_TYPE pciBusType = ADLX_PCI_BUS_TYPE.UNDEFINED, uint pciBusLaneWidth = 0, ADLX_MGPU_MODE multiGpuMode = ADLX_MGPU_MODE.MGPU_NONE, string productName = "", string subSystemId = "", string subSystemVendorId = "", string revisionId = "", string driverVersion = "", string amdSoftwareVersion = "", string amdWindowsDriverVersion = "", ADLX_LUID? luid = null)
+    parameters:
+    - id: name
+      type: System.String
+    - id: vendorId
+      type: System.String
+    - id: uniqueId
+      type: System.Int32
+    - id: totalVRAM
+      type: System.UInt32
+    - id: vramType
+      type: System.String
+    - id: isExternal
+      type: System.Boolean
+    - id: hasDesktops
+      type: System.Boolean
+    - id: deviceId
+      type: System.String
+    - id: pnpString
+      type: System.String
+    - id: driverPath
+      type: System.String
+    - id: gpuType
+      type: ADLXWrapper.ADLX_GPU_TYPE
+    - id: asicFamilyType
+      type: ADLXWrapper.ADLX_ASIC_FAMILY_TYPE
+    - id: pciBusType
+      type: ADLXWrapper.ADLX_PCI_BUS_TYPE
+    - id: pciBusLaneWidth
+      type: System.UInt32
+    - id: multiGpuMode
+      type: ADLXWrapper.ADLX_MGPU_MODE
+    - id: productName
+      type: System.String
+    - id: subSystemId
+      type: System.String
+    - id: subSystemVendorId
+      type: System.String
+    - id: revisionId
+      type: System.String
+    - id: driverVersion
+      type: System.String
+    - id: amdSoftwareVersion
+      type: System.String
+    - id: amdWindowsDriverVersion
+      type: System.String
+    - id: luid
+      type: System.Nullable{ADLXWrapper.ADLX_LUID}
+    content.vb: >-
+      <JsonConstructor>
+
+      Public Sub New(name As String, vendorId As String, uniqueId As Integer, totalVRAM As UInteger, vramType As String, isExternal As Boolean, hasDesktops As Boolean, deviceId As String, pnpString As String, driverPath As String, gpuType As ADLX_GPU_TYPE = ADLX_GPU_TYPE.GPUTYPE_UNDEFINED, asicFamilyType As ADLX_ASIC_FAMILY_TYPE = ADLX_ASIC_FAMILY_TYPE.ASIC_UNDEFINED, pciBusType As ADLX_PCI_BUS_TYPE = ADLX_PCI_BUS_TYPE.UNDEFINED, pciBusLaneWidth As UInteger = 0, multiGpuMode As ADLX_MGPU_MODE = ADLX_MGPU_MODE.MGPU_NONE, productName As String = "", subSystemId As String = "", subSystemVendorId As String = "", revisionId As String = "", driverVersion As String = "", amdSoftwareVersion As String = "", amdWindowsDriverVersion As String = "", luid As ADLX_LUID? = Nothing)
+  overload: ADLXWrapper.GpuInfo.#ctor*
+  attributes:
+  - type: Newtonsoft.Json.JsonConstructorAttribute
+    ctor: Newtonsoft.Json.JsonConstructorAttribute.#ctor
+    arguments: []
+  nameWithType.vb: GpuInfo.New(String, String, Integer, UInteger, String, Boolean, Boolean, String, String, String, ADLX_GPU_TYPE, ADLX_ASIC_FAMILY_TYPE, ADLX_PCI_BUS_TYPE, UInteger, ADLX_MGPU_MODE, String, String, String, String, String, String, String, ADLX_LUID?)
+  fullName.vb: ADLXWrapper.GpuInfo.New(String, String, Integer, UInteger, String, Boolean, Boolean, String, String, String, ADLXWrapper.ADLX_GPU_TYPE, ADLXWrapper.ADLX_ASIC_FAMILY_TYPE, ADLXWrapper.ADLX_PCI_BUS_TYPE, UInteger, ADLXWrapper.ADLX_MGPU_MODE, String, String, String, String, String, String, String, ADLXWrapper.ADLX_LUID?)
+  name.vb: New(String, String, Integer, UInteger, String, Boolean, Boolean, String, String, String, ADLX_GPU_TYPE, ADLX_ASIC_FAMILY_TYPE, ADLX_PCI_BUS_TYPE, UInteger, ADLX_MGPU_MODE, String, String, String, String, String, String, String, ADLX_LUID?)
+references:
+- uid: ADLXWrapper
+  commentId: N:ADLXWrapper
+  href: ADLXWrapper.html
+  name: ADLXWrapper
+  nameWithType: ADLXWrapper
+  fullName: ADLXWrapper
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ADLXWrapper.GpuInfo.Name*
+  commentId: Overload:ADLXWrapper.GpuInfo.Name
+  href: ADLXWrapper.GpuInfo.html#ADLXWrapper_GpuInfo_Name
+  name: Name
+  nameWithType: GpuInfo.Name
+  fullName: ADLXWrapper.GpuInfo.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ADLXWrapper.GpuInfo.VendorId*
+  commentId: Overload:ADLXWrapper.GpuInfo.VendorId
+  href: ADLXWrapper.GpuInfo.html#ADLXWrapper_GpuInfo_VendorId
+  name: VendorId
+  nameWithType: GpuInfo.VendorId
+  fullName: ADLXWrapper.GpuInfo.VendorId
+- uid: ADLXWrapper.GpuInfo.UniqueId*
+  commentId: Overload:ADLXWrapper.GpuInfo.UniqueId
+  href: ADLXWrapper.GpuInfo.html#ADLXWrapper_GpuInfo_UniqueId
+  name: UniqueId
+  nameWithType: GpuInfo.UniqueId
+  fullName: ADLXWrapper.GpuInfo.UniqueId
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ADLXWrapper.GpuInfo.TotalVRAM*
+  commentId: Overload:ADLXWrapper.GpuInfo.TotalVRAM
+  href: ADLXWrapper.GpuInfo.html#ADLXWrapper_GpuInfo_TotalVRAM
+  name: TotalVRAM
+  nameWithType: GpuInfo.TotalVRAM
+  fullName: ADLXWrapper.GpuInfo.TotalVRAM
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: ADLXWrapper.GpuInfo.VRAMType*
+  commentId: Overload:ADLXWrapper.GpuInfo.VRAMType
+  href: ADLXWrapper.GpuInfo.html#ADLXWrapper_GpuInfo_VRAMType
+  name: VRAMType
+  nameWithType: GpuInfo.VRAMType
+  fullName: ADLXWrapper.GpuInfo.VRAMType
+- uid: ADLXWrapper.GpuInfo.IsExternal*
+  commentId: Overload:ADLXWrapper.GpuInfo.IsExternal
+  href: ADLXWrapper.GpuInfo.html#ADLXWrapper_GpuInfo_IsExternal
+  name: IsExternal
+  nameWithType: GpuInfo.IsExternal
+  fullName: ADLXWrapper.GpuInfo.IsExternal
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ADLXWrapper.GpuInfo.HasDesktops*
+  commentId: Overload:ADLXWrapper.GpuInfo.HasDesktops
+  href: ADLXWrapper.GpuInfo.html#ADLXWrapper_GpuInfo_HasDesktops
+  name: HasDesktops
+  nameWithType: GpuInfo.HasDesktops
+  fullName: ADLXWrapper.GpuInfo.HasDesktops
+- uid: ADLXWrapper.GpuInfo.DeviceId*
+  commentId: Overload:ADLXWrapper.GpuInfo.DeviceId
+  href: ADLXWrapper.GpuInfo.html#ADLXWrapper_GpuInfo_DeviceId
+  name: DeviceId
+  nameWithType: GpuInfo.DeviceId
+  fullName: ADLXWrapper.GpuInfo.DeviceId
+- uid: ADLXWrapper.GpuInfo.PNPString*
+  commentId: Overload:ADLXWrapper.GpuInfo.PNPString
+  href: ADLXWrapper.GpuInfo.html#ADLXWrapper_GpuInfo_PNPString
+  name: PNPString
+  nameWithType: GpuInfo.PNPString
+  fullName: ADLXWrapper.GpuInfo.PNPString
+- uid: ADLXWrapper.GpuInfo.DriverPath*
+  commentId: Overload:ADLXWrapper.GpuInfo.DriverPath
+  href: ADLXWrapper.GpuInfo.html#ADLXWrapper_GpuInfo_DriverPath
+  name: DriverPath
+  nameWithType: GpuInfo.DriverPath
+  fullName: ADLXWrapper.GpuInfo.DriverPath
+- uid: ADLXWrapper.GpuInfo.GPUType*
+  commentId: Overload:ADLXWrapper.GpuInfo.GPUType
+  href: ADLXWrapper.GpuInfo.html#ADLXWrapper_GpuInfo_GPUType
+  name: GPUType
+  nameWithType: GpuInfo.GPUType
+  fullName: ADLXWrapper.GpuInfo.GPUType
+- uid: ADLXWrapper.ADLX_GPU_TYPE
+  commentId: T:ADLXWrapper.ADLX_GPU_TYPE
+  parent: ADLXWrapper
+  href: ADLXWrapper.ADLX_GPU_TYPE.html
+  name: ADLX_GPU_TYPE
+  nameWithType: ADLX_GPU_TYPE
+  fullName: ADLXWrapper.ADLX_GPU_TYPE
+- uid: ADLXWrapper.GpuInfo.AsicFamilyType*
+  commentId: Overload:ADLXWrapper.GpuInfo.AsicFamilyType
+  href: ADLXWrapper.GpuInfo.html#ADLXWrapper_GpuInfo_AsicFamilyType
+  name: AsicFamilyType
+  nameWithType: GpuInfo.AsicFamilyType
+  fullName: ADLXWrapper.GpuInfo.AsicFamilyType
+- uid: ADLXWrapper.ADLX_ASIC_FAMILY_TYPE
+  commentId: T:ADLXWrapper.ADLX_ASIC_FAMILY_TYPE
+  parent: ADLXWrapper
+  href: ADLXWrapper.ADLX_ASIC_FAMILY_TYPE.html
+  name: ADLX_ASIC_FAMILY_TYPE
+  nameWithType: ADLX_ASIC_FAMILY_TYPE
+  fullName: ADLXWrapper.ADLX_ASIC_FAMILY_TYPE
+- uid: ADLXWrapper.GpuInfo.PciBusType*
+  commentId: Overload:ADLXWrapper.GpuInfo.PciBusType
+  href: ADLXWrapper.GpuInfo.html#ADLXWrapper_GpuInfo_PciBusType
+  name: PciBusType
+  nameWithType: GpuInfo.PciBusType
+  fullName: ADLXWrapper.GpuInfo.PciBusType
+- uid: ADLXWrapper.ADLX_PCI_BUS_TYPE
+  commentId: T:ADLXWrapper.ADLX_PCI_BUS_TYPE
+  parent: ADLXWrapper
+  href: ADLXWrapper.ADLX_PCI_BUS_TYPE.html
+  name: ADLX_PCI_BUS_TYPE
+  nameWithType: ADLX_PCI_BUS_TYPE
+  fullName: ADLXWrapper.ADLX_PCI_BUS_TYPE
+- uid: ADLXWrapper.GpuInfo.PciBusLaneWidth*
+  commentId: Overload:ADLXWrapper.GpuInfo.PciBusLaneWidth
+  href: ADLXWrapper.GpuInfo.html#ADLXWrapper_GpuInfo_PciBusLaneWidth
+  name: PciBusLaneWidth
+  nameWithType: GpuInfo.PciBusLaneWidth
+  fullName: ADLXWrapper.GpuInfo.PciBusLaneWidth
+- uid: ADLXWrapper.GpuInfo.MultiGpuMode*
+  commentId: Overload:ADLXWrapper.GpuInfo.MultiGpuMode
+  href: ADLXWrapper.GpuInfo.html#ADLXWrapper_GpuInfo_MultiGpuMode
+  name: MultiGpuMode
+  nameWithType: GpuInfo.MultiGpuMode
+  fullName: ADLXWrapper.GpuInfo.MultiGpuMode
+- uid: ADLXWrapper.ADLX_MGPU_MODE
+  commentId: T:ADLXWrapper.ADLX_MGPU_MODE
+  parent: ADLXWrapper
+  href: ADLXWrapper.ADLX_MGPU_MODE.html
+  name: ADLX_MGPU_MODE
+  nameWithType: ADLX_MGPU_MODE
+  fullName: ADLXWrapper.ADLX_MGPU_MODE
+- uid: ADLXWrapper.GpuInfo.ProductName*
+  commentId: Overload:ADLXWrapper.GpuInfo.ProductName
+  href: ADLXWrapper.GpuInfo.html#ADLXWrapper_GpuInfo_ProductName
+  name: ProductName
+  nameWithType: GpuInfo.ProductName
+  fullName: ADLXWrapper.GpuInfo.ProductName
+- uid: ADLXWrapper.GpuInfo.SubSystemId*
+  commentId: Overload:ADLXWrapper.GpuInfo.SubSystemId
+  href: ADLXWrapper.GpuInfo.html#ADLXWrapper_GpuInfo_SubSystemId
+  name: SubSystemId
+  nameWithType: GpuInfo.SubSystemId
+  fullName: ADLXWrapper.GpuInfo.SubSystemId
+- uid: ADLXWrapper.GpuInfo.SubSystemVendorId*
+  commentId: Overload:ADLXWrapper.GpuInfo.SubSystemVendorId
+  href: ADLXWrapper.GpuInfo.html#ADLXWrapper_GpuInfo_SubSystemVendorId
+  name: SubSystemVendorId
+  nameWithType: GpuInfo.SubSystemVendorId
+  fullName: ADLXWrapper.GpuInfo.SubSystemVendorId
+- uid: ADLXWrapper.GpuInfo.RevisionId*
+  commentId: Overload:ADLXWrapper.GpuInfo.RevisionId
+  href: ADLXWrapper.GpuInfo.html#ADLXWrapper_GpuInfo_RevisionId
+  name: RevisionId
+  nameWithType: GpuInfo.RevisionId
+  fullName: ADLXWrapper.GpuInfo.RevisionId
+- uid: ADLXWrapper.GpuInfo.DriverVersion*
+  commentId: Overload:ADLXWrapper.GpuInfo.DriverVersion
+  href: ADLXWrapper.GpuInfo.html#ADLXWrapper_GpuInfo_DriverVersion
+  name: DriverVersion
+  nameWithType: GpuInfo.DriverVersion
+  fullName: ADLXWrapper.GpuInfo.DriverVersion
+- uid: ADLXWrapper.GpuInfo.AMDSoftwareVersion*
+  commentId: Overload:ADLXWrapper.GpuInfo.AMDSoftwareVersion
+  href: ADLXWrapper.GpuInfo.html#ADLXWrapper_GpuInfo_AMDSoftwareVersion
+  name: AMDSoftwareVersion
+  nameWithType: GpuInfo.AMDSoftwareVersion
+  fullName: ADLXWrapper.GpuInfo.AMDSoftwareVersion
+- uid: ADLXWrapper.GpuInfo.AMDWindowsDriverVersion*
+  commentId: Overload:ADLXWrapper.GpuInfo.AMDWindowsDriverVersion
+  href: ADLXWrapper.GpuInfo.html#ADLXWrapper_GpuInfo_AMDWindowsDriverVersion
+  name: AMDWindowsDriverVersion
+  nameWithType: GpuInfo.AMDWindowsDriverVersion
+  fullName: ADLXWrapper.GpuInfo.AMDWindowsDriverVersion
+- uid: ADLXWrapper.GpuInfo.Luid*
+  commentId: Overload:ADLXWrapper.GpuInfo.Luid
+  href: ADLXWrapper.GpuInfo.html#ADLXWrapper_GpuInfo_Luid
+  name: Luid
+  nameWithType: GpuInfo.Luid
+  fullName: ADLXWrapper.GpuInfo.Luid
+- uid: ADLXWrapper.ADLX_LUID
+  commentId: T:ADLXWrapper.ADLX_LUID
+  parent: ADLXWrapper
+  href: ADLXWrapper.ADLX_LUID.html
+  name: ADLX_LUID
+  nameWithType: ADLX_LUID
+  fullName: ADLXWrapper.ADLX_LUID
+- uid: ADLXWrapper.GpuInfo.#ctor*
+  commentId: Overload:ADLXWrapper.GpuInfo.#ctor
+  href: ADLXWrapper.GpuInfo.html#ADLXWrapper_GpuInfo__ctor_System_String_System_String_System_Int32_System_UInt32_System_String_System_Boolean_System_Boolean_System_String_System_String_System_String_ADLXWrapper_ADLX_GPU_TYPE_ADLXWrapper_ADLX_ASIC_FAMILY_TYPE_ADLXWrapper_ADLX_PCI_BUS_TYPE_System_UInt32_ADLXWrapper_ADLX_MGPU_MODE_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_Nullable_ADLXWrapper_ADLX_LUID__
+  name: GpuInfo
+  nameWithType: GpuInfo.GpuInfo
+  fullName: ADLXWrapper.GpuInfo.GpuInfo
+  nameWithType.vb: GpuInfo.New
+  fullName.vb: ADLXWrapper.GpuInfo.New
+  name.vb: New
+- uid: System.Nullable{ADLXWrapper.ADLX_LUID}
+  commentId: T:System.Nullable{ADLXWrapper.ADLX_LUID}
+  parent: System
+  definition: System.Nullable`1
+  href: ADLXWrapper.ADLX_LUID.html
+  name: ADLX_LUID?
+  nameWithType: ADLX_LUID?
+  fullName: ADLXWrapper.ADLX_LUID?
+  spec.csharp:
+  - uid: ADLXWrapper.ADLX_LUID
+    name: ADLX_LUID
+    href: ADLXWrapper.ADLX_LUID.html
+  - name: '?'
+  spec.vb:
+  - uid: ADLXWrapper.ADLX_LUID
+    name: ADLX_LUID
+    href: ADLXWrapper.ADLX_LUID.html
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

@@ -1,0 +1,70 @@
+### YamlMime:ManagedReference
+items:
+- uid: ADLXWrapper.ADLXNative.ADLXQueryVersion_Fn
+  commentId: T:ADLXWrapper.ADLXNative.ADLXQueryVersion_Fn
+  id: ADLXNative.ADLXQueryVersion_Fn
+  parent: ADLXWrapper
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: ADLXNative.ADLXQueryVersion_Fn
+  nameWithType: ADLXNative.ADLXQueryVersion_Fn
+  fullName: ADLXWrapper.ADLXNative.ADLXQueryVersion_Fn
+  type: Delegate
+  source:
+    remote:
+      path: ADLXWrapper/ADLXNative.cs
+      branch: feature-facade-tests-v3
+      repo: https://github.com/terrymacdonald/ADLXWrapper.git
+    id: ADLXQueryVersion_Fn
+    path: ../ADLXWrapper/ADLXNative.cs
+    startLine: 33
+  assemblies:
+  - ADLXWrapper
+  namespace: ADLXWrapper
+  syntax:
+    content: public delegate ADLX_RESULT ADLXNative.ADLXQueryVersion_Fn(byte** version)
+    parameters:
+    - id: version
+      type: System.Byte**
+    return:
+      type: ADLXWrapper.ADLX_RESULT
+    content.vb: Public Delegate Function ADLXNative.ADLXQueryVersion_Fn(version As Byte**) As ADLX_RESULT
+references:
+- uid: ADLXWrapper
+  commentId: N:ADLXWrapper
+  href: ADLXWrapper.html
+  name: ADLXWrapper
+  nameWithType: ADLXWrapper
+  fullName: ADLXWrapper
+- uid: System.Byte**
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte**
+  nameWithType: byte**
+  fullName: byte**
+  nameWithType.vb: Byte**
+  fullName.vb: Byte**
+  name.vb: Byte**
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+  - name: '*'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+  - name: '*'
+- uid: ADLXWrapper.ADLX_RESULT
+  commentId: T:ADLXWrapper.ADLX_RESULT
+  parent: ADLXWrapper
+  href: ADLXWrapper.ADLX_RESULT.html
+  name: ADLX_RESULT
+  nameWithType: ADLX_RESULT
+  fullName: ADLXWrapper.ADLX_RESULT
