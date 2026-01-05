@@ -18,7 +18,7 @@ namespace IGCLWrapper
             _adapter = adapter;
         }
 
-        public unsafe ctl_firmware_properties_t GetProperties()
+        public unsafe ctl_firmware_properties_t GetFirmwareProperties()
         {
             ThrowIfDisposed();
             var props = IGCLApiHelper.CreateFirmwareProperties();
@@ -28,13 +28,13 @@ namespace IGCLWrapper
             return props;
         }
 
-        public unsafe IReadOnlyList<IntPtr> EnumerateComponents()
+        public unsafe IReadOnlyList<IntPtr> EnumerateFirmwareComponents()
         {
             ThrowIfDisposed();
             return EnumerateHandles((_ctl_device_adapter_handle_t*)_adapter);
         }
 
-        public unsafe ctl_firmware_component_properties_t GetComponentProperties(IntPtr firmwareHandle)
+        public unsafe ctl_firmware_component_properties_t GetFirmwareComponentProperties(IntPtr firmwareHandle)
         {
             ThrowIfDisposed();
             var props = IGCLApiHelper.CreateFirmwareComponentProperties();
@@ -44,7 +44,7 @@ namespace IGCLWrapper
             return props;
         }
 
-        public unsafe void AllowPcieLinkSpeedUpdate(bool allow)
+        public unsafe void AllowPCIeLinkSpeedUpdate(bool allow)
         {
             ThrowIfDisposed();
             var result = IGCL.ctlAllowPCIeLinkSpeedUpdate((_ctl_device_adapter_handle_t*)_adapter, (byte)(allow ? 1 : 0));

@@ -18,13 +18,13 @@ namespace IGCLWrapper
             _adapter = adapter;
         }
 
-        public unsafe IReadOnlyList<IntPtr> EnumerateSensors()
+        public unsafe IReadOnlyList<IntPtr> EnumTemperatureSensors()
         {
             ThrowIfDisposed();
             return EnumerateHandles((_ctl_device_adapter_handle_t*)_adapter);
         }
 
-        public unsafe ctl_temp_properties_t GetProperties(IntPtr sensorHandle)
+        public unsafe ctl_temp_properties_t TemperatureGetProperties(IntPtr sensorHandle)
         {
             ThrowIfDisposed();
             var props = IGCLApiHelper.CreateTemperatureProperties();
@@ -34,7 +34,7 @@ namespace IGCLWrapper
             return props;
         }
 
-        public unsafe double GetState(IntPtr sensorHandle)
+        public unsafe double TemperatureGetState(IntPtr sensorHandle)
         {
             ThrowIfDisposed();
             double temp = 0;

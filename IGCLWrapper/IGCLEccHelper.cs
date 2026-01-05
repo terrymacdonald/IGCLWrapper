@@ -17,7 +17,7 @@ namespace IGCLWrapper
             _adapter = adapter;
         }
 
-        public unsafe ctl_ecc_properties_t GetProperties()
+        public unsafe ctl_ecc_properties_t EccGetProperties()
         {
             ThrowIfDisposed();
             var props = IGCLApiHelper.CreateEccProperties();
@@ -27,7 +27,7 @@ namespace IGCLWrapper
             return props;
         }
 
-        public unsafe ctl_ecc_state_desc_t GetState()
+        public unsafe ctl_ecc_state_desc_t EccGetState()
         {
             ThrowIfDisposed();
             var state = IGCLApiHelper.CreateEccState();
@@ -37,7 +37,7 @@ namespace IGCLWrapper
             return state;
         }
 
-        public unsafe void SetState(ctl_ecc_state_t desiredState)
+        public unsafe void EccSetState(ctl_ecc_state_t desiredState)
         {
             ThrowIfDisposed();
             var state = IGCLApiHelper.CreateEccState();

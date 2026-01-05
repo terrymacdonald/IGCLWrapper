@@ -13,6 +13,32 @@ items:
   - IGCLWrapper.IGCLOverclockHelper.GetProperties
   - IGCLWrapper.IGCLOverclockHelper.GetTemperatureLimit
   - IGCLWrapper.IGCLOverclockHelper.GetVramFrequencyOffset
+  - IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetGet
+  - IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetGetV2
+  - IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetSet(System.Double)
+  - IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetSetV2(System.Double)
+  - IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockGet
+  - IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockSet(IGCLWrapper.ctl_oc_vf_pair_t)
+  - IGCLWrapper.IGCLOverclockHelper.OverclockGpuMaxVoltageOffsetGetV2
+  - IGCLWrapper.IGCLOverclockHelper.OverclockGpuMaxVoltageOffsetSetV2(System.Double)
+  - IGCLWrapper.IGCLOverclockHelper.OverclockGpuVoltageOffsetGet
+  - IGCLWrapper.IGCLOverclockHelper.OverclockGpuVoltageOffsetSet(System.Double)
+  - IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitGet
+  - IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitGetV2
+  - IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitSet(System.Double)
+  - IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitSetV2(System.Double)
+  - IGCLWrapper.IGCLOverclockHelper.OverclockReadVFCurve(IGCLWrapper.ctl_vf_curve_type_t,IGCLWrapper.ctl_vf_curve_details_t)
+  - IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitGet
+  - IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitGetV2
+  - IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitSet(System.Double)
+  - IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitSetV2(System.Double)
+  - IGCLWrapper.IGCLOverclockHelper.OverclockVramFrequencyOffsetGet
+  - IGCLWrapper.IGCLOverclockHelper.OverclockVramFrequencyOffsetSet(System.Double)
+  - IGCLWrapper.IGCLOverclockHelper.OverclockVramMemSpeedLimitGetV2
+  - IGCLWrapper.IGCLOverclockHelper.OverclockVramMemSpeedLimitSetV2(System.Double)
+  - IGCLWrapper.IGCLOverclockHelper.OverclockVramVoltageOffsetGet
+  - IGCLWrapper.IGCLOverclockHelper.OverclockVramVoltageOffsetSet(System.Double)
+  - IGCLWrapper.IGCLOverclockHelper.OverclockWriteCustomVFCurve(IGCLWrapper.ctl_voltage_frequency_point_t[])
   - IGCLWrapper.IGCLOverclockHelper.ResetToDefault
   - IGCLWrapper.IGCLOverclockHelper.SetGpuFrequencyOffset(System.Double)
   - IGCLWrapper.IGCLOverclockHelper.SetGpuVoltageOffset(System.Double)
@@ -72,7 +98,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetProperties
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 19
+    startLine: 20
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -100,7 +126,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetWaiver
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 29
+    startLine: 30
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -108,6 +134,842 @@ items:
     content: public void SetWaiver()
     content.vb: Public Sub SetWaiver()
   overload: IGCLWrapper.IGCLOverclockHelper.SetWaiver*
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetGet
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetGet
+  id: OverclockGpuFrequencyOffsetGet
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: OverclockGpuFrequencyOffsetGet()
+  nameWithType: IGCLOverclockHelper.OverclockGpuFrequencyOffsetGet()
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetGet()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: OverclockGpuFrequencyOffsetGet
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 39
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public double OverclockGpuFrequencyOffsetGet()
+    return:
+      type: System.Double
+    content.vb: Public Function OverclockGpuFrequencyOffsetGet() As Double
+  overload: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetGet*
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetSet(System.Double)
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetSet(System.Double)
+  id: OverclockGpuFrequencyOffsetSet(System.Double)
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: OverclockGpuFrequencyOffsetSet(double)
+  nameWithType: IGCLOverclockHelper.OverclockGpuFrequencyOffsetSet(double)
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetSet(double)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: OverclockGpuFrequencyOffsetSet
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 49
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public void OverclockGpuFrequencyOffsetSet(double offset)
+    parameters:
+    - id: offset
+      type: System.Double
+    content.vb: Public Sub OverclockGpuFrequencyOffsetSet(offset As Double)
+  overload: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetSet*
+  nameWithType.vb: IGCLOverclockHelper.OverclockGpuFrequencyOffsetSet(Double)
+  fullName.vb: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetSet(Double)
+  name.vb: OverclockGpuFrequencyOffsetSet(Double)
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetGetV2
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetGetV2
+  id: OverclockGpuFrequencyOffsetGetV2
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: OverclockGpuFrequencyOffsetGetV2()
+  nameWithType: IGCLOverclockHelper.OverclockGpuFrequencyOffsetGetV2()
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetGetV2()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: OverclockGpuFrequencyOffsetGetV2
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 57
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public double OverclockGpuFrequencyOffsetGetV2()
+    return:
+      type: System.Double
+    content.vb: Public Function OverclockGpuFrequencyOffsetGetV2() As Double
+  overload: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetGetV2*
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetSetV2(System.Double)
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetSetV2(System.Double)
+  id: OverclockGpuFrequencyOffsetSetV2(System.Double)
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: OverclockGpuFrequencyOffsetSetV2(double)
+  nameWithType: IGCLOverclockHelper.OverclockGpuFrequencyOffsetSetV2(double)
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetSetV2(double)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: OverclockGpuFrequencyOffsetSetV2
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 67
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public void OverclockGpuFrequencyOffsetSetV2(double offset)
+    parameters:
+    - id: offset
+      type: System.Double
+    content.vb: Public Sub OverclockGpuFrequencyOffsetSetV2(offset As Double)
+  overload: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetSetV2*
+  nameWithType.vb: IGCLOverclockHelper.OverclockGpuFrequencyOffsetSetV2(Double)
+  fullName.vb: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetSetV2(Double)
+  name.vb: OverclockGpuFrequencyOffsetSetV2(Double)
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockGpuVoltageOffsetGet
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockGpuVoltageOffsetGet
+  id: OverclockGpuVoltageOffsetGet
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: OverclockGpuVoltageOffsetGet()
+  nameWithType: IGCLOverclockHelper.OverclockGpuVoltageOffsetGet()
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockGpuVoltageOffsetGet()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: OverclockGpuVoltageOffsetGet
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 77
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public double OverclockGpuVoltageOffsetGet()
+    return:
+      type: System.Double
+    content.vb: Public Function OverclockGpuVoltageOffsetGet() As Double
+  overload: IGCLWrapper.IGCLOverclockHelper.OverclockGpuVoltageOffsetGet*
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockGpuVoltageOffsetSet(System.Double)
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockGpuVoltageOffsetSet(System.Double)
+  id: OverclockGpuVoltageOffsetSet(System.Double)
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: OverclockGpuVoltageOffsetSet(double)
+  nameWithType: IGCLOverclockHelper.OverclockGpuVoltageOffsetSet(double)
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockGpuVoltageOffsetSet(double)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: OverclockGpuVoltageOffsetSet
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 87
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public void OverclockGpuVoltageOffsetSet(double offset)
+    parameters:
+    - id: offset
+      type: System.Double
+    content.vb: Public Sub OverclockGpuVoltageOffsetSet(offset As Double)
+  overload: IGCLWrapper.IGCLOverclockHelper.OverclockGpuVoltageOffsetSet*
+  nameWithType.vb: IGCLOverclockHelper.OverclockGpuVoltageOffsetSet(Double)
+  fullName.vb: IGCLWrapper.IGCLOverclockHelper.OverclockGpuVoltageOffsetSet(Double)
+  name.vb: OverclockGpuVoltageOffsetSet(Double)
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockGpuMaxVoltageOffsetGetV2
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockGpuMaxVoltageOffsetGetV2
+  id: OverclockGpuMaxVoltageOffsetGetV2
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: OverclockGpuMaxVoltageOffsetGetV2()
+  nameWithType: IGCLOverclockHelper.OverclockGpuMaxVoltageOffsetGetV2()
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockGpuMaxVoltageOffsetGetV2()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: OverclockGpuMaxVoltageOffsetGetV2
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 95
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public double OverclockGpuMaxVoltageOffsetGetV2()
+    return:
+      type: System.Double
+    content.vb: Public Function OverclockGpuMaxVoltageOffsetGetV2() As Double
+  overload: IGCLWrapper.IGCLOverclockHelper.OverclockGpuMaxVoltageOffsetGetV2*
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockGpuMaxVoltageOffsetSetV2(System.Double)
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockGpuMaxVoltageOffsetSetV2(System.Double)
+  id: OverclockGpuMaxVoltageOffsetSetV2(System.Double)
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: OverclockGpuMaxVoltageOffsetSetV2(double)
+  nameWithType: IGCLOverclockHelper.OverclockGpuMaxVoltageOffsetSetV2(double)
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockGpuMaxVoltageOffsetSetV2(double)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: OverclockGpuMaxVoltageOffsetSetV2
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 105
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public void OverclockGpuMaxVoltageOffsetSetV2(double offset)
+    parameters:
+    - id: offset
+      type: System.Double
+    content.vb: Public Sub OverclockGpuMaxVoltageOffsetSetV2(offset As Double)
+  overload: IGCLWrapper.IGCLOverclockHelper.OverclockGpuMaxVoltageOffsetSetV2*
+  nameWithType.vb: IGCLOverclockHelper.OverclockGpuMaxVoltageOffsetSetV2(Double)
+  fullName.vb: IGCLWrapper.IGCLOverclockHelper.OverclockGpuMaxVoltageOffsetSetV2(Double)
+  name.vb: OverclockGpuMaxVoltageOffsetSetV2(Double)
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockGet
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockGet
+  id: OverclockGpuLockGet
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: OverclockGpuLockGet()
+  nameWithType: IGCLOverclockHelper.OverclockGpuLockGet()
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockGet()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: OverclockGpuLockGet
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 115
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_oc_vf_pair_t OverclockGpuLockGet()
+    return:
+      type: IGCLWrapper.ctl_oc_vf_pair_t
+    content.vb: Public Function OverclockGpuLockGet() As ctl_oc_vf_pair_t
+  overload: IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockGet*
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockSet(IGCLWrapper.ctl_oc_vf_pair_t)
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockSet(IGCLWrapper.ctl_oc_vf_pair_t)
+  id: OverclockGpuLockSet(IGCLWrapper.ctl_oc_vf_pair_t)
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: OverclockGpuLockSet(ctl_oc_vf_pair_t)
+  nameWithType: IGCLOverclockHelper.OverclockGpuLockSet(ctl_oc_vf_pair_t)
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockSet(IGCLWrapper.ctl_oc_vf_pair_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: OverclockGpuLockSet
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 125
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public void OverclockGpuLockSet(ctl_oc_vf_pair_t pair)
+    parameters:
+    - id: pair
+      type: IGCLWrapper.ctl_oc_vf_pair_t
+    content.vb: Public Sub OverclockGpuLockSet(pair As ctl_oc_vf_pair_t)
+  overload: IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockSet*
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockVramFrequencyOffsetGet
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockVramFrequencyOffsetGet
+  id: OverclockVramFrequencyOffsetGet
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: OverclockVramFrequencyOffsetGet()
+  nameWithType: IGCLOverclockHelper.OverclockVramFrequencyOffsetGet()
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockVramFrequencyOffsetGet()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: OverclockVramFrequencyOffsetGet
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 142
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public double OverclockVramFrequencyOffsetGet()
+    return:
+      type: System.Double
+    content.vb: Public Function OverclockVramFrequencyOffsetGet() As Double
+  overload: IGCLWrapper.IGCLOverclockHelper.OverclockVramFrequencyOffsetGet*
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockVramFrequencyOffsetSet(System.Double)
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockVramFrequencyOffsetSet(System.Double)
+  id: OverclockVramFrequencyOffsetSet(System.Double)
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: OverclockVramFrequencyOffsetSet(double)
+  nameWithType: IGCLOverclockHelper.OverclockVramFrequencyOffsetSet(double)
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockVramFrequencyOffsetSet(double)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: OverclockVramFrequencyOffsetSet
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 152
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public void OverclockVramFrequencyOffsetSet(double offset)
+    parameters:
+    - id: offset
+      type: System.Double
+    content.vb: Public Sub OverclockVramFrequencyOffsetSet(offset As Double)
+  overload: IGCLWrapper.IGCLOverclockHelper.OverclockVramFrequencyOffsetSet*
+  nameWithType.vb: IGCLOverclockHelper.OverclockVramFrequencyOffsetSet(Double)
+  fullName.vb: IGCLWrapper.IGCLOverclockHelper.OverclockVramFrequencyOffsetSet(Double)
+  name.vb: OverclockVramFrequencyOffsetSet(Double)
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockVramVoltageOffsetGet
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockVramVoltageOffsetGet
+  id: OverclockVramVoltageOffsetGet
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: OverclockVramVoltageOffsetGet()
+  nameWithType: IGCLOverclockHelper.OverclockVramVoltageOffsetGet()
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockVramVoltageOffsetGet()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: OverclockVramVoltageOffsetGet
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 160
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public double OverclockVramVoltageOffsetGet()
+    return:
+      type: System.Double
+    content.vb: Public Function OverclockVramVoltageOffsetGet() As Double
+  overload: IGCLWrapper.IGCLOverclockHelper.OverclockVramVoltageOffsetGet*
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockVramVoltageOffsetSet(System.Double)
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockVramVoltageOffsetSet(System.Double)
+  id: OverclockVramVoltageOffsetSet(System.Double)
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: OverclockVramVoltageOffsetSet(double)
+  nameWithType: IGCLOverclockHelper.OverclockVramVoltageOffsetSet(double)
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockVramVoltageOffsetSet(double)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: OverclockVramVoltageOffsetSet
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 170
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public void OverclockVramVoltageOffsetSet(double voltage)
+    parameters:
+    - id: voltage
+      type: System.Double
+    content.vb: Public Sub OverclockVramVoltageOffsetSet(voltage As Double)
+  overload: IGCLWrapper.IGCLOverclockHelper.OverclockVramVoltageOffsetSet*
+  nameWithType.vb: IGCLOverclockHelper.OverclockVramVoltageOffsetSet(Double)
+  fullName.vb: IGCLWrapper.IGCLOverclockHelper.OverclockVramVoltageOffsetSet(Double)
+  name.vb: OverclockVramVoltageOffsetSet(Double)
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockVramMemSpeedLimitGetV2
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockVramMemSpeedLimitGetV2
+  id: OverclockVramMemSpeedLimitGetV2
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: OverclockVramMemSpeedLimitGetV2()
+  nameWithType: IGCLOverclockHelper.OverclockVramMemSpeedLimitGetV2()
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockVramMemSpeedLimitGetV2()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: OverclockVramMemSpeedLimitGetV2
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 178
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public double OverclockVramMemSpeedLimitGetV2()
+    return:
+      type: System.Double
+    content.vb: Public Function OverclockVramMemSpeedLimitGetV2() As Double
+  overload: IGCLWrapper.IGCLOverclockHelper.OverclockVramMemSpeedLimitGetV2*
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockVramMemSpeedLimitSetV2(System.Double)
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockVramMemSpeedLimitSetV2(System.Double)
+  id: OverclockVramMemSpeedLimitSetV2(System.Double)
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: OverclockVramMemSpeedLimitSetV2(double)
+  nameWithType: IGCLOverclockHelper.OverclockVramMemSpeedLimitSetV2(double)
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockVramMemSpeedLimitSetV2(double)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: OverclockVramMemSpeedLimitSetV2
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 188
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public void OverclockVramMemSpeedLimitSetV2(double speed)
+    parameters:
+    - id: speed
+      type: System.Double
+    content.vb: Public Sub OverclockVramMemSpeedLimitSetV2(speed As Double)
+  overload: IGCLWrapper.IGCLOverclockHelper.OverclockVramMemSpeedLimitSetV2*
+  nameWithType.vb: IGCLOverclockHelper.OverclockVramMemSpeedLimitSetV2(Double)
+  fullName.vb: IGCLWrapper.IGCLOverclockHelper.OverclockVramMemSpeedLimitSetV2(Double)
+  name.vb: OverclockVramMemSpeedLimitSetV2(Double)
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitGet
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitGet
+  id: OverclockPowerLimitGet
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: OverclockPowerLimitGet()
+  nameWithType: IGCLOverclockHelper.OverclockPowerLimitGet()
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitGet()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: OverclockPowerLimitGet
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 198
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public double OverclockPowerLimitGet()
+    return:
+      type: System.Double
+    content.vb: Public Function OverclockPowerLimitGet() As Double
+  overload: IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitGet*
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitSet(System.Double)
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitSet(System.Double)
+  id: OverclockPowerLimitSet(System.Double)
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: OverclockPowerLimitSet(double)
+  nameWithType: IGCLOverclockHelper.OverclockPowerLimitSet(double)
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitSet(double)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: OverclockPowerLimitSet
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 208
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public void OverclockPowerLimitSet(double limit)
+    parameters:
+    - id: limit
+      type: System.Double
+    content.vb: Public Sub OverclockPowerLimitSet(limit As Double)
+  overload: IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitSet*
+  nameWithType.vb: IGCLOverclockHelper.OverclockPowerLimitSet(Double)
+  fullName.vb: IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitSet(Double)
+  name.vb: OverclockPowerLimitSet(Double)
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitGetV2
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitGetV2
+  id: OverclockPowerLimitGetV2
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: OverclockPowerLimitGetV2()
+  nameWithType: IGCLOverclockHelper.OverclockPowerLimitGetV2()
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitGetV2()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: OverclockPowerLimitGetV2
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 216
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public double OverclockPowerLimitGetV2()
+    return:
+      type: System.Double
+    content.vb: Public Function OverclockPowerLimitGetV2() As Double
+  overload: IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitGetV2*
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitSetV2(System.Double)
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitSetV2(System.Double)
+  id: OverclockPowerLimitSetV2(System.Double)
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: OverclockPowerLimitSetV2(double)
+  nameWithType: IGCLOverclockHelper.OverclockPowerLimitSetV2(double)
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitSetV2(double)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: OverclockPowerLimitSetV2
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 226
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public void OverclockPowerLimitSetV2(double limit)
+    parameters:
+    - id: limit
+      type: System.Double
+    content.vb: Public Sub OverclockPowerLimitSetV2(limit As Double)
+  overload: IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitSetV2*
+  nameWithType.vb: IGCLOverclockHelper.OverclockPowerLimitSetV2(Double)
+  fullName.vb: IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitSetV2(Double)
+  name.vb: OverclockPowerLimitSetV2(Double)
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitGet
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitGet
+  id: OverclockTemperatureLimitGet
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: OverclockTemperatureLimitGet()
+  nameWithType: IGCLOverclockHelper.OverclockTemperatureLimitGet()
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitGet()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: OverclockTemperatureLimitGet
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 236
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public double OverclockTemperatureLimitGet()
+    return:
+      type: System.Double
+    content.vb: Public Function OverclockTemperatureLimitGet() As Double
+  overload: IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitGet*
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitSet(System.Double)
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitSet(System.Double)
+  id: OverclockTemperatureLimitSet(System.Double)
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: OverclockTemperatureLimitSet(double)
+  nameWithType: IGCLOverclockHelper.OverclockTemperatureLimitSet(double)
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitSet(double)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: OverclockTemperatureLimitSet
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 246
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public void OverclockTemperatureLimitSet(double value)
+    parameters:
+    - id: value
+      type: System.Double
+    content.vb: Public Sub OverclockTemperatureLimitSet(value As Double)
+  overload: IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitSet*
+  nameWithType.vb: IGCLOverclockHelper.OverclockTemperatureLimitSet(Double)
+  fullName.vb: IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitSet(Double)
+  name.vb: OverclockTemperatureLimitSet(Double)
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitGetV2
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitGetV2
+  id: OverclockTemperatureLimitGetV2
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: OverclockTemperatureLimitGetV2()
+  nameWithType: IGCLOverclockHelper.OverclockTemperatureLimitGetV2()
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitGetV2()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: OverclockTemperatureLimitGetV2
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 254
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public double OverclockTemperatureLimitGetV2()
+    return:
+      type: System.Double
+    content.vb: Public Function OverclockTemperatureLimitGetV2() As Double
+  overload: IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitGetV2*
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitSetV2(System.Double)
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitSetV2(System.Double)
+  id: OverclockTemperatureLimitSetV2(System.Double)
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: OverclockTemperatureLimitSetV2(double)
+  nameWithType: IGCLOverclockHelper.OverclockTemperatureLimitSetV2(double)
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitSetV2(double)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: OverclockTemperatureLimitSetV2
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 264
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public void OverclockTemperatureLimitSetV2(double value)
+    parameters:
+    - id: value
+      type: System.Double
+    content.vb: Public Sub OverclockTemperatureLimitSetV2(value As Double)
+  overload: IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitSetV2*
+  nameWithType.vb: IGCLOverclockHelper.OverclockTemperatureLimitSetV2(Double)
+  fullName.vb: IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitSetV2(Double)
+  name.vb: OverclockTemperatureLimitSetV2(Double)
+- uid: IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry
+  id: GetPowerTelemetry
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: GetPowerTelemetry()
+  nameWithType: IGCLOverclockHelper.GetPowerTelemetry()
+  fullName: IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetPowerTelemetry
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 273
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_power_telemetry_t GetPowerTelemetry()
+    return:
+      type: IGCLWrapper.ctl_power_telemetry_t
+    content.vb: Public Function GetPowerTelemetry() As ctl_power_telemetry_t
+  overload: IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry*
+- uid: IGCLWrapper.IGCLOverclockHelper.ResetToDefault
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.ResetToDefault
+  id: ResetToDefault
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: ResetToDefault()
+  nameWithType: IGCLOverclockHelper.ResetToDefault()
+  fullName: IGCLWrapper.IGCLOverclockHelper.ResetToDefault()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: ResetToDefault
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 283
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public void ResetToDefault()
+    content.vb: Public Sub ResetToDefault()
+  overload: IGCLWrapper.IGCLOverclockHelper.ResetToDefault*
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockReadVFCurve(IGCLWrapper.ctl_vf_curve_type_t,IGCLWrapper.ctl_vf_curve_details_t)
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockReadVFCurve(IGCLWrapper.ctl_vf_curve_type_t,IGCLWrapper.ctl_vf_curve_details_t)
+  id: OverclockReadVFCurve(IGCLWrapper.ctl_vf_curve_type_t,IGCLWrapper.ctl_vf_curve_details_t)
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: OverclockReadVFCurve(ctl_vf_curve_type_t, ctl_vf_curve_details_t)
+  nameWithType: IGCLOverclockHelper.OverclockReadVFCurve(ctl_vf_curve_type_t, ctl_vf_curve_details_t)
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockReadVFCurve(IGCLWrapper.ctl_vf_curve_type_t, IGCLWrapper.ctl_vf_curve_details_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: OverclockReadVFCurve
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 292
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_voltage_frequency_point_t[] OverclockReadVFCurve(ctl_vf_curve_type_t curveType, ctl_vf_curve_details_t detail)
+    parameters:
+    - id: curveType
+      type: IGCLWrapper.ctl_vf_curve_type_t
+    - id: detail
+      type: IGCLWrapper.ctl_vf_curve_details_t
+    return:
+      type: IGCLWrapper.ctl_voltage_frequency_point_t[]
+    content.vb: Public Function OverclockReadVFCurve(curveType As ctl_vf_curve_type_t, detail As ctl_vf_curve_details_t) As ctl_voltage_frequency_point_t()
+  overload: IGCLWrapper.IGCLOverclockHelper.OverclockReadVFCurve*
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockWriteCustomVFCurve(IGCLWrapper.ctl_voltage_frequency_point_t[])
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockWriteCustomVFCurve(IGCLWrapper.ctl_voltage_frequency_point_t[])
+  id: OverclockWriteCustomVFCurve(IGCLWrapper.ctl_voltage_frequency_point_t[])
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: OverclockWriteCustomVFCurve(ctl_voltage_frequency_point_t[])
+  nameWithType: IGCLOverclockHelper.OverclockWriteCustomVFCurve(ctl_voltage_frequency_point_t[])
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockWriteCustomVFCurve(IGCLWrapper.ctl_voltage_frequency_point_t[])
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: OverclockWriteCustomVFCurve
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 313
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public void OverclockWriteCustomVFCurve(ctl_voltage_frequency_point_t[] points)
+    parameters:
+    - id: points
+      type: IGCLWrapper.ctl_voltage_frequency_point_t[]
+    content.vb: Public Sub OverclockWriteCustomVFCurve(points As ctl_voltage_frequency_point_t())
+  overload: IGCLWrapper.IGCLOverclockHelper.OverclockWriteCustomVFCurve*
+  nameWithType.vb: IGCLOverclockHelper.OverclockWriteCustomVFCurve(ctl_voltage_frequency_point_t())
+  fullName.vb: IGCLWrapper.IGCLOverclockHelper.OverclockWriteCustomVFCurve(IGCLWrapper.ctl_voltage_frequency_point_t())
+  name.vb: OverclockWriteCustomVFCurve(ctl_voltage_frequency_point_t())
 - uid: IGCLWrapper.IGCLOverclockHelper.GetGpuFrequencyOffset
   commentId: M:IGCLWrapper.IGCLOverclockHelper.GetGpuFrequencyOffset
   id: GetGpuFrequencyOffset
@@ -126,7 +988,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetGpuFrequencyOffset
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 37
+    startLine: 330
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -154,7 +1016,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetGpuFrequencyOffset
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 47
+    startLine: 331
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -186,7 +1048,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetGpuVoltageOffset
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 55
+    startLine: 332
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -214,7 +1076,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetGpuVoltageOffset
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 65
+    startLine: 333
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -246,7 +1108,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetVramFrequencyOffset
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 73
+    startLine: 334
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -274,7 +1136,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetVramFrequencyOffset
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 83
+    startLine: 335
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -306,7 +1168,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetPowerLimit
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 91
+    startLine: 336
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -334,7 +1196,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetPowerLimit
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 101
+    startLine: 337
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -366,7 +1228,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetTemperatureLimit
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 109
+    startLine: 338
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -394,7 +1256,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetTemperatureLimit
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 119
+    startLine: 339
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -408,60 +1270,6 @@ items:
   nameWithType.vb: IGCLOverclockHelper.SetTemperatureLimit(Double)
   fullName.vb: IGCLWrapper.IGCLOverclockHelper.SetTemperatureLimit(Double)
   name.vb: SetTemperatureLimit(Double)
-- uid: IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry
-  commentId: M:IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry
-  id: GetPowerTelemetry
-  parent: IGCLWrapper.IGCLOverclockHelper
-  langs:
-  - csharp
-  - vb
-  name: GetPowerTelemetry()
-  nameWithType: IGCLOverclockHelper.GetPowerTelemetry()
-  fullName: IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetPowerTelemetry
-    path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 127
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public ctl_power_telemetry_t GetPowerTelemetry()
-    return:
-      type: IGCLWrapper.ctl_power_telemetry_t
-    content.vb: Public Function GetPowerTelemetry() As ctl_power_telemetry_t
-  overload: IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry*
-- uid: IGCLWrapper.IGCLOverclockHelper.ResetToDefault
-  commentId: M:IGCLWrapper.IGCLOverclockHelper.ResetToDefault
-  id: ResetToDefault
-  parent: IGCLWrapper.IGCLOverclockHelper
-  langs:
-  - csharp
-  - vb
-  name: ResetToDefault()
-  nameWithType: IGCLOverclockHelper.ResetToDefault()
-  fullName: IGCLWrapper.IGCLOverclockHelper.ResetToDefault()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: ResetToDefault
-    path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 137
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public void ResetToDefault()
-    content.vb: Public Sub ResetToDefault()
-  overload: IGCLWrapper.IGCLOverclockHelper.ResetToDefault*
 - uid: IGCLWrapper.IGCLOverclockHelper.Dispose
   commentId: M:IGCLWrapper.IGCLOverclockHelper.Dispose
   id: Dispose
@@ -480,7 +1288,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 151
+    startLine: 348
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -739,12 +1547,12 @@ references:
   name: SetWaiver
   nameWithType: IGCLOverclockHelper.SetWaiver
   fullName: IGCLWrapper.IGCLOverclockHelper.SetWaiver
-- uid: IGCLWrapper.IGCLOverclockHelper.GetGpuFrequencyOffset*
-  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.GetGpuFrequencyOffset
-  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_GetGpuFrequencyOffset
-  name: GetGpuFrequencyOffset
-  nameWithType: IGCLOverclockHelper.GetGpuFrequencyOffset
-  fullName: IGCLWrapper.IGCLOverclockHelper.GetGpuFrequencyOffset
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetGet*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetGet
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_OverclockGpuFrequencyOffsetGet
+  name: OverclockGpuFrequencyOffsetGet
+  nameWithType: IGCLOverclockHelper.OverclockGpuFrequencyOffsetGet
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetGet
 - uid: System.Double
   commentId: T:System.Double
   parent: System
@@ -756,6 +1564,223 @@ references:
   nameWithType.vb: Double
   fullName.vb: Double
   name.vb: Double
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetSet*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetSet
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_OverclockGpuFrequencyOffsetSet_System_Double_
+  name: OverclockGpuFrequencyOffsetSet
+  nameWithType: IGCLOverclockHelper.OverclockGpuFrequencyOffsetSet
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetSet
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetGetV2*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetGetV2
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_OverclockGpuFrequencyOffsetGetV2
+  name: OverclockGpuFrequencyOffsetGetV2
+  nameWithType: IGCLOverclockHelper.OverclockGpuFrequencyOffsetGetV2
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetGetV2
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetSetV2*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetSetV2
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_OverclockGpuFrequencyOffsetSetV2_System_Double_
+  name: OverclockGpuFrequencyOffsetSetV2
+  nameWithType: IGCLOverclockHelper.OverclockGpuFrequencyOffsetSetV2
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetSetV2
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockGpuVoltageOffsetGet*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.OverclockGpuVoltageOffsetGet
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_OverclockGpuVoltageOffsetGet
+  name: OverclockGpuVoltageOffsetGet
+  nameWithType: IGCLOverclockHelper.OverclockGpuVoltageOffsetGet
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockGpuVoltageOffsetGet
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockGpuVoltageOffsetSet*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.OverclockGpuVoltageOffsetSet
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_OverclockGpuVoltageOffsetSet_System_Double_
+  name: OverclockGpuVoltageOffsetSet
+  nameWithType: IGCLOverclockHelper.OverclockGpuVoltageOffsetSet
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockGpuVoltageOffsetSet
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockGpuMaxVoltageOffsetGetV2*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.OverclockGpuMaxVoltageOffsetGetV2
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_OverclockGpuMaxVoltageOffsetGetV2
+  name: OverclockGpuMaxVoltageOffsetGetV2
+  nameWithType: IGCLOverclockHelper.OverclockGpuMaxVoltageOffsetGetV2
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockGpuMaxVoltageOffsetGetV2
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockGpuMaxVoltageOffsetSetV2*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.OverclockGpuMaxVoltageOffsetSetV2
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_OverclockGpuMaxVoltageOffsetSetV2_System_Double_
+  name: OverclockGpuMaxVoltageOffsetSetV2
+  nameWithType: IGCLOverclockHelper.OverclockGpuMaxVoltageOffsetSetV2
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockGpuMaxVoltageOffsetSetV2
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockGet*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockGet
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_OverclockGpuLockGet
+  name: OverclockGpuLockGet
+  nameWithType: IGCLOverclockHelper.OverclockGpuLockGet
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockGet
+- uid: IGCLWrapper.ctl_oc_vf_pair_t
+  commentId: T:IGCLWrapper.ctl_oc_vf_pair_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_oc_vf_pair_t.html
+  name: ctl_oc_vf_pair_t
+  nameWithType: ctl_oc_vf_pair_t
+  fullName: IGCLWrapper.ctl_oc_vf_pair_t
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockSet*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockSet
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_OverclockGpuLockSet_IGCLWrapper_ctl_oc_vf_pair_t_
+  name: OverclockGpuLockSet
+  nameWithType: IGCLOverclockHelper.OverclockGpuLockSet
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockSet
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockVramFrequencyOffsetGet*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.OverclockVramFrequencyOffsetGet
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_OverclockVramFrequencyOffsetGet
+  name: OverclockVramFrequencyOffsetGet
+  nameWithType: IGCLOverclockHelper.OverclockVramFrequencyOffsetGet
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockVramFrequencyOffsetGet
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockVramFrequencyOffsetSet*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.OverclockVramFrequencyOffsetSet
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_OverclockVramFrequencyOffsetSet_System_Double_
+  name: OverclockVramFrequencyOffsetSet
+  nameWithType: IGCLOverclockHelper.OverclockVramFrequencyOffsetSet
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockVramFrequencyOffsetSet
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockVramVoltageOffsetGet*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.OverclockVramVoltageOffsetGet
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_OverclockVramVoltageOffsetGet
+  name: OverclockVramVoltageOffsetGet
+  nameWithType: IGCLOverclockHelper.OverclockVramVoltageOffsetGet
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockVramVoltageOffsetGet
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockVramVoltageOffsetSet*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.OverclockVramVoltageOffsetSet
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_OverclockVramVoltageOffsetSet_System_Double_
+  name: OverclockVramVoltageOffsetSet
+  nameWithType: IGCLOverclockHelper.OverclockVramVoltageOffsetSet
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockVramVoltageOffsetSet
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockVramMemSpeedLimitGetV2*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.OverclockVramMemSpeedLimitGetV2
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_OverclockVramMemSpeedLimitGetV2
+  name: OverclockVramMemSpeedLimitGetV2
+  nameWithType: IGCLOverclockHelper.OverclockVramMemSpeedLimitGetV2
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockVramMemSpeedLimitGetV2
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockVramMemSpeedLimitSetV2*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.OverclockVramMemSpeedLimitSetV2
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_OverclockVramMemSpeedLimitSetV2_System_Double_
+  name: OverclockVramMemSpeedLimitSetV2
+  nameWithType: IGCLOverclockHelper.OverclockVramMemSpeedLimitSetV2
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockVramMemSpeedLimitSetV2
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitGet*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitGet
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_OverclockPowerLimitGet
+  name: OverclockPowerLimitGet
+  nameWithType: IGCLOverclockHelper.OverclockPowerLimitGet
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitGet
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitSet*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitSet
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_OverclockPowerLimitSet_System_Double_
+  name: OverclockPowerLimitSet
+  nameWithType: IGCLOverclockHelper.OverclockPowerLimitSet
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitSet
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitGetV2*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitGetV2
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_OverclockPowerLimitGetV2
+  name: OverclockPowerLimitGetV2
+  nameWithType: IGCLOverclockHelper.OverclockPowerLimitGetV2
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitGetV2
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitSetV2*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitSetV2
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_OverclockPowerLimitSetV2_System_Double_
+  name: OverclockPowerLimitSetV2
+  nameWithType: IGCLOverclockHelper.OverclockPowerLimitSetV2
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitSetV2
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitGet*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitGet
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_OverclockTemperatureLimitGet
+  name: OverclockTemperatureLimitGet
+  nameWithType: IGCLOverclockHelper.OverclockTemperatureLimitGet
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitGet
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitSet*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitSet
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_OverclockTemperatureLimitSet_System_Double_
+  name: OverclockTemperatureLimitSet
+  nameWithType: IGCLOverclockHelper.OverclockTemperatureLimitSet
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitSet
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitGetV2*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitGetV2
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_OverclockTemperatureLimitGetV2
+  name: OverclockTemperatureLimitGetV2
+  nameWithType: IGCLOverclockHelper.OverclockTemperatureLimitGetV2
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitGetV2
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitSetV2*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitSetV2
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_OverclockTemperatureLimitSetV2_System_Double_
+  name: OverclockTemperatureLimitSetV2
+  nameWithType: IGCLOverclockHelper.OverclockTemperatureLimitSetV2
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitSetV2
+- uid: IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_GetPowerTelemetry
+  name: GetPowerTelemetry
+  nameWithType: IGCLOverclockHelper.GetPowerTelemetry
+  fullName: IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry
+- uid: IGCLWrapper.ctl_power_telemetry_t
+  commentId: T:IGCLWrapper.ctl_power_telemetry_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_power_telemetry_t.html
+  name: ctl_power_telemetry_t
+  nameWithType: ctl_power_telemetry_t
+  fullName: IGCLWrapper.ctl_power_telemetry_t
+- uid: IGCLWrapper.IGCLOverclockHelper.ResetToDefault*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.ResetToDefault
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_ResetToDefault
+  name: ResetToDefault
+  nameWithType: IGCLOverclockHelper.ResetToDefault
+  fullName: IGCLWrapper.IGCLOverclockHelper.ResetToDefault
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockReadVFCurve*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.OverclockReadVFCurve
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_OverclockReadVFCurve_IGCLWrapper_ctl_vf_curve_type_t_IGCLWrapper_ctl_vf_curve_details_t_
+  name: OverclockReadVFCurve
+  nameWithType: IGCLOverclockHelper.OverclockReadVFCurve
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockReadVFCurve
+- uid: IGCLWrapper.ctl_vf_curve_type_t
+  commentId: T:IGCLWrapper.ctl_vf_curve_type_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_vf_curve_type_t.html
+  name: ctl_vf_curve_type_t
+  nameWithType: ctl_vf_curve_type_t
+  fullName: IGCLWrapper.ctl_vf_curve_type_t
+- uid: IGCLWrapper.ctl_vf_curve_details_t
+  commentId: T:IGCLWrapper.ctl_vf_curve_details_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_vf_curve_details_t.html
+  name: ctl_vf_curve_details_t
+  nameWithType: ctl_vf_curve_details_t
+  fullName: IGCLWrapper.ctl_vf_curve_details_t
+- uid: IGCLWrapper.ctl_voltage_frequency_point_t[]
+  isExternal: true
+  href: IGCLWrapper.ctl_voltage_frequency_point_t.html
+  name: ctl_voltage_frequency_point_t[]
+  nameWithType: ctl_voltage_frequency_point_t[]
+  fullName: IGCLWrapper.ctl_voltage_frequency_point_t[]
+  nameWithType.vb: ctl_voltage_frequency_point_t()
+  fullName.vb: IGCLWrapper.ctl_voltage_frequency_point_t()
+  name.vb: ctl_voltage_frequency_point_t()
+  spec.csharp:
+  - uid: IGCLWrapper.ctl_voltage_frequency_point_t
+    name: ctl_voltage_frequency_point_t
+    href: IGCLWrapper.ctl_voltage_frequency_point_t.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: IGCLWrapper.ctl_voltage_frequency_point_t
+    name: ctl_voltage_frequency_point_t
+    href: IGCLWrapper.ctl_voltage_frequency_point_t.html
+  - name: (
+  - name: )
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockWriteCustomVFCurve*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.OverclockWriteCustomVFCurve
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_OverclockWriteCustomVFCurve_IGCLWrapper_ctl_voltage_frequency_point_t___
+  name: OverclockWriteCustomVFCurve
+  nameWithType: IGCLOverclockHelper.OverclockWriteCustomVFCurve
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockWriteCustomVFCurve
+- uid: IGCLWrapper.IGCLOverclockHelper.GetGpuFrequencyOffset*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.GetGpuFrequencyOffset
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_GetGpuFrequencyOffset
+  name: GetGpuFrequencyOffset
+  nameWithType: IGCLOverclockHelper.GetGpuFrequencyOffset
+  fullName: IGCLWrapper.IGCLOverclockHelper.GetGpuFrequencyOffset
 - uid: IGCLWrapper.IGCLOverclockHelper.SetGpuFrequencyOffset*
   commentId: Overload:IGCLWrapper.IGCLOverclockHelper.SetGpuFrequencyOffset
   href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_SetGpuFrequencyOffset_System_Double_
@@ -810,25 +1835,6 @@ references:
   name: SetTemperatureLimit
   nameWithType: IGCLOverclockHelper.SetTemperatureLimit
   fullName: IGCLWrapper.IGCLOverclockHelper.SetTemperatureLimit
-- uid: IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry*
-  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry
-  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_GetPowerTelemetry
-  name: GetPowerTelemetry
-  nameWithType: IGCLOverclockHelper.GetPowerTelemetry
-  fullName: IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry
-- uid: IGCLWrapper.ctl_power_telemetry_t
-  commentId: T:IGCLWrapper.ctl_power_telemetry_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_power_telemetry_t.html
-  name: ctl_power_telemetry_t
-  nameWithType: ctl_power_telemetry_t
-  fullName: IGCLWrapper.ctl_power_telemetry_t
-- uid: IGCLWrapper.IGCLOverclockHelper.ResetToDefault*
-  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.ResetToDefault
-  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_ResetToDefault
-  name: ResetToDefault
-  nameWithType: IGCLOverclockHelper.ResetToDefault
-  fullName: IGCLWrapper.IGCLOverclockHelper.ResetToDefault
 - uid: IGCLWrapper.IGCLOverclockHelper.Dispose*
   commentId: Overload:IGCLWrapper.IGCLOverclockHelper.Dispose
   href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_Dispose

@@ -6,9 +6,8 @@ items:
   parent: IGCLWrapper
   children:
   - IGCLWrapper.IGCLMediaHelper.Dispose
-  - IGCLWrapper.IGCLMediaHelper.GetCapabilities
-  - IGCLWrapper.IGCLMediaHelper.GetFeature(IGCLWrapper.ctl_video_processing_feature_t)
-  - IGCLWrapper.IGCLMediaHelper.SetFeature(IGCLWrapper.ctl_video_processing_feature_getset_t)
+  - IGCLWrapper.IGCLMediaHelper.GetSetVideoProcessingFeature(IGCLWrapper.ctl_video_processing_feature_getset_t)
+  - IGCLWrapper.IGCLMediaHelper.GetSupportedVideoProcessingCapabilities
   langs:
   - csharp
   - vb
@@ -43,94 +42,65 @@ items:
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: IGCLWrapper.IGCLMediaHelper.GetCapabilities
-  commentId: M:IGCLWrapper.IGCLMediaHelper.GetCapabilities
-  id: GetCapabilities
+- uid: IGCLWrapper.IGCLMediaHelper.GetSupportedVideoProcessingCapabilities
+  commentId: M:IGCLWrapper.IGCLMediaHelper.GetSupportedVideoProcessingCapabilities
+  id: GetSupportedVideoProcessingCapabilities
   parent: IGCLWrapper.IGCLMediaHelper
   langs:
   - csharp
   - vb
-  name: GetCapabilities()
-  nameWithType: IGCLMediaHelper.GetCapabilities()
-  fullName: IGCLWrapper.IGCLMediaHelper.GetCapabilities()
+  name: GetSupportedVideoProcessingCapabilities()
+  nameWithType: IGCLMediaHelper.GetSupportedVideoProcessingCapabilities()
+  fullName: IGCLWrapper.IGCLMediaHelper.GetSupportedVideoProcessingCapabilities()
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLMediaHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetCapabilities
+    id: GetSupportedVideoProcessingCapabilities
     path: ../IGCLWrapper/IGCLMediaHelper.cs
     startLine: 19
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public ctl_video_processing_feature_caps_t GetCapabilities()
+    content: public ctl_video_processing_feature_caps_t GetSupportedVideoProcessingCapabilities()
     return:
       type: IGCLWrapper.ctl_video_processing_feature_caps_t
-    content.vb: Public Function GetCapabilities() As ctl_video_processing_feature_caps_t
-  overload: IGCLWrapper.IGCLMediaHelper.GetCapabilities*
-- uid: IGCLWrapper.IGCLMediaHelper.GetFeature(IGCLWrapper.ctl_video_processing_feature_t)
-  commentId: M:IGCLWrapper.IGCLMediaHelper.GetFeature(IGCLWrapper.ctl_video_processing_feature_t)
-  id: GetFeature(IGCLWrapper.ctl_video_processing_feature_t)
+    content.vb: Public Function GetSupportedVideoProcessingCapabilities() As ctl_video_processing_feature_caps_t
+  overload: IGCLWrapper.IGCLMediaHelper.GetSupportedVideoProcessingCapabilities*
+- uid: IGCLWrapper.IGCLMediaHelper.GetSetVideoProcessingFeature(IGCLWrapper.ctl_video_processing_feature_getset_t)
+  commentId: M:IGCLWrapper.IGCLMediaHelper.GetSetVideoProcessingFeature(IGCLWrapper.ctl_video_processing_feature_getset_t)
+  id: GetSetVideoProcessingFeature(IGCLWrapper.ctl_video_processing_feature_getset_t)
   parent: IGCLWrapper.IGCLMediaHelper
   langs:
   - csharp
   - vb
-  name: GetFeature(ctl_video_processing_feature_t)
-  nameWithType: IGCLMediaHelper.GetFeature(ctl_video_processing_feature_t)
-  fullName: IGCLWrapper.IGCLMediaHelper.GetFeature(IGCLWrapper.ctl_video_processing_feature_t)
+  name: GetSetVideoProcessingFeature(ctl_video_processing_feature_getset_t)
+  nameWithType: IGCLMediaHelper.GetSetVideoProcessingFeature(ctl_video_processing_feature_getset_t)
+  fullName: IGCLWrapper.IGCLMediaHelper.GetSetVideoProcessingFeature(IGCLWrapper.ctl_video_processing_feature_getset_t)
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLMediaHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetFeature
+    id: GetSetVideoProcessingFeature
     path: ../IGCLWrapper/IGCLMediaHelper.cs
     startLine: 29
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public ctl_video_processing_feature_getset_t GetFeature(ctl_video_processing_feature_t feature)
+    content: public ctl_video_processing_feature_getset_t GetSetVideoProcessingFeature(ctl_video_processing_feature_getset_t featureGetSet)
     parameters:
-    - id: feature
-      type: IGCLWrapper.ctl_video_processing_feature_t
+    - id: featureGetSet
+      type: IGCLWrapper.ctl_video_processing_feature_getset_t
     return:
       type: IGCLWrapper.ctl_video_processing_feature_getset_t
-    content.vb: Public Function GetFeature(feature As ctl_video_processing_feature_t) As ctl_video_processing_feature_getset_t
-  overload: IGCLWrapper.IGCLMediaHelper.GetFeature*
-- uid: IGCLWrapper.IGCLMediaHelper.SetFeature(IGCLWrapper.ctl_video_processing_feature_getset_t)
-  commentId: M:IGCLWrapper.IGCLMediaHelper.SetFeature(IGCLWrapper.ctl_video_processing_feature_getset_t)
-  id: SetFeature(IGCLWrapper.ctl_video_processing_feature_getset_t)
-  parent: IGCLWrapper.IGCLMediaHelper
-  langs:
-  - csharp
-  - vb
-  name: SetFeature(ctl_video_processing_feature_getset_t)
-  nameWithType: IGCLMediaHelper.SetFeature(ctl_video_processing_feature_getset_t)
-  fullName: IGCLWrapper.IGCLMediaHelper.SetFeature(IGCLWrapper.ctl_video_processing_feature_getset_t)
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLMediaHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: SetFeature
-    path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 40
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public void SetFeature(ctl_video_processing_feature_getset_t feature)
-    parameters:
-    - id: feature
-      type: IGCLWrapper.ctl_video_processing_feature_getset_t
-    content.vb: Public Sub SetFeature(feature As ctl_video_processing_feature_getset_t)
-  overload: IGCLWrapper.IGCLMediaHelper.SetFeature*
+    content.vb: Public Function GetSetVideoProcessingFeature(featureGetSet As ctl_video_processing_feature_getset_t) As ctl_video_processing_feature_getset_t
+  overload: IGCLWrapper.IGCLMediaHelper.GetSetVideoProcessingFeature*
 - uid: IGCLWrapper.IGCLMediaHelper.Dispose
   commentId: M:IGCLWrapper.IGCLMediaHelper.Dispose
   id: Dispose
@@ -149,7 +119,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 55
+    startLine: 44
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -389,12 +359,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: IGCLWrapper.IGCLMediaHelper.GetCapabilities*
-  commentId: Overload:IGCLWrapper.IGCLMediaHelper.GetCapabilities
-  href: IGCLWrapper.IGCLMediaHelper.html#IGCLWrapper_IGCLMediaHelper_GetCapabilities
-  name: GetCapabilities
-  nameWithType: IGCLMediaHelper.GetCapabilities
-  fullName: IGCLWrapper.IGCLMediaHelper.GetCapabilities
+- uid: IGCLWrapper.IGCLMediaHelper.GetSupportedVideoProcessingCapabilities*
+  commentId: Overload:IGCLWrapper.IGCLMediaHelper.GetSupportedVideoProcessingCapabilities
+  href: IGCLWrapper.IGCLMediaHelper.html#IGCLWrapper_IGCLMediaHelper_GetSupportedVideoProcessingCapabilities
+  name: GetSupportedVideoProcessingCapabilities
+  nameWithType: IGCLMediaHelper.GetSupportedVideoProcessingCapabilities
+  fullName: IGCLWrapper.IGCLMediaHelper.GetSupportedVideoProcessingCapabilities
 - uid: IGCLWrapper.ctl_video_processing_feature_caps_t
   commentId: T:IGCLWrapper.ctl_video_processing_feature_caps_t
   parent: IGCLWrapper
@@ -402,19 +372,12 @@ references:
   name: ctl_video_processing_feature_caps_t
   nameWithType: ctl_video_processing_feature_caps_t
   fullName: IGCLWrapper.ctl_video_processing_feature_caps_t
-- uid: IGCLWrapper.IGCLMediaHelper.GetFeature*
-  commentId: Overload:IGCLWrapper.IGCLMediaHelper.GetFeature
-  href: IGCLWrapper.IGCLMediaHelper.html#IGCLWrapper_IGCLMediaHelper_GetFeature_IGCLWrapper_ctl_video_processing_feature_t_
-  name: GetFeature
-  nameWithType: IGCLMediaHelper.GetFeature
-  fullName: IGCLWrapper.IGCLMediaHelper.GetFeature
-- uid: IGCLWrapper.ctl_video_processing_feature_t
-  commentId: T:IGCLWrapper.ctl_video_processing_feature_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_video_processing_feature_t.html
-  name: ctl_video_processing_feature_t
-  nameWithType: ctl_video_processing_feature_t
-  fullName: IGCLWrapper.ctl_video_processing_feature_t
+- uid: IGCLWrapper.IGCLMediaHelper.GetSetVideoProcessingFeature*
+  commentId: Overload:IGCLWrapper.IGCLMediaHelper.GetSetVideoProcessingFeature
+  href: IGCLWrapper.IGCLMediaHelper.html#IGCLWrapper_IGCLMediaHelper_GetSetVideoProcessingFeature_IGCLWrapper_ctl_video_processing_feature_getset_t_
+  name: GetSetVideoProcessingFeature
+  nameWithType: IGCLMediaHelper.GetSetVideoProcessingFeature
+  fullName: IGCLWrapper.IGCLMediaHelper.GetSetVideoProcessingFeature
 - uid: IGCLWrapper.ctl_video_processing_feature_getset_t
   commentId: T:IGCLWrapper.ctl_video_processing_feature_getset_t
   parent: IGCLWrapper
@@ -422,12 +385,6 @@ references:
   name: ctl_video_processing_feature_getset_t
   nameWithType: ctl_video_processing_feature_getset_t
   fullName: IGCLWrapper.ctl_video_processing_feature_getset_t
-- uid: IGCLWrapper.IGCLMediaHelper.SetFeature*
-  commentId: Overload:IGCLWrapper.IGCLMediaHelper.SetFeature
-  href: IGCLWrapper.IGCLMediaHelper.html#IGCLWrapper_IGCLMediaHelper_SetFeature_IGCLWrapper_ctl_video_processing_feature_getset_t_
-  name: SetFeature
-  nameWithType: IGCLMediaHelper.SetFeature
-  fullName: IGCLWrapper.IGCLMediaHelper.SetFeature
 - uid: IGCLWrapper.IGCLMediaHelper.Dispose*
   commentId: Overload:IGCLWrapper.IGCLMediaHelper.Dispose
   href: IGCLWrapper.IGCLMediaHelper.html#IGCLWrapper_IGCLMediaHelper_Dispose

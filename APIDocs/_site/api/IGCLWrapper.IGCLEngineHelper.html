@@ -183,41 +183,10 @@ Class IGCLEngineHelper  <a class="header-action link-secondary" title="View sour
 
 
 
-  <a id="IGCLWrapper_IGCLEngineHelper_EnumerateEngines_" data-uid="IGCLWrapper.IGCLEngineHelper.EnumerateEngines*"></a>
+  <a id="IGCLWrapper_IGCLEngineHelper_EngineGetActivity_" data-uid="IGCLWrapper.IGCLEngineHelper.EngineGetActivity*"></a>
 
-  <h3 id="IGCLWrapper_IGCLEngineHelper_EnumerateEngines" data-uid="IGCLWrapper.IGCLEngineHelper.EnumerateEngines">
-  EnumerateEngines()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLEngineHelper.cs/#L21"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;nint&gt; EnumerateEngines()</code></pre>
-  </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="IGCLWrapper_IGCLEngineHelper_GetActivity_" data-uid="IGCLWrapper.IGCLEngineHelper.GetActivity*"></a>
-
-  <h3 id="IGCLWrapper_IGCLEngineHelper_GetActivity_System_IntPtr_" data-uid="IGCLWrapper.IGCLEngineHelper.GetActivity(System.IntPtr)">
-  GetActivity(nint)
+  <h3 id="IGCLWrapper_IGCLEngineHelper_EngineGetActivity_System_IntPtr_" data-uid="IGCLWrapper.IGCLEngineHelper.EngineGetActivity(System.IntPtr)">
+  EngineGetActivity(nint)
   <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLEngineHelper.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -225,7 +194,7 @@ Class IGCLEngineHelper  <a class="header-action link-secondary" title="View sour
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_engine_stats_t GetActivity(nint engineHandle)</code></pre>
+    <pre><code class="lang-csharp hljs">public ctl_engine_stats_t EngineGetActivity(nint engineHandle)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -250,10 +219,10 @@ Class IGCLEngineHelper  <a class="header-action link-secondary" title="View sour
 
 
 
-  <a id="IGCLWrapper_IGCLEngineHelper_GetProperties_" data-uid="IGCLWrapper.IGCLEngineHelper.GetProperties*"></a>
+  <a id="IGCLWrapper_IGCLEngineHelper_EngineGetProperties_" data-uid="IGCLWrapper.IGCLEngineHelper.EngineGetProperties*"></a>
 
-  <h3 id="IGCLWrapper_IGCLEngineHelper_GetProperties_System_IntPtr_" data-uid="IGCLWrapper.IGCLEngineHelper.GetProperties(System.IntPtr)">
-  GetProperties(nint)
+  <h3 id="IGCLWrapper_IGCLEngineHelper_EngineGetProperties_System_IntPtr_" data-uid="IGCLWrapper.IGCLEngineHelper.EngineGetProperties(System.IntPtr)">
+  EngineGetProperties(nint)
   <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLEngineHelper.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -261,7 +230,7 @@ Class IGCLEngineHelper  <a class="header-action link-secondary" title="View sour
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_engine_properties_t GetProperties(nint engineHandle)</code></pre>
+    <pre><code class="lang-csharp hljs">public ctl_engine_properties_t EngineGetProperties(nint engineHandle)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -273,6 +242,37 @@ Class IGCLEngineHelper  <a class="header-action link-secondary" title="View sour
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="IGCLWrapper.ctl_engine_properties_t.html">ctl_engine_properties_t</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_IGCLEngineHelper_EnumEngineGroups_" data-uid="IGCLWrapper.IGCLEngineHelper.EnumEngineGroups*"></a>
+
+  <h3 id="IGCLWrapper_IGCLEngineHelper_EnumEngineGroups" data-uid="IGCLWrapper.IGCLEngineHelper.EnumEngineGroups">
+  EnumEngineGroups()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLEngineHelper.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;nint&gt; EnumEngineGroups()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a>&gt;</dt>
     <dd></dd>
   </dl>
 

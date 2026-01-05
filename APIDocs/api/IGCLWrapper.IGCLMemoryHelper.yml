@@ -6,10 +6,10 @@ items:
   parent: IGCLWrapper
   children:
   - IGCLWrapper.IGCLMemoryHelper.Dispose
-  - IGCLWrapper.IGCLMemoryHelper.EnumerateMemoryModules
-  - IGCLWrapper.IGCLMemoryHelper.GetBandwidth(System.IntPtr)
-  - IGCLWrapper.IGCLMemoryHelper.GetProperties(System.IntPtr)
-  - IGCLWrapper.IGCLMemoryHelper.GetState(System.IntPtr)
+  - IGCLWrapper.IGCLMemoryHelper.EnumMemoryModules
+  - IGCLWrapper.IGCLMemoryHelper.MemoryGetBandwidth(System.IntPtr)
+  - IGCLWrapper.IGCLMemoryHelper.MemoryGetProperties(System.IntPtr)
+  - IGCLWrapper.IGCLMemoryHelper.MemoryGetState(System.IntPtr)
   langs:
   - csharp
   - vb
@@ -44,136 +44,136 @@ items:
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: IGCLWrapper.IGCLMemoryHelper.EnumerateMemoryModules
-  commentId: M:IGCLWrapper.IGCLMemoryHelper.EnumerateMemoryModules
-  id: EnumerateMemoryModules
+- uid: IGCLWrapper.IGCLMemoryHelper.EnumMemoryModules
+  commentId: M:IGCLWrapper.IGCLMemoryHelper.EnumMemoryModules
+  id: EnumMemoryModules
   parent: IGCLWrapper.IGCLMemoryHelper
   langs:
   - csharp
   - vb
-  name: EnumerateMemoryModules()
-  nameWithType: IGCLMemoryHelper.EnumerateMemoryModules()
-  fullName: IGCLWrapper.IGCLMemoryHelper.EnumerateMemoryModules()
+  name: EnumMemoryModules()
+  nameWithType: IGCLMemoryHelper.EnumMemoryModules()
+  fullName: IGCLWrapper.IGCLMemoryHelper.EnumMemoryModules()
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLMemoryHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: EnumerateMemoryModules
+    id: EnumMemoryModules
     path: ../IGCLWrapper/IGCLMemoryHelper.cs
     startLine: 20
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public IReadOnlyList<nint> EnumerateMemoryModules()
+    content: public IReadOnlyList<nint> EnumMemoryModules()
     return:
       type: System.Collections.Generic.IReadOnlyList{System.IntPtr}
-    content.vb: Public Function EnumerateMemoryModules() As IReadOnlyList(Of IntPtr)
-  overload: IGCLWrapper.IGCLMemoryHelper.EnumerateMemoryModules*
-- uid: IGCLWrapper.IGCLMemoryHelper.GetProperties(System.IntPtr)
-  commentId: M:IGCLWrapper.IGCLMemoryHelper.GetProperties(System.IntPtr)
-  id: GetProperties(System.IntPtr)
+    content.vb: Public Function EnumMemoryModules() As IReadOnlyList(Of IntPtr)
+  overload: IGCLWrapper.IGCLMemoryHelper.EnumMemoryModules*
+- uid: IGCLWrapper.IGCLMemoryHelper.MemoryGetProperties(System.IntPtr)
+  commentId: M:IGCLWrapper.IGCLMemoryHelper.MemoryGetProperties(System.IntPtr)
+  id: MemoryGetProperties(System.IntPtr)
   parent: IGCLWrapper.IGCLMemoryHelper
   langs:
   - csharp
   - vb
-  name: GetProperties(nint)
-  nameWithType: IGCLMemoryHelper.GetProperties(nint)
-  fullName: IGCLWrapper.IGCLMemoryHelper.GetProperties(nint)
+  name: MemoryGetProperties(nint)
+  nameWithType: IGCLMemoryHelper.MemoryGetProperties(nint)
+  fullName: IGCLWrapper.IGCLMemoryHelper.MemoryGetProperties(nint)
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLMemoryHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetProperties
+    id: MemoryGetProperties
     path: ../IGCLWrapper/IGCLMemoryHelper.cs
     startLine: 26
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public ctl_mem_properties_t GetProperties(nint memoryHandle)
+    content: public ctl_mem_properties_t MemoryGetProperties(nint memoryHandle)
     parameters:
     - id: memoryHandle
       type: System.IntPtr
     return:
       type: IGCLWrapper.ctl_mem_properties_t
-    content.vb: Public Function GetProperties(memoryHandle As IntPtr) As ctl_mem_properties_t
-  overload: IGCLWrapper.IGCLMemoryHelper.GetProperties*
-  nameWithType.vb: IGCLMemoryHelper.GetProperties(IntPtr)
-  fullName.vb: IGCLWrapper.IGCLMemoryHelper.GetProperties(System.IntPtr)
-  name.vb: GetProperties(IntPtr)
-- uid: IGCLWrapper.IGCLMemoryHelper.GetState(System.IntPtr)
-  commentId: M:IGCLWrapper.IGCLMemoryHelper.GetState(System.IntPtr)
-  id: GetState(System.IntPtr)
+    content.vb: Public Function MemoryGetProperties(memoryHandle As IntPtr) As ctl_mem_properties_t
+  overload: IGCLWrapper.IGCLMemoryHelper.MemoryGetProperties*
+  nameWithType.vb: IGCLMemoryHelper.MemoryGetProperties(IntPtr)
+  fullName.vb: IGCLWrapper.IGCLMemoryHelper.MemoryGetProperties(System.IntPtr)
+  name.vb: MemoryGetProperties(IntPtr)
+- uid: IGCLWrapper.IGCLMemoryHelper.MemoryGetState(System.IntPtr)
+  commentId: M:IGCLWrapper.IGCLMemoryHelper.MemoryGetState(System.IntPtr)
+  id: MemoryGetState(System.IntPtr)
   parent: IGCLWrapper.IGCLMemoryHelper
   langs:
   - csharp
   - vb
-  name: GetState(nint)
-  nameWithType: IGCLMemoryHelper.GetState(nint)
-  fullName: IGCLWrapper.IGCLMemoryHelper.GetState(nint)
+  name: MemoryGetState(nint)
+  nameWithType: IGCLMemoryHelper.MemoryGetState(nint)
+  fullName: IGCLWrapper.IGCLMemoryHelper.MemoryGetState(nint)
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLMemoryHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetState
+    id: MemoryGetState
     path: ../IGCLWrapper/IGCLMemoryHelper.cs
     startLine: 36
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public ctl_mem_state_t GetState(nint memoryHandle)
+    content: public ctl_mem_state_t MemoryGetState(nint memoryHandle)
     parameters:
     - id: memoryHandle
       type: System.IntPtr
     return:
       type: IGCLWrapper.ctl_mem_state_t
-    content.vb: Public Function GetState(memoryHandle As IntPtr) As ctl_mem_state_t
-  overload: IGCLWrapper.IGCLMemoryHelper.GetState*
-  nameWithType.vb: IGCLMemoryHelper.GetState(IntPtr)
-  fullName.vb: IGCLWrapper.IGCLMemoryHelper.GetState(System.IntPtr)
-  name.vb: GetState(IntPtr)
-- uid: IGCLWrapper.IGCLMemoryHelper.GetBandwidth(System.IntPtr)
-  commentId: M:IGCLWrapper.IGCLMemoryHelper.GetBandwidth(System.IntPtr)
-  id: GetBandwidth(System.IntPtr)
+    content.vb: Public Function MemoryGetState(memoryHandle As IntPtr) As ctl_mem_state_t
+  overload: IGCLWrapper.IGCLMemoryHelper.MemoryGetState*
+  nameWithType.vb: IGCLMemoryHelper.MemoryGetState(IntPtr)
+  fullName.vb: IGCLWrapper.IGCLMemoryHelper.MemoryGetState(System.IntPtr)
+  name.vb: MemoryGetState(IntPtr)
+- uid: IGCLWrapper.IGCLMemoryHelper.MemoryGetBandwidth(System.IntPtr)
+  commentId: M:IGCLWrapper.IGCLMemoryHelper.MemoryGetBandwidth(System.IntPtr)
+  id: MemoryGetBandwidth(System.IntPtr)
   parent: IGCLWrapper.IGCLMemoryHelper
   langs:
   - csharp
   - vb
-  name: GetBandwidth(nint)
-  nameWithType: IGCLMemoryHelper.GetBandwidth(nint)
-  fullName: IGCLWrapper.IGCLMemoryHelper.GetBandwidth(nint)
+  name: MemoryGetBandwidth(nint)
+  nameWithType: IGCLMemoryHelper.MemoryGetBandwidth(nint)
+  fullName: IGCLWrapper.IGCLMemoryHelper.MemoryGetBandwidth(nint)
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLMemoryHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetBandwidth
+    id: MemoryGetBandwidth
     path: ../IGCLWrapper/IGCLMemoryHelper.cs
     startLine: 46
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public ctl_mem_bandwidth_t GetBandwidth(nint memoryHandle)
+    content: public ctl_mem_bandwidth_t MemoryGetBandwidth(nint memoryHandle)
     parameters:
     - id: memoryHandle
       type: System.IntPtr
     return:
       type: IGCLWrapper.ctl_mem_bandwidth_t
-    content.vb: Public Function GetBandwidth(memoryHandle As IntPtr) As ctl_mem_bandwidth_t
-  overload: IGCLWrapper.IGCLMemoryHelper.GetBandwidth*
-  nameWithType.vb: IGCLMemoryHelper.GetBandwidth(IntPtr)
-  fullName.vb: IGCLWrapper.IGCLMemoryHelper.GetBandwidth(System.IntPtr)
-  name.vb: GetBandwidth(IntPtr)
+    content.vb: Public Function MemoryGetBandwidth(memoryHandle As IntPtr) As ctl_mem_bandwidth_t
+  overload: IGCLWrapper.IGCLMemoryHelper.MemoryGetBandwidth*
+  nameWithType.vb: IGCLMemoryHelper.MemoryGetBandwidth(IntPtr)
+  fullName.vb: IGCLWrapper.IGCLMemoryHelper.MemoryGetBandwidth(System.IntPtr)
+  name.vb: MemoryGetBandwidth(IntPtr)
 - uid: IGCLWrapper.IGCLMemoryHelper.Dispose
   commentId: M:IGCLWrapper.IGCLMemoryHelper.Dispose
   id: Dispose
@@ -432,12 +432,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: IGCLWrapper.IGCLMemoryHelper.EnumerateMemoryModules*
-  commentId: Overload:IGCLWrapper.IGCLMemoryHelper.EnumerateMemoryModules
-  href: IGCLWrapper.IGCLMemoryHelper.html#IGCLWrapper_IGCLMemoryHelper_EnumerateMemoryModules
-  name: EnumerateMemoryModules
-  nameWithType: IGCLMemoryHelper.EnumerateMemoryModules
-  fullName: IGCLWrapper.IGCLMemoryHelper.EnumerateMemoryModules
+- uid: IGCLWrapper.IGCLMemoryHelper.EnumMemoryModules*
+  commentId: Overload:IGCLWrapper.IGCLMemoryHelper.EnumMemoryModules
+  href: IGCLWrapper.IGCLMemoryHelper.html#IGCLWrapper_IGCLMemoryHelper_EnumMemoryModules
+  name: EnumMemoryModules
+  nameWithType: IGCLMemoryHelper.EnumMemoryModules
+  fullName: IGCLWrapper.IGCLMemoryHelper.EnumMemoryModules
 - uid: System.Collections.Generic.IReadOnlyList{System.IntPtr}
   commentId: T:System.Collections.Generic.IReadOnlyList{System.IntPtr}
   parent: System.Collections.Generic
@@ -538,12 +538,12 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: IGCLWrapper.IGCLMemoryHelper.GetProperties*
-  commentId: Overload:IGCLWrapper.IGCLMemoryHelper.GetProperties
-  href: IGCLWrapper.IGCLMemoryHelper.html#IGCLWrapper_IGCLMemoryHelper_GetProperties_System_IntPtr_
-  name: GetProperties
-  nameWithType: IGCLMemoryHelper.GetProperties
-  fullName: IGCLWrapper.IGCLMemoryHelper.GetProperties
+- uid: IGCLWrapper.IGCLMemoryHelper.MemoryGetProperties*
+  commentId: Overload:IGCLWrapper.IGCLMemoryHelper.MemoryGetProperties
+  href: IGCLWrapper.IGCLMemoryHelper.html#IGCLWrapper_IGCLMemoryHelper_MemoryGetProperties_System_IntPtr_
+  name: MemoryGetProperties
+  nameWithType: IGCLMemoryHelper.MemoryGetProperties
+  fullName: IGCLWrapper.IGCLMemoryHelper.MemoryGetProperties
 - uid: System.IntPtr
   commentId: T:System.IntPtr
   parent: System
@@ -562,12 +562,12 @@ references:
   name: ctl_mem_properties_t
   nameWithType: ctl_mem_properties_t
   fullName: IGCLWrapper.ctl_mem_properties_t
-- uid: IGCLWrapper.IGCLMemoryHelper.GetState*
-  commentId: Overload:IGCLWrapper.IGCLMemoryHelper.GetState
-  href: IGCLWrapper.IGCLMemoryHelper.html#IGCLWrapper_IGCLMemoryHelper_GetState_System_IntPtr_
-  name: GetState
-  nameWithType: IGCLMemoryHelper.GetState
-  fullName: IGCLWrapper.IGCLMemoryHelper.GetState
+- uid: IGCLWrapper.IGCLMemoryHelper.MemoryGetState*
+  commentId: Overload:IGCLWrapper.IGCLMemoryHelper.MemoryGetState
+  href: IGCLWrapper.IGCLMemoryHelper.html#IGCLWrapper_IGCLMemoryHelper_MemoryGetState_System_IntPtr_
+  name: MemoryGetState
+  nameWithType: IGCLMemoryHelper.MemoryGetState
+  fullName: IGCLWrapper.IGCLMemoryHelper.MemoryGetState
 - uid: IGCLWrapper.ctl_mem_state_t
   commentId: T:IGCLWrapper.ctl_mem_state_t
   parent: IGCLWrapper
@@ -575,12 +575,12 @@ references:
   name: ctl_mem_state_t
   nameWithType: ctl_mem_state_t
   fullName: IGCLWrapper.ctl_mem_state_t
-- uid: IGCLWrapper.IGCLMemoryHelper.GetBandwidth*
-  commentId: Overload:IGCLWrapper.IGCLMemoryHelper.GetBandwidth
-  href: IGCLWrapper.IGCLMemoryHelper.html#IGCLWrapper_IGCLMemoryHelper_GetBandwidth_System_IntPtr_
-  name: GetBandwidth
-  nameWithType: IGCLMemoryHelper.GetBandwidth
-  fullName: IGCLWrapper.IGCLMemoryHelper.GetBandwidth
+- uid: IGCLWrapper.IGCLMemoryHelper.MemoryGetBandwidth*
+  commentId: Overload:IGCLWrapper.IGCLMemoryHelper.MemoryGetBandwidth
+  href: IGCLWrapper.IGCLMemoryHelper.html#IGCLWrapper_IGCLMemoryHelper_MemoryGetBandwidth_System_IntPtr_
+  name: MemoryGetBandwidth
+  nameWithType: IGCLMemoryHelper.MemoryGetBandwidth
+  fullName: IGCLWrapper.IGCLMemoryHelper.MemoryGetBandwidth
 - uid: IGCLWrapper.ctl_mem_bandwidth_t
   commentId: T:IGCLWrapper.ctl_mem_bandwidth_t
   parent: IGCLWrapper

@@ -6,8 +6,8 @@ items:
   parent: IGCLWrapper
   children:
   - IGCLWrapper.IGCLPciHelper.Dispose
-  - IGCLWrapper.IGCLPciHelper.GetProperties
-  - IGCLWrapper.IGCLPciHelper.GetState
+  - IGCLWrapper.IGCLPciHelper.PciGetProperties
+  - IGCLWrapper.IGCLPciHelper.PciGetState
   langs:
   - csharp
   - vb
@@ -42,62 +42,62 @@ items:
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: IGCLWrapper.IGCLPciHelper.GetProperties
-  commentId: M:IGCLWrapper.IGCLPciHelper.GetProperties
-  id: GetProperties
+- uid: IGCLWrapper.IGCLPciHelper.PciGetProperties
+  commentId: M:IGCLWrapper.IGCLPciHelper.PciGetProperties
+  id: PciGetProperties
   parent: IGCLWrapper.IGCLPciHelper
   langs:
   - csharp
   - vb
-  name: GetProperties()
-  nameWithType: IGCLPciHelper.GetProperties()
-  fullName: IGCLWrapper.IGCLPciHelper.GetProperties()
+  name: PciGetProperties()
+  nameWithType: IGCLPciHelper.PciGetProperties()
+  fullName: IGCLWrapper.IGCLPciHelper.PciGetProperties()
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLPciHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetProperties
+    id: PciGetProperties
     path: ../IGCLWrapper/IGCLPciHelper.cs
     startLine: 19
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public ctl_pci_properties_t GetProperties()
+    content: public ctl_pci_properties_t PciGetProperties()
     return:
       type: IGCLWrapper.ctl_pci_properties_t
-    content.vb: Public Function GetProperties() As ctl_pci_properties_t
-  overload: IGCLWrapper.IGCLPciHelper.GetProperties*
-- uid: IGCLWrapper.IGCLPciHelper.GetState
-  commentId: M:IGCLWrapper.IGCLPciHelper.GetState
-  id: GetState
+    content.vb: Public Function PciGetProperties() As ctl_pci_properties_t
+  overload: IGCLWrapper.IGCLPciHelper.PciGetProperties*
+- uid: IGCLWrapper.IGCLPciHelper.PciGetState
+  commentId: M:IGCLWrapper.IGCLPciHelper.PciGetState
+  id: PciGetState
   parent: IGCLWrapper.IGCLPciHelper
   langs:
   - csharp
   - vb
-  name: GetState()
-  nameWithType: IGCLPciHelper.GetState()
-  fullName: IGCLWrapper.IGCLPciHelper.GetState()
+  name: PciGetState()
+  nameWithType: IGCLPciHelper.PciGetState()
+  fullName: IGCLWrapper.IGCLPciHelper.PciGetState()
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLPciHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetState
+    id: PciGetState
     path: ../IGCLWrapper/IGCLPciHelper.cs
     startLine: 29
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public ctl_pci_state_t GetState()
+    content: public ctl_pci_state_t PciGetState()
     return:
       type: IGCLWrapper.ctl_pci_state_t
-    content.vb: Public Function GetState() As ctl_pci_state_t
-  overload: IGCLWrapper.IGCLPciHelper.GetState*
+    content.vb: Public Function PciGetState() As ctl_pci_state_t
+  overload: IGCLWrapper.IGCLPciHelper.PciGetState*
 - uid: IGCLWrapper.IGCLPciHelper.Dispose
   commentId: M:IGCLWrapper.IGCLPciHelper.Dispose
   id: Dispose
@@ -356,12 +356,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: IGCLWrapper.IGCLPciHelper.GetProperties*
-  commentId: Overload:IGCLWrapper.IGCLPciHelper.GetProperties
-  href: IGCLWrapper.IGCLPciHelper.html#IGCLWrapper_IGCLPciHelper_GetProperties
-  name: GetProperties
-  nameWithType: IGCLPciHelper.GetProperties
-  fullName: IGCLWrapper.IGCLPciHelper.GetProperties
+- uid: IGCLWrapper.IGCLPciHelper.PciGetProperties*
+  commentId: Overload:IGCLWrapper.IGCLPciHelper.PciGetProperties
+  href: IGCLWrapper.IGCLPciHelper.html#IGCLWrapper_IGCLPciHelper_PciGetProperties
+  name: PciGetProperties
+  nameWithType: IGCLPciHelper.PciGetProperties
+  fullName: IGCLWrapper.IGCLPciHelper.PciGetProperties
 - uid: IGCLWrapper.ctl_pci_properties_t
   commentId: T:IGCLWrapper.ctl_pci_properties_t
   parent: IGCLWrapper
@@ -369,12 +369,12 @@ references:
   name: ctl_pci_properties_t
   nameWithType: ctl_pci_properties_t
   fullName: IGCLWrapper.ctl_pci_properties_t
-- uid: IGCLWrapper.IGCLPciHelper.GetState*
-  commentId: Overload:IGCLWrapper.IGCLPciHelper.GetState
-  href: IGCLWrapper.IGCLPciHelper.html#IGCLWrapper_IGCLPciHelper_GetState
-  name: GetState
-  nameWithType: IGCLPciHelper.GetState
-  fullName: IGCLWrapper.IGCLPciHelper.GetState
+- uid: IGCLWrapper.IGCLPciHelper.PciGetState*
+  commentId: Overload:IGCLWrapper.IGCLPciHelper.PciGetState
+  href: IGCLWrapper.IGCLPciHelper.html#IGCLWrapper_IGCLPciHelper_PciGetState
+  name: PciGetState
+  nameWithType: IGCLPciHelper.PciGetState
+  fullName: IGCLWrapper.IGCLPciHelper.PciGetState
 - uid: IGCLWrapper.ctl_pci_state_t
   commentId: T:IGCLWrapper.ctl_pci_state_t
   parent: IGCLWrapper

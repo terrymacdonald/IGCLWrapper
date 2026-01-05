@@ -17,7 +17,7 @@ namespace IGCLWrapper
             _adapter = adapter;
         }
 
-        public unsafe ctl_video_processing_feature_caps_t GetCapabilities()
+        public unsafe ctl_video_processing_feature_caps_t GetSupportedVideoProcessingCapabilities()
         {
             ThrowIfDisposed();
             var caps = IGCLApiHelper.CreateVideoProcessingCaps();
@@ -27,24 +27,13 @@ namespace IGCLWrapper
             return caps;
         }
 
-        public unsafe ctl_video_processing_feature_getset_t GetFeature(ctl_video_processing_feature_t feature)
+        public unsafe ctl_video_processing_feature_getset_t GetSetVideoProcessingFeature(ctl_video_processing_feature_getset_t featureGetSet)
         {
             ThrowIfDisposed();
-            var featureGetSet = IGCLApiHelper.CreateVideoProcessingGetSet();
-            featureGetSet.FeatureType = feature;
             var result = IGCL.ctlGetSetVideoProcessingFeature((_ctl_device_adapter_handle_t*)_adapter, &featureGetSet);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, $"Failed to get video processing feature {feature}");
+                throw new IGCLException(result, $"Failed to get/set video processing feature {featureGetSet.FeatureType}");
             return featureGetSet;
-        }
-
-        public unsafe void SetFeature(ctl_video_processing_feature_getset_t feature)
-        {
-            ThrowIfDisposed();
-            feature.bSet = 1;
-            var result = IGCL.ctlGetSetVideoProcessingFeature((_ctl_device_adapter_handle_t*)_adapter, &feature);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, $"Failed to set video processing feature {feature.FeatureType}");
         }
 
         private void ThrowIfDisposed()

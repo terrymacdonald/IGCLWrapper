@@ -6,9 +6,9 @@ items:
   parent: IGCLWrapper
   children:
   - IGCLWrapper.IGCLTemperatureHelper.Dispose
-  - IGCLWrapper.IGCLTemperatureHelper.EnumerateSensors
-  - IGCLWrapper.IGCLTemperatureHelper.GetProperties(System.IntPtr)
-  - IGCLWrapper.IGCLTemperatureHelper.GetState(System.IntPtr)
+  - IGCLWrapper.IGCLTemperatureHelper.EnumTemperatureSensors
+  - IGCLWrapper.IGCLTemperatureHelper.TemperatureGetProperties(System.IntPtr)
+  - IGCLWrapper.IGCLTemperatureHelper.TemperatureGetState(System.IntPtr)
   langs:
   - csharp
   - vb
@@ -43,102 +43,102 @@ items:
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: IGCLWrapper.IGCLTemperatureHelper.EnumerateSensors
-  commentId: M:IGCLWrapper.IGCLTemperatureHelper.EnumerateSensors
-  id: EnumerateSensors
+- uid: IGCLWrapper.IGCLTemperatureHelper.EnumTemperatureSensors
+  commentId: M:IGCLWrapper.IGCLTemperatureHelper.EnumTemperatureSensors
+  id: EnumTemperatureSensors
   parent: IGCLWrapper.IGCLTemperatureHelper
   langs:
   - csharp
   - vb
-  name: EnumerateSensors()
-  nameWithType: IGCLTemperatureHelper.EnumerateSensors()
-  fullName: IGCLWrapper.IGCLTemperatureHelper.EnumerateSensors()
+  name: EnumTemperatureSensors()
+  nameWithType: IGCLTemperatureHelper.EnumTemperatureSensors()
+  fullName: IGCLWrapper.IGCLTemperatureHelper.EnumTemperatureSensors()
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLTemperatureHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: EnumerateSensors
+    id: EnumTemperatureSensors
     path: ../IGCLWrapper/IGCLTemperatureHelper.cs
     startLine: 20
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public IReadOnlyList<nint> EnumerateSensors()
+    content: public IReadOnlyList<nint> EnumTemperatureSensors()
     return:
       type: System.Collections.Generic.IReadOnlyList{System.IntPtr}
-    content.vb: Public Function EnumerateSensors() As IReadOnlyList(Of IntPtr)
-  overload: IGCLWrapper.IGCLTemperatureHelper.EnumerateSensors*
-- uid: IGCLWrapper.IGCLTemperatureHelper.GetProperties(System.IntPtr)
-  commentId: M:IGCLWrapper.IGCLTemperatureHelper.GetProperties(System.IntPtr)
-  id: GetProperties(System.IntPtr)
+    content.vb: Public Function EnumTemperatureSensors() As IReadOnlyList(Of IntPtr)
+  overload: IGCLWrapper.IGCLTemperatureHelper.EnumTemperatureSensors*
+- uid: IGCLWrapper.IGCLTemperatureHelper.TemperatureGetProperties(System.IntPtr)
+  commentId: M:IGCLWrapper.IGCLTemperatureHelper.TemperatureGetProperties(System.IntPtr)
+  id: TemperatureGetProperties(System.IntPtr)
   parent: IGCLWrapper.IGCLTemperatureHelper
   langs:
   - csharp
   - vb
-  name: GetProperties(nint)
-  nameWithType: IGCLTemperatureHelper.GetProperties(nint)
-  fullName: IGCLWrapper.IGCLTemperatureHelper.GetProperties(nint)
+  name: TemperatureGetProperties(nint)
+  nameWithType: IGCLTemperatureHelper.TemperatureGetProperties(nint)
+  fullName: IGCLWrapper.IGCLTemperatureHelper.TemperatureGetProperties(nint)
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLTemperatureHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetProperties
+    id: TemperatureGetProperties
     path: ../IGCLWrapper/IGCLTemperatureHelper.cs
     startLine: 26
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public ctl_temp_properties_t GetProperties(nint sensorHandle)
+    content: public ctl_temp_properties_t TemperatureGetProperties(nint sensorHandle)
     parameters:
     - id: sensorHandle
       type: System.IntPtr
     return:
       type: IGCLWrapper.ctl_temp_properties_t
-    content.vb: Public Function GetProperties(sensorHandle As IntPtr) As ctl_temp_properties_t
-  overload: IGCLWrapper.IGCLTemperatureHelper.GetProperties*
-  nameWithType.vb: IGCLTemperatureHelper.GetProperties(IntPtr)
-  fullName.vb: IGCLWrapper.IGCLTemperatureHelper.GetProperties(System.IntPtr)
-  name.vb: GetProperties(IntPtr)
-- uid: IGCLWrapper.IGCLTemperatureHelper.GetState(System.IntPtr)
-  commentId: M:IGCLWrapper.IGCLTemperatureHelper.GetState(System.IntPtr)
-  id: GetState(System.IntPtr)
+    content.vb: Public Function TemperatureGetProperties(sensorHandle As IntPtr) As ctl_temp_properties_t
+  overload: IGCLWrapper.IGCLTemperatureHelper.TemperatureGetProperties*
+  nameWithType.vb: IGCLTemperatureHelper.TemperatureGetProperties(IntPtr)
+  fullName.vb: IGCLWrapper.IGCLTemperatureHelper.TemperatureGetProperties(System.IntPtr)
+  name.vb: TemperatureGetProperties(IntPtr)
+- uid: IGCLWrapper.IGCLTemperatureHelper.TemperatureGetState(System.IntPtr)
+  commentId: M:IGCLWrapper.IGCLTemperatureHelper.TemperatureGetState(System.IntPtr)
+  id: TemperatureGetState(System.IntPtr)
   parent: IGCLWrapper.IGCLTemperatureHelper
   langs:
   - csharp
   - vb
-  name: GetState(nint)
-  nameWithType: IGCLTemperatureHelper.GetState(nint)
-  fullName: IGCLWrapper.IGCLTemperatureHelper.GetState(nint)
+  name: TemperatureGetState(nint)
+  nameWithType: IGCLTemperatureHelper.TemperatureGetState(nint)
+  fullName: IGCLWrapper.IGCLTemperatureHelper.TemperatureGetState(nint)
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLTemperatureHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetState
+    id: TemperatureGetState
     path: ../IGCLWrapper/IGCLTemperatureHelper.cs
     startLine: 36
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public double GetState(nint sensorHandle)
+    content: public double TemperatureGetState(nint sensorHandle)
     parameters:
     - id: sensorHandle
       type: System.IntPtr
     return:
       type: System.Double
-    content.vb: Public Function GetState(sensorHandle As IntPtr) As Double
-  overload: IGCLWrapper.IGCLTemperatureHelper.GetState*
-  nameWithType.vb: IGCLTemperatureHelper.GetState(IntPtr)
-  fullName.vb: IGCLWrapper.IGCLTemperatureHelper.GetState(System.IntPtr)
-  name.vb: GetState(IntPtr)
+    content.vb: Public Function TemperatureGetState(sensorHandle As IntPtr) As Double
+  overload: IGCLWrapper.IGCLTemperatureHelper.TemperatureGetState*
+  nameWithType.vb: IGCLTemperatureHelper.TemperatureGetState(IntPtr)
+  fullName.vb: IGCLWrapper.IGCLTemperatureHelper.TemperatureGetState(System.IntPtr)
+  name.vb: TemperatureGetState(IntPtr)
 - uid: IGCLWrapper.IGCLTemperatureHelper.Dispose
   commentId: M:IGCLWrapper.IGCLTemperatureHelper.Dispose
   id: Dispose
@@ -397,12 +397,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: IGCLWrapper.IGCLTemperatureHelper.EnumerateSensors*
-  commentId: Overload:IGCLWrapper.IGCLTemperatureHelper.EnumerateSensors
-  href: IGCLWrapper.IGCLTemperatureHelper.html#IGCLWrapper_IGCLTemperatureHelper_EnumerateSensors
-  name: EnumerateSensors
-  nameWithType: IGCLTemperatureHelper.EnumerateSensors
-  fullName: IGCLWrapper.IGCLTemperatureHelper.EnumerateSensors
+- uid: IGCLWrapper.IGCLTemperatureHelper.EnumTemperatureSensors*
+  commentId: Overload:IGCLWrapper.IGCLTemperatureHelper.EnumTemperatureSensors
+  href: IGCLWrapper.IGCLTemperatureHelper.html#IGCLWrapper_IGCLTemperatureHelper_EnumTemperatureSensors
+  name: EnumTemperatureSensors
+  nameWithType: IGCLTemperatureHelper.EnumTemperatureSensors
+  fullName: IGCLWrapper.IGCLTemperatureHelper.EnumTemperatureSensors
 - uid: System.Collections.Generic.IReadOnlyList{System.IntPtr}
   commentId: T:System.Collections.Generic.IReadOnlyList{System.IntPtr}
   parent: System.Collections.Generic
@@ -503,12 +503,12 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: IGCLWrapper.IGCLTemperatureHelper.GetProperties*
-  commentId: Overload:IGCLWrapper.IGCLTemperatureHelper.GetProperties
-  href: IGCLWrapper.IGCLTemperatureHelper.html#IGCLWrapper_IGCLTemperatureHelper_GetProperties_System_IntPtr_
-  name: GetProperties
-  nameWithType: IGCLTemperatureHelper.GetProperties
-  fullName: IGCLWrapper.IGCLTemperatureHelper.GetProperties
+- uid: IGCLWrapper.IGCLTemperatureHelper.TemperatureGetProperties*
+  commentId: Overload:IGCLWrapper.IGCLTemperatureHelper.TemperatureGetProperties
+  href: IGCLWrapper.IGCLTemperatureHelper.html#IGCLWrapper_IGCLTemperatureHelper_TemperatureGetProperties_System_IntPtr_
+  name: TemperatureGetProperties
+  nameWithType: IGCLTemperatureHelper.TemperatureGetProperties
+  fullName: IGCLWrapper.IGCLTemperatureHelper.TemperatureGetProperties
 - uid: System.IntPtr
   commentId: T:System.IntPtr
   parent: System
@@ -527,12 +527,12 @@ references:
   name: ctl_temp_properties_t
   nameWithType: ctl_temp_properties_t
   fullName: IGCLWrapper.ctl_temp_properties_t
-- uid: IGCLWrapper.IGCLTemperatureHelper.GetState*
-  commentId: Overload:IGCLWrapper.IGCLTemperatureHelper.GetState
-  href: IGCLWrapper.IGCLTemperatureHelper.html#IGCLWrapper_IGCLTemperatureHelper_GetState_System_IntPtr_
-  name: GetState
-  nameWithType: IGCLTemperatureHelper.GetState
-  fullName: IGCLWrapper.IGCLTemperatureHelper.GetState
+- uid: IGCLWrapper.IGCLTemperatureHelper.TemperatureGetState*
+  commentId: Overload:IGCLWrapper.IGCLTemperatureHelper.TemperatureGetState
+  href: IGCLWrapper.IGCLTemperatureHelper.html#IGCLWrapper_IGCLTemperatureHelper_TemperatureGetState_System_IntPtr_
+  name: TemperatureGetState
+  nameWithType: IGCLTemperatureHelper.TemperatureGetState
+  fullName: IGCLWrapper.IGCLTemperatureHelper.TemperatureGetState
 - uid: System.Double
   commentId: T:System.Double
   parent: System

@@ -18,13 +18,13 @@ namespace IGCLWrapper
             _adapter = adapter;
         }
 
-        public unsafe IReadOnlyList<IntPtr> EnumerateLeds()
+        public unsafe IReadOnlyList<IntPtr> EnumLeds()
         {
             ThrowIfDisposed();
             return EnumerateHandles((_ctl_device_adapter_handle_t*)_adapter);
         }
 
-        public unsafe ctl_led_properties_t GetProperties(IntPtr ledHandle)
+        public unsafe ctl_led_properties_t LedGetProperties(IntPtr ledHandle)
         {
             ThrowIfDisposed();
             var props = IGCLApiHelper.CreateLedProperties();
@@ -34,7 +34,7 @@ namespace IGCLWrapper
             return props;
         }
 
-        public unsafe ctl_led_state_t GetState(IntPtr ledHandle)
+        public unsafe ctl_led_state_t LedGetState(IntPtr ledHandle)
         {
             ThrowIfDisposed();
             var state = IGCLApiHelper.CreateLedState();
@@ -44,7 +44,7 @@ namespace IGCLWrapper
             return state;
         }
 
-        public unsafe void SetState(IntPtr ledHandle, ctl_led_state_t state)
+        public unsafe void LedSetState(IntPtr ledHandle, ctl_led_state_t state)
         {
             ThrowIfDisposed();
             var result = IGCL.ctlLedSetState((_ctl_led_handle_t*)ledHandle, &state, (uint)sizeof(ctl_led_state_t));

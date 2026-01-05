@@ -18,13 +18,13 @@ namespace IGCLWrapper
             _adapter = adapter;
         }
 
-        public unsafe IReadOnlyList<IntPtr> EnumerateDomains()
+        public unsafe IReadOnlyList<IntPtr> EnumFrequencyDomains()
         {
             ThrowIfDisposed();
             return EnumerateHandles((_ctl_device_adapter_handle_t*)_adapter);
         }
 
-        public unsafe ctl_freq_properties_t GetProperties(IntPtr freqHandle)
+        public unsafe ctl_freq_properties_t FrequencyGetProperties(IntPtr freqHandle)
         {
             ThrowIfDisposed();
             var props = IGCLApiHelper.CreateFrequencyProperties();
@@ -34,7 +34,7 @@ namespace IGCLWrapper
             return props;
         }
 
-        public unsafe double[] GetAvailableClocks(IntPtr freqHandle)
+        public unsafe double[] FrequencyGetAvailableClocks(IntPtr freqHandle)
         {
             ThrowIfDisposed();
             uint count = 0;
@@ -53,7 +53,7 @@ namespace IGCLWrapper
             return freqs;
         }
 
-        public unsafe ctl_freq_range_t GetRange(IntPtr freqHandle)
+        public unsafe ctl_freq_range_t FrequencyGetRange(IntPtr freqHandle)
         {
             ThrowIfDisposed();
             var range = IGCLApiHelper.CreateFrequencyRange();
@@ -63,7 +63,7 @@ namespace IGCLWrapper
             return range;
         }
 
-        public unsafe void SetRange(IntPtr freqHandle, ctl_freq_range_t range)
+        public unsafe void FrequencySetRange(IntPtr freqHandle, ctl_freq_range_t range)
         {
             ThrowIfDisposed();
             var result = IGCL.ctlFrequencySetRange((_ctl_freq_handle_t*)freqHandle, &range);
@@ -71,7 +71,7 @@ namespace IGCLWrapper
                 throw new IGCLException(result, "Failed to set frequency range");
         }
 
-        public unsafe ctl_freq_state_t GetState(IntPtr freqHandle)
+        public unsafe ctl_freq_state_t FrequencyGetState(IntPtr freqHandle)
         {
             ThrowIfDisposed();
             var state = IGCLApiHelper.CreateFrequencyState();
@@ -81,7 +81,7 @@ namespace IGCLWrapper
             return state;
         }
 
-        public unsafe ctl_freq_throttle_time_t GetThrottleTime(IntPtr freqHandle)
+        public unsafe ctl_freq_throttle_time_t FrequencyGetThrottleTime(IntPtr freqHandle)
         {
             ThrowIfDisposed();
             var tt = IGCLApiHelper.CreateFrequencyThrottleTime();

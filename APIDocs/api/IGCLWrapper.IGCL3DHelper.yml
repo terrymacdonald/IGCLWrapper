@@ -6,9 +6,8 @@ items:
   parent: IGCLWrapper
   children:
   - IGCLWrapper.IGCL3DHelper.Dispose
-  - IGCLWrapper.IGCL3DHelper.GetCapabilities
-  - IGCLWrapper.IGCL3DHelper.GetFeature(IGCLWrapper.ctl_3d_feature_t)
-  - IGCLWrapper.IGCL3DHelper.SetFeature(IGCLWrapper.ctl_3d_feature_getset_t)
+  - IGCLWrapper.IGCL3DHelper.GetSet3DFeature(IGCLWrapper.ctl_3d_feature_getset_t)
+  - IGCLWrapper.IGCL3DHelper.GetSupported3DCapabilities
   langs:
   - csharp
   - vb
@@ -43,94 +42,65 @@ items:
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: IGCLWrapper.IGCL3DHelper.GetCapabilities
-  commentId: M:IGCLWrapper.IGCL3DHelper.GetCapabilities
-  id: GetCapabilities
+- uid: IGCLWrapper.IGCL3DHelper.GetSupported3DCapabilities
+  commentId: M:IGCLWrapper.IGCL3DHelper.GetSupported3DCapabilities
+  id: GetSupported3DCapabilities
   parent: IGCLWrapper.IGCL3DHelper
   langs:
   - csharp
   - vb
-  name: GetCapabilities()
-  nameWithType: IGCL3DHelper.GetCapabilities()
-  fullName: IGCLWrapper.IGCL3DHelper.GetCapabilities()
+  name: GetSupported3DCapabilities()
+  nameWithType: IGCL3DHelper.GetSupported3DCapabilities()
+  fullName: IGCLWrapper.IGCL3DHelper.GetSupported3DCapabilities()
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCL3DHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetCapabilities
+    id: GetSupported3DCapabilities
     path: ../IGCLWrapper/IGCL3DHelper.cs
     startLine: 19
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public ctl_3d_feature_caps_t GetCapabilities()
+    content: public ctl_3d_feature_caps_t GetSupported3DCapabilities()
     return:
       type: IGCLWrapper.ctl_3d_feature_caps_t
-    content.vb: Public Function GetCapabilities() As ctl_3d_feature_caps_t
-  overload: IGCLWrapper.IGCL3DHelper.GetCapabilities*
-- uid: IGCLWrapper.IGCL3DHelper.GetFeature(IGCLWrapper.ctl_3d_feature_t)
-  commentId: M:IGCLWrapper.IGCL3DHelper.GetFeature(IGCLWrapper.ctl_3d_feature_t)
-  id: GetFeature(IGCLWrapper.ctl_3d_feature_t)
+    content.vb: Public Function GetSupported3DCapabilities() As ctl_3d_feature_caps_t
+  overload: IGCLWrapper.IGCL3DHelper.GetSupported3DCapabilities*
+- uid: IGCLWrapper.IGCL3DHelper.GetSet3DFeature(IGCLWrapper.ctl_3d_feature_getset_t)
+  commentId: M:IGCLWrapper.IGCL3DHelper.GetSet3DFeature(IGCLWrapper.ctl_3d_feature_getset_t)
+  id: GetSet3DFeature(IGCLWrapper.ctl_3d_feature_getset_t)
   parent: IGCLWrapper.IGCL3DHelper
   langs:
   - csharp
   - vb
-  name: GetFeature(ctl_3d_feature_t)
-  nameWithType: IGCL3DHelper.GetFeature(ctl_3d_feature_t)
-  fullName: IGCLWrapper.IGCL3DHelper.GetFeature(IGCLWrapper.ctl_3d_feature_t)
+  name: GetSet3DFeature(ctl_3d_feature_getset_t)
+  nameWithType: IGCL3DHelper.GetSet3DFeature(ctl_3d_feature_getset_t)
+  fullName: IGCLWrapper.IGCL3DHelper.GetSet3DFeature(IGCLWrapper.ctl_3d_feature_getset_t)
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCL3DHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetFeature
+    id: GetSet3DFeature
     path: ../IGCLWrapper/IGCL3DHelper.cs
     startLine: 29
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public ctl_3d_feature_getset_t GetFeature(ctl_3d_feature_t featureType)
-    parameters:
-    - id: featureType
-      type: IGCLWrapper.ctl_3d_feature_t
-    return:
-      type: IGCLWrapper.ctl_3d_feature_getset_t
-    content.vb: Public Function GetFeature(featureType As ctl_3d_feature_t) As ctl_3d_feature_getset_t
-  overload: IGCLWrapper.IGCL3DHelper.GetFeature*
-- uid: IGCLWrapper.IGCL3DHelper.SetFeature(IGCLWrapper.ctl_3d_feature_getset_t)
-  commentId: M:IGCLWrapper.IGCL3DHelper.SetFeature(IGCLWrapper.ctl_3d_feature_getset_t)
-  id: SetFeature(IGCLWrapper.ctl_3d_feature_getset_t)
-  parent: IGCLWrapper.IGCL3DHelper
-  langs:
-  - csharp
-  - vb
-  name: SetFeature(ctl_3d_feature_getset_t)
-  nameWithType: IGCL3DHelper.SetFeature(ctl_3d_feature_getset_t)
-  fullName: IGCLWrapper.IGCL3DHelper.SetFeature(IGCLWrapper.ctl_3d_feature_getset_t)
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCL3DHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: SetFeature
-    path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 39
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public void SetFeature(ctl_3d_feature_getset_t feature)
+    content: public ctl_3d_feature_getset_t GetSet3DFeature(ctl_3d_feature_getset_t feature)
     parameters:
     - id: feature
       type: IGCLWrapper.ctl_3d_feature_getset_t
-    content.vb: Public Sub SetFeature(feature As ctl_3d_feature_getset_t)
-  overload: IGCLWrapper.IGCL3DHelper.SetFeature*
+    return:
+      type: IGCLWrapper.ctl_3d_feature_getset_t
+    content.vb: Public Function GetSet3DFeature(feature As ctl_3d_feature_getset_t) As ctl_3d_feature_getset_t
+  overload: IGCLWrapper.IGCL3DHelper.GetSet3DFeature*
 - uid: IGCLWrapper.IGCL3DHelper.Dispose
   commentId: M:IGCLWrapper.IGCL3DHelper.Dispose
   id: Dispose
@@ -149,7 +119,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 54
+    startLine: 44
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -389,12 +359,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: IGCLWrapper.IGCL3DHelper.GetCapabilities*
-  commentId: Overload:IGCLWrapper.IGCL3DHelper.GetCapabilities
-  href: IGCLWrapper.IGCL3DHelper.html#IGCLWrapper_IGCL3DHelper_GetCapabilities
-  name: GetCapabilities
-  nameWithType: IGCL3DHelper.GetCapabilities
-  fullName: IGCLWrapper.IGCL3DHelper.GetCapabilities
+- uid: IGCLWrapper.IGCL3DHelper.GetSupported3DCapabilities*
+  commentId: Overload:IGCLWrapper.IGCL3DHelper.GetSupported3DCapabilities
+  href: IGCLWrapper.IGCL3DHelper.html#IGCLWrapper_IGCL3DHelper_GetSupported3DCapabilities
+  name: GetSupported3DCapabilities
+  nameWithType: IGCL3DHelper.GetSupported3DCapabilities
+  fullName: IGCLWrapper.IGCL3DHelper.GetSupported3DCapabilities
 - uid: IGCLWrapper.ctl_3d_feature_caps_t
   commentId: T:IGCLWrapper.ctl_3d_feature_caps_t
   parent: IGCLWrapper
@@ -402,19 +372,12 @@ references:
   name: ctl_3d_feature_caps_t
   nameWithType: ctl_3d_feature_caps_t
   fullName: IGCLWrapper.ctl_3d_feature_caps_t
-- uid: IGCLWrapper.IGCL3DHelper.GetFeature*
-  commentId: Overload:IGCLWrapper.IGCL3DHelper.GetFeature
-  href: IGCLWrapper.IGCL3DHelper.html#IGCLWrapper_IGCL3DHelper_GetFeature_IGCLWrapper_ctl_3d_feature_t_
-  name: GetFeature
-  nameWithType: IGCL3DHelper.GetFeature
-  fullName: IGCLWrapper.IGCL3DHelper.GetFeature
-- uid: IGCLWrapper.ctl_3d_feature_t
-  commentId: T:IGCLWrapper.ctl_3d_feature_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_3d_feature_t.html
-  name: ctl_3d_feature_t
-  nameWithType: ctl_3d_feature_t
-  fullName: IGCLWrapper.ctl_3d_feature_t
+- uid: IGCLWrapper.IGCL3DHelper.GetSet3DFeature*
+  commentId: Overload:IGCLWrapper.IGCL3DHelper.GetSet3DFeature
+  href: IGCLWrapper.IGCL3DHelper.html#IGCLWrapper_IGCL3DHelper_GetSet3DFeature_IGCLWrapper_ctl_3d_feature_getset_t_
+  name: GetSet3DFeature
+  nameWithType: IGCL3DHelper.GetSet3DFeature
+  fullName: IGCLWrapper.IGCL3DHelper.GetSet3DFeature
 - uid: IGCLWrapper.ctl_3d_feature_getset_t
   commentId: T:IGCLWrapper.ctl_3d_feature_getset_t
   parent: IGCLWrapper
@@ -422,12 +385,6 @@ references:
   name: ctl_3d_feature_getset_t
   nameWithType: ctl_3d_feature_getset_t
   fullName: IGCLWrapper.ctl_3d_feature_getset_t
-- uid: IGCLWrapper.IGCL3DHelper.SetFeature*
-  commentId: Overload:IGCLWrapper.IGCL3DHelper.SetFeature
-  href: IGCLWrapper.IGCL3DHelper.html#IGCLWrapper_IGCL3DHelper_SetFeature_IGCLWrapper_ctl_3d_feature_getset_t_
-  name: SetFeature
-  nameWithType: IGCL3DHelper.SetFeature
-  fullName: IGCLWrapper.IGCL3DHelper.SetFeature
 - uid: IGCLWrapper.IGCL3DHelper.Dispose*
   commentId: Overload:IGCLWrapper.IGCL3DHelper.Dispose
   href: IGCLWrapper.IGCL3DHelper.html#IGCLWrapper_IGCL3DHelper_Dispose

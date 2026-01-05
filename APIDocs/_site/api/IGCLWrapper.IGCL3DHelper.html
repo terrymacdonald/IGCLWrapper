@@ -160,7 +160,7 @@ Class IGCL3DHelper  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="IGCLWrapper_IGCL3DHelper_Dispose" data-uid="IGCLWrapper.IGCL3DHelper.Dispose">
   Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCL3DHelper.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCL3DHelper.cs/#L45"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
@@ -183,41 +183,10 @@ Class IGCL3DHelper  <a class="header-action link-secondary" title="View source" 
 
 
 
-  <a id="IGCLWrapper_IGCL3DHelper_GetCapabilities_" data-uid="IGCLWrapper.IGCL3DHelper.GetCapabilities*"></a>
+  <a id="IGCLWrapper_IGCL3DHelper_GetSet3DFeature_" data-uid="IGCLWrapper.IGCL3DHelper.GetSet3DFeature*"></a>
 
-  <h3 id="IGCLWrapper_IGCL3DHelper_GetCapabilities" data-uid="IGCLWrapper.IGCL3DHelper.GetCapabilities">
-  GetCapabilities()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCL3DHelper.cs/#L20"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_3d_feature_caps_t GetCapabilities()</code></pre>
-  </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_3d_feature_caps_t.html">ctl_3d_feature_caps_t</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="IGCLWrapper_IGCL3DHelper_GetFeature_" data-uid="IGCLWrapper.IGCL3DHelper.GetFeature*"></a>
-
-  <h3 id="IGCLWrapper_IGCL3DHelper_GetFeature_IGCLWrapper_ctl_3d_feature_t_" data-uid="IGCLWrapper.IGCL3DHelper.GetFeature(IGCLWrapper.ctl_3d_feature_t)">
-  GetFeature(ctl_3d_feature_t)
+  <h3 id="IGCLWrapper_IGCL3DHelper_GetSet3DFeature_IGCLWrapper_ctl_3d_feature_getset_t_" data-uid="IGCLWrapper.IGCL3DHelper.GetSet3DFeature(IGCLWrapper.ctl_3d_feature_getset_t)">
+  GetSet3DFeature(ctl_3d_feature_getset_t)
   <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCL3DHelper.cs/#L30"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -225,12 +194,12 @@ Class IGCL3DHelper  <a class="header-action link-secondary" title="View source" 
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_3d_feature_getset_t GetFeature(ctl_3d_feature_t featureType)</code></pre>
+    <pre><code class="lang-csharp hljs">public ctl_3d_feature_getset_t GetSet3DFeature(ctl_3d_feature_getset_t feature)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>featureType</code> <a class="xref" href="IGCLWrapper.ctl_3d_feature_t.html">ctl_3d_feature_t</a></dt>
+    <dt><code>feature</code> <a class="xref" href="IGCLWrapper.ctl_3d_feature_getset_t.html">ctl_3d_feature_getset_t</a></dt>
     <dd></dd>
   </dl>
 
@@ -250,26 +219,26 @@ Class IGCL3DHelper  <a class="header-action link-secondary" title="View source" 
 
 
 
-  <a id="IGCLWrapper_IGCL3DHelper_SetFeature_" data-uid="IGCLWrapper.IGCL3DHelper.SetFeature*"></a>
+  <a id="IGCLWrapper_IGCL3DHelper_GetSupported3DCapabilities_" data-uid="IGCLWrapper.IGCL3DHelper.GetSupported3DCapabilities*"></a>
 
-  <h3 id="IGCLWrapper_IGCL3DHelper_SetFeature_IGCLWrapper_ctl_3d_feature_getset_t_" data-uid="IGCLWrapper.IGCL3DHelper.SetFeature(IGCLWrapper.ctl_3d_feature_getset_t)">
-  SetFeature(ctl_3d_feature_getset_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCL3DHelper.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  <h3 id="IGCLWrapper_IGCL3DHelper_GetSupported3DCapabilities" data-uid="IGCLWrapper.IGCL3DHelper.GetSupported3DCapabilities">
+  GetSupported3DCapabilities()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCL3DHelper.cs/#L20"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SetFeature(ctl_3d_feature_getset_t feature)</code></pre>
+    <pre><code class="lang-csharp hljs">public ctl_3d_feature_caps_t GetSupported3DCapabilities()</code></pre>
   </div>
 
-  <h4 class="section">Parameters</h4>
+
+  <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><code>feature</code> <a class="xref" href="IGCLWrapper.ctl_3d_feature_getset_t.html">ctl_3d_feature_getset_t</a></dt>
+    <dt><a class="xref" href="IGCLWrapper.ctl_3d_feature_caps_t.html">ctl_3d_feature_caps_t</a></dt>
     <dd></dd>
   </dl>
-
 
 
 

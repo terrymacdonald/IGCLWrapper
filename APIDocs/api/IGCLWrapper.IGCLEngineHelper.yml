@@ -6,9 +6,9 @@ items:
   parent: IGCLWrapper
   children:
   - IGCLWrapper.IGCLEngineHelper.Dispose
-  - IGCLWrapper.IGCLEngineHelper.EnumerateEngines
-  - IGCLWrapper.IGCLEngineHelper.GetActivity(System.IntPtr)
-  - IGCLWrapper.IGCLEngineHelper.GetProperties(System.IntPtr)
+  - IGCLWrapper.IGCLEngineHelper.EngineGetActivity(System.IntPtr)
+  - IGCLWrapper.IGCLEngineHelper.EngineGetProperties(System.IntPtr)
+  - IGCLWrapper.IGCLEngineHelper.EnumEngineGroups
   langs:
   - csharp
   - vb
@@ -43,102 +43,102 @@ items:
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: IGCLWrapper.IGCLEngineHelper.EnumerateEngines
-  commentId: M:IGCLWrapper.IGCLEngineHelper.EnumerateEngines
-  id: EnumerateEngines
+- uid: IGCLWrapper.IGCLEngineHelper.EnumEngineGroups
+  commentId: M:IGCLWrapper.IGCLEngineHelper.EnumEngineGroups
+  id: EnumEngineGroups
   parent: IGCLWrapper.IGCLEngineHelper
   langs:
   - csharp
   - vb
-  name: EnumerateEngines()
-  nameWithType: IGCLEngineHelper.EnumerateEngines()
-  fullName: IGCLWrapper.IGCLEngineHelper.EnumerateEngines()
+  name: EnumEngineGroups()
+  nameWithType: IGCLEngineHelper.EnumEngineGroups()
+  fullName: IGCLWrapper.IGCLEngineHelper.EnumEngineGroups()
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLEngineHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: EnumerateEngines
+    id: EnumEngineGroups
     path: ../IGCLWrapper/IGCLEngineHelper.cs
     startLine: 20
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public IReadOnlyList<nint> EnumerateEngines()
+    content: public IReadOnlyList<nint> EnumEngineGroups()
     return:
       type: System.Collections.Generic.IReadOnlyList{System.IntPtr}
-    content.vb: Public Function EnumerateEngines() As IReadOnlyList(Of IntPtr)
-  overload: IGCLWrapper.IGCLEngineHelper.EnumerateEngines*
-- uid: IGCLWrapper.IGCLEngineHelper.GetProperties(System.IntPtr)
-  commentId: M:IGCLWrapper.IGCLEngineHelper.GetProperties(System.IntPtr)
-  id: GetProperties(System.IntPtr)
+    content.vb: Public Function EnumEngineGroups() As IReadOnlyList(Of IntPtr)
+  overload: IGCLWrapper.IGCLEngineHelper.EnumEngineGroups*
+- uid: IGCLWrapper.IGCLEngineHelper.EngineGetProperties(System.IntPtr)
+  commentId: M:IGCLWrapper.IGCLEngineHelper.EngineGetProperties(System.IntPtr)
+  id: EngineGetProperties(System.IntPtr)
   parent: IGCLWrapper.IGCLEngineHelper
   langs:
   - csharp
   - vb
-  name: GetProperties(nint)
-  nameWithType: IGCLEngineHelper.GetProperties(nint)
-  fullName: IGCLWrapper.IGCLEngineHelper.GetProperties(nint)
+  name: EngineGetProperties(nint)
+  nameWithType: IGCLEngineHelper.EngineGetProperties(nint)
+  fullName: IGCLWrapper.IGCLEngineHelper.EngineGetProperties(nint)
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLEngineHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetProperties
+    id: EngineGetProperties
     path: ../IGCLWrapper/IGCLEngineHelper.cs
     startLine: 26
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public ctl_engine_properties_t GetProperties(nint engineHandle)
+    content: public ctl_engine_properties_t EngineGetProperties(nint engineHandle)
     parameters:
     - id: engineHandle
       type: System.IntPtr
     return:
       type: IGCLWrapper.ctl_engine_properties_t
-    content.vb: Public Function GetProperties(engineHandle As IntPtr) As ctl_engine_properties_t
-  overload: IGCLWrapper.IGCLEngineHelper.GetProperties*
-  nameWithType.vb: IGCLEngineHelper.GetProperties(IntPtr)
-  fullName.vb: IGCLWrapper.IGCLEngineHelper.GetProperties(System.IntPtr)
-  name.vb: GetProperties(IntPtr)
-- uid: IGCLWrapper.IGCLEngineHelper.GetActivity(System.IntPtr)
-  commentId: M:IGCLWrapper.IGCLEngineHelper.GetActivity(System.IntPtr)
-  id: GetActivity(System.IntPtr)
+    content.vb: Public Function EngineGetProperties(engineHandle As IntPtr) As ctl_engine_properties_t
+  overload: IGCLWrapper.IGCLEngineHelper.EngineGetProperties*
+  nameWithType.vb: IGCLEngineHelper.EngineGetProperties(IntPtr)
+  fullName.vb: IGCLWrapper.IGCLEngineHelper.EngineGetProperties(System.IntPtr)
+  name.vb: EngineGetProperties(IntPtr)
+- uid: IGCLWrapper.IGCLEngineHelper.EngineGetActivity(System.IntPtr)
+  commentId: M:IGCLWrapper.IGCLEngineHelper.EngineGetActivity(System.IntPtr)
+  id: EngineGetActivity(System.IntPtr)
   parent: IGCLWrapper.IGCLEngineHelper
   langs:
   - csharp
   - vb
-  name: GetActivity(nint)
-  nameWithType: IGCLEngineHelper.GetActivity(nint)
-  fullName: IGCLWrapper.IGCLEngineHelper.GetActivity(nint)
+  name: EngineGetActivity(nint)
+  nameWithType: IGCLEngineHelper.EngineGetActivity(nint)
+  fullName: IGCLWrapper.IGCLEngineHelper.EngineGetActivity(nint)
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLEngineHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetActivity
+    id: EngineGetActivity
     path: ../IGCLWrapper/IGCLEngineHelper.cs
     startLine: 36
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public ctl_engine_stats_t GetActivity(nint engineHandle)
+    content: public ctl_engine_stats_t EngineGetActivity(nint engineHandle)
     parameters:
     - id: engineHandle
       type: System.IntPtr
     return:
       type: IGCLWrapper.ctl_engine_stats_t
-    content.vb: Public Function GetActivity(engineHandle As IntPtr) As ctl_engine_stats_t
-  overload: IGCLWrapper.IGCLEngineHelper.GetActivity*
-  nameWithType.vb: IGCLEngineHelper.GetActivity(IntPtr)
-  fullName.vb: IGCLWrapper.IGCLEngineHelper.GetActivity(System.IntPtr)
-  name.vb: GetActivity(IntPtr)
+    content.vb: Public Function EngineGetActivity(engineHandle As IntPtr) As ctl_engine_stats_t
+  overload: IGCLWrapper.IGCLEngineHelper.EngineGetActivity*
+  nameWithType.vb: IGCLEngineHelper.EngineGetActivity(IntPtr)
+  fullName.vb: IGCLWrapper.IGCLEngineHelper.EngineGetActivity(System.IntPtr)
+  name.vb: EngineGetActivity(IntPtr)
 - uid: IGCLWrapper.IGCLEngineHelper.Dispose
   commentId: M:IGCLWrapper.IGCLEngineHelper.Dispose
   id: Dispose
@@ -397,12 +397,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: IGCLWrapper.IGCLEngineHelper.EnumerateEngines*
-  commentId: Overload:IGCLWrapper.IGCLEngineHelper.EnumerateEngines
-  href: IGCLWrapper.IGCLEngineHelper.html#IGCLWrapper_IGCLEngineHelper_EnumerateEngines
-  name: EnumerateEngines
-  nameWithType: IGCLEngineHelper.EnumerateEngines
-  fullName: IGCLWrapper.IGCLEngineHelper.EnumerateEngines
+- uid: IGCLWrapper.IGCLEngineHelper.EnumEngineGroups*
+  commentId: Overload:IGCLWrapper.IGCLEngineHelper.EnumEngineGroups
+  href: IGCLWrapper.IGCLEngineHelper.html#IGCLWrapper_IGCLEngineHelper_EnumEngineGroups
+  name: EnumEngineGroups
+  nameWithType: IGCLEngineHelper.EnumEngineGroups
+  fullName: IGCLWrapper.IGCLEngineHelper.EnumEngineGroups
 - uid: System.Collections.Generic.IReadOnlyList{System.IntPtr}
   commentId: T:System.Collections.Generic.IReadOnlyList{System.IntPtr}
   parent: System.Collections.Generic
@@ -503,12 +503,12 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: IGCLWrapper.IGCLEngineHelper.GetProperties*
-  commentId: Overload:IGCLWrapper.IGCLEngineHelper.GetProperties
-  href: IGCLWrapper.IGCLEngineHelper.html#IGCLWrapper_IGCLEngineHelper_GetProperties_System_IntPtr_
-  name: GetProperties
-  nameWithType: IGCLEngineHelper.GetProperties
-  fullName: IGCLWrapper.IGCLEngineHelper.GetProperties
+- uid: IGCLWrapper.IGCLEngineHelper.EngineGetProperties*
+  commentId: Overload:IGCLWrapper.IGCLEngineHelper.EngineGetProperties
+  href: IGCLWrapper.IGCLEngineHelper.html#IGCLWrapper_IGCLEngineHelper_EngineGetProperties_System_IntPtr_
+  name: EngineGetProperties
+  nameWithType: IGCLEngineHelper.EngineGetProperties
+  fullName: IGCLWrapper.IGCLEngineHelper.EngineGetProperties
 - uid: System.IntPtr
   commentId: T:System.IntPtr
   parent: System
@@ -527,12 +527,12 @@ references:
   name: ctl_engine_properties_t
   nameWithType: ctl_engine_properties_t
   fullName: IGCLWrapper.ctl_engine_properties_t
-- uid: IGCLWrapper.IGCLEngineHelper.GetActivity*
-  commentId: Overload:IGCLWrapper.IGCLEngineHelper.GetActivity
-  href: IGCLWrapper.IGCLEngineHelper.html#IGCLWrapper_IGCLEngineHelper_GetActivity_System_IntPtr_
-  name: GetActivity
-  nameWithType: IGCLEngineHelper.GetActivity
-  fullName: IGCLWrapper.IGCLEngineHelper.GetActivity
+- uid: IGCLWrapper.IGCLEngineHelper.EngineGetActivity*
+  commentId: Overload:IGCLWrapper.IGCLEngineHelper.EngineGetActivity
+  href: IGCLWrapper.IGCLEngineHelper.html#IGCLWrapper_IGCLEngineHelper_EngineGetActivity_System_IntPtr_
+  name: EngineGetActivity
+  nameWithType: IGCLEngineHelper.EngineGetActivity
+  fullName: IGCLWrapper.IGCLEngineHelper.EngineGetActivity
 - uid: IGCLWrapper.ctl_engine_stats_t
   commentId: T:IGCLWrapper.ctl_engine_stats_t
   parent: IGCLWrapper

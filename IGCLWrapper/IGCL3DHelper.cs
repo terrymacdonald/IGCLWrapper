@@ -17,7 +17,7 @@ namespace IGCLWrapper
             _adapter = adapter;
         }
 
-        public unsafe ctl_3d_feature_caps_t GetCapabilities()
+        public unsafe ctl_3d_feature_caps_t GetSupported3DCapabilities()
         {
             ThrowIfDisposed();
             var caps = IGCLApiHelper.Create3DFeatureCaps();
@@ -27,23 +27,13 @@ namespace IGCLWrapper
             return caps;
         }
 
-        public unsafe ctl_3d_feature_getset_t GetFeature(ctl_3d_feature_t featureType)
+        public unsafe ctl_3d_feature_getset_t GetSet3DFeature(ctl_3d_feature_getset_t feature)
         {
             ThrowIfDisposed();
-            var feature = IGCLApiHelper.Create3DFeatureGetSet(featureType);
             var result = IGCL.ctlGetSet3DFeature((_ctl_device_adapter_handle_t*)_adapter, &feature);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, $"Failed to get 3D feature {featureType}");
+                throw new IGCLException(result, $"Failed to get/set 3D feature {feature.FeatureType}");
             return feature;
-        }
-
-        public unsafe void SetFeature(ctl_3d_feature_getset_t feature)
-        {
-            ThrowIfDisposed();
-            feature.bSet = 1;
-            var result = IGCL.ctlGetSet3DFeature((_ctl_device_adapter_handle_t*)_adapter, &feature);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, $"Failed to set 3D feature {feature.FeatureType}");
         }
 
         private void ThrowIfDisposed()

@@ -129,6 +129,7 @@ namespace IGCLWrapper
         }
 
         internal IGCLApi Api => _api ?? throw new ObjectDisposedException(nameof(IGCLApiHelper));
+        internal IntPtr ApiHandle => _api?.DangerousGetHandle() ?? IntPtr.Zero;
 
         #region Feature helper factories
         public IGCL3DHelper Get3DHelper(IGCLAdapterHelper adapter) => CreateAdapterFeatureHelper(adapter, h => new IGCL3DHelper(this, h));
@@ -226,7 +227,7 @@ namespace IGCLWrapper
             var displays = new List<IGCLDisplayHelper>(handles.Length);
             foreach (var h in handles)
             {
-                displays.Add(new IGCLDisplayHelper(Api, h));
+                displays.Add(new IGCLDisplayHelper(Api, AdapterHandle, h));
             }
             return displays;
         }

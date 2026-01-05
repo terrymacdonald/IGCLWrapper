@@ -201,6 +201,11 @@ namespace IGCLWrapper
             return (_ctl_api_handle_t*)_hApi!.DangerousGetHandle();
         }
 
+        internal IntPtr DangerousGetHandle()
+        {
+            return _hApi?.DangerousGetHandle() ?? IntPtr.Zero;
+        }
+
         #region Helper Methods for Version Macros
 
         /// <summary>

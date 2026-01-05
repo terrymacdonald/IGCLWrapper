@@ -18,13 +18,13 @@ namespace IGCLWrapper
             _adapter = adapter;
         }
 
-        public unsafe IReadOnlyList<IntPtr> EnumerateMemoryModules()
+        public unsafe IReadOnlyList<IntPtr> EnumMemoryModules()
         {
             ThrowIfDisposed();
             return EnumerateHandles((_ctl_device_adapter_handle_t*)_adapter);
         }
 
-        public unsafe ctl_mem_properties_t GetProperties(IntPtr memoryHandle)
+        public unsafe ctl_mem_properties_t MemoryGetProperties(IntPtr memoryHandle)
         {
             ThrowIfDisposed();
             var props = IGCLApiHelper.CreateMemoryProperties();
@@ -34,7 +34,7 @@ namespace IGCLWrapper
             return props;
         }
 
-        public unsafe ctl_mem_state_t GetState(IntPtr memoryHandle)
+        public unsafe ctl_mem_state_t MemoryGetState(IntPtr memoryHandle)
         {
             ThrowIfDisposed();
             var state = IGCLApiHelper.CreateMemoryState();
@@ -44,7 +44,7 @@ namespace IGCLWrapper
             return state;
         }
 
-        public unsafe ctl_mem_bandwidth_t GetBandwidth(IntPtr memoryHandle)
+        public unsafe ctl_mem_bandwidth_t MemoryGetBandwidth(IntPtr memoryHandle)
         {
             ThrowIfDisposed();
             var bw = IGCLApiHelper.CreateMemoryBandwidth();

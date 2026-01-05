@@ -18,13 +18,13 @@ namespace IGCLWrapper
             _adapter = adapter;
         }
 
-        public unsafe IReadOnlyList<IntPtr> EnumeratePowerDomains()
+        public unsafe IReadOnlyList<IntPtr> EnumPowerDomains()
         {
             ThrowIfDisposed();
             return EnumerateHandles((_ctl_device_adapter_handle_t*)_adapter);
         }
 
-        public unsafe ctl_power_properties_t GetProperties(IntPtr powerHandle)
+        public unsafe ctl_power_properties_t PowerGetProperties(IntPtr powerHandle)
         {
             ThrowIfDisposed();
             var props = IGCLApiHelper.CreatePowerProperties();
@@ -34,7 +34,7 @@ namespace IGCLWrapper
             return props;
         }
 
-        public unsafe ctl_power_energy_counter_t GetEnergyCounter(IntPtr powerHandle)
+        public unsafe ctl_power_energy_counter_t PowerGetEnergyCounter(IntPtr powerHandle)
         {
             ThrowIfDisposed();
             var counter = IGCLApiHelper.CreatePowerEnergyCounter();
@@ -44,7 +44,7 @@ namespace IGCLWrapper
             return counter;
         }
 
-        public unsafe ctl_power_limits_t GetLimits(IntPtr powerHandle)
+        public unsafe ctl_power_limits_t PowerGetLimits(IntPtr powerHandle)
         {
             ThrowIfDisposed();
             var limits = IGCLApiHelper.CreatePowerLimits();
@@ -54,7 +54,7 @@ namespace IGCLWrapper
             return limits;
         }
 
-        public unsafe void SetLimits(IntPtr powerHandle, ctl_power_limits_t limits)
+        public unsafe void PowerSetLimits(IntPtr powerHandle, ctl_power_limits_t limits)
         {
             ThrowIfDisposed();
             var result = IGCL.ctlPowerSetLimits((_ctl_pwr_handle_t*)powerHandle, &limits);

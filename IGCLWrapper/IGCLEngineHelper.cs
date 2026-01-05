@@ -18,13 +18,13 @@ namespace IGCLWrapper
             _adapter = adapter;
         }
 
-        public unsafe IReadOnlyList<IntPtr> EnumerateEngines()
+        public unsafe IReadOnlyList<IntPtr> EnumEngineGroups()
         {
             ThrowIfDisposed();
             return EnumerateHandles((_ctl_device_adapter_handle_t*)_adapter);
         }
 
-        public unsafe ctl_engine_properties_t GetProperties(IntPtr engineHandle)
+        public unsafe ctl_engine_properties_t EngineGetProperties(IntPtr engineHandle)
         {
             ThrowIfDisposed();
             var props = IGCLApiHelper.CreateEngineProperties();
@@ -34,7 +34,7 @@ namespace IGCLWrapper
             return props;
         }
 
-        public unsafe ctl_engine_stats_t GetActivity(IntPtr engineHandle)
+        public unsafe ctl_engine_stats_t EngineGetActivity(IntPtr engineHandle)
         {
             ThrowIfDisposed();
             var stats = IGCLApiHelper.CreateEngineStats();

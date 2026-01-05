@@ -6,9 +6,9 @@ items:
   parent: IGCLWrapper
   children:
   - IGCLWrapper.IGCLEccHelper.Dispose
-  - IGCLWrapper.IGCLEccHelper.GetProperties
-  - IGCLWrapper.IGCLEccHelper.GetState
-  - IGCLWrapper.IGCLEccHelper.SetState(IGCLWrapper.ctl_ecc_state_t)
+  - IGCLWrapper.IGCLEccHelper.EccGetProperties
+  - IGCLWrapper.IGCLEccHelper.EccGetState
+  - IGCLWrapper.IGCLEccHelper.EccSetState(IGCLWrapper.ctl_ecc_state_t)
   langs:
   - csharp
   - vb
@@ -43,91 +43,91 @@ items:
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: IGCLWrapper.IGCLEccHelper.GetProperties
-  commentId: M:IGCLWrapper.IGCLEccHelper.GetProperties
-  id: GetProperties
+- uid: IGCLWrapper.IGCLEccHelper.EccGetProperties
+  commentId: M:IGCLWrapper.IGCLEccHelper.EccGetProperties
+  id: EccGetProperties
   parent: IGCLWrapper.IGCLEccHelper
   langs:
   - csharp
   - vb
-  name: GetProperties()
-  nameWithType: IGCLEccHelper.GetProperties()
-  fullName: IGCLWrapper.IGCLEccHelper.GetProperties()
+  name: EccGetProperties()
+  nameWithType: IGCLEccHelper.EccGetProperties()
+  fullName: IGCLWrapper.IGCLEccHelper.EccGetProperties()
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLEccHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetProperties
+    id: EccGetProperties
     path: ../IGCLWrapper/IGCLEccHelper.cs
     startLine: 19
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public ctl_ecc_properties_t GetProperties()
+    content: public ctl_ecc_properties_t EccGetProperties()
     return:
       type: IGCLWrapper.ctl_ecc_properties_t
-    content.vb: Public Function GetProperties() As ctl_ecc_properties_t
-  overload: IGCLWrapper.IGCLEccHelper.GetProperties*
-- uid: IGCLWrapper.IGCLEccHelper.GetState
-  commentId: M:IGCLWrapper.IGCLEccHelper.GetState
-  id: GetState
+    content.vb: Public Function EccGetProperties() As ctl_ecc_properties_t
+  overload: IGCLWrapper.IGCLEccHelper.EccGetProperties*
+- uid: IGCLWrapper.IGCLEccHelper.EccGetState
+  commentId: M:IGCLWrapper.IGCLEccHelper.EccGetState
+  id: EccGetState
   parent: IGCLWrapper.IGCLEccHelper
   langs:
   - csharp
   - vb
-  name: GetState()
-  nameWithType: IGCLEccHelper.GetState()
-  fullName: IGCLWrapper.IGCLEccHelper.GetState()
+  name: EccGetState()
+  nameWithType: IGCLEccHelper.EccGetState()
+  fullName: IGCLWrapper.IGCLEccHelper.EccGetState()
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLEccHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetState
+    id: EccGetState
     path: ../IGCLWrapper/IGCLEccHelper.cs
     startLine: 29
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public ctl_ecc_state_desc_t GetState()
+    content: public ctl_ecc_state_desc_t EccGetState()
     return:
       type: IGCLWrapper.ctl_ecc_state_desc_t
-    content.vb: Public Function GetState() As ctl_ecc_state_desc_t
-  overload: IGCLWrapper.IGCLEccHelper.GetState*
-- uid: IGCLWrapper.IGCLEccHelper.SetState(IGCLWrapper.ctl_ecc_state_t)
-  commentId: M:IGCLWrapper.IGCLEccHelper.SetState(IGCLWrapper.ctl_ecc_state_t)
-  id: SetState(IGCLWrapper.ctl_ecc_state_t)
+    content.vb: Public Function EccGetState() As ctl_ecc_state_desc_t
+  overload: IGCLWrapper.IGCLEccHelper.EccGetState*
+- uid: IGCLWrapper.IGCLEccHelper.EccSetState(IGCLWrapper.ctl_ecc_state_t)
+  commentId: M:IGCLWrapper.IGCLEccHelper.EccSetState(IGCLWrapper.ctl_ecc_state_t)
+  id: EccSetState(IGCLWrapper.ctl_ecc_state_t)
   parent: IGCLWrapper.IGCLEccHelper
   langs:
   - csharp
   - vb
-  name: SetState(ctl_ecc_state_t)
-  nameWithType: IGCLEccHelper.SetState(ctl_ecc_state_t)
-  fullName: IGCLWrapper.IGCLEccHelper.SetState(IGCLWrapper.ctl_ecc_state_t)
+  name: EccSetState(ctl_ecc_state_t)
+  nameWithType: IGCLEccHelper.EccSetState(ctl_ecc_state_t)
+  fullName: IGCLWrapper.IGCLEccHelper.EccSetState(IGCLWrapper.ctl_ecc_state_t)
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLEccHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: SetState
+    id: EccSetState
     path: ../IGCLWrapper/IGCLEccHelper.cs
     startLine: 39
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public void SetState(ctl_ecc_state_t desiredState)
+    content: public void EccSetState(ctl_ecc_state_t desiredState)
     parameters:
     - id: desiredState
       type: IGCLWrapper.ctl_ecc_state_t
-    content.vb: Public Sub SetState(desiredState As ctl_ecc_state_t)
-  overload: IGCLWrapper.IGCLEccHelper.SetState*
+    content.vb: Public Sub EccSetState(desiredState As ctl_ecc_state_t)
+  overload: IGCLWrapper.IGCLEccHelper.EccSetState*
 - uid: IGCLWrapper.IGCLEccHelper.Dispose
   commentId: M:IGCLWrapper.IGCLEccHelper.Dispose
   id: Dispose
@@ -386,12 +386,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: IGCLWrapper.IGCLEccHelper.GetProperties*
-  commentId: Overload:IGCLWrapper.IGCLEccHelper.GetProperties
-  href: IGCLWrapper.IGCLEccHelper.html#IGCLWrapper_IGCLEccHelper_GetProperties
-  name: GetProperties
-  nameWithType: IGCLEccHelper.GetProperties
-  fullName: IGCLWrapper.IGCLEccHelper.GetProperties
+- uid: IGCLWrapper.IGCLEccHelper.EccGetProperties*
+  commentId: Overload:IGCLWrapper.IGCLEccHelper.EccGetProperties
+  href: IGCLWrapper.IGCLEccHelper.html#IGCLWrapper_IGCLEccHelper_EccGetProperties
+  name: EccGetProperties
+  nameWithType: IGCLEccHelper.EccGetProperties
+  fullName: IGCLWrapper.IGCLEccHelper.EccGetProperties
 - uid: IGCLWrapper.ctl_ecc_properties_t
   commentId: T:IGCLWrapper.ctl_ecc_properties_t
   parent: IGCLWrapper
@@ -399,12 +399,12 @@ references:
   name: ctl_ecc_properties_t
   nameWithType: ctl_ecc_properties_t
   fullName: IGCLWrapper.ctl_ecc_properties_t
-- uid: IGCLWrapper.IGCLEccHelper.GetState*
-  commentId: Overload:IGCLWrapper.IGCLEccHelper.GetState
-  href: IGCLWrapper.IGCLEccHelper.html#IGCLWrapper_IGCLEccHelper_GetState
-  name: GetState
-  nameWithType: IGCLEccHelper.GetState
-  fullName: IGCLWrapper.IGCLEccHelper.GetState
+- uid: IGCLWrapper.IGCLEccHelper.EccGetState*
+  commentId: Overload:IGCLWrapper.IGCLEccHelper.EccGetState
+  href: IGCLWrapper.IGCLEccHelper.html#IGCLWrapper_IGCLEccHelper_EccGetState
+  name: EccGetState
+  nameWithType: IGCLEccHelper.EccGetState
+  fullName: IGCLWrapper.IGCLEccHelper.EccGetState
 - uid: IGCLWrapper.ctl_ecc_state_desc_t
   commentId: T:IGCLWrapper.ctl_ecc_state_desc_t
   parent: IGCLWrapper
@@ -412,12 +412,12 @@ references:
   name: ctl_ecc_state_desc_t
   nameWithType: ctl_ecc_state_desc_t
   fullName: IGCLWrapper.ctl_ecc_state_desc_t
-- uid: IGCLWrapper.IGCLEccHelper.SetState*
-  commentId: Overload:IGCLWrapper.IGCLEccHelper.SetState
-  href: IGCLWrapper.IGCLEccHelper.html#IGCLWrapper_IGCLEccHelper_SetState_IGCLWrapper_ctl_ecc_state_t_
-  name: SetState
-  nameWithType: IGCLEccHelper.SetState
-  fullName: IGCLWrapper.IGCLEccHelper.SetState
+- uid: IGCLWrapper.IGCLEccHelper.EccSetState*
+  commentId: Overload:IGCLWrapper.IGCLEccHelper.EccSetState
+  href: IGCLWrapper.IGCLEccHelper.html#IGCLWrapper_IGCLEccHelper_EccSetState_IGCLWrapper_ctl_ecc_state_t_
+  name: EccSetState
+  nameWithType: IGCLEccHelper.EccSetState
+  fullName: IGCLWrapper.IGCLEccHelper.EccSetState
 - uid: IGCLWrapper.ctl_ecc_state_t
   commentId: T:IGCLWrapper.ctl_ecc_state_t
   parent: IGCLWrapper

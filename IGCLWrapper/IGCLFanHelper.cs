@@ -18,13 +18,13 @@ namespace IGCLWrapper
             _adapter = adapter;
         }
 
-        public unsafe IReadOnlyList<IntPtr> EnumerateFans()
+        public unsafe IReadOnlyList<IntPtr> EnumFans()
         {
             ThrowIfDisposed();
             return EnumerateHandles((_ctl_device_adapter_handle_t*)_adapter);
         }
 
-        public unsafe ctl_fan_properties_t GetProperties(IntPtr fanHandle)
+        public unsafe ctl_fan_properties_t FanGetProperties(IntPtr fanHandle)
         {
             ThrowIfDisposed();
             var props = IGCLApiHelper.CreateFanProperties();
@@ -34,7 +34,7 @@ namespace IGCLWrapper
             return props;
         }
 
-        public unsafe ctl_fan_config_t GetConfig(IntPtr fanHandle)
+        public unsafe ctl_fan_config_t FanGetConfig(IntPtr fanHandle)
         {
             ThrowIfDisposed();
             var config = IGCLApiHelper.CreateFanConfig();
@@ -44,7 +44,7 @@ namespace IGCLWrapper
             return config;
         }
 
-        public unsafe void SetDefaultMode(IntPtr fanHandle)
+        public unsafe void FanSetDefaultMode(IntPtr fanHandle)
         {
             ThrowIfDisposed();
             var result = IGCL.ctlFanSetDefaultMode((_ctl_fan_handle_t*)fanHandle);
@@ -52,7 +52,7 @@ namespace IGCLWrapper
                 throw new IGCLException(result, "Failed to set fan default mode");
         }
 
-        public unsafe void SetFixedSpeed(IntPtr fanHandle, ctl_fan_speed_t speed)
+        public unsafe void FanSetFixedSpeedMode(IntPtr fanHandle, ctl_fan_speed_t speed)
         {
             ThrowIfDisposed();
             var result = IGCL.ctlFanSetFixedSpeedMode((_ctl_fan_handle_t*)fanHandle, &speed);
@@ -60,7 +60,7 @@ namespace IGCLWrapper
                 throw new IGCLException(result, "Failed to set fan fixed speed");
         }
 
-        public unsafe void SetSpeedTable(IntPtr fanHandle, ctl_fan_speed_table_t table)
+        public unsafe void FanSetSpeedTableMode(IntPtr fanHandle, ctl_fan_speed_table_t table)
         {
             ThrowIfDisposed();
             var result = IGCL.ctlFanSetSpeedTableMode((_ctl_fan_handle_t*)fanHandle, &table);
@@ -68,7 +68,7 @@ namespace IGCLWrapper
                 throw new IGCLException(result, "Failed to set fan speed table");
         }
 
-        public unsafe int GetState(IntPtr fanHandle, ctl_fan_speed_units_t units)
+        public unsafe int FanGetState(IntPtr fanHandle, ctl_fan_speed_units_t units)
         {
             ThrowIfDisposed();
             int speed = 0;

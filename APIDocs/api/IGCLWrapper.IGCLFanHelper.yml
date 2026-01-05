@@ -6,13 +6,13 @@ items:
   parent: IGCLWrapper
   children:
   - IGCLWrapper.IGCLFanHelper.Dispose
-  - IGCLWrapper.IGCLFanHelper.EnumerateFans
-  - IGCLWrapper.IGCLFanHelper.GetConfig(System.IntPtr)
-  - IGCLWrapper.IGCLFanHelper.GetProperties(System.IntPtr)
-  - IGCLWrapper.IGCLFanHelper.GetState(System.IntPtr,IGCLWrapper.ctl_fan_speed_units_t)
-  - IGCLWrapper.IGCLFanHelper.SetDefaultMode(System.IntPtr)
-  - IGCLWrapper.IGCLFanHelper.SetFixedSpeed(System.IntPtr,IGCLWrapper.ctl_fan_speed_t)
-  - IGCLWrapper.IGCLFanHelper.SetSpeedTable(System.IntPtr,IGCLWrapper.ctl_fan_speed_table_t)
+  - IGCLWrapper.IGCLFanHelper.EnumFans
+  - IGCLWrapper.IGCLFanHelper.FanGetConfig(System.IntPtr)
+  - IGCLWrapper.IGCLFanHelper.FanGetProperties(System.IntPtr)
+  - IGCLWrapper.IGCLFanHelper.FanGetState(System.IntPtr,IGCLWrapper.ctl_fan_speed_units_t)
+  - IGCLWrapper.IGCLFanHelper.FanSetDefaultMode(System.IntPtr)
+  - IGCLWrapper.IGCLFanHelper.FanSetFixedSpeedMode(System.IntPtr,IGCLWrapper.ctl_fan_speed_t)
+  - IGCLWrapper.IGCLFanHelper.FanSetSpeedTableMode(System.IntPtr,IGCLWrapper.ctl_fan_speed_table_t)
   langs:
   - csharp
   - vb
@@ -47,226 +47,226 @@ items:
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: IGCLWrapper.IGCLFanHelper.EnumerateFans
-  commentId: M:IGCLWrapper.IGCLFanHelper.EnumerateFans
-  id: EnumerateFans
+- uid: IGCLWrapper.IGCLFanHelper.EnumFans
+  commentId: M:IGCLWrapper.IGCLFanHelper.EnumFans
+  id: EnumFans
   parent: IGCLWrapper.IGCLFanHelper
   langs:
   - csharp
   - vb
-  name: EnumerateFans()
-  nameWithType: IGCLFanHelper.EnumerateFans()
-  fullName: IGCLWrapper.IGCLFanHelper.EnumerateFans()
+  name: EnumFans()
+  nameWithType: IGCLFanHelper.EnumFans()
+  fullName: IGCLWrapper.IGCLFanHelper.EnumFans()
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLFanHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: EnumerateFans
+    id: EnumFans
     path: ../IGCLWrapper/IGCLFanHelper.cs
     startLine: 20
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public IReadOnlyList<nint> EnumerateFans()
+    content: public IReadOnlyList<nint> EnumFans()
     return:
       type: System.Collections.Generic.IReadOnlyList{System.IntPtr}
-    content.vb: Public Function EnumerateFans() As IReadOnlyList(Of IntPtr)
-  overload: IGCLWrapper.IGCLFanHelper.EnumerateFans*
-- uid: IGCLWrapper.IGCLFanHelper.GetProperties(System.IntPtr)
-  commentId: M:IGCLWrapper.IGCLFanHelper.GetProperties(System.IntPtr)
-  id: GetProperties(System.IntPtr)
+    content.vb: Public Function EnumFans() As IReadOnlyList(Of IntPtr)
+  overload: IGCLWrapper.IGCLFanHelper.EnumFans*
+- uid: IGCLWrapper.IGCLFanHelper.FanGetProperties(System.IntPtr)
+  commentId: M:IGCLWrapper.IGCLFanHelper.FanGetProperties(System.IntPtr)
+  id: FanGetProperties(System.IntPtr)
   parent: IGCLWrapper.IGCLFanHelper
   langs:
   - csharp
   - vb
-  name: GetProperties(nint)
-  nameWithType: IGCLFanHelper.GetProperties(nint)
-  fullName: IGCLWrapper.IGCLFanHelper.GetProperties(nint)
+  name: FanGetProperties(nint)
+  nameWithType: IGCLFanHelper.FanGetProperties(nint)
+  fullName: IGCLWrapper.IGCLFanHelper.FanGetProperties(nint)
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLFanHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetProperties
+    id: FanGetProperties
     path: ../IGCLWrapper/IGCLFanHelper.cs
     startLine: 26
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public ctl_fan_properties_t GetProperties(nint fanHandle)
+    content: public ctl_fan_properties_t FanGetProperties(nint fanHandle)
     parameters:
     - id: fanHandle
       type: System.IntPtr
     return:
       type: IGCLWrapper.ctl_fan_properties_t
-    content.vb: Public Function GetProperties(fanHandle As IntPtr) As ctl_fan_properties_t
-  overload: IGCLWrapper.IGCLFanHelper.GetProperties*
-  nameWithType.vb: IGCLFanHelper.GetProperties(IntPtr)
-  fullName.vb: IGCLWrapper.IGCLFanHelper.GetProperties(System.IntPtr)
-  name.vb: GetProperties(IntPtr)
-- uid: IGCLWrapper.IGCLFanHelper.GetConfig(System.IntPtr)
-  commentId: M:IGCLWrapper.IGCLFanHelper.GetConfig(System.IntPtr)
-  id: GetConfig(System.IntPtr)
+    content.vb: Public Function FanGetProperties(fanHandle As IntPtr) As ctl_fan_properties_t
+  overload: IGCLWrapper.IGCLFanHelper.FanGetProperties*
+  nameWithType.vb: IGCLFanHelper.FanGetProperties(IntPtr)
+  fullName.vb: IGCLWrapper.IGCLFanHelper.FanGetProperties(System.IntPtr)
+  name.vb: FanGetProperties(IntPtr)
+- uid: IGCLWrapper.IGCLFanHelper.FanGetConfig(System.IntPtr)
+  commentId: M:IGCLWrapper.IGCLFanHelper.FanGetConfig(System.IntPtr)
+  id: FanGetConfig(System.IntPtr)
   parent: IGCLWrapper.IGCLFanHelper
   langs:
   - csharp
   - vb
-  name: GetConfig(nint)
-  nameWithType: IGCLFanHelper.GetConfig(nint)
-  fullName: IGCLWrapper.IGCLFanHelper.GetConfig(nint)
+  name: FanGetConfig(nint)
+  nameWithType: IGCLFanHelper.FanGetConfig(nint)
+  fullName: IGCLWrapper.IGCLFanHelper.FanGetConfig(nint)
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLFanHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetConfig
+    id: FanGetConfig
     path: ../IGCLWrapper/IGCLFanHelper.cs
     startLine: 36
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public ctl_fan_config_t GetConfig(nint fanHandle)
+    content: public ctl_fan_config_t FanGetConfig(nint fanHandle)
     parameters:
     - id: fanHandle
       type: System.IntPtr
     return:
       type: IGCLWrapper.ctl_fan_config_t
-    content.vb: Public Function GetConfig(fanHandle As IntPtr) As ctl_fan_config_t
-  overload: IGCLWrapper.IGCLFanHelper.GetConfig*
-  nameWithType.vb: IGCLFanHelper.GetConfig(IntPtr)
-  fullName.vb: IGCLWrapper.IGCLFanHelper.GetConfig(System.IntPtr)
-  name.vb: GetConfig(IntPtr)
-- uid: IGCLWrapper.IGCLFanHelper.SetDefaultMode(System.IntPtr)
-  commentId: M:IGCLWrapper.IGCLFanHelper.SetDefaultMode(System.IntPtr)
-  id: SetDefaultMode(System.IntPtr)
+    content.vb: Public Function FanGetConfig(fanHandle As IntPtr) As ctl_fan_config_t
+  overload: IGCLWrapper.IGCLFanHelper.FanGetConfig*
+  nameWithType.vb: IGCLFanHelper.FanGetConfig(IntPtr)
+  fullName.vb: IGCLWrapper.IGCLFanHelper.FanGetConfig(System.IntPtr)
+  name.vb: FanGetConfig(IntPtr)
+- uid: IGCLWrapper.IGCLFanHelper.FanSetDefaultMode(System.IntPtr)
+  commentId: M:IGCLWrapper.IGCLFanHelper.FanSetDefaultMode(System.IntPtr)
+  id: FanSetDefaultMode(System.IntPtr)
   parent: IGCLWrapper.IGCLFanHelper
   langs:
   - csharp
   - vb
-  name: SetDefaultMode(nint)
-  nameWithType: IGCLFanHelper.SetDefaultMode(nint)
-  fullName: IGCLWrapper.IGCLFanHelper.SetDefaultMode(nint)
+  name: FanSetDefaultMode(nint)
+  nameWithType: IGCLFanHelper.FanSetDefaultMode(nint)
+  fullName: IGCLWrapper.IGCLFanHelper.FanSetDefaultMode(nint)
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLFanHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: SetDefaultMode
+    id: FanSetDefaultMode
     path: ../IGCLWrapper/IGCLFanHelper.cs
     startLine: 46
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public void SetDefaultMode(nint fanHandle)
+    content: public void FanSetDefaultMode(nint fanHandle)
     parameters:
     - id: fanHandle
       type: System.IntPtr
-    content.vb: Public Sub SetDefaultMode(fanHandle As IntPtr)
-  overload: IGCLWrapper.IGCLFanHelper.SetDefaultMode*
-  nameWithType.vb: IGCLFanHelper.SetDefaultMode(IntPtr)
-  fullName.vb: IGCLWrapper.IGCLFanHelper.SetDefaultMode(System.IntPtr)
-  name.vb: SetDefaultMode(IntPtr)
-- uid: IGCLWrapper.IGCLFanHelper.SetFixedSpeed(System.IntPtr,IGCLWrapper.ctl_fan_speed_t)
-  commentId: M:IGCLWrapper.IGCLFanHelper.SetFixedSpeed(System.IntPtr,IGCLWrapper.ctl_fan_speed_t)
-  id: SetFixedSpeed(System.IntPtr,IGCLWrapper.ctl_fan_speed_t)
+    content.vb: Public Sub FanSetDefaultMode(fanHandle As IntPtr)
+  overload: IGCLWrapper.IGCLFanHelper.FanSetDefaultMode*
+  nameWithType.vb: IGCLFanHelper.FanSetDefaultMode(IntPtr)
+  fullName.vb: IGCLWrapper.IGCLFanHelper.FanSetDefaultMode(System.IntPtr)
+  name.vb: FanSetDefaultMode(IntPtr)
+- uid: IGCLWrapper.IGCLFanHelper.FanSetFixedSpeedMode(System.IntPtr,IGCLWrapper.ctl_fan_speed_t)
+  commentId: M:IGCLWrapper.IGCLFanHelper.FanSetFixedSpeedMode(System.IntPtr,IGCLWrapper.ctl_fan_speed_t)
+  id: FanSetFixedSpeedMode(System.IntPtr,IGCLWrapper.ctl_fan_speed_t)
   parent: IGCLWrapper.IGCLFanHelper
   langs:
   - csharp
   - vb
-  name: SetFixedSpeed(nint, ctl_fan_speed_t)
-  nameWithType: IGCLFanHelper.SetFixedSpeed(nint, ctl_fan_speed_t)
-  fullName: IGCLWrapper.IGCLFanHelper.SetFixedSpeed(nint, IGCLWrapper.ctl_fan_speed_t)
+  name: FanSetFixedSpeedMode(nint, ctl_fan_speed_t)
+  nameWithType: IGCLFanHelper.FanSetFixedSpeedMode(nint, ctl_fan_speed_t)
+  fullName: IGCLWrapper.IGCLFanHelper.FanSetFixedSpeedMode(nint, IGCLWrapper.ctl_fan_speed_t)
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLFanHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: SetFixedSpeed
+    id: FanSetFixedSpeedMode
     path: ../IGCLWrapper/IGCLFanHelper.cs
     startLine: 54
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public void SetFixedSpeed(nint fanHandle, ctl_fan_speed_t speed)
+    content: public void FanSetFixedSpeedMode(nint fanHandle, ctl_fan_speed_t speed)
     parameters:
     - id: fanHandle
       type: System.IntPtr
     - id: speed
       type: IGCLWrapper.ctl_fan_speed_t
-    content.vb: Public Sub SetFixedSpeed(fanHandle As IntPtr, speed As ctl_fan_speed_t)
-  overload: IGCLWrapper.IGCLFanHelper.SetFixedSpeed*
-  nameWithType.vb: IGCLFanHelper.SetFixedSpeed(IntPtr, ctl_fan_speed_t)
-  fullName.vb: IGCLWrapper.IGCLFanHelper.SetFixedSpeed(System.IntPtr, IGCLWrapper.ctl_fan_speed_t)
-  name.vb: SetFixedSpeed(IntPtr, ctl_fan_speed_t)
-- uid: IGCLWrapper.IGCLFanHelper.SetSpeedTable(System.IntPtr,IGCLWrapper.ctl_fan_speed_table_t)
-  commentId: M:IGCLWrapper.IGCLFanHelper.SetSpeedTable(System.IntPtr,IGCLWrapper.ctl_fan_speed_table_t)
-  id: SetSpeedTable(System.IntPtr,IGCLWrapper.ctl_fan_speed_table_t)
+    content.vb: Public Sub FanSetFixedSpeedMode(fanHandle As IntPtr, speed As ctl_fan_speed_t)
+  overload: IGCLWrapper.IGCLFanHelper.FanSetFixedSpeedMode*
+  nameWithType.vb: IGCLFanHelper.FanSetFixedSpeedMode(IntPtr, ctl_fan_speed_t)
+  fullName.vb: IGCLWrapper.IGCLFanHelper.FanSetFixedSpeedMode(System.IntPtr, IGCLWrapper.ctl_fan_speed_t)
+  name.vb: FanSetFixedSpeedMode(IntPtr, ctl_fan_speed_t)
+- uid: IGCLWrapper.IGCLFanHelper.FanSetSpeedTableMode(System.IntPtr,IGCLWrapper.ctl_fan_speed_table_t)
+  commentId: M:IGCLWrapper.IGCLFanHelper.FanSetSpeedTableMode(System.IntPtr,IGCLWrapper.ctl_fan_speed_table_t)
+  id: FanSetSpeedTableMode(System.IntPtr,IGCLWrapper.ctl_fan_speed_table_t)
   parent: IGCLWrapper.IGCLFanHelper
   langs:
   - csharp
   - vb
-  name: SetSpeedTable(nint, ctl_fan_speed_table_t)
-  nameWithType: IGCLFanHelper.SetSpeedTable(nint, ctl_fan_speed_table_t)
-  fullName: IGCLWrapper.IGCLFanHelper.SetSpeedTable(nint, IGCLWrapper.ctl_fan_speed_table_t)
+  name: FanSetSpeedTableMode(nint, ctl_fan_speed_table_t)
+  nameWithType: IGCLFanHelper.FanSetSpeedTableMode(nint, ctl_fan_speed_table_t)
+  fullName: IGCLWrapper.IGCLFanHelper.FanSetSpeedTableMode(nint, IGCLWrapper.ctl_fan_speed_table_t)
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLFanHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: SetSpeedTable
+    id: FanSetSpeedTableMode
     path: ../IGCLWrapper/IGCLFanHelper.cs
     startLine: 62
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public void SetSpeedTable(nint fanHandle, ctl_fan_speed_table_t table)
+    content: public void FanSetSpeedTableMode(nint fanHandle, ctl_fan_speed_table_t table)
     parameters:
     - id: fanHandle
       type: System.IntPtr
     - id: table
       type: IGCLWrapper.ctl_fan_speed_table_t
-    content.vb: Public Sub SetSpeedTable(fanHandle As IntPtr, table As ctl_fan_speed_table_t)
-  overload: IGCLWrapper.IGCLFanHelper.SetSpeedTable*
-  nameWithType.vb: IGCLFanHelper.SetSpeedTable(IntPtr, ctl_fan_speed_table_t)
-  fullName.vb: IGCLWrapper.IGCLFanHelper.SetSpeedTable(System.IntPtr, IGCLWrapper.ctl_fan_speed_table_t)
-  name.vb: SetSpeedTable(IntPtr, ctl_fan_speed_table_t)
-- uid: IGCLWrapper.IGCLFanHelper.GetState(System.IntPtr,IGCLWrapper.ctl_fan_speed_units_t)
-  commentId: M:IGCLWrapper.IGCLFanHelper.GetState(System.IntPtr,IGCLWrapper.ctl_fan_speed_units_t)
-  id: GetState(System.IntPtr,IGCLWrapper.ctl_fan_speed_units_t)
+    content.vb: Public Sub FanSetSpeedTableMode(fanHandle As IntPtr, table As ctl_fan_speed_table_t)
+  overload: IGCLWrapper.IGCLFanHelper.FanSetSpeedTableMode*
+  nameWithType.vb: IGCLFanHelper.FanSetSpeedTableMode(IntPtr, ctl_fan_speed_table_t)
+  fullName.vb: IGCLWrapper.IGCLFanHelper.FanSetSpeedTableMode(System.IntPtr, IGCLWrapper.ctl_fan_speed_table_t)
+  name.vb: FanSetSpeedTableMode(IntPtr, ctl_fan_speed_table_t)
+- uid: IGCLWrapper.IGCLFanHelper.FanGetState(System.IntPtr,IGCLWrapper.ctl_fan_speed_units_t)
+  commentId: M:IGCLWrapper.IGCLFanHelper.FanGetState(System.IntPtr,IGCLWrapper.ctl_fan_speed_units_t)
+  id: FanGetState(System.IntPtr,IGCLWrapper.ctl_fan_speed_units_t)
   parent: IGCLWrapper.IGCLFanHelper
   langs:
   - csharp
   - vb
-  name: GetState(nint, ctl_fan_speed_units_t)
-  nameWithType: IGCLFanHelper.GetState(nint, ctl_fan_speed_units_t)
-  fullName: IGCLWrapper.IGCLFanHelper.GetState(nint, IGCLWrapper.ctl_fan_speed_units_t)
+  name: FanGetState(nint, ctl_fan_speed_units_t)
+  nameWithType: IGCLFanHelper.FanGetState(nint, ctl_fan_speed_units_t)
+  fullName: IGCLWrapper.IGCLFanHelper.FanGetState(nint, IGCLWrapper.ctl_fan_speed_units_t)
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLFanHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetState
+    id: FanGetState
     path: ../IGCLWrapper/IGCLFanHelper.cs
     startLine: 70
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public int GetState(nint fanHandle, ctl_fan_speed_units_t units)
+    content: public int FanGetState(nint fanHandle, ctl_fan_speed_units_t units)
     parameters:
     - id: fanHandle
       type: System.IntPtr
@@ -274,11 +274,11 @@ items:
       type: IGCLWrapper.ctl_fan_speed_units_t
     return:
       type: System.Int32
-    content.vb: Public Function GetState(fanHandle As IntPtr, units As ctl_fan_speed_units_t) As Integer
-  overload: IGCLWrapper.IGCLFanHelper.GetState*
-  nameWithType.vb: IGCLFanHelper.GetState(IntPtr, ctl_fan_speed_units_t)
-  fullName.vb: IGCLWrapper.IGCLFanHelper.GetState(System.IntPtr, IGCLWrapper.ctl_fan_speed_units_t)
-  name.vb: GetState(IntPtr, ctl_fan_speed_units_t)
+    content.vb: Public Function FanGetState(fanHandle As IntPtr, units As ctl_fan_speed_units_t) As Integer
+  overload: IGCLWrapper.IGCLFanHelper.FanGetState*
+  nameWithType.vb: IGCLFanHelper.FanGetState(IntPtr, ctl_fan_speed_units_t)
+  fullName.vb: IGCLWrapper.IGCLFanHelper.FanGetState(System.IntPtr, IGCLWrapper.ctl_fan_speed_units_t)
+  name.vb: FanGetState(IntPtr, ctl_fan_speed_units_t)
 - uid: IGCLWrapper.IGCLFanHelper.Dispose
   commentId: M:IGCLWrapper.IGCLFanHelper.Dispose
   id: Dispose
@@ -537,12 +537,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: IGCLWrapper.IGCLFanHelper.EnumerateFans*
-  commentId: Overload:IGCLWrapper.IGCLFanHelper.EnumerateFans
-  href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_EnumerateFans
-  name: EnumerateFans
-  nameWithType: IGCLFanHelper.EnumerateFans
-  fullName: IGCLWrapper.IGCLFanHelper.EnumerateFans
+- uid: IGCLWrapper.IGCLFanHelper.EnumFans*
+  commentId: Overload:IGCLWrapper.IGCLFanHelper.EnumFans
+  href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_EnumFans
+  name: EnumFans
+  nameWithType: IGCLFanHelper.EnumFans
+  fullName: IGCLWrapper.IGCLFanHelper.EnumFans
 - uid: System.Collections.Generic.IReadOnlyList{System.IntPtr}
   commentId: T:System.Collections.Generic.IReadOnlyList{System.IntPtr}
   parent: System.Collections.Generic
@@ -643,12 +643,12 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: IGCLWrapper.IGCLFanHelper.GetProperties*
-  commentId: Overload:IGCLWrapper.IGCLFanHelper.GetProperties
-  href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_GetProperties_System_IntPtr_
-  name: GetProperties
-  nameWithType: IGCLFanHelper.GetProperties
-  fullName: IGCLWrapper.IGCLFanHelper.GetProperties
+- uid: IGCLWrapper.IGCLFanHelper.FanGetProperties*
+  commentId: Overload:IGCLWrapper.IGCLFanHelper.FanGetProperties
+  href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_FanGetProperties_System_IntPtr_
+  name: FanGetProperties
+  nameWithType: IGCLFanHelper.FanGetProperties
+  fullName: IGCLWrapper.IGCLFanHelper.FanGetProperties
 - uid: System.IntPtr
   commentId: T:System.IntPtr
   parent: System
@@ -667,12 +667,12 @@ references:
   name: ctl_fan_properties_t
   nameWithType: ctl_fan_properties_t
   fullName: IGCLWrapper.ctl_fan_properties_t
-- uid: IGCLWrapper.IGCLFanHelper.GetConfig*
-  commentId: Overload:IGCLWrapper.IGCLFanHelper.GetConfig
-  href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_GetConfig_System_IntPtr_
-  name: GetConfig
-  nameWithType: IGCLFanHelper.GetConfig
-  fullName: IGCLWrapper.IGCLFanHelper.GetConfig
+- uid: IGCLWrapper.IGCLFanHelper.FanGetConfig*
+  commentId: Overload:IGCLWrapper.IGCLFanHelper.FanGetConfig
+  href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_FanGetConfig_System_IntPtr_
+  name: FanGetConfig
+  nameWithType: IGCLFanHelper.FanGetConfig
+  fullName: IGCLWrapper.IGCLFanHelper.FanGetConfig
 - uid: IGCLWrapper.ctl_fan_config_t
   commentId: T:IGCLWrapper.ctl_fan_config_t
   parent: IGCLWrapper
@@ -680,18 +680,18 @@ references:
   name: ctl_fan_config_t
   nameWithType: ctl_fan_config_t
   fullName: IGCLWrapper.ctl_fan_config_t
-- uid: IGCLWrapper.IGCLFanHelper.SetDefaultMode*
-  commentId: Overload:IGCLWrapper.IGCLFanHelper.SetDefaultMode
-  href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_SetDefaultMode_System_IntPtr_
-  name: SetDefaultMode
-  nameWithType: IGCLFanHelper.SetDefaultMode
-  fullName: IGCLWrapper.IGCLFanHelper.SetDefaultMode
-- uid: IGCLWrapper.IGCLFanHelper.SetFixedSpeed*
-  commentId: Overload:IGCLWrapper.IGCLFanHelper.SetFixedSpeed
-  href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_SetFixedSpeed_System_IntPtr_IGCLWrapper_ctl_fan_speed_t_
-  name: SetFixedSpeed
-  nameWithType: IGCLFanHelper.SetFixedSpeed
-  fullName: IGCLWrapper.IGCLFanHelper.SetFixedSpeed
+- uid: IGCLWrapper.IGCLFanHelper.FanSetDefaultMode*
+  commentId: Overload:IGCLWrapper.IGCLFanHelper.FanSetDefaultMode
+  href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_FanSetDefaultMode_System_IntPtr_
+  name: FanSetDefaultMode
+  nameWithType: IGCLFanHelper.FanSetDefaultMode
+  fullName: IGCLWrapper.IGCLFanHelper.FanSetDefaultMode
+- uid: IGCLWrapper.IGCLFanHelper.FanSetFixedSpeedMode*
+  commentId: Overload:IGCLWrapper.IGCLFanHelper.FanSetFixedSpeedMode
+  href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_FanSetFixedSpeedMode_System_IntPtr_IGCLWrapper_ctl_fan_speed_t_
+  name: FanSetFixedSpeedMode
+  nameWithType: IGCLFanHelper.FanSetFixedSpeedMode
+  fullName: IGCLWrapper.IGCLFanHelper.FanSetFixedSpeedMode
 - uid: IGCLWrapper.ctl_fan_speed_t
   commentId: T:IGCLWrapper.ctl_fan_speed_t
   parent: IGCLWrapper
@@ -699,12 +699,12 @@ references:
   name: ctl_fan_speed_t
   nameWithType: ctl_fan_speed_t
   fullName: IGCLWrapper.ctl_fan_speed_t
-- uid: IGCLWrapper.IGCLFanHelper.SetSpeedTable*
-  commentId: Overload:IGCLWrapper.IGCLFanHelper.SetSpeedTable
-  href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_SetSpeedTable_System_IntPtr_IGCLWrapper_ctl_fan_speed_table_t_
-  name: SetSpeedTable
-  nameWithType: IGCLFanHelper.SetSpeedTable
-  fullName: IGCLWrapper.IGCLFanHelper.SetSpeedTable
+- uid: IGCLWrapper.IGCLFanHelper.FanSetSpeedTableMode*
+  commentId: Overload:IGCLWrapper.IGCLFanHelper.FanSetSpeedTableMode
+  href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_FanSetSpeedTableMode_System_IntPtr_IGCLWrapper_ctl_fan_speed_table_t_
+  name: FanSetSpeedTableMode
+  nameWithType: IGCLFanHelper.FanSetSpeedTableMode
+  fullName: IGCLWrapper.IGCLFanHelper.FanSetSpeedTableMode
 - uid: IGCLWrapper.ctl_fan_speed_table_t
   commentId: T:IGCLWrapper.ctl_fan_speed_table_t
   parent: IGCLWrapper
@@ -712,12 +712,12 @@ references:
   name: ctl_fan_speed_table_t
   nameWithType: ctl_fan_speed_table_t
   fullName: IGCLWrapper.ctl_fan_speed_table_t
-- uid: IGCLWrapper.IGCLFanHelper.GetState*
-  commentId: Overload:IGCLWrapper.IGCLFanHelper.GetState
-  href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_GetState_System_IntPtr_IGCLWrapper_ctl_fan_speed_units_t_
-  name: GetState
-  nameWithType: IGCLFanHelper.GetState
-  fullName: IGCLWrapper.IGCLFanHelper.GetState
+- uid: IGCLWrapper.IGCLFanHelper.FanGetState*
+  commentId: Overload:IGCLWrapper.IGCLFanHelper.FanGetState
+  href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_FanGetState_System_IntPtr_IGCLWrapper_ctl_fan_speed_units_t_
+  name: FanGetState
+  nameWithType: IGCLFanHelper.FanGetState
+  fullName: IGCLWrapper.IGCLFanHelper.FanGetState
 - uid: IGCLWrapper.ctl_fan_speed_units_t
   commentId: T:IGCLWrapper.ctl_fan_speed_units_t
   parent: IGCLWrapper

@@ -17,7 +17,7 @@ namespace IGCLWrapper
             _adapter = adapter;
         }
 
-        public unsafe ctl_pci_properties_t GetProperties()
+        public unsafe ctl_pci_properties_t PciGetProperties()
         {
             ThrowIfDisposed();
             var props = new ctl_pci_properties_t { Size = (uint)sizeof(ctl_pci_properties_t), Version = 0 };
@@ -27,7 +27,7 @@ namespace IGCLWrapper
             return props;
         }
 
-        public unsafe ctl_pci_state_t GetState()
+        public unsafe ctl_pci_state_t PciGetState()
         {
             ThrowIfDisposed();
             var state = new ctl_pci_state_t { Size = (uint)sizeof(ctl_pci_state_t), Version = 0 };
