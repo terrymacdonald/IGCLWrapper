@@ -95,7 +95,7 @@ namespace IGCLWrapper.Tests
             // Act
             unsafe
             {
-                var props = IGCLHelpers.GetProperties(adapters[0]);
+                var props = GetAdapterProperties(adapters[0]);
 
                 // Assert
                 // Note: device_id_size can be 0 on some hardware/driver combinations
@@ -115,7 +115,7 @@ namespace IGCLWrapper.Tests
             // Act
             unsafe
             {
-                var props = IGCLHelpers.GetProperties(adapters[0]);
+                var props = GetAdapterProperties(adapters[0]);
 
                 // Assert
                 Assert.Equal(ctl_device_type_t.CTL_DEVICE_TYPE_GRAPHICS, props.device_type);
@@ -207,7 +207,7 @@ namespace IGCLWrapper.Tests
             // Act
             unsafe
             {
-                var props = IGCLHelpers.GetProperties(adapters[0]);
+                var props = GetAdapterProperties(adapters[0]);
 
                 // Assert
                 Assert.NotEqual(0u, props.pci_device_id);
@@ -227,7 +227,7 @@ namespace IGCLWrapper.Tests
             // Act
             unsafe
             {
-                var props = IGCLHelpers.GetProperties(adapters[0]);
+                var props = GetAdapterProperties(adapters[0]);
                 ReadOnlySpan<sbyte> nameSpan = MemoryMarshal.CreateReadOnlySpan(ref props.name.e0, 100);
                 int terminator = nameSpan.IndexOf((sbyte)0);
                 if (terminator >= 0)
@@ -275,7 +275,7 @@ namespace IGCLWrapper.Tests
             // Act
             unsafe
             {
-                var props = IGCLHelpers.GetProperties(adapters[0]);
+                var props = GetAdapterProperties(adapters[0]);
 
                 // Assert
                 Assert.NotEqual(0ul, props.driver_version);
@@ -294,7 +294,7 @@ namespace IGCLWrapper.Tests
             // Act
             unsafe
             {
-                var props = IGCLHelpers.GetProperties(adapters[0]);
+                var props = GetAdapterProperties(adapters[0]);
 
                 // Assert
                 Assert.Equal(0x8086u, props.pci_vendor_id); // Intel vendor ID
@@ -315,7 +315,7 @@ namespace IGCLWrapper.Tests
             // Act
             unsafe
             {
-                var props = IGCLHelpers.GetProperties(adapters[0]);
+                var props = GetAdapterProperties(adapters[0]);
 
                 // Assert
                 // Modern Intel GPUs should have at least some EUs
@@ -339,7 +339,7 @@ namespace IGCLWrapper.Tests
             // Act
             unsafe
             {
-                var props = IGCLHelpers.GetProperties(adapters[0]);
+                var props = GetAdapterProperties(adapters[0]);
 
                 // Assert
                 // Frequency should be reported for modern GPUs
@@ -413,6 +413,15 @@ namespace IGCLWrapper.Tests
                 Assert.Equal(1u, major);
                 Assert.Equal(1u, minor);
             }
+        }
+
+        private static unsafe ctl_device_adapter_properties_t GetAdapterProperties(IntPtr adapter)
+        {
+            var props = new ctl_device_adapter_properties_t { Size = (uint)sizeof(ctl_device_adapter_properties_t), Version = 1 };
+            var result = IGCL.ctlGetDeviceProperties((_ctl_device_adapter_handle_t*)adapter, &props);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, "Failed to get adapter properties");
+            return props;
         }
     }
 }

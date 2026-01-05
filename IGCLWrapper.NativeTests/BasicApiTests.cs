@@ -108,7 +108,7 @@ namespace IGCLWrapper.Tests
             Assert.NotEmpty(adapters);
 
             var firstAdapter = adapters[0];
-            var props = IGCLHelpers.GetProperties(firstAdapter);
+            var props = GetAdapterProperties(firstAdapter);
 
             // Verify structure was filled correctly
             Assert.Equal((uint)sizeof(ctl_device_adapter_properties_t), props.Size);
@@ -155,7 +155,7 @@ namespace IGCLWrapper.Tests
             Skip.If(displays.Length == 0, "No displays connected");
 
             var firstDisplay = displays[0];
-            var props = IGCLHelpers.GetDisplayProperties(firstDisplay);
+            var props = GetDisplayProperties(firstDisplay);
 
             // Verify structure was filled correctly
             Assert.Equal((uint)sizeof(ctl_display_properties_t), props.Size);
@@ -178,11 +178,13 @@ namespace IGCLWrapper.Tests
 
             var firstDisplay = displays[0];
             
-            // Use static helper methods
-            var (width, height) = IGCLHelpers.GetResolution(firstDisplay);
-            var refreshRate = IGCLHelpers.GetRefreshRate(firstDisplay);
+            var props = GetDisplayProperties(firstDisplay);
+            var timing = props.Display_Timing_Info;
+            var width = timing.HActive;
+            var height = timing.VActive;
+            var refreshRate = timing.RefreshRate / 1000.0;
 
-            if (IGCLHelpers.IsActive(firstDisplay))
+            if (timing.HActive > 0 && timing.VActive > 0)
             {
                 Assert.True(width > 0, "Active display should have valid width");
                 Assert.True(height > 0, "Active display should have valid height");
@@ -207,15 +209,15 @@ namespace IGCLWrapper.Tests
         public unsafe void StructHelper_ShouldCreateValidStructures()
         {
             // Test structure creation helpers - these don't require hardware
-            var initArgs = IGCLStructHelper.CreateInitArgs();
+            var initArgs = CreateInitArgs();
             Assert.Equal((uint)sizeof(ctl_init_args_t), initArgs.Size);
             Assert.Equal((byte)0, initArgs.Version);
 
-            var adapterProps = IGCLStructHelper.CreateAdapterProperties();
+            var adapterProps = CreateAdapterProperties();
             Assert.Equal((uint)sizeof(ctl_device_adapter_properties_t), adapterProps.Size);
             Assert.Equal((byte)1, adapterProps.Version);
 
-            var displayProps = IGCLStructHelper.CreateDisplayProperties();
+            var displayProps = CreateDisplayProperties();
             Assert.Equal((uint)sizeof(ctl_display_properties_t), displayProps.Size);
             Assert.Equal((byte)0, displayProps.Version);
         }
@@ -224,5 +226,39 @@ namespace IGCLWrapper.Tests
         {
             _api?.Dispose();
         }
+
+        private static unsafe ctl_device_adapter_properties_t GetAdapterProperties(IntPtr adapter)
+        {
+            var props = new ctl_device_adapter_properties_t { Size = (uint)sizeof(ctl_device_adapter_properties_t), Version = 1 };
+            var result = IGCL.ctlGetDeviceProperties((_ctl_device_adapter_handle_t*)adapter, &props);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, "Failed to get adapter properties");
+            return props;
+        }
+
+        private static unsafe ctl_display_properties_t GetDisplayProperties(IntPtr display)
+        {
+            var props = new ctl_display_properties_t { Size = (uint)sizeof(ctl_display_properties_t), Version = 0 };
+            var result = IGCL.ctlGetDisplayProperties((_ctl_display_output_handle_t*)display, &props);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, "Failed to get display properties");
+            return props;
+        }
+
+        private static unsafe ctl_init_args_t CreateInitArgs()
+        {
+            return new ctl_init_args_t
+            {
+                Size = (uint)sizeof(ctl_init_args_t),
+                Version = 0,
+                AppVersion = IGCLApi.GetImplVersion(),
+                flags = (uint)ctl_init_flag_t.CTL_INIT_FLAG_USE_LEVEL_ZERO,
+                SupportedVersion = IGCLApi.GetImplVersion(),
+                ApplicationUID = default
+            };
+        }
+
+        private static unsafe ctl_device_adapter_properties_t CreateAdapterProperties() => new ctl_device_adapter_properties_t { Size = (uint)sizeof(ctl_device_adapter_properties_t), Version = 1 };
+        private static unsafe ctl_display_properties_t CreateDisplayProperties() => new ctl_display_properties_t { Size = (uint)sizeof(ctl_display_properties_t), Version = 0 };
     }
 }

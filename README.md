@@ -31,40 +31,26 @@ cd IGCLWrapper
 ./build_igcl.ps1     # restores, regenerates bindings, builds, tests
 ```
 
-### Basic usage
+### Basic usage (facade)
 ```csharp
-using System;
-using System.Runtime.InteropServices;
-using System.Text;
 using IGCLWrapper;
 
-using var igcl = IGCLApi.Initialize();
-var adapters = igcl.EnumerateAdapters();
-Console.WriteLine($"Found {adapters.Length} Intel GPU(s)");
+using var api = IGCLApiHelper.Initialize();
+var adapters = api.EnumerateAdapters();
+Console.WriteLine($"Found {adapters.Count} Intel GPU(s)");
 
 foreach (var adapter in adapters)
 {
-    var props = IGCLHelpers.GetProperties(adapter);
-
-    ReadOnlySpan<sbyte> nameSpan = MemoryMarshal.CreateReadOnlySpan(ref props.name.e0, 100);
-    int term = nameSpan.IndexOf((sbyte)0);
-    if (term >= 0) nameSpan = nameSpan[..term];
-    var name = Encoding.UTF8.GetString(MemoryMarshal.Cast<sbyte, byte>(nameSpan));
-
-    Console.WriteLine($"\nGPU: {name}");
+    var props = adapter.GetProperties();
+    Console.WriteLine($"\nGPU: {adapter.Name}");
     Console.WriteLine($"Device ID: 0x{props.pci_device_id:X}");
 
-    var displays = igcl.EnumerateDisplays(adapter);
-    Console.WriteLine($"Connected Displays: {displays.Length}");
-
-    foreach (var display in displays)
+    foreach (var display in adapter.GetDisplays())
     {
-        if (IGCLHelpers.IsActive(display))
-        {
-            var (width, height) = IGCLHelpers.GetResolution(display);
-            var refresh = IGCLHelpers.GetRefreshRate(display);
-            Console.WriteLine($"  {width}x{height} @ {refresh:F2} Hz");
-        }
+        if (!display.IsActive()) continue;
+        var (width, height) = display.GetResolution();
+        var refresh = display.GetRefreshRateHz();
+        Console.WriteLine($"  {width}x{height} @ {refresh:F2} Hz");
     }
 }
 ```
@@ -83,6 +69,156 @@ catch (IGCLException ex)
 catch (DllNotFoundException)
 {
     Console.WriteLine("IGCL DLL not found. Install Intel Graphics drivers.");
+}
+```
+
+## Working with the facade helpers (IGCLApiHelper)
+Use the facade helpers to avoid manual struct sizing/handle management.
+
+### List active display resolutions
+```csharp
+using IGCLWrapper;
+
+using var api = IGCLApiHelper.Initialize();
+foreach (var adapter in api.EnumerateAdapters())
+{
+    foreach (var display in adapter.GetDisplays())
+    {
+        if (!display.IsActive()) continue;
+        var (w, h) = display.GetResolution();
+        var hz = display.GetRefreshRateHz();
+        Console.WriteLine($"{adapter.Name}: {w}x{h} @ {hz:F2} Hz");
+    }
+}
+```
+
+### List only combined displays
+```csharp
+using IGCLWrapper;
+using System.Linq;
+
+using var api = IGCLApiHelper.Initialize();
+foreach (var adapter in api.EnumerateAdapters())
+{
+    var displayHelper = adapter.GetDisplays().First();
+    var args = new ctl_combined_display_args_t
+    {
+        Size = (uint)sizeof(ctl_combined_display_args_t),
+        Version = 0,
+        OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_QUERY_CONFIG
+    };
+    var result = displayHelper.GetSetCombinedDisplay(args);
+    if (result.IsSupported && result.NumOutputs > 0)
+    {
+        Console.WriteLine($"Adapter {adapter.Name} has a combined display with {result.NumOutputs} outputs.");
+    }
+}
+```
+
+### Get current temperature
+```csharp
+using IGCLWrapper;
+
+using var api = IGCLApiHelper.Initialize();
+foreach (var adapter in api.EnumerateAdapters())
+{
+    var tempHelper = api.GetTemperatureHelper(adapter);
+    var sensor = tempHelper.EnumTemperatureSensors().FirstOrDefault();
+    if (sensor != IntPtr.Zero)
+    {
+        var tempC = tempHelper.TemperatureGetState(sensor);
+        Console.WriteLine($"{adapter.Name}: {tempC:F1} °C");
+    }
+}
+```
+
+### Wait for a property change on an adapter
+```csharp
+using IGCLWrapper;
+
+using var api = IGCLApiHelper.Initialize();
+var adapter = api.EnumerateAdapters().First();
+var args = new ctl_wait_property_change_args_t
+{
+    Size = (uint)sizeof(ctl_wait_property_change_args_t),
+    Version = 0,
+    PropertyType = ctl_property_type_flags_t.CTL_PROPERTY_TYPE_FLAG_DISPLAY,
+    TimeOutMilliSec = 5_000 // 5 seconds
+};
+adapter.WaitForPropertyChange(args);
+Console.WriteLine("Property change observed or timeout reached.");
+```
+
+## Doing the same with the native API
+If you prefer direct P/Invoke access, use `IGCLApi` and the generated structs/functions.
+
+### List active display resolutions (native)
+```csharp
+using IGCLWrapper;
+
+using var igcl = IGCLApi.Initialize();
+foreach (var adapter in igcl.EnumerateAdapters())
+{
+    var displays = igcl.EnumerateDisplays(adapter);
+    foreach (var display in displays)
+    {
+        var props = new ctl_display_properties_t { Size = (uint)sizeof(ctl_display_properties_t), Version = 0 };
+        if (IGCL.ctlGetDisplayProperties((_ctl_display_output_handle_t*)display, &props) != ctl_result_t.CTL_RESULT_SUCCESS)
+            continue;
+        var timing = props.Display_Timing_Info;
+        if (timing.HActive == 0 || timing.VActive == 0) continue;
+        Console.WriteLine($"{timing.HActive}x{timing.VActive} @ {timing.RefreshRate / 1000.0:F2} Hz");
+    }
+}
+```
+
+### List only combined displays (native)
+```csharp
+using IGCLWrapper;
+
+using var igcl = IGCLApi.Initialize();
+foreach (var adapter in igcl.EnumerateAdapters())
+{
+    var args = new ctl_combined_display_args_t
+    {
+        Size = (uint)sizeof(ctl_combined_display_args_t),
+        Version = 0,
+        OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_QUERY_CONFIG
+    };
+    var result = IGCL.ctlGetSetCombinedDisplay((_ctl_device_adapter_handle_t*)adapter, &args);
+    if (result == ctl_result_t.CTL_RESULT_SUCCESS && args.IsSupported && args.NumOutputs > 0)
+    {
+        Console.WriteLine("Combined display present.");
+    }
+}
+```
+
+### Get current temperature (native)
+```csharp
+using IGCLWrapper;
+
+using var igcl = IGCLApi.Initialize();
+foreach (var adapter in igcl.EnumerateAdapters())
+{
+    uint count = 0;
+    if (IGCL.ctlEnumTemperatureSensors((_ctl_device_adapter_handle_t*)adapter, &count, null) != ctl_result_t.CTL_RESULT_SUCCESS || count == 0)
+        continue;
+
+    var sensors = new IntPtr[count];
+    unsafe
+    {
+        fixed (IntPtr* pSensors = sensors)
+        {
+            if (IGCL.ctlEnumTemperatureSensors((_ctl_device_adapter_handle_t*)adapter, &count, (_ctl_temp_handle_t**)pSensors) != ctl_result_t.CTL_RESULT_SUCCESS)
+                continue;
+        }
+
+        double temp = 0;
+        if (IGCL.ctlTemperatureGetState((_ctl_temp_handle_t*)sensors[0], &temp) == ctl_result_t.CTL_RESULT_SUCCESS)
+        {
+            Console.WriteLine($"{temp:F1} °C");
+        }
+    }
 }
 ```
 
