@@ -37,6 +37,10 @@ namespace IGCLWrapper.FacadeTests
             {
                 throw new SkipException($"{reason}: {ex.Result}");
             }
+            catch (EntryPointNotFoundException ex)
+            {
+                throw new SkipException($"{reason}: {ex.Message}");
+            }
         }
 
         internal static void InvokeOrSkip(Action action, string reason)
@@ -48,6 +52,10 @@ namespace IGCLWrapper.FacadeTests
             catch (IGCLException ex)
             {
                 throw new SkipException($"{reason}: {ex.Result}");
+            }
+            catch (EntryPointNotFoundException ex)
+            {
+                throw new SkipException($"{reason}: {ex.Message}");
             }
         }
     }

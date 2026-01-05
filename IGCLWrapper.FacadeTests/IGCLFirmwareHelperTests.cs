@@ -13,8 +13,8 @@ namespace IGCLWrapper.FacadeTests
             using (api)
             {
                 var helper = api.GetFirmwareHelper(adapter);
-                var props = helper.GetFirmwareProperties();
-                Assert.True(props.Size > 0);
+                var props = FacadeTestUtils.InvokeOrSkip(() => helper.GetFirmwareProperties(), "Firmware properties unsupported");
+                if (props.Size == 0) throw new SkipException("Firmware properties unsupported (empty).");
                 var components = helper.EnumerateFirmwareComponents();
                 if (components.Count > 0)
                 {

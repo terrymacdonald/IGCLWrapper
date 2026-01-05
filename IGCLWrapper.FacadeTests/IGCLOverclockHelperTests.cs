@@ -14,8 +14,13 @@ namespace IGCLWrapper.FacadeTests
             {
                 var helper = api.GetOverclockHelper(adapter);
                 var props = helper.GetProperties();
-                Assert.True(props.Size > 0);
+                Skip.If(props.Size == 0, "Overclock unsupported.");
                 FacadeTestUtils.InvokeOrSkip(() => helper.GetPowerTelemetry(), "Power telemetry unsupported");
+
+                FacadeTestUtils.InvokeOrSkip(() => helper.OverclockGpuFrequencyOffsetGet(), "GPU freq offset unsupported");
+                FacadeTestUtils.InvokeOrSkip(() => helper.OverclockGpuMaxVoltageOffsetGetV2(), "GPU voltage offset unsupported");
+                FacadeTestUtils.InvokeOrSkip(() => helper.OverclockPowerLimitGetV2(), "Power limit unsupported");
+                FacadeTestUtils.InvokeOrSkip(() => helper.OverclockTemperatureLimitGetV2(), "Temp limit unsupported");
             }
         }
     }

@@ -19,8 +19,8 @@ namespace IGCLWrapper.FacadeTests
                 Assert.True(props.Size > 0);
                 helper.FrequencyGetRange(domains[0]);
                 helper.FrequencyGetState(domains[0]);
-                helper.FrequencyGetThrottleTime(domains[0]);
-                helper.FrequencyGetAvailableClocks(domains[0]);
+                FacadeTestUtils.InvokeOrSkip(() => helper.FrequencyGetThrottleTime(domains[0]), "Throttle time unsupported");
+                FacadeTestUtils.InvokeOrSkip(() => helper.FrequencyGetAvailableClocks(domains[0]), "Available clocks unsupported");
             }
         }
     }

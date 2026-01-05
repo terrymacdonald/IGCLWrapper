@@ -19,5 +19,16 @@ namespace IGCLWrapper.FacadeTests
                 Assert.NotNull(displays);
             }
         }
+
+        [SkippableFact]
+        public void WaitForPropertyChange_ReturnsOrSkips()
+        {
+            var (api, adapter) = FacadeTestUtils.RequireAdapter();
+            using (api)
+            {
+                var args = new ctl_wait_property_change_args_t { Size = 0, Version = 0, PropertyType = (uint)ctl_property_type_flag_t.CTL_PROPERTY_TYPE_FLAG_DISPLAY, TimeOutMilliSec = 0 };
+                FacadeTestUtils.InvokeOrSkip(() => adapter.WaitForPropertyChange(args), "WaitForPropertyChange unsupported");
+            }
+        }
     }
 }

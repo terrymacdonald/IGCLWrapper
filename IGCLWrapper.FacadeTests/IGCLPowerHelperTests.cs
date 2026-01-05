@@ -17,7 +17,8 @@ namespace IGCLWrapper.FacadeTests
                 Skip.If(domains.Count == 0, "No power domains.");
                 var props = helper.PowerGetProperties(domains[0]);
                 Assert.True(props.Size > 0);
-                helper.PowerGetEnergyCounter(domains[0]);
+                var energy = helper.PowerGetEnergyCounter(domains[0]);
+                Assert.True(energy.timestamp >= 0);
                 helper.PowerGetLimits(domains[0]);
             }
         }
