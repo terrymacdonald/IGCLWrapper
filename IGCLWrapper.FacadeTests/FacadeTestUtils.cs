@@ -1,9 +1,11 @@
 using System;
 using System.Linq;
+using System.Runtime.Versioning;
 using Xunit;
 
 namespace IGCLWrapper.FacadeTests
 {
+    [SupportedOSPlatform("windows")]
     internal static class FacadeTestUtils
     {
         internal static (IGCLApiHelper api, IGCLAdapterHelper adapter) RequireAdapter()
