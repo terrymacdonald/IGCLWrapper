@@ -11,6 +11,7 @@ namespace IGCLWrapper
     {
         private IGCLApi? _api;
         private bool _disposed;
+        private static unsafe ctl_runtime_path_args_t CreateRuntimePathArgs() => new ctl_runtime_path_args_t { Size = (uint)sizeof(ctl_runtime_path_args_t), Version = 0 };
 
         private IGCLApiHelper(IGCLApi api)
         {
@@ -38,76 +39,6 @@ namespace IGCLWrapper
         public static uint GetMajorVersion(uint version) => IGCLApi.GetMajorVersion(version);
         public static uint GetMinorVersion(uint version) => IGCLApi.GetMinorVersion(version);
         public static uint GetImplVersion() => IGCLApi.GetImplVersion();
-        #endregion
-
-        #region Struct initialization helpers
-        public static unsafe T Init<T>() where T : unmanaged
-        {
-            var value = default(T);
-            var sizePtr = (uint*)&value;
-            *sizePtr = (uint)sizeof(T);
-            if (sizeof(T) > sizeof(uint))
-            {
-                var versionPtr = (byte*)((byte*)&value + sizeof(uint));
-                *versionPtr = 0;
-            }
-            return value;
-        }
-
-        public static unsafe ctl_init_args_t CreateInitArgs()
-        {
-            var args = Init<ctl_init_args_t>();
-            args.AppVersion = GetImplVersion();
-            args.flags = (uint)ctl_init_flag_t.CTL_INIT_FLAG_USE_LEVEL_ZERO;
-            args.SupportedVersion = GetImplVersion();
-            args.ApplicationUID = default;
-            return args;
-        }
-
-        public static unsafe ctl_device_adapter_properties_t CreateAdapterProperties()
-        {
-            var props = Init<ctl_device_adapter_properties_t>();
-            props.Version = 1;
-            return props;
-        }
-
-        public static unsafe ctl_display_properties_t CreateDisplayProperties()
-        {
-            var props = Init<ctl_display_properties_t>();
-            props.Version = 0;
-            return props;
-        }
-
-        public static unsafe ctl_3d_feature_caps_t Create3DFeatureCaps() => Init<ctl_3d_feature_caps_t>();
-        public static unsafe ctl_3d_feature_getset_t Create3DFeatureGetSet(ctl_3d_feature_t feature) => new ctl_3d_feature_getset_t { Size = (uint)sizeof(ctl_3d_feature_getset_t), Version = 0, FeatureType = feature };
-        public static unsafe ctl_power_telemetry_t CreatePowerTelemetry() => Init<ctl_power_telemetry_t>();
-        public static unsafe ctl_ecc_properties_t CreateEccProperties() => Init<ctl_ecc_properties_t>();
-        public static unsafe ctl_ecc_state_desc_t CreateEccState() => Init<ctl_ecc_state_desc_t>();
-        public static unsafe ctl_engine_properties_t CreateEngineProperties() => Init<ctl_engine_properties_t>();
-        public static unsafe ctl_engine_stats_t CreateEngineStats() => Init<ctl_engine_stats_t>();
-        public static unsafe ctl_fan_properties_t CreateFanProperties() => Init<ctl_fan_properties_t>();
-        public static unsafe ctl_fan_config_t CreateFanConfig() => Init<ctl_fan_config_t>();
-        public static unsafe ctl_fan_speed_t CreateFanSpeed() => Init<ctl_fan_speed_t>();
-        public static unsafe ctl_fan_speed_table_t CreateFanSpeedTable() => Init<ctl_fan_speed_table_t>();
-        public static unsafe ctl_firmware_properties_t CreateFirmwareProperties() => Init<ctl_firmware_properties_t>();
-        public static unsafe ctl_firmware_component_properties_t CreateFirmwareComponentProperties() => Init<ctl_firmware_component_properties_t>();
-        public static unsafe ctl_freq_properties_t CreateFrequencyProperties() => Init<ctl_freq_properties_t>();
-        public static unsafe ctl_freq_range_t CreateFrequencyRange() => Init<ctl_freq_range_t>();
-        public static unsafe ctl_freq_state_t CreateFrequencyState() => Init<ctl_freq_state_t>();
-        public static unsafe ctl_freq_throttle_time_t CreateFrequencyThrottleTime() => Init<ctl_freq_throttle_time_t>();
-        public static unsafe ctl_led_properties_t CreateLedProperties() => Init<ctl_led_properties_t>();
-        public static unsafe ctl_led_state_t CreateLedState() => new ctl_led_state_t { Size = (uint)sizeof(ctl_led_state_t), Version = 0, color = new ctl_led_color_t { Size = (uint)sizeof(ctl_led_color_t), Version = 0 } };
-        public static unsafe ctl_video_processing_feature_caps_t CreateVideoProcessingCaps() => Init<ctl_video_processing_feature_caps_t>();
-        public static unsafe ctl_video_processing_feature_getset_t CreateVideoProcessingGetSet() => Init<ctl_video_processing_feature_getset_t>();
-        public static unsafe ctl_mem_properties_t CreateMemoryProperties() => Init<ctl_mem_properties_t>();
-        public static unsafe ctl_mem_state_t CreateMemoryState() => Init<ctl_mem_state_t>();
-        public static unsafe ctl_mem_bandwidth_t CreateMemoryBandwidth() => Init<ctl_mem_bandwidth_t>();
-        public static unsafe ctl_oc_properties_t CreateOverclockProperties() => Init<ctl_oc_properties_t>();
-        public static unsafe ctl_oc_vf_pair_t CreateVfPair() => Init<ctl_oc_vf_pair_t>();
-        public static unsafe ctl_power_properties_t CreatePowerProperties() => Init<ctl_power_properties_t>();
-        public static unsafe ctl_power_energy_counter_t CreatePowerEnergyCounter() => Init<ctl_power_energy_counter_t>();
-        public static unsafe ctl_power_limits_t CreatePowerLimits() => Init<ctl_power_limits_t>();
-        public static unsafe ctl_temp_properties_t CreateTemperatureProperties() => Init<ctl_temp_properties_t>();
         #endregion
 
         public IReadOnlyList<IGCLAdapterHelper> EnumerateAdapters()
@@ -157,6 +88,15 @@ namespace IGCLWrapper
         }
         #endregion
 
+        public unsafe void SetRuntimePath(ctl_runtime_path_args_t args)
+        {
+            ThrowIfDisposed();
+            var copy = args.Size == 0 ? CreateRuntimePathArgs() : args;
+            var result = IGCL.ctlSetRuntimePath(&copy);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, "Failed to set runtime path");
+        }
+
         public void Dispose()
         {
             Dispose(true);
@@ -198,6 +138,8 @@ namespace IGCLWrapper
             AdapterHandle = adapterHandle;
         }
 
+        private static unsafe ctl_device_adapter_properties_t CreateAdapterProperties() => new ctl_device_adapter_properties_t { Size = (uint)sizeof(ctl_device_adapter_properties_t), Version = 1 };
+
         public unsafe ctl_device_adapter_properties_t GetProperties()
         {
             ThrowIfDisposed();
@@ -208,7 +150,7 @@ namespace IGCLWrapper
                     return _properties.Value;
                 }
 
-                var props = IGCLApiHelper.CreateAdapterProperties();
+                var props = CreateAdapterProperties();
                 var result = IGCL.ctlGetDeviceProperties((_ctl_device_adapter_handle_t*)AdapterHandle, &props);
                 if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 {
@@ -243,6 +185,18 @@ namespace IGCLWrapper
         }
 
         public string PciVendorId => GetProperties().pci_vendor_id.ToString("X4");
+
+        private static unsafe ctl_wait_property_change_args_t CreateWaitPropertyChangeArgs() => new ctl_wait_property_change_args_t { Size = (uint)sizeof(ctl_wait_property_change_args_t), Version = 0 };
+
+        public unsafe ctl_wait_property_change_args_t WaitForPropertyChange(ctl_wait_property_change_args_t args)
+        {
+            ThrowIfDisposed();
+            var copy = args.Size == 0 ? CreateWaitPropertyChangeArgs() : args;
+            var result = IGCL.ctlWaitForPropertyChange((_ctl_device_adapter_handle_t*)AdapterHandle, &copy);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, "Failed to wait for property change");
+            return copy;
+        }
 
         internal void ThrowIfDisposed()
         {

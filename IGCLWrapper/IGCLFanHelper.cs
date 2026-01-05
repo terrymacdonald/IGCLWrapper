@@ -27,7 +27,7 @@ namespace IGCLWrapper
         public unsafe ctl_fan_properties_t FanGetProperties(IntPtr fanHandle)
         {
             ThrowIfDisposed();
-            var props = IGCLApiHelper.CreateFanProperties();
+            var props = CreateFanProperties();
             var result = IGCL.ctlFanGetProperties((_ctl_fan_handle_t*)fanHandle, &props);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get fan properties");
@@ -37,7 +37,7 @@ namespace IGCLWrapper
         public unsafe ctl_fan_config_t FanGetConfig(IntPtr fanHandle)
         {
             ThrowIfDisposed();
-            var config = IGCLApiHelper.CreateFanConfig();
+            var config = CreateFanConfig();
             var result = IGCL.ctlFanGetConfig((_ctl_fan_handle_t*)fanHandle, &config);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get fan config");
@@ -101,6 +101,9 @@ namespace IGCLWrapper
             if (_disposed)
                 throw new ObjectDisposedException(nameof(IGCLFanHelper));
         }
+
+        private static unsafe ctl_fan_properties_t CreateFanProperties() => new ctl_fan_properties_t { Size = (uint)sizeof(ctl_fan_properties_t), Version = 0 };
+        private static unsafe ctl_fan_config_t CreateFanConfig() => new ctl_fan_config_t { Size = (uint)sizeof(ctl_fan_config_t), Version = 0 };
 
         public void Dispose()
         {

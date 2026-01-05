@@ -27,7 +27,7 @@ namespace IGCLWrapper
         public unsafe ctl_engine_properties_t EngineGetProperties(IntPtr engineHandle)
         {
             ThrowIfDisposed();
-            var props = IGCLApiHelper.CreateEngineProperties();
+            var props = CreateEngineProperties();
             var result = IGCL.ctlEngineGetProperties((_ctl_engine_handle_t*)engineHandle, &props);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get engine properties");
@@ -37,7 +37,7 @@ namespace IGCLWrapper
         public unsafe ctl_engine_stats_t EngineGetActivity(IntPtr engineHandle)
         {
             ThrowIfDisposed();
-            var stats = IGCLApiHelper.CreateEngineStats();
+            var stats = CreateEngineStats();
             var result = IGCL.ctlEngineGetActivity((_ctl_engine_handle_t*)engineHandle, &stats);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get engine activity");
@@ -67,6 +67,9 @@ namespace IGCLWrapper
             if (_disposed)
                 throw new ObjectDisposedException(nameof(IGCLEngineHelper));
         }
+
+        private static unsafe ctl_engine_properties_t CreateEngineProperties() => new ctl_engine_properties_t { Size = (uint)sizeof(ctl_engine_properties_t), Version = 0 };
+        private static unsafe ctl_engine_stats_t CreateEngineStats() => new ctl_engine_stats_t { Size = (uint)sizeof(ctl_engine_stats_t), Version = 0 };
 
         public void Dispose()
         {

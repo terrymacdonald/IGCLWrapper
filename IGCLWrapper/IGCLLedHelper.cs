@@ -27,7 +27,7 @@ namespace IGCLWrapper
         public unsafe ctl_led_properties_t LedGetProperties(IntPtr ledHandle)
         {
             ThrowIfDisposed();
-            var props = IGCLApiHelper.CreateLedProperties();
+            var props = CreateLedProperties();
             var result = IGCL.ctlLedGetProperties((_ctl_led_handle_t*)ledHandle, &props);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get LED properties");
@@ -37,7 +37,7 @@ namespace IGCLWrapper
         public unsafe ctl_led_state_t LedGetState(IntPtr ledHandle)
         {
             ThrowIfDisposed();
-            var state = IGCLApiHelper.CreateLedState();
+            var state = CreateLedState();
             var result = IGCL.ctlLedGetState((_ctl_led_handle_t*)ledHandle, &state);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get LED state");
@@ -75,6 +75,9 @@ namespace IGCLWrapper
             if (_disposed)
                 throw new ObjectDisposedException(nameof(IGCLLedHelper));
         }
+
+        private static unsafe ctl_led_properties_t CreateLedProperties() => new ctl_led_properties_t { Size = (uint)sizeof(ctl_led_properties_t), Version = 0 };
+        private static unsafe ctl_led_state_t CreateLedState() => new ctl_led_state_t { Size = (uint)sizeof(ctl_led_state_t), Version = 0, color = new ctl_led_color_t { Size = (uint)sizeof(ctl_led_color_t), Version = 0 } };
 
         public void Dispose()
         {

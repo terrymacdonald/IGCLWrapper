@@ -5,39 +5,6 @@ items:
   id: IGCLApiHelper
   parent: IGCLWrapper
   children:
-  - IGCLWrapper.IGCLApiHelper.Create3DFeatureCaps
-  - IGCLWrapper.IGCLApiHelper.Create3DFeatureGetSet(IGCLWrapper.ctl_3d_feature_t)
-  - IGCLWrapper.IGCLApiHelper.CreateAdapterProperties
-  - IGCLWrapper.IGCLApiHelper.CreateDisplayProperties
-  - IGCLWrapper.IGCLApiHelper.CreateEccProperties
-  - IGCLWrapper.IGCLApiHelper.CreateEccState
-  - IGCLWrapper.IGCLApiHelper.CreateEngineProperties
-  - IGCLWrapper.IGCLApiHelper.CreateEngineStats
-  - IGCLWrapper.IGCLApiHelper.CreateFanConfig
-  - IGCLWrapper.IGCLApiHelper.CreateFanProperties
-  - IGCLWrapper.IGCLApiHelper.CreateFanSpeed
-  - IGCLWrapper.IGCLApiHelper.CreateFanSpeedTable
-  - IGCLWrapper.IGCLApiHelper.CreateFirmwareComponentProperties
-  - IGCLWrapper.IGCLApiHelper.CreateFirmwareProperties
-  - IGCLWrapper.IGCLApiHelper.CreateFrequencyProperties
-  - IGCLWrapper.IGCLApiHelper.CreateFrequencyRange
-  - IGCLWrapper.IGCLApiHelper.CreateFrequencyState
-  - IGCLWrapper.IGCLApiHelper.CreateFrequencyThrottleTime
-  - IGCLWrapper.IGCLApiHelper.CreateInitArgs
-  - IGCLWrapper.IGCLApiHelper.CreateLedProperties
-  - IGCLWrapper.IGCLApiHelper.CreateLedState
-  - IGCLWrapper.IGCLApiHelper.CreateMemoryBandwidth
-  - IGCLWrapper.IGCLApiHelper.CreateMemoryProperties
-  - IGCLWrapper.IGCLApiHelper.CreateMemoryState
-  - IGCLWrapper.IGCLApiHelper.CreateOverclockProperties
-  - IGCLWrapper.IGCLApiHelper.CreatePowerEnergyCounter
-  - IGCLWrapper.IGCLApiHelper.CreatePowerLimits
-  - IGCLWrapper.IGCLApiHelper.CreatePowerProperties
-  - IGCLWrapper.IGCLApiHelper.CreatePowerTelemetry
-  - IGCLWrapper.IGCLApiHelper.CreateTemperatureProperties
-  - IGCLWrapper.IGCLApiHelper.CreateVfPair
-  - IGCLWrapper.IGCLApiHelper.CreateVideoProcessingCaps
-  - IGCLWrapper.IGCLApiHelper.CreateVideoProcessingGetSet
   - IGCLWrapper.IGCLApiHelper.Dispose
   - IGCLWrapper.IGCLApiHelper.EnumerateAdapters
   - IGCLWrapper.IGCLApiHelper.Get3DHelper(IGCLWrapper.IGCLAdapterHelper)
@@ -56,10 +23,10 @@ items:
   - IGCLWrapper.IGCLApiHelper.GetPciHelper(IGCLWrapper.IGCLAdapterHelper)
   - IGCLWrapper.IGCLApiHelper.GetPowerHelper(IGCLWrapper.IGCLAdapterHelper)
   - IGCLWrapper.IGCLApiHelper.GetTemperatureHelper(IGCLWrapper.IGCLAdapterHelper)
-  - IGCLWrapper.IGCLApiHelper.Init``1
   - IGCLWrapper.IGCLApiHelper.Initialize
   - IGCLWrapper.IGCLApiHelper.IsIGCLDllAvailable(System.String@)
   - IGCLWrapper.IGCLApiHelper.MakeVersion(System.UInt32,System.UInt32)
+  - IGCLWrapper.IGCLApiHelper.SetRuntimePath(IGCLWrapper.ctl_runtime_path_args_t)
   langs:
   - csharp
   - vb
@@ -112,7 +79,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Initialize
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 22
+    startLine: 23
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -142,7 +109,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsIGCLDllAvailable
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 30
+    startLine: 31
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -178,7 +145,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: MakeVersion
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 36
+    startLine: 37
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -214,7 +181,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetMajorVersion
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 37
+    startLine: 38
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -248,7 +215,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetMinorVersion
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 38
+    startLine: 39
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -282,7 +249,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetImplVersion
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 39
+    startLine: 40
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -292,966 +259,6 @@ items:
       type: System.UInt32
     content.vb: Public Shared Function GetImplVersion() As UInteger
   overload: IGCLWrapper.IGCLApiHelper.GetImplVersion*
-- uid: IGCLWrapper.IGCLApiHelper.Init``1
-  commentId: M:IGCLWrapper.IGCLApiHelper.Init``1
-  id: Init``1
-  parent: IGCLWrapper.IGCLApiHelper
-  langs:
-  - csharp
-  - vb
-  name: Init<T>()
-  nameWithType: IGCLApiHelper.Init<T>()
-  fullName: IGCLWrapper.IGCLApiHelper.Init<T>()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: Init
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 43
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: 'public static T Init<T>() where T : unmanaged'
-    typeParameters:
-    - id: T
-    return:
-      type: '{T}'
-    content.vb: Public Shared Function Init(Of T As Structure)() As T
-  overload: IGCLWrapper.IGCLApiHelper.Init*
-  nameWithType.vb: IGCLApiHelper.Init(Of T)()
-  fullName.vb: IGCLWrapper.IGCLApiHelper.Init(Of T)()
-  name.vb: Init(Of T)()
-- uid: IGCLWrapper.IGCLApiHelper.CreateInitArgs
-  commentId: M:IGCLWrapper.IGCLApiHelper.CreateInitArgs
-  id: CreateInitArgs
-  parent: IGCLWrapper.IGCLApiHelper
-  langs:
-  - csharp
-  - vb
-  name: CreateInitArgs()
-  nameWithType: IGCLApiHelper.CreateInitArgs()
-  fullName: IGCLWrapper.IGCLApiHelper.CreateInitArgs()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CreateInitArgs
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 56
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public static ctl_init_args_t CreateInitArgs()
-    return:
-      type: IGCLWrapper.ctl_init_args_t
-    content.vb: Public Shared Function CreateInitArgs() As ctl_init_args_t
-  overload: IGCLWrapper.IGCLApiHelper.CreateInitArgs*
-- uid: IGCLWrapper.IGCLApiHelper.CreateAdapterProperties
-  commentId: M:IGCLWrapper.IGCLApiHelper.CreateAdapterProperties
-  id: CreateAdapterProperties
-  parent: IGCLWrapper.IGCLApiHelper
-  langs:
-  - csharp
-  - vb
-  name: CreateAdapterProperties()
-  nameWithType: IGCLApiHelper.CreateAdapterProperties()
-  fullName: IGCLWrapper.IGCLApiHelper.CreateAdapterProperties()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CreateAdapterProperties
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 66
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public static ctl_device_adapter_properties_t CreateAdapterProperties()
-    return:
-      type: IGCLWrapper.ctl_device_adapter_properties_t
-    content.vb: Public Shared Function CreateAdapterProperties() As ctl_device_adapter_properties_t
-  overload: IGCLWrapper.IGCLApiHelper.CreateAdapterProperties*
-- uid: IGCLWrapper.IGCLApiHelper.CreateDisplayProperties
-  commentId: M:IGCLWrapper.IGCLApiHelper.CreateDisplayProperties
-  id: CreateDisplayProperties
-  parent: IGCLWrapper.IGCLApiHelper
-  langs:
-  - csharp
-  - vb
-  name: CreateDisplayProperties()
-  nameWithType: IGCLApiHelper.CreateDisplayProperties()
-  fullName: IGCLWrapper.IGCLApiHelper.CreateDisplayProperties()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CreateDisplayProperties
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 73
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public static ctl_display_properties_t CreateDisplayProperties()
-    return:
-      type: IGCLWrapper.ctl_display_properties_t
-    content.vb: Public Shared Function CreateDisplayProperties() As ctl_display_properties_t
-  overload: IGCLWrapper.IGCLApiHelper.CreateDisplayProperties*
-- uid: IGCLWrapper.IGCLApiHelper.Create3DFeatureCaps
-  commentId: M:IGCLWrapper.IGCLApiHelper.Create3DFeatureCaps
-  id: Create3DFeatureCaps
-  parent: IGCLWrapper.IGCLApiHelper
-  langs:
-  - csharp
-  - vb
-  name: Create3DFeatureCaps()
-  nameWithType: IGCLApiHelper.Create3DFeatureCaps()
-  fullName: IGCLWrapper.IGCLApiHelper.Create3DFeatureCaps()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: Create3DFeatureCaps
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 80
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public static ctl_3d_feature_caps_t Create3DFeatureCaps()
-    return:
-      type: IGCLWrapper.ctl_3d_feature_caps_t
-    content.vb: Public Shared Function Create3DFeatureCaps() As ctl_3d_feature_caps_t
-  overload: IGCLWrapper.IGCLApiHelper.Create3DFeatureCaps*
-- uid: IGCLWrapper.IGCLApiHelper.Create3DFeatureGetSet(IGCLWrapper.ctl_3d_feature_t)
-  commentId: M:IGCLWrapper.IGCLApiHelper.Create3DFeatureGetSet(IGCLWrapper.ctl_3d_feature_t)
-  id: Create3DFeatureGetSet(IGCLWrapper.ctl_3d_feature_t)
-  parent: IGCLWrapper.IGCLApiHelper
-  langs:
-  - csharp
-  - vb
-  name: Create3DFeatureGetSet(ctl_3d_feature_t)
-  nameWithType: IGCLApiHelper.Create3DFeatureGetSet(ctl_3d_feature_t)
-  fullName: IGCLWrapper.IGCLApiHelper.Create3DFeatureGetSet(IGCLWrapper.ctl_3d_feature_t)
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: Create3DFeatureGetSet
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 81
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public static ctl_3d_feature_getset_t Create3DFeatureGetSet(ctl_3d_feature_t feature)
-    parameters:
-    - id: feature
-      type: IGCLWrapper.ctl_3d_feature_t
-    return:
-      type: IGCLWrapper.ctl_3d_feature_getset_t
-    content.vb: Public Shared Function Create3DFeatureGetSet(feature As ctl_3d_feature_t) As ctl_3d_feature_getset_t
-  overload: IGCLWrapper.IGCLApiHelper.Create3DFeatureGetSet*
-- uid: IGCLWrapper.IGCLApiHelper.CreatePowerTelemetry
-  commentId: M:IGCLWrapper.IGCLApiHelper.CreatePowerTelemetry
-  id: CreatePowerTelemetry
-  parent: IGCLWrapper.IGCLApiHelper
-  langs:
-  - csharp
-  - vb
-  name: CreatePowerTelemetry()
-  nameWithType: IGCLApiHelper.CreatePowerTelemetry()
-  fullName: IGCLWrapper.IGCLApiHelper.CreatePowerTelemetry()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CreatePowerTelemetry
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 82
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public static ctl_power_telemetry_t CreatePowerTelemetry()
-    return:
-      type: IGCLWrapper.ctl_power_telemetry_t
-    content.vb: Public Shared Function CreatePowerTelemetry() As ctl_power_telemetry_t
-  overload: IGCLWrapper.IGCLApiHelper.CreatePowerTelemetry*
-- uid: IGCLWrapper.IGCLApiHelper.CreateEccProperties
-  commentId: M:IGCLWrapper.IGCLApiHelper.CreateEccProperties
-  id: CreateEccProperties
-  parent: IGCLWrapper.IGCLApiHelper
-  langs:
-  - csharp
-  - vb
-  name: CreateEccProperties()
-  nameWithType: IGCLApiHelper.CreateEccProperties()
-  fullName: IGCLWrapper.IGCLApiHelper.CreateEccProperties()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CreateEccProperties
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 83
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public static ctl_ecc_properties_t CreateEccProperties()
-    return:
-      type: IGCLWrapper.ctl_ecc_properties_t
-    content.vb: Public Shared Function CreateEccProperties() As ctl_ecc_properties_t
-  overload: IGCLWrapper.IGCLApiHelper.CreateEccProperties*
-- uid: IGCLWrapper.IGCLApiHelper.CreateEccState
-  commentId: M:IGCLWrapper.IGCLApiHelper.CreateEccState
-  id: CreateEccState
-  parent: IGCLWrapper.IGCLApiHelper
-  langs:
-  - csharp
-  - vb
-  name: CreateEccState()
-  nameWithType: IGCLApiHelper.CreateEccState()
-  fullName: IGCLWrapper.IGCLApiHelper.CreateEccState()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CreateEccState
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 84
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public static ctl_ecc_state_desc_t CreateEccState()
-    return:
-      type: IGCLWrapper.ctl_ecc_state_desc_t
-    content.vb: Public Shared Function CreateEccState() As ctl_ecc_state_desc_t
-  overload: IGCLWrapper.IGCLApiHelper.CreateEccState*
-- uid: IGCLWrapper.IGCLApiHelper.CreateEngineProperties
-  commentId: M:IGCLWrapper.IGCLApiHelper.CreateEngineProperties
-  id: CreateEngineProperties
-  parent: IGCLWrapper.IGCLApiHelper
-  langs:
-  - csharp
-  - vb
-  name: CreateEngineProperties()
-  nameWithType: IGCLApiHelper.CreateEngineProperties()
-  fullName: IGCLWrapper.IGCLApiHelper.CreateEngineProperties()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CreateEngineProperties
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 85
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public static ctl_engine_properties_t CreateEngineProperties()
-    return:
-      type: IGCLWrapper.ctl_engine_properties_t
-    content.vb: Public Shared Function CreateEngineProperties() As ctl_engine_properties_t
-  overload: IGCLWrapper.IGCLApiHelper.CreateEngineProperties*
-- uid: IGCLWrapper.IGCLApiHelper.CreateEngineStats
-  commentId: M:IGCLWrapper.IGCLApiHelper.CreateEngineStats
-  id: CreateEngineStats
-  parent: IGCLWrapper.IGCLApiHelper
-  langs:
-  - csharp
-  - vb
-  name: CreateEngineStats()
-  nameWithType: IGCLApiHelper.CreateEngineStats()
-  fullName: IGCLWrapper.IGCLApiHelper.CreateEngineStats()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CreateEngineStats
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 86
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public static ctl_engine_stats_t CreateEngineStats()
-    return:
-      type: IGCLWrapper.ctl_engine_stats_t
-    content.vb: Public Shared Function CreateEngineStats() As ctl_engine_stats_t
-  overload: IGCLWrapper.IGCLApiHelper.CreateEngineStats*
-- uid: IGCLWrapper.IGCLApiHelper.CreateFanProperties
-  commentId: M:IGCLWrapper.IGCLApiHelper.CreateFanProperties
-  id: CreateFanProperties
-  parent: IGCLWrapper.IGCLApiHelper
-  langs:
-  - csharp
-  - vb
-  name: CreateFanProperties()
-  nameWithType: IGCLApiHelper.CreateFanProperties()
-  fullName: IGCLWrapper.IGCLApiHelper.CreateFanProperties()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CreateFanProperties
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 87
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public static ctl_fan_properties_t CreateFanProperties()
-    return:
-      type: IGCLWrapper.ctl_fan_properties_t
-    content.vb: Public Shared Function CreateFanProperties() As ctl_fan_properties_t
-  overload: IGCLWrapper.IGCLApiHelper.CreateFanProperties*
-- uid: IGCLWrapper.IGCLApiHelper.CreateFanConfig
-  commentId: M:IGCLWrapper.IGCLApiHelper.CreateFanConfig
-  id: CreateFanConfig
-  parent: IGCLWrapper.IGCLApiHelper
-  langs:
-  - csharp
-  - vb
-  name: CreateFanConfig()
-  nameWithType: IGCLApiHelper.CreateFanConfig()
-  fullName: IGCLWrapper.IGCLApiHelper.CreateFanConfig()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CreateFanConfig
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 88
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public static ctl_fan_config_t CreateFanConfig()
-    return:
-      type: IGCLWrapper.ctl_fan_config_t
-    content.vb: Public Shared Function CreateFanConfig() As ctl_fan_config_t
-  overload: IGCLWrapper.IGCLApiHelper.CreateFanConfig*
-- uid: IGCLWrapper.IGCLApiHelper.CreateFanSpeed
-  commentId: M:IGCLWrapper.IGCLApiHelper.CreateFanSpeed
-  id: CreateFanSpeed
-  parent: IGCLWrapper.IGCLApiHelper
-  langs:
-  - csharp
-  - vb
-  name: CreateFanSpeed()
-  nameWithType: IGCLApiHelper.CreateFanSpeed()
-  fullName: IGCLWrapper.IGCLApiHelper.CreateFanSpeed()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CreateFanSpeed
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 89
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public static ctl_fan_speed_t CreateFanSpeed()
-    return:
-      type: IGCLWrapper.ctl_fan_speed_t
-    content.vb: Public Shared Function CreateFanSpeed() As ctl_fan_speed_t
-  overload: IGCLWrapper.IGCLApiHelper.CreateFanSpeed*
-- uid: IGCLWrapper.IGCLApiHelper.CreateFanSpeedTable
-  commentId: M:IGCLWrapper.IGCLApiHelper.CreateFanSpeedTable
-  id: CreateFanSpeedTable
-  parent: IGCLWrapper.IGCLApiHelper
-  langs:
-  - csharp
-  - vb
-  name: CreateFanSpeedTable()
-  nameWithType: IGCLApiHelper.CreateFanSpeedTable()
-  fullName: IGCLWrapper.IGCLApiHelper.CreateFanSpeedTable()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CreateFanSpeedTable
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 90
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public static ctl_fan_speed_table_t CreateFanSpeedTable()
-    return:
-      type: IGCLWrapper.ctl_fan_speed_table_t
-    content.vb: Public Shared Function CreateFanSpeedTable() As ctl_fan_speed_table_t
-  overload: IGCLWrapper.IGCLApiHelper.CreateFanSpeedTable*
-- uid: IGCLWrapper.IGCLApiHelper.CreateFirmwareProperties
-  commentId: M:IGCLWrapper.IGCLApiHelper.CreateFirmwareProperties
-  id: CreateFirmwareProperties
-  parent: IGCLWrapper.IGCLApiHelper
-  langs:
-  - csharp
-  - vb
-  name: CreateFirmwareProperties()
-  nameWithType: IGCLApiHelper.CreateFirmwareProperties()
-  fullName: IGCLWrapper.IGCLApiHelper.CreateFirmwareProperties()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CreateFirmwareProperties
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 91
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public static ctl_firmware_properties_t CreateFirmwareProperties()
-    return:
-      type: IGCLWrapper.ctl_firmware_properties_t
-    content.vb: Public Shared Function CreateFirmwareProperties() As ctl_firmware_properties_t
-  overload: IGCLWrapper.IGCLApiHelper.CreateFirmwareProperties*
-- uid: IGCLWrapper.IGCLApiHelper.CreateFirmwareComponentProperties
-  commentId: M:IGCLWrapper.IGCLApiHelper.CreateFirmwareComponentProperties
-  id: CreateFirmwareComponentProperties
-  parent: IGCLWrapper.IGCLApiHelper
-  langs:
-  - csharp
-  - vb
-  name: CreateFirmwareComponentProperties()
-  nameWithType: IGCLApiHelper.CreateFirmwareComponentProperties()
-  fullName: IGCLWrapper.IGCLApiHelper.CreateFirmwareComponentProperties()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CreateFirmwareComponentProperties
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 92
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public static ctl_firmware_component_properties_t CreateFirmwareComponentProperties()
-    return:
-      type: IGCLWrapper.ctl_firmware_component_properties_t
-    content.vb: Public Shared Function CreateFirmwareComponentProperties() As ctl_firmware_component_properties_t
-  overload: IGCLWrapper.IGCLApiHelper.CreateFirmwareComponentProperties*
-- uid: IGCLWrapper.IGCLApiHelper.CreateFrequencyProperties
-  commentId: M:IGCLWrapper.IGCLApiHelper.CreateFrequencyProperties
-  id: CreateFrequencyProperties
-  parent: IGCLWrapper.IGCLApiHelper
-  langs:
-  - csharp
-  - vb
-  name: CreateFrequencyProperties()
-  nameWithType: IGCLApiHelper.CreateFrequencyProperties()
-  fullName: IGCLWrapper.IGCLApiHelper.CreateFrequencyProperties()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CreateFrequencyProperties
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 93
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public static ctl_freq_properties_t CreateFrequencyProperties()
-    return:
-      type: IGCLWrapper.ctl_freq_properties_t
-    content.vb: Public Shared Function CreateFrequencyProperties() As ctl_freq_properties_t
-  overload: IGCLWrapper.IGCLApiHelper.CreateFrequencyProperties*
-- uid: IGCLWrapper.IGCLApiHelper.CreateFrequencyRange
-  commentId: M:IGCLWrapper.IGCLApiHelper.CreateFrequencyRange
-  id: CreateFrequencyRange
-  parent: IGCLWrapper.IGCLApiHelper
-  langs:
-  - csharp
-  - vb
-  name: CreateFrequencyRange()
-  nameWithType: IGCLApiHelper.CreateFrequencyRange()
-  fullName: IGCLWrapper.IGCLApiHelper.CreateFrequencyRange()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CreateFrequencyRange
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 94
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public static ctl_freq_range_t CreateFrequencyRange()
-    return:
-      type: IGCLWrapper.ctl_freq_range_t
-    content.vb: Public Shared Function CreateFrequencyRange() As ctl_freq_range_t
-  overload: IGCLWrapper.IGCLApiHelper.CreateFrequencyRange*
-- uid: IGCLWrapper.IGCLApiHelper.CreateFrequencyState
-  commentId: M:IGCLWrapper.IGCLApiHelper.CreateFrequencyState
-  id: CreateFrequencyState
-  parent: IGCLWrapper.IGCLApiHelper
-  langs:
-  - csharp
-  - vb
-  name: CreateFrequencyState()
-  nameWithType: IGCLApiHelper.CreateFrequencyState()
-  fullName: IGCLWrapper.IGCLApiHelper.CreateFrequencyState()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CreateFrequencyState
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 95
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public static ctl_freq_state_t CreateFrequencyState()
-    return:
-      type: IGCLWrapper.ctl_freq_state_t
-    content.vb: Public Shared Function CreateFrequencyState() As ctl_freq_state_t
-  overload: IGCLWrapper.IGCLApiHelper.CreateFrequencyState*
-- uid: IGCLWrapper.IGCLApiHelper.CreateFrequencyThrottleTime
-  commentId: M:IGCLWrapper.IGCLApiHelper.CreateFrequencyThrottleTime
-  id: CreateFrequencyThrottleTime
-  parent: IGCLWrapper.IGCLApiHelper
-  langs:
-  - csharp
-  - vb
-  name: CreateFrequencyThrottleTime()
-  nameWithType: IGCLApiHelper.CreateFrequencyThrottleTime()
-  fullName: IGCLWrapper.IGCLApiHelper.CreateFrequencyThrottleTime()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CreateFrequencyThrottleTime
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 96
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public static ctl_freq_throttle_time_t CreateFrequencyThrottleTime()
-    return:
-      type: IGCLWrapper.ctl_freq_throttle_time_t
-    content.vb: Public Shared Function CreateFrequencyThrottleTime() As ctl_freq_throttle_time_t
-  overload: IGCLWrapper.IGCLApiHelper.CreateFrequencyThrottleTime*
-- uid: IGCLWrapper.IGCLApiHelper.CreateLedProperties
-  commentId: M:IGCLWrapper.IGCLApiHelper.CreateLedProperties
-  id: CreateLedProperties
-  parent: IGCLWrapper.IGCLApiHelper
-  langs:
-  - csharp
-  - vb
-  name: CreateLedProperties()
-  nameWithType: IGCLApiHelper.CreateLedProperties()
-  fullName: IGCLWrapper.IGCLApiHelper.CreateLedProperties()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CreateLedProperties
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 97
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public static ctl_led_properties_t CreateLedProperties()
-    return:
-      type: IGCLWrapper.ctl_led_properties_t
-    content.vb: Public Shared Function CreateLedProperties() As ctl_led_properties_t
-  overload: IGCLWrapper.IGCLApiHelper.CreateLedProperties*
-- uid: IGCLWrapper.IGCLApiHelper.CreateLedState
-  commentId: M:IGCLWrapper.IGCLApiHelper.CreateLedState
-  id: CreateLedState
-  parent: IGCLWrapper.IGCLApiHelper
-  langs:
-  - csharp
-  - vb
-  name: CreateLedState()
-  nameWithType: IGCLApiHelper.CreateLedState()
-  fullName: IGCLWrapper.IGCLApiHelper.CreateLedState()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CreateLedState
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 98
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public static ctl_led_state_t CreateLedState()
-    return:
-      type: IGCLWrapper.ctl_led_state_t
-    content.vb: Public Shared Function CreateLedState() As ctl_led_state_t
-  overload: IGCLWrapper.IGCLApiHelper.CreateLedState*
-- uid: IGCLWrapper.IGCLApiHelper.CreateVideoProcessingCaps
-  commentId: M:IGCLWrapper.IGCLApiHelper.CreateVideoProcessingCaps
-  id: CreateVideoProcessingCaps
-  parent: IGCLWrapper.IGCLApiHelper
-  langs:
-  - csharp
-  - vb
-  name: CreateVideoProcessingCaps()
-  nameWithType: IGCLApiHelper.CreateVideoProcessingCaps()
-  fullName: IGCLWrapper.IGCLApiHelper.CreateVideoProcessingCaps()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CreateVideoProcessingCaps
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 99
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public static ctl_video_processing_feature_caps_t CreateVideoProcessingCaps()
-    return:
-      type: IGCLWrapper.ctl_video_processing_feature_caps_t
-    content.vb: Public Shared Function CreateVideoProcessingCaps() As ctl_video_processing_feature_caps_t
-  overload: IGCLWrapper.IGCLApiHelper.CreateVideoProcessingCaps*
-- uid: IGCLWrapper.IGCLApiHelper.CreateVideoProcessingGetSet
-  commentId: M:IGCLWrapper.IGCLApiHelper.CreateVideoProcessingGetSet
-  id: CreateVideoProcessingGetSet
-  parent: IGCLWrapper.IGCLApiHelper
-  langs:
-  - csharp
-  - vb
-  name: CreateVideoProcessingGetSet()
-  nameWithType: IGCLApiHelper.CreateVideoProcessingGetSet()
-  fullName: IGCLWrapper.IGCLApiHelper.CreateVideoProcessingGetSet()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CreateVideoProcessingGetSet
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 100
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public static ctl_video_processing_feature_getset_t CreateVideoProcessingGetSet()
-    return:
-      type: IGCLWrapper.ctl_video_processing_feature_getset_t
-    content.vb: Public Shared Function CreateVideoProcessingGetSet() As ctl_video_processing_feature_getset_t
-  overload: IGCLWrapper.IGCLApiHelper.CreateVideoProcessingGetSet*
-- uid: IGCLWrapper.IGCLApiHelper.CreateMemoryProperties
-  commentId: M:IGCLWrapper.IGCLApiHelper.CreateMemoryProperties
-  id: CreateMemoryProperties
-  parent: IGCLWrapper.IGCLApiHelper
-  langs:
-  - csharp
-  - vb
-  name: CreateMemoryProperties()
-  nameWithType: IGCLApiHelper.CreateMemoryProperties()
-  fullName: IGCLWrapper.IGCLApiHelper.CreateMemoryProperties()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CreateMemoryProperties
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 101
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public static ctl_mem_properties_t CreateMemoryProperties()
-    return:
-      type: IGCLWrapper.ctl_mem_properties_t
-    content.vb: Public Shared Function CreateMemoryProperties() As ctl_mem_properties_t
-  overload: IGCLWrapper.IGCLApiHelper.CreateMemoryProperties*
-- uid: IGCLWrapper.IGCLApiHelper.CreateMemoryState
-  commentId: M:IGCLWrapper.IGCLApiHelper.CreateMemoryState
-  id: CreateMemoryState
-  parent: IGCLWrapper.IGCLApiHelper
-  langs:
-  - csharp
-  - vb
-  name: CreateMemoryState()
-  nameWithType: IGCLApiHelper.CreateMemoryState()
-  fullName: IGCLWrapper.IGCLApiHelper.CreateMemoryState()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CreateMemoryState
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 102
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public static ctl_mem_state_t CreateMemoryState()
-    return:
-      type: IGCLWrapper.ctl_mem_state_t
-    content.vb: Public Shared Function CreateMemoryState() As ctl_mem_state_t
-  overload: IGCLWrapper.IGCLApiHelper.CreateMemoryState*
-- uid: IGCLWrapper.IGCLApiHelper.CreateMemoryBandwidth
-  commentId: M:IGCLWrapper.IGCLApiHelper.CreateMemoryBandwidth
-  id: CreateMemoryBandwidth
-  parent: IGCLWrapper.IGCLApiHelper
-  langs:
-  - csharp
-  - vb
-  name: CreateMemoryBandwidth()
-  nameWithType: IGCLApiHelper.CreateMemoryBandwidth()
-  fullName: IGCLWrapper.IGCLApiHelper.CreateMemoryBandwidth()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CreateMemoryBandwidth
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 103
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public static ctl_mem_bandwidth_t CreateMemoryBandwidth()
-    return:
-      type: IGCLWrapper.ctl_mem_bandwidth_t
-    content.vb: Public Shared Function CreateMemoryBandwidth() As ctl_mem_bandwidth_t
-  overload: IGCLWrapper.IGCLApiHelper.CreateMemoryBandwidth*
-- uid: IGCLWrapper.IGCLApiHelper.CreateOverclockProperties
-  commentId: M:IGCLWrapper.IGCLApiHelper.CreateOverclockProperties
-  id: CreateOverclockProperties
-  parent: IGCLWrapper.IGCLApiHelper
-  langs:
-  - csharp
-  - vb
-  name: CreateOverclockProperties()
-  nameWithType: IGCLApiHelper.CreateOverclockProperties()
-  fullName: IGCLWrapper.IGCLApiHelper.CreateOverclockProperties()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CreateOverclockProperties
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 104
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public static ctl_oc_properties_t CreateOverclockProperties()
-    return:
-      type: IGCLWrapper.ctl_oc_properties_t
-    content.vb: Public Shared Function CreateOverclockProperties() As ctl_oc_properties_t
-  overload: IGCLWrapper.IGCLApiHelper.CreateOverclockProperties*
-- uid: IGCLWrapper.IGCLApiHelper.CreateVfPair
-  commentId: M:IGCLWrapper.IGCLApiHelper.CreateVfPair
-  id: CreateVfPair
-  parent: IGCLWrapper.IGCLApiHelper
-  langs:
-  - csharp
-  - vb
-  name: CreateVfPair()
-  nameWithType: IGCLApiHelper.CreateVfPair()
-  fullName: IGCLWrapper.IGCLApiHelper.CreateVfPair()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CreateVfPair
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 105
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public static ctl_oc_vf_pair_t CreateVfPair()
-    return:
-      type: IGCLWrapper.ctl_oc_vf_pair_t
-    content.vb: Public Shared Function CreateVfPair() As ctl_oc_vf_pair_t
-  overload: IGCLWrapper.IGCLApiHelper.CreateVfPair*
-- uid: IGCLWrapper.IGCLApiHelper.CreatePowerProperties
-  commentId: M:IGCLWrapper.IGCLApiHelper.CreatePowerProperties
-  id: CreatePowerProperties
-  parent: IGCLWrapper.IGCLApiHelper
-  langs:
-  - csharp
-  - vb
-  name: CreatePowerProperties()
-  nameWithType: IGCLApiHelper.CreatePowerProperties()
-  fullName: IGCLWrapper.IGCLApiHelper.CreatePowerProperties()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CreatePowerProperties
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 106
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public static ctl_power_properties_t CreatePowerProperties()
-    return:
-      type: IGCLWrapper.ctl_power_properties_t
-    content.vb: Public Shared Function CreatePowerProperties() As ctl_power_properties_t
-  overload: IGCLWrapper.IGCLApiHelper.CreatePowerProperties*
-- uid: IGCLWrapper.IGCLApiHelper.CreatePowerEnergyCounter
-  commentId: M:IGCLWrapper.IGCLApiHelper.CreatePowerEnergyCounter
-  id: CreatePowerEnergyCounter
-  parent: IGCLWrapper.IGCLApiHelper
-  langs:
-  - csharp
-  - vb
-  name: CreatePowerEnergyCounter()
-  nameWithType: IGCLApiHelper.CreatePowerEnergyCounter()
-  fullName: IGCLWrapper.IGCLApiHelper.CreatePowerEnergyCounter()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CreatePowerEnergyCounter
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 107
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public static ctl_power_energy_counter_t CreatePowerEnergyCounter()
-    return:
-      type: IGCLWrapper.ctl_power_energy_counter_t
-    content.vb: Public Shared Function CreatePowerEnergyCounter() As ctl_power_energy_counter_t
-  overload: IGCLWrapper.IGCLApiHelper.CreatePowerEnergyCounter*
-- uid: IGCLWrapper.IGCLApiHelper.CreatePowerLimits
-  commentId: M:IGCLWrapper.IGCLApiHelper.CreatePowerLimits
-  id: CreatePowerLimits
-  parent: IGCLWrapper.IGCLApiHelper
-  langs:
-  - csharp
-  - vb
-  name: CreatePowerLimits()
-  nameWithType: IGCLApiHelper.CreatePowerLimits()
-  fullName: IGCLWrapper.IGCLApiHelper.CreatePowerLimits()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CreatePowerLimits
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 108
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public static ctl_power_limits_t CreatePowerLimits()
-    return:
-      type: IGCLWrapper.ctl_power_limits_t
-    content.vb: Public Shared Function CreatePowerLimits() As ctl_power_limits_t
-  overload: IGCLWrapper.IGCLApiHelper.CreatePowerLimits*
-- uid: IGCLWrapper.IGCLApiHelper.CreateTemperatureProperties
-  commentId: M:IGCLWrapper.IGCLApiHelper.CreateTemperatureProperties
-  id: CreateTemperatureProperties
-  parent: IGCLWrapper.IGCLApiHelper
-  langs:
-  - csharp
-  - vb
-  name: CreateTemperatureProperties()
-  nameWithType: IGCLApiHelper.CreateTemperatureProperties()
-  fullName: IGCLWrapper.IGCLApiHelper.CreateTemperatureProperties()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CreateTemperatureProperties
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 109
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public static ctl_temp_properties_t CreateTemperatureProperties()
-    return:
-      type: IGCLWrapper.ctl_temp_properties_t
-    content.vb: Public Shared Function CreateTemperatureProperties() As ctl_temp_properties_t
-  overload: IGCLWrapper.IGCLApiHelper.CreateTemperatureProperties*
 - uid: IGCLWrapper.IGCLApiHelper.EnumerateAdapters
   commentId: M:IGCLWrapper.IGCLApiHelper.EnumerateAdapters
   id: EnumerateAdapters
@@ -1270,7 +277,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumerateAdapters
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 112
+    startLine: 43
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1298,7 +305,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Get3DHelper
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 134
+    startLine: 65
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1329,7 +336,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetEccHelper
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 135
+    startLine: 66
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1360,7 +367,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetEngineHelper
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 136
+    startLine: 67
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1391,7 +398,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetFanHelper
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 137
+    startLine: 68
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1422,7 +429,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetFirmwareHelper
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 138
+    startLine: 69
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1453,7 +460,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetFrequencyHelper
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 139
+    startLine: 70
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1484,7 +491,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetLedHelper
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 140
+    startLine: 71
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1515,7 +522,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetMediaHelper
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 141
+    startLine: 72
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1546,7 +553,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetMemoryHelper
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 142
+    startLine: 73
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1577,7 +584,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetOverclockHelper
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 143
+    startLine: 74
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1608,7 +615,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetPciHelper
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 144
+    startLine: 75
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1639,7 +646,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetPowerHelper
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 145
+    startLine: 76
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1670,7 +677,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetTemperatureHelper
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 146
+    startLine: 77
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1683,6 +690,35 @@ items:
       type: IGCLWrapper.IGCLTemperatureHelper
     content.vb: Public Function GetTemperatureHelper(adapter As IGCLAdapterHelper) As IGCLTemperatureHelper
   overload: IGCLWrapper.IGCLApiHelper.GetTemperatureHelper*
+- uid: IGCLWrapper.IGCLApiHelper.SetRuntimePath(IGCLWrapper.ctl_runtime_path_args_t)
+  commentId: M:IGCLWrapper.IGCLApiHelper.SetRuntimePath(IGCLWrapper.ctl_runtime_path_args_t)
+  id: SetRuntimePath(IGCLWrapper.ctl_runtime_path_args_t)
+  parent: IGCLWrapper.IGCLApiHelper
+  langs:
+  - csharp
+  - vb
+  name: SetRuntimePath(ctl_runtime_path_args_t)
+  nameWithType: IGCLApiHelper.SetRuntimePath(ctl_runtime_path_args_t)
+  fullName: IGCLWrapper.IGCLApiHelper.SetRuntimePath(IGCLWrapper.ctl_runtime_path_args_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SetRuntimePath
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 90
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public void SetRuntimePath(ctl_runtime_path_args_t args)
+    parameters:
+    - id: args
+      type: IGCLWrapper.ctl_runtime_path_args_t
+    content.vb: Public Sub SetRuntimePath(args As ctl_runtime_path_args_t)
+  overload: IGCLWrapper.IGCLApiHelper.SetRuntimePath*
 - uid: IGCLWrapper.IGCLApiHelper.Dispose
   commentId: M:IGCLWrapper.IGCLApiHelper.Dispose
   id: Dispose
@@ -1701,7 +737,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 159
+    startLine: 99
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2017,459 +1053,6 @@ references:
   name: GetImplVersion
   nameWithType: IGCLApiHelper.GetImplVersion
   fullName: IGCLWrapper.IGCLApiHelper.GetImplVersion
-- uid: IGCLWrapper.IGCLApiHelper.Init*
-  commentId: Overload:IGCLWrapper.IGCLApiHelper.Init
-  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_Init__1
-  name: Init
-  nameWithType: IGCLApiHelper.Init
-  fullName: IGCLWrapper.IGCLApiHelper.Init
-- uid: '{T}'
-  commentId: '!:T'
-  definition: T
-  name: T
-  nameWithType: T
-  fullName: T
-- uid: T
-  commentId: '!:T'
-  name: T
-  nameWithType: T
-  fullName: T
-- uid: IGCLWrapper.IGCLApiHelper.CreateInitArgs*
-  commentId: Overload:IGCLWrapper.IGCLApiHelper.CreateInitArgs
-  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_CreateInitArgs
-  name: CreateInitArgs
-  nameWithType: IGCLApiHelper.CreateInitArgs
-  fullName: IGCLWrapper.IGCLApiHelper.CreateInitArgs
-- uid: IGCLWrapper.ctl_init_args_t
-  commentId: T:IGCLWrapper.ctl_init_args_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_init_args_t.html
-  name: ctl_init_args_t
-  nameWithType: ctl_init_args_t
-  fullName: IGCLWrapper.ctl_init_args_t
-- uid: IGCLWrapper.IGCLApiHelper.CreateAdapterProperties*
-  commentId: Overload:IGCLWrapper.IGCLApiHelper.CreateAdapterProperties
-  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_CreateAdapterProperties
-  name: CreateAdapterProperties
-  nameWithType: IGCLApiHelper.CreateAdapterProperties
-  fullName: IGCLWrapper.IGCLApiHelper.CreateAdapterProperties
-- uid: IGCLWrapper.ctl_device_adapter_properties_t
-  commentId: T:IGCLWrapper.ctl_device_adapter_properties_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_device_adapter_properties_t.html
-  name: ctl_device_adapter_properties_t
-  nameWithType: ctl_device_adapter_properties_t
-  fullName: IGCLWrapper.ctl_device_adapter_properties_t
-- uid: IGCLWrapper.IGCLApiHelper.CreateDisplayProperties*
-  commentId: Overload:IGCLWrapper.IGCLApiHelper.CreateDisplayProperties
-  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_CreateDisplayProperties
-  name: CreateDisplayProperties
-  nameWithType: IGCLApiHelper.CreateDisplayProperties
-  fullName: IGCLWrapper.IGCLApiHelper.CreateDisplayProperties
-- uid: IGCLWrapper.ctl_display_properties_t
-  commentId: T:IGCLWrapper.ctl_display_properties_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_display_properties_t.html
-  name: ctl_display_properties_t
-  nameWithType: ctl_display_properties_t
-  fullName: IGCLWrapper.ctl_display_properties_t
-- uid: IGCLWrapper.IGCLApiHelper.Create3DFeatureCaps*
-  commentId: Overload:IGCLWrapper.IGCLApiHelper.Create3DFeatureCaps
-  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_Create3DFeatureCaps
-  name: Create3DFeatureCaps
-  nameWithType: IGCLApiHelper.Create3DFeatureCaps
-  fullName: IGCLWrapper.IGCLApiHelper.Create3DFeatureCaps
-- uid: IGCLWrapper.ctl_3d_feature_caps_t
-  commentId: T:IGCLWrapper.ctl_3d_feature_caps_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_3d_feature_caps_t.html
-  name: ctl_3d_feature_caps_t
-  nameWithType: ctl_3d_feature_caps_t
-  fullName: IGCLWrapper.ctl_3d_feature_caps_t
-- uid: IGCLWrapper.IGCLApiHelper.Create3DFeatureGetSet*
-  commentId: Overload:IGCLWrapper.IGCLApiHelper.Create3DFeatureGetSet
-  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_Create3DFeatureGetSet_IGCLWrapper_ctl_3d_feature_t_
-  name: Create3DFeatureGetSet
-  nameWithType: IGCLApiHelper.Create3DFeatureGetSet
-  fullName: IGCLWrapper.IGCLApiHelper.Create3DFeatureGetSet
-- uid: IGCLWrapper.ctl_3d_feature_t
-  commentId: T:IGCLWrapper.ctl_3d_feature_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_3d_feature_t.html
-  name: ctl_3d_feature_t
-  nameWithType: ctl_3d_feature_t
-  fullName: IGCLWrapper.ctl_3d_feature_t
-- uid: IGCLWrapper.ctl_3d_feature_getset_t
-  commentId: T:IGCLWrapper.ctl_3d_feature_getset_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_3d_feature_getset_t.html
-  name: ctl_3d_feature_getset_t
-  nameWithType: ctl_3d_feature_getset_t
-  fullName: IGCLWrapper.ctl_3d_feature_getset_t
-- uid: IGCLWrapper.IGCLApiHelper.CreatePowerTelemetry*
-  commentId: Overload:IGCLWrapper.IGCLApiHelper.CreatePowerTelemetry
-  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_CreatePowerTelemetry
-  name: CreatePowerTelemetry
-  nameWithType: IGCLApiHelper.CreatePowerTelemetry
-  fullName: IGCLWrapper.IGCLApiHelper.CreatePowerTelemetry
-- uid: IGCLWrapper.ctl_power_telemetry_t
-  commentId: T:IGCLWrapper.ctl_power_telemetry_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_power_telemetry_t.html
-  name: ctl_power_telemetry_t
-  nameWithType: ctl_power_telemetry_t
-  fullName: IGCLWrapper.ctl_power_telemetry_t
-- uid: IGCLWrapper.IGCLApiHelper.CreateEccProperties*
-  commentId: Overload:IGCLWrapper.IGCLApiHelper.CreateEccProperties
-  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_CreateEccProperties
-  name: CreateEccProperties
-  nameWithType: IGCLApiHelper.CreateEccProperties
-  fullName: IGCLWrapper.IGCLApiHelper.CreateEccProperties
-- uid: IGCLWrapper.ctl_ecc_properties_t
-  commentId: T:IGCLWrapper.ctl_ecc_properties_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_ecc_properties_t.html
-  name: ctl_ecc_properties_t
-  nameWithType: ctl_ecc_properties_t
-  fullName: IGCLWrapper.ctl_ecc_properties_t
-- uid: IGCLWrapper.IGCLApiHelper.CreateEccState*
-  commentId: Overload:IGCLWrapper.IGCLApiHelper.CreateEccState
-  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_CreateEccState
-  name: CreateEccState
-  nameWithType: IGCLApiHelper.CreateEccState
-  fullName: IGCLWrapper.IGCLApiHelper.CreateEccState
-- uid: IGCLWrapper.ctl_ecc_state_desc_t
-  commentId: T:IGCLWrapper.ctl_ecc_state_desc_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_ecc_state_desc_t.html
-  name: ctl_ecc_state_desc_t
-  nameWithType: ctl_ecc_state_desc_t
-  fullName: IGCLWrapper.ctl_ecc_state_desc_t
-- uid: IGCLWrapper.IGCLApiHelper.CreateEngineProperties*
-  commentId: Overload:IGCLWrapper.IGCLApiHelper.CreateEngineProperties
-  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_CreateEngineProperties
-  name: CreateEngineProperties
-  nameWithType: IGCLApiHelper.CreateEngineProperties
-  fullName: IGCLWrapper.IGCLApiHelper.CreateEngineProperties
-- uid: IGCLWrapper.ctl_engine_properties_t
-  commentId: T:IGCLWrapper.ctl_engine_properties_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_engine_properties_t.html
-  name: ctl_engine_properties_t
-  nameWithType: ctl_engine_properties_t
-  fullName: IGCLWrapper.ctl_engine_properties_t
-- uid: IGCLWrapper.IGCLApiHelper.CreateEngineStats*
-  commentId: Overload:IGCLWrapper.IGCLApiHelper.CreateEngineStats
-  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_CreateEngineStats
-  name: CreateEngineStats
-  nameWithType: IGCLApiHelper.CreateEngineStats
-  fullName: IGCLWrapper.IGCLApiHelper.CreateEngineStats
-- uid: IGCLWrapper.ctl_engine_stats_t
-  commentId: T:IGCLWrapper.ctl_engine_stats_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_engine_stats_t.html
-  name: ctl_engine_stats_t
-  nameWithType: ctl_engine_stats_t
-  fullName: IGCLWrapper.ctl_engine_stats_t
-- uid: IGCLWrapper.IGCLApiHelper.CreateFanProperties*
-  commentId: Overload:IGCLWrapper.IGCLApiHelper.CreateFanProperties
-  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_CreateFanProperties
-  name: CreateFanProperties
-  nameWithType: IGCLApiHelper.CreateFanProperties
-  fullName: IGCLWrapper.IGCLApiHelper.CreateFanProperties
-- uid: IGCLWrapper.ctl_fan_properties_t
-  commentId: T:IGCLWrapper.ctl_fan_properties_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_fan_properties_t.html
-  name: ctl_fan_properties_t
-  nameWithType: ctl_fan_properties_t
-  fullName: IGCLWrapper.ctl_fan_properties_t
-- uid: IGCLWrapper.IGCLApiHelper.CreateFanConfig*
-  commentId: Overload:IGCLWrapper.IGCLApiHelper.CreateFanConfig
-  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_CreateFanConfig
-  name: CreateFanConfig
-  nameWithType: IGCLApiHelper.CreateFanConfig
-  fullName: IGCLWrapper.IGCLApiHelper.CreateFanConfig
-- uid: IGCLWrapper.ctl_fan_config_t
-  commentId: T:IGCLWrapper.ctl_fan_config_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_fan_config_t.html
-  name: ctl_fan_config_t
-  nameWithType: ctl_fan_config_t
-  fullName: IGCLWrapper.ctl_fan_config_t
-- uid: IGCLWrapper.IGCLApiHelper.CreateFanSpeed*
-  commentId: Overload:IGCLWrapper.IGCLApiHelper.CreateFanSpeed
-  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_CreateFanSpeed
-  name: CreateFanSpeed
-  nameWithType: IGCLApiHelper.CreateFanSpeed
-  fullName: IGCLWrapper.IGCLApiHelper.CreateFanSpeed
-- uid: IGCLWrapper.ctl_fan_speed_t
-  commentId: T:IGCLWrapper.ctl_fan_speed_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_fan_speed_t.html
-  name: ctl_fan_speed_t
-  nameWithType: ctl_fan_speed_t
-  fullName: IGCLWrapper.ctl_fan_speed_t
-- uid: IGCLWrapper.IGCLApiHelper.CreateFanSpeedTable*
-  commentId: Overload:IGCLWrapper.IGCLApiHelper.CreateFanSpeedTable
-  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_CreateFanSpeedTable
-  name: CreateFanSpeedTable
-  nameWithType: IGCLApiHelper.CreateFanSpeedTable
-  fullName: IGCLWrapper.IGCLApiHelper.CreateFanSpeedTable
-- uid: IGCLWrapper.ctl_fan_speed_table_t
-  commentId: T:IGCLWrapper.ctl_fan_speed_table_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_fan_speed_table_t.html
-  name: ctl_fan_speed_table_t
-  nameWithType: ctl_fan_speed_table_t
-  fullName: IGCLWrapper.ctl_fan_speed_table_t
-- uid: IGCLWrapper.IGCLApiHelper.CreateFirmwareProperties*
-  commentId: Overload:IGCLWrapper.IGCLApiHelper.CreateFirmwareProperties
-  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_CreateFirmwareProperties
-  name: CreateFirmwareProperties
-  nameWithType: IGCLApiHelper.CreateFirmwareProperties
-  fullName: IGCLWrapper.IGCLApiHelper.CreateFirmwareProperties
-- uid: IGCLWrapper.ctl_firmware_properties_t
-  commentId: T:IGCLWrapper.ctl_firmware_properties_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_firmware_properties_t.html
-  name: ctl_firmware_properties_t
-  nameWithType: ctl_firmware_properties_t
-  fullName: IGCLWrapper.ctl_firmware_properties_t
-- uid: IGCLWrapper.IGCLApiHelper.CreateFirmwareComponentProperties*
-  commentId: Overload:IGCLWrapper.IGCLApiHelper.CreateFirmwareComponentProperties
-  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_CreateFirmwareComponentProperties
-  name: CreateFirmwareComponentProperties
-  nameWithType: IGCLApiHelper.CreateFirmwareComponentProperties
-  fullName: IGCLWrapper.IGCLApiHelper.CreateFirmwareComponentProperties
-- uid: IGCLWrapper.ctl_firmware_component_properties_t
-  commentId: T:IGCLWrapper.ctl_firmware_component_properties_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_firmware_component_properties_t.html
-  name: ctl_firmware_component_properties_t
-  nameWithType: ctl_firmware_component_properties_t
-  fullName: IGCLWrapper.ctl_firmware_component_properties_t
-- uid: IGCLWrapper.IGCLApiHelper.CreateFrequencyProperties*
-  commentId: Overload:IGCLWrapper.IGCLApiHelper.CreateFrequencyProperties
-  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_CreateFrequencyProperties
-  name: CreateFrequencyProperties
-  nameWithType: IGCLApiHelper.CreateFrequencyProperties
-  fullName: IGCLWrapper.IGCLApiHelper.CreateFrequencyProperties
-- uid: IGCLWrapper.ctl_freq_properties_t
-  commentId: T:IGCLWrapper.ctl_freq_properties_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_freq_properties_t.html
-  name: ctl_freq_properties_t
-  nameWithType: ctl_freq_properties_t
-  fullName: IGCLWrapper.ctl_freq_properties_t
-- uid: IGCLWrapper.IGCLApiHelper.CreateFrequencyRange*
-  commentId: Overload:IGCLWrapper.IGCLApiHelper.CreateFrequencyRange
-  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_CreateFrequencyRange
-  name: CreateFrequencyRange
-  nameWithType: IGCLApiHelper.CreateFrequencyRange
-  fullName: IGCLWrapper.IGCLApiHelper.CreateFrequencyRange
-- uid: IGCLWrapper.ctl_freq_range_t
-  commentId: T:IGCLWrapper.ctl_freq_range_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_freq_range_t.html
-  name: ctl_freq_range_t
-  nameWithType: ctl_freq_range_t
-  fullName: IGCLWrapper.ctl_freq_range_t
-- uid: IGCLWrapper.IGCLApiHelper.CreateFrequencyState*
-  commentId: Overload:IGCLWrapper.IGCLApiHelper.CreateFrequencyState
-  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_CreateFrequencyState
-  name: CreateFrequencyState
-  nameWithType: IGCLApiHelper.CreateFrequencyState
-  fullName: IGCLWrapper.IGCLApiHelper.CreateFrequencyState
-- uid: IGCLWrapper.ctl_freq_state_t
-  commentId: T:IGCLWrapper.ctl_freq_state_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_freq_state_t.html
-  name: ctl_freq_state_t
-  nameWithType: ctl_freq_state_t
-  fullName: IGCLWrapper.ctl_freq_state_t
-- uid: IGCLWrapper.IGCLApiHelper.CreateFrequencyThrottleTime*
-  commentId: Overload:IGCLWrapper.IGCLApiHelper.CreateFrequencyThrottleTime
-  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_CreateFrequencyThrottleTime
-  name: CreateFrequencyThrottleTime
-  nameWithType: IGCLApiHelper.CreateFrequencyThrottleTime
-  fullName: IGCLWrapper.IGCLApiHelper.CreateFrequencyThrottleTime
-- uid: IGCLWrapper.ctl_freq_throttle_time_t
-  commentId: T:IGCLWrapper.ctl_freq_throttle_time_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_freq_throttle_time_t.html
-  name: ctl_freq_throttle_time_t
-  nameWithType: ctl_freq_throttle_time_t
-  fullName: IGCLWrapper.ctl_freq_throttle_time_t
-- uid: IGCLWrapper.IGCLApiHelper.CreateLedProperties*
-  commentId: Overload:IGCLWrapper.IGCLApiHelper.CreateLedProperties
-  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_CreateLedProperties
-  name: CreateLedProperties
-  nameWithType: IGCLApiHelper.CreateLedProperties
-  fullName: IGCLWrapper.IGCLApiHelper.CreateLedProperties
-- uid: IGCLWrapper.ctl_led_properties_t
-  commentId: T:IGCLWrapper.ctl_led_properties_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_led_properties_t.html
-  name: ctl_led_properties_t
-  nameWithType: ctl_led_properties_t
-  fullName: IGCLWrapper.ctl_led_properties_t
-- uid: IGCLWrapper.IGCLApiHelper.CreateLedState*
-  commentId: Overload:IGCLWrapper.IGCLApiHelper.CreateLedState
-  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_CreateLedState
-  name: CreateLedState
-  nameWithType: IGCLApiHelper.CreateLedState
-  fullName: IGCLWrapper.IGCLApiHelper.CreateLedState
-- uid: IGCLWrapper.ctl_led_state_t
-  commentId: T:IGCLWrapper.ctl_led_state_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_led_state_t.html
-  name: ctl_led_state_t
-  nameWithType: ctl_led_state_t
-  fullName: IGCLWrapper.ctl_led_state_t
-- uid: IGCLWrapper.IGCLApiHelper.CreateVideoProcessingCaps*
-  commentId: Overload:IGCLWrapper.IGCLApiHelper.CreateVideoProcessingCaps
-  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_CreateVideoProcessingCaps
-  name: CreateVideoProcessingCaps
-  nameWithType: IGCLApiHelper.CreateVideoProcessingCaps
-  fullName: IGCLWrapper.IGCLApiHelper.CreateVideoProcessingCaps
-- uid: IGCLWrapper.ctl_video_processing_feature_caps_t
-  commentId: T:IGCLWrapper.ctl_video_processing_feature_caps_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_video_processing_feature_caps_t.html
-  name: ctl_video_processing_feature_caps_t
-  nameWithType: ctl_video_processing_feature_caps_t
-  fullName: IGCLWrapper.ctl_video_processing_feature_caps_t
-- uid: IGCLWrapper.IGCLApiHelper.CreateVideoProcessingGetSet*
-  commentId: Overload:IGCLWrapper.IGCLApiHelper.CreateVideoProcessingGetSet
-  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_CreateVideoProcessingGetSet
-  name: CreateVideoProcessingGetSet
-  nameWithType: IGCLApiHelper.CreateVideoProcessingGetSet
-  fullName: IGCLWrapper.IGCLApiHelper.CreateVideoProcessingGetSet
-- uid: IGCLWrapper.ctl_video_processing_feature_getset_t
-  commentId: T:IGCLWrapper.ctl_video_processing_feature_getset_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_video_processing_feature_getset_t.html
-  name: ctl_video_processing_feature_getset_t
-  nameWithType: ctl_video_processing_feature_getset_t
-  fullName: IGCLWrapper.ctl_video_processing_feature_getset_t
-- uid: IGCLWrapper.IGCLApiHelper.CreateMemoryProperties*
-  commentId: Overload:IGCLWrapper.IGCLApiHelper.CreateMemoryProperties
-  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_CreateMemoryProperties
-  name: CreateMemoryProperties
-  nameWithType: IGCLApiHelper.CreateMemoryProperties
-  fullName: IGCLWrapper.IGCLApiHelper.CreateMemoryProperties
-- uid: IGCLWrapper.ctl_mem_properties_t
-  commentId: T:IGCLWrapper.ctl_mem_properties_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_mem_properties_t.html
-  name: ctl_mem_properties_t
-  nameWithType: ctl_mem_properties_t
-  fullName: IGCLWrapper.ctl_mem_properties_t
-- uid: IGCLWrapper.IGCLApiHelper.CreateMemoryState*
-  commentId: Overload:IGCLWrapper.IGCLApiHelper.CreateMemoryState
-  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_CreateMemoryState
-  name: CreateMemoryState
-  nameWithType: IGCLApiHelper.CreateMemoryState
-  fullName: IGCLWrapper.IGCLApiHelper.CreateMemoryState
-- uid: IGCLWrapper.ctl_mem_state_t
-  commentId: T:IGCLWrapper.ctl_mem_state_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_mem_state_t.html
-  name: ctl_mem_state_t
-  nameWithType: ctl_mem_state_t
-  fullName: IGCLWrapper.ctl_mem_state_t
-- uid: IGCLWrapper.IGCLApiHelper.CreateMemoryBandwidth*
-  commentId: Overload:IGCLWrapper.IGCLApiHelper.CreateMemoryBandwidth
-  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_CreateMemoryBandwidth
-  name: CreateMemoryBandwidth
-  nameWithType: IGCLApiHelper.CreateMemoryBandwidth
-  fullName: IGCLWrapper.IGCLApiHelper.CreateMemoryBandwidth
-- uid: IGCLWrapper.ctl_mem_bandwidth_t
-  commentId: T:IGCLWrapper.ctl_mem_bandwidth_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_mem_bandwidth_t.html
-  name: ctl_mem_bandwidth_t
-  nameWithType: ctl_mem_bandwidth_t
-  fullName: IGCLWrapper.ctl_mem_bandwidth_t
-- uid: IGCLWrapper.IGCLApiHelper.CreateOverclockProperties*
-  commentId: Overload:IGCLWrapper.IGCLApiHelper.CreateOverclockProperties
-  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_CreateOverclockProperties
-  name: CreateOverclockProperties
-  nameWithType: IGCLApiHelper.CreateOverclockProperties
-  fullName: IGCLWrapper.IGCLApiHelper.CreateOverclockProperties
-- uid: IGCLWrapper.ctl_oc_properties_t
-  commentId: T:IGCLWrapper.ctl_oc_properties_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_oc_properties_t.html
-  name: ctl_oc_properties_t
-  nameWithType: ctl_oc_properties_t
-  fullName: IGCLWrapper.ctl_oc_properties_t
-- uid: IGCLWrapper.IGCLApiHelper.CreateVfPair*
-  commentId: Overload:IGCLWrapper.IGCLApiHelper.CreateVfPair
-  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_CreateVfPair
-  name: CreateVfPair
-  nameWithType: IGCLApiHelper.CreateVfPair
-  fullName: IGCLWrapper.IGCLApiHelper.CreateVfPair
-- uid: IGCLWrapper.ctl_oc_vf_pair_t
-  commentId: T:IGCLWrapper.ctl_oc_vf_pair_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_oc_vf_pair_t.html
-  name: ctl_oc_vf_pair_t
-  nameWithType: ctl_oc_vf_pair_t
-  fullName: IGCLWrapper.ctl_oc_vf_pair_t
-- uid: IGCLWrapper.IGCLApiHelper.CreatePowerProperties*
-  commentId: Overload:IGCLWrapper.IGCLApiHelper.CreatePowerProperties
-  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_CreatePowerProperties
-  name: CreatePowerProperties
-  nameWithType: IGCLApiHelper.CreatePowerProperties
-  fullName: IGCLWrapper.IGCLApiHelper.CreatePowerProperties
-- uid: IGCLWrapper.ctl_power_properties_t
-  commentId: T:IGCLWrapper.ctl_power_properties_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_power_properties_t.html
-  name: ctl_power_properties_t
-  nameWithType: ctl_power_properties_t
-  fullName: IGCLWrapper.ctl_power_properties_t
-- uid: IGCLWrapper.IGCLApiHelper.CreatePowerEnergyCounter*
-  commentId: Overload:IGCLWrapper.IGCLApiHelper.CreatePowerEnergyCounter
-  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_CreatePowerEnergyCounter
-  name: CreatePowerEnergyCounter
-  nameWithType: IGCLApiHelper.CreatePowerEnergyCounter
-  fullName: IGCLWrapper.IGCLApiHelper.CreatePowerEnergyCounter
-- uid: IGCLWrapper.ctl_power_energy_counter_t
-  commentId: T:IGCLWrapper.ctl_power_energy_counter_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_power_energy_counter_t.html
-  name: ctl_power_energy_counter_t
-  nameWithType: ctl_power_energy_counter_t
-  fullName: IGCLWrapper.ctl_power_energy_counter_t
-- uid: IGCLWrapper.IGCLApiHelper.CreatePowerLimits*
-  commentId: Overload:IGCLWrapper.IGCLApiHelper.CreatePowerLimits
-  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_CreatePowerLimits
-  name: CreatePowerLimits
-  nameWithType: IGCLApiHelper.CreatePowerLimits
-  fullName: IGCLWrapper.IGCLApiHelper.CreatePowerLimits
-- uid: IGCLWrapper.ctl_power_limits_t
-  commentId: T:IGCLWrapper.ctl_power_limits_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_power_limits_t.html
-  name: ctl_power_limits_t
-  nameWithType: ctl_power_limits_t
-  fullName: IGCLWrapper.ctl_power_limits_t
-- uid: IGCLWrapper.IGCLApiHelper.CreateTemperatureProperties*
-  commentId: Overload:IGCLWrapper.IGCLApiHelper.CreateTemperatureProperties
-  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_CreateTemperatureProperties
-  name: CreateTemperatureProperties
-  nameWithType: IGCLApiHelper.CreateTemperatureProperties
-  fullName: IGCLWrapper.IGCLApiHelper.CreateTemperatureProperties
-- uid: IGCLWrapper.ctl_temp_properties_t
-  commentId: T:IGCLWrapper.ctl_temp_properties_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_temp_properties_t.html
-  name: ctl_temp_properties_t
-  nameWithType: ctl_temp_properties_t
-  fullName: IGCLWrapper.ctl_temp_properties_t
 - uid: IGCLWrapper.IGCLApiHelper.EnumerateAdapters*
   commentId: Overload:IGCLWrapper.IGCLApiHelper.EnumerateAdapters
   href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_EnumerateAdapters
@@ -2750,6 +1333,19 @@ references:
   name: IGCLTemperatureHelper
   nameWithType: IGCLTemperatureHelper
   fullName: IGCLWrapper.IGCLTemperatureHelper
+- uid: IGCLWrapper.IGCLApiHelper.SetRuntimePath*
+  commentId: Overload:IGCLWrapper.IGCLApiHelper.SetRuntimePath
+  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_SetRuntimePath_IGCLWrapper_ctl_runtime_path_args_t_
+  name: SetRuntimePath
+  nameWithType: IGCLApiHelper.SetRuntimePath
+  fullName: IGCLWrapper.IGCLApiHelper.SetRuntimePath
+- uid: IGCLWrapper.ctl_runtime_path_args_t
+  commentId: T:IGCLWrapper.ctl_runtime_path_args_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_runtime_path_args_t.html
+  name: ctl_runtime_path_args_t
+  nameWithType: ctl_runtime_path_args_t
+  fullName: IGCLWrapper.ctl_runtime_path_args_t
 - uid: IGCLWrapper.IGCLApiHelper.Dispose*
   commentId: Overload:IGCLWrapper.IGCLApiHelper.Dispose
   href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_Dispose

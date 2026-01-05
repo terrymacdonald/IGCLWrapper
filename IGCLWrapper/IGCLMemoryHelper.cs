@@ -27,7 +27,7 @@ namespace IGCLWrapper
         public unsafe ctl_mem_properties_t MemoryGetProperties(IntPtr memoryHandle)
         {
             ThrowIfDisposed();
-            var props = IGCLApiHelper.CreateMemoryProperties();
+            var props = CreateMemoryProperties();
             var result = IGCL.ctlMemoryGetProperties((_ctl_mem_handle_t*)memoryHandle, &props);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get memory properties");
@@ -37,7 +37,7 @@ namespace IGCLWrapper
         public unsafe ctl_mem_state_t MemoryGetState(IntPtr memoryHandle)
         {
             ThrowIfDisposed();
-            var state = IGCLApiHelper.CreateMemoryState();
+            var state = CreateMemoryState();
             var result = IGCL.ctlMemoryGetState((_ctl_mem_handle_t*)memoryHandle, &state);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get memory state");
@@ -47,7 +47,7 @@ namespace IGCLWrapper
         public unsafe ctl_mem_bandwidth_t MemoryGetBandwidth(IntPtr memoryHandle)
         {
             ThrowIfDisposed();
-            var bw = IGCLApiHelper.CreateMemoryBandwidth();
+            var bw = CreateMemoryBandwidth();
             var result = IGCL.ctlMemoryGetBandwidth((_ctl_mem_handle_t*)memoryHandle, &bw);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get memory bandwidth");
@@ -77,6 +77,10 @@ namespace IGCLWrapper
             if (_disposed)
                 throw new ObjectDisposedException(nameof(IGCLMemoryHelper));
         }
+
+        private static unsafe ctl_mem_properties_t CreateMemoryProperties() => new ctl_mem_properties_t { Size = (uint)sizeof(ctl_mem_properties_t), Version = 0 };
+        private static unsafe ctl_mem_state_t CreateMemoryState() => new ctl_mem_state_t { Size = (uint)sizeof(ctl_mem_state_t), Version = 0 };
+        private static unsafe ctl_mem_bandwidth_t CreateMemoryBandwidth() => new ctl_mem_bandwidth_t { Size = (uint)sizeof(ctl_mem_bandwidth_t), Version = 0 };
 
         public void Dispose()
         {

@@ -10,6 +10,7 @@ items:
   - IGCLWrapper.IGCLAdapterHelper.GetProperties
   - IGCLWrapper.IGCLAdapterHelper.Name
   - IGCLWrapper.IGCLAdapterHelper.PciVendorId
+  - IGCLWrapper.IGCLAdapterHelper.WaitForPropertyChange(IGCLWrapper.ctl_wait_property_change_args_t)
   langs:
   - csharp
   - vb
@@ -24,7 +25,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IGCLAdapterHelper
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 186
+    startLine: 126
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -60,7 +61,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetProperties
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 200
+    startLine: 142
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -88,7 +89,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetDisplays
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 222
+    startLine: 164
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -116,7 +117,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Name
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 234
+    startLine: 176
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -145,7 +146,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PciVendorId
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 244
+    startLine: 186
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -156,6 +157,37 @@ items:
       type: System.String
     content.vb: Public ReadOnly Property PciVendorId As String
   overload: IGCLWrapper.IGCLAdapterHelper.PciVendorId*
+- uid: IGCLWrapper.IGCLAdapterHelper.WaitForPropertyChange(IGCLWrapper.ctl_wait_property_change_args_t)
+  commentId: M:IGCLWrapper.IGCLAdapterHelper.WaitForPropertyChange(IGCLWrapper.ctl_wait_property_change_args_t)
+  id: WaitForPropertyChange(IGCLWrapper.ctl_wait_property_change_args_t)
+  parent: IGCLWrapper.IGCLAdapterHelper
+  langs:
+  - csharp
+  - vb
+  name: WaitForPropertyChange(ctl_wait_property_change_args_t)
+  nameWithType: IGCLAdapterHelper.WaitForPropertyChange(ctl_wait_property_change_args_t)
+  fullName: IGCLWrapper.IGCLAdapterHelper.WaitForPropertyChange(IGCLWrapper.ctl_wait_property_change_args_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: WaitForPropertyChange
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 190
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_wait_property_change_args_t WaitForPropertyChange(ctl_wait_property_change_args_t args)
+    parameters:
+    - id: args
+      type: IGCLWrapper.ctl_wait_property_change_args_t
+    return:
+      type: IGCLWrapper.ctl_wait_property_change_args_t
+    content.vb: Public Function WaitForPropertyChange(args As ctl_wait_property_change_args_t) As ctl_wait_property_change_args_t
+  overload: IGCLWrapper.IGCLAdapterHelper.WaitForPropertyChange*
 - uid: IGCLWrapper.IGCLAdapterHelper.Dispose
   commentId: M:IGCLWrapper.IGCLAdapterHelper.Dispose
   id: Dispose
@@ -174,7 +206,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 252
+    startLine: 206
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -554,6 +586,19 @@ references:
   name: PciVendorId
   nameWithType: IGCLAdapterHelper.PciVendorId
   fullName: IGCLWrapper.IGCLAdapterHelper.PciVendorId
+- uid: IGCLWrapper.IGCLAdapterHelper.WaitForPropertyChange*
+  commentId: Overload:IGCLWrapper.IGCLAdapterHelper.WaitForPropertyChange
+  href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_WaitForPropertyChange_IGCLWrapper_ctl_wait_property_change_args_t_
+  name: WaitForPropertyChange
+  nameWithType: IGCLAdapterHelper.WaitForPropertyChange
+  fullName: IGCLWrapper.IGCLAdapterHelper.WaitForPropertyChange
+- uid: IGCLWrapper.ctl_wait_property_change_args_t
+  commentId: T:IGCLWrapper.ctl_wait_property_change_args_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_wait_property_change_args_t.html
+  name: ctl_wait_property_change_args_t
+  nameWithType: ctl_wait_property_change_args_t
+  fullName: IGCLWrapper.ctl_wait_property_change_args_t
 - uid: IGCLWrapper.IGCLAdapterHelper.Dispose*
   commentId: Overload:IGCLWrapper.IGCLAdapterHelper.Dispose
   href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_Dispose

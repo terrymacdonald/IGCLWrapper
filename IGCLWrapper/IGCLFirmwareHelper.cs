@@ -21,7 +21,7 @@ namespace IGCLWrapper
         public unsafe ctl_firmware_properties_t GetFirmwareProperties()
         {
             ThrowIfDisposed();
-            var props = IGCLApiHelper.CreateFirmwareProperties();
+            var props = CreateFirmwareProperties();
             var result = IGCL.ctlGetFirmwareProperties((_ctl_device_adapter_handle_t*)_adapter, &props);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get firmware properties");
@@ -37,7 +37,7 @@ namespace IGCLWrapper
         public unsafe ctl_firmware_component_properties_t GetFirmwareComponentProperties(IntPtr firmwareHandle)
         {
             ThrowIfDisposed();
-            var props = IGCLApiHelper.CreateFirmwareComponentProperties();
+            var props = CreateFirmwareComponentProperties();
             var result = IGCL.ctlGetFirmwareComponentProperties((_ctl_firmware_component_handle_t*)firmwareHandle, &props);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get firmware component properties");
@@ -75,6 +75,9 @@ namespace IGCLWrapper
             if (_disposed)
                 throw new ObjectDisposedException(nameof(IGCLFirmwareHelper));
         }
+
+        private static unsafe ctl_firmware_properties_t CreateFirmwareProperties() => new ctl_firmware_properties_t { Size = (uint)sizeof(ctl_firmware_properties_t), Version = 0 };
+        private static unsafe ctl_firmware_component_properties_t CreateFirmwareComponentProperties() => new ctl_firmware_component_properties_t { Size = (uint)sizeof(ctl_firmware_component_properties_t), Version = 0 };
 
         public void Dispose()
         {

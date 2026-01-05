@@ -27,7 +27,7 @@ namespace IGCLWrapper
         public unsafe ctl_temp_properties_t TemperatureGetProperties(IntPtr sensorHandle)
         {
             ThrowIfDisposed();
-            var props = IGCLApiHelper.CreateTemperatureProperties();
+            var props = CreateTemperatureProperties();
             var result = IGCL.ctlTemperatureGetProperties((_ctl_temp_handle_t*)sensorHandle, &props);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get temperature properties");
@@ -67,6 +67,8 @@ namespace IGCLWrapper
             if (_disposed)
                 throw new ObjectDisposedException(nameof(IGCLTemperatureHelper));
         }
+
+        private static unsafe ctl_temp_properties_t CreateTemperatureProperties() => new ctl_temp_properties_t { Size = (uint)sizeof(ctl_temp_properties_t), Version = 0 };
 
         public void Dispose()
         {

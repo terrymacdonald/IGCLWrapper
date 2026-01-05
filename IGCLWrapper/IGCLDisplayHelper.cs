@@ -21,6 +21,10 @@ namespace IGCLWrapper
             DisplayHandle = displayHandle;
         }
 
+        private static unsafe ctl_display_properties_t CreateDisplayProperties() => new ctl_display_properties_t { Size = (uint)sizeof(ctl_display_properties_t), Version = 0 };
+        private static unsafe ctl_device_adapter_properties_t CreateAdapterProperties() => new ctl_device_adapter_properties_t { Size = (uint)sizeof(ctl_device_adapter_properties_t), Version = 1 };
+        private static unsafe ctl_mux_properties_t CreateMuxProperties() => new ctl_mux_properties_t { Size = (uint)sizeof(ctl_mux_properties_t), Version = 0 };
+
         public unsafe ctl_display_properties_t GetProperties()
         {
             ThrowIfDisposed();
@@ -31,7 +35,7 @@ namespace IGCLWrapper
                     return _properties.Value;
                 }
 
-                var props = IGCLApiHelper.CreateDisplayProperties();
+                var props = CreateDisplayProperties();
                 var result = IGCL.ctlGetDisplayProperties((_ctl_display_output_handle_t*)DisplayHandle, &props);
                 if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 {
@@ -136,7 +140,7 @@ namespace IGCLWrapper
         public unsafe ctl_device_adapter_properties_t GetDeviceProperties()
         {
             ThrowIfDisposed();
-            var props = IGCLApiHelper.CreateAdapterProperties();
+            var props = CreateAdapterProperties();
             var result = IGCL.ctlGetDeviceProperties((_ctl_device_adapter_handle_t*)AdapterHandle, &props);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get device properties");
@@ -414,7 +418,7 @@ namespace IGCLWrapper
         public unsafe (ctl_mux_properties_t properties, IntPtr[] displayOutputs) GetMuxProperties(IntPtr muxHandle)
         {
             ThrowIfDisposed();
-            var props = IGCLApiHelper.Init<ctl_mux_properties_t>();
+            var props = CreateMuxProperties();
             var result = IGCL.ctlGetMuxProperties((_ctl_mux_output_handle_t*)muxHandle, &props);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS && props.Count == 0)
                 throw new IGCLException(result, "Failed to get mux properties");

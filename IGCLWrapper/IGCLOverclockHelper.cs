@@ -21,7 +21,7 @@ namespace IGCLWrapper
         public unsafe ctl_oc_properties_t GetProperties()
         {
             ThrowIfDisposed();
-            var props = IGCLApiHelper.CreateOverclockProperties();
+            var props = CreateOverclockProperties();
             var result = IGCL.ctlOverclockGetProperties((_ctl_device_adapter_handle_t*)_adapter, &props);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get overclock properties");
@@ -116,7 +116,7 @@ namespace IGCLWrapper
         public unsafe ctl_oc_vf_pair_t OverclockGpuLockGet()
         {
             ThrowIfDisposed();
-            var pair = IGCLApiHelper.CreateVfPair();
+            var pair = CreateVfPair();
             var result = IGCL.ctlOverclockGpuLockGet((_ctl_device_adapter_handle_t*)_adapter, &pair);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, OverclockError);
@@ -128,7 +128,7 @@ namespace IGCLWrapper
             ThrowIfDisposed();
             if (pair.Size == 0)
             {
-                var init = IGCLApiHelper.CreateVfPair();
+                var init = CreateVfPair();
                 init.Frequency = pair.Frequency;
                 init.Voltage = pair.Voltage;
                 pair = init;
@@ -274,7 +274,7 @@ namespace IGCLWrapper
         public unsafe ctl_power_telemetry_t GetPowerTelemetry()
         {
             ThrowIfDisposed();
-            var telemetry = IGCLApiHelper.CreatePowerTelemetry();
+            var telemetry = CreatePowerTelemetry();
             var result = IGCL.ctlPowerTelemetryGet((_ctl_device_adapter_handle_t*)_adapter, &telemetry);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, OverclockError);
@@ -345,6 +345,10 @@ namespace IGCLWrapper
             if (_disposed)
                 throw new ObjectDisposedException(nameof(IGCLOverclockHelper));
         }
+
+        private static unsafe ctl_oc_properties_t CreateOverclockProperties() => new ctl_oc_properties_t { Size = (uint)sizeof(ctl_oc_properties_t), Version = 0 };
+        private static unsafe ctl_oc_vf_pair_t CreateVfPair() => new ctl_oc_vf_pair_t { Size = (uint)sizeof(ctl_oc_vf_pair_t), Version = 0 };
+        private static unsafe ctl_power_telemetry_t CreatePowerTelemetry() => new ctl_power_telemetry_t { Size = (uint)sizeof(ctl_power_telemetry_t), Version = 0 };
 
         public void Dispose()
         {

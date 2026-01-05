@@ -27,7 +27,7 @@ namespace IGCLWrapper
         public unsafe ctl_power_properties_t PowerGetProperties(IntPtr powerHandle)
         {
             ThrowIfDisposed();
-            var props = IGCLApiHelper.CreatePowerProperties();
+            var props = CreatePowerProperties();
             var result = IGCL.ctlPowerGetProperties((_ctl_pwr_handle_t*)powerHandle, &props);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get power properties");
@@ -37,7 +37,7 @@ namespace IGCLWrapper
         public unsafe ctl_power_energy_counter_t PowerGetEnergyCounter(IntPtr powerHandle)
         {
             ThrowIfDisposed();
-            var counter = IGCLApiHelper.CreatePowerEnergyCounter();
+            var counter = CreatePowerEnergyCounter();
             var result = IGCL.ctlPowerGetEnergyCounter((_ctl_pwr_handle_t*)powerHandle, &counter);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get power energy counter");
@@ -47,7 +47,7 @@ namespace IGCLWrapper
         public unsafe ctl_power_limits_t PowerGetLimits(IntPtr powerHandle)
         {
             ThrowIfDisposed();
-            var limits = IGCLApiHelper.CreatePowerLimits();
+            var limits = CreatePowerLimits();
             var result = IGCL.ctlPowerGetLimits((_ctl_pwr_handle_t*)powerHandle, &limits);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get power limits");
@@ -85,6 +85,10 @@ namespace IGCLWrapper
             if (_disposed)
                 throw new ObjectDisposedException(nameof(IGCLPowerHelper));
         }
+
+        private static unsafe ctl_power_properties_t CreatePowerProperties() => new ctl_power_properties_t { Size = (uint)sizeof(ctl_power_properties_t), Version = 0 };
+        private static unsafe ctl_power_energy_counter_t CreatePowerEnergyCounter() => new ctl_power_energy_counter_t { Size = (uint)sizeof(ctl_power_energy_counter_t), Version = 0 };
+        private static unsafe ctl_power_limits_t CreatePowerLimits() => new ctl_power_limits_t { Size = (uint)sizeof(ctl_power_limits_t), Version = 0 };
 
         public void Dispose()
         {

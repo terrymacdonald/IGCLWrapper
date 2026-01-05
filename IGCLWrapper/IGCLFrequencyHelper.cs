@@ -27,7 +27,7 @@ namespace IGCLWrapper
         public unsafe ctl_freq_properties_t FrequencyGetProperties(IntPtr freqHandle)
         {
             ThrowIfDisposed();
-            var props = IGCLApiHelper.CreateFrequencyProperties();
+            var props = CreateFrequencyProperties();
             var result = IGCL.ctlFrequencyGetProperties((_ctl_freq_handle_t*)freqHandle, &props);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get frequency properties");
@@ -56,7 +56,7 @@ namespace IGCLWrapper
         public unsafe ctl_freq_range_t FrequencyGetRange(IntPtr freqHandle)
         {
             ThrowIfDisposed();
-            var range = IGCLApiHelper.CreateFrequencyRange();
+            var range = CreateFrequencyRange();
             var result = IGCL.ctlFrequencyGetRange((_ctl_freq_handle_t*)freqHandle, &range);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get frequency range");
@@ -74,7 +74,7 @@ namespace IGCLWrapper
         public unsafe ctl_freq_state_t FrequencyGetState(IntPtr freqHandle)
         {
             ThrowIfDisposed();
-            var state = IGCLApiHelper.CreateFrequencyState();
+            var state = CreateFrequencyState();
             var result = IGCL.ctlFrequencyGetState((_ctl_freq_handle_t*)freqHandle, &state);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get frequency state");
@@ -84,7 +84,7 @@ namespace IGCLWrapper
         public unsafe ctl_freq_throttle_time_t FrequencyGetThrottleTime(IntPtr freqHandle)
         {
             ThrowIfDisposed();
-            var tt = IGCLApiHelper.CreateFrequencyThrottleTime();
+            var tt = CreateFrequencyThrottleTime();
             var result = IGCL.ctlFrequencyGetThrottleTime((_ctl_freq_handle_t*)freqHandle, &tt);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get throttle time");
@@ -114,6 +114,11 @@ namespace IGCLWrapper
             if (_disposed)
                 throw new ObjectDisposedException(nameof(IGCLFrequencyHelper));
         }
+
+        private static unsafe ctl_freq_properties_t CreateFrequencyProperties() => new ctl_freq_properties_t { Size = (uint)sizeof(ctl_freq_properties_t), Version = 0 };
+        private static unsafe ctl_freq_range_t CreateFrequencyRange() => new ctl_freq_range_t { Size = (uint)sizeof(ctl_freq_range_t), Version = 0 };
+        private static unsafe ctl_freq_state_t CreateFrequencyState() => new ctl_freq_state_t { Size = (uint)sizeof(ctl_freq_state_t), Version = 0 };
+        private static unsafe ctl_freq_throttle_time_t CreateFrequencyThrottleTime() => new ctl_freq_throttle_time_t { Size = (uint)sizeof(ctl_freq_throttle_time_t), Version = 0 };
 
         public void Dispose()
         {

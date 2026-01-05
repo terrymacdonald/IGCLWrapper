@@ -20,7 +20,7 @@ namespace IGCLWrapper
         public unsafe ctl_ecc_properties_t EccGetProperties()
         {
             ThrowIfDisposed();
-            var props = IGCLApiHelper.CreateEccProperties();
+            var props = CreateEccProperties();
             var result = IGCL.ctlEccGetProperties((_ctl_device_adapter_handle_t*)_adapter, &props);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get ECC properties");
@@ -30,7 +30,7 @@ namespace IGCLWrapper
         public unsafe ctl_ecc_state_desc_t EccGetState()
         {
             ThrowIfDisposed();
-            var state = IGCLApiHelper.CreateEccState();
+            var state = CreateEccState();
             var result = IGCL.ctlEccGetState((_ctl_device_adapter_handle_t*)_adapter, &state);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get ECC state");
@@ -40,7 +40,7 @@ namespace IGCLWrapper
         public unsafe void EccSetState(ctl_ecc_state_t desiredState)
         {
             ThrowIfDisposed();
-            var state = IGCLApiHelper.CreateEccState();
+            var state = CreateEccState();
             state.currentEccState = desiredState;
             var result = IGCL.ctlEccSetState((_ctl_device_adapter_handle_t*)_adapter, &state);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
@@ -52,6 +52,9 @@ namespace IGCLWrapper
             if (_disposed)
                 throw new ObjectDisposedException(nameof(IGCLEccHelper));
         }
+
+        private static unsafe ctl_ecc_properties_t CreateEccProperties() => new ctl_ecc_properties_t { Size = (uint)sizeof(ctl_ecc_properties_t), Version = 0 };
+        private static unsafe ctl_ecc_state_desc_t CreateEccState() => new ctl_ecc_state_desc_t { Size = (uint)sizeof(ctl_ecc_state_desc_t), Version = 0 };
 
         public void Dispose()
         {

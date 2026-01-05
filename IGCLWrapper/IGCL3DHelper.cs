@@ -20,7 +20,7 @@ namespace IGCLWrapper
         public unsafe ctl_3d_feature_caps_t GetSupported3DCapabilities()
         {
             ThrowIfDisposed();
-            var caps = IGCLApiHelper.Create3DFeatureCaps();
+            var caps = Create3DFeatureCaps();
             var result = IGCL.ctlGetSupported3DCapabilities((_ctl_device_adapter_handle_t*)_adapter, &caps);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get 3D capabilities");
@@ -41,6 +41,8 @@ namespace IGCLWrapper
             if (_disposed)
                 throw new ObjectDisposedException(nameof(IGCL3DHelper));
         }
+
+        private static unsafe ctl_3d_feature_caps_t Create3DFeatureCaps() => new ctl_3d_feature_caps_t { Size = (uint)sizeof(ctl_3d_feature_caps_t), Version = 0 };
 
         public void Dispose()
         {

@@ -20,7 +20,7 @@ namespace IGCLWrapper
         public unsafe ctl_video_processing_feature_caps_t GetSupportedVideoProcessingCapabilities()
         {
             ThrowIfDisposed();
-            var caps = IGCLApiHelper.CreateVideoProcessingCaps();
+            var caps = CreateVideoProcessingCaps();
             var result = IGCL.ctlGetSupportedVideoProcessingCapabilities((_ctl_device_adapter_handle_t*)_adapter, &caps);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get video processing capabilities");
@@ -41,6 +41,8 @@ namespace IGCLWrapper
             if (_disposed)
                 throw new ObjectDisposedException(nameof(IGCLMediaHelper));
         }
+
+        private static unsafe ctl_video_processing_feature_caps_t CreateVideoProcessingCaps() => new ctl_video_processing_feature_caps_t { Size = (uint)sizeof(ctl_video_processing_feature_caps_t), Version = 0 };
 
         public void Dispose()
         {
