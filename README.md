@@ -31,6 +31,11 @@ cd IGCLWrapper
 ./build_igcl.ps1     # restores, regenerates bindings, builds, tests
 ```
 
+### Install / consume the wrapper
+- Local build artifacts: after `./build_igcl.ps1`, reference `IGCLWrapper\bin\Debug\net10.0\IGCLWrapper.dll` (or `Release` if you build release) from your project.
+- Add as a project reference: add `IGCLWrapper/IGCLWrapper.csproj` to your solution and reference it.
+- Requirements at runtime: Windows x64, Intel GPU/driver, and IGCL DLLs available (the wrapper dynamically loads `ControlLib` from the installed Intel drivers).
+
 ### Basic usage (facade)
 ```csharp
 using IGCLWrapper;
