@@ -6,9 +6,7 @@ items:
   parent: IGCLWrapper
   children:
   - IGCLWrapper.IGCLFanHelper.CreateFanSpeed
-  - IGCLWrapper.IGCLFanHelper.CreateFanSpeedInstance
   - IGCLWrapper.IGCLFanHelper.CreateFanSpeedTable
-  - IGCLWrapper.IGCLFanHelper.CreateFanSpeedTableInstance
   - IGCLWrapper.IGCLFanHelper.Dispose
   - IGCLWrapper.IGCLFanHelper.EnumFans
   - IGCLWrapper.IGCLFanHelper.FanGetConfig(System.IntPtr)
@@ -339,62 +337,6 @@ items:
       type: IGCLWrapper.ctl_fan_speed_table_t
     content.vb: Public Shared Function CreateFanSpeedTable() As ctl_fan_speed_table_t
   overload: IGCLWrapper.IGCLFanHelper.CreateFanSpeedTable*
-- uid: IGCLWrapper.IGCLFanHelper.CreateFanSpeedInstance
-  commentId: M:IGCLWrapper.IGCLFanHelper.CreateFanSpeedInstance
-  id: CreateFanSpeedInstance
-  parent: IGCLWrapper.IGCLFanHelper
-  langs:
-  - csharp
-  - vb
-  name: CreateFanSpeedInstance()
-  nameWithType: IGCLFanHelper.CreateFanSpeedInstance()
-  fullName: IGCLWrapper.IGCLFanHelper.CreateFanSpeedInstance()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLFanHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CreateFanSpeedInstance
-    path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 108
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public ctl_fan_speed_t CreateFanSpeedInstance()
-    return:
-      type: IGCLWrapper.ctl_fan_speed_t
-    content.vb: Public Function CreateFanSpeedInstance() As ctl_fan_speed_t
-  overload: IGCLWrapper.IGCLFanHelper.CreateFanSpeedInstance*
-- uid: IGCLWrapper.IGCLFanHelper.CreateFanSpeedTableInstance
-  commentId: M:IGCLWrapper.IGCLFanHelper.CreateFanSpeedTableInstance
-  id: CreateFanSpeedTableInstance
-  parent: IGCLWrapper.IGCLFanHelper
-  langs:
-  - csharp
-  - vb
-  name: CreateFanSpeedTableInstance()
-  nameWithType: IGCLFanHelper.CreateFanSpeedTableInstance()
-  fullName: IGCLWrapper.IGCLFanHelper.CreateFanSpeedTableInstance()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLFanHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CreateFanSpeedTableInstance
-    path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 109
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public ctl_fan_speed_table_t CreateFanSpeedTableInstance()
-    return:
-      type: IGCLWrapper.ctl_fan_speed_table_t
-    content.vb: Public Function CreateFanSpeedTableInstance() As ctl_fan_speed_table_t
-  overload: IGCLWrapper.IGCLFanHelper.CreateFanSpeedTableInstance*
 - uid: IGCLWrapper.IGCLFanHelper.Dispose
   commentId: M:IGCLWrapper.IGCLFanHelper.Dispose
   id: Dispose
@@ -413,7 +355,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 111
+    startLine: 109
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -864,18 +806,6 @@ references:
   name: CreateFanSpeedTable
   nameWithType: IGCLFanHelper.CreateFanSpeedTable
   fullName: IGCLWrapper.IGCLFanHelper.CreateFanSpeedTable
-- uid: IGCLWrapper.IGCLFanHelper.CreateFanSpeedInstance*
-  commentId: Overload:IGCLWrapper.IGCLFanHelper.CreateFanSpeedInstance
-  href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_CreateFanSpeedInstance
-  name: CreateFanSpeedInstance
-  nameWithType: IGCLFanHelper.CreateFanSpeedInstance
-  fullName: IGCLWrapper.IGCLFanHelper.CreateFanSpeedInstance
-- uid: IGCLWrapper.IGCLFanHelper.CreateFanSpeedTableInstance*
-  commentId: Overload:IGCLWrapper.IGCLFanHelper.CreateFanSpeedTableInstance
-  href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_CreateFanSpeedTableInstance
-  name: CreateFanSpeedTableInstance
-  nameWithType: IGCLFanHelper.CreateFanSpeedTableInstance
-  fullName: IGCLWrapper.IGCLFanHelper.CreateFanSpeedTableInstance
 - uid: IGCLWrapper.IGCLFanHelper.Dispose*
   commentId: Overload:IGCLWrapper.IGCLFanHelper.Dispose
   href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_Dispose

@@ -6,7 +6,6 @@ items:
   parent: IGCLWrapper
   children:
   - IGCLWrapper.IGCL3DHelper.Create3DFeatureGetSet
-  - IGCLWrapper.IGCL3DHelper.Create3DFeatureGetSetInstance
   - IGCLWrapper.IGCL3DHelper.Dispose
   - IGCLWrapper.IGCL3DHelper.GetSet3DFeature(IGCLWrapper.ctl_3d_feature_getset_t)
   - IGCLWrapper.IGCL3DHelper.GetSupported3DCapabilities
@@ -131,34 +130,6 @@ items:
       type: IGCLWrapper.ctl_3d_feature_getset_t
     content.vb: Public Shared Function Create3DFeatureGetSet() As ctl_3d_feature_getset_t
   overload: IGCLWrapper.IGCL3DHelper.Create3DFeatureGetSet*
-- uid: IGCLWrapper.IGCL3DHelper.Create3DFeatureGetSetInstance
-  commentId: M:IGCLWrapper.IGCL3DHelper.Create3DFeatureGetSetInstance
-  id: Create3DFeatureGetSetInstance
-  parent: IGCLWrapper.IGCL3DHelper
-  langs:
-  - csharp
-  - vb
-  name: Create3DFeatureGetSetInstance()
-  nameWithType: IGCL3DHelper.Create3DFeatureGetSetInstance()
-  fullName: IGCLWrapper.IGCL3DHelper.Create3DFeatureGetSetInstance()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCL3DHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: Create3DFeatureGetSetInstance
-    path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 46
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public ctl_3d_feature_getset_t Create3DFeatureGetSetInstance()
-    return:
-      type: IGCLWrapper.ctl_3d_feature_getset_t
-    content.vb: Public Function Create3DFeatureGetSetInstance() As ctl_3d_feature_getset_t
-  overload: IGCLWrapper.IGCL3DHelper.Create3DFeatureGetSetInstance*
 - uid: IGCLWrapper.IGCL3DHelper.Dispose
   commentId: M:IGCLWrapper.IGCL3DHelper.Dispose
   id: Dispose
@@ -177,7 +148,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 48
+    startLine: 47
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -449,12 +420,6 @@ references:
   name: Create3DFeatureGetSet
   nameWithType: IGCL3DHelper.Create3DFeatureGetSet
   fullName: IGCLWrapper.IGCL3DHelper.Create3DFeatureGetSet
-- uid: IGCLWrapper.IGCL3DHelper.Create3DFeatureGetSetInstance*
-  commentId: Overload:IGCLWrapper.IGCL3DHelper.Create3DFeatureGetSetInstance
-  href: IGCLWrapper.IGCL3DHelper.html#IGCLWrapper_IGCL3DHelper_Create3DFeatureGetSetInstance
-  name: Create3DFeatureGetSetInstance
-  nameWithType: IGCL3DHelper.Create3DFeatureGetSetInstance
-  fullName: IGCLWrapper.IGCL3DHelper.Create3DFeatureGetSetInstance
 - uid: IGCLWrapper.IGCL3DHelper.Dispose*
   commentId: Overload:IGCLWrapper.IGCL3DHelper.Dispose
   href: IGCLWrapper.IGCL3DHelper.html#IGCLWrapper_IGCL3DHelper_Dispose

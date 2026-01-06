@@ -5,7 +5,6 @@ items:
   id: IGCLLedHelper
   parent: IGCLWrapper
   children:
-  - IGCLWrapper.IGCLLedHelper.CreateLedStateInstance
   - IGCLWrapper.IGCLLedHelper.CreateLedStateStruct
   - IGCLWrapper.IGCLLedHelper.Dispose
   - IGCLWrapper.IGCLLedHelper.EnumLeds
@@ -204,34 +203,6 @@ items:
       type: IGCLWrapper.ctl_led_state_t
     content.vb: Public Shared Function CreateLedStateStruct() As ctl_led_state_t
   overload: IGCLWrapper.IGCLLedHelper.CreateLedStateStruct*
-- uid: IGCLWrapper.IGCLLedHelper.CreateLedStateInstance
-  commentId: M:IGCLWrapper.IGCLLedHelper.CreateLedStateInstance
-  id: CreateLedStateInstance
-  parent: IGCLWrapper.IGCLLedHelper
-  langs:
-  - csharp
-  - vb
-  name: CreateLedStateInstance()
-  nameWithType: IGCLLedHelper.CreateLedStateInstance()
-  fullName: IGCLWrapper.IGCLLedHelper.CreateLedStateInstance()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLLedHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CreateLedStateInstance
-    path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 81
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  syntax:
-    content: public ctl_led_state_t CreateLedStateInstance()
-    return:
-      type: IGCLWrapper.ctl_led_state_t
-    content.vb: Public Function CreateLedStateInstance() As ctl_led_state_t
-  overload: IGCLWrapper.IGCLLedHelper.CreateLedStateInstance*
 - uid: IGCLWrapper.IGCLLedHelper.Dispose
   commentId: M:IGCLWrapper.IGCLLedHelper.Dispose
   id: Dispose
@@ -250,7 +221,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 83
+    startLine: 82
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -645,12 +616,6 @@ references:
   name: CreateLedStateStruct
   nameWithType: IGCLLedHelper.CreateLedStateStruct
   fullName: IGCLWrapper.IGCLLedHelper.CreateLedStateStruct
-- uid: IGCLWrapper.IGCLLedHelper.CreateLedStateInstance*
-  commentId: Overload:IGCLWrapper.IGCLLedHelper.CreateLedStateInstance
-  href: IGCLWrapper.IGCLLedHelper.html#IGCLWrapper_IGCLLedHelper_CreateLedStateInstance
-  name: CreateLedStateInstance
-  nameWithType: IGCLLedHelper.CreateLedStateInstance
-  fullName: IGCLWrapper.IGCLLedHelper.CreateLedStateInstance
 - uid: IGCLWrapper.IGCLLedHelper.Dispose*
   commentId: Overload:IGCLWrapper.IGCLLedHelper.Dispose
   href: IGCLWrapper.IGCLLedHelper.html#IGCLWrapper_IGCLLedHelper_Dispose

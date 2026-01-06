@@ -5,6 +5,7 @@ items:
   id: IGCLOverclockHelper
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.IGCLOverclockHelper.CreateVfPair
   - IGCLWrapper.IGCLOverclockHelper.Dispose
   - IGCLWrapper.IGCLOverclockHelper.GetGpuFrequencyOffset
   - IGCLWrapper.IGCLOverclockHelper.GetGpuVoltageOffset
@@ -1270,6 +1271,34 @@ items:
   nameWithType.vb: IGCLOverclockHelper.SetTemperatureLimit(Double)
   fullName.vb: IGCLWrapper.IGCLOverclockHelper.SetTemperatureLimit(Double)
   name.vb: SetTemperatureLimit(Double)
+- uid: IGCLWrapper.IGCLOverclockHelper.CreateVfPair
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.CreateVfPair
+  id: CreateVfPair
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: CreateVfPair()
+  nameWithType: IGCLOverclockHelper.CreateVfPair()
+  fullName: IGCLWrapper.IGCLOverclockHelper.CreateVfPair()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: CreateVfPair
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 349
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public static ctl_oc_vf_pair_t CreateVfPair()
+    return:
+      type: IGCLWrapper.ctl_oc_vf_pair_t
+    content.vb: Public Shared Function CreateVfPair() As ctl_oc_vf_pair_t
+  overload: IGCLWrapper.IGCLOverclockHelper.CreateVfPair*
 - uid: IGCLWrapper.IGCLOverclockHelper.Dispose
   commentId: M:IGCLWrapper.IGCLOverclockHelper.Dispose
   id: Dispose
@@ -1835,6 +1864,12 @@ references:
   name: SetTemperatureLimit
   nameWithType: IGCLOverclockHelper.SetTemperatureLimit
   fullName: IGCLWrapper.IGCLOverclockHelper.SetTemperatureLimit
+- uid: IGCLWrapper.IGCLOverclockHelper.CreateVfPair*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.CreateVfPair
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_CreateVfPair
+  name: CreateVfPair
+  nameWithType: IGCLOverclockHelper.CreateVfPair
+  fullName: IGCLWrapper.IGCLOverclockHelper.CreateVfPair
 - uid: IGCLWrapper.IGCLOverclockHelper.Dispose*
   commentId: Overload:IGCLWrapper.IGCLOverclockHelper.Dispose
   href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_Dispose
