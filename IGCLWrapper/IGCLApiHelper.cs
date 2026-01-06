@@ -91,7 +91,11 @@ namespace IGCLWrapper
         public unsafe void SetRuntimePath(ctl_runtime_path_args_t args)
         {
             ThrowIfDisposed();
-            var copy = args.Size == 0 ? CreateRuntimePathArgs() : args;
+            var copy = args;
+            if (copy.Size == 0)
+                copy.Size = (uint)sizeof(ctl_runtime_path_args_t);
+            if (copy.Version == 0)
+                copy.Version = 0;
             var result = IGCL.ctlSetRuntimePath(&copy);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to set runtime path");
@@ -191,7 +195,11 @@ namespace IGCLWrapper
         public unsafe ctl_wait_property_change_args_t WaitForPropertyChange(ctl_wait_property_change_args_t args)
         {
             ThrowIfDisposed();
-            var copy = args.Size == 0 ? CreateWaitPropertyChangeArgs() : args;
+            var copy = args;
+            if (copy.Size == 0)
+                copy.Size = (uint)sizeof(ctl_wait_property_change_args_t);
+            if (copy.Version == 0)
+                copy.Version = 0;
             var result = IGCL.ctlWaitForPropertyChange((_ctl_device_adapter_handle_t*)AdapterHandle, &copy);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to wait for property change");

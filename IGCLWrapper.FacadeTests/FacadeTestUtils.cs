@@ -35,7 +35,12 @@ namespace IGCLWrapper.FacadeTests
             }
             catch (IGCLException ex)
             {
-                throw new SkipException($"{reason}: {ex.Result}");
+                if (ex.Result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
+                    ex.Result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION)
+                {
+                    throw new SkipException($"{reason}: {ex.Result}");
+                }
+                throw;
             }
             catch (EntryPointNotFoundException ex)
             {
@@ -51,7 +56,12 @@ namespace IGCLWrapper.FacadeTests
             }
             catch (IGCLException ex)
             {
-                throw new SkipException($"{reason}: {ex.Result}");
+                if (ex.Result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
+                    ex.Result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION)
+                {
+                    throw new SkipException($"{reason}: {ex.Result}");
+                }
+                throw;
             }
             catch (EntryPointNotFoundException ex)
             {
