@@ -32,30 +32,23 @@ namespace IGCLWrapper.FacadeTests
                 Skip.If(display == null, "No displays connected.");
 
                 FacadeTestUtils.InvokeOrSkip(() => display.GetAdapterDisplayEncoderProperties(), "Encoder properties unsupported");
-                FacadeTestUtils.InvokeOrSkip(() => display.GetIntelArcSyncInfoForMonitor(new ctl_intel_arc_sync_monitor_params_t { Size = 0, Version = 0 }), "ArcSync info unsupported");
+                FacadeTestUtils.InvokeOrSkip(() => display.GetIntelArcSyncInfoForMonitor(), "ArcSync info unsupported");
 
                 var sharpCaps = new ctl_sharpness_caps_t { Size = 0, Version = 0 };
                 FacadeTestUtils.InvokeOrSkip(() => display.GetSharpnessCaps(sharpCaps), "Sharpness caps unsupported");
-                var sharpSettings = new ctl_sharpness_settings_t { Size = 0, Version = 0 };
-                FacadeTestUtils.InvokeOrSkip(() => display.GetCurrentSharpness(sharpSettings), "Sharpness settings unsupported");
+                FacadeTestUtils.InvokeOrSkip(() => display.GetCurrentSharpness(), "Sharpness settings unsupported");
 
-                var powCaps = new ctl_power_optimization_caps_t { Size = 0, Version = 0 };
-                FacadeTestUtils.InvokeOrSkip(() => display.GetPowerOptimizationCaps(powCaps), "Power optimization caps unsupported");
-                var powSettings = new ctl_power_optimization_settings_t { Size = 0, Version = 0 };
-                FacadeTestUtils.InvokeOrSkip(() => display.GetPowerOptimizationSetting(powSettings), "Power optimization settings unsupported");
+                FacadeTestUtils.InvokeOrSkip(() => display.GetPowerOptimizationCaps(), "Power optimization caps unsupported");
+                FacadeTestUtils.InvokeOrSkip(() => display.GetPowerOptimizationSetting(), "Power optimization settings unsupported");
 
-                var scalingCaps = new ctl_scaling_caps_t { Size = 0, Version = 0 };
-                FacadeTestUtils.InvokeOrSkip(() => display.GetSupportedScalingCapability(scalingCaps), "Scaling caps unsupported");
-                var scalingSettings = new ctl_scaling_settings_t { Size = 0, Version = 0 };
-                FacadeTestUtils.InvokeOrSkip(() => display.GetCurrentScaling(scalingSettings), "Scaling settings unsupported");
+                FacadeTestUtils.InvokeOrSkip(() => display.GetSupportedScalingCapability(), "Scaling caps unsupported");
+                FacadeTestUtils.InvokeOrSkip(() => display.GetCurrentScaling(), "Scaling settings unsupported");
 
-                var retroCaps = new ctl_retro_scaling_caps_t { Size = 0, Version = 0 };
-                FacadeTestUtils.InvokeOrSkip(() => display.GetSupportedRetroScalingCapability(retroCaps), "Retro scaling unsupported");
+                FacadeTestUtils.InvokeOrSkip(() => display.GetSupportedRetroScalingCapability(), "Retro scaling unsupported");
                 var retroSettings = new ctl_retro_scaling_settings_t { Size = 0, Version = 0 };
                 FacadeTestUtils.InvokeOrSkip(() => display.GetSetRetroScaling(retroSettings), "Retro scaling settings unsupported");
 
-                var brightness = new ctl_get_brightness_t { Size = 0, Version = 0 };
-                FacadeTestUtils.InvokeOrSkip(() => display.GetBrightnessSetting(brightness), "Brightness unsupported");
+                FacadeTestUtils.InvokeOrSkip(() => display.GetBrightnessSetting(), "Brightness unsupported");
 
                 var wireFormat = new ctl_get_set_wire_format_config_t { Size = 0, Version = 0 };
                 FacadeTestUtils.InvokeOrSkip(() => display.GetSetWireFormat(wireFormat), "Wire format unsupported");

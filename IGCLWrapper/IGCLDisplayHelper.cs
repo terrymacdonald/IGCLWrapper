@@ -24,6 +24,16 @@ namespace IGCLWrapper
         private static unsafe ctl_display_properties_t CreateDisplayProperties() => new ctl_display_properties_t { Size = (uint)sizeof(ctl_display_properties_t), Version = 0 };
         private static unsafe ctl_device_adapter_properties_t CreateAdapterProperties() => new ctl_device_adapter_properties_t { Size = (uint)sizeof(ctl_device_adapter_properties_t), Version = 1 };
         private static unsafe ctl_mux_properties_t CreateMuxProperties() => new ctl_mux_properties_t { Size = (uint)sizeof(ctl_mux_properties_t), Version = 0 };
+        private static unsafe ctl_retro_scaling_caps_t CreateRetroScalingCaps() => new ctl_retro_scaling_caps_t { Size = (uint)sizeof(ctl_retro_scaling_caps_t), Version = 0 };
+        private static unsafe ctl_scaling_caps_t CreateScalingCaps() => new ctl_scaling_caps_t { Size = (uint)sizeof(ctl_scaling_caps_t), Version = 0 };
+        private static unsafe ctl_scaling_settings_t CreateScalingSettings() => new ctl_scaling_settings_t { Size = (uint)sizeof(ctl_scaling_settings_t), Version = 0 };
+        private static unsafe ctl_sharpness_settings_t CreateSharpnessSettings() => new ctl_sharpness_settings_t { Size = (uint)sizeof(ctl_sharpness_settings_t), Version = 0 };
+        private static unsafe ctl_power_optimization_caps_t CreatePowerOptimizationCaps() => new ctl_power_optimization_caps_t { Size = (uint)sizeof(ctl_power_optimization_caps_t), Version = 0 };
+        private static unsafe ctl_power_optimization_settings_t CreatePowerOptimizationSettings() => new ctl_power_optimization_settings_t { Size = (uint)sizeof(ctl_power_optimization_settings_t), Version = 0 };
+        private static unsafe ctl_get_brightness_t CreateGetBrightness() => new ctl_get_brightness_t { Size = (uint)sizeof(ctl_get_brightness_t), Version = 0 };
+        private static unsafe ctl_lace_config_t CreateLaceConfig() => new ctl_lace_config_t { Size = (uint)sizeof(ctl_lace_config_t), Version = 0 };
+        private static unsafe ctl_intel_arc_sync_monitor_params_t CreateArcSyncMonitorParams() => new ctl_intel_arc_sync_monitor_params_t { Size = (uint)sizeof(ctl_intel_arc_sync_monitor_params_t), Version = 0 };
+        private static unsafe ctl_intel_arc_sync_profile_params_t CreateArcSyncProfileParams() => new ctl_intel_arc_sync_profile_params_t { Size = (uint)sizeof(ctl_intel_arc_sync_profile_params_t), Version = 0 };
 
         public unsafe ctl_display_properties_t GetProperties()
         {
@@ -178,14 +188,14 @@ namespace IGCLWrapper
             return copy;
         }
 
-        public unsafe ctl_sharpness_settings_t GetCurrentSharpness(ctl_sharpness_settings_t settings)
+        public unsafe ctl_sharpness_settings_t GetCurrentSharpness()
         {
             ThrowIfDisposed();
-            var copy = settings;
-            var result = IGCL.ctlGetCurrentSharpness((_ctl_display_output_handle_t*)DisplayHandle, &copy);
+            var settings = CreateSharpnessSettings();
+            var result = IGCL.ctlGetCurrentSharpness((_ctl_display_output_handle_t*)DisplayHandle, &settings);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get current sharpness");
-            return copy;
+            return settings;
         }
 
         public unsafe void SetCurrentSharpness(ctl_sharpness_settings_t settings)
@@ -230,24 +240,24 @@ namespace IGCLWrapper
             }
         }
 
-        public unsafe ctl_power_optimization_caps_t GetPowerOptimizationCaps(ctl_power_optimization_caps_t caps)
+        public unsafe ctl_power_optimization_caps_t GetPowerOptimizationCaps()
         {
             ThrowIfDisposed();
-            var copy = caps;
-            var result = IGCL.ctlGetPowerOptimizationCaps((_ctl_display_output_handle_t*)DisplayHandle, &copy);
+            var caps = CreatePowerOptimizationCaps();
+            var result = IGCL.ctlGetPowerOptimizationCaps((_ctl_display_output_handle_t*)DisplayHandle, &caps);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get power optimization caps");
-            return copy;
+            return caps;
         }
 
-        public unsafe ctl_power_optimization_settings_t GetPowerOptimizationSetting(ctl_power_optimization_settings_t settings)
+        public unsafe ctl_power_optimization_settings_t GetPowerOptimizationSetting()
         {
             ThrowIfDisposed();
-            var copy = settings;
-            var result = IGCL.ctlGetPowerOptimizationSetting((_ctl_display_output_handle_t*)DisplayHandle, &copy);
+            var settings = CreatePowerOptimizationSettings();
+            var result = IGCL.ctlGetPowerOptimizationSetting((_ctl_display_output_handle_t*)DisplayHandle, &settings);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get power optimization settings");
-            return copy;
+            return settings;
         }
 
         public unsafe void SetPowerOptimizationSetting(ctl_power_optimization_settings_t settings)
@@ -268,14 +278,14 @@ namespace IGCLWrapper
                 throw new IGCLException(result, "Failed to set brightness");
         }
 
-        public unsafe ctl_get_brightness_t GetBrightnessSetting(ctl_get_brightness_t brightness)
+        public unsafe ctl_get_brightness_t GetBrightnessSetting()
         {
             ThrowIfDisposed();
-            var copy = brightness;
-            var result = IGCL.ctlGetBrightnessSetting((_ctl_display_output_handle_t*)DisplayHandle, &copy);
+            var brightness = CreateGetBrightness();
+            var result = IGCL.ctlGetBrightnessSetting((_ctl_display_output_handle_t*)DisplayHandle, &brightness);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get brightness");
-            return copy;
+            return brightness;
         }
 
         public unsafe ctl_pixtx_pipe_get_config_t PixelTransformationGetConfig(ctl_pixtx_pipe_get_config_t args)
@@ -307,14 +317,14 @@ namespace IGCLWrapper
             return copy;
         }
 
-        public unsafe ctl_retro_scaling_caps_t GetSupportedRetroScalingCapability(ctl_retro_scaling_caps_t caps)
+        public unsafe ctl_retro_scaling_caps_t GetSupportedRetroScalingCapability()
         {
             ThrowIfDisposed();
-            var copy = caps;
-            var result = IGCL.ctlGetSupportedRetroScalingCapability((_ctl_device_adapter_handle_t*)AdapterHandle, &copy);
+            var caps = CreateRetroScalingCaps();
+            var result = IGCL.ctlGetSupportedRetroScalingCapability((_ctl_device_adapter_handle_t*)AdapterHandle, &caps);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get retro scaling capability");
-            return copy;
+            return caps;
         }
 
         public unsafe ctl_retro_scaling_settings_t GetSetRetroScaling(ctl_retro_scaling_settings_t settings)
@@ -327,24 +337,24 @@ namespace IGCLWrapper
             return copy;
         }
 
-        public unsafe ctl_scaling_caps_t GetSupportedScalingCapability(ctl_scaling_caps_t caps)
+        public unsafe ctl_scaling_caps_t GetSupportedScalingCapability()
         {
             ThrowIfDisposed();
-            var copy = caps;
-            var result = IGCL.ctlGetSupportedScalingCapability((_ctl_display_output_handle_t*)DisplayHandle, &copy);
+            var caps = CreateScalingCaps();
+            var result = IGCL.ctlGetSupportedScalingCapability((_ctl_display_output_handle_t*)DisplayHandle, &caps);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get scaling capability");
-            return copy;
+            return caps;
         }
 
-        public unsafe ctl_scaling_settings_t GetCurrentScaling(ctl_scaling_settings_t settings)
+        public unsafe ctl_scaling_settings_t GetCurrentScaling()
         {
             ThrowIfDisposed();
-            var copy = settings;
-            var result = IGCL.ctlGetCurrentScaling((_ctl_display_output_handle_t*)DisplayHandle, &copy);
+            var settings = CreateScalingSettings();
+            var result = IGCL.ctlGetCurrentScaling((_ctl_display_output_handle_t*)DisplayHandle, &settings);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get current scaling");
-            return copy;
+            return settings;
         }
 
         public unsafe void SetCurrentScaling(ctl_scaling_settings_t settings)
@@ -356,14 +366,14 @@ namespace IGCLWrapper
                 throw new IGCLException(result, "Failed to set scaling");
         }
 
-        public unsafe ctl_lace_config_t GetLACEConfig(ctl_lace_config_t config)
+        public unsafe ctl_lace_config_t GetLACEConfig()
         {
             ThrowIfDisposed();
-            var copy = config;
-            var result = IGCL.ctlGetLACEConfig((_ctl_display_output_handle_t*)DisplayHandle, &copy);
+            var config = CreateLaceConfig();
+            var result = IGCL.ctlGetLACEConfig((_ctl_display_output_handle_t*)DisplayHandle, &config);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get LACE config");
-            return copy;
+            return config;
         }
 
         public unsafe void SetLACEConfig(ctl_lace_config_t config)
@@ -385,14 +395,14 @@ namespace IGCLWrapper
             return copy;
         }
 
-        public unsafe ctl_intel_arc_sync_monitor_params_t GetIntelArcSyncInfoForMonitor(ctl_intel_arc_sync_monitor_params_t parameters)
+        public unsafe ctl_intel_arc_sync_monitor_params_t GetIntelArcSyncInfoForMonitor()
         {
             ThrowIfDisposed();
-            var copy = parameters;
-            var result = IGCL.ctlGetIntelArcSyncInfoForMonitor((_ctl_display_output_handle_t*)DisplayHandle, &copy);
+            var parameters = CreateArcSyncMonitorParams();
+            var result = IGCL.ctlGetIntelArcSyncInfoForMonitor((_ctl_display_output_handle_t*)DisplayHandle, &parameters);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get Intel Arc Sync info");
-            return copy;
+            return parameters;
         }
 
         public unsafe IntPtr[] EnumerateMuxDevices()
@@ -448,14 +458,14 @@ namespace IGCLWrapper
                 throw new IGCLException(result, "Failed to switch mux output");
         }
 
-        public unsafe ctl_intel_arc_sync_profile_params_t GetIntelArcSyncProfile(ctl_intel_arc_sync_profile_params_t parameters)
+        public unsafe ctl_intel_arc_sync_profile_params_t GetIntelArcSyncProfile()
         {
             ThrowIfDisposed();
-            var copy = parameters;
-            var result = IGCL.ctlGetIntelArcSyncProfile((_ctl_display_output_handle_t*)DisplayHandle, &copy);
+            var parameters = CreateArcSyncProfileParams();
+            var result = IGCL.ctlGetIntelArcSyncProfile((_ctl_display_output_handle_t*)DisplayHandle, &parameters);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get Intel Arc Sync profile");
-            return copy;
+            return parameters;
         }
 
         public unsafe void SetIntelArcSyncProfile(ctl_intel_arc_sync_profile_params_t parameters)
