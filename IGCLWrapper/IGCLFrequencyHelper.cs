@@ -119,6 +119,7 @@ namespace IGCLWrapper
         private static unsafe ctl_freq_range_t CreateFrequencyRange() => new ctl_freq_range_t { Size = (uint)sizeof(ctl_freq_range_t), Version = 0 };
         private static unsafe ctl_freq_state_t CreateFrequencyState() => new ctl_freq_state_t { Size = (uint)sizeof(ctl_freq_state_t), Version = 0 };
         private static unsafe ctl_freq_throttle_time_t CreateFrequencyThrottleTime() => new ctl_freq_throttle_time_t { Size = (uint)sizeof(ctl_freq_throttle_time_t), Version = 0 };
+        public static unsafe ctl_freq_range_t CreateFrequencyRangeStruct() => CreateFrequencyRange();
 
         public void Dispose()
         {

@@ -26,14 +26,31 @@ namespace IGCLWrapper
         private static unsafe ctl_mux_properties_t CreateMuxProperties() => new ctl_mux_properties_t { Size = (uint)sizeof(ctl_mux_properties_t), Version = 0 };
         private static unsafe ctl_retro_scaling_caps_t CreateRetroScalingCaps() => new ctl_retro_scaling_caps_t { Size = (uint)sizeof(ctl_retro_scaling_caps_t), Version = 0 };
         private static unsafe ctl_scaling_caps_t CreateScalingCaps() => new ctl_scaling_caps_t { Size = (uint)sizeof(ctl_scaling_caps_t), Version = 0 };
-        private static unsafe ctl_scaling_settings_t CreateScalingSettings() => new ctl_scaling_settings_t { Size = (uint)sizeof(ctl_scaling_settings_t), Version = 0 };
-        private static unsafe ctl_sharpness_settings_t CreateSharpnessSettings() => new ctl_sharpness_settings_t { Size = (uint)sizeof(ctl_sharpness_settings_t), Version = 0 };
+        public static unsafe ctl_scaling_settings_t CreateScalingSettings() => new ctl_scaling_settings_t { Size = (uint)sizeof(ctl_scaling_settings_t), Version = 0 };
+        public static unsafe ctl_sharpness_settings_t CreateSharpnessSettings() => new ctl_sharpness_settings_t { Size = (uint)sizeof(ctl_sharpness_settings_t), Version = 0 };
+        private static unsafe ctl_sharpness_caps_t CreateSharpnessCaps() => new ctl_sharpness_caps_t { Size = (uint)sizeof(ctl_sharpness_caps_t), Version = 0 };
         private static unsafe ctl_power_optimization_caps_t CreatePowerOptimizationCaps() => new ctl_power_optimization_caps_t { Size = (uint)sizeof(ctl_power_optimization_caps_t), Version = 0 };
-        private static unsafe ctl_power_optimization_settings_t CreatePowerOptimizationSettings() => new ctl_power_optimization_settings_t { Size = (uint)sizeof(ctl_power_optimization_settings_t), Version = 0 };
+        public static unsafe ctl_power_optimization_settings_t CreatePowerOptimizationSettings() => new ctl_power_optimization_settings_t { Size = (uint)sizeof(ctl_power_optimization_settings_t), Version = 0 };
         private static unsafe ctl_get_brightness_t CreateGetBrightness() => new ctl_get_brightness_t { Size = (uint)sizeof(ctl_get_brightness_t), Version = 0 };
-        private static unsafe ctl_lace_config_t CreateLaceConfig() => new ctl_lace_config_t { Size = (uint)sizeof(ctl_lace_config_t), Version = 0 };
+        public static unsafe ctl_lace_config_t CreateLaceConfig() => new ctl_lace_config_t { Size = (uint)sizeof(ctl_lace_config_t), Version = 0 };
         private static unsafe ctl_intel_arc_sync_monitor_params_t CreateArcSyncMonitorParams() => new ctl_intel_arc_sync_monitor_params_t { Size = (uint)sizeof(ctl_intel_arc_sync_monitor_params_t), Version = 0 };
-        private static unsafe ctl_intel_arc_sync_profile_params_t CreateArcSyncProfileParams() => new ctl_intel_arc_sync_profile_params_t { Size = (uint)sizeof(ctl_intel_arc_sync_profile_params_t), Version = 0 };
+        public static unsafe ctl_intel_arc_sync_profile_params_t CreateArcSyncProfileParams() => new ctl_intel_arc_sync_profile_params_t { Size = (uint)sizeof(ctl_intel_arc_sync_profile_params_t), Version = 0 };
+        public static unsafe ctl_set_brightness_t CreateSetBrightness() => new ctl_set_brightness_t { Size = (uint)sizeof(ctl_set_brightness_t), Version = 0 };
+        public static unsafe ctl_retro_scaling_settings_t CreateRetroScalingSettings() => new ctl_retro_scaling_settings_t { Size = (uint)sizeof(ctl_retro_scaling_settings_t), Version = 0 };
+        public static unsafe ctl_combined_display_args_t CreateCombinedDisplayArgs() => new ctl_combined_display_args_t { Size = (uint)sizeof(ctl_combined_display_args_t), Version = 0 };
+        public static unsafe ctl_genlock_args_t CreateGenlockArgs() => new ctl_genlock_args_t { Size = (uint)sizeof(ctl_genlock_args_t), Version = 0 };
+        public static unsafe ctl_sw_psr_settings_t CreateSoftwarePsrSettings() => new ctl_sw_psr_settings_t { Size = (uint)sizeof(ctl_sw_psr_settings_t), Version = 0 };
+        public static unsafe ctl_get_set_wire_format_config_t CreateWireFormatConfig() => new ctl_get_set_wire_format_config_t { Size = (uint)sizeof(ctl_get_set_wire_format_config_t), Version = 0 };
+        public static unsafe ctl_display_settings_t CreateDisplaySettings() => new ctl_display_settings_t { Size = (uint)sizeof(ctl_display_settings_t), Version = 0 };
+        public static unsafe ctl_edid_management_args_t CreateEdidManagementArgs() => new ctl_edid_management_args_t { Size = (uint)sizeof(ctl_edid_management_args_t), Version = 0 };
+        public static unsafe ctl_panel_descriptor_access_args_t CreatePanelDescriptorArgs() => new ctl_panel_descriptor_access_args_t { Size = (uint)sizeof(ctl_panel_descriptor_access_args_t), Version = 0 };
+        public static unsafe ctl_pixtx_pipe_set_config_t CreatePixtxPipeSetConfig() => new ctl_pixtx_pipe_set_config_t { Size = (uint)sizeof(ctl_pixtx_pipe_set_config_t), Version = 0 };
+        public static unsafe ctl_pixtx_pipe_get_config_t CreatePixtxPipeGetConfig() => new ctl_pixtx_pipe_get_config_t { Size = (uint)sizeof(ctl_pixtx_pipe_get_config_t), Version = 0 };
+        public static unsafe ctl_lda_args_t CreateLinkedDisplayAdaptersArgs() => new ctl_lda_args_t { Size = (uint)sizeof(ctl_lda_args_t), Version = 0 };
+        public static unsafe ctl_vblank_ts_args_t CreateVblankTimestampArgs() => new ctl_vblank_ts_args_t { Size = (uint)sizeof(ctl_vblank_ts_args_t), Version = 0 };
+        public static unsafe ctl_get_set_custom_mode_args_t CreateCustomModeArgs() => new ctl_get_set_custom_mode_args_t { Size = (uint)sizeof(ctl_get_set_custom_mode_args_t), Version = 0 };
+        public static unsafe ctl_dce_args_t CreateDceArgs() => new ctl_dce_args_t { Size = (uint)sizeof(ctl_dce_args_t), Version = 0 };
+
 
         public unsafe ctl_display_properties_t GetProperties()
         {
@@ -178,14 +195,30 @@ namespace IGCLWrapper
             return (zeDevice, (IntPtr)instance);
         }
 
-        public unsafe ctl_sharpness_caps_t GetSharpnessCaps(ctl_sharpness_caps_t caps)
+        public unsafe (ctl_sharpness_caps_t caps, ctl_sharpness_filter_properties_t[] filters) GetSharpnessCaps()
         {
             ThrowIfDisposed();
-            var copy = caps;
-            var result = IGCL.ctlGetSharpnessCaps((_ctl_display_output_handle_t*)DisplayHandle, &copy);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+            var caps = CreateSharpnessCaps();
+
+            // First pass: get count
+            var result = IGCL.ctlGetSharpnessCaps((_ctl_display_output_handle_t*)DisplayHandle, &caps);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS && caps.NumFilterTypes == 0)
                 throw new IGCLException(result, "Failed to get sharpness caps");
-            return copy;
+
+            if (caps.NumFilterTypes == 0)
+                return (caps, Array.Empty<ctl_sharpness_filter_properties_t>());
+
+            var filters = new ctl_sharpness_filter_properties_t[caps.NumFilterTypes];
+            fixed (ctl_sharpness_filter_properties_t* pFilters = filters)
+            {
+                caps.pFilterProperty = pFilters;
+                result = IGCL.ctlGetSharpnessCaps((_ctl_display_output_handle_t*)DisplayHandle, &caps);
+                caps.pFilterProperty = null;
+                if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                    throw new IGCLException(result, "Failed to get sharpness caps");
+            }
+
+            return (caps, filters);
         }
 
         public unsafe ctl_sharpness_settings_t GetCurrentSharpness()
@@ -288,14 +321,36 @@ namespace IGCLWrapper
             return brightness;
         }
 
-        public unsafe ctl_pixtx_pipe_get_config_t PixelTransformationGetConfig(ctl_pixtx_pipe_get_config_t args)
+        public unsafe (ctl_pixtx_pipe_get_config_t config, ctl_pixtx_block_config_t[] blocks) PixelTransformationGetConfig(ctl_pixtx_pipe_get_config_t args)
         {
             ThrowIfDisposed();
-            var copy = args;
-            var result = IGCL.ctlPixelTransformationGetConfig((_ctl_display_output_handle_t*)DisplayHandle, &copy);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+            var config = args;
+
+            // First pass: get NumBlocks
+            var result = IGCL.ctlPixelTransformationGetConfig((_ctl_display_output_handle_t*)DisplayHandle, &config);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS && config.NumBlocks == 0)
                 throw new IGCLException(result, "Failed to get pixel transformation config");
-            return copy;
+
+            if (config.NumBlocks == 0)
+                return (config, Array.Empty<ctl_pixtx_block_config_t>());
+
+            var blocks = new ctl_pixtx_block_config_t[config.NumBlocks];
+            for (int i = 0; i < blocks.Length; i++)
+            {
+                blocks[i].Size = (uint)sizeof(ctl_pixtx_block_config_t);
+                blocks[i].Version = 0;
+            }
+
+            fixed (ctl_pixtx_block_config_t* pBlocks = blocks)
+            {
+                config.pBlockConfigs = pBlocks;
+                result = IGCL.ctlPixelTransformationGetConfig((_ctl_display_output_handle_t*)DisplayHandle, &config);
+                config.pBlockConfigs = null;
+                if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                    throw new IGCLException(result, "Failed to get pixel transformation config");
+            }
+
+            return (config, blocks);
         }
 
         public unsafe void PixelTransformationSetConfig(ctl_pixtx_pipe_set_config_t args)
@@ -487,14 +542,45 @@ namespace IGCLWrapper
             return copy;
         }
 
-        public unsafe ctl_get_set_custom_mode_args_t GetSetCustomMode(ctl_get_set_custom_mode_args_t args)
+        public unsafe (ctl_get_set_custom_mode_args_t args, ctl_custom_src_mode_t[] modes) GetSetCustomMode(ctl_get_set_custom_mode_args_t args, ctl_custom_src_mode_t[]? modes = null)
         {
             ThrowIfDisposed();
-            var copy = args;
-            var result = IGCL.ctlGetSetCustomMode((_ctl_display_output_handle_t*)DisplayHandle, &copy);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get/set custom mode");
-            return copy;
+            var request = args;
+
+            // Set path: caller provided modes to write
+            if (modes != null && modes.Length > 0)
+            {
+                request.NumOfModes = (uint)modes.Length;
+                fixed (ctl_custom_src_mode_t* pModes = modes)
+                {
+                    request.pCustomSrcModeList = pModes;
+                    var setResult = IGCL.ctlGetSetCustomMode((_ctl_display_output_handle_t*)DisplayHandle, &request);
+                    request.pCustomSrcModeList = null;
+                    if (setResult != ctl_result_t.CTL_RESULT_SUCCESS)
+                        throw new IGCLException(setResult, "Failed to set custom mode");
+                }
+                return (request, modes);
+            }
+
+            // Get path: two-pass to retrieve modes
+            var result = IGCL.ctlGetSetCustomMode((_ctl_display_output_handle_t*)DisplayHandle, &request);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS && request.NumOfModes == 0)
+                throw new IGCLException(result, "Failed to get custom modes");
+
+            if (request.NumOfModes == 0)
+                return (request, Array.Empty<ctl_custom_src_mode_t>());
+
+            var modesOut = new ctl_custom_src_mode_t[request.NumOfModes];
+            fixed (ctl_custom_src_mode_t* pModes = modesOut)
+            {
+                request.pCustomSrcModeList = pModes;
+                result = IGCL.ctlGetSetCustomMode((_ctl_display_output_handle_t*)DisplayHandle, &request);
+                request.pCustomSrcModeList = null;
+                if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                    throw new IGCLException(result, "Failed to get custom modes");
+            }
+
+            return (request, modesOut);
         }
 
         public unsafe ctl_combined_display_args_t GetSetCombinedDisplay(ctl_combined_display_args_t args)
@@ -527,14 +613,16 @@ namespace IGCLWrapper
             return copy;
         }
 
-        public unsafe ctl_vblank_ts_args_t GetVblankTimestamp(ctl_vblank_ts_args_t args)
+        public unsafe ctl_vblank_ts_args_t GetVblankTimestamp()
         {
             ThrowIfDisposed();
-            var copy = args;
-            var result = IGCL.ctlGetVblankTimestamp((_ctl_display_output_handle_t*)DisplayHandle, &copy);
+            var args = CreateVblankTimestampArgs();
+            args.NumOfTargets = 16; // max entries in the fixed buffer
+
+            var result = IGCL.ctlGetVblankTimestamp((_ctl_display_output_handle_t*)DisplayHandle, &args);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get vblank timestamp");
-            return copy;
+            return args;
         }
 
         public unsafe void LinkDisplayAdapters(ctl_lda_args_t args)
@@ -554,24 +642,71 @@ namespace IGCLWrapper
                 throw new IGCLException(result, "Failed to unlink display adapters");
         }
 
-        public unsafe ctl_lda_args_t GetLinkedDisplayAdapters(ctl_lda_args_t args)
+        public unsafe (ctl_lda_args_t args, IntPtr[] adapters) GetLinkedDisplayAdapters()
         {
             ThrowIfDisposed();
-            var copy = args;
-            var result = IGCL.ctlGetLinkedDisplayAdapters((_ctl_device_adapter_handle_t*)AdapterHandle, &copy);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+            var args = CreateLinkedDisplayAdaptersArgs();
+
+            // First pass: get count
+            var result = IGCL.ctlGetLinkedDisplayAdapters((_ctl_device_adapter_handle_t*)AdapterHandle, &args);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS && args.NumAdapters == 0)
                 throw new IGCLException(result, "Failed to get linked display adapters");
-            return copy;
+
+            if (args.NumAdapters == 0)
+                return (args, Array.Empty<IntPtr>());
+
+            var adapters = new IntPtr[args.NumAdapters];
+            fixed (IntPtr* pAdapters = adapters)
+            {
+                args.hLinkedAdapters = (_ctl_device_adapter_handle_t**)pAdapters;
+                result = IGCL.ctlGetLinkedDisplayAdapters((_ctl_device_adapter_handle_t*)AdapterHandle, &args);
+                args.hLinkedAdapters = null;
+                if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                    throw new IGCLException(result, "Failed to get linked display adapters");
+            }
+
+            return (args, adapters);
         }
 
-        public unsafe ctl_dce_args_t GetSetDynamicContrastEnhancement(ctl_dce_args_t args)
+        public unsafe (ctl_dce_args_t args, uint[] histogram) GetSetDynamicContrastEnhancement(ctl_dce_args_t args, uint[]? histogram = null)
         {
             ThrowIfDisposed();
-            var copy = args;
-            var result = IGCL.ctlGetSetDynamicContrastEnhancement((_ctl_display_output_handle_t*)DisplayHandle, &copy);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get/set dynamic contrast enhancement");
-            return copy;
+            var request = args;
+
+            // Set path: caller provided histogram to write
+            if (histogram != null && histogram.Length > 0)
+            {
+                request.NumBins = (uint)histogram.Length;
+                fixed (uint* pHist = histogram)
+                {
+                    request.pHistogram = pHist;
+                    var setResult = IGCL.ctlGetSetDynamicContrastEnhancement((_ctl_display_output_handle_t*)DisplayHandle, &request);
+                    request.pHistogram = null;
+                    if (setResult != ctl_result_t.CTL_RESULT_SUCCESS)
+                        throw new IGCLException(setResult, "Failed to set dynamic contrast enhancement");
+                }
+                return (request, histogram);
+            }
+
+            // Get path: first call to discover NumBins
+            var result = IGCL.ctlGetSetDynamicContrastEnhancement((_ctl_display_output_handle_t*)DisplayHandle, &request);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS && request.NumBins == 0)
+                throw new IGCLException(result, "Failed to get dynamic contrast enhancement");
+
+            if (request.NumBins == 0)
+                return (request, Array.Empty<uint>());
+
+            var bins = new uint[request.NumBins];
+            fixed (uint* pBins = bins)
+            {
+                request.pHistogram = pBins;
+                result = IGCL.ctlGetSetDynamicContrastEnhancement((_ctl_display_output_handle_t*)DisplayHandle, &request);
+                request.pHistogram = null;
+                if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                    throw new IGCLException(result, "Failed to get dynamic contrast enhancement");
+            }
+
+            return (request, bins);
         }
 
         public unsafe ctl_get_set_wire_format_config_t GetSetWireFormat(ctl_get_set_wire_format_config_t args)

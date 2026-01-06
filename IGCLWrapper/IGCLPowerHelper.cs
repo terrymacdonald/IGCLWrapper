@@ -89,6 +89,7 @@ namespace IGCLWrapper
         private static unsafe ctl_power_properties_t CreatePowerProperties() => new ctl_power_properties_t { Size = (uint)sizeof(ctl_power_properties_t), Version = 0 };
         private static unsafe ctl_power_energy_counter_t CreatePowerEnergyCounter() => new ctl_power_energy_counter_t { Size = (uint)sizeof(ctl_power_energy_counter_t), Version = 0 };
         private static unsafe ctl_power_limits_t CreatePowerLimits() => new ctl_power_limits_t { Size = (uint)sizeof(ctl_power_limits_t), Version = 0 };
+        public static unsafe ctl_power_limits_t CreatePowerLimitsStruct() => CreatePowerLimits();
 
         public void Dispose()
         {

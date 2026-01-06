@@ -78,6 +78,7 @@ namespace IGCLWrapper
 
         private static unsafe ctl_led_properties_t CreateLedProperties() => new ctl_led_properties_t { Size = (uint)sizeof(ctl_led_properties_t), Version = 0 };
         private static unsafe ctl_led_state_t CreateLedState() => new ctl_led_state_t { Size = (uint)sizeof(ctl_led_state_t), Version = 0, color = new ctl_led_color_t { Size = (uint)sizeof(ctl_led_color_t), Version = 0 } };
+        public static unsafe ctl_led_state_t CreateLedStateStruct() => CreateLedState();
 
         public void Dispose()
         {

@@ -104,6 +104,8 @@ namespace IGCLWrapper
 
         private static unsafe ctl_fan_properties_t CreateFanProperties() => new ctl_fan_properties_t { Size = (uint)sizeof(ctl_fan_properties_t), Version = 0 };
         private static unsafe ctl_fan_config_t CreateFanConfig() => new ctl_fan_config_t { Size = (uint)sizeof(ctl_fan_config_t), Version = 0 };
+        public static unsafe ctl_fan_speed_t CreateFanSpeed() => new ctl_fan_speed_t { Size = (uint)sizeof(ctl_fan_speed_t), Version = 0 };
+        public static unsafe ctl_fan_speed_table_t CreateFanSpeedTable() => new ctl_fan_speed_table_t { Size = (uint)sizeof(ctl_fan_speed_table_t), Version = 0 };
 
         public void Dispose()
         {

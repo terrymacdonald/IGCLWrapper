@@ -34,8 +34,7 @@ namespace IGCLWrapper.FacadeTests
                 FacadeTestUtils.InvokeOrSkip(() => display.GetAdapterDisplayEncoderProperties(), "Encoder properties unsupported");
                 FacadeTestUtils.InvokeOrSkip(() => display.GetIntelArcSyncInfoForMonitor(), "ArcSync info unsupported");
 
-                var sharpCaps = new ctl_sharpness_caps_t { Size = 0, Version = 0 };
-                FacadeTestUtils.InvokeOrSkip(() => display.GetSharpnessCaps(sharpCaps), "Sharpness caps unsupported");
+                FacadeTestUtils.InvokeOrSkip(() => display.GetSharpnessCaps(), "Sharpness caps unsupported");
                 FacadeTestUtils.InvokeOrSkip(() => display.GetCurrentSharpness(), "Sharpness settings unsupported");
 
                 FacadeTestUtils.InvokeOrSkip(() => display.GetPowerOptimizationCaps(), "Power optimization caps unsupported");
@@ -50,14 +49,25 @@ namespace IGCLWrapper.FacadeTests
 
                 FacadeTestUtils.InvokeOrSkip(() => display.GetBrightnessSetting(), "Brightness unsupported");
 
+                var customModeArgs = IGCLDisplayHelper.CreateCustomModeArgs();
+                FacadeTestUtils.InvokeOrSkip(() => display.GetSetCustomMode(customModeArgs), "Custom mode unsupported");
+
+                FacadeTestUtils.InvokeOrSkip(() => display.GetLinkedDisplayAdapters(), "Linked adapters unsupported");
+
+                var pixtxQuery = IGCLDisplayHelper.CreatePixtxPipeGetConfig();
+                pixtxQuery.QueryType = ctl_pixtx_config_query_type_t.CTL_PIXTX_CONFIG_QUERY_TYPE_CAPABILITY;
+                FacadeTestUtils.InvokeOrSkip(() => display.PixelTransformationGetConfig(pixtxQuery), "Pixtx config unsupported");
+
                 var wireFormat = new ctl_get_set_wire_format_config_t { Size = 0, Version = 0 };
                 FacadeTestUtils.InvokeOrSkip(() => display.GetSetWireFormat(wireFormat), "Wire format unsupported");
 
                 var displaySettings = new ctl_display_settings_t { Size = 0, Version = 0, Set = 0 };
                 FacadeTestUtils.InvokeOrSkip(() => display.GetSetDisplaySettings(displaySettings), "Display settings unsupported");
 
-                var vblank = new ctl_vblank_ts_args_t { Size = 0, Version = 0 };
-                FacadeTestUtils.InvokeOrSkip(() => display.GetVblankTimestamp(vblank), "Vblank unsupported");
+                var dceArgs = IGCLDisplayHelper.CreateDceArgs();
+                FacadeTestUtils.InvokeOrSkip(() => display.GetSetDynamicContrastEnhancement(dceArgs), "DCE unsupported");
+
+                FacadeTestUtils.InvokeOrSkip(() => display.GetVblankTimestamp(), "Vblank unsupported");
 
                 var muxes = display.EnumerateMuxDevices();
                 if (muxes.Length > 0)

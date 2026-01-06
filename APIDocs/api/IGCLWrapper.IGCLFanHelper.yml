@@ -5,6 +5,10 @@ items:
   id: IGCLFanHelper
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.IGCLFanHelper.CreateFanSpeed
+  - IGCLWrapper.IGCLFanHelper.CreateFanSpeedInstance
+  - IGCLWrapper.IGCLFanHelper.CreateFanSpeedTable
+  - IGCLWrapper.IGCLFanHelper.CreateFanSpeedTableInstance
   - IGCLWrapper.IGCLFanHelper.Dispose
   - IGCLWrapper.IGCLFanHelper.EnumFans
   - IGCLWrapper.IGCLFanHelper.FanGetConfig(System.IntPtr)
@@ -279,6 +283,118 @@ items:
   nameWithType.vb: IGCLFanHelper.FanGetState(IntPtr, ctl_fan_speed_units_t)
   fullName.vb: IGCLWrapper.IGCLFanHelper.FanGetState(System.IntPtr, IGCLWrapper.ctl_fan_speed_units_t)
   name.vb: FanGetState(IntPtr, ctl_fan_speed_units_t)
+- uid: IGCLWrapper.IGCLFanHelper.CreateFanSpeed
+  commentId: M:IGCLWrapper.IGCLFanHelper.CreateFanSpeed
+  id: CreateFanSpeed
+  parent: IGCLWrapper.IGCLFanHelper
+  langs:
+  - csharp
+  - vb
+  name: CreateFanSpeed()
+  nameWithType: IGCLFanHelper.CreateFanSpeed()
+  fullName: IGCLWrapper.IGCLFanHelper.CreateFanSpeed()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFanHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: CreateFanSpeed
+    path: ../IGCLWrapper/IGCLFanHelper.cs
+    startLine: 106
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public static ctl_fan_speed_t CreateFanSpeed()
+    return:
+      type: IGCLWrapper.ctl_fan_speed_t
+    content.vb: Public Shared Function CreateFanSpeed() As ctl_fan_speed_t
+  overload: IGCLWrapper.IGCLFanHelper.CreateFanSpeed*
+- uid: IGCLWrapper.IGCLFanHelper.CreateFanSpeedTable
+  commentId: M:IGCLWrapper.IGCLFanHelper.CreateFanSpeedTable
+  id: CreateFanSpeedTable
+  parent: IGCLWrapper.IGCLFanHelper
+  langs:
+  - csharp
+  - vb
+  name: CreateFanSpeedTable()
+  nameWithType: IGCLFanHelper.CreateFanSpeedTable()
+  fullName: IGCLWrapper.IGCLFanHelper.CreateFanSpeedTable()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFanHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: CreateFanSpeedTable
+    path: ../IGCLWrapper/IGCLFanHelper.cs
+    startLine: 107
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public static ctl_fan_speed_table_t CreateFanSpeedTable()
+    return:
+      type: IGCLWrapper.ctl_fan_speed_table_t
+    content.vb: Public Shared Function CreateFanSpeedTable() As ctl_fan_speed_table_t
+  overload: IGCLWrapper.IGCLFanHelper.CreateFanSpeedTable*
+- uid: IGCLWrapper.IGCLFanHelper.CreateFanSpeedInstance
+  commentId: M:IGCLWrapper.IGCLFanHelper.CreateFanSpeedInstance
+  id: CreateFanSpeedInstance
+  parent: IGCLWrapper.IGCLFanHelper
+  langs:
+  - csharp
+  - vb
+  name: CreateFanSpeedInstance()
+  nameWithType: IGCLFanHelper.CreateFanSpeedInstance()
+  fullName: IGCLWrapper.IGCLFanHelper.CreateFanSpeedInstance()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFanHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: CreateFanSpeedInstance
+    path: ../IGCLWrapper/IGCLFanHelper.cs
+    startLine: 108
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_fan_speed_t CreateFanSpeedInstance()
+    return:
+      type: IGCLWrapper.ctl_fan_speed_t
+    content.vb: Public Function CreateFanSpeedInstance() As ctl_fan_speed_t
+  overload: IGCLWrapper.IGCLFanHelper.CreateFanSpeedInstance*
+- uid: IGCLWrapper.IGCLFanHelper.CreateFanSpeedTableInstance
+  commentId: M:IGCLWrapper.IGCLFanHelper.CreateFanSpeedTableInstance
+  id: CreateFanSpeedTableInstance
+  parent: IGCLWrapper.IGCLFanHelper
+  langs:
+  - csharp
+  - vb
+  name: CreateFanSpeedTableInstance()
+  nameWithType: IGCLFanHelper.CreateFanSpeedTableInstance()
+  fullName: IGCLWrapper.IGCLFanHelper.CreateFanSpeedTableInstance()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFanHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: CreateFanSpeedTableInstance
+    path: ../IGCLWrapper/IGCLFanHelper.cs
+    startLine: 109
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_fan_speed_table_t CreateFanSpeedTableInstance()
+    return:
+      type: IGCLWrapper.ctl_fan_speed_table_t
+    content.vb: Public Function CreateFanSpeedTableInstance() As ctl_fan_speed_table_t
+  overload: IGCLWrapper.IGCLFanHelper.CreateFanSpeedTableInstance*
 - uid: IGCLWrapper.IGCLFanHelper.Dispose
   commentId: M:IGCLWrapper.IGCLFanHelper.Dispose
   id: Dispose
@@ -297,7 +413,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 107
+    startLine: 111
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -736,6 +852,30 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: IGCLWrapper.IGCLFanHelper.CreateFanSpeed*
+  commentId: Overload:IGCLWrapper.IGCLFanHelper.CreateFanSpeed
+  href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_CreateFanSpeed
+  name: CreateFanSpeed
+  nameWithType: IGCLFanHelper.CreateFanSpeed
+  fullName: IGCLWrapper.IGCLFanHelper.CreateFanSpeed
+- uid: IGCLWrapper.IGCLFanHelper.CreateFanSpeedTable*
+  commentId: Overload:IGCLWrapper.IGCLFanHelper.CreateFanSpeedTable
+  href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_CreateFanSpeedTable
+  name: CreateFanSpeedTable
+  nameWithType: IGCLFanHelper.CreateFanSpeedTable
+  fullName: IGCLWrapper.IGCLFanHelper.CreateFanSpeedTable
+- uid: IGCLWrapper.IGCLFanHelper.CreateFanSpeedInstance*
+  commentId: Overload:IGCLWrapper.IGCLFanHelper.CreateFanSpeedInstance
+  href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_CreateFanSpeedInstance
+  name: CreateFanSpeedInstance
+  nameWithType: IGCLFanHelper.CreateFanSpeedInstance
+  fullName: IGCLWrapper.IGCLFanHelper.CreateFanSpeedInstance
+- uid: IGCLWrapper.IGCLFanHelper.CreateFanSpeedTableInstance*
+  commentId: Overload:IGCLWrapper.IGCLFanHelper.CreateFanSpeedTableInstance
+  href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_CreateFanSpeedTableInstance
+  name: CreateFanSpeedTableInstance
+  nameWithType: IGCLFanHelper.CreateFanSpeedTableInstance
+  fullName: IGCLWrapper.IGCLFanHelper.CreateFanSpeedTableInstance
 - uid: IGCLWrapper.IGCLFanHelper.Dispose*
   commentId: Overload:IGCLWrapper.IGCLFanHelper.Dispose
   href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_Dispose

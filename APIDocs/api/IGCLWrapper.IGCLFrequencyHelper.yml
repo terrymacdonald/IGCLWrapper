@@ -5,6 +5,8 @@ items:
   id: IGCLFrequencyHelper
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.IGCLFrequencyHelper.CreateFrequencyRangeInstance
+  - IGCLWrapper.IGCLFrequencyHelper.CreateFrequencyRangeStruct
   - IGCLWrapper.IGCLFrequencyHelper.Dispose
   - IGCLWrapper.IGCLFrequencyHelper.EnumFrequencyDomains
   - IGCLWrapper.IGCLFrequencyHelper.FrequencyGetAvailableClocks(System.IntPtr)
@@ -279,6 +281,62 @@ items:
   nameWithType.vb: IGCLFrequencyHelper.FrequencyGetThrottleTime(IntPtr)
   fullName.vb: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetThrottleTime(System.IntPtr)
   name.vb: FrequencyGetThrottleTime(IntPtr)
+- uid: IGCLWrapper.IGCLFrequencyHelper.CreateFrequencyRangeStruct
+  commentId: M:IGCLWrapper.IGCLFrequencyHelper.CreateFrequencyRangeStruct
+  id: CreateFrequencyRangeStruct
+  parent: IGCLWrapper.IGCLFrequencyHelper
+  langs:
+  - csharp
+  - vb
+  name: CreateFrequencyRangeStruct()
+  nameWithType: IGCLFrequencyHelper.CreateFrequencyRangeStruct()
+  fullName: IGCLWrapper.IGCLFrequencyHelper.CreateFrequencyRangeStruct()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFrequencyHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: CreateFrequencyRangeStruct
+    path: ../IGCLWrapper/IGCLFrequencyHelper.cs
+    startLine: 121
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public static ctl_freq_range_t CreateFrequencyRangeStruct()
+    return:
+      type: IGCLWrapper.ctl_freq_range_t
+    content.vb: Public Shared Function CreateFrequencyRangeStruct() As ctl_freq_range_t
+  overload: IGCLWrapper.IGCLFrequencyHelper.CreateFrequencyRangeStruct*
+- uid: IGCLWrapper.IGCLFrequencyHelper.CreateFrequencyRangeInstance
+  commentId: M:IGCLWrapper.IGCLFrequencyHelper.CreateFrequencyRangeInstance
+  id: CreateFrequencyRangeInstance
+  parent: IGCLWrapper.IGCLFrequencyHelper
+  langs:
+  - csharp
+  - vb
+  name: CreateFrequencyRangeInstance()
+  nameWithType: IGCLFrequencyHelper.CreateFrequencyRangeInstance()
+  fullName: IGCLWrapper.IGCLFrequencyHelper.CreateFrequencyRangeInstance()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFrequencyHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: CreateFrequencyRangeInstance
+    path: ../IGCLWrapper/IGCLFrequencyHelper.cs
+    startLine: 122
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_freq_range_t CreateFrequencyRangeInstance()
+    return:
+      type: IGCLWrapper.ctl_freq_range_t
+    content.vb: Public Function CreateFrequencyRangeInstance() As ctl_freq_range_t
+  overload: IGCLWrapper.IGCLFrequencyHelper.CreateFrequencyRangeInstance*
 - uid: IGCLWrapper.IGCLFrequencyHelper.Dispose
   commentId: M:IGCLWrapper.IGCLFrequencyHelper.Dispose
   id: Dispose
@@ -297,7 +355,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 122
+    startLine: 124
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -741,6 +799,18 @@ references:
   name: ctl_freq_throttle_time_t
   nameWithType: ctl_freq_throttle_time_t
   fullName: IGCLWrapper.ctl_freq_throttle_time_t
+- uid: IGCLWrapper.IGCLFrequencyHelper.CreateFrequencyRangeStruct*
+  commentId: Overload:IGCLWrapper.IGCLFrequencyHelper.CreateFrequencyRangeStruct
+  href: IGCLWrapper.IGCLFrequencyHelper.html#IGCLWrapper_IGCLFrequencyHelper_CreateFrequencyRangeStruct
+  name: CreateFrequencyRangeStruct
+  nameWithType: IGCLFrequencyHelper.CreateFrequencyRangeStruct
+  fullName: IGCLWrapper.IGCLFrequencyHelper.CreateFrequencyRangeStruct
+- uid: IGCLWrapper.IGCLFrequencyHelper.CreateFrequencyRangeInstance*
+  commentId: Overload:IGCLWrapper.IGCLFrequencyHelper.CreateFrequencyRangeInstance
+  href: IGCLWrapper.IGCLFrequencyHelper.html#IGCLWrapper_IGCLFrequencyHelper_CreateFrequencyRangeInstance
+  name: CreateFrequencyRangeInstance
+  nameWithType: IGCLFrequencyHelper.CreateFrequencyRangeInstance
+  fullName: IGCLWrapper.IGCLFrequencyHelper.CreateFrequencyRangeInstance
 - uid: IGCLWrapper.IGCLFrequencyHelper.Dispose*
   commentId: Overload:IGCLWrapper.IGCLFrequencyHelper.Dispose
   href: IGCLWrapper.IGCLFrequencyHelper.html#IGCLWrapper_IGCLFrequencyHelper_Dispose

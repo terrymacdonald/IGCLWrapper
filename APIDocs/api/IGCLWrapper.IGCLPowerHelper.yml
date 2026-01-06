@@ -5,6 +5,8 @@ items:
   id: IGCLPowerHelper
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.IGCLPowerHelper.CreatePowerLimitsInstance
+  - IGCLWrapper.IGCLPowerHelper.CreatePowerLimitsStruct
   - IGCLWrapper.IGCLPowerHelper.Dispose
   - IGCLWrapper.IGCLPowerHelper.EnumPowerDomains
   - IGCLWrapper.IGCLPowerHelper.PowerGetEnergyCounter(System.IntPtr)
@@ -209,6 +211,62 @@ items:
   nameWithType.vb: IGCLPowerHelper.PowerSetLimits(IntPtr, ctl_power_limits_t)
   fullName.vb: IGCLWrapper.IGCLPowerHelper.PowerSetLimits(System.IntPtr, IGCLWrapper.ctl_power_limits_t)
   name.vb: PowerSetLimits(IntPtr, ctl_power_limits_t)
+- uid: IGCLWrapper.IGCLPowerHelper.CreatePowerLimitsStruct
+  commentId: M:IGCLWrapper.IGCLPowerHelper.CreatePowerLimitsStruct
+  id: CreatePowerLimitsStruct
+  parent: IGCLWrapper.IGCLPowerHelper
+  langs:
+  - csharp
+  - vb
+  name: CreatePowerLimitsStruct()
+  nameWithType: IGCLPowerHelper.CreatePowerLimitsStruct()
+  fullName: IGCLWrapper.IGCLPowerHelper.CreatePowerLimitsStruct()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLPowerHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: CreatePowerLimitsStruct
+    path: ../IGCLWrapper/IGCLPowerHelper.cs
+    startLine: 91
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public static ctl_power_limits_t CreatePowerLimitsStruct()
+    return:
+      type: IGCLWrapper.ctl_power_limits_t
+    content.vb: Public Shared Function CreatePowerLimitsStruct() As ctl_power_limits_t
+  overload: IGCLWrapper.IGCLPowerHelper.CreatePowerLimitsStruct*
+- uid: IGCLWrapper.IGCLPowerHelper.CreatePowerLimitsInstance
+  commentId: M:IGCLWrapper.IGCLPowerHelper.CreatePowerLimitsInstance
+  id: CreatePowerLimitsInstance
+  parent: IGCLWrapper.IGCLPowerHelper
+  langs:
+  - csharp
+  - vb
+  name: CreatePowerLimitsInstance()
+  nameWithType: IGCLPowerHelper.CreatePowerLimitsInstance()
+  fullName: IGCLWrapper.IGCLPowerHelper.CreatePowerLimitsInstance()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLPowerHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: CreatePowerLimitsInstance
+    path: ../IGCLWrapper/IGCLPowerHelper.cs
+    startLine: 92
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_power_limits_t CreatePowerLimitsInstance()
+    return:
+      type: IGCLWrapper.ctl_power_limits_t
+    content.vb: Public Function CreatePowerLimitsInstance() As ctl_power_limits_t
+  overload: IGCLWrapper.IGCLPowerHelper.CreatePowerLimitsInstance*
 - uid: IGCLWrapper.IGCLPowerHelper.Dispose
   commentId: M:IGCLWrapper.IGCLPowerHelper.Dispose
   id: Dispose
@@ -227,7 +285,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 92
+    startLine: 94
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -629,6 +687,18 @@ references:
   name: PowerSetLimits
   nameWithType: IGCLPowerHelper.PowerSetLimits
   fullName: IGCLWrapper.IGCLPowerHelper.PowerSetLimits
+- uid: IGCLWrapper.IGCLPowerHelper.CreatePowerLimitsStruct*
+  commentId: Overload:IGCLWrapper.IGCLPowerHelper.CreatePowerLimitsStruct
+  href: IGCLWrapper.IGCLPowerHelper.html#IGCLWrapper_IGCLPowerHelper_CreatePowerLimitsStruct
+  name: CreatePowerLimitsStruct
+  nameWithType: IGCLPowerHelper.CreatePowerLimitsStruct
+  fullName: IGCLWrapper.IGCLPowerHelper.CreatePowerLimitsStruct
+- uid: IGCLWrapper.IGCLPowerHelper.CreatePowerLimitsInstance*
+  commentId: Overload:IGCLWrapper.IGCLPowerHelper.CreatePowerLimitsInstance
+  href: IGCLWrapper.IGCLPowerHelper.html#IGCLWrapper_IGCLPowerHelper_CreatePowerLimitsInstance
+  name: CreatePowerLimitsInstance
+  nameWithType: IGCLPowerHelper.CreatePowerLimitsInstance
+  fullName: IGCLWrapper.IGCLPowerHelper.CreatePowerLimitsInstance
 - uid: IGCLWrapper.IGCLPowerHelper.Dispose*
   commentId: Overload:IGCLWrapper.IGCLPowerHelper.Dispose
   href: IGCLWrapper.IGCLPowerHelper.html#IGCLWrapper_IGCLPowerHelper_Dispose
