@@ -44,7 +44,7 @@ items:
   - IGCLWrapper.IGCLDisplayHelper.GetLinkedDisplayAdapters
   - IGCLWrapper.IGCLDisplayHelper.GetMuxProperties(System.IntPtr)
   - IGCLWrapper.IGCLDisplayHelper.GetPowerOptimizationCaps
-  - IGCLWrapper.IGCLDisplayHelper.GetPowerOptimizationSetting
+  - IGCLWrapper.IGCLDisplayHelper.GetPowerOptimizationSetting(IGCLWrapper.ctl_power_optimization_settings_t)
   - IGCLWrapper.IGCLDisplayHelper.GetProperties
   - IGCLWrapper.IGCLDisplayHelper.GetRefreshRateHz
   - IGCLWrapper.IGCLDisplayHelper.GetResolution
@@ -1254,16 +1254,16 @@ items:
       type: IGCLWrapper.ctl_power_optimization_caps_t
     content.vb: Public Function GetPowerOptimizationCaps() As ctl_power_optimization_caps_t
   overload: IGCLWrapper.IGCLDisplayHelper.GetPowerOptimizationCaps*
-- uid: IGCLWrapper.IGCLDisplayHelper.GetPowerOptimizationSetting
-  commentId: M:IGCLWrapper.IGCLDisplayHelper.GetPowerOptimizationSetting
-  id: GetPowerOptimizationSetting
+- uid: IGCLWrapper.IGCLDisplayHelper.GetPowerOptimizationSetting(IGCLWrapper.ctl_power_optimization_settings_t)
+  commentId: M:IGCLWrapper.IGCLDisplayHelper.GetPowerOptimizationSetting(IGCLWrapper.ctl_power_optimization_settings_t)
+  id: GetPowerOptimizationSetting(IGCLWrapper.ctl_power_optimization_settings_t)
   parent: IGCLWrapper.IGCLDisplayHelper
   langs:
   - csharp
   - vb
-  name: GetPowerOptimizationSetting()
-  nameWithType: IGCLDisplayHelper.GetPowerOptimizationSetting()
-  fullName: IGCLWrapper.IGCLDisplayHelper.GetPowerOptimizationSetting()
+  name: GetPowerOptimizationSetting(ctl_power_optimization_settings_t)
+  nameWithType: IGCLDisplayHelper.GetPowerOptimizationSetting(ctl_power_optimization_settings_t)
+  fullName: IGCLWrapper.IGCLDisplayHelper.GetPowerOptimizationSetting(IGCLWrapper.ctl_power_optimization_settings_t)
   type: Method
   source:
     remote:
@@ -1277,10 +1277,13 @@ items:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public ctl_power_optimization_settings_t GetPowerOptimizationSetting()
+    content: public ctl_power_optimization_settings_t GetPowerOptimizationSetting(ctl_power_optimization_settings_t settings)
+    parameters:
+    - id: settings
+      type: IGCLWrapper.ctl_power_optimization_settings_t
     return:
       type: IGCLWrapper.ctl_power_optimization_settings_t
-    content.vb: Public Function GetPowerOptimizationSetting() As ctl_power_optimization_settings_t
+    content.vb: Public Function GetPowerOptimizationSetting(settings As ctl_power_optimization_settings_t) As ctl_power_optimization_settings_t
   overload: IGCLWrapper.IGCLDisplayHelper.GetPowerOptimizationSetting*
 - uid: IGCLWrapper.IGCLDisplayHelper.SetPowerOptimizationSetting(IGCLWrapper.ctl_power_optimization_settings_t)
   commentId: M:IGCLWrapper.IGCLDisplayHelper.SetPowerOptimizationSetting(IGCLWrapper.ctl_power_optimization_settings_t)
@@ -1300,7 +1303,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetPowerOptimizationSetting
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 295
+    startLine: 299
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1329,7 +1332,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetBrightnessSetting
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 304
+    startLine: 308
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1358,7 +1361,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetBrightnessSetting
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 313
+    startLine: 317
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1386,7 +1389,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PixelTransformationGetConfig
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 323
+    startLine: 327
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1417,7 +1420,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PixelTransformationSetConfig
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 355
+    startLine: 359
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1446,7 +1449,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PanelDescriptorAccess
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 364
+    startLine: 368
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1477,7 +1480,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSupportedRetroScalingCapability
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 374
+    startLine: 378
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1505,7 +1508,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSetRetroScaling
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 384
+    startLine: 388
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1536,7 +1539,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSupportedScalingCapability
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 394
+    startLine: 402
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1564,7 +1567,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetCurrentScaling
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 404
+    startLine: 412
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1592,7 +1595,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetCurrentScaling
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 414
+    startLine: 422
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1621,7 +1624,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetLACEConfig
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 423
+    startLine: 431
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1649,7 +1652,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetLACEConfig
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 433
+    startLine: 441
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1678,7 +1681,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SoftwarePSR
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 442
+    startLine: 450
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1709,7 +1712,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetIntelArcSyncInfoForMonitor
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 452
+    startLine: 460
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1737,7 +1740,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumerateMuxDevices
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 462
+    startLine: 470
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1765,7 +1768,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetMuxProperties
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 482
+    startLine: 490
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1799,7 +1802,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SwitchMux
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 507
+    startLine: 515
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1833,7 +1836,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetIntelArcSyncProfile
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 515
+    startLine: 523
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1861,7 +1864,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetIntelArcSyncProfile
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 525
+    startLine: 533
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1890,7 +1893,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EdidManagement
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 534
+    startLine: 542
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1921,7 +1924,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSetCustomMode
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 544
+    startLine: 552
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1957,7 +1960,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSetCombinedDisplay
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 585
+    startLine: 593
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1988,7 +1991,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSetDisplayGenlock
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 595
+    startLine: 603
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2026,7 +2029,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetVblankTimestamp
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 615
+    startLine: 623
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2054,7 +2057,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LinkDisplayAdapters
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 627
+    startLine: 635
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2083,7 +2086,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: UnlinkDisplayAdapters
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 636
+    startLine: 644
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2109,7 +2112,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetLinkedDisplayAdapters
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 644
+    startLine: 652
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2137,7 +2140,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSetDynamicContrastEnhancement
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 670
+    startLine: 678
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2173,7 +2176,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSetWireFormat
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 711
+    startLine: 719
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2204,7 +2207,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSetDisplaySettings
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 721
+    startLine: 729
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2235,7 +2238,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 738
+    startLine: 746
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3188,7 +3191,7 @@ references:
   fullName: IGCLWrapper.ctl_power_optimization_caps_t
 - uid: IGCLWrapper.IGCLDisplayHelper.GetPowerOptimizationSetting*
   commentId: Overload:IGCLWrapper.IGCLDisplayHelper.GetPowerOptimizationSetting
-  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetPowerOptimizationSetting
+  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetPowerOptimizationSetting_IGCLWrapper_ctl_power_optimization_settings_t_
   name: GetPowerOptimizationSetting
   nameWithType: IGCLDisplayHelper.GetPowerOptimizationSetting
   fullName: IGCLWrapper.IGCLDisplayHelper.GetPowerOptimizationSetting
