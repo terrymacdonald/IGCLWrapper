@@ -131,42 +131,54 @@ namespace IGCLWrapper
         {
             ThrowIfDisposed();
 
-            // Get display count
-            uint displayCount = 0;
-            var result = IGCL.ctlEnumerateDisplayOutputs((_ctl_device_adapter_handle_t*)hAdapter, &displayCount, null);
-
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS && displayCount == 0)
+            const int maxAttempts = 3;
+            for (int attempt = 0; attempt < maxAttempts; attempt++)
             {
-                throw new IGCLException(result, $"Failed to get display count: {result}");
-            }
+                // Get display count
+                uint displayCount = 0;
+                var result = IGCL.ctlEnumerateDisplayOutputs((_ctl_device_adapter_handle_t*)hAdapter, &displayCount, null);
 
-            if (displayCount == 0)
-            {
-                return Array.Empty<IntPtr>();
-            }
-
-            // Get displays
-            var displays = new _ctl_display_output_handle_t*[displayCount];
-            fixed (_ctl_display_output_handle_t** pDisplays = displays)
-            {
-                result = IGCL.ctlEnumerateDisplayOutputs((_ctl_device_adapter_handle_t*)hAdapter, &displayCount, pDisplays);
-
-                if (result != ctl_result_t.CTL_RESULT_SUCCESS && displayCount == 0)
+                if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 {
-                    throw new IGCLException(result, $"Failed to enumerate displays: {result}");
+                    throw new IGCLException(result, $"Failed to get display count: {result}");
                 }
+
+                if (displayCount == 0)
+                {
+                    return Array.Empty<IntPtr>();
+                }
+
+                // Get displays
+                var displays = new _ctl_display_output_handle_t*[displayCount];
+                fixed (_ctl_display_output_handle_t** pDisplays = displays)
+                {
+                    result = IGCL.ctlEnumerateDisplayOutputs((_ctl_device_adapter_handle_t*)hAdapter, &displayCount, pDisplays);
+
+                    if (result == ctl_result_t.CTL_RESULT_ERROR_INVALID_SIZE)
+                    {
+                        // Count changed between calls; retry.
+                        continue;
+                    }
+
+                    if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                    {
+                        throw new IGCLException(result, $"Failed to enumerate displays: {result}");
+                    }
+                }
+
+                var actualCount = (int)Math.Min(displayCount, (uint)displays.Length);
+
+                // Convert to IntPtr array for easier downstream use
+                var intPtrDisplays = new IntPtr[actualCount];
+                for (int i = 0; i < actualCount; i++)
+                {
+                    intPtrDisplays[i] = (IntPtr)displays[i];
+                }
+
+                return intPtrDisplays;
             }
 
-            var actualCount = (int)Math.Min(displayCount, (uint)displays.Length);
-
-            // Convert to IntPtr array for easier downstream use
-            var intPtrDisplays = new IntPtr[actualCount];
-            for (int i = 0; i < actualCount; i++)
-            {
-                intPtrDisplays[i] = (IntPtr)displays[i];
-            }
-
-            return intPtrDisplays;
+            throw new IGCLException(ctl_result_t.CTL_RESULT_ERROR_INVALID_SIZE, "Failed to enumerate displays: CTL_RESULT_ERROR_INVALID_SIZE");
         }
 
         public void Dispose()
