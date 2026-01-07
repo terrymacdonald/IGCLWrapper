@@ -135,9 +135,9 @@ namespace IGCLWrapper
             uint displayCount = 0;
             var result = IGCL.ctlEnumerateDisplayOutputs((_ctl_device_adapter_handle_t*)hAdapter, &displayCount, null);
 
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS && displayCount == 0)
             {
-                throw new IGCLException(result, "Failed to get display count");
+                throw new IGCLException(result, $"Failed to get display count: {result}");
             }
 
             if (displayCount == 0)
@@ -151,9 +151,9 @@ namespace IGCLWrapper
             {
                 result = IGCL.ctlEnumerateDisplayOutputs((_ctl_device_adapter_handle_t*)hAdapter, &displayCount, pDisplays);
 
-                if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                if (result != ctl_result_t.CTL_RESULT_SUCCESS && displayCount == 0)
                 {
-                    throw new IGCLException(result, "Failed to enumerate displays");
+                    throw new IGCLException(result, $"Failed to enumerate displays: {result}");
                 }
             }
 

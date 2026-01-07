@@ -24,7 +24,7 @@ namespace IGCLWrapper
             var props = CreateFirmwareProperties();
             var result = IGCL.ctlGetFirmwareProperties((_ctl_device_adapter_handle_t*)_adapter, &props);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get firmware properties");
+                throw new IGCLException(result, $"Failed to get firmware properties: {result}");
             return props;
         }
 

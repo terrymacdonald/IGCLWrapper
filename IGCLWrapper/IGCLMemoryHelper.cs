@@ -50,7 +50,7 @@ namespace IGCLWrapper
             var bw = CreateMemoryBandwidth();
             var result = IGCL.ctlMemoryGetBandwidth((_ctl_mem_handle_t*)memoryHandle, &bw);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get memory bandwidth");
+                throw new IGCLException(result, $"Failed to get memory bandwidth: {result}");
             return bw;
         }
 

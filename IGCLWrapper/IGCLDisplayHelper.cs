@@ -283,14 +283,18 @@ namespace IGCLWrapper
             return caps;
         }
 
-        public unsafe ctl_power_optimization_settings_t GetPowerOptimizationSetting()
+        public unsafe ctl_power_optimization_settings_t GetPowerOptimizationSetting(ctl_power_optimization_settings_t settings)
         {
             ThrowIfDisposed();
-            var settings = CreatePowerOptimizationSettings();
-            var result = IGCL.ctlGetPowerOptimizationSetting((_ctl_display_output_handle_t*)DisplayHandle, &settings);
+            var copy = settings;
+            if (copy.Size == 0)
+                copy.Size = (uint)sizeof(ctl_power_optimization_settings_t);
+            if (copy.Version == 0)
+                copy.Version = 0;
+            var result = IGCL.ctlGetPowerOptimizationSetting((_ctl_display_output_handle_t*)DisplayHandle, &copy);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get power optimization settings");
-            return settings;
+            return copy;
         }
 
         public unsafe void SetPowerOptimizationSetting(ctl_power_optimization_settings_t settings)
@@ -317,7 +321,7 @@ namespace IGCLWrapper
             var brightness = CreateGetBrightness();
             var result = IGCL.ctlGetBrightnessSetting((_ctl_display_output_handle_t*)DisplayHandle, &brightness);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get brightness");
+                throw new IGCLException(result, $"Failed to get brightness: {result}");
             return brightness;
         }
 
@@ -386,6 +390,10 @@ namespace IGCLWrapper
         {
             ThrowIfDisposed();
             var copy = settings;
+            if (copy.Size == 0)
+                copy.Size = (uint)sizeof(ctl_retro_scaling_settings_t);
+            if (copy.Version == 0)
+                copy.Version = 0;
             var result = IGCL.ctlGetSetRetroScaling((_ctl_device_adapter_handle_t*)AdapterHandle, &copy);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get/set retro scaling");

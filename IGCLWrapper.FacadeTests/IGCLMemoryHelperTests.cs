@@ -18,7 +18,7 @@ namespace IGCLWrapper.FacadeTests
                 var props = helper.MemoryGetProperties(modules[0]);
                 Assert.True(props.Size > 0);
                 helper.MemoryGetState(modules[0]);
-                helper.MemoryGetBandwidth(modules[0]);
+                FacadeTestUtils.InvokeOrSkip(() => helper.MemoryGetBandwidth(modules[0]), "Memory bandwidth unsupported");
             }
         }
     }
