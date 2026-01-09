@@ -174,7 +174,7 @@ namespace IGCLWrapper
             return props;
         }
 
-        public unsafe ctl_adapter_display_encoder_properties_t GetAdapterDisplayEncoderProperties()
+        public unsafe ctl_adapter_display_encoder_properties_t GetAdapterDisplayEncoderPropertiesNative()
         {
             ThrowIfDisposed();
             var props = new ctl_adapter_display_encoder_properties_t { Size = (uint)sizeof(ctl_adapter_display_encoder_properties_t), Version = 0 };
@@ -182,6 +182,12 @@ namespace IGCLWrapper
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get adapter display encoder properties");
             return props;
+        }
+
+        public AdapterDisplayEncoderPropertiesDto GetAdapterDisplayEncoderProperties()
+        {
+            var native = GetAdapterDisplayEncoderPropertiesNative();
+            return AdapterDisplayEncoderPropertiesDto.FromNative(native);
         }
 
         public unsafe (IntPtr zeDevice, IntPtr instance) GetZeDevice()
@@ -221,7 +227,7 @@ namespace IGCLWrapper
             return (caps, filters);
         }
 
-        public unsafe ctl_sharpness_settings_t GetCurrentSharpness()
+        public unsafe ctl_sharpness_settings_t GetCurrentSharpnessNative()
         {
             ThrowIfDisposed();
             var settings = CreateSharpnessSettings();
@@ -231,13 +237,24 @@ namespace IGCLWrapper
             return settings;
         }
 
-        public unsafe void SetCurrentSharpness(ctl_sharpness_settings_t settings)
+        public SharpnessSettingsDto GetCurrentSharpness()
+        {
+            var native = GetCurrentSharpnessNative();
+            return SharpnessSettingsDto.FromNative(native);
+        }
+
+        public unsafe void SetCurrentSharpnessNative(ctl_sharpness_settings_t settings)
         {
             ThrowIfDisposed();
             var copy = settings;
             var result = IGCL.ctlSetCurrentSharpness((_ctl_display_output_handle_t*)DisplayHandle, &copy);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to set sharpness");
+        }
+
+        public void SetCurrentSharpness(SharpnessSettingsDto settings)
+        {
+            SetCurrentSharpnessNative(settings.ToNative());
         }
 
         public unsafe void I2CAccess(ref ctl_i2c_access_args_t args)
@@ -283,7 +300,7 @@ namespace IGCLWrapper
             return caps;
         }
 
-        public unsafe ctl_power_optimization_settings_t GetPowerOptimizationSetting(ctl_power_optimization_settings_t settings)
+        public unsafe ctl_power_optimization_settings_t GetPowerOptimizationSettingNative(ctl_power_optimization_settings_t settings)
         {
             ThrowIfDisposed();
             var copy = settings;
@@ -297,13 +314,24 @@ namespace IGCLWrapper
             return copy;
         }
 
-        public unsafe void SetPowerOptimizationSetting(ctl_power_optimization_settings_t settings)
+        public PowerOptimizationSettingsDto GetPowerOptimizationSetting(PowerOptimizationSettingsDto settings)
+        {
+            var native = GetPowerOptimizationSettingNative(settings.ToNative());
+            return PowerOptimizationSettingsDto.FromNative(native);
+        }
+
+        public unsafe void SetPowerOptimizationSettingNative(ctl_power_optimization_settings_t settings)
         {
             ThrowIfDisposed();
             var copy = settings;
             var result = IGCL.ctlSetPowerOptimizationSetting((_ctl_display_output_handle_t*)DisplayHandle, &copy);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to set power optimization settings");
+        }
+
+        public void SetPowerOptimizationSetting(PowerOptimizationSettingsDto settings)
+        {
+            SetPowerOptimizationSettingNative(settings.ToNative());
         }
 
         public unsafe void SetBrightnessSetting(ctl_set_brightness_t brightness)
@@ -386,7 +414,7 @@ namespace IGCLWrapper
             return caps;
         }
 
-        public unsafe ctl_retro_scaling_settings_t GetSetRetroScaling(ctl_retro_scaling_settings_t settings)
+        public unsafe ctl_retro_scaling_settings_t GetSetRetroScalingNative(ctl_retro_scaling_settings_t settings)
         {
             ThrowIfDisposed();
             var copy = settings;
@@ -400,6 +428,12 @@ namespace IGCLWrapper
             return copy;
         }
 
+        public RetroScalingSettingsDto GetSetRetroScaling(RetroScalingSettingsDto settings)
+        {
+            var native = GetSetRetroScalingNative(settings.ToNative());
+            return RetroScalingSettingsDto.FromNative(native);
+        }
+
         public unsafe ctl_scaling_caps_t GetSupportedScalingCapability()
         {
             ThrowIfDisposed();
@@ -410,7 +444,7 @@ namespace IGCLWrapper
             return caps;
         }
 
-        public unsafe ctl_scaling_settings_t GetCurrentScaling()
+        public unsafe ctl_scaling_settings_t GetCurrentScalingNative()
         {
             ThrowIfDisposed();
             var settings = CreateScalingSettings();
@@ -420,7 +454,13 @@ namespace IGCLWrapper
             return settings;
         }
 
-        public unsafe void SetCurrentScaling(ctl_scaling_settings_t settings)
+        public ScalingSettingsDto GetCurrentScaling()
+        {
+            var native = GetCurrentScalingNative();
+            return ScalingSettingsDto.FromNative(native);
+        }
+
+        public unsafe void SetCurrentScalingNative(ctl_scaling_settings_t settings)
         {
             ThrowIfDisposed();
             var copy = settings;
@@ -429,7 +469,12 @@ namespace IGCLWrapper
                 throw new IGCLException(result, "Failed to set scaling");
         }
 
-        public unsafe ctl_lace_config_t GetLACEConfig()
+        public void SetCurrentScaling(ScalingSettingsDto settings)
+        {
+            SetCurrentScalingNative(settings.ToNative());
+        }
+
+        public unsafe ctl_lace_config_t GetLACEConfigNative()
         {
             ThrowIfDisposed();
             var config = CreateLaceConfig();
@@ -439,7 +484,13 @@ namespace IGCLWrapper
             return config;
         }
 
-        public unsafe void SetLACEConfig(ctl_lace_config_t config)
+        public LaceConfigDto GetLACEConfig()
+        {
+            var native = GetLACEConfigNative();
+            return LaceConfigDto.FromNative(native);
+        }
+
+        public unsafe void SetLACEConfigNative(ctl_lace_config_t config)
         {
             ThrowIfDisposed();
             var copy = config;
@@ -448,7 +499,12 @@ namespace IGCLWrapper
                 throw new IGCLException(result, "Failed to set LACE config");
         }
 
-        public unsafe ctl_sw_psr_settings_t SoftwarePSR(ctl_sw_psr_settings_t settings)
+        public void SetLACEConfig(LaceConfigDto config)
+        {
+            SetLACEConfigNative(config.ToNative());
+        }
+
+        public unsafe ctl_sw_psr_settings_t SoftwarePSRNative(ctl_sw_psr_settings_t settings)
         {
             ThrowIfDisposed();
             var copy = settings;
@@ -458,7 +514,13 @@ namespace IGCLWrapper
             return copy;
         }
 
-        public unsafe ctl_intel_arc_sync_monitor_params_t GetIntelArcSyncInfoForMonitor()
+        public SwPsrSettingsDto SoftwarePSR(SwPsrSettingsDto settings)
+        {
+            var native = SoftwarePSRNative(settings.ToNative());
+            return SwPsrSettingsDto.FromNative(native);
+        }
+
+        public unsafe ctl_intel_arc_sync_monitor_params_t GetIntelArcSyncInfoForMonitorNative()
         {
             ThrowIfDisposed();
             var parameters = CreateArcSyncMonitorParams();
@@ -466,6 +528,12 @@ namespace IGCLWrapper
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get Intel Arc Sync info");
             return parameters;
+        }
+
+        public IntelArcSyncMonitorParamsDto GetIntelArcSyncInfoForMonitor()
+        {
+            var native = GetIntelArcSyncInfoForMonitorNative();
+            return IntelArcSyncMonitorParamsDto.FromNative(native);
         }
 
         public unsafe IntPtr[] EnumerateMuxDevices()
@@ -591,7 +659,7 @@ namespace IGCLWrapper
             return (request, modesOut);
         }
 
-        public unsafe ctl_combined_display_args_t GetSetCombinedDisplay(ctl_combined_display_args_t args)
+        public unsafe ctl_combined_display_args_t GetSetCombinedDisplayNative(ctl_combined_display_args_t args)
         {
             ThrowIfDisposed();
             var copy = args;
@@ -601,7 +669,13 @@ namespace IGCLWrapper
             return copy;
         }
 
-        public unsafe ctl_genlock_args_t GetSetDisplayGenlock(IntPtr[] adapters, ctl_genlock_args_t args, out IntPtr failureAdapter)
+        public CombinedDisplayArgsDto GetSetCombinedDisplay(CombinedDisplayArgsDto args)
+        {
+            var native = GetSetCombinedDisplayNative(args.ToNative());
+            return CombinedDisplayArgsDto.FromNative(native);
+        }
+
+        public unsafe ctl_genlock_args_t GetSetDisplayGenlockNative(IntPtr[] adapters, ctl_genlock_args_t args, out IntPtr failureAdapter)
         {
             ThrowIfDisposed();
             if (adapters == null || adapters.Length == 0)
@@ -619,6 +693,12 @@ namespace IGCLWrapper
             }
 
             return copy;
+        }
+
+        public GenlockArgsDto GetSetDisplayGenlock(IntPtr[] adapters, GenlockArgsDto args, out IntPtr failureAdapter)
+        {
+            var native = GetSetDisplayGenlockNative(adapters, args.ToNative(), out failureAdapter);
+            return GenlockArgsDto.FromNative(native);
         }
 
         public unsafe ctl_vblank_ts_args_t GetVblankTimestamp()
@@ -676,7 +756,7 @@ namespace IGCLWrapper
             return (args, adapters);
         }
 
-        public unsafe (ctl_dce_args_t args, uint[] histogram) GetSetDynamicContrastEnhancement(ctl_dce_args_t args, uint[]? histogram = null)
+        public unsafe (ctl_dce_args_t args, uint[] histogram) GetSetDynamicContrastEnhancementNative(ctl_dce_args_t args, uint[]? histogram = null)
         {
             ThrowIfDisposed();
             var request = args;
@@ -717,6 +797,12 @@ namespace IGCLWrapper
             return (request, bins);
         }
 
+        public (DceArgsDto args, uint[] histogram) GetSetDynamicContrastEnhancement(DceArgsDto args, uint[]? histogram = null)
+        {
+            var result = GetSetDynamicContrastEnhancementNative(args.ToNative(), histogram);
+            return (DceArgsDto.FromNative(result.args), result.histogram);
+        }
+
         public unsafe ctl_get_set_wire_format_config_t GetSetWireFormat(ctl_get_set_wire_format_config_t args)
         {
             ThrowIfDisposed();
@@ -727,7 +813,7 @@ namespace IGCLWrapper
             return copy;
         }
 
-        public unsafe ctl_display_settings_t GetSetDisplaySettings(ctl_display_settings_t args)
+        public unsafe ctl_display_settings_t GetSetDisplaySettingsNative(ctl_display_settings_t args)
         {
             ThrowIfDisposed();
             var copy = args;
@@ -735,6 +821,12 @@ namespace IGCLWrapper
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get/set display settings");
             return copy;
+        }
+
+        public DisplaySettingsDto GetSetDisplaySettings(DisplaySettingsDto args)
+        {
+            var native = GetSetDisplaySettingsNative(args.ToNative());
+            return DisplaySettingsDto.FromNative(native);
         }
 
 
@@ -747,6 +839,551 @@ namespace IGCLWrapper
         public void Dispose()
         {
             _disposed = true;
+        }
+    }
+
+    internal static class IGCLDisplayDtoBool
+    {
+        public static bool ToBool(byte value) => value != 0;
+        public static byte ToByte(bool value) => value ? (byte)1 : (byte)0;
+    }
+
+    public struct AdapterDisplayEncoderPropertiesDto
+    {
+        public uint Size;
+        public byte Version;
+        public ctl_os_display_encoder_identifier_t OsDisplayEncoderHandle;
+        public ctl_display_output_types_t Type;
+        public bool IsOnBoardProtocolConverterOutputPresent;
+        public ctl_revision_datatype_t SupportedSpec;
+        public uint SupportedOutputBpcFlags;
+        public uint EncoderConfigFlags;
+        public uint FeatureSupportedFlags;
+        public uint AdvancedFeatureSupportedFlags;
+        public ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer ReservedFields;
+
+        public static AdapterDisplayEncoderPropertiesDto FromNative(ctl_adapter_display_encoder_properties_t native)
+        {
+            return new AdapterDisplayEncoderPropertiesDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                OsDisplayEncoderHandle = native.Os_display_encoder_handle,
+                Type = native.Type,
+                IsOnBoardProtocolConverterOutputPresent = IGCLDisplayDtoBool.ToBool(native.IsOnBoardProtocolConverterOutputPresent),
+                SupportedSpec = native.SupportedSpec,
+                SupportedOutputBpcFlags = native.SupportedOutputBPCFlags,
+                EncoderConfigFlags = native.EncoderConfigFlags,
+                FeatureSupportedFlags = native.FeatureSupportedFlags,
+                AdvancedFeatureSupportedFlags = native.AdvancedFeatureSupportedFlags,
+                ReservedFields = native.ReservedFields
+            };
+        }
+
+        public ctl_adapter_display_encoder_properties_t ToNative()
+        {
+            return new ctl_adapter_display_encoder_properties_t
+            {
+                Size = Size,
+                Version = Version,
+                Os_display_encoder_handle = OsDisplayEncoderHandle,
+                Type = Type,
+                IsOnBoardProtocolConverterOutputPresent = IGCLDisplayDtoBool.ToByte(IsOnBoardProtocolConverterOutputPresent),
+                SupportedSpec = SupportedSpec,
+                SupportedOutputBPCFlags = SupportedOutputBpcFlags,
+                EncoderConfigFlags = EncoderConfigFlags,
+                FeatureSupportedFlags = FeatureSupportedFlags,
+                AdvancedFeatureSupportedFlags = AdvancedFeatureSupportedFlags,
+                ReservedFields = ReservedFields
+            };
+        }
+    }
+
+    public unsafe struct CombinedDisplayArgsDto
+    {
+        public uint Size;
+        public byte Version;
+        public ctl_combined_display_optype_t OpType;
+        public bool IsSupported;
+        public byte NumOutputs;
+        public uint CombinedDesktopWidth;
+        public uint CombinedDesktopHeight;
+        public IntPtr ChildInfo;
+        public IntPtr CombinedDisplayOutput;
+
+        public static CombinedDisplayArgsDto FromNative(ctl_combined_display_args_t native)
+        {
+            return new CombinedDisplayArgsDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                OpType = native.OpType,
+                IsSupported = IGCLDisplayDtoBool.ToBool(native.IsSupported),
+                NumOutputs = native.NumOutputs,
+                CombinedDesktopWidth = native.CombinedDesktopWidth,
+                CombinedDesktopHeight = native.CombinedDesktopHeight,
+                ChildInfo = (IntPtr)native.pChildInfo,
+                CombinedDisplayOutput = (IntPtr)native.hCombinedDisplayOutput
+            };
+        }
+
+        public unsafe ctl_combined_display_args_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_combined_display_args_t);
+
+            return new ctl_combined_display_args_t
+            {
+                Size = size,
+                Version = Version,
+                OpType = OpType,
+                IsSupported = IGCLDisplayDtoBool.ToByte(IsSupported),
+                NumOutputs = NumOutputs,
+                CombinedDesktopWidth = CombinedDesktopWidth,
+                CombinedDesktopHeight = CombinedDesktopHeight,
+                pChildInfo = (ctl_combined_display_child_info_t*)ChildInfo,
+                hCombinedDisplayOutput = (_ctl_display_output_handle_t*)CombinedDisplayOutput
+            };
+        }
+    }
+
+    public unsafe struct DceArgsDto
+    {
+        public uint Size;
+        public byte Version;
+        public bool Set;
+        public uint TargetBrightnessPercent;
+        public double PhaseinSpeedMultiplier;
+        public uint NumBins;
+        public bool Enable;
+        public bool IsSupported;
+        public IntPtr Histogram;
+
+        public static DceArgsDto FromNative(ctl_dce_args_t native)
+        {
+            return new DceArgsDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                Set = IGCLDisplayDtoBool.ToBool(native.Set),
+                TargetBrightnessPercent = native.TargetBrightnessPercent,
+                PhaseinSpeedMultiplier = native.PhaseinSpeedMultiplier,
+                NumBins = native.NumBins,
+                Enable = IGCLDisplayDtoBool.ToBool(native.Enable),
+                IsSupported = IGCLDisplayDtoBool.ToBool(native.IsSupported),
+                Histogram = (IntPtr)native.pHistogram
+            };
+        }
+
+        public unsafe ctl_dce_args_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_dce_args_t);
+
+            return new ctl_dce_args_t
+            {
+                Size = size,
+                Version = Version,
+                Set = IGCLDisplayDtoBool.ToByte(Set),
+                TargetBrightnessPercent = TargetBrightnessPercent,
+                PhaseinSpeedMultiplier = PhaseinSpeedMultiplier,
+                NumBins = NumBins,
+                Enable = IGCLDisplayDtoBool.ToByte(Enable),
+                IsSupported = IGCLDisplayDtoBool.ToByte(IsSupported),
+                pHistogram = (uint*)Histogram
+            };
+        }
+    }
+
+    public struct DisplaySettingsDto
+    {
+        public uint Size;
+        public byte Version;
+        public bool Set;
+        public uint SupportedFlags;
+        public uint ControllableFlags;
+        public uint ValidFlags;
+        public ctl_display_setting_low_latency_t LowLatency;
+        public ctl_display_setting_sourcetm_t SourceTm;
+        public ctl_display_setting_content_type_t ContentType;
+        public ctl_display_setting_quantization_range_t QuantizationRange;
+        public uint SupportedPictureAr;
+        public ctl_display_setting_picture_ar_flag_t PictureAr;
+        public ctl_display_setting_audio_t AudioSettings;
+        public ctl_display_settings_t._Reserved_e__FixedBuffer Reserved;
+
+        public static DisplaySettingsDto FromNative(ctl_display_settings_t native)
+        {
+            return new DisplaySettingsDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                Set = IGCLDisplayDtoBool.ToBool(native.Set),
+                SupportedFlags = native.SupportedFlags,
+                ControllableFlags = native.ControllableFlags,
+                ValidFlags = native.ValidFlags,
+                LowLatency = native.LowLatency,
+                SourceTm = native.SourceTM,
+                ContentType = native.ContentType,
+                QuantizationRange = native.QuantizationRange,
+                SupportedPictureAr = native.SupportedPictureAR,
+                PictureAr = native.PictureAR,
+                AudioSettings = native.AudioSettings,
+                Reserved = native.Reserved
+            };
+        }
+
+        public unsafe ctl_display_settings_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_display_settings_t);
+
+            return new ctl_display_settings_t
+            {
+                Size = size,
+                Version = Version,
+                Set = IGCLDisplayDtoBool.ToByte(Set),
+                SupportedFlags = SupportedFlags,
+                ControllableFlags = ControllableFlags,
+                ValidFlags = ValidFlags,
+                LowLatency = LowLatency,
+                SourceTM = SourceTm,
+                ContentType = ContentType,
+                QuantizationRange = QuantizationRange,
+                SupportedPictureAR = SupportedPictureAr,
+                PictureAR = PictureAr,
+                AudioSettings = AudioSettings,
+                Reserved = Reserved
+            };
+        }
+    }
+
+    public struct GenlockArgsDto
+    {
+        public uint Size;
+        public byte Version;
+        public ctl_genlock_operation_t Operation;
+        public ctl_genlock_topology_t GenlockTopology;
+        public bool IsGenlockEnabled;
+        public bool IsGenlockPossible;
+
+        public static GenlockArgsDto FromNative(ctl_genlock_args_t native)
+        {
+            return new GenlockArgsDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                Operation = native.Operation,
+                GenlockTopology = native.GenlockTopology,
+                IsGenlockEnabled = IGCLDisplayDtoBool.ToBool(native.IsGenlockEnabled),
+                IsGenlockPossible = IGCLDisplayDtoBool.ToBool(native.IsGenlockPossible)
+            };
+        }
+
+        public unsafe ctl_genlock_args_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_genlock_args_t);
+
+            return new ctl_genlock_args_t
+            {
+                Size = size,
+                Version = Version,
+                Operation = Operation,
+                GenlockTopology = GenlockTopology,
+                IsGenlockEnabled = IGCLDisplayDtoBool.ToByte(IsGenlockEnabled),
+                IsGenlockPossible = IGCLDisplayDtoBool.ToByte(IsGenlockPossible)
+            };
+        }
+    }
+
+    public struct IntelArcSyncMonitorParamsDto
+    {
+        public uint Size;
+        public byte Version;
+        public bool IsIntelArcSyncSupported;
+        public float MinimumRefreshRateInHz;
+        public float MaximumRefreshRateInHz;
+        public uint MaxFrameTimeIncreaseInUs;
+        public uint MaxFrameTimeDecreaseInUs;
+
+        public static IntelArcSyncMonitorParamsDto FromNative(ctl_intel_arc_sync_monitor_params_t native)
+        {
+            return new IntelArcSyncMonitorParamsDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                IsIntelArcSyncSupported = IGCLDisplayDtoBool.ToBool(native.IsIntelArcSyncSupported),
+                MinimumRefreshRateInHz = native.MinimumRefreshRateInHz,
+                MaximumRefreshRateInHz = native.MaximumRefreshRateInHz,
+                MaxFrameTimeIncreaseInUs = native.MaxFrameTimeIncreaseInUs,
+                MaxFrameTimeDecreaseInUs = native.MaxFrameTimeDecreaseInUs
+            };
+        }
+
+        public unsafe ctl_intel_arc_sync_monitor_params_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_intel_arc_sync_monitor_params_t);
+
+            return new ctl_intel_arc_sync_monitor_params_t
+            {
+                Size = size,
+                Version = Version,
+                IsIntelArcSyncSupported = IGCLDisplayDtoBool.ToByte(IsIntelArcSyncSupported),
+                MinimumRefreshRateInHz = MinimumRefreshRateInHz,
+                MaximumRefreshRateInHz = MaximumRefreshRateInHz,
+                MaxFrameTimeIncreaseInUs = MaxFrameTimeIncreaseInUs,
+                MaxFrameTimeDecreaseInUs = MaxFrameTimeDecreaseInUs
+            };
+        }
+    }
+
+    public struct LaceConfigDto
+    {
+        public uint Size;
+        public byte Version;
+        public bool Enabled;
+        public uint OpTypeGet;
+        public ctl_set_operation_t OpTypeSet;
+        public uint Trigger;
+        public ctl_lace_aggr_config_t LaceConfig;
+
+        public static LaceConfigDto FromNative(ctl_lace_config_t native)
+        {
+            return new LaceConfigDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                Enabled = IGCLDisplayDtoBool.ToBool(native.Enabled),
+                OpTypeGet = native.OpTypeGet,
+                OpTypeSet = native.OpTypeSet,
+                Trigger = native.Trigger,
+                LaceConfig = native.LaceConfig
+            };
+        }
+
+        public unsafe ctl_lace_config_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_lace_config_t);
+
+            return new ctl_lace_config_t
+            {
+                Size = size,
+                Version = Version,
+                Enabled = IGCLDisplayDtoBool.ToByte(Enabled),
+                OpTypeGet = OpTypeGet,
+                OpTypeSet = OpTypeSet,
+                Trigger = Trigger,
+                LaceConfig = LaceConfig
+            };
+        }
+    }
+
+    public struct RetroScalingSettingsDto
+    {
+        public uint Size;
+        public byte Version;
+        public bool Get;
+        public bool Enable;
+        public uint RetroScalingType;
+
+        public static RetroScalingSettingsDto FromNative(ctl_retro_scaling_settings_t native)
+        {
+            return new RetroScalingSettingsDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                Get = IGCLDisplayDtoBool.ToBool(native.Get),
+                Enable = IGCLDisplayDtoBool.ToBool(native.Enable),
+                RetroScalingType = native.RetroScalingType
+            };
+        }
+
+        public unsafe ctl_retro_scaling_settings_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_retro_scaling_settings_t);
+
+            return new ctl_retro_scaling_settings_t
+            {
+                Size = size,
+                Version = Version,
+                Get = IGCLDisplayDtoBool.ToByte(Get),
+                Enable = IGCLDisplayDtoBool.ToByte(Enable),
+                RetroScalingType = RetroScalingType
+            };
+        }
+    }
+
+    public struct ScalingSettingsDto
+    {
+        public uint Size;
+        public byte Version;
+        public bool Enable;
+        public uint ScalingType;
+        public uint CustomScalingX;
+        public uint CustomScalingY;
+        public bool HardwareModeSet;
+        public uint PreferredScalingType;
+
+        public static ScalingSettingsDto FromNative(ctl_scaling_settings_t native)
+        {
+            return new ScalingSettingsDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                Enable = IGCLDisplayDtoBool.ToBool(native.Enable),
+                ScalingType = native.ScalingType,
+                CustomScalingX = native.CustomScalingX,
+                CustomScalingY = native.CustomScalingY,
+                HardwareModeSet = IGCLDisplayDtoBool.ToBool(native.HardwareModeSet),
+                PreferredScalingType = native.PreferredScalingType
+            };
+        }
+
+        public unsafe ctl_scaling_settings_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_scaling_settings_t);
+
+            return new ctl_scaling_settings_t
+            {
+                Size = size,
+                Version = Version,
+                Enable = IGCLDisplayDtoBool.ToByte(Enable),
+                ScalingType = ScalingType,
+                CustomScalingX = CustomScalingX,
+                CustomScalingY = CustomScalingY,
+                HardwareModeSet = IGCLDisplayDtoBool.ToByte(HardwareModeSet),
+                PreferredScalingType = PreferredScalingType
+            };
+        }
+    }
+
+    public struct SharpnessSettingsDto
+    {
+        public uint Size;
+        public byte Version;
+        public bool Enable;
+        public uint FilterType;
+        public float Intensity;
+
+        public static SharpnessSettingsDto FromNative(ctl_sharpness_settings_t native)
+        {
+            return new SharpnessSettingsDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                Enable = IGCLDisplayDtoBool.ToBool(native.Enable),
+                FilterType = native.FilterType,
+                Intensity = native.Intensity
+            };
+        }
+
+        public unsafe ctl_sharpness_settings_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_sharpness_settings_t);
+
+            return new ctl_sharpness_settings_t
+            {
+                Size = size,
+                Version = Version,
+                Enable = IGCLDisplayDtoBool.ToByte(Enable),
+                FilterType = FilterType,
+                Intensity = Intensity
+            };
+        }
+    }
+
+    public struct SwPsrSettingsDto
+    {
+        public uint Size;
+        public byte Version;
+        public bool Set;
+        public bool Supported;
+        public bool Enable;
+
+        public static SwPsrSettingsDto FromNative(ctl_sw_psr_settings_t native)
+        {
+            return new SwPsrSettingsDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                Set = IGCLDisplayDtoBool.ToBool(native.Set),
+                Supported = IGCLDisplayDtoBool.ToBool(native.Supported),
+                Enable = IGCLDisplayDtoBool.ToBool(native.Enable)
+            };
+        }
+
+        public unsafe ctl_sw_psr_settings_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_sw_psr_settings_t);
+
+            return new ctl_sw_psr_settings_t
+            {
+                Size = size,
+                Version = Version,
+                Set = IGCLDisplayDtoBool.ToByte(Set),
+                Supported = IGCLDisplayDtoBool.ToByte(Supported),
+                Enable = IGCLDisplayDtoBool.ToByte(Enable)
+            };
+        }
+    }
+
+    public struct PowerOptimizationSettingsDto
+    {
+        public uint Size;
+        public byte Version;
+        public ctl_power_optimization_plan_t PowerOptimizationPlan;
+        public uint PowerOptimizationFeature;
+        public bool Enable;
+        public ctl_power_optimization_feature_specific_info_t FeatureSpecificData;
+        public ctl_power_source_t PowerSource;
+
+        public static PowerOptimizationSettingsDto FromNative(ctl_power_optimization_settings_t native)
+        {
+            return new PowerOptimizationSettingsDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                PowerOptimizationPlan = native.PowerOptimizationPlan,
+                PowerOptimizationFeature = native.PowerOptimizationFeature,
+                Enable = IGCLDisplayDtoBool.ToBool(native.Enable),
+                FeatureSpecificData = native.FeatureSpecificData,
+                PowerSource = native.PowerSource
+            };
+        }
+
+        public unsafe ctl_power_optimization_settings_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_power_optimization_settings_t);
+
+            return new ctl_power_optimization_settings_t
+            {
+                Size = size,
+                Version = Version,
+                PowerOptimizationPlan = PowerOptimizationPlan,
+                PowerOptimizationFeature = PowerOptimizationFeature,
+                Enable = IGCLDisplayDtoBool.ToByte(Enable),
+                FeatureSpecificData = FeatureSpecificData,
+                PowerSource = PowerSource
+            };
         }
     }
 }

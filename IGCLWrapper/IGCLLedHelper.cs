@@ -24,7 +24,7 @@ namespace IGCLWrapper
             return EnumerateHandles((_ctl_device_adapter_handle_t*)_adapter);
         }
 
-        public unsafe ctl_led_properties_t LedGetProperties(IntPtr ledHandle)
+        public unsafe ctl_led_properties_t LedGetPropertiesNative(IntPtr ledHandle)
         {
             ThrowIfDisposed();
             var props = CreateLedProperties();
@@ -34,7 +34,13 @@ namespace IGCLWrapper
             return props;
         }
 
-        public unsafe ctl_led_state_t LedGetState(IntPtr ledHandle)
+        public LedPropertiesDto LedGetProperties(IntPtr ledHandle)
+        {
+            var native = LedGetPropertiesNative(ledHandle);
+            return LedPropertiesDto.FromNative(native);
+        }
+
+        public unsafe ctl_led_state_t LedGetStateNative(IntPtr ledHandle)
         {
             ThrowIfDisposed();
             var state = CreateLedState();
@@ -44,12 +50,23 @@ namespace IGCLWrapper
             return state;
         }
 
-        public unsafe void LedSetState(IntPtr ledHandle, ctl_led_state_t state)
+        public LedStateDto LedGetState(IntPtr ledHandle)
+        {
+            var native = LedGetStateNative(ledHandle);
+            return LedStateDto.FromNative(native);
+        }
+
+        public unsafe void LedSetStateNative(IntPtr ledHandle, ctl_led_state_t state)
         {
             ThrowIfDisposed();
             var result = IGCL.ctlLedSetState((_ctl_led_handle_t*)ledHandle, &state, (uint)sizeof(ctl_led_state_t));
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to set LED state");
+        }
+
+        public void LedSetState(IntPtr ledHandle, LedStateDto state)
+        {
+            LedSetStateNative(ledHandle, state.ToNative());
         }
 
         private static unsafe IReadOnlyList<IntPtr> EnumerateHandles(_ctl_device_adapter_handle_t* adapter)
@@ -83,6 +100,89 @@ namespace IGCLWrapper
         public void Dispose()
         {
             _disposed = true;
+        }
+    }
+
+    internal static class IGCLLedDtoBool
+    {
+        public static bool ToBool(byte value) => value != 0;
+        public static byte ToByte(bool value) => value ? (byte)1 : (byte)0;
+    }
+
+    public struct LedPropertiesDto
+    {
+        public uint Size;
+        public byte Version;
+        public bool CanControl;
+        public bool IsI2C;
+        public bool IsPwm;
+        public bool HaveRgb;
+
+        public static LedPropertiesDto FromNative(ctl_led_properties_t native)
+        {
+            return new LedPropertiesDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                CanControl = IGCLLedDtoBool.ToBool(native.canControl),
+                IsI2C = IGCLLedDtoBool.ToBool(native.isI2C),
+                IsPwm = IGCLLedDtoBool.ToBool(native.isPWM),
+                HaveRgb = IGCLLedDtoBool.ToBool(native.haveRGB)
+            };
+        }
+
+        public ctl_led_properties_t ToNative()
+        {
+            return new ctl_led_properties_t
+            {
+                Size = Size,
+                Version = Version,
+                canControl = IGCLLedDtoBool.ToByte(CanControl),
+                isI2C = IGCLLedDtoBool.ToByte(IsI2C),
+                isPWM = IGCLLedDtoBool.ToByte(IsPwm),
+                haveRGB = IGCLLedDtoBool.ToByte(HaveRgb)
+            };
+        }
+    }
+
+    public struct LedStateDto
+    {
+        public uint Size;
+        public byte Version;
+        public bool IsOn;
+        public double Pwm;
+        public ctl_led_color_t Color;
+
+        public static LedStateDto FromNative(ctl_led_state_t native)
+        {
+            return new LedStateDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                IsOn = IGCLLedDtoBool.ToBool(native.isOn),
+                Pwm = native.pwm,
+                Color = native.color
+            };
+        }
+
+        public unsafe ctl_led_state_t ToNative()
+        {
+            var color = Color;
+            if (color.Size == 0)
+                color.Size = (uint)sizeof(ctl_led_color_t);
+
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_led_state_t);
+
+            return new ctl_led_state_t
+            {
+                Size = size,
+                Version = Version,
+                isOn = IGCLLedDtoBool.ToByte(IsOn),
+                pwm = Pwm,
+                color = color
+            };
         }
     }
 }

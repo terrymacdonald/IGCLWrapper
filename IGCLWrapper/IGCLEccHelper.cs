@@ -17,7 +17,7 @@ namespace IGCLWrapper
             _adapter = adapter;
         }
 
-        public unsafe ctl_ecc_properties_t EccGetProperties()
+        public unsafe ctl_ecc_properties_t EccGetPropertiesNative()
         {
             ThrowIfDisposed();
             var props = CreateEccProperties();
@@ -25,6 +25,12 @@ namespace IGCLWrapper
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get ECC properties");
             return props;
+        }
+
+        public EccPropertiesDto EccGetProperties()
+        {
+            var native = EccGetPropertiesNative();
+            return EccPropertiesDto.FromNative(native);
         }
 
         public unsafe ctl_ecc_state_desc_t EccGetState()
@@ -59,6 +65,42 @@ namespace IGCLWrapper
         public void Dispose()
         {
             _disposed = true;
+        }
+    }
+
+    internal static class IGCLEccDtoBool
+    {
+        public static bool ToBool(byte value) => value != 0;
+        public static byte ToByte(bool value) => value ? (byte)1 : (byte)0;
+    }
+
+    public struct EccPropertiesDto
+    {
+        public uint Size;
+        public byte Version;
+        public bool IsSupported;
+        public bool CanControl;
+
+        public static EccPropertiesDto FromNative(ctl_ecc_properties_t native)
+        {
+            return new EccPropertiesDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                IsSupported = IGCLEccDtoBool.ToBool(native.isSupported),
+                CanControl = IGCLEccDtoBool.ToBool(native.canControl)
+            };
+        }
+
+        public ctl_ecc_properties_t ToNative()
+        {
+            return new ctl_ecc_properties_t
+            {
+                Size = Size,
+                Version = Version,
+                isSupported = IGCLEccDtoBool.ToByte(IsSupported),
+                canControl = IGCLEccDtoBool.ToByte(CanControl)
+            };
         }
     }
 }

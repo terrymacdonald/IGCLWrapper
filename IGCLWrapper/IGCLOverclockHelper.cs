@@ -18,7 +18,7 @@ namespace IGCLWrapper
             _adapter = adapter;
         }
 
-        public unsafe ctl_oc_properties_t GetProperties()
+        public unsafe ctl_oc_properties_t GetPropertiesNative()
         {
             ThrowIfDisposed();
             var props = CreateOverclockProperties();
@@ -26,6 +26,12 @@ namespace IGCLWrapper
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get overclock properties");
             return props;
+        }
+
+        public OverclockPropertiesDto GetProperties()
+        {
+            var native = GetPropertiesNative();
+            return OverclockPropertiesDto.FromNative(native);
         }
 
         public unsafe void SetWaiver()
@@ -271,7 +277,7 @@ namespace IGCLWrapper
         }
         #endregion
 
-        public unsafe ctl_power_telemetry_t GetPowerTelemetry()
+        public unsafe ctl_power_telemetry_t GetPowerTelemetryNative()
         {
             ThrowIfDisposed();
             var telemetry = CreatePowerTelemetry();
@@ -279,6 +285,12 @@ namespace IGCLWrapper
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, OverclockError);
             return telemetry;
+        }
+
+        public PowerTelemetryDto GetPowerTelemetry()
+        {
+            var native = GetPowerTelemetryNative();
+            return PowerTelemetryDto.FromNative(native);
         }
 
         public unsafe void ResetToDefault()
@@ -353,6 +365,338 @@ namespace IGCLWrapper
         public void Dispose()
         {
             _disposed = true;
+        }
+    }
+
+    internal static class IGCLOverclockDtoBool
+    {
+        public static bool ToBool(byte value) => value != 0;
+        public static byte ToByte(bool value) => value ? (byte)1 : (byte)0;
+    }
+
+    public struct OcControlInfoDto
+    {
+        public bool IsSupported;
+        public bool IsRelative;
+        public bool IsReference;
+        public ctl_units_t Units;
+        public double Min;
+        public double Max;
+        public double Step;
+        public double Default;
+        public double Reference;
+
+        public static OcControlInfoDto FromNative(ctl_oc_control_info_t native)
+        {
+            return new OcControlInfoDto
+            {
+                IsSupported = IGCLOverclockDtoBool.ToBool(native.bSupported),
+                IsRelative = IGCLOverclockDtoBool.ToBool(native.bRelative),
+                IsReference = IGCLOverclockDtoBool.ToBool(native.bReference),
+                Units = native.units,
+                Min = native.min,
+                Max = native.max,
+                Step = native.step,
+                Default = native.Default,
+                Reference = native.reference
+            };
+        }
+
+        public ctl_oc_control_info_t ToNative()
+        {
+            return new ctl_oc_control_info_t
+            {
+                bSupported = IGCLOverclockDtoBool.ToByte(IsSupported),
+                bRelative = IGCLOverclockDtoBool.ToByte(IsRelative),
+                bReference = IGCLOverclockDtoBool.ToByte(IsReference),
+                units = Units,
+                min = Min,
+                max = Max,
+                step = Step,
+                Default = Default,
+                reference = Reference
+            };
+        }
+    }
+
+    public struct OverclockPropertiesDto
+    {
+        public uint Size;
+        public byte Version;
+        public bool IsSupported;
+        public OcControlInfoDto GpuFrequencyOffset;
+        public OcControlInfoDto GpuVoltageOffset;
+        public OcControlInfoDto VramFrequencyOffset;
+        public OcControlInfoDto VramVoltageOffset;
+        public OcControlInfoDto PowerLimit;
+        public OcControlInfoDto TemperatureLimit;
+        public OcControlInfoDto VramMemSpeedLimit;
+        public OcControlInfoDto GpuVfCurveVoltageLimit;
+        public OcControlInfoDto GpuVfCurveFrequencyLimit;
+
+        public static OverclockPropertiesDto FromNative(ctl_oc_properties_t native)
+        {
+            return new OverclockPropertiesDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                IsSupported = IGCLOverclockDtoBool.ToBool(native.bSupported),
+                GpuFrequencyOffset = OcControlInfoDto.FromNative(native.gpuFrequencyOffset),
+                GpuVoltageOffset = OcControlInfoDto.FromNative(native.gpuVoltageOffset),
+                VramFrequencyOffset = OcControlInfoDto.FromNative(native.vramFrequencyOffset),
+                VramVoltageOffset = OcControlInfoDto.FromNative(native.vramVoltageOffset),
+                PowerLimit = OcControlInfoDto.FromNative(native.powerLimit),
+                TemperatureLimit = OcControlInfoDto.FromNative(native.temperatureLimit),
+                VramMemSpeedLimit = OcControlInfoDto.FromNative(native.vramMemSpeedLimit),
+                GpuVfCurveVoltageLimit = OcControlInfoDto.FromNative(native.gpuVFCurveVoltageLimit),
+                GpuVfCurveFrequencyLimit = OcControlInfoDto.FromNative(native.gpuVFCurveFrequencyLimit)
+            };
+        }
+
+        public ctl_oc_properties_t ToNative()
+        {
+            return new ctl_oc_properties_t
+            {
+                Size = Size,
+                Version = Version,
+                bSupported = IGCLOverclockDtoBool.ToByte(IsSupported),
+                gpuFrequencyOffset = GpuFrequencyOffset.ToNative(),
+                gpuVoltageOffset = GpuVoltageOffset.ToNative(),
+                vramFrequencyOffset = VramFrequencyOffset.ToNative(),
+                vramVoltageOffset = VramVoltageOffset.ToNative(),
+                powerLimit = PowerLimit.ToNative(),
+                temperatureLimit = TemperatureLimit.ToNative(),
+                vramMemSpeedLimit = VramMemSpeedLimit.ToNative(),
+                gpuVFCurveVoltageLimit = GpuVfCurveVoltageLimit.ToNative(),
+                gpuVFCurveFrequencyLimit = GpuVfCurveFrequencyLimit.ToNative()
+            };
+        }
+    }
+
+    public struct OcTelemetryItemDto
+    {
+        public bool IsSupported;
+        public ctl_units_t Units;
+        public ctl_data_type_t Type;
+        public ctl_data_value_t Value;
+
+        public static OcTelemetryItemDto FromNative(ctl_oc_telemetry_item_t native)
+        {
+            return new OcTelemetryItemDto
+            {
+                IsSupported = IGCLOverclockDtoBool.ToBool(native.bSupported),
+                Units = native.units,
+                Type = native.type,
+                Value = native.value
+            };
+        }
+
+        public ctl_oc_telemetry_item_t ToNative()
+        {
+            return new ctl_oc_telemetry_item_t
+            {
+                bSupported = IGCLOverclockDtoBool.ToByte(IsSupported),
+                units = Units,
+                type = Type,
+                value = Value
+            };
+        }
+    }
+
+    public struct PsuInfoDto
+    {
+        public bool IsSupported;
+        public ctl_psu_type_t PsuType;
+        public OcTelemetryItemDto EnergyCounter;
+        public OcTelemetryItemDto Voltage;
+
+        public static PsuInfoDto FromNative(ctl_psu_info_t native)
+        {
+            return new PsuInfoDto
+            {
+                IsSupported = IGCLOverclockDtoBool.ToBool(native.bSupported),
+                PsuType = native.psuType,
+                EnergyCounter = OcTelemetryItemDto.FromNative(native.energyCounter),
+                Voltage = OcTelemetryItemDto.FromNative(native.voltage)
+            };
+        }
+
+        public ctl_psu_info_t ToNative()
+        {
+            return new ctl_psu_info_t
+            {
+                bSupported = IGCLOverclockDtoBool.ToByte(IsSupported),
+                psuType = PsuType,
+                energyCounter = EnergyCounter.ToNative(),
+                voltage = Voltage.ToNative()
+            };
+        }
+    }
+
+    public struct PowerTelemetryDto
+    {
+        public uint Size;
+        public byte Version;
+        public OcTelemetryItemDto TimeStamp;
+        public OcTelemetryItemDto GpuEnergyCounter;
+        public OcTelemetryItemDto GpuVoltage;
+        public OcTelemetryItemDto GpuCurrentClockFrequency;
+        public OcTelemetryItemDto GpuCurrentTemperature;
+        public OcTelemetryItemDto GlobalActivityCounter;
+        public OcTelemetryItemDto RenderComputeActivityCounter;
+        public OcTelemetryItemDto MediaActivityCounter;
+        public bool GpuPowerLimited;
+        public bool GpuTemperatureLimited;
+        public bool GpuCurrentLimited;
+        public bool GpuVoltageLimited;
+        public bool GpuUtilizationLimited;
+        public OcTelemetryItemDto VramEnergyCounter;
+        public OcTelemetryItemDto VramVoltage;
+        public OcTelemetryItemDto VramCurrentClockFrequency;
+        public OcTelemetryItemDto VramCurrentEffectiveFrequency;
+        public OcTelemetryItemDto VramReadBandwidthCounter;
+        public OcTelemetryItemDto VramWriteBandwidthCounter;
+        public OcTelemetryItemDto VramCurrentTemperature;
+        public bool VramPowerLimited;
+        public bool VramTemperatureLimited;
+        public bool VramCurrentLimited;
+        public bool VramVoltageLimited;
+        public bool VramUtilizationLimited;
+        public OcTelemetryItemDto TotalCardEnergyCounter;
+        public PsuInfoDto[] Psu;
+        public OcTelemetryItemDto[] FanSpeed;
+        public OcTelemetryItemDto GpuVrTemp;
+        public OcTelemetryItemDto VramVrTemp;
+        public OcTelemetryItemDto SaVrTemp;
+        public OcTelemetryItemDto GpuEffectiveClock;
+        public OcTelemetryItemDto GpuOverVoltagePercent;
+        public OcTelemetryItemDto GpuPowerPercent;
+        public OcTelemetryItemDto GpuTemperaturePercent;
+        public OcTelemetryItemDto VramReadBandwidth;
+        public OcTelemetryItemDto VramWriteBandwidth;
+
+        public static unsafe PowerTelemetryDto FromNative(ctl_power_telemetry_t native)
+        {
+            var psu = new PsuInfoDto[5];
+            fixed (ctl_psu_info_t* pPsu = &native.psu.e0)
+            {
+                for (int i = 0; i < psu.Length; i++)
+                    psu[i] = PsuInfoDto.FromNative(pPsu[i]);
+            }
+
+            var fan = new OcTelemetryItemDto[5];
+            fixed (ctl_oc_telemetry_item_t* pFan = &native.fanSpeed.e0)
+            {
+                for (int i = 0; i < fan.Length; i++)
+                    fan[i] = OcTelemetryItemDto.FromNative(pFan[i]);
+            }
+
+            return new PowerTelemetryDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                TimeStamp = OcTelemetryItemDto.FromNative(native.timeStamp),
+                GpuEnergyCounter = OcTelemetryItemDto.FromNative(native.gpuEnergyCounter),
+                GpuVoltage = OcTelemetryItemDto.FromNative(native.gpuVoltage),
+                GpuCurrentClockFrequency = OcTelemetryItemDto.FromNative(native.gpuCurrentClockFrequency),
+                GpuCurrentTemperature = OcTelemetryItemDto.FromNative(native.gpuCurrentTemperature),
+                GlobalActivityCounter = OcTelemetryItemDto.FromNative(native.globalActivityCounter),
+                RenderComputeActivityCounter = OcTelemetryItemDto.FromNative(native.renderComputeActivityCounter),
+                MediaActivityCounter = OcTelemetryItemDto.FromNative(native.mediaActivityCounter),
+                GpuPowerLimited = IGCLOverclockDtoBool.ToBool(native.gpuPowerLimited),
+                GpuTemperatureLimited = IGCLOverclockDtoBool.ToBool(native.gpuTemperatureLimited),
+                GpuCurrentLimited = IGCLOverclockDtoBool.ToBool(native.gpuCurrentLimited),
+                GpuVoltageLimited = IGCLOverclockDtoBool.ToBool(native.gpuVoltageLimited),
+                GpuUtilizationLimited = IGCLOverclockDtoBool.ToBool(native.gpuUtilizationLimited),
+                VramEnergyCounter = OcTelemetryItemDto.FromNative(native.vramEnergyCounter),
+                VramVoltage = OcTelemetryItemDto.FromNative(native.vramVoltage),
+                VramCurrentClockFrequency = OcTelemetryItemDto.FromNative(native.vramCurrentClockFrequency),
+                VramCurrentEffectiveFrequency = OcTelemetryItemDto.FromNative(native.vramCurrentEffectiveFrequency),
+                VramReadBandwidthCounter = OcTelemetryItemDto.FromNative(native.vramReadBandwidthCounter),
+                VramWriteBandwidthCounter = OcTelemetryItemDto.FromNative(native.vramWriteBandwidthCounter),
+                VramCurrentTemperature = OcTelemetryItemDto.FromNative(native.vramCurrentTemperature),
+                VramPowerLimited = IGCLOverclockDtoBool.ToBool(native.vramPowerLimited),
+                VramTemperatureLimited = IGCLOverclockDtoBool.ToBool(native.vramTemperatureLimited),
+                VramCurrentLimited = IGCLOverclockDtoBool.ToBool(native.vramCurrentLimited),
+                VramVoltageLimited = IGCLOverclockDtoBool.ToBool(native.vramVoltageLimited),
+                VramUtilizationLimited = IGCLOverclockDtoBool.ToBool(native.vramUtilizationLimited),
+                TotalCardEnergyCounter = OcTelemetryItemDto.FromNative(native.totalCardEnergyCounter),
+                Psu = psu,
+                FanSpeed = fan,
+                GpuVrTemp = OcTelemetryItemDto.FromNative(native.gpuVrTemp),
+                VramVrTemp = OcTelemetryItemDto.FromNative(native.vramVrTemp),
+                SaVrTemp = OcTelemetryItemDto.FromNative(native.saVrTemp),
+                GpuEffectiveClock = OcTelemetryItemDto.FromNative(native.gpuEffectiveClock),
+                GpuOverVoltagePercent = OcTelemetryItemDto.FromNative(native.gpuOverVoltagePercent),
+                GpuPowerPercent = OcTelemetryItemDto.FromNative(native.gpuPowerPercent),
+                GpuTemperaturePercent = OcTelemetryItemDto.FromNative(native.gpuTemperaturePercent),
+                VramReadBandwidth = OcTelemetryItemDto.FromNative(native.vramReadBandwidth),
+                VramWriteBandwidth = OcTelemetryItemDto.FromNative(native.vramWriteBandwidth)
+            };
+        }
+
+        public unsafe ctl_power_telemetry_t ToNative()
+        {
+            var native = new ctl_power_telemetry_t
+            {
+                Size = Size,
+                Version = Version,
+                timeStamp = TimeStamp.ToNative(),
+                gpuEnergyCounter = GpuEnergyCounter.ToNative(),
+                gpuVoltage = GpuVoltage.ToNative(),
+                gpuCurrentClockFrequency = GpuCurrentClockFrequency.ToNative(),
+                gpuCurrentTemperature = GpuCurrentTemperature.ToNative(),
+                globalActivityCounter = GlobalActivityCounter.ToNative(),
+                renderComputeActivityCounter = RenderComputeActivityCounter.ToNative(),
+                mediaActivityCounter = MediaActivityCounter.ToNative(),
+                gpuPowerLimited = IGCLOverclockDtoBool.ToByte(GpuPowerLimited),
+                gpuTemperatureLimited = IGCLOverclockDtoBool.ToByte(GpuTemperatureLimited),
+                gpuCurrentLimited = IGCLOverclockDtoBool.ToByte(GpuCurrentLimited),
+                gpuVoltageLimited = IGCLOverclockDtoBool.ToByte(GpuVoltageLimited),
+                gpuUtilizationLimited = IGCLOverclockDtoBool.ToByte(GpuUtilizationLimited),
+                vramEnergyCounter = VramEnergyCounter.ToNative(),
+                vramVoltage = VramVoltage.ToNative(),
+                vramCurrentClockFrequency = VramCurrentClockFrequency.ToNative(),
+                vramCurrentEffectiveFrequency = VramCurrentEffectiveFrequency.ToNative(),
+                vramReadBandwidthCounter = VramReadBandwidthCounter.ToNative(),
+                vramWriteBandwidthCounter = VramWriteBandwidthCounter.ToNative(),
+                vramCurrentTemperature = VramCurrentTemperature.ToNative(),
+                vramPowerLimited = IGCLOverclockDtoBool.ToByte(VramPowerLimited),
+                vramTemperatureLimited = IGCLOverclockDtoBool.ToByte(VramTemperatureLimited),
+                vramCurrentLimited = IGCLOverclockDtoBool.ToByte(VramCurrentLimited),
+                vramVoltageLimited = IGCLOverclockDtoBool.ToByte(VramVoltageLimited),
+                vramUtilizationLimited = IGCLOverclockDtoBool.ToByte(VramUtilizationLimited),
+                totalCardEnergyCounter = TotalCardEnergyCounter.ToNative(),
+                gpuVrTemp = GpuVrTemp.ToNative(),
+                vramVrTemp = VramVrTemp.ToNative(),
+                saVrTemp = SaVrTemp.ToNative(),
+                gpuEffectiveClock = GpuEffectiveClock.ToNative(),
+                gpuOverVoltagePercent = GpuOverVoltagePercent.ToNative(),
+                gpuPowerPercent = GpuPowerPercent.ToNative(),
+                gpuTemperaturePercent = GpuTemperaturePercent.ToNative(),
+                vramReadBandwidth = VramReadBandwidth.ToNative(),
+                vramWriteBandwidth = VramWriteBandwidth.ToNative()
+            };
+
+            var psu = Psu ?? Array.Empty<PsuInfoDto>();
+            fixed (ctl_psu_info_t* pPsu = &native.psu.e0)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    pPsu[i] = i < psu.Length ? psu[i].ToNative() : default;
+                }
+            }
+
+            var fan = FanSpeed ?? Array.Empty<OcTelemetryItemDto>();
+            fixed (ctl_oc_telemetry_item_t* pFan = &native.fanSpeed.e0)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    pFan[i] = i < fan.Length ? fan[i].ToNative() : default;
+                }
+            }
+
+            return native;
         }
     }
 }

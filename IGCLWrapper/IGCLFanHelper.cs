@@ -24,7 +24,7 @@ namespace IGCLWrapper
             return EnumerateHandles((_ctl_device_adapter_handle_t*)_adapter);
         }
 
-        public unsafe ctl_fan_properties_t FanGetProperties(IntPtr fanHandle)
+        public unsafe ctl_fan_properties_t FanGetPropertiesNative(IntPtr fanHandle)
         {
             ThrowIfDisposed();
             var props = CreateFanProperties();
@@ -32,6 +32,12 @@ namespace IGCLWrapper
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get fan properties");
             return props;
+        }
+
+        public FanPropertiesDto FanGetProperties(IntPtr fanHandle)
+        {
+            var native = FanGetPropertiesNative(fanHandle);
+            return FanPropertiesDto.FromNative(native);
         }
 
         public unsafe ctl_fan_config_t FanGetConfig(IntPtr fanHandle)
@@ -110,6 +116,51 @@ namespace IGCLWrapper
         public void Dispose()
         {
             _disposed = true;
+        }
+    }
+
+    internal static class IGCLFanDtoBool
+    {
+        public static bool ToBool(byte value) => value != 0;
+        public static byte ToByte(bool value) => value ? (byte)1 : (byte)0;
+    }
+
+    public struct FanPropertiesDto
+    {
+        public uint Size;
+        public byte Version;
+        public bool CanControl;
+        public uint SupportedModes;
+        public uint SupportedUnits;
+        public int MaxRpm;
+        public int MaxPoints;
+
+        public static FanPropertiesDto FromNative(ctl_fan_properties_t native)
+        {
+            return new FanPropertiesDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                CanControl = IGCLFanDtoBool.ToBool(native.canControl),
+                SupportedModes = native.supportedModes,
+                SupportedUnits = native.supportedUnits,
+                MaxRpm = native.maxRPM,
+                MaxPoints = native.maxPoints
+            };
+        }
+
+        public ctl_fan_properties_t ToNative()
+        {
+            return new ctl_fan_properties_t
+            {
+                Size = Size,
+                Version = Version,
+                canControl = IGCLFanDtoBool.ToByte(CanControl),
+                supportedModes = SupportedModes,
+                supportedUnits = SupportedUnits,
+                maxRPM = MaxRpm,
+                maxPoints = MaxPoints
+            };
         }
     }
 }

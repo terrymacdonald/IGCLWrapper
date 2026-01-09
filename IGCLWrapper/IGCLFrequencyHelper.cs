@@ -24,7 +24,7 @@ namespace IGCLWrapper
             return EnumerateHandles((_ctl_device_adapter_handle_t*)_adapter);
         }
 
-        public unsafe ctl_freq_properties_t FrequencyGetProperties(IntPtr freqHandle)
+        public unsafe ctl_freq_properties_t FrequencyGetPropertiesNative(IntPtr freqHandle)
         {
             ThrowIfDisposed();
             var props = CreateFrequencyProperties();
@@ -32,6 +32,12 @@ namespace IGCLWrapper
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get frequency properties");
             return props;
+        }
+
+        public FrequencyPropertiesDto FrequencyGetProperties(IntPtr freqHandle)
+        {
+            var native = FrequencyGetPropertiesNative(freqHandle);
+            return FrequencyPropertiesDto.FromNative(native);
         }
 
         public unsafe double[] FrequencyGetAvailableClocks(IntPtr freqHandle)
@@ -124,6 +130,48 @@ namespace IGCLWrapper
         public void Dispose()
         {
             _disposed = true;
+        }
+    }
+
+    internal static class IGCLFrequencyDtoBool
+    {
+        public static bool ToBool(byte value) => value != 0;
+        public static byte ToByte(bool value) => value ? (byte)1 : (byte)0;
+    }
+
+    public struct FrequencyPropertiesDto
+    {
+        public uint Size;
+        public byte Version;
+        public ctl_freq_domain_t Type;
+        public bool CanControl;
+        public double Min;
+        public double Max;
+
+        public static FrequencyPropertiesDto FromNative(ctl_freq_properties_t native)
+        {
+            return new FrequencyPropertiesDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                Type = native.type,
+                CanControl = IGCLFrequencyDtoBool.ToBool(native.canControl),
+                Min = native.min,
+                Max = native.max
+            };
+        }
+
+        public ctl_freq_properties_t ToNative()
+        {
+            return new ctl_freq_properties_t
+            {
+                Size = Size,
+                Version = Version,
+                type = Type,
+                canControl = IGCLFrequencyDtoBool.ToByte(CanControl),
+                min = Min,
+                max = Max
+            };
         }
     }
 }

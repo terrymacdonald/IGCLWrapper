@@ -40,7 +40,7 @@ namespace IGCLWrapper.FacadeTests
                 var powerCaps = FacadeTestUtils.InvokeOrSkip(() => display.GetPowerOptimizationCaps(), "Power optimization caps unsupported");
                 if (powerCaps.SupportedFeatures != 0)
                 {
-                    var settings = IGCLDisplayHelper.CreatePowerOptimizationSettings();
+                    var settings = new PowerOptimizationSettingsDto();
                     if ((powerCaps.SupportedFeatures & (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_LRR) != 0)
                     {
                         settings.PowerOptimizationFeature = (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_LRR;
@@ -77,8 +77,7 @@ namespace IGCLWrapper.FacadeTests
                 FacadeTestUtils.InvokeOrSkip(() => display.GetCurrentScaling(), "Scaling settings unsupported");
 
                 FacadeTestUtils.InvokeOrSkip(() => display.GetSupportedRetroScalingCapability(), "Retro scaling unsupported");
-                var retroSettings = IGCLDisplayHelper.CreateRetroScalingSettings();
-                retroSettings.Get = 1;
+                var retroSettings = new RetroScalingSettingsDto { Get = true };
                 FacadeTestUtils.InvokeOrSkip(() => display.GetSetRetroScaling(retroSettings), "Retro scaling settings unsupported");
 
                 var encoderProps = FacadeTestUtils.InvokeOrSkip(() => display.GetAdapterDisplayEncoderProperties(), "Encoder properties unsupported");
@@ -112,10 +111,10 @@ namespace IGCLWrapper.FacadeTests
                 var wireFormat = new ctl_get_set_wire_format_config_t { Size = 0, Version = 0 };
                 FacadeTestUtils.InvokeOrSkip(() => display.GetSetWireFormat(wireFormat), "Wire format unsupported");
 
-                var displaySettings = new ctl_display_settings_t { Size = 0, Version = 0, Set = 0 };
+                var displaySettings = new DisplaySettingsDto { Set = false };
                 FacadeTestUtils.InvokeOrSkip(() => display.GetSetDisplaySettings(displaySettings), "Display settings unsupported");
 
-                var dceArgs = IGCLDisplayHelper.CreateDceArgs();
+                var dceArgs = new DceArgsDto();
                 FacadeTestUtils.InvokeOrSkip(() => display.GetSetDynamicContrastEnhancement(dceArgs), "DCE unsupported");
 
                 FacadeTestUtils.InvokeOrSkip(() => display.GetVblankTimestamp(), "Vblank unsupported");

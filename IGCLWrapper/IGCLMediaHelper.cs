@@ -27,13 +27,19 @@ namespace IGCLWrapper
             return caps;
         }
 
-        public unsafe ctl_video_processing_feature_getset_t GetSetVideoProcessingFeature(ctl_video_processing_feature_getset_t featureGetSet)
+        public unsafe ctl_video_processing_feature_getset_t GetSetVideoProcessingFeatureNative(ctl_video_processing_feature_getset_t featureGetSet)
         {
             ThrowIfDisposed();
             var result = IGCL.ctlGetSetVideoProcessingFeature((_ctl_device_adapter_handle_t*)_adapter, &featureGetSet);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, $"Failed to get/set video processing feature {featureGetSet.FeatureType}");
             return featureGetSet;
+        }
+
+        public VideoProcessingFeatureGetSetDto GetSetVideoProcessingFeature(VideoProcessingFeatureGetSetDto featureGetSet)
+        {
+            var native = GetSetVideoProcessingFeatureNative(featureGetSet.ToNative());
+            return VideoProcessingFeatureGetSetDto.FromNative(native);
         }
 
         private void ThrowIfDisposed()
@@ -48,6 +54,63 @@ namespace IGCLWrapper
         public void Dispose()
         {
             _disposed = true;
+        }
+    }
+
+    internal static class IGCLMediaDtoBool
+    {
+        public static bool ToBool(byte value) => value != 0;
+        public static byte ToByte(bool value) => value ? (byte)1 : (byte)0;
+    }
+
+    public unsafe struct VideoProcessingFeatureGetSetDto
+    {
+        public uint Size;
+        public byte Version;
+        public ctl_video_processing_feature_t FeatureType;
+        public IntPtr ApplicationName;
+        public sbyte ApplicationNameLength;
+        public bool Set;
+        public ctl_property_value_type_t ValueType;
+        public ctl_property_t Value;
+        public int CustomValueSize;
+        public IntPtr CustomValue;
+        public ctl_video_processing_feature_getset_t._ReservedFields_e__FixedBuffer ReservedFields;
+
+        public static VideoProcessingFeatureGetSetDto FromNative(ctl_video_processing_feature_getset_t native)
+        {
+            return new VideoProcessingFeatureGetSetDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                FeatureType = native.FeatureType,
+                ApplicationName = (IntPtr)native.ApplicationName,
+                ApplicationNameLength = native.ApplicationNameLength,
+                Set = IGCLMediaDtoBool.ToBool(native.bSet),
+                ValueType = native.ValueType,
+                Value = native.Value,
+                CustomValueSize = native.CustomValueSize,
+                CustomValue = (IntPtr)native.pCustomValue,
+                ReservedFields = native.ReservedFields
+            };
+        }
+
+        public ctl_video_processing_feature_getset_t ToNative()
+        {
+            return new ctl_video_processing_feature_getset_t
+            {
+                Size = Size,
+                Version = Version,
+                FeatureType = FeatureType,
+                ApplicationName = (sbyte*)ApplicationName,
+                ApplicationNameLength = ApplicationNameLength,
+                bSet = IGCLMediaDtoBool.ToByte(Set),
+                ValueType = ValueType,
+                Value = Value,
+                CustomValueSize = CustomValueSize,
+                pCustomValue = (void*)CustomValue,
+                ReservedFields = ReservedFields
+            };
         }
     }
 }
