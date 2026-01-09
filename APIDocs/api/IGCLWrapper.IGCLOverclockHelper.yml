@@ -11,7 +11,9 @@ items:
   - IGCLWrapper.IGCLOverclockHelper.GetGpuVoltageOffset
   - IGCLWrapper.IGCLOverclockHelper.GetPowerLimit
   - IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry
+  - IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetryNative
   - IGCLWrapper.IGCLOverclockHelper.GetProperties
+  - IGCLWrapper.IGCLOverclockHelper.GetPropertiesNative
   - IGCLWrapper.IGCLOverclockHelper.GetTemperatureLimit
   - IGCLWrapper.IGCLOverclockHelper.GetVramFrequencyOffset
   - IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetGet
@@ -57,11 +59,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IGCLOverclockHelper
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 7
+    startLine: 8
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -81,6 +83,34 @@ items:
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+- uid: IGCLWrapper.IGCLOverclockHelper.GetPropertiesNative
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.GetPropertiesNative
+  id: GetPropertiesNative
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: GetPropertiesNative()
+  nameWithType: IGCLOverclockHelper.GetPropertiesNative()
+  fullName: IGCLWrapper.IGCLOverclockHelper.GetPropertiesNative()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetPropertiesNative
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 21
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_oc_properties_t GetPropertiesNative()
+    return:
+      type: IGCLWrapper.ctl_oc_properties_t
+    content.vb: Public Function GetPropertiesNative() As ctl_oc_properties_t
+  overload: IGCLWrapper.IGCLOverclockHelper.GetPropertiesNative*
 - uid: IGCLWrapper.IGCLOverclockHelper.GetProperties
   commentId: M:IGCLWrapper.IGCLOverclockHelper.GetProperties
   id: GetProperties
@@ -95,19 +125,19 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetProperties
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 20
+    startLine: 31
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public ctl_oc_properties_t GetProperties()
+    content: public OverclockPropertiesDto GetProperties()
     return:
-      type: IGCLWrapper.ctl_oc_properties_t
-    content.vb: Public Function GetProperties() As ctl_oc_properties_t
+      type: IGCLWrapper.OverclockPropertiesDto
+    content.vb: Public Function GetProperties() As OverclockPropertiesDto
   overload: IGCLWrapper.IGCLOverclockHelper.GetProperties*
 - uid: IGCLWrapper.IGCLOverclockHelper.SetWaiver
   commentId: M:IGCLWrapper.IGCLOverclockHelper.SetWaiver
@@ -123,11 +153,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetWaiver
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 30
+    startLine: 37
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -149,11 +179,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockGpuFrequencyOffsetGet
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 39
+    startLine: 46
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -177,11 +207,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockGpuFrequencyOffsetSet
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 49
+    startLine: 56
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -209,11 +239,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockGpuFrequencyOffsetGetV2
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 57
+    startLine: 64
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -237,11 +267,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockGpuFrequencyOffsetSetV2
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 67
+    startLine: 74
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -269,11 +299,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockGpuVoltageOffsetGet
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 77
+    startLine: 84
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -297,11 +327,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockGpuVoltageOffsetSet
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 87
+    startLine: 94
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -329,11 +359,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockGpuMaxVoltageOffsetGetV2
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 95
+    startLine: 102
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -357,11 +387,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockGpuMaxVoltageOffsetSetV2
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 105
+    startLine: 112
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -389,11 +419,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockGpuLockGet
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 115
+    startLine: 122
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -417,11 +447,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockGpuLockSet
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 125
+    startLine: 132
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -446,11 +476,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockVramFrequencyOffsetGet
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 142
+    startLine: 149
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -474,11 +504,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockVramFrequencyOffsetSet
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 152
+    startLine: 159
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -506,11 +536,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockVramVoltageOffsetGet
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 160
+    startLine: 167
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -534,11 +564,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockVramVoltageOffsetSet
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 170
+    startLine: 177
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -566,11 +596,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockVramMemSpeedLimitGetV2
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 178
+    startLine: 185
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -594,11 +624,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockVramMemSpeedLimitSetV2
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 188
+    startLine: 195
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -626,11 +656,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockPowerLimitGet
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 198
+    startLine: 205
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -654,11 +684,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockPowerLimitSet
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 208
+    startLine: 215
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -686,11 +716,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockPowerLimitGetV2
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 216
+    startLine: 223
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -714,11 +744,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockPowerLimitSetV2
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 226
+    startLine: 233
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -746,11 +776,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockTemperatureLimitGet
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 236
+    startLine: 243
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -774,11 +804,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockTemperatureLimitSet
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 246
+    startLine: 253
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -806,11 +836,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockTemperatureLimitGetV2
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 254
+    startLine: 261
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -834,11 +864,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockTemperatureLimitSetV2
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 264
+    startLine: 271
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -852,6 +882,34 @@ items:
   nameWithType.vb: IGCLOverclockHelper.OverclockTemperatureLimitSetV2(Double)
   fullName.vb: IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitSetV2(Double)
   name.vb: OverclockTemperatureLimitSetV2(Double)
+- uid: IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetryNative
+  commentId: M:IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetryNative
+  id: GetPowerTelemetryNative
+  parent: IGCLWrapper.IGCLOverclockHelper
+  langs:
+  - csharp
+  - vb
+  name: GetPowerTelemetryNative()
+  nameWithType: IGCLOverclockHelper.GetPowerTelemetryNative()
+  fullName: IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetryNative()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetPowerTelemetryNative
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 280
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_power_telemetry_t GetPowerTelemetryNative()
+    return:
+      type: IGCLWrapper.ctl_power_telemetry_t
+    content.vb: Public Function GetPowerTelemetryNative() As ctl_power_telemetry_t
+  overload: IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetryNative*
 - uid: IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry
   commentId: M:IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry
   id: GetPowerTelemetry
@@ -866,19 +924,19 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetPowerTelemetry
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 273
+    startLine: 290
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public ctl_power_telemetry_t GetPowerTelemetry()
+    content: public PowerTelemetryDto GetPowerTelemetry()
     return:
-      type: IGCLWrapper.ctl_power_telemetry_t
-    content.vb: Public Function GetPowerTelemetry() As ctl_power_telemetry_t
+      type: IGCLWrapper.PowerTelemetryDto
+    content.vb: Public Function GetPowerTelemetry() As PowerTelemetryDto
   overload: IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry*
 - uid: IGCLWrapper.IGCLOverclockHelper.ResetToDefault
   commentId: M:IGCLWrapper.IGCLOverclockHelper.ResetToDefault
@@ -894,11 +952,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ResetToDefault
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 283
+    startLine: 296
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -920,11 +978,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockReadVFCurve
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 292
+    startLine: 305
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -953,11 +1011,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockWriteCustomVFCurve
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 313
+    startLine: 326
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -985,11 +1043,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetGpuFrequencyOffset
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 330
+    startLine: 343
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1013,11 +1071,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetGpuFrequencyOffset
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 331
+    startLine: 344
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1045,11 +1103,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetGpuVoltageOffset
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 332
+    startLine: 345
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1073,11 +1131,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetGpuVoltageOffset
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 333
+    startLine: 346
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1105,11 +1163,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetVramFrequencyOffset
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 334
+    startLine: 347
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1133,11 +1191,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetVramFrequencyOffset
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 335
+    startLine: 348
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1165,11 +1223,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetPowerLimit
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 336
+    startLine: 349
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1193,11 +1251,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetPowerLimit
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 337
+    startLine: 350
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1225,11 +1283,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetTemperatureLimit
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 338
+    startLine: 351
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1253,11 +1311,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetTemperatureLimit
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 339
+    startLine: 352
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1285,11 +1343,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateVfPair
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 349
+    startLine: 362
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1313,11 +1371,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 352
+    startLine: 365
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1557,12 +1615,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: IGCLWrapper.IGCLOverclockHelper.GetProperties*
-  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.GetProperties
-  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_GetProperties
-  name: GetProperties
-  nameWithType: IGCLOverclockHelper.GetProperties
-  fullName: IGCLWrapper.IGCLOverclockHelper.GetProperties
+- uid: IGCLWrapper.IGCLOverclockHelper.GetPropertiesNative*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.GetPropertiesNative
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_GetPropertiesNative
+  name: GetPropertiesNative
+  nameWithType: IGCLOverclockHelper.GetPropertiesNative
+  fullName: IGCLWrapper.IGCLOverclockHelper.GetPropertiesNative
 - uid: IGCLWrapper.ctl_oc_properties_t
   commentId: T:IGCLWrapper.ctl_oc_properties_t
   parent: IGCLWrapper
@@ -1570,6 +1628,19 @@ references:
   name: ctl_oc_properties_t
   nameWithType: ctl_oc_properties_t
   fullName: IGCLWrapper.ctl_oc_properties_t
+- uid: IGCLWrapper.IGCLOverclockHelper.GetProperties*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.GetProperties
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_GetProperties
+  name: GetProperties
+  nameWithType: IGCLOverclockHelper.GetProperties
+  fullName: IGCLWrapper.IGCLOverclockHelper.GetProperties
+- uid: IGCLWrapper.OverclockPropertiesDto
+  commentId: T:IGCLWrapper.OverclockPropertiesDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.OverclockPropertiesDto.html
+  name: OverclockPropertiesDto
+  nameWithType: OverclockPropertiesDto
+  fullName: IGCLWrapper.OverclockPropertiesDto
 - uid: IGCLWrapper.IGCLOverclockHelper.SetWaiver*
   commentId: Overload:IGCLWrapper.IGCLOverclockHelper.SetWaiver
   href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_SetWaiver
@@ -1738,12 +1809,12 @@ references:
   name: OverclockTemperatureLimitSetV2
   nameWithType: IGCLOverclockHelper.OverclockTemperatureLimitSetV2
   fullName: IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitSetV2
-- uid: IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry*
-  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry
-  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_GetPowerTelemetry
-  name: GetPowerTelemetry
-  nameWithType: IGCLOverclockHelper.GetPowerTelemetry
-  fullName: IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry
+- uid: IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetryNative*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetryNative
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_GetPowerTelemetryNative
+  name: GetPowerTelemetryNative
+  nameWithType: IGCLOverclockHelper.GetPowerTelemetryNative
+  fullName: IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetryNative
 - uid: IGCLWrapper.ctl_power_telemetry_t
   commentId: T:IGCLWrapper.ctl_power_telemetry_t
   parent: IGCLWrapper
@@ -1751,6 +1822,19 @@ references:
   name: ctl_power_telemetry_t
   nameWithType: ctl_power_telemetry_t
   fullName: IGCLWrapper.ctl_power_telemetry_t
+- uid: IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_GetPowerTelemetry
+  name: GetPowerTelemetry
+  nameWithType: IGCLOverclockHelper.GetPowerTelemetry
+  fullName: IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry
+- uid: IGCLWrapper.PowerTelemetryDto
+  commentId: T:IGCLWrapper.PowerTelemetryDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.PowerTelemetryDto.html
+  name: PowerTelemetryDto
+  nameWithType: PowerTelemetryDto
+  fullName: IGCLWrapper.PowerTelemetryDto
 - uid: IGCLWrapper.IGCLOverclockHelper.ResetToDefault*
   commentId: Overload:IGCLWrapper.IGCLOverclockHelper.ResetToDefault
   href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_ResetToDefault

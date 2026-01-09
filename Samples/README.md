@@ -54,9 +54,20 @@ catch (IGCLException ex)
 
 Helpers:
 ```csharp
-var props = IGCLHelpers.GetProperties(adapter);
-var (width, height) = IGCLHelpers.GetResolution(display);
+using System.Linq;
+using IGCLWrapper;
+
+using var api = IGCLApiHelper.Initialize();
+var adapter = api.EnumerateAdapters().First();
+var display = adapter.GetDisplays().First();
+
+var encoder = display.GetAdapterDisplayEncoderProperties();
+var combined = display.GetSetCombinedDisplay(new CombinedDisplayArgsDto
+{
+    OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_QUERY_CONFIG
+});
 ```
+Use `*Native()` helper methods when you need raw structs instead of DTOs.
 
 ## Building All Samples
 

@@ -8,6 +8,7 @@ A modern C# wrapper for Intel Graphics Control Library (IGCL), providing easy ac
 - Automatic cleanup via `IDisposable` (SafeHandle-backed)
 - Strongly typed structs/enums matching IGCL headers
 - Helper methods for common adapter/display queries
+- Facade DTOs for bool-friendly helper results, with `*Native()` accessors when you need raw structs
 - ClangSharp-generated bindings kept in sync with the SDK
 - Tests skip gracefully when hardware is absent
 - Split test suites:
@@ -79,6 +80,7 @@ catch (DllNotFoundException)
 
 ## Working with the facade helpers (IGCLApiHelper)
 Use the facade helpers to avoid manual struct sizing/handle management.
+DTO-returning helpers use `bool` properties; call `*Native()` variants when you need the raw structs.
 
 ### List active display resolutions
 ```csharp
@@ -106,10 +108,8 @@ using var api = IGCLApiHelper.Initialize();
 foreach (var adapter in api.EnumerateAdapters())
 {
     var displayHelper = adapter.GetDisplays().First();
-    var args = new ctl_combined_display_args_t
+    var args = new CombinedDisplayArgsDto
     {
-        Size = (uint)sizeof(ctl_combined_display_args_t),
-        Version = 0,
         OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_QUERY_CONFIG
     };
     var result = displayHelper.GetSetCombinedDisplay(args);
@@ -132,7 +132,7 @@ foreach (var adapter in api.EnumerateAdapters())
     if (sensor != IntPtr.Zero)
     {
         var tempC = tempHelper.TemperatureGetState(sensor);
-        Console.WriteLine($"{adapter.Name}: {tempC:F1} °C");
+        Console.WriteLine($"{adapter.Name}: {tempC:F1} C");
     }
 }
 ```
@@ -221,7 +221,7 @@ foreach (var adapter in igcl.EnumerateAdapters())
         double temp = 0;
         if (IGCL.ctlTemperatureGetState((_ctl_temp_handle_t*)sensors[0], &temp) == ctl_result_t.CTL_RESULT_SUCCESS)
         {
-            Console.WriteLine($"{temp:F1} °C");
+            Console.WriteLine($"{temp:F1} C");
         }
     }
 }
@@ -232,7 +232,8 @@ Tests require Intel GPU hardware and the IGCL DLLs present. They skip gracefully
 ```powershell
 ./test_igcl.ps1
 # or
-dotnet test IGCLWrapper.Tests/IGCLWrapper.Tests.csproj
+dotnet test IGCLWrapper.NativeTests/IGCLWrapper.NativeTests.csproj
+dotnet test IGCLWrapper.FacadeTests/IGCLWrapper.FacadeTests.csproj
 ```
 
 ## Updating bindings
@@ -243,18 +244,23 @@ When Intel releases a new IGCL:
 ```
 
 ## Project structure
-- `IGCLWrapper/` – main wrapper
-  - `cs_generated/` – ClangSharp output (auto-generated)
-  - `IGCLApi.cs` – high-level API
-  - `IGCLExtensions.cs` – helpers for common ops
-- `IGCLWrapper.Tests/` – test suite
-- `Samples/` – sample apps
-- `drivers.gpu.control-library/` – IGCL SDK payload (populated by prepare script)
+- `IGCLWrapper/` - main wrapper
+  - `cs_generated/` - ClangSharp output (auto-generated)
+  - `IGCLApi.cs` - high-level API
+  - `IGCLExtensions.cs` - helpers for common ops
+- `IGCLWrapper.NativeTests/` - native test suite
+- `IGCLWrapper.FacadeTests/` - facade test suite
+- `Samples/` - sample apps
+- `drivers.gpu.control-library/` - IGCL SDK payload (populated by prepare script)
 
 ## Usage notes
 - Always dispose `IGCLApi` (use `using`); SafeHandle + finalizer backstops leaks.
 - Handles returned from enumerate calls are opaque; pass them back to IGCL or helper methods.
-- Struct `Version` fields are bytes; use `(byte)0/1` as shown in helpers.
+- Facade helpers return DTOs with `bool` properties; use `*Native()` helper methods to access raw structs.
+- Struct `Version` fields are bytes in native structs; use `(byte)0/1` in native code paths.
 
 ## Contributing
-PRs welcome—please add/keep tests passing and let the generator own `cs_generated`.
+PRs welcome-please add/keep tests passing and let the generator own `cs_generated`.
+
+
+

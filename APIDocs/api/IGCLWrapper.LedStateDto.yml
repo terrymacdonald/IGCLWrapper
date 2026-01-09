@@ -1,0 +1,537 @@
+### YamlMime:ManagedReference
+items:
+- uid: IGCLWrapper.LedStateDto
+  commentId: T:IGCLWrapper.LedStateDto
+  id: LedStateDto
+  parent: IGCLWrapper
+  children:
+  - IGCLWrapper.LedStateDto.Color
+  - IGCLWrapper.LedStateDto.FromNative(IGCLWrapper.ctl_led_state_t)
+  - IGCLWrapper.LedStateDto.IsOn
+  - IGCLWrapper.LedStateDto.Pwm
+  - IGCLWrapper.LedStateDto.Size
+  - IGCLWrapper.LedStateDto.ToNative
+  - IGCLWrapper.LedStateDto.Version
+  langs:
+  - csharp
+  - vb
+  name: LedStateDto
+  nameWithType: LedStateDto
+  fullName: IGCLWrapper.LedStateDto
+  type: Struct
+  source:
+    remote:
+      path: IGCLWrapper/IGCLLedHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: LedStateDto
+    path: ../IGCLWrapper/IGCLLedHelper.cs
+    startLine: 147
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public struct LedStateDto
+    content.vb: Public Structure LedStateDto
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.LedStateDto.Size
+  commentId: F:IGCLWrapper.LedStateDto.Size
+  id: Size
+  parent: IGCLWrapper.LedStateDto
+  langs:
+  - csharp
+  - vb
+  name: Size
+  nameWithType: LedStateDto.Size
+  fullName: IGCLWrapper.LedStateDto.Size
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLLedHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Size
+    path: ../IGCLWrapper/IGCLLedHelper.cs
+    startLine: 149
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public uint Size
+    return:
+      type: System.UInt32
+    content.vb: Public Size As UInteger
+- uid: IGCLWrapper.LedStateDto.Version
+  commentId: F:IGCLWrapper.LedStateDto.Version
+  id: Version
+  parent: IGCLWrapper.LedStateDto
+  langs:
+  - csharp
+  - vb
+  name: Version
+  nameWithType: LedStateDto.Version
+  fullName: IGCLWrapper.LedStateDto.Version
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLLedHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Version
+    path: ../IGCLWrapper/IGCLLedHelper.cs
+    startLine: 150
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public byte Version
+    return:
+      type: System.Byte
+    content.vb: Public Version As Byte
+- uid: IGCLWrapper.LedStateDto.IsOn
+  commentId: F:IGCLWrapper.LedStateDto.IsOn
+  id: IsOn
+  parent: IGCLWrapper.LedStateDto
+  langs:
+  - csharp
+  - vb
+  name: IsOn
+  nameWithType: LedStateDto.IsOn
+  fullName: IGCLWrapper.LedStateDto.IsOn
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLLedHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsOn
+    path: ../IGCLWrapper/IGCLLedHelper.cs
+    startLine: 151
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsOn
+    return:
+      type: System.Boolean
+    content.vb: Public IsOn As Boolean
+- uid: IGCLWrapper.LedStateDto.Pwm
+  commentId: F:IGCLWrapper.LedStateDto.Pwm
+  id: Pwm
+  parent: IGCLWrapper.LedStateDto
+  langs:
+  - csharp
+  - vb
+  name: Pwm
+  nameWithType: LedStateDto.Pwm
+  fullName: IGCLWrapper.LedStateDto.Pwm
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLLedHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Pwm
+    path: ../IGCLWrapper/IGCLLedHelper.cs
+    startLine: 152
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public double Pwm
+    return:
+      type: System.Double
+    content.vb: Public Pwm As Double
+- uid: IGCLWrapper.LedStateDto.Color
+  commentId: F:IGCLWrapper.LedStateDto.Color
+  id: Color
+  parent: IGCLWrapper.LedStateDto
+  langs:
+  - csharp
+  - vb
+  name: Color
+  nameWithType: LedStateDto.Color
+  fullName: IGCLWrapper.LedStateDto.Color
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLLedHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Color
+    path: ../IGCLWrapper/IGCLLedHelper.cs
+    startLine: 153
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_led_color_t Color
+    return:
+      type: IGCLWrapper.ctl_led_color_t
+    content.vb: Public Color As ctl_led_color_t
+- uid: IGCLWrapper.LedStateDto.FromNative(IGCLWrapper.ctl_led_state_t)
+  commentId: M:IGCLWrapper.LedStateDto.FromNative(IGCLWrapper.ctl_led_state_t)
+  id: FromNative(IGCLWrapper.ctl_led_state_t)
+  parent: IGCLWrapper.LedStateDto
+  langs:
+  - csharp
+  - vb
+  name: FromNative(ctl_led_state_t)
+  nameWithType: LedStateDto.FromNative(ctl_led_state_t)
+  fullName: IGCLWrapper.LedStateDto.FromNative(IGCLWrapper.ctl_led_state_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLLedHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: FromNative
+    path: ../IGCLWrapper/IGCLLedHelper.cs
+    startLine: 155
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public static LedStateDto FromNative(ctl_led_state_t native)
+    parameters:
+    - id: native
+      type: IGCLWrapper.ctl_led_state_t
+    return:
+      type: IGCLWrapper.LedStateDto
+    content.vb: Public Shared Function FromNative(native As ctl_led_state_t) As LedStateDto
+  overload: IGCLWrapper.LedStateDto.FromNative*
+- uid: IGCLWrapper.LedStateDto.ToNative
+  commentId: M:IGCLWrapper.LedStateDto.ToNative
+  id: ToNative
+  parent: IGCLWrapper.LedStateDto
+  langs:
+  - csharp
+  - vb
+  name: ToNative()
+  nameWithType: LedStateDto.ToNative()
+  fullName: IGCLWrapper.LedStateDto.ToNative()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLLedHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: ToNative
+    path: ../IGCLWrapper/IGCLLedHelper.cs
+    startLine: 167
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_led_state_t ToNative()
+    return:
+      type: IGCLWrapper.ctl_led_state_t
+    content.vb: Public Function ToNative() As ctl_led_state_t
+  overload: IGCLWrapper.LedStateDto.ToNative*
+references:
+- uid: IGCLWrapper
+  commentId: N:IGCLWrapper
+  href: IGCLWrapper.html
+  name: IGCLWrapper
+  nameWithType: IGCLWrapper
+  fullName: IGCLWrapper
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: IGCLWrapper.ctl_led_color_t
+  commentId: T:IGCLWrapper.ctl_led_color_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_led_color_t.html
+  name: ctl_led_color_t
+  nameWithType: ctl_led_color_t
+  fullName: IGCLWrapper.ctl_led_color_t
+- uid: IGCLWrapper.LedStateDto.FromNative*
+  commentId: Overload:IGCLWrapper.LedStateDto.FromNative
+  href: IGCLWrapper.LedStateDto.html#IGCLWrapper_LedStateDto_FromNative_IGCLWrapper_ctl_led_state_t_
+  name: FromNative
+  nameWithType: LedStateDto.FromNative
+  fullName: IGCLWrapper.LedStateDto.FromNative
+- uid: IGCLWrapper.ctl_led_state_t
+  commentId: T:IGCLWrapper.ctl_led_state_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_led_state_t.html
+  name: ctl_led_state_t
+  nameWithType: ctl_led_state_t
+  fullName: IGCLWrapper.ctl_led_state_t
+- uid: IGCLWrapper.LedStateDto
+  commentId: T:IGCLWrapper.LedStateDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.LedStateDto.html
+  name: LedStateDto
+  nameWithType: LedStateDto
+  fullName: IGCLWrapper.LedStateDto
+- uid: IGCLWrapper.LedStateDto.ToNative*
+  commentId: Overload:IGCLWrapper.LedStateDto.ToNative
+  href: IGCLWrapper.LedStateDto.html#IGCLWrapper_LedStateDto_ToNative
+  name: ToNative
+  nameWithType: LedStateDto.ToNative
+  fullName: IGCLWrapper.LedStateDto.ToNative

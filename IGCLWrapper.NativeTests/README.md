@@ -1,4 +1,4 @@
-# IGCLWrapper.Tests
+# IGCLWrapper.NativeTests
 
 Integration tests for IGCLWrapper. Tests require:
 - Intel GPU with IGCL support
@@ -9,8 +9,8 @@ Integration tests for IGCLWrapper. Tests require:
 ```powershell
 ./test_igcl.ps1
 # or
-cd IGCLWrapper.Tests
-dotnet test IGCLWrapper.Tests.csproj
+cd IGCLWrapper.NativeTests
+dotnet test IGCLWrapper.NativeTests.csproj
 ```
 
 Tests skip gracefully when hardware or DLLs are missing; skipped tests are reported in output.

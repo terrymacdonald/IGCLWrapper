@@ -11,6 +11,7 @@ items:
   - IGCLWrapper.IGCLFanHelper.EnumFans
   - IGCLWrapper.IGCLFanHelper.FanGetConfig(System.IntPtr)
   - IGCLWrapper.IGCLFanHelper.FanGetProperties(System.IntPtr)
+  - IGCLWrapper.IGCLFanHelper.FanGetPropertiesNative(System.IntPtr)
   - IGCLWrapper.IGCLFanHelper.FanGetState(System.IntPtr,IGCLWrapper.ctl_fan_speed_units_t)
   - IGCLWrapper.IGCLFanHelper.FanSetDefaultMode(System.IntPtr)
   - IGCLWrapper.IGCLFanHelper.FanSetFixedSpeedMode(System.IntPtr,IGCLWrapper.ctl_fan_speed_t)
@@ -25,7 +26,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFanHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IGCLFanHelper
     path: ../IGCLWrapper/IGCLFanHelper.cs
@@ -63,7 +64,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFanHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumFans
     path: ../IGCLWrapper/IGCLFanHelper.cs
@@ -77,6 +78,40 @@ items:
       type: System.Collections.Generic.IReadOnlyList{System.IntPtr}
     content.vb: Public Function EnumFans() As IReadOnlyList(Of IntPtr)
   overload: IGCLWrapper.IGCLFanHelper.EnumFans*
+- uid: IGCLWrapper.IGCLFanHelper.FanGetPropertiesNative(System.IntPtr)
+  commentId: M:IGCLWrapper.IGCLFanHelper.FanGetPropertiesNative(System.IntPtr)
+  id: FanGetPropertiesNative(System.IntPtr)
+  parent: IGCLWrapper.IGCLFanHelper
+  langs:
+  - csharp
+  - vb
+  name: FanGetPropertiesNative(nint)
+  nameWithType: IGCLFanHelper.FanGetPropertiesNative(nint)
+  fullName: IGCLWrapper.IGCLFanHelper.FanGetPropertiesNative(nint)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFanHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: FanGetPropertiesNative
+    path: ../IGCLWrapper/IGCLFanHelper.cs
+    startLine: 26
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_fan_properties_t FanGetPropertiesNative(nint fanHandle)
+    parameters:
+    - id: fanHandle
+      type: System.IntPtr
+    return:
+      type: IGCLWrapper.ctl_fan_properties_t
+    content.vb: Public Function FanGetPropertiesNative(fanHandle As IntPtr) As ctl_fan_properties_t
+  overload: IGCLWrapper.IGCLFanHelper.FanGetPropertiesNative*
+  nameWithType.vb: IGCLFanHelper.FanGetPropertiesNative(IntPtr)
+  fullName.vb: IGCLWrapper.IGCLFanHelper.FanGetPropertiesNative(System.IntPtr)
+  name.vb: FanGetPropertiesNative(IntPtr)
 - uid: IGCLWrapper.IGCLFanHelper.FanGetProperties(System.IntPtr)
   commentId: M:IGCLWrapper.IGCLFanHelper.FanGetProperties(System.IntPtr)
   id: FanGetProperties(System.IntPtr)
@@ -91,22 +126,22 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFanHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FanGetProperties
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 26
+    startLine: 36
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public ctl_fan_properties_t FanGetProperties(nint fanHandle)
+    content: public FanPropertiesDto FanGetProperties(nint fanHandle)
     parameters:
     - id: fanHandle
       type: System.IntPtr
     return:
-      type: IGCLWrapper.ctl_fan_properties_t
-    content.vb: Public Function FanGetProperties(fanHandle As IntPtr) As ctl_fan_properties_t
+      type: IGCLWrapper.FanPropertiesDto
+    content.vb: Public Function FanGetProperties(fanHandle As IntPtr) As FanPropertiesDto
   overload: IGCLWrapper.IGCLFanHelper.FanGetProperties*
   nameWithType.vb: IGCLFanHelper.FanGetProperties(IntPtr)
   fullName.vb: IGCLWrapper.IGCLFanHelper.FanGetProperties(System.IntPtr)
@@ -125,11 +160,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFanHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FanGetConfig
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 36
+    startLine: 42
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -159,11 +194,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFanHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FanSetDefaultMode
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 46
+    startLine: 52
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -191,11 +226,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFanHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FanSetFixedSpeedMode
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 54
+    startLine: 60
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -225,11 +260,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFanHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FanSetSpeedTableMode
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 62
+    startLine: 68
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -259,11 +294,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFanHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FanGetState
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 70
+    startLine: 76
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -295,11 +330,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFanHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateFanSpeed
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 106
+    startLine: 112
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -323,11 +358,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFanHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateFanSpeedTable
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 107
+    startLine: 113
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -351,11 +386,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFanHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 109
+    startLine: 115
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -701,12 +736,12 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: IGCLWrapper.IGCLFanHelper.FanGetProperties*
-  commentId: Overload:IGCLWrapper.IGCLFanHelper.FanGetProperties
-  href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_FanGetProperties_System_IntPtr_
-  name: FanGetProperties
-  nameWithType: IGCLFanHelper.FanGetProperties
-  fullName: IGCLWrapper.IGCLFanHelper.FanGetProperties
+- uid: IGCLWrapper.IGCLFanHelper.FanGetPropertiesNative*
+  commentId: Overload:IGCLWrapper.IGCLFanHelper.FanGetPropertiesNative
+  href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_FanGetPropertiesNative_System_IntPtr_
+  name: FanGetPropertiesNative
+  nameWithType: IGCLFanHelper.FanGetPropertiesNative
+  fullName: IGCLWrapper.IGCLFanHelper.FanGetPropertiesNative
 - uid: System.IntPtr
   commentId: T:System.IntPtr
   parent: System
@@ -725,6 +760,19 @@ references:
   name: ctl_fan_properties_t
   nameWithType: ctl_fan_properties_t
   fullName: IGCLWrapper.ctl_fan_properties_t
+- uid: IGCLWrapper.IGCLFanHelper.FanGetProperties*
+  commentId: Overload:IGCLWrapper.IGCLFanHelper.FanGetProperties
+  href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_FanGetProperties_System_IntPtr_
+  name: FanGetProperties
+  nameWithType: IGCLFanHelper.FanGetProperties
+  fullName: IGCLWrapper.IGCLFanHelper.FanGetProperties
+- uid: IGCLWrapper.FanPropertiesDto
+  commentId: T:IGCLWrapper.FanPropertiesDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.FanPropertiesDto.html
+  name: FanPropertiesDto
+  nameWithType: FanPropertiesDto
+  fullName: IGCLWrapper.FanPropertiesDto
 - uid: IGCLWrapper.IGCLFanHelper.FanGetConfig*
   commentId: Overload:IGCLWrapper.IGCLFanHelper.FanGetConfig
   href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_FanGetConfig_System_IntPtr_

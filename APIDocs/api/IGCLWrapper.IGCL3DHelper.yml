@@ -7,7 +7,8 @@ items:
   children:
   - IGCLWrapper.IGCL3DHelper.Create3DFeatureGetSet
   - IGCLWrapper.IGCL3DHelper.Dispose
-  - IGCLWrapper.IGCL3DHelper.GetSet3DFeature(IGCLWrapper.ctl_3d_feature_getset_t)
+  - IGCLWrapper.IGCL3DHelper.GetSet3DFeature(IGCLWrapper.ThreeDFeatureGetSetDto)
+  - IGCLWrapper.IGCL3DHelper.GetSet3DFeatureNative(IGCLWrapper.ctl_3d_feature_getset_t)
   - IGCLWrapper.IGCL3DHelper.GetSupported3DCapabilities
   langs:
   - csharp
@@ -19,7 +20,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCL3DHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IGCL3DHelper
     path: ../IGCLWrapper/IGCL3DHelper.cs
@@ -57,7 +58,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCL3DHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSupported3DCapabilities
     path: ../IGCLWrapper/IGCL3DHelper.cs
@@ -71,36 +72,67 @@ items:
       type: IGCLWrapper.ctl_3d_feature_caps_t
     content.vb: Public Function GetSupported3DCapabilities() As ctl_3d_feature_caps_t
   overload: IGCLWrapper.IGCL3DHelper.GetSupported3DCapabilities*
-- uid: IGCLWrapper.IGCL3DHelper.GetSet3DFeature(IGCLWrapper.ctl_3d_feature_getset_t)
-  commentId: M:IGCLWrapper.IGCL3DHelper.GetSet3DFeature(IGCLWrapper.ctl_3d_feature_getset_t)
-  id: GetSet3DFeature(IGCLWrapper.ctl_3d_feature_getset_t)
+- uid: IGCLWrapper.IGCL3DHelper.GetSet3DFeatureNative(IGCLWrapper.ctl_3d_feature_getset_t)
+  commentId: M:IGCLWrapper.IGCL3DHelper.GetSet3DFeatureNative(IGCLWrapper.ctl_3d_feature_getset_t)
+  id: GetSet3DFeatureNative(IGCLWrapper.ctl_3d_feature_getset_t)
   parent: IGCLWrapper.IGCL3DHelper
   langs:
   - csharp
   - vb
-  name: GetSet3DFeature(ctl_3d_feature_getset_t)
-  nameWithType: IGCL3DHelper.GetSet3DFeature(ctl_3d_feature_getset_t)
-  fullName: IGCLWrapper.IGCL3DHelper.GetSet3DFeature(IGCLWrapper.ctl_3d_feature_getset_t)
+  name: GetSet3DFeatureNative(ctl_3d_feature_getset_t)
+  nameWithType: IGCL3DHelper.GetSet3DFeatureNative(ctl_3d_feature_getset_t)
+  fullName: IGCLWrapper.IGCL3DHelper.GetSet3DFeatureNative(IGCLWrapper.ctl_3d_feature_getset_t)
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCL3DHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetSet3DFeature
+    id: GetSet3DFeatureNative
     path: ../IGCLWrapper/IGCL3DHelper.cs
     startLine: 29
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public ctl_3d_feature_getset_t GetSet3DFeature(ctl_3d_feature_getset_t feature)
+    content: public ctl_3d_feature_getset_t GetSet3DFeatureNative(ctl_3d_feature_getset_t feature)
     parameters:
     - id: feature
       type: IGCLWrapper.ctl_3d_feature_getset_t
     return:
       type: IGCLWrapper.ctl_3d_feature_getset_t
-    content.vb: Public Function GetSet3DFeature(feature As ctl_3d_feature_getset_t) As ctl_3d_feature_getset_t
+    content.vb: Public Function GetSet3DFeatureNative(feature As ctl_3d_feature_getset_t) As ctl_3d_feature_getset_t
+  overload: IGCLWrapper.IGCL3DHelper.GetSet3DFeatureNative*
+- uid: IGCLWrapper.IGCL3DHelper.GetSet3DFeature(IGCLWrapper.ThreeDFeatureGetSetDto)
+  commentId: M:IGCLWrapper.IGCL3DHelper.GetSet3DFeature(IGCLWrapper.ThreeDFeatureGetSetDto)
+  id: GetSet3DFeature(IGCLWrapper.ThreeDFeatureGetSetDto)
+  parent: IGCLWrapper.IGCL3DHelper
+  langs:
+  - csharp
+  - vb
+  name: GetSet3DFeature(ThreeDFeatureGetSetDto)
+  nameWithType: IGCL3DHelper.GetSet3DFeature(ThreeDFeatureGetSetDto)
+  fullName: IGCLWrapper.IGCL3DHelper.GetSet3DFeature(IGCLWrapper.ThreeDFeatureGetSetDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCL3DHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetSet3DFeature
+    path: ../IGCLWrapper/IGCL3DHelper.cs
+    startLine: 38
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ThreeDFeatureGetSetDto GetSet3DFeature(ThreeDFeatureGetSetDto feature)
+    parameters:
+    - id: feature
+      type: IGCLWrapper.ThreeDFeatureGetSetDto
+    return:
+      type: IGCLWrapper.ThreeDFeatureGetSetDto
+    content.vb: Public Function GetSet3DFeature(feature As ThreeDFeatureGetSetDto) As ThreeDFeatureGetSetDto
   overload: IGCLWrapper.IGCL3DHelper.GetSet3DFeature*
 - uid: IGCLWrapper.IGCL3DHelper.Create3DFeatureGetSet
   commentId: M:IGCLWrapper.IGCL3DHelper.Create3DFeatureGetSet
@@ -116,11 +148,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCL3DHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Create3DFeatureGetSet
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 45
+    startLine: 51
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -144,11 +176,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCL3DHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 47
+    startLine: 53
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -401,12 +433,12 @@ references:
   name: ctl_3d_feature_caps_t
   nameWithType: ctl_3d_feature_caps_t
   fullName: IGCLWrapper.ctl_3d_feature_caps_t
-- uid: IGCLWrapper.IGCL3DHelper.GetSet3DFeature*
-  commentId: Overload:IGCLWrapper.IGCL3DHelper.GetSet3DFeature
-  href: IGCLWrapper.IGCL3DHelper.html#IGCLWrapper_IGCL3DHelper_GetSet3DFeature_IGCLWrapper_ctl_3d_feature_getset_t_
-  name: GetSet3DFeature
-  nameWithType: IGCL3DHelper.GetSet3DFeature
-  fullName: IGCLWrapper.IGCL3DHelper.GetSet3DFeature
+- uid: IGCLWrapper.IGCL3DHelper.GetSet3DFeatureNative*
+  commentId: Overload:IGCLWrapper.IGCL3DHelper.GetSet3DFeatureNative
+  href: IGCLWrapper.IGCL3DHelper.html#IGCLWrapper_IGCL3DHelper_GetSet3DFeatureNative_IGCLWrapper_ctl_3d_feature_getset_t_
+  name: GetSet3DFeatureNative
+  nameWithType: IGCL3DHelper.GetSet3DFeatureNative
+  fullName: IGCLWrapper.IGCL3DHelper.GetSet3DFeatureNative
 - uid: IGCLWrapper.ctl_3d_feature_getset_t
   commentId: T:IGCLWrapper.ctl_3d_feature_getset_t
   parent: IGCLWrapper
@@ -414,6 +446,19 @@ references:
   name: ctl_3d_feature_getset_t
   nameWithType: ctl_3d_feature_getset_t
   fullName: IGCLWrapper.ctl_3d_feature_getset_t
+- uid: IGCLWrapper.IGCL3DHelper.GetSet3DFeature*
+  commentId: Overload:IGCLWrapper.IGCL3DHelper.GetSet3DFeature
+  href: IGCLWrapper.IGCL3DHelper.html#IGCLWrapper_IGCL3DHelper_GetSet3DFeature_IGCLWrapper_ThreeDFeatureGetSetDto_
+  name: GetSet3DFeature
+  nameWithType: IGCL3DHelper.GetSet3DFeature
+  fullName: IGCLWrapper.IGCL3DHelper.GetSet3DFeature
+- uid: IGCLWrapper.ThreeDFeatureGetSetDto
+  commentId: T:IGCLWrapper.ThreeDFeatureGetSetDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.ThreeDFeatureGetSetDto.html
+  name: ThreeDFeatureGetSetDto
+  nameWithType: ThreeDFeatureGetSetDto
+  fullName: IGCLWrapper.ThreeDFeatureGetSetDto
 - uid: IGCLWrapper.IGCL3DHelper.Create3DFeatureGetSet*
   commentId: Overload:IGCLWrapper.IGCL3DHelper.Create3DFeatureGetSet
   href: IGCLWrapper.IGCL3DHelper.html#IGCLWrapper_IGCL3DHelper_Create3DFeatureGetSet

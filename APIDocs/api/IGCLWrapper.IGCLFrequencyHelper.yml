@@ -10,6 +10,7 @@ items:
   - IGCLWrapper.IGCLFrequencyHelper.EnumFrequencyDomains
   - IGCLWrapper.IGCLFrequencyHelper.FrequencyGetAvailableClocks(System.IntPtr)
   - IGCLWrapper.IGCLFrequencyHelper.FrequencyGetProperties(System.IntPtr)
+  - IGCLWrapper.IGCLFrequencyHelper.FrequencyGetPropertiesNative(System.IntPtr)
   - IGCLWrapper.IGCLFrequencyHelper.FrequencyGetRange(System.IntPtr)
   - IGCLWrapper.IGCLFrequencyHelper.FrequencyGetState(System.IntPtr)
   - IGCLWrapper.IGCLFrequencyHelper.FrequencyGetThrottleTime(System.IntPtr)
@@ -24,7 +25,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFrequencyHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IGCLFrequencyHelper
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
@@ -62,7 +63,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFrequencyHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumFrequencyDomains
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
@@ -76,6 +77,40 @@ items:
       type: System.Collections.Generic.IReadOnlyList{System.IntPtr}
     content.vb: Public Function EnumFrequencyDomains() As IReadOnlyList(Of IntPtr)
   overload: IGCLWrapper.IGCLFrequencyHelper.EnumFrequencyDomains*
+- uid: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetPropertiesNative(System.IntPtr)
+  commentId: M:IGCLWrapper.IGCLFrequencyHelper.FrequencyGetPropertiesNative(System.IntPtr)
+  id: FrequencyGetPropertiesNative(System.IntPtr)
+  parent: IGCLWrapper.IGCLFrequencyHelper
+  langs:
+  - csharp
+  - vb
+  name: FrequencyGetPropertiesNative(nint)
+  nameWithType: IGCLFrequencyHelper.FrequencyGetPropertiesNative(nint)
+  fullName: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetPropertiesNative(nint)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFrequencyHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: FrequencyGetPropertiesNative
+    path: ../IGCLWrapper/IGCLFrequencyHelper.cs
+    startLine: 26
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_freq_properties_t FrequencyGetPropertiesNative(nint freqHandle)
+    parameters:
+    - id: freqHandle
+      type: System.IntPtr
+    return:
+      type: IGCLWrapper.ctl_freq_properties_t
+    content.vb: Public Function FrequencyGetPropertiesNative(freqHandle As IntPtr) As ctl_freq_properties_t
+  overload: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetPropertiesNative*
+  nameWithType.vb: IGCLFrequencyHelper.FrequencyGetPropertiesNative(IntPtr)
+  fullName.vb: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetPropertiesNative(System.IntPtr)
+  name.vb: FrequencyGetPropertiesNative(IntPtr)
 - uid: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetProperties(System.IntPtr)
   commentId: M:IGCLWrapper.IGCLFrequencyHelper.FrequencyGetProperties(System.IntPtr)
   id: FrequencyGetProperties(System.IntPtr)
@@ -90,22 +125,22 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFrequencyHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FrequencyGetProperties
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 26
+    startLine: 36
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public ctl_freq_properties_t FrequencyGetProperties(nint freqHandle)
+    content: public FrequencyPropertiesDto FrequencyGetProperties(nint freqHandle)
     parameters:
     - id: freqHandle
       type: System.IntPtr
     return:
-      type: IGCLWrapper.ctl_freq_properties_t
-    content.vb: Public Function FrequencyGetProperties(freqHandle As IntPtr) As ctl_freq_properties_t
+      type: IGCLWrapper.FrequencyPropertiesDto
+    content.vb: Public Function FrequencyGetProperties(freqHandle As IntPtr) As FrequencyPropertiesDto
   overload: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetProperties*
   nameWithType.vb: IGCLFrequencyHelper.FrequencyGetProperties(IntPtr)
   fullName.vb: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetProperties(System.IntPtr)
@@ -124,11 +159,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFrequencyHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FrequencyGetAvailableClocks
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 36
+    startLine: 42
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -158,11 +193,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFrequencyHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FrequencyGetRange
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 55
+    startLine: 61
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -192,11 +227,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFrequencyHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FrequencySetRange
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 65
+    startLine: 71
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -226,11 +261,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFrequencyHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FrequencyGetState
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 73
+    startLine: 79
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -260,11 +295,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFrequencyHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FrequencyGetThrottleTime
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 83
+    startLine: 89
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -294,11 +329,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFrequencyHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateFrequencyRangeStruct
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 121
+    startLine: 127
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -322,11 +357,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFrequencyHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 123
+    startLine: 129
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -672,12 +707,12 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetProperties*
-  commentId: Overload:IGCLWrapper.IGCLFrequencyHelper.FrequencyGetProperties
-  href: IGCLWrapper.IGCLFrequencyHelper.html#IGCLWrapper_IGCLFrequencyHelper_FrequencyGetProperties_System_IntPtr_
-  name: FrequencyGetProperties
-  nameWithType: IGCLFrequencyHelper.FrequencyGetProperties
-  fullName: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetProperties
+- uid: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetPropertiesNative*
+  commentId: Overload:IGCLWrapper.IGCLFrequencyHelper.FrequencyGetPropertiesNative
+  href: IGCLWrapper.IGCLFrequencyHelper.html#IGCLWrapper_IGCLFrequencyHelper_FrequencyGetPropertiesNative_System_IntPtr_
+  name: FrequencyGetPropertiesNative
+  nameWithType: IGCLFrequencyHelper.FrequencyGetPropertiesNative
+  fullName: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetPropertiesNative
 - uid: System.IntPtr
   commentId: T:System.IntPtr
   parent: System
@@ -696,6 +731,19 @@ references:
   name: ctl_freq_properties_t
   nameWithType: ctl_freq_properties_t
   fullName: IGCLWrapper.ctl_freq_properties_t
+- uid: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetProperties*
+  commentId: Overload:IGCLWrapper.IGCLFrequencyHelper.FrequencyGetProperties
+  href: IGCLWrapper.IGCLFrequencyHelper.html#IGCLWrapper_IGCLFrequencyHelper_FrequencyGetProperties_System_IntPtr_
+  name: FrequencyGetProperties
+  nameWithType: IGCLFrequencyHelper.FrequencyGetProperties
+  fullName: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetProperties
+- uid: IGCLWrapper.FrequencyPropertiesDto
+  commentId: T:IGCLWrapper.FrequencyPropertiesDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.FrequencyPropertiesDto.html
+  name: FrequencyPropertiesDto
+  nameWithType: FrequencyPropertiesDto
+  fullName: IGCLWrapper.FrequencyPropertiesDto
 - uid: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetAvailableClocks*
   commentId: Overload:IGCLWrapper.IGCLFrequencyHelper.FrequencyGetAvailableClocks
   href: IGCLWrapper.IGCLFrequencyHelper.html#IGCLWrapper_IGCLFrequencyHelper_FrequencyGetAvailableClocks_System_IntPtr_

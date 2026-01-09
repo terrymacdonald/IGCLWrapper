@@ -7,6 +7,7 @@ items:
   children:
   - IGCLWrapper.IGCLPciHelper.Dispose
   - IGCLWrapper.IGCLPciHelper.PciGetProperties
+  - IGCLWrapper.IGCLPciHelper.PciGetPropertiesNative
   - IGCLWrapper.IGCLPciHelper.PciGetState
   langs:
   - csharp
@@ -18,7 +19,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLPciHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IGCLPciHelper
     path: ../IGCLWrapper/IGCLPciHelper.cs
@@ -42,6 +43,34 @@ items:
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+- uid: IGCLWrapper.IGCLPciHelper.PciGetPropertiesNative
+  commentId: M:IGCLWrapper.IGCLPciHelper.PciGetPropertiesNative
+  id: PciGetPropertiesNative
+  parent: IGCLWrapper.IGCLPciHelper
+  langs:
+  - csharp
+  - vb
+  name: PciGetPropertiesNative()
+  nameWithType: IGCLPciHelper.PciGetPropertiesNative()
+  fullName: IGCLWrapper.IGCLPciHelper.PciGetPropertiesNative()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLPciHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: PciGetPropertiesNative
+    path: ../IGCLWrapper/IGCLPciHelper.cs
+    startLine: 19
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_pci_properties_t PciGetPropertiesNative()
+    return:
+      type: IGCLWrapper.ctl_pci_properties_t
+    content.vb: Public Function PciGetPropertiesNative() As ctl_pci_properties_t
+  overload: IGCLWrapper.IGCLPciHelper.PciGetPropertiesNative*
 - uid: IGCLWrapper.IGCLPciHelper.PciGetProperties
   commentId: M:IGCLWrapper.IGCLPciHelper.PciGetProperties
   id: PciGetProperties
@@ -56,19 +85,19 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLPciHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PciGetProperties
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 19
+    startLine: 29
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public ctl_pci_properties_t PciGetProperties()
+    content: public PciPropertiesDto PciGetProperties()
     return:
-      type: IGCLWrapper.ctl_pci_properties_t
-    content.vb: Public Function PciGetProperties() As ctl_pci_properties_t
+      type: IGCLWrapper.PciPropertiesDto
+    content.vb: Public Function PciGetProperties() As PciPropertiesDto
   overload: IGCLWrapper.IGCLPciHelper.PciGetProperties*
 - uid: IGCLWrapper.IGCLPciHelper.PciGetState
   commentId: M:IGCLWrapper.IGCLPciHelper.PciGetState
@@ -84,11 +113,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLPciHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PciGetState
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 29
+    startLine: 35
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -112,11 +141,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLPciHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 45
+    startLine: 51
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -356,12 +385,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: IGCLWrapper.IGCLPciHelper.PciGetProperties*
-  commentId: Overload:IGCLWrapper.IGCLPciHelper.PciGetProperties
-  href: IGCLWrapper.IGCLPciHelper.html#IGCLWrapper_IGCLPciHelper_PciGetProperties
-  name: PciGetProperties
-  nameWithType: IGCLPciHelper.PciGetProperties
-  fullName: IGCLWrapper.IGCLPciHelper.PciGetProperties
+- uid: IGCLWrapper.IGCLPciHelper.PciGetPropertiesNative*
+  commentId: Overload:IGCLWrapper.IGCLPciHelper.PciGetPropertiesNative
+  href: IGCLWrapper.IGCLPciHelper.html#IGCLWrapper_IGCLPciHelper_PciGetPropertiesNative
+  name: PciGetPropertiesNative
+  nameWithType: IGCLPciHelper.PciGetPropertiesNative
+  fullName: IGCLWrapper.IGCLPciHelper.PciGetPropertiesNative
 - uid: IGCLWrapper.ctl_pci_properties_t
   commentId: T:IGCLWrapper.ctl_pci_properties_t
   parent: IGCLWrapper
@@ -369,6 +398,19 @@ references:
   name: ctl_pci_properties_t
   nameWithType: ctl_pci_properties_t
   fullName: IGCLWrapper.ctl_pci_properties_t
+- uid: IGCLWrapper.IGCLPciHelper.PciGetProperties*
+  commentId: Overload:IGCLWrapper.IGCLPciHelper.PciGetProperties
+  href: IGCLWrapper.IGCLPciHelper.html#IGCLWrapper_IGCLPciHelper_PciGetProperties
+  name: PciGetProperties
+  nameWithType: IGCLPciHelper.PciGetProperties
+  fullName: IGCLWrapper.IGCLPciHelper.PciGetProperties
+- uid: IGCLWrapper.PciPropertiesDto
+  commentId: T:IGCLWrapper.PciPropertiesDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.PciPropertiesDto.html
+  name: PciPropertiesDto
+  nameWithType: PciPropertiesDto
+  fullName: IGCLWrapper.PciPropertiesDto
 - uid: IGCLWrapper.IGCLPciHelper.PciGetState*
   commentId: Overload:IGCLWrapper.IGCLPciHelper.PciGetState
   href: IGCLWrapper.IGCLPciHelper.html#IGCLWrapper_IGCLPciHelper_PciGetState

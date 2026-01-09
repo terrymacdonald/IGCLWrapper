@@ -54,6 +54,7 @@ when this appears in the IGCLDisplayHelper
 ## Core Facade-Specific Development Rules
 - Facade level objects should handle all underlying Native level memory management themselves. The user should not need to worry about it. This includes memory creation, disposal when objects are deleted, and handling functions being called multiple times in threads. Our aim is to never have memory leaks when using Facades.
 - The Facade functions should (in general) return Helper objects that represent the relevant objects within the underlying IGCL SDK, for example IGCLDesktop. Each returned Facade object should have properties that store the information contained within the underlying Native objects e.g. NativeResolutionWidth, and Access to any underlying functions that are offered by the Native objects e.g. IGCLDisplayHelper providing access to EnumerateDisplayOutputs() function that returns a list of Displays outputs currently known to Windows.
+- Facade helper methods should return DTOs with `bool` properties where native structs use `byte` for `bool`. Provide `*Native()` helper methods for raw struct access.
 - Initialization (Facade): Use `using var IGCL = IGCLApiHelper.Initialize();` as the standard entry point.
 - Disposal (Facade): Dispose facade system services and returned facade objects before disposing `IGCL`. `IGCLApiHelper` disposal should result in `ObjectDisposedException` on use-after-dispose.
 

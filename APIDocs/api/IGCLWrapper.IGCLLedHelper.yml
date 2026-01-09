@@ -9,8 +9,11 @@ items:
   - IGCLWrapper.IGCLLedHelper.Dispose
   - IGCLWrapper.IGCLLedHelper.EnumLeds
   - IGCLWrapper.IGCLLedHelper.LedGetProperties(System.IntPtr)
+  - IGCLWrapper.IGCLLedHelper.LedGetPropertiesNative(System.IntPtr)
   - IGCLWrapper.IGCLLedHelper.LedGetState(System.IntPtr)
-  - IGCLWrapper.IGCLLedHelper.LedSetState(System.IntPtr,IGCLWrapper.ctl_led_state_t)
+  - IGCLWrapper.IGCLLedHelper.LedGetStateNative(System.IntPtr)
+  - IGCLWrapper.IGCLLedHelper.LedSetState(System.IntPtr,IGCLWrapper.LedStateDto)
+  - IGCLWrapper.IGCLLedHelper.LedSetStateNative(System.IntPtr,IGCLWrapper.ctl_led_state_t)
   langs:
   - csharp
   - vb
@@ -21,7 +24,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLLedHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IGCLLedHelper
     path: ../IGCLWrapper/IGCLLedHelper.cs
@@ -59,7 +62,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLLedHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumLeds
     path: ../IGCLWrapper/IGCLLedHelper.cs
@@ -73,6 +76,40 @@ items:
       type: System.Collections.Generic.IReadOnlyList{System.IntPtr}
     content.vb: Public Function EnumLeds() As IReadOnlyList(Of IntPtr)
   overload: IGCLWrapper.IGCLLedHelper.EnumLeds*
+- uid: IGCLWrapper.IGCLLedHelper.LedGetPropertiesNative(System.IntPtr)
+  commentId: M:IGCLWrapper.IGCLLedHelper.LedGetPropertiesNative(System.IntPtr)
+  id: LedGetPropertiesNative(System.IntPtr)
+  parent: IGCLWrapper.IGCLLedHelper
+  langs:
+  - csharp
+  - vb
+  name: LedGetPropertiesNative(nint)
+  nameWithType: IGCLLedHelper.LedGetPropertiesNative(nint)
+  fullName: IGCLWrapper.IGCLLedHelper.LedGetPropertiesNative(nint)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLLedHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: LedGetPropertiesNative
+    path: ../IGCLWrapper/IGCLLedHelper.cs
+    startLine: 26
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_led_properties_t LedGetPropertiesNative(nint ledHandle)
+    parameters:
+    - id: ledHandle
+      type: System.IntPtr
+    return:
+      type: IGCLWrapper.ctl_led_properties_t
+    content.vb: Public Function LedGetPropertiesNative(ledHandle As IntPtr) As ctl_led_properties_t
+  overload: IGCLWrapper.IGCLLedHelper.LedGetPropertiesNative*
+  nameWithType.vb: IGCLLedHelper.LedGetPropertiesNative(IntPtr)
+  fullName.vb: IGCLWrapper.IGCLLedHelper.LedGetPropertiesNative(System.IntPtr)
+  name.vb: LedGetPropertiesNative(IntPtr)
 - uid: IGCLWrapper.IGCLLedHelper.LedGetProperties(System.IntPtr)
   commentId: M:IGCLWrapper.IGCLLedHelper.LedGetProperties(System.IntPtr)
   id: LedGetProperties(System.IntPtr)
@@ -87,26 +124,60 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLLedHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LedGetProperties
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 26
+    startLine: 36
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public ctl_led_properties_t LedGetProperties(nint ledHandle)
+    content: public LedPropertiesDto LedGetProperties(nint ledHandle)
     parameters:
     - id: ledHandle
       type: System.IntPtr
     return:
-      type: IGCLWrapper.ctl_led_properties_t
-    content.vb: Public Function LedGetProperties(ledHandle As IntPtr) As ctl_led_properties_t
+      type: IGCLWrapper.LedPropertiesDto
+    content.vb: Public Function LedGetProperties(ledHandle As IntPtr) As LedPropertiesDto
   overload: IGCLWrapper.IGCLLedHelper.LedGetProperties*
   nameWithType.vb: IGCLLedHelper.LedGetProperties(IntPtr)
   fullName.vb: IGCLWrapper.IGCLLedHelper.LedGetProperties(System.IntPtr)
   name.vb: LedGetProperties(IntPtr)
+- uid: IGCLWrapper.IGCLLedHelper.LedGetStateNative(System.IntPtr)
+  commentId: M:IGCLWrapper.IGCLLedHelper.LedGetStateNative(System.IntPtr)
+  id: LedGetStateNative(System.IntPtr)
+  parent: IGCLWrapper.IGCLLedHelper
+  langs:
+  - csharp
+  - vb
+  name: LedGetStateNative(nint)
+  nameWithType: IGCLLedHelper.LedGetStateNative(nint)
+  fullName: IGCLWrapper.IGCLLedHelper.LedGetStateNative(nint)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLLedHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: LedGetStateNative
+    path: ../IGCLWrapper/IGCLLedHelper.cs
+    startLine: 42
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_led_state_t LedGetStateNative(nint ledHandle)
+    parameters:
+    - id: ledHandle
+      type: System.IntPtr
+    return:
+      type: IGCLWrapper.ctl_led_state_t
+    content.vb: Public Function LedGetStateNative(ledHandle As IntPtr) As ctl_led_state_t
+  overload: IGCLWrapper.IGCLLedHelper.LedGetStateNative*
+  nameWithType.vb: IGCLLedHelper.LedGetStateNative(IntPtr)
+  fullName.vb: IGCLWrapper.IGCLLedHelper.LedGetStateNative(System.IntPtr)
+  name.vb: LedGetStateNative(IntPtr)
 - uid: IGCLWrapper.IGCLLedHelper.LedGetState(System.IntPtr)
   commentId: M:IGCLWrapper.IGCLLedHelper.LedGetState(System.IntPtr)
   id: LedGetState(System.IntPtr)
@@ -121,60 +192,94 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLLedHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LedGetState
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 36
+    startLine: 52
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public ctl_led_state_t LedGetState(nint ledHandle)
+    content: public LedStateDto LedGetState(nint ledHandle)
     parameters:
     - id: ledHandle
       type: System.IntPtr
     return:
-      type: IGCLWrapper.ctl_led_state_t
-    content.vb: Public Function LedGetState(ledHandle As IntPtr) As ctl_led_state_t
+      type: IGCLWrapper.LedStateDto
+    content.vb: Public Function LedGetState(ledHandle As IntPtr) As LedStateDto
   overload: IGCLWrapper.IGCLLedHelper.LedGetState*
   nameWithType.vb: IGCLLedHelper.LedGetState(IntPtr)
   fullName.vb: IGCLWrapper.IGCLLedHelper.LedGetState(System.IntPtr)
   name.vb: LedGetState(IntPtr)
-- uid: IGCLWrapper.IGCLLedHelper.LedSetState(System.IntPtr,IGCLWrapper.ctl_led_state_t)
-  commentId: M:IGCLWrapper.IGCLLedHelper.LedSetState(System.IntPtr,IGCLWrapper.ctl_led_state_t)
-  id: LedSetState(System.IntPtr,IGCLWrapper.ctl_led_state_t)
+- uid: IGCLWrapper.IGCLLedHelper.LedSetStateNative(System.IntPtr,IGCLWrapper.ctl_led_state_t)
+  commentId: M:IGCLWrapper.IGCLLedHelper.LedSetStateNative(System.IntPtr,IGCLWrapper.ctl_led_state_t)
+  id: LedSetStateNative(System.IntPtr,IGCLWrapper.ctl_led_state_t)
   parent: IGCLWrapper.IGCLLedHelper
   langs:
   - csharp
   - vb
-  name: LedSetState(nint, ctl_led_state_t)
-  nameWithType: IGCLLedHelper.LedSetState(nint, ctl_led_state_t)
-  fullName: IGCLWrapper.IGCLLedHelper.LedSetState(nint, IGCLWrapper.ctl_led_state_t)
+  name: LedSetStateNative(nint, ctl_led_state_t)
+  nameWithType: IGCLLedHelper.LedSetStateNative(nint, ctl_led_state_t)
+  fullName: IGCLWrapper.IGCLLedHelper.LedSetStateNative(nint, IGCLWrapper.ctl_led_state_t)
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLLedHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: LedSetState
+    id: LedSetStateNative
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 46
+    startLine: 58
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public void LedSetState(nint ledHandle, ctl_led_state_t state)
+    content: public void LedSetStateNative(nint ledHandle, ctl_led_state_t state)
     parameters:
     - id: ledHandle
       type: System.IntPtr
     - id: state
       type: IGCLWrapper.ctl_led_state_t
-    content.vb: Public Sub LedSetState(ledHandle As IntPtr, state As ctl_led_state_t)
+    content.vb: Public Sub LedSetStateNative(ledHandle As IntPtr, state As ctl_led_state_t)
+  overload: IGCLWrapper.IGCLLedHelper.LedSetStateNative*
+  nameWithType.vb: IGCLLedHelper.LedSetStateNative(IntPtr, ctl_led_state_t)
+  fullName.vb: IGCLWrapper.IGCLLedHelper.LedSetStateNative(System.IntPtr, IGCLWrapper.ctl_led_state_t)
+  name.vb: LedSetStateNative(IntPtr, ctl_led_state_t)
+- uid: IGCLWrapper.IGCLLedHelper.LedSetState(System.IntPtr,IGCLWrapper.LedStateDto)
+  commentId: M:IGCLWrapper.IGCLLedHelper.LedSetState(System.IntPtr,IGCLWrapper.LedStateDto)
+  id: LedSetState(System.IntPtr,IGCLWrapper.LedStateDto)
+  parent: IGCLWrapper.IGCLLedHelper
+  langs:
+  - csharp
+  - vb
+  name: LedSetState(nint, LedStateDto)
+  nameWithType: IGCLLedHelper.LedSetState(nint, LedStateDto)
+  fullName: IGCLWrapper.IGCLLedHelper.LedSetState(nint, IGCLWrapper.LedStateDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLLedHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: LedSetState
+    path: ../IGCLWrapper/IGCLLedHelper.cs
+    startLine: 66
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public void LedSetState(nint ledHandle, LedStateDto state)
+    parameters:
+    - id: ledHandle
+      type: System.IntPtr
+    - id: state
+      type: IGCLWrapper.LedStateDto
+    content.vb: Public Sub LedSetState(ledHandle As IntPtr, state As LedStateDto)
   overload: IGCLWrapper.IGCLLedHelper.LedSetState*
-  nameWithType.vb: IGCLLedHelper.LedSetState(IntPtr, ctl_led_state_t)
-  fullName.vb: IGCLWrapper.IGCLLedHelper.LedSetState(System.IntPtr, IGCLWrapper.ctl_led_state_t)
-  name.vb: LedSetState(IntPtr, ctl_led_state_t)
+  nameWithType.vb: IGCLLedHelper.LedSetState(IntPtr, LedStateDto)
+  fullName.vb: IGCLWrapper.IGCLLedHelper.LedSetState(System.IntPtr, IGCLWrapper.LedStateDto)
+  name.vb: LedSetState(IntPtr, LedStateDto)
 - uid: IGCLWrapper.IGCLLedHelper.CreateLedStateStruct
   commentId: M:IGCLWrapper.IGCLLedHelper.CreateLedStateStruct
   id: CreateLedStateStruct
@@ -189,11 +294,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLLedHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateLedStateStruct
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 80
+    startLine: 97
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -217,11 +322,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLLedHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 82
+    startLine: 99
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -567,12 +672,12 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: IGCLWrapper.IGCLLedHelper.LedGetProperties*
-  commentId: Overload:IGCLWrapper.IGCLLedHelper.LedGetProperties
-  href: IGCLWrapper.IGCLLedHelper.html#IGCLWrapper_IGCLLedHelper_LedGetProperties_System_IntPtr_
-  name: LedGetProperties
-  nameWithType: IGCLLedHelper.LedGetProperties
-  fullName: IGCLWrapper.IGCLLedHelper.LedGetProperties
+- uid: IGCLWrapper.IGCLLedHelper.LedGetPropertiesNative*
+  commentId: Overload:IGCLWrapper.IGCLLedHelper.LedGetPropertiesNative
+  href: IGCLWrapper.IGCLLedHelper.html#IGCLWrapper_IGCLLedHelper_LedGetPropertiesNative_System_IntPtr_
+  name: LedGetPropertiesNative
+  nameWithType: IGCLLedHelper.LedGetPropertiesNative
+  fullName: IGCLWrapper.IGCLLedHelper.LedGetPropertiesNative
 - uid: System.IntPtr
   commentId: T:System.IntPtr
   parent: System
@@ -591,12 +696,25 @@ references:
   name: ctl_led_properties_t
   nameWithType: ctl_led_properties_t
   fullName: IGCLWrapper.ctl_led_properties_t
-- uid: IGCLWrapper.IGCLLedHelper.LedGetState*
-  commentId: Overload:IGCLWrapper.IGCLLedHelper.LedGetState
-  href: IGCLWrapper.IGCLLedHelper.html#IGCLWrapper_IGCLLedHelper_LedGetState_System_IntPtr_
-  name: LedGetState
-  nameWithType: IGCLLedHelper.LedGetState
-  fullName: IGCLWrapper.IGCLLedHelper.LedGetState
+- uid: IGCLWrapper.IGCLLedHelper.LedGetProperties*
+  commentId: Overload:IGCLWrapper.IGCLLedHelper.LedGetProperties
+  href: IGCLWrapper.IGCLLedHelper.html#IGCLWrapper_IGCLLedHelper_LedGetProperties_System_IntPtr_
+  name: LedGetProperties
+  nameWithType: IGCLLedHelper.LedGetProperties
+  fullName: IGCLWrapper.IGCLLedHelper.LedGetProperties
+- uid: IGCLWrapper.LedPropertiesDto
+  commentId: T:IGCLWrapper.LedPropertiesDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.LedPropertiesDto.html
+  name: LedPropertiesDto
+  nameWithType: LedPropertiesDto
+  fullName: IGCLWrapper.LedPropertiesDto
+- uid: IGCLWrapper.IGCLLedHelper.LedGetStateNative*
+  commentId: Overload:IGCLWrapper.IGCLLedHelper.LedGetStateNative
+  href: IGCLWrapper.IGCLLedHelper.html#IGCLWrapper_IGCLLedHelper_LedGetStateNative_System_IntPtr_
+  name: LedGetStateNative
+  nameWithType: IGCLLedHelper.LedGetStateNative
+  fullName: IGCLWrapper.IGCLLedHelper.LedGetStateNative
 - uid: IGCLWrapper.ctl_led_state_t
   commentId: T:IGCLWrapper.ctl_led_state_t
   parent: IGCLWrapper
@@ -604,9 +722,28 @@ references:
   name: ctl_led_state_t
   nameWithType: ctl_led_state_t
   fullName: IGCLWrapper.ctl_led_state_t
+- uid: IGCLWrapper.IGCLLedHelper.LedGetState*
+  commentId: Overload:IGCLWrapper.IGCLLedHelper.LedGetState
+  href: IGCLWrapper.IGCLLedHelper.html#IGCLWrapper_IGCLLedHelper_LedGetState_System_IntPtr_
+  name: LedGetState
+  nameWithType: IGCLLedHelper.LedGetState
+  fullName: IGCLWrapper.IGCLLedHelper.LedGetState
+- uid: IGCLWrapper.LedStateDto
+  commentId: T:IGCLWrapper.LedStateDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.LedStateDto.html
+  name: LedStateDto
+  nameWithType: LedStateDto
+  fullName: IGCLWrapper.LedStateDto
+- uid: IGCLWrapper.IGCLLedHelper.LedSetStateNative*
+  commentId: Overload:IGCLWrapper.IGCLLedHelper.LedSetStateNative
+  href: IGCLWrapper.IGCLLedHelper.html#IGCLWrapper_IGCLLedHelper_LedSetStateNative_System_IntPtr_IGCLWrapper_ctl_led_state_t_
+  name: LedSetStateNative
+  nameWithType: IGCLLedHelper.LedSetStateNative
+  fullName: IGCLWrapper.IGCLLedHelper.LedSetStateNative
 - uid: IGCLWrapper.IGCLLedHelper.LedSetState*
   commentId: Overload:IGCLWrapper.IGCLLedHelper.LedSetState
-  href: IGCLWrapper.IGCLLedHelper.html#IGCLWrapper_IGCLLedHelper_LedSetState_System_IntPtr_IGCLWrapper_ctl_led_state_t_
+  href: IGCLWrapper.IGCLLedHelper.html#IGCLWrapper_IGCLLedHelper_LedSetState_System_IntPtr_IGCLWrapper_LedStateDto_
   name: LedSetState
   nameWithType: IGCLLedHelper.LedSetState
   fullName: IGCLWrapper.IGCLLedHelper.LedSetState
