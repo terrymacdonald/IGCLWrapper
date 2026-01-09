@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 
 namespace IGCLWrapper
 {
@@ -578,18 +579,14 @@ namespace IGCLWrapper
         public static unsafe PowerTelemetryDto FromNative(ctl_power_telemetry_t native)
         {
             var psu = new PsuInfoDto[5];
-            fixed (ctl_psu_info_t* pPsu = &native.psu.e0)
-            {
-                for (int i = 0; i < psu.Length; i++)
-                    psu[i] = PsuInfoDto.FromNative(pPsu[i]);
-            }
+            var pPsu = (ctl_psu_info_t*)Unsafe.AsPointer(ref native.psu.e0);
+            for (int i = 0; i < psu.Length; i++)
+                psu[i] = PsuInfoDto.FromNative(pPsu[i]);
 
             var fan = new OcTelemetryItemDto[5];
-            fixed (ctl_oc_telemetry_item_t* pFan = &native.fanSpeed.e0)
-            {
-                for (int i = 0; i < fan.Length; i++)
-                    fan[i] = OcTelemetryItemDto.FromNative(pFan[i]);
-            }
+            var pFan = (ctl_oc_telemetry_item_t*)Unsafe.AsPointer(ref native.fanSpeed.e0);
+            for (int i = 0; i < fan.Length; i++)
+                fan[i] = OcTelemetryItemDto.FromNative(pFan[i]);
 
             return new PowerTelemetryDto
             {
@@ -679,21 +676,17 @@ namespace IGCLWrapper
             };
 
             var psu = Psu ?? Array.Empty<PsuInfoDto>();
-            fixed (ctl_psu_info_t* pPsu = &native.psu.e0)
+            var pPsu = (ctl_psu_info_t*)Unsafe.AsPointer(ref native.psu.e0);
+            for (int i = 0; i < 5; i++)
             {
-                for (int i = 0; i < 5; i++)
-                {
-                    pPsu[i] = i < psu.Length ? psu[i].ToNative() : default;
-                }
+                pPsu[i] = i < psu.Length ? psu[i].ToNative() : default;
             }
 
             var fan = FanSpeed ?? Array.Empty<OcTelemetryItemDto>();
-            fixed (ctl_oc_telemetry_item_t* pFan = &native.fanSpeed.e0)
+            var pFan = (ctl_oc_telemetry_item_t*)Unsafe.AsPointer(ref native.fanSpeed.e0);
+            for (int i = 0; i < 5; i++)
             {
-                for (int i = 0; i < 5; i++)
-                {
-                    pFan[i] = i < fan.Length ? fan[i].ToNative() : default;
-                }
+                pFan[i] = i < fan.Length ? fan[i].ToNative() : default;
             }
 
             return native;
