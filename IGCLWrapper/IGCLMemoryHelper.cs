@@ -18,12 +18,21 @@ namespace IGCLWrapper
             _adapter = adapter;
         }
 
+        /// <summary>
+        /// Enumerate memory module handles for the adapter.
+        /// </summary>
+        /// <returns>Read-only list of memory module handles.</returns>
         public unsafe IReadOnlyList<IntPtr> EnumMemoryModules()
         {
             ThrowIfDisposed();
             return EnumerateHandles((_ctl_device_adapter_handle_t*)_adapter);
         }
 
+        /// <summary>
+        /// Get memory module properties.
+        /// </summary>
+        /// <param name="memoryHandle">Memory module handle.</param>
+        /// <returns>Memory properties struct.</returns>
         public unsafe ctl_mem_properties_t MemoryGetProperties(IntPtr memoryHandle)
         {
             ThrowIfDisposed();
@@ -34,6 +43,11 @@ namespace IGCLWrapper
             return props;
         }
 
+        /// <summary>
+        /// Get current memory module state.
+        /// </summary>
+        /// <param name="memoryHandle">Memory module handle.</param>
+        /// <returns>Memory state struct.</returns>
         public unsafe ctl_mem_state_t MemoryGetState(IntPtr memoryHandle)
         {
             ThrowIfDisposed();
@@ -44,6 +58,11 @@ namespace IGCLWrapper
             return state;
         }
 
+        /// <summary>
+        /// Get memory bandwidth information.
+        /// </summary>
+        /// <param name="memoryHandle">Memory module handle.</param>
+        /// <returns>Memory bandwidth struct.</returns>
         public unsafe ctl_mem_bandwidth_t MemoryGetBandwidth(IntPtr memoryHandle)
         {
             ThrowIfDisposed();
@@ -82,6 +101,9 @@ namespace IGCLWrapper
         private static unsafe ctl_mem_state_t CreateMemoryState() => new ctl_mem_state_t { Size = (uint)sizeof(ctl_mem_state_t), Version = 0 };
         private static unsafe ctl_mem_bandwidth_t CreateMemoryBandwidth() => new ctl_mem_bandwidth_t { Size = (uint)sizeof(ctl_mem_bandwidth_t), Version = 0 };
 
+        /// <summary>
+        /// Mark the helper as disposed.
+        /// </summary>
         public void Dispose()
         {
             _disposed = true;

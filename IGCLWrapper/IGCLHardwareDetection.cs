@@ -12,10 +12,10 @@ namespace IGCLWrapper
 		private const string INTEL_PCI_VENDOR_ID = "8086";
 
 		/// <summary>
-		/// Checks if an Intel GPU is present in the system via PCI Vendor ID detection
+		/// Check if an Intel GPU is present in the system.
 		/// </summary>
-		/// <param name="errorMessage">Details about why Intel GPU was not detected</param>
-		/// <returns>True if Intel GPU hardware is detected, false otherwise</returns>
+		/// <param name="errorMessage">Details about why Intel GPU was not detected.</param>
+		/// <returns>True if an Intel GPU is detected; otherwise, false.</returns>
 		[SupportedOSPlatform("windows")]
 		public static bool HasIntelGPU(out string errorMessage)
 		{
@@ -43,9 +43,9 @@ namespace IGCLWrapper
 		}
 
 		/// <summary>
-		/// Gets detailed information about detected Intel GPUs
+		/// Get the names of detected Intel GPUs.
 		/// </summary>
-		/// <returns>Array of GPU names, or empty array if none found</returns>
+		/// <returns>Array of GPU names, or an empty array if none found.</returns>
 		[SupportedOSPlatform("windows")]
 		public static string[] GetIntelGPUNames()
 		{

@@ -18,12 +18,21 @@ namespace IGCLWrapper
             _adapter = adapter;
         }
 
+        /// <summary>
+        /// Enumerate temperature sensor handles for the adapter.
+        /// </summary>
+        /// <returns>Read-only list of temperature sensor handles.</returns>
         public unsafe IReadOnlyList<IntPtr> EnumTemperatureSensors()
         {
             ThrowIfDisposed();
             return EnumerateHandles((_ctl_device_adapter_handle_t*)_adapter);
         }
 
+        /// <summary>
+        /// Get temperature sensor properties.
+        /// </summary>
+        /// <param name="sensorHandle">Temperature sensor handle.</param>
+        /// <returns>Temperature properties struct.</returns>
         public unsafe ctl_temp_properties_t TemperatureGetProperties(IntPtr sensorHandle)
         {
             ThrowIfDisposed();
@@ -34,6 +43,11 @@ namespace IGCLWrapper
             return props;
         }
 
+        /// <summary>
+        /// Get current temperature for a sensor.
+        /// </summary>
+        /// <param name="sensorHandle">Temperature sensor handle.</param>
+        /// <returns>Temperature value in degrees C.</returns>
         public unsafe double TemperatureGetState(IntPtr sensorHandle)
         {
             ThrowIfDisposed();
@@ -70,6 +84,9 @@ namespace IGCLWrapper
 
         private static unsafe ctl_temp_properties_t CreateTemperatureProperties() => new ctl_temp_properties_t { Size = (uint)sizeof(ctl_temp_properties_t), Version = 0 };
 
+        /// <summary>
+        /// Mark the helper as disposed.
+        /// </summary>
         public void Dispose()
         {
             _disposed = true;

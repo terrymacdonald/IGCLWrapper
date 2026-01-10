@@ -17,6 +17,10 @@ namespace IGCLWrapper
             _adapter = adapter;
         }
 
+        /// <summary>
+        /// Get ECC properties using the native struct.
+        /// </summary>
+        /// <returns>ECC properties struct.</returns>
         public unsafe ctl_ecc_properties_t EccGetPropertiesNative()
         {
             ThrowIfDisposed();
@@ -27,12 +31,20 @@ namespace IGCLWrapper
             return props;
         }
 
+        /// <summary>
+        /// Get ECC properties as a DTO.
+        /// </summary>
+        /// <returns>ECC properties DTO.</returns>
         public EccPropertiesDto EccGetProperties()
         {
             var native = EccGetPropertiesNative();
             return EccPropertiesDto.FromNative(native);
         }
 
+        /// <summary>
+        /// Get ECC state description.
+        /// </summary>
+        /// <returns>ECC state description struct.</returns>
         public unsafe ctl_ecc_state_desc_t EccGetState()
         {
             ThrowIfDisposed();
@@ -43,6 +55,10 @@ namespace IGCLWrapper
             return state;
         }
 
+        /// <summary>
+        /// Set ECC state.
+        /// </summary>
+        /// <param name="desiredState">Desired ECC state.</param>
         public unsafe void EccSetState(ctl_ecc_state_t desiredState)
         {
             ThrowIfDisposed();
@@ -62,6 +78,9 @@ namespace IGCLWrapper
         private static unsafe ctl_ecc_properties_t CreateEccProperties() => new ctl_ecc_properties_t { Size = (uint)sizeof(ctl_ecc_properties_t), Version = 0 };
         private static unsafe ctl_ecc_state_desc_t CreateEccState() => new ctl_ecc_state_desc_t { Size = (uint)sizeof(ctl_ecc_state_desc_t), Version = 0 };
 
+        /// <summary>
+        /// Mark the helper as disposed.
+        /// </summary>
         public void Dispose()
         {
             _disposed = true;
@@ -74,13 +93,33 @@ namespace IGCLWrapper
         public static byte ToByte(bool value) => value ? (byte)1 : (byte)0;
     }
 
+    /// <summary>
+    /// DTO for ECC properties.
+    /// </summary>
     public struct EccPropertiesDto
     {
+        /// <summary>
+        /// Size of the native struct.
+        /// </summary>
         public uint Size;
+        /// <summary>
+        /// Version of the native struct.
+        /// </summary>
         public byte Version;
+        /// <summary>
+        /// Indicates whether ECC is supported.
+        /// </summary>
         public bool IsSupported;
+        /// <summary>
+        /// Indicates whether ECC can be controlled.
+        /// </summary>
         public bool CanControl;
 
+        /// <summary>
+        /// Create a DTO from a native struct.
+        /// </summary>
+        /// <param name="native">Native struct.</param>
+        /// <returns>ECC properties DTO.</returns>
         public static EccPropertiesDto FromNative(ctl_ecc_properties_t native)
         {
             return new EccPropertiesDto
@@ -92,6 +131,10 @@ namespace IGCLWrapper
             };
         }
 
+        /// <summary>
+        /// Convert this DTO to a native struct.
+        /// </summary>
+        /// <returns>ECC properties struct.</returns>
         public ctl_ecc_properties_t ToNative()
         {
             return new ctl_ecc_properties_t

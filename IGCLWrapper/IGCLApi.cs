@@ -9,8 +9,16 @@ namespace IGCLWrapper
     /// </summary>
     public class IGCLException : Exception
     {
+        /// <summary>
+        /// Result code from the failed IGCL API call.
+        /// </summary>
         public ctl_result_t Result { get; }
 
+        /// <summary>
+        /// Create a new IGCL exception for a result code.
+        /// </summary>
+        /// <param name="result">IGCL result code.</param>
+        /// <param name="message">Optional error message.</param>
         public IGCLException(ctl_result_t result, string? message = null)
             : base(message ?? $"IGCL API error: {result}")
         {
@@ -20,6 +28,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Checks if this exception is due to no display being attached/connected
         /// </summary>
+        /// <returns>True when the error indicates no display; otherwise, false.</returns>
         public bool IsNoDisplayError()
         {
             return Result == ctl_result_t.CTL_RESULT_ERROR_DISPLAY_NOT_ATTACHED ||
@@ -48,6 +57,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Initialize the IGCL API with default settings
         /// </summary>
+        /// <returns>Initialized IGCL API wrapper.</returns>
         public static IGCLApi Initialize()
         {
             unsafe
@@ -78,6 +88,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Enumerate all GPU adapters in the system
         /// </summary>
+        /// <returns>Array of adapter handles.</returns>
         public unsafe IntPtr[] EnumerateAdapters()
         {
             return WithApiHandle(handle =>
@@ -127,6 +138,8 @@ namespace IGCLWrapper
         /// <summary>
         /// Enumerate display outputs for a given adapter
         /// </summary>
+        /// <param name="hAdapter">Adapter handle.</param>
+        /// <returns>Array of display output handles.</returns>
         public unsafe IntPtr[] EnumerateDisplays(IntPtr hAdapter)
         {
             ThrowIfDisposed();
@@ -181,6 +194,9 @@ namespace IGCLWrapper
             throw new IGCLException(ctl_result_t.CTL_RESULT_ERROR_INVALID_SIZE, "Failed to enumerate displays: CTL_RESULT_ERROR_INVALID_SIZE");
         }
 
+        /// <summary>
+        /// Dispose the IGCL API wrapper and release native resources.
+        /// </summary>
         public void Dispose()
         {
             Dispose(true);
@@ -223,6 +239,9 @@ namespace IGCLWrapper
         /// <summary>
         /// Create a version number from major and minor components
         /// </summary>
+        /// <param name="major">Major version.</param>
+        /// <param name="minor">Minor version.</param>
+        /// <returns>Combined version value.</returns>
         public static uint MakeVersion(uint major, uint minor)
         {
             return (major << 16) | (minor & 0x0000ffff);
@@ -231,6 +250,8 @@ namespace IGCLWrapper
         /// <summary>
         /// Extract major version from version number
         /// </summary>
+        /// <param name="version">Combined version value.</param>
+        /// <returns>Major version.</returns>
         public static uint GetMajorVersion(uint version)
         {
             return version >> 16;
@@ -239,6 +260,8 @@ namespace IGCLWrapper
         /// <summary>
         /// Extract minor version from version number
         /// </summary>
+        /// <param name="version">Combined version value.</param>
+        /// <returns>Minor version.</returns>
         public static uint GetMinorVersion(uint version)
         {
             return version & 0x0000ffff;
@@ -247,6 +270,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Get the IGCL implementation version
         /// </summary>
+        /// <returns>Implementation version value.</returns>
         public static uint GetImplVersion()
         {
             return (uint)IGCL.CTL_IMPL_VERSION;

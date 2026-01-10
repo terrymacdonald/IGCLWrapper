@@ -17,6 +17,10 @@ namespace IGCLWrapper
             _adapter = adapter;
         }
 
+        /// <summary>
+        /// Get PCI properties using the native struct.
+        /// </summary>
+        /// <returns>PCI properties struct.</returns>
         public unsafe ctl_pci_properties_t PciGetPropertiesNative()
         {
             ThrowIfDisposed();
@@ -27,12 +31,20 @@ namespace IGCLWrapper
             return props;
         }
 
+        /// <summary>
+        /// Get PCI properties as a DTO.
+        /// </summary>
+        /// <returns>PCI properties DTO.</returns>
         public PciPropertiesDto PciGetProperties()
         {
             var native = PciGetPropertiesNative();
             return PciPropertiesDto.FromNative(native);
         }
 
+        /// <summary>
+        /// Get PCI state.
+        /// </summary>
+        /// <returns>PCI state struct.</returns>
         public unsafe ctl_pci_state_t PciGetState()
         {
             ThrowIfDisposed();
@@ -49,6 +61,9 @@ namespace IGCLWrapper
                 throw new ObjectDisposedException(nameof(IGCLPciHelper));
         }
 
+        /// <summary>
+        /// Mark the helper as disposed.
+        /// </summary>
         public void Dispose()
         {
             _disposed = true;
@@ -61,15 +76,41 @@ namespace IGCLWrapper
         public static byte ToByte(bool value) => value ? (byte)1 : (byte)0;
     }
 
+    /// <summary>
+    /// DTO for PCI properties.
+    /// </summary>
     public struct PciPropertiesDto
     {
+        /// <summary>
+        /// Size of the native struct.
+        /// </summary>
         public uint Size;
+        /// <summary>
+        /// Version of the native struct.
+        /// </summary>
         public byte Version;
+        /// <summary>
+        /// PCI address.
+        /// </summary>
         public ctl_pci_address_t Address;
+        /// <summary>
+        /// Maximum PCIe speed.
+        /// </summary>
         public ctl_pci_speed_t MaxSpeed;
+        /// <summary>
+        /// Indicates whether resizable BAR is supported.
+        /// </summary>
         public bool ResizableBarSupported;
+        /// <summary>
+        /// Indicates whether resizable BAR is enabled.
+        /// </summary>
         public bool ResizableBarEnabled;
 
+        /// <summary>
+        /// Create a DTO from a native struct.
+        /// </summary>
+        /// <param name="native">Native struct.</param>
+        /// <returns>PCI properties DTO.</returns>
         public static PciPropertiesDto FromNative(ctl_pci_properties_t native)
         {
             return new PciPropertiesDto
@@ -83,6 +124,10 @@ namespace IGCLWrapper
             };
         }
 
+        /// <summary>
+        /// Convert this DTO to a native struct.
+        /// </summary>
+        /// <returns>PCI properties struct.</returns>
         public ctl_pci_properties_t ToNative()
         {
             return new ctl_pci_properties_t

@@ -18,12 +18,21 @@ namespace IGCLWrapper
             _adapter = adapter;
         }
 
+        /// <summary>
+        /// Enumerate fan handles for the adapter.
+        /// </summary>
+        /// <returns>Read-only list of fan handles.</returns>
         public unsafe IReadOnlyList<IntPtr> EnumFans()
         {
             ThrowIfDisposed();
             return EnumerateHandles((_ctl_device_adapter_handle_t*)_adapter);
         }
 
+        /// <summary>
+        /// Get fan properties using the native struct.
+        /// </summary>
+        /// <param name="fanHandle">Fan handle.</param>
+        /// <returns>Fan properties struct.</returns>
         public unsafe ctl_fan_properties_t FanGetPropertiesNative(IntPtr fanHandle)
         {
             ThrowIfDisposed();
@@ -34,12 +43,22 @@ namespace IGCLWrapper
             return props;
         }
 
+        /// <summary>
+        /// Get fan properties as a DTO.
+        /// </summary>
+        /// <param name="fanHandle">Fan handle.</param>
+        /// <returns>Fan properties DTO.</returns>
         public FanPropertiesDto FanGetProperties(IntPtr fanHandle)
         {
             var native = FanGetPropertiesNative(fanHandle);
             return FanPropertiesDto.FromNative(native);
         }
 
+        /// <summary>
+        /// Get fan configuration.
+        /// </summary>
+        /// <param name="fanHandle">Fan handle.</param>
+        /// <returns>Fan config struct.</returns>
         public unsafe ctl_fan_config_t FanGetConfig(IntPtr fanHandle)
         {
             ThrowIfDisposed();
@@ -50,6 +69,10 @@ namespace IGCLWrapper
             return config;
         }
 
+        /// <summary>
+        /// Set the fan to default control mode.
+        /// </summary>
+        /// <param name="fanHandle">Fan handle.</param>
         public unsafe void FanSetDefaultMode(IntPtr fanHandle)
         {
             ThrowIfDisposed();
@@ -58,6 +81,11 @@ namespace IGCLWrapper
                 throw new IGCLException(result, "Failed to set fan default mode");
         }
 
+        /// <summary>
+        /// Set the fan to fixed speed mode.
+        /// </summary>
+        /// <param name="fanHandle">Fan handle.</param>
+        /// <param name="speed">Fan speed settings.</param>
         public unsafe void FanSetFixedSpeedMode(IntPtr fanHandle, ctl_fan_speed_t speed)
         {
             ThrowIfDisposed();
@@ -66,6 +94,11 @@ namespace IGCLWrapper
                 throw new IGCLException(result, "Failed to set fan fixed speed");
         }
 
+        /// <summary>
+        /// Set the fan to speed table mode.
+        /// </summary>
+        /// <param name="fanHandle">Fan handle.</param>
+        /// <param name="table">Fan speed table.</param>
         public unsafe void FanSetSpeedTableMode(IntPtr fanHandle, ctl_fan_speed_table_t table)
         {
             ThrowIfDisposed();
@@ -74,6 +107,12 @@ namespace IGCLWrapper
                 throw new IGCLException(result, "Failed to set fan speed table");
         }
 
+        /// <summary>
+        /// Get the current fan speed.
+        /// </summary>
+        /// <param name="fanHandle">Fan handle.</param>
+        /// <param name="units">Speed units.</param>
+        /// <returns>Fan speed value.</returns>
         public unsafe int FanGetState(IntPtr fanHandle, ctl_fan_speed_units_t units)
         {
             ThrowIfDisposed();
@@ -110,9 +149,20 @@ namespace IGCLWrapper
 
         private static unsafe ctl_fan_properties_t CreateFanProperties() => new ctl_fan_properties_t { Size = (uint)sizeof(ctl_fan_properties_t), Version = 0 };
         private static unsafe ctl_fan_config_t CreateFanConfig() => new ctl_fan_config_t { Size = (uint)sizeof(ctl_fan_config_t), Version = 0 };
+        /// <summary>
+        /// Create a fan speed struct with Size and Version initialized.
+        /// </summary>
+        /// <returns>Initialized fan speed struct.</returns>
         public static unsafe ctl_fan_speed_t CreateFanSpeed() => new ctl_fan_speed_t { Size = (uint)sizeof(ctl_fan_speed_t), Version = 0 };
+        /// <summary>
+        /// Create a fan speed table struct with Size and Version initialized.
+        /// </summary>
+        /// <returns>Initialized fan speed table struct.</returns>
         public static unsafe ctl_fan_speed_table_t CreateFanSpeedTable() => new ctl_fan_speed_table_t { Size = (uint)sizeof(ctl_fan_speed_table_t), Version = 0 };
 
+        /// <summary>
+        /// Mark the helper as disposed.
+        /// </summary>
         public void Dispose()
         {
             _disposed = true;
@@ -125,16 +175,45 @@ namespace IGCLWrapper
         public static byte ToByte(bool value) => value ? (byte)1 : (byte)0;
     }
 
+    /// <summary>
+    /// DTO for fan properties.
+    /// </summary>
     public struct FanPropertiesDto
     {
+        /// <summary>
+        /// Size of the native struct.
+        /// </summary>
         public uint Size;
+        /// <summary>
+        /// Version of the native struct.
+        /// </summary>
         public byte Version;
+        /// <summary>
+        /// Indicates whether the fan can be controlled.
+        /// </summary>
         public bool CanControl;
+        /// <summary>
+        /// Supported control modes.
+        /// </summary>
         public uint SupportedModes;
+        /// <summary>
+        /// Supported speed units.
+        /// </summary>
         public uint SupportedUnits;
+        /// <summary>
+        /// Maximum RPM.
+        /// </summary>
         public int MaxRpm;
+        /// <summary>
+        /// Maximum points in the speed table.
+        /// </summary>
         public int MaxPoints;
 
+        /// <summary>
+        /// Create a DTO from a native struct.
+        /// </summary>
+        /// <param name="native">Native struct.</param>
+        /// <returns>Fan properties DTO.</returns>
         public static FanPropertiesDto FromNative(ctl_fan_properties_t native)
         {
             return new FanPropertiesDto
@@ -149,6 +228,10 @@ namespace IGCLWrapper
             };
         }
 
+        /// <summary>
+        /// Convert this DTO to a native struct.
+        /// </summary>
+        /// <returns>Fan properties struct.</returns>
         public ctl_fan_properties_t ToNative()
         {
             return new ctl_fan_properties_t

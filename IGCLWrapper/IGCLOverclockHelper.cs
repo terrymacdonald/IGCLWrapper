@@ -19,6 +19,10 @@ namespace IGCLWrapper
             _adapter = adapter;
         }
 
+        /// <summary>
+        /// Get overclock properties using the native struct.
+        /// </summary>
+        /// <returns>Overclock properties struct.</returns>
         public unsafe ctl_oc_properties_t GetPropertiesNative()
         {
             ThrowIfDisposed();
@@ -29,12 +33,19 @@ namespace IGCLWrapper
             return props;
         }
 
+        /// <summary>
+        /// Get overclock properties as a DTO.
+        /// </summary>
+        /// <returns>Overclock properties DTO.</returns>
         public OverclockPropertiesDto GetProperties()
         {
             var native = GetPropertiesNative();
             return OverclockPropertiesDto.FromNative(native);
         }
 
+        /// <summary>
+        /// Set the overclocking waiver for this adapter.
+        /// </summary>
         public unsafe void SetWaiver()
         {
             ThrowIfDisposed();
@@ -44,6 +55,10 @@ namespace IGCLWrapper
         }
 
         #region GPU frequency offset
+        /// <summary>
+        /// Get the GPU frequency offset.
+        /// </summary>
+        /// <returns>GPU frequency offset.</returns>
         public unsafe double OverclockGpuFrequencyOffsetGet()
         {
             ThrowIfDisposed();
@@ -54,6 +69,10 @@ namespace IGCLWrapper
             return value;
         }
 
+        /// <summary>
+        /// Set the GPU frequency offset.
+        /// </summary>
+        /// <param name="offset">Frequency offset value.</param>
         public unsafe void OverclockGpuFrequencyOffsetSet(double offset)
         {
             ThrowIfDisposed();
@@ -62,6 +81,10 @@ namespace IGCLWrapper
                 throw new IGCLException(result, OverclockError);
         }
 
+        /// <summary>
+        /// Get the GPU frequency offset (V2).
+        /// </summary>
+        /// <returns>GPU frequency offset.</returns>
         public unsafe double OverclockGpuFrequencyOffsetGetV2()
         {
             ThrowIfDisposed();
@@ -72,6 +95,10 @@ namespace IGCLWrapper
             return value;
         }
 
+        /// <summary>
+        /// Set the GPU frequency offset (V2).
+        /// </summary>
+        /// <param name="offset">Frequency offset value.</param>
         public unsafe void OverclockGpuFrequencyOffsetSetV2(double offset)
         {
             ThrowIfDisposed();
@@ -82,6 +109,10 @@ namespace IGCLWrapper
         #endregion
 
         #region GPU voltage offset
+        /// <summary>
+        /// Get the GPU voltage offset.
+        /// </summary>
+        /// <returns>GPU voltage offset.</returns>
         public unsafe double OverclockGpuVoltageOffsetGet()
         {
             ThrowIfDisposed();
@@ -92,6 +123,10 @@ namespace IGCLWrapper
             return value;
         }
 
+        /// <summary>
+        /// Set the GPU voltage offset.
+        /// </summary>
+        /// <param name="offset">Voltage offset value.</param>
         public unsafe void OverclockGpuVoltageOffsetSet(double offset)
         {
             ThrowIfDisposed();
@@ -100,6 +135,10 @@ namespace IGCLWrapper
                 throw new IGCLException(result, OverclockError);
         }
 
+        /// <summary>
+        /// Get the GPU max voltage offset (V2).
+        /// </summary>
+        /// <returns>GPU max voltage offset.</returns>
         public unsafe double OverclockGpuMaxVoltageOffsetGetV2()
         {
             ThrowIfDisposed();
@@ -110,6 +149,10 @@ namespace IGCLWrapper
             return value;
         }
 
+        /// <summary>
+        /// Set the GPU max voltage offset (V2).
+        /// </summary>
+        /// <param name="offset">Voltage offset value.</param>
         public unsafe void OverclockGpuMaxVoltageOffsetSetV2(double offset)
         {
             ThrowIfDisposed();
@@ -120,6 +163,10 @@ namespace IGCLWrapper
         #endregion
 
         #region GPU lock
+        /// <summary>
+        /// Get the GPU lock voltage/frequency pair.
+        /// </summary>
+        /// <returns>Voltage/frequency pair struct.</returns>
         public unsafe ctl_oc_vf_pair_t OverclockGpuLockGet()
         {
             ThrowIfDisposed();
@@ -130,6 +177,10 @@ namespace IGCLWrapper
             return pair;
         }
 
+        /// <summary>
+        /// Set the GPU lock voltage/frequency pair.
+        /// </summary>
+        /// <param name="pair">Voltage/frequency pair struct.</param>
         public unsafe void OverclockGpuLockSet(ctl_oc_vf_pair_t pair)
         {
             ThrowIfDisposed();
@@ -147,6 +198,10 @@ namespace IGCLWrapper
         #endregion
 
         #region VRAM offsets and speed limits
+        /// <summary>
+        /// Get the VRAM frequency offset.
+        /// </summary>
+        /// <returns>VRAM frequency offset.</returns>
         public unsafe double OverclockVramFrequencyOffsetGet()
         {
             ThrowIfDisposed();
@@ -157,6 +212,10 @@ namespace IGCLWrapper
             return value;
         }
 
+        /// <summary>
+        /// Set the VRAM frequency offset.
+        /// </summary>
+        /// <param name="offset">Frequency offset value.</param>
         public unsafe void OverclockVramFrequencyOffsetSet(double offset)
         {
             ThrowIfDisposed();
@@ -165,6 +224,10 @@ namespace IGCLWrapper
                 throw new IGCLException(result, OverclockError);
         }
 
+        /// <summary>
+        /// Get the VRAM voltage offset.
+        /// </summary>
+        /// <returns>VRAM voltage offset.</returns>
         public unsafe double OverclockVramVoltageOffsetGet()
         {
             ThrowIfDisposed();
@@ -175,6 +238,10 @@ namespace IGCLWrapper
             return value;
         }
 
+        /// <summary>
+        /// Set the VRAM voltage offset.
+        /// </summary>
+        /// <param name="voltage">Voltage offset value.</param>
         public unsafe void OverclockVramVoltageOffsetSet(double voltage)
         {
             ThrowIfDisposed();
@@ -183,6 +250,10 @@ namespace IGCLWrapper
                 throw new IGCLException(result, OverclockError);
         }
 
+        /// <summary>
+        /// Get the VRAM memory speed limit (V2).
+        /// </summary>
+        /// <returns>VRAM memory speed limit.</returns>
         public unsafe double OverclockVramMemSpeedLimitGetV2()
         {
             ThrowIfDisposed();
@@ -193,6 +264,10 @@ namespace IGCLWrapper
             return value;
         }
 
+        /// <summary>
+        /// Set the VRAM memory speed limit (V2).
+        /// </summary>
+        /// <param name="speed">Speed limit value.</param>
         public unsafe void OverclockVramMemSpeedLimitSetV2(double speed)
         {
             ThrowIfDisposed();
@@ -203,6 +278,10 @@ namespace IGCLWrapper
         #endregion
 
         #region Power limits
+        /// <summary>
+        /// Get the overclock power limit.
+        /// </summary>
+        /// <returns>Power limit value.</returns>
         public unsafe double OverclockPowerLimitGet()
         {
             ThrowIfDisposed();
@@ -213,6 +292,10 @@ namespace IGCLWrapper
             return value;
         }
 
+        /// <summary>
+        /// Set the overclock power limit.
+        /// </summary>
+        /// <param name="limit">Power limit value.</param>
         public unsafe void OverclockPowerLimitSet(double limit)
         {
             ThrowIfDisposed();
@@ -221,6 +304,10 @@ namespace IGCLWrapper
                 throw new IGCLException(result, OverclockError);
         }
 
+        /// <summary>
+        /// Get the overclock power limit (V2).
+        /// </summary>
+        /// <returns>Power limit value.</returns>
         public unsafe double OverclockPowerLimitGetV2()
         {
             ThrowIfDisposed();
@@ -231,6 +318,10 @@ namespace IGCLWrapper
             return value;
         }
 
+        /// <summary>
+        /// Set the overclock power limit (V2).
+        /// </summary>
+        /// <param name="limit">Power limit value.</param>
         public unsafe void OverclockPowerLimitSetV2(double limit)
         {
             ThrowIfDisposed();
@@ -241,6 +332,10 @@ namespace IGCLWrapper
         #endregion
 
         #region Temperature limits
+        /// <summary>
+        /// Get the overclock temperature limit.
+        /// </summary>
+        /// <returns>Temperature limit value.</returns>
         public unsafe double OverclockTemperatureLimitGet()
         {
             ThrowIfDisposed();
@@ -251,6 +346,10 @@ namespace IGCLWrapper
             return value;
         }
 
+        /// <summary>
+        /// Set the overclock temperature limit.
+        /// </summary>
+        /// <param name="value">Temperature limit value.</param>
         public unsafe void OverclockTemperatureLimitSet(double value)
         {
             ThrowIfDisposed();
@@ -259,6 +358,10 @@ namespace IGCLWrapper
                 throw new IGCLException(result, OverclockError);
         }
 
+        /// <summary>
+        /// Get the overclock temperature limit (V2).
+        /// </summary>
+        /// <returns>Temperature limit value.</returns>
         public unsafe double OverclockTemperatureLimitGetV2()
         {
             ThrowIfDisposed();
@@ -269,6 +372,10 @@ namespace IGCLWrapper
             return value;
         }
 
+        /// <summary>
+        /// Set the overclock temperature limit (V2).
+        /// </summary>
+        /// <param name="value">Temperature limit value.</param>
         public unsafe void OverclockTemperatureLimitSetV2(double value)
         {
             ThrowIfDisposed();
@@ -278,6 +385,10 @@ namespace IGCLWrapper
         }
         #endregion
 
+        /// <summary>
+        /// Get power telemetry using the native struct.
+        /// </summary>
+        /// <returns>Power telemetry struct.</returns>
         public unsafe ctl_power_telemetry_t GetPowerTelemetryNative()
         {
             ThrowIfDisposed();
@@ -288,12 +399,19 @@ namespace IGCLWrapper
             return telemetry;
         }
 
+        /// <summary>
+        /// Get power telemetry as a DTO.
+        /// </summary>
+        /// <returns>Power telemetry DTO.</returns>
         public PowerTelemetryDto GetPowerTelemetry()
         {
             var native = GetPowerTelemetryNative();
             return PowerTelemetryDto.FromNative(native);
         }
 
+        /// <summary>
+        /// Reset overclock settings to default.
+        /// </summary>
         public unsafe void ResetToDefault()
         {
             ThrowIfDisposed();
@@ -303,6 +421,12 @@ namespace IGCLWrapper
         }
 
         #region VF curve
+        /// <summary>
+        /// Read the voltage/frequency curve.
+        /// </summary>
+        /// <param name="curveType">Curve type.</param>
+        /// <param name="detail">Curve detail flags.</param>
+        /// <returns>Array of voltage/frequency points.</returns>
         public unsafe ctl_voltage_frequency_point_t[] OverclockReadVFCurve(ctl_vf_curve_type_t curveType, ctl_vf_curve_details_t detail)
         {
             ThrowIfDisposed();
@@ -324,6 +448,10 @@ namespace IGCLWrapper
             return points;
         }
 
+        /// <summary>
+        /// Write a custom voltage/frequency curve.
+        /// </summary>
+        /// <param name="points">Voltage/frequency points.</param>
         public unsafe void OverclockWriteCustomVFCurve(ctl_voltage_frequency_point_t[] points)
         {
             ThrowIfDisposed();
@@ -341,15 +469,55 @@ namespace IGCLWrapper
         #endregion
 
         #region Convenience aliases (existing naming)
+        /// <summary>
+        /// Get the GPU frequency offset (V2 wrapper).
+        /// </summary>
+        /// <returns>GPU frequency offset.</returns>
         public double GetGpuFrequencyOffset() => OverclockGpuFrequencyOffsetGetV2();
+        /// <summary>
+        /// Set the GPU frequency offset (V2 wrapper).
+        /// </summary>
+        /// <param name="offset">Frequency offset value.</param>
         public void SetGpuFrequencyOffset(double offset) => OverclockGpuFrequencyOffsetSetV2(offset);
+        /// <summary>
+        /// Get the GPU voltage offset (V2 wrapper).
+        /// </summary>
+        /// <returns>GPU voltage offset.</returns>
         public double GetGpuVoltageOffset() => OverclockGpuMaxVoltageOffsetGetV2();
+        /// <summary>
+        /// Set the GPU voltage offset (V2 wrapper).
+        /// </summary>
+        /// <param name="offset">Voltage offset value.</param>
         public void SetGpuVoltageOffset(double offset) => OverclockGpuMaxVoltageOffsetSetV2(offset);
+        /// <summary>
+        /// Get the VRAM frequency offset.
+        /// </summary>
+        /// <returns>VRAM frequency offset.</returns>
         public double GetVramFrequencyOffset() => OverclockVramFrequencyOffsetGet();
+        /// <summary>
+        /// Set the VRAM frequency offset.
+        /// </summary>
+        /// <param name="offset">Frequency offset value.</param>
         public void SetVramFrequencyOffset(double offset) => OverclockVramFrequencyOffsetSet(offset);
+        /// <summary>
+        /// Get the power limit (V2 wrapper).
+        /// </summary>
+        /// <returns>Power limit value.</returns>
         public double GetPowerLimit() => OverclockPowerLimitGetV2();
+        /// <summary>
+        /// Set the power limit (V2 wrapper).
+        /// </summary>
+        /// <param name="limit">Power limit value.</param>
         public void SetPowerLimit(double limit) => OverclockPowerLimitSetV2(limit);
+        /// <summary>
+        /// Get the temperature limit (V2 wrapper).
+        /// </summary>
+        /// <returns>Temperature limit value.</returns>
         public double GetTemperatureLimit() => OverclockTemperatureLimitGetV2();
+        /// <summary>
+        /// Set the temperature limit (V2 wrapper).
+        /// </summary>
+        /// <param name="value">Temperature limit value.</param>
         public void SetTemperatureLimit(double value) => OverclockTemperatureLimitSetV2(value);
         #endregion
 
@@ -360,9 +528,16 @@ namespace IGCLWrapper
         }
 
         private static unsafe ctl_oc_properties_t CreateOverclockProperties() => new ctl_oc_properties_t { Size = (uint)sizeof(ctl_oc_properties_t), Version = 0 };
+        /// <summary>
+        /// Create a voltage/frequency pair struct with Size and Version initialized.
+        /// </summary>
+        /// <returns>Initialized voltage/frequency pair struct.</returns>
         public static unsafe ctl_oc_vf_pair_t CreateVfPair() => new ctl_oc_vf_pair_t { Size = (uint)sizeof(ctl_oc_vf_pair_t), Version = 0 };
         private static unsafe ctl_power_telemetry_t CreatePowerTelemetry() => new ctl_power_telemetry_t { Size = (uint)sizeof(ctl_power_telemetry_t), Version = 0 };
 
+        /// <summary>
+        /// Mark the helper as disposed.
+        /// </summary>
         public void Dispose()
         {
             _disposed = true;
@@ -375,18 +550,53 @@ namespace IGCLWrapper
         public static byte ToByte(bool value) => value ? (byte)1 : (byte)0;
     }
 
+    /// <summary>
+    /// DTO for overclock control information.
+    /// </summary>
     public struct OcControlInfoDto
     {
+        /// <summary>
+        /// Indicates whether the control is supported.
+        /// </summary>
         public bool IsSupported;
+        /// <summary>
+        /// Indicates whether the control is relative.
+        /// </summary>
         public bool IsRelative;
+        /// <summary>
+        /// Indicates whether the control is reference-based.
+        /// </summary>
         public bool IsReference;
+        /// <summary>
+        /// Units for the control values.
+        /// </summary>
         public ctl_units_t Units;
+        /// <summary>
+        /// Minimum value.
+        /// </summary>
         public double Min;
+        /// <summary>
+        /// Maximum value.
+        /// </summary>
         public double Max;
+        /// <summary>
+        /// Step size.
+        /// </summary>
         public double Step;
+        /// <summary>
+        /// Default value.
+        /// </summary>
         public double Default;
+        /// <summary>
+        /// Reference value.
+        /// </summary>
         public double Reference;
 
+        /// <summary>
+        /// Create a DTO from a native struct.
+        /// </summary>
+        /// <param name="native">Native struct.</param>
+        /// <returns>Overclock control info DTO.</returns>
         public static OcControlInfoDto FromNative(ctl_oc_control_info_t native)
         {
             return new OcControlInfoDto
@@ -403,6 +613,10 @@ namespace IGCLWrapper
             };
         }
 
+        /// <summary>
+        /// Convert this DTO to a native struct.
+        /// </summary>
+        /// <returns>Overclock control info struct.</returns>
         public ctl_oc_control_info_t ToNative()
         {
             return new ctl_oc_control_info_t
@@ -420,21 +634,65 @@ namespace IGCLWrapper
         }
     }
 
+    /// <summary>
+    /// DTO for overclock properties.
+    /// </summary>
     public struct OverclockPropertiesDto
     {
+        /// <summary>
+        /// Size of the native struct.
+        /// </summary>
         public uint Size;
+        /// <summary>
+        /// Version of the native struct.
+        /// </summary>
         public byte Version;
+        /// <summary>
+        /// Indicates whether overclocking is supported.
+        /// </summary>
         public bool IsSupported;
+        /// <summary>
+        /// GPU frequency offset control info.
+        /// </summary>
         public OcControlInfoDto GpuFrequencyOffset;
+        /// <summary>
+        /// GPU voltage offset control info.
+        /// </summary>
         public OcControlInfoDto GpuVoltageOffset;
+        /// <summary>
+        /// VRAM frequency offset control info.
+        /// </summary>
         public OcControlInfoDto VramFrequencyOffset;
+        /// <summary>
+        /// VRAM voltage offset control info.
+        /// </summary>
         public OcControlInfoDto VramVoltageOffset;
+        /// <summary>
+        /// Power limit control info.
+        /// </summary>
         public OcControlInfoDto PowerLimit;
+        /// <summary>
+        /// Temperature limit control info.
+        /// </summary>
         public OcControlInfoDto TemperatureLimit;
+        /// <summary>
+        /// VRAM memory speed limit control info.
+        /// </summary>
         public OcControlInfoDto VramMemSpeedLimit;
+        /// <summary>
+        /// GPU VF curve voltage limit control info.
+        /// </summary>
         public OcControlInfoDto GpuVfCurveVoltageLimit;
+        /// <summary>
+        /// GPU VF curve frequency limit control info.
+        /// </summary>
         public OcControlInfoDto GpuVfCurveFrequencyLimit;
 
+        /// <summary>
+        /// Create a DTO from a native struct.
+        /// </summary>
+        /// <param name="native">Native struct.</param>
+        /// <returns>Overclock properties DTO.</returns>
         public static OverclockPropertiesDto FromNative(ctl_oc_properties_t native)
         {
             return new OverclockPropertiesDto
@@ -454,6 +712,10 @@ namespace IGCLWrapper
             };
         }
 
+        /// <summary>
+        /// Convert this DTO to a native struct.
+        /// </summary>
+        /// <returns>Overclock properties struct.</returns>
         public ctl_oc_properties_t ToNative()
         {
             return new ctl_oc_properties_t
@@ -474,13 +736,33 @@ namespace IGCLWrapper
         }
     }
 
+    /// <summary>
+    /// DTO for overclock telemetry item.
+    /// </summary>
     public struct OcTelemetryItemDto
     {
+        /// <summary>
+        /// Indicates whether this item is supported.
+        /// </summary>
         public bool IsSupported;
+        /// <summary>
+        /// Units for the value.
+        /// </summary>
         public ctl_units_t Units;
+        /// <summary>
+        /// Data type for the value.
+        /// </summary>
         public ctl_data_type_t Type;
+        /// <summary>
+        /// Telemetry value.
+        /// </summary>
         public ctl_data_value_t Value;
 
+        /// <summary>
+        /// Create a DTO from a native struct.
+        /// </summary>
+        /// <param name="native">Native struct.</param>
+        /// <returns>Telemetry item DTO.</returns>
         public static OcTelemetryItemDto FromNative(ctl_oc_telemetry_item_t native)
         {
             return new OcTelemetryItemDto
@@ -492,6 +774,10 @@ namespace IGCLWrapper
             };
         }
 
+        /// <summary>
+        /// Convert this DTO to a native struct.
+        /// </summary>
+        /// <returns>Telemetry item struct.</returns>
         public ctl_oc_telemetry_item_t ToNative()
         {
             return new ctl_oc_telemetry_item_t
@@ -504,13 +790,33 @@ namespace IGCLWrapper
         }
     }
 
+    /// <summary>
+    /// DTO for PSU information.
+    /// </summary>
     public struct PsuInfoDto
     {
+        /// <summary>
+        /// Indicates whether PSU info is supported.
+        /// </summary>
         public bool IsSupported;
+        /// <summary>
+        /// PSU type.
+        /// </summary>
         public ctl_psu_type_t PsuType;
+        /// <summary>
+        /// Energy counter telemetry item.
+        /// </summary>
         public OcTelemetryItemDto EnergyCounter;
+        /// <summary>
+        /// Voltage telemetry item.
+        /// </summary>
         public OcTelemetryItemDto Voltage;
 
+        /// <summary>
+        /// Create a DTO from a native struct.
+        /// </summary>
+        /// <param name="native">Native struct.</param>
+        /// <returns>PSU info DTO.</returns>
         public static PsuInfoDto FromNative(ctl_psu_info_t native)
         {
             return new PsuInfoDto
@@ -522,6 +828,10 @@ namespace IGCLWrapper
             };
         }
 
+        /// <summary>
+        /// Convert this DTO to a native struct.
+        /// </summary>
+        /// <returns>PSU info struct.</returns>
         public ctl_psu_info_t ToNative()
         {
             return new ctl_psu_info_t
@@ -534,48 +844,173 @@ namespace IGCLWrapper
         }
     }
 
+    /// <summary>
+    /// DTO for power telemetry.
+    /// </summary>
     public struct PowerTelemetryDto
     {
+        /// <summary>
+        /// Size of the native struct.
+        /// </summary>
         public uint Size;
+        /// <summary>
+        /// Version of the native struct.
+        /// </summary>
         public byte Version;
+        /// <summary>
+        /// Timestamp telemetry item.
+        /// </summary>
         public OcTelemetryItemDto TimeStamp;
+        /// <summary>
+        /// GPU energy counter telemetry item.
+        /// </summary>
         public OcTelemetryItemDto GpuEnergyCounter;
+        /// <summary>
+        /// GPU voltage telemetry item.
+        /// </summary>
         public OcTelemetryItemDto GpuVoltage;
+        /// <summary>
+        /// GPU current clock frequency telemetry item.
+        /// </summary>
         public OcTelemetryItemDto GpuCurrentClockFrequency;
+        /// <summary>
+        /// GPU current temperature telemetry item.
+        /// </summary>
         public OcTelemetryItemDto GpuCurrentTemperature;
+        /// <summary>
+        /// Global activity counter telemetry item.
+        /// </summary>
         public OcTelemetryItemDto GlobalActivityCounter;
+        /// <summary>
+        /// Render/compute activity counter telemetry item.
+        /// </summary>
         public OcTelemetryItemDto RenderComputeActivityCounter;
+        /// <summary>
+        /// Media activity counter telemetry item.
+        /// </summary>
         public OcTelemetryItemDto MediaActivityCounter;
+        /// <summary>
+        /// Indicates GPU power limit is active.
+        /// </summary>
         public bool GpuPowerLimited;
+        /// <summary>
+        /// Indicates GPU temperature limit is active.
+        /// </summary>
         public bool GpuTemperatureLimited;
+        /// <summary>
+        /// Indicates GPU current limit is active.
+        /// </summary>
         public bool GpuCurrentLimited;
+        /// <summary>
+        /// Indicates GPU voltage limit is active.
+        /// </summary>
         public bool GpuVoltageLimited;
+        /// <summary>
+        /// Indicates GPU utilization limit is active.
+        /// </summary>
         public bool GpuUtilizationLimited;
+        /// <summary>
+        /// VRAM energy counter telemetry item.
+        /// </summary>
         public OcTelemetryItemDto VramEnergyCounter;
+        /// <summary>
+        /// VRAM voltage telemetry item.
+        /// </summary>
         public OcTelemetryItemDto VramVoltage;
+        /// <summary>
+        /// VRAM current clock frequency telemetry item.
+        /// </summary>
         public OcTelemetryItemDto VramCurrentClockFrequency;
+        /// <summary>
+        /// VRAM current effective frequency telemetry item.
+        /// </summary>
         public OcTelemetryItemDto VramCurrentEffectiveFrequency;
+        /// <summary>
+        /// VRAM read bandwidth counter telemetry item.
+        /// </summary>
         public OcTelemetryItemDto VramReadBandwidthCounter;
+        /// <summary>
+        /// VRAM write bandwidth counter telemetry item.
+        /// </summary>
         public OcTelemetryItemDto VramWriteBandwidthCounter;
+        /// <summary>
+        /// VRAM current temperature telemetry item.
+        /// </summary>
         public OcTelemetryItemDto VramCurrentTemperature;
+        /// <summary>
+        /// Indicates VRAM power limit is active.
+        /// </summary>
         public bool VramPowerLimited;
+        /// <summary>
+        /// Indicates VRAM temperature limit is active.
+        /// </summary>
         public bool VramTemperatureLimited;
+        /// <summary>
+        /// Indicates VRAM current limit is active.
+        /// </summary>
         public bool VramCurrentLimited;
+        /// <summary>
+        /// Indicates VRAM voltage limit is active.
+        /// </summary>
         public bool VramVoltageLimited;
+        /// <summary>
+        /// Indicates VRAM utilization limit is active.
+        /// </summary>
         public bool VramUtilizationLimited;
+        /// <summary>
+        /// Total card energy counter telemetry item.
+        /// </summary>
         public OcTelemetryItemDto TotalCardEnergyCounter;
+        /// <summary>
+        /// PSU telemetry items.
+        /// </summary>
         public PsuInfoDto[] Psu;
+        /// <summary>
+        /// Fan speed telemetry items.
+        /// </summary>
         public OcTelemetryItemDto[] FanSpeed;
+        /// <summary>
+        /// GPU VR temperature telemetry item.
+        /// </summary>
         public OcTelemetryItemDto GpuVrTemp;
+        /// <summary>
+        /// VRAM VR temperature telemetry item.
+        /// </summary>
         public OcTelemetryItemDto VramVrTemp;
+        /// <summary>
+        /// SA VR temperature telemetry item.
+        /// </summary>
         public OcTelemetryItemDto SaVrTemp;
+        /// <summary>
+        /// GPU effective clock telemetry item.
+        /// </summary>
         public OcTelemetryItemDto GpuEffectiveClock;
+        /// <summary>
+        /// GPU over-voltage percent telemetry item.
+        /// </summary>
         public OcTelemetryItemDto GpuOverVoltagePercent;
+        /// <summary>
+        /// GPU power percent telemetry item.
+        /// </summary>
         public OcTelemetryItemDto GpuPowerPercent;
+        /// <summary>
+        /// GPU temperature percent telemetry item.
+        /// </summary>
         public OcTelemetryItemDto GpuTemperaturePercent;
+        /// <summary>
+        /// VRAM read bandwidth telemetry item.
+        /// </summary>
         public OcTelemetryItemDto VramReadBandwidth;
+        /// <summary>
+        /// VRAM write bandwidth telemetry item.
+        /// </summary>
         public OcTelemetryItemDto VramWriteBandwidth;
 
+        /// <summary>
+        /// Create a DTO from a native struct.
+        /// </summary>
+        /// <param name="native">Native struct.</param>
+        /// <returns>Power telemetry DTO.</returns>
         public static unsafe PowerTelemetryDto FromNative(ctl_power_telemetry_t native)
         {
             var psu = new PsuInfoDto[5];
@@ -632,6 +1067,10 @@ namespace IGCLWrapper
             };
         }
 
+        /// <summary>
+        /// Convert this DTO to a native struct.
+        /// </summary>
+        /// <returns>Power telemetry struct.</returns>
         public unsafe ctl_power_telemetry_t ToNative()
         {
             var native = new ctl_power_telemetry_t

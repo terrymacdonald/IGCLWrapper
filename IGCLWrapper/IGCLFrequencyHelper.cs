@@ -18,12 +18,21 @@ namespace IGCLWrapper
             _adapter = adapter;
         }
 
+        /// <summary>
+        /// Enumerate frequency domain handles for the adapter.
+        /// </summary>
+        /// <returns>Read-only list of frequency domain handles.</returns>
         public unsafe IReadOnlyList<IntPtr> EnumFrequencyDomains()
         {
             ThrowIfDisposed();
             return EnumerateHandles((_ctl_device_adapter_handle_t*)_adapter);
         }
 
+        /// <summary>
+        /// Get frequency domain properties using the native struct.
+        /// </summary>
+        /// <param name="freqHandle">Frequency domain handle.</param>
+        /// <returns>Frequency properties struct.</returns>
         public unsafe ctl_freq_properties_t FrequencyGetPropertiesNative(IntPtr freqHandle)
         {
             ThrowIfDisposed();
@@ -34,12 +43,22 @@ namespace IGCLWrapper
             return props;
         }
 
+        /// <summary>
+        /// Get frequency domain properties as a DTO.
+        /// </summary>
+        /// <param name="freqHandle">Frequency domain handle.</param>
+        /// <returns>Frequency properties DTO.</returns>
         public FrequencyPropertiesDto FrequencyGetProperties(IntPtr freqHandle)
         {
             var native = FrequencyGetPropertiesNative(freqHandle);
             return FrequencyPropertiesDto.FromNative(native);
         }
 
+        /// <summary>
+        /// Get available clocks for a frequency domain.
+        /// </summary>
+        /// <param name="freqHandle">Frequency domain handle.</param>
+        /// <returns>Array of available clock values.</returns>
         public unsafe double[] FrequencyGetAvailableClocks(IntPtr freqHandle)
         {
             ThrowIfDisposed();
@@ -59,6 +78,11 @@ namespace IGCLWrapper
             return freqs;
         }
 
+        /// <summary>
+        /// Get the frequency range for a domain.
+        /// </summary>
+        /// <param name="freqHandle">Frequency domain handle.</param>
+        /// <returns>Frequency range struct.</returns>
         public unsafe ctl_freq_range_t FrequencyGetRange(IntPtr freqHandle)
         {
             ThrowIfDisposed();
@@ -69,6 +93,11 @@ namespace IGCLWrapper
             return range;
         }
 
+        /// <summary>
+        /// Set the frequency range for a domain.
+        /// </summary>
+        /// <param name="freqHandle">Frequency domain handle.</param>
+        /// <param name="range">Frequency range struct.</param>
         public unsafe void FrequencySetRange(IntPtr freqHandle, ctl_freq_range_t range)
         {
             ThrowIfDisposed();
@@ -77,6 +106,11 @@ namespace IGCLWrapper
                 throw new IGCLException(result, "Failed to set frequency range");
         }
 
+        /// <summary>
+        /// Get the current frequency state.
+        /// </summary>
+        /// <param name="freqHandle">Frequency domain handle.</param>
+        /// <returns>Frequency state struct.</returns>
         public unsafe ctl_freq_state_t FrequencyGetState(IntPtr freqHandle)
         {
             ThrowIfDisposed();
@@ -87,6 +121,11 @@ namespace IGCLWrapper
             return state;
         }
 
+        /// <summary>
+        /// Get the throttle time for a frequency domain.
+        /// </summary>
+        /// <param name="freqHandle">Frequency domain handle.</param>
+        /// <returns>Throttle time struct.</returns>
         public unsafe ctl_freq_throttle_time_t FrequencyGetThrottleTime(IntPtr freqHandle)
         {
             ThrowIfDisposed();
@@ -125,8 +164,15 @@ namespace IGCLWrapper
         private static unsafe ctl_freq_range_t CreateFrequencyRange() => new ctl_freq_range_t { Size = (uint)sizeof(ctl_freq_range_t), Version = 0 };
         private static unsafe ctl_freq_state_t CreateFrequencyState() => new ctl_freq_state_t { Size = (uint)sizeof(ctl_freq_state_t), Version = 0 };
         private static unsafe ctl_freq_throttle_time_t CreateFrequencyThrottleTime() => new ctl_freq_throttle_time_t { Size = (uint)sizeof(ctl_freq_throttle_time_t), Version = 0 };
+        /// <summary>
+        /// Create a frequency range struct with Size and Version initialized.
+        /// </summary>
+        /// <returns>Initialized frequency range struct.</returns>
         public static unsafe ctl_freq_range_t CreateFrequencyRangeStruct() => CreateFrequencyRange();
 
+        /// <summary>
+        /// Mark the helper as disposed.
+        /// </summary>
         public void Dispose()
         {
             _disposed = true;
@@ -139,15 +185,41 @@ namespace IGCLWrapper
         public static byte ToByte(bool value) => value ? (byte)1 : (byte)0;
     }
 
+    /// <summary>
+    /// DTO for frequency domain properties.
+    /// </summary>
     public struct FrequencyPropertiesDto
     {
+        /// <summary>
+        /// Size of the native struct.
+        /// </summary>
         public uint Size;
+        /// <summary>
+        /// Version of the native struct.
+        /// </summary>
         public byte Version;
+        /// <summary>
+        /// Frequency domain type.
+        /// </summary>
         public ctl_freq_domain_t Type;
+        /// <summary>
+        /// Indicates whether the domain can be controlled.
+        /// </summary>
         public bool CanControl;
+        /// <summary>
+        /// Minimum frequency.
+        /// </summary>
         public double Min;
+        /// <summary>
+        /// Maximum frequency.
+        /// </summary>
         public double Max;
 
+        /// <summary>
+        /// Create a DTO from a native struct.
+        /// </summary>
+        /// <param name="native">Native struct.</param>
+        /// <returns>Frequency properties DTO.</returns>
         public static FrequencyPropertiesDto FromNative(ctl_freq_properties_t native)
         {
             return new FrequencyPropertiesDto
@@ -161,6 +233,10 @@ namespace IGCLWrapper
             };
         }
 
+        /// <summary>
+        /// Convert this DTO to a native struct.
+        /// </summary>
+        /// <returns>Frequency properties struct.</returns>
         public ctl_freq_properties_t ToNative()
         {
             return new ctl_freq_properties_t

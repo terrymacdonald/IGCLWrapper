@@ -18,12 +18,21 @@ namespace IGCLWrapper
             _adapter = adapter;
         }
 
+        /// <summary>
+        /// Enumerate engine group handles for the adapter.
+        /// </summary>
+        /// <returns>Read-only list of engine handles.</returns>
         public unsafe IReadOnlyList<IntPtr> EnumEngineGroups()
         {
             ThrowIfDisposed();
             return EnumerateHandles((_ctl_device_adapter_handle_t*)_adapter);
         }
 
+        /// <summary>
+        /// Get engine properties for a handle.
+        /// </summary>
+        /// <param name="engineHandle">Engine handle.</param>
+        /// <returns>Engine properties struct.</returns>
         public unsafe ctl_engine_properties_t EngineGetProperties(IntPtr engineHandle)
         {
             ThrowIfDisposed();
@@ -34,6 +43,11 @@ namespace IGCLWrapper
             return props;
         }
 
+        /// <summary>
+        /// Get engine activity stats for a handle.
+        /// </summary>
+        /// <param name="engineHandle">Engine handle.</param>
+        /// <returns>Engine stats struct.</returns>
         public unsafe ctl_engine_stats_t EngineGetActivity(IntPtr engineHandle)
         {
             ThrowIfDisposed();
@@ -71,6 +85,9 @@ namespace IGCLWrapper
         private static unsafe ctl_engine_properties_t CreateEngineProperties() => new ctl_engine_properties_t { Size = (uint)sizeof(ctl_engine_properties_t), Version = 0 };
         private static unsafe ctl_engine_stats_t CreateEngineStats() => new ctl_engine_stats_t { Size = (uint)sizeof(ctl_engine_stats_t), Version = 0 };
 
+        /// <summary>
+        /// Mark the helper as disposed.
+        /// </summary>
         public void Dispose()
         {
             _disposed = true;

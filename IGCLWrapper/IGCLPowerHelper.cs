@@ -18,12 +18,21 @@ namespace IGCLWrapper
             _adapter = adapter;
         }
 
+        /// <summary>
+        /// Enumerate power domain handles for the adapter.
+        /// </summary>
+        /// <returns>Read-only list of power domain handles.</returns>
         public unsafe IReadOnlyList<IntPtr> EnumPowerDomains()
         {
             ThrowIfDisposed();
             return EnumerateHandles((_ctl_device_adapter_handle_t*)_adapter);
         }
 
+        /// <summary>
+        /// Get power domain properties using the native struct.
+        /// </summary>
+        /// <param name="powerHandle">Power domain handle.</param>
+        /// <returns>Power properties struct.</returns>
         public unsafe ctl_power_properties_t PowerGetPropertiesNative(IntPtr powerHandle)
         {
             ThrowIfDisposed();
@@ -34,12 +43,22 @@ namespace IGCLWrapper
             return props;
         }
 
+        /// <summary>
+        /// Get power domain properties as a DTO.
+        /// </summary>
+        /// <param name="powerHandle">Power domain handle.</param>
+        /// <returns>Power properties DTO.</returns>
         public PowerPropertiesDto PowerGetProperties(IntPtr powerHandle)
         {
             var native = PowerGetPropertiesNative(powerHandle);
             return PowerPropertiesDto.FromNative(native);
         }
 
+        /// <summary>
+        /// Get the power energy counter.
+        /// </summary>
+        /// <param name="powerHandle">Power domain handle.</param>
+        /// <returns>Power energy counter struct.</returns>
         public unsafe ctl_power_energy_counter_t PowerGetEnergyCounter(IntPtr powerHandle)
         {
             ThrowIfDisposed();
@@ -50,6 +69,11 @@ namespace IGCLWrapper
             return counter;
         }
 
+        /// <summary>
+        /// Get power limits using the native struct.
+        /// </summary>
+        /// <param name="powerHandle">Power domain handle.</param>
+        /// <returns>Power limits struct.</returns>
         public unsafe ctl_power_limits_t PowerGetLimitsNative(IntPtr powerHandle)
         {
             ThrowIfDisposed();
@@ -60,12 +84,22 @@ namespace IGCLWrapper
             return limits;
         }
 
+        /// <summary>
+        /// Get power limits as a DTO.
+        /// </summary>
+        /// <param name="powerHandle">Power domain handle.</param>
+        /// <returns>Power limits DTO.</returns>
         public PowerLimitsDto PowerGetLimits(IntPtr powerHandle)
         {
             var native = PowerGetLimitsNative(powerHandle);
             return PowerLimitsDto.FromNative(native);
         }
 
+        /// <summary>
+        /// Set power limits using the native struct.
+        /// </summary>
+        /// <param name="powerHandle">Power domain handle.</param>
+        /// <param name="limits">Power limits struct.</param>
         public unsafe void PowerSetLimitsNative(IntPtr powerHandle, ctl_power_limits_t limits)
         {
             ThrowIfDisposed();
@@ -74,6 +108,11 @@ namespace IGCLWrapper
                 throw new IGCLException(result, "Failed to set power limits");
         }
 
+        /// <summary>
+        /// Set power limits using a DTO.
+        /// </summary>
+        /// <param name="powerHandle">Power domain handle.</param>
+        /// <param name="limits">Power limits DTO.</param>
         public void PowerSetLimits(IntPtr powerHandle, PowerLimitsDto limits)
         {
             PowerSetLimitsNative(powerHandle, limits.ToNative());
@@ -106,8 +145,15 @@ namespace IGCLWrapper
         private static unsafe ctl_power_properties_t CreatePowerProperties() => new ctl_power_properties_t { Size = (uint)sizeof(ctl_power_properties_t), Version = 0 };
         private static unsafe ctl_power_energy_counter_t CreatePowerEnergyCounter() => new ctl_power_energy_counter_t { Size = (uint)sizeof(ctl_power_energy_counter_t), Version = 0 };
         private static unsafe ctl_power_limits_t CreatePowerLimits() => new ctl_power_limits_t { Size = (uint)sizeof(ctl_power_limits_t), Version = 0 };
+        /// <summary>
+        /// Create a power limits struct with Size and Version initialized.
+        /// </summary>
+        /// <returns>Initialized power limits struct.</returns>
         public static unsafe ctl_power_limits_t CreatePowerLimitsStruct() => CreatePowerLimits();
 
+        /// <summary>
+        /// Mark the helper as disposed.
+        /// </summary>
         public void Dispose()
         {
             _disposed = true;
@@ -120,15 +166,41 @@ namespace IGCLWrapper
         public static byte ToByte(bool value) => value ? (byte)1 : (byte)0;
     }
 
+    /// <summary>
+    /// DTO for power properties.
+    /// </summary>
     public struct PowerPropertiesDto
     {
+        /// <summary>
+        /// Size of the native struct.
+        /// </summary>
         public uint Size;
+        /// <summary>
+        /// Version of the native struct.
+        /// </summary>
         public byte Version;
+        /// <summary>
+        /// Indicates whether power limits can be controlled.
+        /// </summary>
         public bool CanControl;
+        /// <summary>
+        /// Default power limit.
+        /// </summary>
         public int DefaultLimit;
+        /// <summary>
+        /// Minimum power limit.
+        /// </summary>
         public int MinLimit;
+        /// <summary>
+        /// Maximum power limit.
+        /// </summary>
         public int MaxLimit;
 
+        /// <summary>
+        /// Create a DTO from a native struct.
+        /// </summary>
+        /// <param name="native">Native struct.</param>
+        /// <returns>Power properties DTO.</returns>
         public static PowerPropertiesDto FromNative(ctl_power_properties_t native)
         {
             return new PowerPropertiesDto
@@ -142,6 +214,10 @@ namespace IGCLWrapper
             };
         }
 
+        /// <summary>
+        /// Convert this DTO to a native struct.
+        /// </summary>
+        /// <returns>Power properties struct.</returns>
         public ctl_power_properties_t ToNative()
         {
             return new ctl_power_properties_t
@@ -156,12 +232,29 @@ namespace IGCLWrapper
         }
     }
 
+    /// <summary>
+    /// DTO for sustained power limit settings.
+    /// </summary>
     public struct PowerSustainedLimitDto
     {
+        /// <summary>
+        /// Enable flag.
+        /// </summary>
         public bool Enabled;
+        /// <summary>
+        /// Power value.
+        /// </summary>
         public int Power;
+        /// <summary>
+        /// Time interval.
+        /// </summary>
         public int Interval;
 
+        /// <summary>
+        /// Create a DTO from a native struct.
+        /// </summary>
+        /// <param name="native">Native struct.</param>
+        /// <returns>Sustained power limit DTO.</returns>
         public static PowerSustainedLimitDto FromNative(ctl_power_sustained_limit_t native)
         {
             return new PowerSustainedLimitDto
@@ -172,6 +265,10 @@ namespace IGCLWrapper
             };
         }
 
+        /// <summary>
+        /// Convert this DTO to a native struct.
+        /// </summary>
+        /// <returns>Sustained power limit struct.</returns>
         public ctl_power_sustained_limit_t ToNative()
         {
             return new ctl_power_sustained_limit_t
@@ -183,11 +280,25 @@ namespace IGCLWrapper
         }
     }
 
+    /// <summary>
+    /// DTO for burst power limit settings.
+    /// </summary>
     public struct PowerBurstLimitDto
     {
+        /// <summary>
+        /// Enable flag.
+        /// </summary>
         public bool Enabled;
+        /// <summary>
+        /// Power value.
+        /// </summary>
         public int Power;
 
+        /// <summary>
+        /// Create a DTO from a native struct.
+        /// </summary>
+        /// <param name="native">Native struct.</param>
+        /// <returns>Burst power limit DTO.</returns>
         public static PowerBurstLimitDto FromNative(ctl_power_burst_limit_t native)
         {
             return new PowerBurstLimitDto
@@ -197,6 +308,10 @@ namespace IGCLWrapper
             };
         }
 
+        /// <summary>
+        /// Convert this DTO to a native struct.
+        /// </summary>
+        /// <returns>Burst power limit struct.</returns>
         public ctl_power_burst_limit_t ToNative()
         {
             return new ctl_power_burst_limit_t
@@ -207,11 +322,25 @@ namespace IGCLWrapper
         }
     }
 
+    /// <summary>
+    /// DTO for peak power limit settings.
+    /// </summary>
     public struct PowerPeakLimitDto
     {
+        /// <summary>
+        /// AC power value.
+        /// </summary>
         public int PowerAc;
+        /// <summary>
+        /// DC power value.
+        /// </summary>
         public int PowerDc;
 
+        /// <summary>
+        /// Create a DTO from a native struct.
+        /// </summary>
+        /// <param name="native">Native struct.</param>
+        /// <returns>Peak power limit DTO.</returns>
         public static PowerPeakLimitDto FromNative(ctl_power_peak_limit_t native)
         {
             return new PowerPeakLimitDto
@@ -221,6 +350,10 @@ namespace IGCLWrapper
             };
         }
 
+        /// <summary>
+        /// Convert this DTO to a native struct.
+        /// </summary>
+        /// <returns>Peak power limit struct.</returns>
         public ctl_power_peak_limit_t ToNative()
         {
             return new ctl_power_peak_limit_t
@@ -231,14 +364,37 @@ namespace IGCLWrapper
         }
     }
 
+    /// <summary>
+    /// DTO for power limit settings.
+    /// </summary>
     public struct PowerLimitsDto
     {
+        /// <summary>
+        /// Size of the native struct.
+        /// </summary>
         public uint Size;
+        /// <summary>
+        /// Version of the native struct.
+        /// </summary>
         public byte Version;
+        /// <summary>
+        /// Sustained power limit settings.
+        /// </summary>
         public PowerSustainedLimitDto SustainedPowerLimit;
+        /// <summary>
+        /// Burst power limit settings.
+        /// </summary>
         public PowerBurstLimitDto BurstPowerLimit;
+        /// <summary>
+        /// Peak power limit settings.
+        /// </summary>
         public PowerPeakLimitDto PeakPowerLimits;
 
+        /// <summary>
+        /// Create a DTO from a native struct.
+        /// </summary>
+        /// <param name="native">Native struct.</param>
+        /// <returns>Power limits DTO.</returns>
         public static PowerLimitsDto FromNative(ctl_power_limits_t native)
         {
             return new PowerLimitsDto
@@ -251,6 +407,10 @@ namespace IGCLWrapper
             };
         }
 
+        /// <summary>
+        /// Convert this DTO to a native struct.
+        /// </summary>
+        /// <returns>Power limits struct.</returns>
         public unsafe ctl_power_limits_t ToNative()
         {
             var size = Size;

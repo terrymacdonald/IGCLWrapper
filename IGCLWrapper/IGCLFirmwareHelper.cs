@@ -18,6 +18,10 @@ namespace IGCLWrapper
             _adapter = adapter;
         }
 
+        /// <summary>
+        /// Get firmware properties for the adapter.
+        /// </summary>
+        /// <returns>Firmware properties struct.</returns>
         public unsafe ctl_firmware_properties_t GetFirmwareProperties()
         {
             ThrowIfDisposed();
@@ -28,12 +32,21 @@ namespace IGCLWrapper
             return props;
         }
 
+        /// <summary>
+        /// Enumerate firmware component handles for the adapter.
+        /// </summary>
+        /// <returns>Read-only list of firmware component handles.</returns>
         public unsafe IReadOnlyList<IntPtr> EnumerateFirmwareComponents()
         {
             ThrowIfDisposed();
             return EnumerateHandles((_ctl_device_adapter_handle_t*)_adapter);
         }
 
+        /// <summary>
+        /// Get firmware component properties.
+        /// </summary>
+        /// <param name="firmwareHandle">Firmware component handle.</param>
+        /// <returns>Firmware component properties struct.</returns>
         public unsafe ctl_firmware_component_properties_t GetFirmwareComponentProperties(IntPtr firmwareHandle)
         {
             ThrowIfDisposed();
@@ -44,6 +57,10 @@ namespace IGCLWrapper
             return props;
         }
 
+        /// <summary>
+        /// Allow or disallow PCIe link speed updates.
+        /// </summary>
+        /// <param name="allow">True to allow updates; otherwise false.</param>
         public unsafe void AllowPCIeLinkSpeedUpdate(bool allow)
         {
             ThrowIfDisposed();
@@ -79,6 +96,9 @@ namespace IGCLWrapper
         private static unsafe ctl_firmware_properties_t CreateFirmwareProperties() => new ctl_firmware_properties_t { Size = (uint)sizeof(ctl_firmware_properties_t), Version = 0 };
         private static unsafe ctl_firmware_component_properties_t CreateFirmwareComponentProperties() => new ctl_firmware_component_properties_t { Size = (uint)sizeof(ctl_firmware_component_properties_t), Version = 0 };
 
+        /// <summary>
+        /// Mark the helper as disposed.
+        /// </summary>
         public void Dispose()
         {
             _disposed = true;
