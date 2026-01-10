@@ -10,26 +10,26 @@ namespace AdvancedFeatures
             Console.WriteLine("IGCLWrapper - Advanced Features Sample");
             Console.WriteLine("=======================================\n");
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("? WARNING: This sample demonstrates advanced/expert-level APIs");
-            Console.WriteLine("? Some features may modify GPU settings - use with caution!");
+            Console.WriteLine("WARNING: This sample demonstrates advanced/expert-level APIs");
+            Console.WriteLine("Some features may modify GPU settings - use with caution!");
             Console.ResetColor();
             Console.WriteLine();
 
             try
             {
-                using (var igcl = IGCLApi.Initialize())
+                using (var igcl = IGCLApiHelper.Initialize())
                 {
                     var adapters = igcl.EnumerateAdapters();
 
-                    if (adapters.Length == 0)
+                    if (adapters.Count == 0)
                     {
                         Console.WriteLine("No Intel GPU found.");
                         return;
                     }
 
-                    CheckOverclockingSupport(adapters[0]);
-                    Check3DCapabilities(adapters[0]);
-                    CheckVideoProcessing(adapters[0]);
+                    CheckOverclockingSupport(igcl, adapters[0]);
+                    Check3DCapabilities(igcl, adapters[0]);
+                    CheckVideoProcessing(igcl, adapters[0]);
                 }
             }
             catch (IGCLException ex)
@@ -45,78 +45,35 @@ namespace AdvancedFeatures
             Console.ReadKey();
         }
 
-        static unsafe void CheckOverclockingSupport(IntPtr adapter)
+        static void CheckOverclockingSupport(IGCLApiHelper api, IGCLAdapterHelper adapter)
         {
             Console.WriteLine("Overclocking Support:");
 
-            var props = new ctl_oc_properties_t
-            {
-                Size = (uint)sizeof(ctl_oc_properties_t),
-                Version = (byte)0
-            };
-
-            var result = IGCL.ctlOverclockGetProperties((_ctl_device_adapter_handle_t*)adapter, &props);
-
-            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
-            {
-                Console.WriteLine($"  Supported        : Yes");
-                Console.WriteLine($"  GPU OC Supported : {props.bSupported != 0}");
-                Console.WriteLine($"  VRAM OC Supported: {props.vramFrequencyOffset.bSupported != 0}");
-            }
-            else
-            {
-                Console.WriteLine($"  Supported        : No ({result})");
-            }
+            var overclockHelper = api.GetOverclockHelper(adapter);
+            var props = overclockHelper.GetProperties();
+            Console.WriteLine($"  Supported        : {props.IsSupported}");
+            Console.WriteLine($"  GPU OC Supported : {props.GpuFrequencyOffset.IsSupported}");
+            Console.WriteLine($"  VRAM OC Supported: {props.VramFrequencyOffset.IsSupported}");
             Console.WriteLine();
         }
 
-        static unsafe void Check3DCapabilities(IntPtr adapter)
+        static void Check3DCapabilities(IGCLApiHelper api, IGCLAdapterHelper adapter)
         {
             Console.WriteLine("3D Graphics Capabilities:");
 
-            var caps = new ctl_3d_feature_caps_t
-            {
-                Size = (uint)sizeof(ctl_3d_feature_caps_t),
-                Version = (byte)0,
-                NumSupportedFeatures = 0,
-                pFeatureDetails = null
-            };
-
-            var result = IGCL.ctlGetSupported3DCapabilities((_ctl_device_adapter_handle_t*)adapter, &caps);
-
-            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
-            {
-                Console.WriteLine($"  Supported Features: {caps.NumSupportedFeatures}");
-            }
-            else
-            {
-                Console.WriteLine($"  Not available ({result})");
-            }
+            var helper = api.Get3DHelper(adapter);
+            var caps = helper.GetSupported3DCapabilities();
+            Console.WriteLine($"  Supported Features: {caps.NumSupportedFeatures}");
             Console.WriteLine();
         }
 
-        static unsafe void CheckVideoProcessing(IntPtr adapter)
+        static void CheckVideoProcessing(IGCLApiHelper api, IGCLAdapterHelper adapter)
         {
             Console.WriteLine("Video Processing Capabilities:");
 
-            var caps = new ctl_video_processing_feature_caps_t
-            {
-                Size = (uint)sizeof(ctl_video_processing_feature_caps_t),
-                Version = (byte)0,
-                NumSupportedFeatures = 0,
-                pFeatureDetails = null
-            };
-
-            var result = IGCL.ctlGetSupportedVideoProcessingCapabilities((_ctl_device_adapter_handle_t*)adapter, &caps);
-
-            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
-            {
-                Console.WriteLine($"  Supported Features: {caps.NumSupportedFeatures}");
-            }
-            else
-            {
-                Console.WriteLine($"  Not available ({result})");
-            }
+            var helper = api.GetMediaHelper(adapter);
+            var caps = helper.GetSupportedVideoProcessingCapabilities();
+            Console.WriteLine($"  Supported Features: {caps.NumSupportedFeatures}");
             Console.WriteLine();
         }
     }

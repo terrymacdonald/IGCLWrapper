@@ -1,6 +1,4 @@
 using System;
-using System.Runtime.InteropServices;
-using System.Text;
 using IGCLWrapper;
 
 namespace GettingStarted
@@ -19,16 +17,16 @@ namespace GettingStarted
             {
                 // Initialize IGCL API with automatic resource management
                 Console.WriteLine("Initializing IGCL API...");
-                using (var igcl = IGCLApi.Initialize())
+                using (var igcl = IGCLApiHelper.Initialize())
                 {
-                    Console.WriteLine("? IGCL API initialized successfully!\n");
+                    Console.WriteLine("IGCL API initialized successfully.\n");
 
                     // Enumerate all Intel GPU adapters in the system
                     Console.WriteLine("Enumerating Intel GPU adapters...");
                     var adapters = igcl.EnumerateAdapters();
-                    Console.WriteLine($"Found {adapters.Length} Intel GPU adapter(s)\n");
+                    Console.WriteLine($"Found {adapters.Count} Intel GPU adapter(s)\n");
 
-                    if (adapters.Length == 0)
+                    if (adapters.Count == 0)
                     {
                         Console.WriteLine("No Intel GPU adapters found on this system.");
                         Console.WriteLine("This sample requires an Intel GPU with IGCL support.");
@@ -36,19 +34,19 @@ namespace GettingStarted
                     }
 
                     // Display information for each adapter
-                    for (int i = 0; i < adapters.Length; i++)
+                    for (int i = 0; i < adapters.Count; i++)
                     {
                         DisplayAdapterInfo(adapters[i], i + 1);
                     }
 
-                    Console.WriteLine("\n? Sample completed successfully!");
+                    Console.WriteLine("\nSample completed successfully.");
                 }
             }
             catch (IGCLException ex)
             {
                 // Handle IGCL-specific errors
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"\n? IGCL Error: {ex.Message}");
+                Console.WriteLine($"\nIGCL Error: {ex.Message}");
                 Console.WriteLine($"  Error Code: {ex.Result}");
                 Console.ResetColor();
             }
@@ -56,7 +54,7 @@ namespace GettingStarted
             {
                 // Handle missing Intel Graphics drivers
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("\n? Intel Graphics drivers not found!");
+                Console.WriteLine("\nIntel Graphics drivers not found.");
                 Console.WriteLine("  Please install Intel Graphics drivers (version 25.20.100.6618 or higher)");
                 Console.WriteLine("  Download from: https://www.intel.com/content/www/us/en/download-center/home.html");
                 Console.ResetColor();
@@ -65,7 +63,7 @@ namespace GettingStarted
             {
                 // Handle unexpected errors
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"\n? Unexpected Error: {ex.Message}");
+                Console.WriteLine($"\nUnexpected Error: {ex.Message}");
                 Console.ResetColor();
             }
 
@@ -76,18 +74,14 @@ namespace GettingStarted
         /// <summary>
         /// Display detailed information about a GPU adapter
         /// </summary>
-        static void DisplayAdapterInfo(IntPtr adapter, int index)
+        static void DisplayAdapterInfo(IGCLAdapterHelper adapter, int index)
         {
             PrintSectionHeader($"Adapter #{index}");
 
             // Get adapter properties using the helper method
             // This is the recommended way to retrieve GPU information
-            var props = IGCLHelpers.GetProperties(adapter);
-
-            ReadOnlySpan<sbyte> nameSpan = MemoryMarshal.CreateReadOnlySpan(ref props.name.e0, 100);
-            int term = nameSpan.IndexOf((sbyte)0);
-            if (term >= 0) nameSpan = nameSpan[..term];
-            var name = Encoding.UTF8.GetString(MemoryMarshal.Cast<sbyte, byte>(nameSpan));
+            var props = adapter.GetProperties();
+            var name = adapter.Name;
 
             // Basic GPU Information
             Console.WriteLine("\nGPU Information:");
@@ -136,9 +130,9 @@ namespace GettingStarted
         static void PrintHeader()
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("????????????????????????????????????????????????????????????????");
-            Console.WriteLine("?           IGCLWrapper - Getting Started Sample               ?");
-            Console.WriteLine("????????????????????????????????????????????????????????????????");
+            Console.WriteLine("------------------------------------------------------------");
+            Console.WriteLine("  IGCLWrapper - Getting Started Sample");
+            Console.WriteLine("------------------------------------------------------------");
             Console.ResetColor();
             Console.WriteLine();
         }
@@ -149,9 +143,9 @@ namespace GettingStarted
         static void PrintSectionHeader(string title)
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine($"\n????????????????????????????????????????????????????????????????");
-            Console.WriteLine($"? {title,-60} ?");
-            Console.WriteLine($"????????????????????????????????????????????????????????????????");
+            Console.WriteLine($"\n------------------------------------------------------------");
+            Console.WriteLine($"  {title}");
+            Console.WriteLine($"------------------------------------------------------------");
             Console.ResetColor();
         }
     }

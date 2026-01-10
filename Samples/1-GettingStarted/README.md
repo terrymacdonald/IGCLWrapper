@@ -33,16 +33,15 @@ dotnet run
 
 ### Initialization Pattern
 ```csharp
-using var igcl = IGCLApi.Initialize();
+using var igcl = IGCLApiHelper.Initialize();
 ```
 
 ### Using Helper Methods
 ```csharp
-var props = IGCLHelpers.GetProperties(adapter);
-ReadOnlySpan<sbyte> nameSpan = MemoryMarshal.CreateReadOnlySpan(ref props.name.e0, 100);
-int term = nameSpan.IndexOf((sbyte)0);
-if (term >= 0) nameSpan = nameSpan[..term];
-var gpuName = Encoding.UTF8.GetString(MemoryMarshal.Cast<sbyte, byte>(nameSpan));
+using var api = IGCLApiHelper.Initialize();
+var adapter = api.EnumerateAdapters().First();
+var props = adapter.GetProperties();
+var gpuName = adapter.Name;
 ```
 
 ## Related Samples

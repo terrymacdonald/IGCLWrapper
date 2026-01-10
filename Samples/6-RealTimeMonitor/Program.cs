@@ -1,6 +1,4 @@
 using System;
-using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading;
 using IGCLWrapper;
 
@@ -20,22 +18,26 @@ namespace RealTimeMonitor
 
             try
             {
-                using (var igcl = IGCLApi.Initialize())
+                using (var igcl = IGCLApiHelper.Initialize())
                 {
                     var adapters = igcl.EnumerateAdapters();
 
-                    if (adapters.Length == 0)
+                    if (adapters.Count == 0)
                     {
                         Console.WriteLine("No Intel GPU found.");
                         return;
                     }
 
-                    var props = IGCLHelpers.GetProperties(adapters[0]);
-                    ReadOnlySpan<sbyte> nameSpan = MemoryMarshal.CreateReadOnlySpan(ref props.name.e0, 100);
-                    int term = nameSpan.IndexOf((sbyte)0);
-                    if (term >= 0) nameSpan = nameSpan[..term];
-                    var name = Encoding.UTF8.GetString(MemoryMarshal.Cast<sbyte, byte>(nameSpan));
-                    Console.WriteLine($"Monitoring: {name}\n");
+                    var adapter = adapters[0];
+                    Console.WriteLine($"Monitoring: {adapter.Name}\n");
+
+                    var powerHelper = igcl.GetPowerHelper(adapter);
+                    var tempHelper = igcl.GetTemperatureHelper(adapter);
+                    var freqHelper = igcl.GetFrequencyHelper(adapter);
+
+                    var powerDomains = powerHelper.EnumPowerDomains();
+                    var tempSensors = tempHelper.EnumTemperatureSensors();
+                    var freqDomains = freqHelper.EnumFrequencyDomains();
 
                     while (_running)
                     {
@@ -43,7 +45,7 @@ namespace RealTimeMonitor
                             break;
 
                         Console.SetCursorPosition(0, 5);
-                        DisplayMetrics(adapters[0]);
+                        DisplayMetrics(powerHelper, tempHelper, freqHelper, powerDomains, tempSensors, freqDomains);
                         Thread.Sleep(1000);
                     }
                 }
@@ -60,25 +62,38 @@ namespace RealTimeMonitor
             Console.WriteLine("\n\nMonitoring stopped.");
         }
 
-        static unsafe void DisplayMetrics(IntPtr adapter)
+        static void DisplayMetrics(
+            IGCLPowerHelper powerHelper,
+            IGCLTemperatureHelper tempHelper,
+            IGCLFrequencyHelper freqHelper,
+            System.Collections.Generic.IReadOnlyList<IntPtr> powerDomains,
+            System.Collections.Generic.IReadOnlyList<IntPtr> tempSensors,
+            System.Collections.Generic.IReadOnlyList<IntPtr> freqDomains)
         {
-            var telemetry = new ctl_power_telemetry_t
+            string temperature = "n/a";
+            if (tempSensors.Count > 0)
             {
-                Size = (uint)sizeof(ctl_power_telemetry_t),
-                Version = (byte)0
-            };
-
-            if (IGCL.ctlPowerTelemetryGet((_ctl_device_adapter_handle_t*)adapter, &telemetry) == ctl_result_t.CTL_RESULT_SUCCESS)
-            {
-                Console.WriteLine($"GPU Temperature : {telemetry.gpuCurrentTemperature.value.datadouble,6:F1}°C");
-                Console.WriteLine($"GPU Power       : {telemetry.gpuEnergyCounter.value.datadouble / 1000.0,6:F2} J  ");
-                Console.WriteLine($"GPU Frequency   : {telemetry.gpuCurrentClockFrequency.value.datadouble,6:F0} MHz");
-            }
-            else
-            {
-                Console.WriteLine("Telemetry not available");
+                var temp = tempHelper.TemperatureGetState(tempSensors[0]);
+                temperature = $"{temp:F1} C";
             }
 
+            string energy = "n/a";
+            if (powerDomains.Count > 0)
+            {
+                var counter = powerHelper.PowerGetEnergyCounter(powerDomains[0]);
+                energy = $"{counter.energy} uJ";
+            }
+
+            string frequency = "n/a";
+            if (freqDomains.Count > 0)
+            {
+                var state = freqHelper.FrequencyGetState(freqDomains[0]);
+                frequency = $"{state.actual:F0} MHz";
+            }
+
+            Console.WriteLine($"GPU Temperature : {temperature,-10}");
+            Console.WriteLine($"GPU Energy      : {energy,-10}");
+            Console.WriteLine($"GPU Frequency   : {frequency,-10}");
             Console.WriteLine($"\nLast Update     : {DateTime.Now:HH:mm:ss}    ");
         }
     }

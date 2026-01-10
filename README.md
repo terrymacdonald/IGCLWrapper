@@ -81,6 +81,7 @@ catch (DllNotFoundException)
 ## Working with the facade helpers (IGCLApiHelper)
 Use the facade helpers to avoid manual struct sizing/handle management.
 DTO-returning helpers use `bool` properties; call `*Native()` variants when you need the raw structs.
+Get/Set operations are split into `Get*()` and `Set*()` helpers; `GetSet*Native()` remains for direct IGCL calls.
 
 ### List active display resolutions
 ```csharp
@@ -108,11 +109,7 @@ using var api = IGCLApiHelper.Initialize();
 foreach (var adapter in api.EnumerateAdapters())
 {
     var displayHelper = adapter.GetDisplays().First();
-    var args = new CombinedDisplayArgsDto
-    {
-        OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_QUERY_CONFIG
-    };
-    var result = displayHelper.GetSetCombinedDisplay(args);
+    var result = displayHelper.GetCombinedDisplay();
     if (result.IsSupported && result.NumOutputs > 0)
     {
         Console.WriteLine($"Adapter {adapter.Name} has a combined display with {result.NumOutputs} outputs.");

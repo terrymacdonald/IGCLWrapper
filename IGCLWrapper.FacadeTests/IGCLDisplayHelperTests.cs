@@ -77,8 +77,7 @@ namespace IGCLWrapper.FacadeTests
                 FacadeTestUtils.InvokeOrSkip(() => display.GetCurrentScaling(), "Scaling settings unsupported");
 
                 FacadeTestUtils.InvokeOrSkip(() => display.GetSupportedRetroScalingCapability(), "Retro scaling unsupported");
-                var retroSettings = new RetroScalingSettingsDto { Get = true };
-                FacadeTestUtils.InvokeOrSkip(() => display.GetSetRetroScaling(retroSettings), "Retro scaling settings unsupported");
+                FacadeTestUtils.InvokeOrSkip(() => display.GetRetroScalingSettings(), "Retro scaling settings unsupported");
 
                 var encoderProps = FacadeTestUtils.InvokeOrSkip(() => display.GetAdapterDisplayEncoderProperties(), "Encoder properties unsupported");
                 var isCompanion = (encoderProps.EncoderConfigFlags & (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_COMPANION_DISPLAY) != 0;
@@ -100,7 +99,7 @@ namespace IGCLWrapper.FacadeTests
                 }
 
                 var customModeArgs = IGCLDisplayHelper.CreateCustomModeArgs();
-                FacadeTestUtils.InvokeOrSkip(() => display.GetSetCustomMode(customModeArgs), "Custom mode unsupported");
+                FacadeTestUtils.InvokeOrSkip(() => display.GetCustomModes(customModeArgs), "Custom mode unsupported");
 
                 FacadeTestUtils.InvokeOrSkip(() => display.GetLinkedDisplayAdapters(), "Linked adapters unsupported");
 
@@ -108,14 +107,11 @@ namespace IGCLWrapper.FacadeTests
                 pixtxQuery.QueryType = ctl_pixtx_config_query_type_t.CTL_PIXTX_CONFIG_QUERY_TYPE_CAPABILITY;
                 FacadeTestUtils.InvokeOrSkip(() => display.PixelTransformationGetConfig(pixtxQuery), "Pixtx config unsupported");
 
-                var wireFormat = new ctl_get_set_wire_format_config_t { Size = 0, Version = 0 };
-                FacadeTestUtils.InvokeOrSkip(() => display.GetSetWireFormat(wireFormat), "Wire format unsupported");
+                FacadeTestUtils.InvokeOrSkip(() => display.GetWireFormat(), "Wire format unsupported");
 
-                var displaySettings = new DisplaySettingsDto { Set = false };
-                FacadeTestUtils.InvokeOrSkip(() => display.GetSetDisplaySettings(displaySettings), "Display settings unsupported");
+                FacadeTestUtils.InvokeOrSkip(() => display.GetDisplaySettings(), "Display settings unsupported");
 
-                var dceArgs = new DceArgsDto();
-                FacadeTestUtils.InvokeOrSkip(() => display.GetSetDynamicContrastEnhancement(dceArgs), "DCE unsupported");
+                FacadeTestUtils.InvokeOrSkip(() => display.GetDynamicContrastEnhancement(), "DCE unsupported");
 
                 FacadeTestUtils.InvokeOrSkip(() => display.GetVblankTimestamp(), "Vblank unsupported");
 

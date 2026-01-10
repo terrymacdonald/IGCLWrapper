@@ -3,7 +3,7 @@
 ## Description
 Demonstrates expert-level IGCL APIs including overclocking, 3D features, and video processing.
 
-## ? WARNING
+## WARNING
 This sample demonstrates advanced APIs that can modify GPU settings. Use with caution and understand what you're doing before modifying any settings.
 
 ## What You'll Learn

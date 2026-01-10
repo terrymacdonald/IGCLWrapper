@@ -428,10 +428,18 @@ namespace IGCLWrapper
             return copy;
         }
 
-        public RetroScalingSettingsDto GetSetRetroScaling(RetroScalingSettingsDto settings)
+        public RetroScalingSettingsDto GetRetroScalingSettings()
         {
-            var native = GetSetRetroScalingNative(settings.ToNative());
+            var request = new RetroScalingSettingsDto { Get = true };
+            var native = GetSetRetroScalingNative(request.ToNative());
             return RetroScalingSettingsDto.FromNative(native);
+        }
+
+        public void SetRetroScalingSettings(RetroScalingSettingsDto settings)
+        {
+            var request = settings;
+            request.Get = false;
+            GetSetRetroScalingNative(request.ToNative());
         }
 
         public unsafe ctl_scaling_caps_t GetSupportedScalingCapability()
@@ -618,25 +626,14 @@ namespace IGCLWrapper
             return copy;
         }
 
-        public unsafe (ctl_get_set_custom_mode_args_t args, ctl_custom_src_mode_t[] modes) GetSetCustomMode(ctl_get_set_custom_mode_args_t args, ctl_custom_src_mode_t[]? modes = null)
+        public unsafe (ctl_get_set_custom_mode_args_t args, ctl_custom_src_mode_t[] modes) GetCustomModes(ctl_get_set_custom_mode_args_t args)
         {
             ThrowIfDisposed();
             var request = args;
-
-            // Set path: caller provided modes to write
-            if (modes != null && modes.Length > 0)
-            {
-                request.NumOfModes = (uint)modes.Length;
-                fixed (ctl_custom_src_mode_t* pModes = modes)
-                {
-                    request.pCustomSrcModeList = pModes;
-                    var setResult = IGCL.ctlGetSetCustomMode((_ctl_display_output_handle_t*)DisplayHandle, &request);
-                    request.pCustomSrcModeList = null;
-                    if (setResult != ctl_result_t.CTL_RESULT_SUCCESS)
-                        throw new IGCLException(setResult, "Failed to set custom mode");
-                }
-                return (request, modes);
-            }
+            if (request.Size == 0)
+                request.Size = (uint)sizeof(ctl_get_set_custom_mode_args_t);
+            if (request.Version == 0)
+                request.Version = 0;
 
             // Get path: two-pass to retrieve modes
             var result = IGCL.ctlGetSetCustomMode((_ctl_display_output_handle_t*)DisplayHandle, &request);
@@ -659,6 +656,29 @@ namespace IGCLWrapper
             return (request, modesOut);
         }
 
+        public unsafe void SetCustomModes(ctl_get_set_custom_mode_args_t args, ctl_custom_src_mode_t[] modes)
+        {
+            ThrowIfDisposed();
+            if (modes == null || modes.Length == 0)
+                throw new ArgumentException("At least one mode is required", nameof(modes));
+
+            var request = args;
+            if (request.Size == 0)
+                request.Size = (uint)sizeof(ctl_get_set_custom_mode_args_t);
+            if (request.Version == 0)
+                request.Version = 0;
+
+            request.NumOfModes = (uint)modes.Length;
+            fixed (ctl_custom_src_mode_t* pModes = modes)
+            {
+                request.pCustomSrcModeList = pModes;
+                var setResult = IGCL.ctlGetSetCustomMode((_ctl_display_output_handle_t*)DisplayHandle, &request);
+                request.pCustomSrcModeList = null;
+                if (setResult != ctl_result_t.CTL_RESULT_SUCCESS)
+                    throw new IGCLException(setResult, "Failed to set custom mode");
+            }
+        }
+
         public unsafe ctl_combined_display_args_t GetSetCombinedDisplayNative(ctl_combined_display_args_t args)
         {
             ThrowIfDisposed();
@@ -669,10 +689,30 @@ namespace IGCLWrapper
             return copy;
         }
 
-        public CombinedDisplayArgsDto GetSetCombinedDisplay(CombinedDisplayArgsDto args)
+        public CombinedDisplayArgsDto GetCombinedDisplay()
         {
+            var args = new CombinedDisplayArgsDto
+            {
+                OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_QUERY_CONFIG
+            };
             var native = GetSetCombinedDisplayNative(args.ToNative());
             return CombinedDisplayArgsDto.FromNative(native);
+        }
+
+        public CombinedDisplayArgsDto GetCombinedDisplay(CombinedDisplayArgsDto args)
+        {
+            var request = args;
+            if (request.OpType == 0)
+                request.OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_QUERY_CONFIG;
+            var native = GetSetCombinedDisplayNative(request.ToNative());
+            return CombinedDisplayArgsDto.FromNative(native);
+        }
+
+        public void SetCombinedDisplay(CombinedDisplayArgsDto args)
+        {
+            if (args.OpType == 0)
+                throw new ArgumentException("OpType must be set for combined display operations.", nameof(args));
+            GetSetCombinedDisplayNative(args.ToNative());
         }
 
         public unsafe ctl_genlock_args_t GetSetDisplayGenlockNative(IntPtr[] adapters, ctl_genlock_args_t args, out IntPtr failureAdapter)
@@ -695,10 +735,19 @@ namespace IGCLWrapper
             return copy;
         }
 
-        public GenlockArgsDto GetSetDisplayGenlock(IntPtr[] adapters, GenlockArgsDto args, out IntPtr failureAdapter)
+        public GenlockArgsDto GetDisplayGenlock(IntPtr[] adapters, ctl_genlock_operation_t operation, GenlockArgsDto args, out IntPtr failureAdapter)
         {
-            var native = GetSetDisplayGenlockNative(adapters, args.ToNative(), out failureAdapter);
+            var request = args;
+            request.Operation = operation;
+            var native = GetSetDisplayGenlockNative(adapters, request.ToNative(), out failureAdapter);
             return GenlockArgsDto.FromNative(native);
+        }
+
+        public void SetDisplayGenlock(IntPtr[] adapters, ctl_genlock_operation_t operation, GenlockArgsDto args, out IntPtr failureAdapter)
+        {
+            var request = args;
+            request.Operation = operation;
+            GetSetDisplayGenlockNative(adapters, request.ToNative(), out failureAdapter);
         }
 
         public unsafe ctl_vblank_ts_args_t GetVblankTimestamp()
@@ -797,13 +846,21 @@ namespace IGCLWrapper
             return (request, bins);
         }
 
-        public (DceArgsDto args, uint[] histogram) GetSetDynamicContrastEnhancement(DceArgsDto args, uint[]? histogram = null)
+        public (DceArgsDto args, uint[] histogram) GetDynamicContrastEnhancement()
         {
-            var result = GetSetDynamicContrastEnhancementNative(args.ToNative(), histogram);
+            var request = new DceArgsDto { Set = false };
+            var result = GetSetDynamicContrastEnhancementNative(request.ToNative(), null);
             return (DceArgsDto.FromNative(result.args), result.histogram);
         }
 
-        public unsafe ctl_get_set_wire_format_config_t GetSetWireFormat(ctl_get_set_wire_format_config_t args)
+        public void SetDynamicContrastEnhancement(DceArgsDto args, uint[] histogram)
+        {
+            var request = args;
+            request.Set = true;
+            GetSetDynamicContrastEnhancementNative(request.ToNative(), histogram);
+        }
+
+        public unsafe ctl_get_set_wire_format_config_t GetSetWireFormatNative(ctl_get_set_wire_format_config_t args)
         {
             ThrowIfDisposed();
             var copy = args;
@@ -811,6 +868,28 @@ namespace IGCLWrapper
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get/set wire format");
             return copy;
+        }
+
+        public unsafe ctl_get_set_wire_format_config_t GetWireFormat()
+        {
+            var request = new ctl_get_set_wire_format_config_t
+            {
+                Size = (uint)sizeof(ctl_get_set_wire_format_config_t),
+                Version = 0,
+                Operation = ctl_wire_format_operation_type_t.CTL_WIRE_FORMAT_OPERATION_TYPE_GET
+            };
+            return GetSetWireFormatNative(request);
+        }
+
+        public unsafe void SetWireFormat(ctl_get_set_wire_format_config_t args)
+        {
+            var request = args;
+            if (request.Size == 0)
+                request.Size = (uint)sizeof(ctl_get_set_wire_format_config_t);
+            if (request.Version == 0)
+                request.Version = 0;
+            request.Operation = ctl_wire_format_operation_type_t.CTL_WIRE_FORMAT_OPERATION_TYPE_SET;
+            GetSetWireFormatNative(request);
         }
 
         public unsafe ctl_display_settings_t GetSetDisplaySettingsNative(ctl_display_settings_t args)
@@ -823,10 +902,18 @@ namespace IGCLWrapper
             return copy;
         }
 
-        public DisplaySettingsDto GetSetDisplaySettings(DisplaySettingsDto args)
+        public DisplaySettingsDto GetDisplaySettings()
         {
-            var native = GetSetDisplaySettingsNative(args.ToNative());
+            var request = new DisplaySettingsDto { Set = false };
+            var native = GetSetDisplaySettingsNative(request.ToNative());
             return DisplaySettingsDto.FromNative(native);
+        }
+
+        public void SetDisplaySettings(DisplaySettingsDto settings)
+        {
+            var request = settings;
+            request.Set = true;
+            GetSetDisplaySettingsNative(request.ToNative());
         }
 
 

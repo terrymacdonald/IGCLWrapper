@@ -36,10 +36,19 @@ namespace IGCLWrapper
             return featureGetSet;
         }
 
-        public VideoProcessingFeatureGetSetDto GetSetVideoProcessingFeature(VideoProcessingFeatureGetSetDto featureGetSet)
+        public VideoProcessingFeatureGetSetDto GetVideoProcessingFeature(VideoProcessingFeatureGetSetDto featureGetSet)
         {
-            var native = GetSetVideoProcessingFeatureNative(featureGetSet.ToNative());
+            var request = featureGetSet;
+            request.Set = false;
+            var native = GetSetVideoProcessingFeatureNative(request.ToNative());
             return VideoProcessingFeatureGetSetDto.FromNative(native);
+        }
+
+        public void SetVideoProcessingFeature(VideoProcessingFeatureGetSetDto featureGetSet)
+        {
+            var request = featureGetSet;
+            request.Set = true;
+            GetSetVideoProcessingFeatureNative(request.ToNative());
         }
 
         private void ThrowIfDisposed()

@@ -20,7 +20,6 @@ Press ESC to exit.
 
 ## Features
 - Live GPU temperature
-- Power consumption
-- Voltage monitoring
+- Energy counter
 - Frequency tracking
 - 1-second refresh rate

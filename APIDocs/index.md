@@ -13,6 +13,7 @@ The goal of IGCLWrapper project is to provide a lightweight, simpler way to acce
 - Start at the API landing page: [IGCLWrapper API Reference](/api/IGCLWrapper.html).
 - Navigate by feature: helpers like `IGCLDisplayHelper`, `IGCLOverclockHelper`, and `IGCLPowerHelper` list the available operations and event hooks.
 - Facade helpers return DTOs with `bool` properties; use `*Native()` helpers to access raw structs when needed.
+- Get/Set operations are split into `Get*()` and `Set*()` helpers; `GetSet*Native()` remains for direct IGCL calls.
 
 ## Where to Learn More
 

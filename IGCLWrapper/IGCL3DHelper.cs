@@ -36,10 +36,19 @@ namespace IGCLWrapper
             return feature;
         }
 
-        public ThreeDFeatureGetSetDto GetSet3DFeature(ThreeDFeatureGetSetDto feature)
+        public ThreeDFeatureGetSetDto Get3DFeature(ThreeDFeatureGetSetDto feature)
         {
-            var native = GetSet3DFeatureNative(feature.ToNative());
+            var request = feature;
+            request.Set = false;
+            var native = GetSet3DFeatureNative(request.ToNative());
             return ThreeDFeatureGetSetDto.FromNative(native);
+        }
+
+        public void Set3DFeature(ThreeDFeatureGetSetDto feature)
+        {
+            var request = feature;
+            request.Set = true;
+            GetSet3DFeatureNative(request.ToNative());
         }
 
         private void ThrowIfDisposed()

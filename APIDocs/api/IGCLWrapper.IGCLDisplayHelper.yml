@@ -36,11 +36,17 @@ items:
   - IGCLWrapper.IGCLDisplayHelper.GetAdapterDisplayEncoderProperties
   - IGCLWrapper.IGCLDisplayHelper.GetAdapterDisplayEncoderPropertiesNative
   - IGCLWrapper.IGCLDisplayHelper.GetBrightnessSetting
+  - IGCLWrapper.IGCLDisplayHelper.GetCombinedDisplay
+  - IGCLWrapper.IGCLDisplayHelper.GetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
   - IGCLWrapper.IGCLDisplayHelper.GetCurrentScaling
   - IGCLWrapper.IGCLDisplayHelper.GetCurrentScalingNative
   - IGCLWrapper.IGCLDisplayHelper.GetCurrentSharpness
   - IGCLWrapper.IGCLDisplayHelper.GetCurrentSharpnessNative
+  - IGCLWrapper.IGCLDisplayHelper.GetCustomModes(IGCLWrapper.ctl_get_set_custom_mode_args_t)
   - IGCLWrapper.IGCLDisplayHelper.GetDeviceProperties
+  - IGCLWrapper.IGCLDisplayHelper.GetDisplayGenlock(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)
+  - IGCLWrapper.IGCLDisplayHelper.GetDisplaySettings
+  - IGCLWrapper.IGCLDisplayHelper.GetDynamicContrastEnhancement
   - IGCLWrapper.IGCLDisplayHelper.GetIntelArcSyncInfoForMonitor
   - IGCLWrapper.IGCLDisplayHelper.GetIntelArcSyncInfoForMonitorNative
   - IGCLWrapper.IGCLDisplayHelper.GetIntelArcSyncProfile
@@ -54,23 +60,19 @@ items:
   - IGCLWrapper.IGCLDisplayHelper.GetProperties
   - IGCLWrapper.IGCLDisplayHelper.GetRefreshRateHz
   - IGCLWrapper.IGCLDisplayHelper.GetResolution
-  - IGCLWrapper.IGCLDisplayHelper.GetSetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
+  - IGCLWrapper.IGCLDisplayHelper.GetRetroScalingSettings
   - IGCLWrapper.IGCLDisplayHelper.GetSetCombinedDisplayNative(IGCLWrapper.ctl_combined_display_args_t)
-  - IGCLWrapper.IGCLDisplayHelper.GetSetCustomMode(IGCLWrapper.ctl_get_set_custom_mode_args_t,IGCLWrapper.ctl_custom_src_mode_t[])
-  - IGCLWrapper.IGCLDisplayHelper.GetSetDisplayGenlock(System.IntPtr[],IGCLWrapper.GenlockArgsDto,System.IntPtr@)
   - IGCLWrapper.IGCLDisplayHelper.GetSetDisplayGenlockNative(System.IntPtr[],IGCLWrapper.ctl_genlock_args_t,System.IntPtr@)
-  - IGCLWrapper.IGCLDisplayHelper.GetSetDisplaySettings(IGCLWrapper.DisplaySettingsDto)
   - IGCLWrapper.IGCLDisplayHelper.GetSetDisplaySettingsNative(IGCLWrapper.ctl_display_settings_t)
-  - IGCLWrapper.IGCLDisplayHelper.GetSetDynamicContrastEnhancement(IGCLWrapper.DceArgsDto,System.UInt32[])
   - IGCLWrapper.IGCLDisplayHelper.GetSetDynamicContrastEnhancementNative(IGCLWrapper.ctl_dce_args_t,System.UInt32[])
-  - IGCLWrapper.IGCLDisplayHelper.GetSetRetroScaling(IGCLWrapper.RetroScalingSettingsDto)
   - IGCLWrapper.IGCLDisplayHelper.GetSetRetroScalingNative(IGCLWrapper.ctl_retro_scaling_settings_t)
-  - IGCLWrapper.IGCLDisplayHelper.GetSetWireFormat(IGCLWrapper.ctl_get_set_wire_format_config_t)
+  - IGCLWrapper.IGCLDisplayHelper.GetSetWireFormatNative(IGCLWrapper.ctl_get_set_wire_format_config_t)
   - IGCLWrapper.IGCLDisplayHelper.GetSharpnessCaps
   - IGCLWrapper.IGCLDisplayHelper.GetSupportedRetroScalingCapability
   - IGCLWrapper.IGCLDisplayHelper.GetSupportedScalingCapability
   - IGCLWrapper.IGCLDisplayHelper.GetTiming
   - IGCLWrapper.IGCLDisplayHelper.GetVblankTimestamp
+  - IGCLWrapper.IGCLDisplayHelper.GetWireFormat
   - IGCLWrapper.IGCLDisplayHelper.GetZeDevice
   - IGCLWrapper.IGCLDisplayHelper.I2CAccess(IGCLWrapper.ctl_i2c_access_args_t@)
   - IGCLWrapper.IGCLDisplayHelper.I2CAccessOnPinPair(System.IntPtr,IGCLWrapper.ctl_i2c_access_pinpair_args_t@)
@@ -81,15 +83,22 @@ items:
   - IGCLWrapper.IGCLDisplayHelper.PixelTransformationGetConfig(IGCLWrapper.ctl_pixtx_pipe_get_config_t)
   - IGCLWrapper.IGCLDisplayHelper.PixelTransformationSetConfig(IGCLWrapper.ctl_pixtx_pipe_set_config_t)
   - IGCLWrapper.IGCLDisplayHelper.SetBrightnessSetting(IGCLWrapper.ctl_set_brightness_t)
+  - IGCLWrapper.IGCLDisplayHelper.SetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
   - IGCLWrapper.IGCLDisplayHelper.SetCurrentScaling(IGCLWrapper.ScalingSettingsDto)
   - IGCLWrapper.IGCLDisplayHelper.SetCurrentScalingNative(IGCLWrapper.ctl_scaling_settings_t)
   - IGCLWrapper.IGCLDisplayHelper.SetCurrentSharpness(IGCLWrapper.SharpnessSettingsDto)
   - IGCLWrapper.IGCLDisplayHelper.SetCurrentSharpnessNative(IGCLWrapper.ctl_sharpness_settings_t)
+  - IGCLWrapper.IGCLDisplayHelper.SetCustomModes(IGCLWrapper.ctl_get_set_custom_mode_args_t,IGCLWrapper.ctl_custom_src_mode_t[])
+  - IGCLWrapper.IGCLDisplayHelper.SetDisplayGenlock(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)
+  - IGCLWrapper.IGCLDisplayHelper.SetDisplaySettings(IGCLWrapper.DisplaySettingsDto)
+  - IGCLWrapper.IGCLDisplayHelper.SetDynamicContrastEnhancement(IGCLWrapper.DceArgsDto,System.UInt32[])
   - IGCLWrapper.IGCLDisplayHelper.SetIntelArcSyncProfile(IGCLWrapper.ctl_intel_arc_sync_profile_params_t)
   - IGCLWrapper.IGCLDisplayHelper.SetLACEConfig(IGCLWrapper.LaceConfigDto)
   - IGCLWrapper.IGCLDisplayHelper.SetLACEConfigNative(IGCLWrapper.ctl_lace_config_t)
   - IGCLWrapper.IGCLDisplayHelper.SetPowerOptimizationSetting(IGCLWrapper.PowerOptimizationSettingsDto)
   - IGCLWrapper.IGCLDisplayHelper.SetPowerOptimizationSettingNative(IGCLWrapper.ctl_power_optimization_settings_t)
+  - IGCLWrapper.IGCLDisplayHelper.SetRetroScalingSettings(IGCLWrapper.RetroScalingSettingsDto)
+  - IGCLWrapper.IGCLDisplayHelper.SetWireFormat(IGCLWrapper.ctl_get_set_wire_format_config_t)
   - IGCLWrapper.IGCLDisplayHelper.SoftwarePSR(IGCLWrapper.SwPsrSettingsDto)
   - IGCLWrapper.IGCLDisplayHelper.SoftwarePSRNative(IGCLWrapper.ctl_sw_psr_settings_t)
   - IGCLWrapper.IGCLDisplayHelper.SwitchMux(System.IntPtr,System.IntPtr)
@@ -1682,37 +1691,63 @@ items:
       type: IGCLWrapper.ctl_retro_scaling_settings_t
     content.vb: Public Function GetSetRetroScalingNative(settings As ctl_retro_scaling_settings_t) As ctl_retro_scaling_settings_t
   overload: IGCLWrapper.IGCLDisplayHelper.GetSetRetroScalingNative*
-- uid: IGCLWrapper.IGCLDisplayHelper.GetSetRetroScaling(IGCLWrapper.RetroScalingSettingsDto)
-  commentId: M:IGCLWrapper.IGCLDisplayHelper.GetSetRetroScaling(IGCLWrapper.RetroScalingSettingsDto)
-  id: GetSetRetroScaling(IGCLWrapper.RetroScalingSettingsDto)
+- uid: IGCLWrapper.IGCLDisplayHelper.GetRetroScalingSettings
+  commentId: M:IGCLWrapper.IGCLDisplayHelper.GetRetroScalingSettings
+  id: GetRetroScalingSettings
   parent: IGCLWrapper.IGCLDisplayHelper
   langs:
   - csharp
   - vb
-  name: GetSetRetroScaling(RetroScalingSettingsDto)
-  nameWithType: IGCLDisplayHelper.GetSetRetroScaling(RetroScalingSettingsDto)
-  fullName: IGCLWrapper.IGCLDisplayHelper.GetSetRetroScaling(IGCLWrapper.RetroScalingSettingsDto)
+  name: GetRetroScalingSettings()
+  nameWithType: IGCLDisplayHelper.GetRetroScalingSettings()
+  fullName: IGCLWrapper.IGCLDisplayHelper.GetRetroScalingSettings()
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetSetRetroScaling
+    id: GetRetroScalingSettings
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
     startLine: 430
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public RetroScalingSettingsDto GetSetRetroScaling(RetroScalingSettingsDto settings)
+    content: public RetroScalingSettingsDto GetRetroScalingSettings()
+    return:
+      type: IGCLWrapper.RetroScalingSettingsDto
+    content.vb: Public Function GetRetroScalingSettings() As RetroScalingSettingsDto
+  overload: IGCLWrapper.IGCLDisplayHelper.GetRetroScalingSettings*
+- uid: IGCLWrapper.IGCLDisplayHelper.SetRetroScalingSettings(IGCLWrapper.RetroScalingSettingsDto)
+  commentId: M:IGCLWrapper.IGCLDisplayHelper.SetRetroScalingSettings(IGCLWrapper.RetroScalingSettingsDto)
+  id: SetRetroScalingSettings(IGCLWrapper.RetroScalingSettingsDto)
+  parent: IGCLWrapper.IGCLDisplayHelper
+  langs:
+  - csharp
+  - vb
+  name: SetRetroScalingSettings(RetroScalingSettingsDto)
+  nameWithType: IGCLDisplayHelper.SetRetroScalingSettings(RetroScalingSettingsDto)
+  fullName: IGCLWrapper.IGCLDisplayHelper.SetRetroScalingSettings(IGCLWrapper.RetroScalingSettingsDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SetRetroScalingSettings
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 437
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public void SetRetroScalingSettings(RetroScalingSettingsDto settings)
     parameters:
     - id: settings
       type: IGCLWrapper.RetroScalingSettingsDto
-    return:
-      type: IGCLWrapper.RetroScalingSettingsDto
-    content.vb: Public Function GetSetRetroScaling(settings As RetroScalingSettingsDto) As RetroScalingSettingsDto
-  overload: IGCLWrapper.IGCLDisplayHelper.GetSetRetroScaling*
+    content.vb: Public Sub SetRetroScalingSettings(settings As RetroScalingSettingsDto)
+  overload: IGCLWrapper.IGCLDisplayHelper.SetRetroScalingSettings*
 - uid: IGCLWrapper.IGCLDisplayHelper.GetSupportedScalingCapability
   commentId: M:IGCLWrapper.IGCLDisplayHelper.GetSupportedScalingCapability
   id: GetSupportedScalingCapability
@@ -1731,7 +1766,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSupportedScalingCapability
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 436
+    startLine: 444
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1759,7 +1794,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetCurrentScalingNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 446
+    startLine: 454
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1787,7 +1822,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetCurrentScaling
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 456
+    startLine: 464
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1815,7 +1850,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetCurrentScalingNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 462
+    startLine: 470
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1844,7 +1879,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetCurrentScaling
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 471
+    startLine: 479
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1873,7 +1908,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetLACEConfigNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 476
+    startLine: 484
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1901,7 +1936,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetLACEConfig
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 486
+    startLine: 494
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1929,7 +1964,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetLACEConfigNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 492
+    startLine: 500
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1958,7 +1993,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetLACEConfig
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 501
+    startLine: 509
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1987,7 +2022,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SoftwarePSRNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 506
+    startLine: 514
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2018,7 +2053,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SoftwarePSR
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 516
+    startLine: 524
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2049,7 +2084,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetIntelArcSyncInfoForMonitorNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 522
+    startLine: 530
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2077,7 +2112,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetIntelArcSyncInfoForMonitor
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 532
+    startLine: 540
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2105,7 +2140,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumerateMuxDevices
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 538
+    startLine: 546
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2133,7 +2168,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetMuxProperties
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 558
+    startLine: 566
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2167,7 +2202,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SwitchMux
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 583
+    startLine: 591
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2201,7 +2236,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetIntelArcSyncProfile
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 591
+    startLine: 599
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2229,7 +2264,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetIntelArcSyncProfile
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 601
+    startLine: 609
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2258,7 +2293,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EdidManagement
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 610
+    startLine: 618
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2271,42 +2306,71 @@ items:
       type: IGCLWrapper.ctl_edid_management_args_t
     content.vb: Public Function EdidManagement(args As ctl_edid_management_args_t) As ctl_edid_management_args_t
   overload: IGCLWrapper.IGCLDisplayHelper.EdidManagement*
-- uid: IGCLWrapper.IGCLDisplayHelper.GetSetCustomMode(IGCLWrapper.ctl_get_set_custom_mode_args_t,IGCLWrapper.ctl_custom_src_mode_t[])
-  commentId: M:IGCLWrapper.IGCLDisplayHelper.GetSetCustomMode(IGCLWrapper.ctl_get_set_custom_mode_args_t,IGCLWrapper.ctl_custom_src_mode_t[])
-  id: GetSetCustomMode(IGCLWrapper.ctl_get_set_custom_mode_args_t,IGCLWrapper.ctl_custom_src_mode_t[])
+- uid: IGCLWrapper.IGCLDisplayHelper.GetCustomModes(IGCLWrapper.ctl_get_set_custom_mode_args_t)
+  commentId: M:IGCLWrapper.IGCLDisplayHelper.GetCustomModes(IGCLWrapper.ctl_get_set_custom_mode_args_t)
+  id: GetCustomModes(IGCLWrapper.ctl_get_set_custom_mode_args_t)
   parent: IGCLWrapper.IGCLDisplayHelper
   langs:
   - csharp
   - vb
-  name: GetSetCustomMode(ctl_get_set_custom_mode_args_t, ctl_custom_src_mode_t[]?)
-  nameWithType: IGCLDisplayHelper.GetSetCustomMode(ctl_get_set_custom_mode_args_t, ctl_custom_src_mode_t[]?)
-  fullName: IGCLWrapper.IGCLDisplayHelper.GetSetCustomMode(IGCLWrapper.ctl_get_set_custom_mode_args_t, IGCLWrapper.ctl_custom_src_mode_t[]?)
+  name: GetCustomModes(ctl_get_set_custom_mode_args_t)
+  nameWithType: IGCLDisplayHelper.GetCustomModes(ctl_get_set_custom_mode_args_t)
+  fullName: IGCLWrapper.IGCLDisplayHelper.GetCustomModes(IGCLWrapper.ctl_get_set_custom_mode_args_t)
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetSetCustomMode
+    id: GetCustomModes
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 620
+    startLine: 628
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public (ctl_get_set_custom_mode_args_t args, ctl_custom_src_mode_t[] modes) GetSetCustomMode(ctl_get_set_custom_mode_args_t args, ctl_custom_src_mode_t[]? modes = null)
+    content: public (ctl_get_set_custom_mode_args_t args, ctl_custom_src_mode_t[] modes) GetCustomModes(ctl_get_set_custom_mode_args_t args)
+    parameters:
+    - id: args
+      type: IGCLWrapper.ctl_get_set_custom_mode_args_t
+    return:
+      type: System.ValueTuple{IGCLWrapper.ctl_get_set_custom_mode_args_t,IGCLWrapper.ctl_custom_src_mode_t[]}
+    content.vb: Public Function GetCustomModes(args As ctl_get_set_custom_mode_args_t) As (args As ctl_get_set_custom_mode_args_t, modes As ctl_custom_src_mode_t())
+  overload: IGCLWrapper.IGCLDisplayHelper.GetCustomModes*
+- uid: IGCLWrapper.IGCLDisplayHelper.SetCustomModes(IGCLWrapper.ctl_get_set_custom_mode_args_t,IGCLWrapper.ctl_custom_src_mode_t[])
+  commentId: M:IGCLWrapper.IGCLDisplayHelper.SetCustomModes(IGCLWrapper.ctl_get_set_custom_mode_args_t,IGCLWrapper.ctl_custom_src_mode_t[])
+  id: SetCustomModes(IGCLWrapper.ctl_get_set_custom_mode_args_t,IGCLWrapper.ctl_custom_src_mode_t[])
+  parent: IGCLWrapper.IGCLDisplayHelper
+  langs:
+  - csharp
+  - vb
+  name: SetCustomModes(ctl_get_set_custom_mode_args_t, ctl_custom_src_mode_t[])
+  nameWithType: IGCLDisplayHelper.SetCustomModes(ctl_get_set_custom_mode_args_t, ctl_custom_src_mode_t[])
+  fullName: IGCLWrapper.IGCLDisplayHelper.SetCustomModes(IGCLWrapper.ctl_get_set_custom_mode_args_t, IGCLWrapper.ctl_custom_src_mode_t[])
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SetCustomModes
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 658
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public void SetCustomModes(ctl_get_set_custom_mode_args_t args, ctl_custom_src_mode_t[] modes)
     parameters:
     - id: args
       type: IGCLWrapper.ctl_get_set_custom_mode_args_t
     - id: modes
       type: IGCLWrapper.ctl_custom_src_mode_t[]
-    return:
-      type: System.ValueTuple{IGCLWrapper.ctl_get_set_custom_mode_args_t,IGCLWrapper.ctl_custom_src_mode_t[]}
-    content.vb: Public Function GetSetCustomMode(args As ctl_get_set_custom_mode_args_t, modes As ctl_custom_src_mode_t() = Nothing) As (args As ctl_get_set_custom_mode_args_t, modes As ctl_custom_src_mode_t())
-  overload: IGCLWrapper.IGCLDisplayHelper.GetSetCustomMode*
-  nameWithType.vb: IGCLDisplayHelper.GetSetCustomMode(ctl_get_set_custom_mode_args_t, ctl_custom_src_mode_t())
-  fullName.vb: IGCLWrapper.IGCLDisplayHelper.GetSetCustomMode(IGCLWrapper.ctl_get_set_custom_mode_args_t, IGCLWrapper.ctl_custom_src_mode_t())
-  name.vb: GetSetCustomMode(ctl_get_set_custom_mode_args_t, ctl_custom_src_mode_t())
+    content.vb: Public Sub SetCustomModes(args As ctl_get_set_custom_mode_args_t, modes As ctl_custom_src_mode_t())
+  overload: IGCLWrapper.IGCLDisplayHelper.SetCustomModes*
+  nameWithType.vb: IGCLDisplayHelper.SetCustomModes(ctl_get_set_custom_mode_args_t, ctl_custom_src_mode_t())
+  fullName.vb: IGCLWrapper.IGCLDisplayHelper.SetCustomModes(IGCLWrapper.ctl_get_set_custom_mode_args_t, IGCLWrapper.ctl_custom_src_mode_t())
+  name.vb: SetCustomModes(ctl_get_set_custom_mode_args_t, ctl_custom_src_mode_t())
 - uid: IGCLWrapper.IGCLDisplayHelper.GetSetCombinedDisplayNative(IGCLWrapper.ctl_combined_display_args_t)
   commentId: M:IGCLWrapper.IGCLDisplayHelper.GetSetCombinedDisplayNative(IGCLWrapper.ctl_combined_display_args_t)
   id: GetSetCombinedDisplayNative(IGCLWrapper.ctl_combined_display_args_t)
@@ -2325,7 +2389,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSetCombinedDisplayNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 661
+    startLine: 681
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2338,37 +2402,94 @@ items:
       type: IGCLWrapper.ctl_combined_display_args_t
     content.vb: Public Function GetSetCombinedDisplayNative(args As ctl_combined_display_args_t) As ctl_combined_display_args_t
   overload: IGCLWrapper.IGCLDisplayHelper.GetSetCombinedDisplayNative*
-- uid: IGCLWrapper.IGCLDisplayHelper.GetSetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
-  commentId: M:IGCLWrapper.IGCLDisplayHelper.GetSetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
-  id: GetSetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
+- uid: IGCLWrapper.IGCLDisplayHelper.GetCombinedDisplay
+  commentId: M:IGCLWrapper.IGCLDisplayHelper.GetCombinedDisplay
+  id: GetCombinedDisplay
   parent: IGCLWrapper.IGCLDisplayHelper
   langs:
   - csharp
   - vb
-  name: GetSetCombinedDisplay(CombinedDisplayArgsDto)
-  nameWithType: IGCLDisplayHelper.GetSetCombinedDisplay(CombinedDisplayArgsDto)
-  fullName: IGCLWrapper.IGCLDisplayHelper.GetSetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
+  name: GetCombinedDisplay()
+  nameWithType: IGCLDisplayHelper.GetCombinedDisplay()
+  fullName: IGCLWrapper.IGCLDisplayHelper.GetCombinedDisplay()
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetSetCombinedDisplay
+    id: GetCombinedDisplay
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 671
+    startLine: 691
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public CombinedDisplayArgsDto GetSetCombinedDisplay(CombinedDisplayArgsDto args)
+    content: public CombinedDisplayArgsDto GetCombinedDisplay()
+    return:
+      type: IGCLWrapper.CombinedDisplayArgsDto
+    content.vb: Public Function GetCombinedDisplay() As CombinedDisplayArgsDto
+  overload: IGCLWrapper.IGCLDisplayHelper.GetCombinedDisplay*
+- uid: IGCLWrapper.IGCLDisplayHelper.GetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
+  commentId: M:IGCLWrapper.IGCLDisplayHelper.GetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
+  id: GetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
+  parent: IGCLWrapper.IGCLDisplayHelper
+  langs:
+  - csharp
+  - vb
+  name: GetCombinedDisplay(CombinedDisplayArgsDto)
+  nameWithType: IGCLDisplayHelper.GetCombinedDisplay(CombinedDisplayArgsDto)
+  fullName: IGCLWrapper.IGCLDisplayHelper.GetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetCombinedDisplay
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 701
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public CombinedDisplayArgsDto GetCombinedDisplay(CombinedDisplayArgsDto args)
     parameters:
     - id: args
       type: IGCLWrapper.CombinedDisplayArgsDto
     return:
       type: IGCLWrapper.CombinedDisplayArgsDto
-    content.vb: Public Function GetSetCombinedDisplay(args As CombinedDisplayArgsDto) As CombinedDisplayArgsDto
-  overload: IGCLWrapper.IGCLDisplayHelper.GetSetCombinedDisplay*
+    content.vb: Public Function GetCombinedDisplay(args As CombinedDisplayArgsDto) As CombinedDisplayArgsDto
+  overload: IGCLWrapper.IGCLDisplayHelper.GetCombinedDisplay*
+- uid: IGCLWrapper.IGCLDisplayHelper.SetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
+  commentId: M:IGCLWrapper.IGCLDisplayHelper.SetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
+  id: SetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
+  parent: IGCLWrapper.IGCLDisplayHelper
+  langs:
+  - csharp
+  - vb
+  name: SetCombinedDisplay(CombinedDisplayArgsDto)
+  nameWithType: IGCLDisplayHelper.SetCombinedDisplay(CombinedDisplayArgsDto)
+  fullName: IGCLWrapper.IGCLDisplayHelper.SetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SetCombinedDisplay
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 710
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public void SetCombinedDisplay(CombinedDisplayArgsDto args)
+    parameters:
+    - id: args
+      type: IGCLWrapper.CombinedDisplayArgsDto
+    content.vb: Public Sub SetCombinedDisplay(args As CombinedDisplayArgsDto)
+  overload: IGCLWrapper.IGCLDisplayHelper.SetCombinedDisplay*
 - uid: IGCLWrapper.IGCLDisplayHelper.GetSetDisplayGenlockNative(System.IntPtr[],IGCLWrapper.ctl_genlock_args_t,System.IntPtr@)
   commentId: M:IGCLWrapper.IGCLDisplayHelper.GetSetDisplayGenlockNative(System.IntPtr[],IGCLWrapper.ctl_genlock_args_t,System.IntPtr@)
   id: GetSetDisplayGenlockNative(System.IntPtr[],IGCLWrapper.ctl_genlock_args_t,System.IntPtr@)
@@ -2387,7 +2508,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSetDisplayGenlockNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 677
+    startLine: 717
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2407,44 +2528,84 @@ items:
   nameWithType.vb: IGCLDisplayHelper.GetSetDisplayGenlockNative(IntPtr(), ctl_genlock_args_t, IntPtr)
   fullName.vb: IGCLWrapper.IGCLDisplayHelper.GetSetDisplayGenlockNative(System.IntPtr(), IGCLWrapper.ctl_genlock_args_t, System.IntPtr)
   name.vb: GetSetDisplayGenlockNative(IntPtr(), ctl_genlock_args_t, IntPtr)
-- uid: IGCLWrapper.IGCLDisplayHelper.GetSetDisplayGenlock(System.IntPtr[],IGCLWrapper.GenlockArgsDto,System.IntPtr@)
-  commentId: M:IGCLWrapper.IGCLDisplayHelper.GetSetDisplayGenlock(System.IntPtr[],IGCLWrapper.GenlockArgsDto,System.IntPtr@)
-  id: GetSetDisplayGenlock(System.IntPtr[],IGCLWrapper.GenlockArgsDto,System.IntPtr@)
+- uid: IGCLWrapper.IGCLDisplayHelper.GetDisplayGenlock(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)
+  commentId: M:IGCLWrapper.IGCLDisplayHelper.GetDisplayGenlock(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)
+  id: GetDisplayGenlock(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)
   parent: IGCLWrapper.IGCLDisplayHelper
   langs:
   - csharp
   - vb
-  name: GetSetDisplayGenlock(nint[], GenlockArgsDto, out nint)
-  nameWithType: IGCLDisplayHelper.GetSetDisplayGenlock(nint[], GenlockArgsDto, out nint)
-  fullName: IGCLWrapper.IGCLDisplayHelper.GetSetDisplayGenlock(nint[], IGCLWrapper.GenlockArgsDto, out nint)
+  name: GetDisplayGenlock(nint[], ctl_genlock_operation_t, GenlockArgsDto, out nint)
+  nameWithType: IGCLDisplayHelper.GetDisplayGenlock(nint[], ctl_genlock_operation_t, GenlockArgsDto, out nint)
+  fullName: IGCLWrapper.IGCLDisplayHelper.GetDisplayGenlock(nint[], IGCLWrapper.ctl_genlock_operation_t, IGCLWrapper.GenlockArgsDto, out nint)
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetSetDisplayGenlock
+    id: GetDisplayGenlock
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 697
+    startLine: 737
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public GenlockArgsDto GetSetDisplayGenlock(nint[] adapters, GenlockArgsDto args, out nint failureAdapter)
+    content: public GenlockArgsDto GetDisplayGenlock(nint[] adapters, ctl_genlock_operation_t operation, GenlockArgsDto args, out nint failureAdapter)
     parameters:
     - id: adapters
       type: System.IntPtr[]
+    - id: operation
+      type: IGCLWrapper.ctl_genlock_operation_t
     - id: args
       type: IGCLWrapper.GenlockArgsDto
     - id: failureAdapter
       type: System.IntPtr
     return:
       type: IGCLWrapper.GenlockArgsDto
-    content.vb: Public Function GetSetDisplayGenlock(adapters As IntPtr(), args As GenlockArgsDto, failureAdapter As IntPtr) As GenlockArgsDto
-  overload: IGCLWrapper.IGCLDisplayHelper.GetSetDisplayGenlock*
-  nameWithType.vb: IGCLDisplayHelper.GetSetDisplayGenlock(IntPtr(), GenlockArgsDto, IntPtr)
-  fullName.vb: IGCLWrapper.IGCLDisplayHelper.GetSetDisplayGenlock(System.IntPtr(), IGCLWrapper.GenlockArgsDto, System.IntPtr)
-  name.vb: GetSetDisplayGenlock(IntPtr(), GenlockArgsDto, IntPtr)
+    content.vb: Public Function GetDisplayGenlock(adapters As IntPtr(), operation As ctl_genlock_operation_t, args As GenlockArgsDto, failureAdapter As IntPtr) As GenlockArgsDto
+  overload: IGCLWrapper.IGCLDisplayHelper.GetDisplayGenlock*
+  nameWithType.vb: IGCLDisplayHelper.GetDisplayGenlock(IntPtr(), ctl_genlock_operation_t, GenlockArgsDto, IntPtr)
+  fullName.vb: IGCLWrapper.IGCLDisplayHelper.GetDisplayGenlock(System.IntPtr(), IGCLWrapper.ctl_genlock_operation_t, IGCLWrapper.GenlockArgsDto, System.IntPtr)
+  name.vb: GetDisplayGenlock(IntPtr(), ctl_genlock_operation_t, GenlockArgsDto, IntPtr)
+- uid: IGCLWrapper.IGCLDisplayHelper.SetDisplayGenlock(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)
+  commentId: M:IGCLWrapper.IGCLDisplayHelper.SetDisplayGenlock(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)
+  id: SetDisplayGenlock(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)
+  parent: IGCLWrapper.IGCLDisplayHelper
+  langs:
+  - csharp
+  - vb
+  name: SetDisplayGenlock(nint[], ctl_genlock_operation_t, GenlockArgsDto, out nint)
+  nameWithType: IGCLDisplayHelper.SetDisplayGenlock(nint[], ctl_genlock_operation_t, GenlockArgsDto, out nint)
+  fullName: IGCLWrapper.IGCLDisplayHelper.SetDisplayGenlock(nint[], IGCLWrapper.ctl_genlock_operation_t, IGCLWrapper.GenlockArgsDto, out nint)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SetDisplayGenlock
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 745
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public void SetDisplayGenlock(nint[] adapters, ctl_genlock_operation_t operation, GenlockArgsDto args, out nint failureAdapter)
+    parameters:
+    - id: adapters
+      type: System.IntPtr[]
+    - id: operation
+      type: IGCLWrapper.ctl_genlock_operation_t
+    - id: args
+      type: IGCLWrapper.GenlockArgsDto
+    - id: failureAdapter
+      type: System.IntPtr
+    content.vb: Public Sub SetDisplayGenlock(adapters As IntPtr(), operation As ctl_genlock_operation_t, args As GenlockArgsDto, failureAdapter As IntPtr)
+  overload: IGCLWrapper.IGCLDisplayHelper.SetDisplayGenlock*
+  nameWithType.vb: IGCLDisplayHelper.SetDisplayGenlock(IntPtr(), ctl_genlock_operation_t, GenlockArgsDto, IntPtr)
+  fullName.vb: IGCLWrapper.IGCLDisplayHelper.SetDisplayGenlock(System.IntPtr(), IGCLWrapper.ctl_genlock_operation_t, IGCLWrapper.GenlockArgsDto, System.IntPtr)
+  name.vb: SetDisplayGenlock(IntPtr(), ctl_genlock_operation_t, GenlockArgsDto, IntPtr)
 - uid: IGCLWrapper.IGCLDisplayHelper.GetVblankTimestamp
   commentId: M:IGCLWrapper.IGCLDisplayHelper.GetVblankTimestamp
   id: GetVblankTimestamp
@@ -2463,7 +2624,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetVblankTimestamp
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 703
+    startLine: 752
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2491,7 +2652,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LinkDisplayAdapters
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 715
+    startLine: 764
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2520,7 +2681,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: UnlinkDisplayAdapters
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 724
+    startLine: 773
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2546,7 +2707,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetLinkedDisplayAdapters
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 732
+    startLine: 781
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2574,7 +2735,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSetDynamicContrastEnhancementNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 758
+    startLine: 807
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2592,73 +2753,156 @@ items:
   nameWithType.vb: IGCLDisplayHelper.GetSetDynamicContrastEnhancementNative(ctl_dce_args_t, UInteger())
   fullName.vb: IGCLWrapper.IGCLDisplayHelper.GetSetDynamicContrastEnhancementNative(IGCLWrapper.ctl_dce_args_t, UInteger())
   name.vb: GetSetDynamicContrastEnhancementNative(ctl_dce_args_t, UInteger())
-- uid: IGCLWrapper.IGCLDisplayHelper.GetSetDynamicContrastEnhancement(IGCLWrapper.DceArgsDto,System.UInt32[])
-  commentId: M:IGCLWrapper.IGCLDisplayHelper.GetSetDynamicContrastEnhancement(IGCLWrapper.DceArgsDto,System.UInt32[])
-  id: GetSetDynamicContrastEnhancement(IGCLWrapper.DceArgsDto,System.UInt32[])
+- uid: IGCLWrapper.IGCLDisplayHelper.GetDynamicContrastEnhancement
+  commentId: M:IGCLWrapper.IGCLDisplayHelper.GetDynamicContrastEnhancement
+  id: GetDynamicContrastEnhancement
   parent: IGCLWrapper.IGCLDisplayHelper
   langs:
   - csharp
   - vb
-  name: GetSetDynamicContrastEnhancement(DceArgsDto, uint[]?)
-  nameWithType: IGCLDisplayHelper.GetSetDynamicContrastEnhancement(DceArgsDto, uint[]?)
-  fullName: IGCLWrapper.IGCLDisplayHelper.GetSetDynamicContrastEnhancement(IGCLWrapper.DceArgsDto, uint[]?)
+  name: GetDynamicContrastEnhancement()
+  nameWithType: IGCLDisplayHelper.GetDynamicContrastEnhancement()
+  fullName: IGCLWrapper.IGCLDisplayHelper.GetDynamicContrastEnhancement()
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetSetDynamicContrastEnhancement
+    id: GetDynamicContrastEnhancement
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 799
+    startLine: 848
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public (DceArgsDto args, uint[] histogram) GetSetDynamicContrastEnhancement(DceArgsDto args, uint[]? histogram = null)
+    content: public (DceArgsDto args, uint[] histogram) GetDynamicContrastEnhancement()
+    return:
+      type: System.ValueTuple{IGCLWrapper.DceArgsDto,System.UInt32[]}
+    content.vb: Public Function GetDynamicContrastEnhancement() As (args As DceArgsDto, histogram As UInteger())
+  overload: IGCLWrapper.IGCLDisplayHelper.GetDynamicContrastEnhancement*
+- uid: IGCLWrapper.IGCLDisplayHelper.SetDynamicContrastEnhancement(IGCLWrapper.DceArgsDto,System.UInt32[])
+  commentId: M:IGCLWrapper.IGCLDisplayHelper.SetDynamicContrastEnhancement(IGCLWrapper.DceArgsDto,System.UInt32[])
+  id: SetDynamicContrastEnhancement(IGCLWrapper.DceArgsDto,System.UInt32[])
+  parent: IGCLWrapper.IGCLDisplayHelper
+  langs:
+  - csharp
+  - vb
+  name: SetDynamicContrastEnhancement(DceArgsDto, uint[])
+  nameWithType: IGCLDisplayHelper.SetDynamicContrastEnhancement(DceArgsDto, uint[])
+  fullName: IGCLWrapper.IGCLDisplayHelper.SetDynamicContrastEnhancement(IGCLWrapper.DceArgsDto, uint[])
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SetDynamicContrastEnhancement
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 855
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public void SetDynamicContrastEnhancement(DceArgsDto args, uint[] histogram)
     parameters:
     - id: args
       type: IGCLWrapper.DceArgsDto
     - id: histogram
       type: System.UInt32[]
-    return:
-      type: System.ValueTuple{IGCLWrapper.DceArgsDto,System.UInt32[]}
-    content.vb: Public Function GetSetDynamicContrastEnhancement(args As DceArgsDto, histogram As UInteger() = Nothing) As (args As DceArgsDto, histogram As UInteger())
-  overload: IGCLWrapper.IGCLDisplayHelper.GetSetDynamicContrastEnhancement*
-  nameWithType.vb: IGCLDisplayHelper.GetSetDynamicContrastEnhancement(DceArgsDto, UInteger())
-  fullName.vb: IGCLWrapper.IGCLDisplayHelper.GetSetDynamicContrastEnhancement(IGCLWrapper.DceArgsDto, UInteger())
-  name.vb: GetSetDynamicContrastEnhancement(DceArgsDto, UInteger())
-- uid: IGCLWrapper.IGCLDisplayHelper.GetSetWireFormat(IGCLWrapper.ctl_get_set_wire_format_config_t)
-  commentId: M:IGCLWrapper.IGCLDisplayHelper.GetSetWireFormat(IGCLWrapper.ctl_get_set_wire_format_config_t)
-  id: GetSetWireFormat(IGCLWrapper.ctl_get_set_wire_format_config_t)
+    content.vb: Public Sub SetDynamicContrastEnhancement(args As DceArgsDto, histogram As UInteger())
+  overload: IGCLWrapper.IGCLDisplayHelper.SetDynamicContrastEnhancement*
+  nameWithType.vb: IGCLDisplayHelper.SetDynamicContrastEnhancement(DceArgsDto, UInteger())
+  fullName.vb: IGCLWrapper.IGCLDisplayHelper.SetDynamicContrastEnhancement(IGCLWrapper.DceArgsDto, UInteger())
+  name.vb: SetDynamicContrastEnhancement(DceArgsDto, UInteger())
+- uid: IGCLWrapper.IGCLDisplayHelper.GetSetWireFormatNative(IGCLWrapper.ctl_get_set_wire_format_config_t)
+  commentId: M:IGCLWrapper.IGCLDisplayHelper.GetSetWireFormatNative(IGCLWrapper.ctl_get_set_wire_format_config_t)
+  id: GetSetWireFormatNative(IGCLWrapper.ctl_get_set_wire_format_config_t)
   parent: IGCLWrapper.IGCLDisplayHelper
   langs:
   - csharp
   - vb
-  name: GetSetWireFormat(ctl_get_set_wire_format_config_t)
-  nameWithType: IGCLDisplayHelper.GetSetWireFormat(ctl_get_set_wire_format_config_t)
-  fullName: IGCLWrapper.IGCLDisplayHelper.GetSetWireFormat(IGCLWrapper.ctl_get_set_wire_format_config_t)
+  name: GetSetWireFormatNative(ctl_get_set_wire_format_config_t)
+  nameWithType: IGCLDisplayHelper.GetSetWireFormatNative(ctl_get_set_wire_format_config_t)
+  fullName: IGCLWrapper.IGCLDisplayHelper.GetSetWireFormatNative(IGCLWrapper.ctl_get_set_wire_format_config_t)
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetSetWireFormat
+    id: GetSetWireFormatNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 805
+    startLine: 862
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public ctl_get_set_wire_format_config_t GetSetWireFormat(ctl_get_set_wire_format_config_t args)
+    content: public ctl_get_set_wire_format_config_t GetSetWireFormatNative(ctl_get_set_wire_format_config_t args)
     parameters:
     - id: args
       type: IGCLWrapper.ctl_get_set_wire_format_config_t
     return:
       type: IGCLWrapper.ctl_get_set_wire_format_config_t
-    content.vb: Public Function GetSetWireFormat(args As ctl_get_set_wire_format_config_t) As ctl_get_set_wire_format_config_t
-  overload: IGCLWrapper.IGCLDisplayHelper.GetSetWireFormat*
+    content.vb: Public Function GetSetWireFormatNative(args As ctl_get_set_wire_format_config_t) As ctl_get_set_wire_format_config_t
+  overload: IGCLWrapper.IGCLDisplayHelper.GetSetWireFormatNative*
+- uid: IGCLWrapper.IGCLDisplayHelper.GetWireFormat
+  commentId: M:IGCLWrapper.IGCLDisplayHelper.GetWireFormat
+  id: GetWireFormat
+  parent: IGCLWrapper.IGCLDisplayHelper
+  langs:
+  - csharp
+  - vb
+  name: GetWireFormat()
+  nameWithType: IGCLDisplayHelper.GetWireFormat()
+  fullName: IGCLWrapper.IGCLDisplayHelper.GetWireFormat()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetWireFormat
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 872
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_get_set_wire_format_config_t GetWireFormat()
+    return:
+      type: IGCLWrapper.ctl_get_set_wire_format_config_t
+    content.vb: Public Function GetWireFormat() As ctl_get_set_wire_format_config_t
+  overload: IGCLWrapper.IGCLDisplayHelper.GetWireFormat*
+- uid: IGCLWrapper.IGCLDisplayHelper.SetWireFormat(IGCLWrapper.ctl_get_set_wire_format_config_t)
+  commentId: M:IGCLWrapper.IGCLDisplayHelper.SetWireFormat(IGCLWrapper.ctl_get_set_wire_format_config_t)
+  id: SetWireFormat(IGCLWrapper.ctl_get_set_wire_format_config_t)
+  parent: IGCLWrapper.IGCLDisplayHelper
+  langs:
+  - csharp
+  - vb
+  name: SetWireFormat(ctl_get_set_wire_format_config_t)
+  nameWithType: IGCLDisplayHelper.SetWireFormat(ctl_get_set_wire_format_config_t)
+  fullName: IGCLWrapper.IGCLDisplayHelper.SetWireFormat(IGCLWrapper.ctl_get_set_wire_format_config_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SetWireFormat
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 883
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public void SetWireFormat(ctl_get_set_wire_format_config_t args)
+    parameters:
+    - id: args
+      type: IGCLWrapper.ctl_get_set_wire_format_config_t
+    content.vb: Public Sub SetWireFormat(args As ctl_get_set_wire_format_config_t)
+  overload: IGCLWrapper.IGCLDisplayHelper.SetWireFormat*
 - uid: IGCLWrapper.IGCLDisplayHelper.GetSetDisplaySettingsNative(IGCLWrapper.ctl_display_settings_t)
   commentId: M:IGCLWrapper.IGCLDisplayHelper.GetSetDisplaySettingsNative(IGCLWrapper.ctl_display_settings_t)
   id: GetSetDisplaySettingsNative(IGCLWrapper.ctl_display_settings_t)
@@ -2677,7 +2921,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSetDisplaySettingsNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 815
+    startLine: 894
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2690,37 +2934,63 @@ items:
       type: IGCLWrapper.ctl_display_settings_t
     content.vb: Public Function GetSetDisplaySettingsNative(args As ctl_display_settings_t) As ctl_display_settings_t
   overload: IGCLWrapper.IGCLDisplayHelper.GetSetDisplaySettingsNative*
-- uid: IGCLWrapper.IGCLDisplayHelper.GetSetDisplaySettings(IGCLWrapper.DisplaySettingsDto)
-  commentId: M:IGCLWrapper.IGCLDisplayHelper.GetSetDisplaySettings(IGCLWrapper.DisplaySettingsDto)
-  id: GetSetDisplaySettings(IGCLWrapper.DisplaySettingsDto)
+- uid: IGCLWrapper.IGCLDisplayHelper.GetDisplaySettings
+  commentId: M:IGCLWrapper.IGCLDisplayHelper.GetDisplaySettings
+  id: GetDisplaySettings
   parent: IGCLWrapper.IGCLDisplayHelper
   langs:
   - csharp
   - vb
-  name: GetSetDisplaySettings(DisplaySettingsDto)
-  nameWithType: IGCLDisplayHelper.GetSetDisplaySettings(DisplaySettingsDto)
-  fullName: IGCLWrapper.IGCLDisplayHelper.GetSetDisplaySettings(IGCLWrapper.DisplaySettingsDto)
+  name: GetDisplaySettings()
+  nameWithType: IGCLDisplayHelper.GetDisplaySettings()
+  fullName: IGCLWrapper.IGCLDisplayHelper.GetDisplaySettings()
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetSetDisplaySettings
+    id: GetDisplaySettings
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 825
+    startLine: 904
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public DisplaySettingsDto GetSetDisplaySettings(DisplaySettingsDto args)
-    parameters:
-    - id: args
-      type: IGCLWrapper.DisplaySettingsDto
+    content: public DisplaySettingsDto GetDisplaySettings()
     return:
       type: IGCLWrapper.DisplaySettingsDto
-    content.vb: Public Function GetSetDisplaySettings(args As DisplaySettingsDto) As DisplaySettingsDto
-  overload: IGCLWrapper.IGCLDisplayHelper.GetSetDisplaySettings*
+    content.vb: Public Function GetDisplaySettings() As DisplaySettingsDto
+  overload: IGCLWrapper.IGCLDisplayHelper.GetDisplaySettings*
+- uid: IGCLWrapper.IGCLDisplayHelper.SetDisplaySettings(IGCLWrapper.DisplaySettingsDto)
+  commentId: M:IGCLWrapper.IGCLDisplayHelper.SetDisplaySettings(IGCLWrapper.DisplaySettingsDto)
+  id: SetDisplaySettings(IGCLWrapper.DisplaySettingsDto)
+  parent: IGCLWrapper.IGCLDisplayHelper
+  langs:
+  - csharp
+  - vb
+  name: SetDisplaySettings(DisplaySettingsDto)
+  nameWithType: IGCLDisplayHelper.SetDisplaySettings(DisplaySettingsDto)
+  fullName: IGCLWrapper.IGCLDisplayHelper.SetDisplaySettings(IGCLWrapper.DisplaySettingsDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SetDisplaySettings
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 911
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public void SetDisplaySettings(DisplaySettingsDto settings)
+    parameters:
+    - id: settings
+      type: IGCLWrapper.DisplaySettingsDto
+    content.vb: Public Sub SetDisplaySettings(settings As DisplaySettingsDto)
+  overload: IGCLWrapper.IGCLDisplayHelper.SetDisplaySettings*
 - uid: IGCLWrapper.IGCLDisplayHelper.Dispose
   commentId: M:IGCLWrapper.IGCLDisplayHelper.Dispose
   id: Dispose
@@ -2739,7 +3009,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 838
+    startLine: 925
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3866,12 +4136,12 @@ references:
   name: GetSetRetroScalingNative
   nameWithType: IGCLDisplayHelper.GetSetRetroScalingNative
   fullName: IGCLWrapper.IGCLDisplayHelper.GetSetRetroScalingNative
-- uid: IGCLWrapper.IGCLDisplayHelper.GetSetRetroScaling*
-  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.GetSetRetroScaling
-  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetSetRetroScaling_IGCLWrapper_RetroScalingSettingsDto_
-  name: GetSetRetroScaling
-  nameWithType: IGCLDisplayHelper.GetSetRetroScaling
-  fullName: IGCLWrapper.IGCLDisplayHelper.GetSetRetroScaling
+- uid: IGCLWrapper.IGCLDisplayHelper.GetRetroScalingSettings*
+  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.GetRetroScalingSettings
+  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetRetroScalingSettings
+  name: GetRetroScalingSettings
+  nameWithType: IGCLDisplayHelper.GetRetroScalingSettings
+  fullName: IGCLWrapper.IGCLDisplayHelper.GetRetroScalingSettings
 - uid: IGCLWrapper.RetroScalingSettingsDto
   commentId: T:IGCLWrapper.RetroScalingSettingsDto
   parent: IGCLWrapper
@@ -3879,6 +4149,12 @@ references:
   name: RetroScalingSettingsDto
   nameWithType: RetroScalingSettingsDto
   fullName: IGCLWrapper.RetroScalingSettingsDto
+- uid: IGCLWrapper.IGCLDisplayHelper.SetRetroScalingSettings*
+  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.SetRetroScalingSettings
+  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_SetRetroScalingSettings_IGCLWrapper_RetroScalingSettingsDto_
+  name: SetRetroScalingSettings
+  nameWithType: IGCLDisplayHelper.SetRetroScalingSettings
+  fullName: IGCLWrapper.IGCLDisplayHelper.SetRetroScalingSettings
 - uid: IGCLWrapper.IGCLDisplayHelper.GetSupportedScalingCapability*
   commentId: Overload:IGCLWrapper.IGCLDisplayHelper.GetSupportedScalingCapability
   href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetSupportedScalingCapability
@@ -4094,33 +4370,12 @@ references:
   name: EdidManagement
   nameWithType: IGCLDisplayHelper.EdidManagement
   fullName: IGCLWrapper.IGCLDisplayHelper.EdidManagement
-- uid: IGCLWrapper.IGCLDisplayHelper.GetSetCustomMode*
-  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.GetSetCustomMode
-  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetSetCustomMode_IGCLWrapper_ctl_get_set_custom_mode_args_t_IGCLWrapper_ctl_custom_src_mode_t___
-  name: GetSetCustomMode
-  nameWithType: IGCLDisplayHelper.GetSetCustomMode
-  fullName: IGCLWrapper.IGCLDisplayHelper.GetSetCustomMode
-- uid: IGCLWrapper.ctl_custom_src_mode_t[]
-  isExternal: true
-  href: IGCLWrapper.ctl_custom_src_mode_t.html
-  name: ctl_custom_src_mode_t[]
-  nameWithType: ctl_custom_src_mode_t[]
-  fullName: IGCLWrapper.ctl_custom_src_mode_t[]
-  nameWithType.vb: ctl_custom_src_mode_t()
-  fullName.vb: IGCLWrapper.ctl_custom_src_mode_t()
-  name.vb: ctl_custom_src_mode_t()
-  spec.csharp:
-  - uid: IGCLWrapper.ctl_custom_src_mode_t
-    name: ctl_custom_src_mode_t
-    href: IGCLWrapper.ctl_custom_src_mode_t.html
-  - name: '['
-  - name: ']'
-  spec.vb:
-  - uid: IGCLWrapper.ctl_custom_src_mode_t
-    name: ctl_custom_src_mode_t
-    href: IGCLWrapper.ctl_custom_src_mode_t.html
-  - name: (
-  - name: )
+- uid: IGCLWrapper.IGCLDisplayHelper.GetCustomModes*
+  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.GetCustomModes
+  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetCustomModes_IGCLWrapper_ctl_get_set_custom_mode_args_t_
+  name: GetCustomModes
+  nameWithType: IGCLDisplayHelper.GetCustomModes
+  fullName: IGCLWrapper.IGCLDisplayHelper.GetCustomModes
 - uid: System.ValueTuple{IGCLWrapper.ctl_get_set_custom_mode_args_t,IGCLWrapper.ctl_custom_src_mode_t[]}
   commentId: T:System.ValueTuple{IGCLWrapper.ctl_get_set_custom_mode_args_t,IGCLWrapper.ctl_custom_src_mode_t[]}
   parent: System
@@ -4178,18 +4433,45 @@ references:
   - name: (
   - name: )
   - name: )
+- uid: IGCLWrapper.IGCLDisplayHelper.SetCustomModes*
+  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.SetCustomModes
+  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_SetCustomModes_IGCLWrapper_ctl_get_set_custom_mode_args_t_IGCLWrapper_ctl_custom_src_mode_t___
+  name: SetCustomModes
+  nameWithType: IGCLDisplayHelper.SetCustomModes
+  fullName: IGCLWrapper.IGCLDisplayHelper.SetCustomModes
+- uid: IGCLWrapper.ctl_custom_src_mode_t[]
+  isExternal: true
+  href: IGCLWrapper.ctl_custom_src_mode_t.html
+  name: ctl_custom_src_mode_t[]
+  nameWithType: ctl_custom_src_mode_t[]
+  fullName: IGCLWrapper.ctl_custom_src_mode_t[]
+  nameWithType.vb: ctl_custom_src_mode_t()
+  fullName.vb: IGCLWrapper.ctl_custom_src_mode_t()
+  name.vb: ctl_custom_src_mode_t()
+  spec.csharp:
+  - uid: IGCLWrapper.ctl_custom_src_mode_t
+    name: ctl_custom_src_mode_t
+    href: IGCLWrapper.ctl_custom_src_mode_t.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: IGCLWrapper.ctl_custom_src_mode_t
+    name: ctl_custom_src_mode_t
+    href: IGCLWrapper.ctl_custom_src_mode_t.html
+  - name: (
+  - name: )
 - uid: IGCLWrapper.IGCLDisplayHelper.GetSetCombinedDisplayNative*
   commentId: Overload:IGCLWrapper.IGCLDisplayHelper.GetSetCombinedDisplayNative
   href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetSetCombinedDisplayNative_IGCLWrapper_ctl_combined_display_args_t_
   name: GetSetCombinedDisplayNative
   nameWithType: IGCLDisplayHelper.GetSetCombinedDisplayNative
   fullName: IGCLWrapper.IGCLDisplayHelper.GetSetCombinedDisplayNative
-- uid: IGCLWrapper.IGCLDisplayHelper.GetSetCombinedDisplay*
-  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.GetSetCombinedDisplay
-  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetSetCombinedDisplay_IGCLWrapper_CombinedDisplayArgsDto_
-  name: GetSetCombinedDisplay
-  nameWithType: IGCLDisplayHelper.GetSetCombinedDisplay
-  fullName: IGCLWrapper.IGCLDisplayHelper.GetSetCombinedDisplay
+- uid: IGCLWrapper.IGCLDisplayHelper.GetCombinedDisplay*
+  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.GetCombinedDisplay
+  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetCombinedDisplay
+  name: GetCombinedDisplay
+  nameWithType: IGCLDisplayHelper.GetCombinedDisplay
+  fullName: IGCLWrapper.IGCLDisplayHelper.GetCombinedDisplay
 - uid: IGCLWrapper.CombinedDisplayArgsDto
   commentId: T:IGCLWrapper.CombinedDisplayArgsDto
   parent: IGCLWrapper
@@ -4197,18 +4479,31 @@ references:
   name: CombinedDisplayArgsDto
   nameWithType: CombinedDisplayArgsDto
   fullName: IGCLWrapper.CombinedDisplayArgsDto
+- uid: IGCLWrapper.IGCLDisplayHelper.SetCombinedDisplay*
+  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.SetCombinedDisplay
+  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_SetCombinedDisplay_IGCLWrapper_CombinedDisplayArgsDto_
+  name: SetCombinedDisplay
+  nameWithType: IGCLDisplayHelper.SetCombinedDisplay
+  fullName: IGCLWrapper.IGCLDisplayHelper.SetCombinedDisplay
 - uid: IGCLWrapper.IGCLDisplayHelper.GetSetDisplayGenlockNative*
   commentId: Overload:IGCLWrapper.IGCLDisplayHelper.GetSetDisplayGenlockNative
   href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetSetDisplayGenlockNative_System_IntPtr___IGCLWrapper_ctl_genlock_args_t_System_IntPtr__
   name: GetSetDisplayGenlockNative
   nameWithType: IGCLDisplayHelper.GetSetDisplayGenlockNative
   fullName: IGCLWrapper.IGCLDisplayHelper.GetSetDisplayGenlockNative
-- uid: IGCLWrapper.IGCLDisplayHelper.GetSetDisplayGenlock*
-  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.GetSetDisplayGenlock
-  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetSetDisplayGenlock_System_IntPtr___IGCLWrapper_GenlockArgsDto_System_IntPtr__
-  name: GetSetDisplayGenlock
-  nameWithType: IGCLDisplayHelper.GetSetDisplayGenlock
-  fullName: IGCLWrapper.IGCLDisplayHelper.GetSetDisplayGenlock
+- uid: IGCLWrapper.IGCLDisplayHelper.GetDisplayGenlock*
+  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.GetDisplayGenlock
+  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetDisplayGenlock_System_IntPtr___IGCLWrapper_ctl_genlock_operation_t_IGCLWrapper_GenlockArgsDto_System_IntPtr__
+  name: GetDisplayGenlock
+  nameWithType: IGCLDisplayHelper.GetDisplayGenlock
+  fullName: IGCLWrapper.IGCLDisplayHelper.GetDisplayGenlock
+- uid: IGCLWrapper.ctl_genlock_operation_t
+  commentId: T:IGCLWrapper.ctl_genlock_operation_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_genlock_operation_t.html
+  name: ctl_genlock_operation_t
+  nameWithType: ctl_genlock_operation_t
+  fullName: IGCLWrapper.ctl_genlock_operation_t
 - uid: IGCLWrapper.GenlockArgsDto
   commentId: T:IGCLWrapper.GenlockArgsDto
   parent: IGCLWrapper
@@ -4216,6 +4511,12 @@ references:
   name: GenlockArgsDto
   nameWithType: GenlockArgsDto
   fullName: IGCLWrapper.GenlockArgsDto
+- uid: IGCLWrapper.IGCLDisplayHelper.SetDisplayGenlock*
+  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.SetDisplayGenlock
+  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_SetDisplayGenlock_System_IntPtr___IGCLWrapper_ctl_genlock_operation_t_IGCLWrapper_GenlockArgsDto_System_IntPtr__
+  name: SetDisplayGenlock
+  nameWithType: IGCLDisplayHelper.SetDisplayGenlock
+  fullName: IGCLWrapper.IGCLDisplayHelper.SetDisplayGenlock
 - uid: IGCLWrapper.IGCLDisplayHelper.GetVblankTimestamp*
   commentId: Overload:IGCLWrapper.IGCLDisplayHelper.GetVblankTimestamp
   href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetVblankTimestamp
@@ -4387,19 +4688,12 @@ references:
   - name: (
   - name: )
   - name: )
-- uid: IGCLWrapper.IGCLDisplayHelper.GetSetDynamicContrastEnhancement*
-  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.GetSetDynamicContrastEnhancement
-  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetSetDynamicContrastEnhancement_IGCLWrapper_DceArgsDto_System_UInt32___
-  name: GetSetDynamicContrastEnhancement
-  nameWithType: IGCLDisplayHelper.GetSetDynamicContrastEnhancement
-  fullName: IGCLWrapper.IGCLDisplayHelper.GetSetDynamicContrastEnhancement
-- uid: IGCLWrapper.DceArgsDto
-  commentId: T:IGCLWrapper.DceArgsDto
-  parent: IGCLWrapper
-  href: IGCLWrapper.DceArgsDto.html
-  name: DceArgsDto
-  nameWithType: DceArgsDto
-  fullName: IGCLWrapper.DceArgsDto
+- uid: IGCLWrapper.IGCLDisplayHelper.GetDynamicContrastEnhancement*
+  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.GetDynamicContrastEnhancement
+  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetDynamicContrastEnhancement
+  name: GetDynamicContrastEnhancement
+  nameWithType: IGCLDisplayHelper.GetDynamicContrastEnhancement
+  fullName: IGCLWrapper.IGCLDisplayHelper.GetDynamicContrastEnhancement
 - uid: System.ValueTuple{IGCLWrapper.DceArgsDto,System.UInt32[]}
   commentId: T:System.ValueTuple{IGCLWrapper.DceArgsDto,System.UInt32[]}
   parent: System
@@ -4459,24 +4753,49 @@ references:
   - name: (
   - name: )
   - name: )
-- uid: IGCLWrapper.IGCLDisplayHelper.GetSetWireFormat*
-  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.GetSetWireFormat
-  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetSetWireFormat_IGCLWrapper_ctl_get_set_wire_format_config_t_
-  name: GetSetWireFormat
-  nameWithType: IGCLDisplayHelper.GetSetWireFormat
-  fullName: IGCLWrapper.IGCLDisplayHelper.GetSetWireFormat
+- uid: IGCLWrapper.IGCLDisplayHelper.SetDynamicContrastEnhancement*
+  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.SetDynamicContrastEnhancement
+  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_SetDynamicContrastEnhancement_IGCLWrapper_DceArgsDto_System_UInt32___
+  name: SetDynamicContrastEnhancement
+  nameWithType: IGCLDisplayHelper.SetDynamicContrastEnhancement
+  fullName: IGCLWrapper.IGCLDisplayHelper.SetDynamicContrastEnhancement
+- uid: IGCLWrapper.DceArgsDto
+  commentId: T:IGCLWrapper.DceArgsDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.DceArgsDto.html
+  name: DceArgsDto
+  nameWithType: DceArgsDto
+  fullName: IGCLWrapper.DceArgsDto
+- uid: IGCLWrapper.IGCLDisplayHelper.GetSetWireFormatNative*
+  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.GetSetWireFormatNative
+  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetSetWireFormatNative_IGCLWrapper_ctl_get_set_wire_format_config_t_
+  name: GetSetWireFormatNative
+  nameWithType: IGCLDisplayHelper.GetSetWireFormatNative
+  fullName: IGCLWrapper.IGCLDisplayHelper.GetSetWireFormatNative
+- uid: IGCLWrapper.IGCLDisplayHelper.GetWireFormat*
+  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.GetWireFormat
+  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetWireFormat
+  name: GetWireFormat
+  nameWithType: IGCLDisplayHelper.GetWireFormat
+  fullName: IGCLWrapper.IGCLDisplayHelper.GetWireFormat
+- uid: IGCLWrapper.IGCLDisplayHelper.SetWireFormat*
+  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.SetWireFormat
+  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_SetWireFormat_IGCLWrapper_ctl_get_set_wire_format_config_t_
+  name: SetWireFormat
+  nameWithType: IGCLDisplayHelper.SetWireFormat
+  fullName: IGCLWrapper.IGCLDisplayHelper.SetWireFormat
 - uid: IGCLWrapper.IGCLDisplayHelper.GetSetDisplaySettingsNative*
   commentId: Overload:IGCLWrapper.IGCLDisplayHelper.GetSetDisplaySettingsNative
   href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetSetDisplaySettingsNative_IGCLWrapper_ctl_display_settings_t_
   name: GetSetDisplaySettingsNative
   nameWithType: IGCLDisplayHelper.GetSetDisplaySettingsNative
   fullName: IGCLWrapper.IGCLDisplayHelper.GetSetDisplaySettingsNative
-- uid: IGCLWrapper.IGCLDisplayHelper.GetSetDisplaySettings*
-  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.GetSetDisplaySettings
-  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetSetDisplaySettings_IGCLWrapper_DisplaySettingsDto_
-  name: GetSetDisplaySettings
-  nameWithType: IGCLDisplayHelper.GetSetDisplaySettings
-  fullName: IGCLWrapper.IGCLDisplayHelper.GetSetDisplaySettings
+- uid: IGCLWrapper.IGCLDisplayHelper.GetDisplaySettings*
+  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.GetDisplaySettings
+  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetDisplaySettings
+  name: GetDisplaySettings
+  nameWithType: IGCLDisplayHelper.GetDisplaySettings
+  fullName: IGCLWrapper.IGCLDisplayHelper.GetDisplaySettings
 - uid: IGCLWrapper.DisplaySettingsDto
   commentId: T:IGCLWrapper.DisplaySettingsDto
   parent: IGCLWrapper
@@ -4484,6 +4803,12 @@ references:
   name: DisplaySettingsDto
   nameWithType: DisplaySettingsDto
   fullName: IGCLWrapper.DisplaySettingsDto
+- uid: IGCLWrapper.IGCLDisplayHelper.SetDisplaySettings*
+  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.SetDisplaySettings
+  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_SetDisplaySettings_IGCLWrapper_DisplaySettingsDto_
+  name: SetDisplaySettings
+  nameWithType: IGCLDisplayHelper.SetDisplaySettings
+  fullName: IGCLWrapper.IGCLDisplayHelper.SetDisplaySettings
 - uid: IGCLWrapper.IGCLDisplayHelper.Dispose*
   commentId: Overload:IGCLWrapper.IGCLDisplayHelper.Dispose
   href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_Dispose

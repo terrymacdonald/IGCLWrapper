@@ -1,6 +1,4 @@
 using System;
-using System.Runtime.InteropServices;
-using System.Text;
 using IGCLWrapper;
 
 namespace GpuMonitoring
@@ -14,55 +12,28 @@ namespace GpuMonitoring
 
             try
             {
-                using (var igcl = IGCLApi.Initialize())
+                using (var igcl = IGCLApiHelper.Initialize())
                 {
                     var adapters = igcl.EnumerateAdapters();
 
-                    if (adapters.Length == 0)
+                    if (adapters.Count == 0)
                     {
                         Console.WriteLine("No Intel GPU found.");
                         return;
                     }
 
                     var adapter = adapters[0];
-                    var props = IGCLHelpers.GetProperties(adapter);
-                    ReadOnlySpan<sbyte> nameSpan = MemoryMarshal.CreateReadOnlySpan(ref props.name.e0, 100);
-                    int term = nameSpan.IndexOf((sbyte)0);
-                    if (term >= 0) nameSpan = nameSpan[..term];
-                    var name = Encoding.UTF8.GetString(MemoryMarshal.Cast<sbyte, byte>(nameSpan));
-                    Console.WriteLine($"Monitoring: {name}\n");
+                    Console.WriteLine($"Monitoring: {adapter.Name}\n");
 
-                    // Power Telemetry
-                    unsafe
-                    {
-                        var telemetry = new ctl_power_telemetry_t
-                        {
-                            Size = (uint)sizeof(ctl_power_telemetry_t),
-                            Version = (byte)0
-                        };
+                    var powerHelper = igcl.GetPowerHelper(adapter);
+                    var tempHelper = igcl.GetTemperatureHelper(adapter);
+                    var freqHelper = igcl.GetFrequencyHelper(adapter);
 
-                        var result = IGCL.ctlPowerTelemetryGet((_ctl_device_adapter_handle_t*)adapter, &telemetry);
+                    MonitorPower(powerHelper);
+                    MonitorTemperature(tempHelper);
+                    MonitorFrequency(freqHelper);
 
-                        if (result == ctl_result_t.CTL_RESULT_SUCCESS)
-                        {
-                            Console.WriteLine("Power & Thermal:");
-                            Console.WriteLine($"  GPU Power      : {telemetry.gpuEnergyCounter.value} mJ");
-                            Console.WriteLine($"  Temperature    : {telemetry.gpuCurrentTemperature}°C");
-                            Console.WriteLine($"  Current Freq   : {telemetry.gpuCurrentClockFrequency} MHz\n");
-                        }
-                        else
-                        {
-                            Console.WriteLine($"Power telemetry not available (Result: {result})\n");
-                        }
-                    }
-
-                    // Temperature Sensors
-                    MonitorTemperature(adapter);
-
-                    // Frequency Domains
-                    MonitorFrequency(adapter);
-
-                    Console.WriteLine("\n? Monitoring completed!");
+                    Console.WriteLine("\nMonitoring completed.");
                 }
             }
             catch (IGCLException ex)
@@ -78,60 +49,49 @@ namespace GpuMonitoring
             Console.ReadKey();
         }
 
-        static unsafe void MonitorTemperature(IntPtr adapter)
+        static void MonitorPower(IGCLPowerHelper powerHelper)
         {
-            uint count = 0;
-            var result = IGCL.ctlEnumTemperatureSensors((_ctl_device_adapter_handle_t*)adapter, &count, null);
+            var domains = powerHelper.EnumPowerDomains();
+            if (domains.Count == 0)
+            {
+                Console.WriteLine("Power telemetry not available.\n");
+                return;
+            }
 
-            if (result == ctl_result_t.CTL_RESULT_SUCCESS && count > 0)
+            Console.WriteLine("Power Domains:");
+            for (int i = 0; i < domains.Count; i++)
+            {
+                var energy = powerHelper.PowerGetEnergyCounter(domains[i]);
+                Console.WriteLine($"  Domain {i + 1}     : {energy.energy} uJ (timestamp {energy.timestamp})");
+            }
+            Console.WriteLine();
+        }
+
+        static void MonitorTemperature(IGCLTemperatureHelper tempHelper)
+        {
+            var sensors = tempHelper.EnumTemperatureSensors();
+            if (sensors.Count > 0)
             {
                 Console.WriteLine("Temperature Sensors:");
-
-                var temps = new _ctl_temp_handle_t*[count];
-                fixed (_ctl_temp_handle_t** pTemps = temps)
+                for (int i = 0; i < sensors.Count; i++)
                 {
-                    IGCL.ctlEnumTemperatureSensors((_ctl_device_adapter_handle_t*)adapter, &count, pTemps);
-
-                    for (int i = 0; i < count; i++)
-                    {
-                        double temperature;
-                        if (IGCL.ctlTemperatureGetState(temps[i], &temperature) == ctl_result_t.CTL_RESULT_SUCCESS)
-                        {
-                            Console.WriteLine($"  Sensor {i + 1}      : {temperature:F1}°C");
-                        }
-                    }
+                    var temperature = tempHelper.TemperatureGetState(sensors[i]);
+                    Console.WriteLine($"  Sensor {i + 1}      : {temperature:F1} C");
                 }
                 Console.WriteLine();
             }
         }
 
-        static unsafe void MonitorFrequency(IntPtr adapter)
+        static void MonitorFrequency(IGCLFrequencyHelper freqHelper)
         {
-            uint count = 0;
-            var result = IGCL.ctlEnumFrequencyDomains((_ctl_device_adapter_handle_t*)adapter, &count, null);
-
-            if (result == ctl_result_t.CTL_RESULT_SUCCESS && count > 0)
+            var domains = freqHelper.EnumFrequencyDomains();
+            if (domains.Count > 0)
             {
                 Console.WriteLine("Frequency Domains:");
-
-                var freqs = new _ctl_freq_handle_t*[count];
-                fixed (_ctl_freq_handle_t** pFreqs = freqs)
+                for (int i = 0; i < domains.Count; i++)
                 {
-                    IGCL.ctlEnumFrequencyDomains((_ctl_device_adapter_handle_t*)adapter, &count, pFreqs);
-
-                    for (int i = 0; i < count; i++)
-                    {
-                        var state = new ctl_freq_state_t
-                        {
-                            Size = (uint)sizeof(ctl_freq_state_t),
-                            Version = (byte)0
-                        };
-
-                        if (IGCL.ctlFrequencyGetState(freqs[i], &state) == ctl_result_t.CTL_RESULT_SUCCESS)
-                        {
-                            Console.WriteLine($"  Domain {i + 1}      : {state.actual:F0} MHz (Request: {state.request:F0} MHz)");
-                        }
-                    }
+                    var state = freqHelper.FrequencyGetState(domains[i]);
+                    Console.WriteLine($"  Domain {i + 1}      : {state.actual:F0} MHz (Request: {state.request:F0} MHz)");
                 }
             }
         }

@@ -37,14 +37,14 @@ dotnet run
 
 Initialization:
 ```csharp
-using var igcl = IGCLApi.Initialize();
+using var igcl = IGCLApiHelper.Initialize();
 ```
 
 Error handling:
 ```csharp
 try
 {
-    using var igcl = IGCLApi.Initialize();
+    using var igcl = IGCLApiHelper.Initialize();
 }
 catch (IGCLException ex)
 {
@@ -62,12 +62,10 @@ var adapter = api.EnumerateAdapters().First();
 var display = adapter.GetDisplays().First();
 
 var encoder = display.GetAdapterDisplayEncoderProperties();
-var combined = display.GetSetCombinedDisplay(new CombinedDisplayArgsDto
-{
-    OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_QUERY_CONFIG
-});
+var combined = display.GetCombinedDisplay();
 ```
 Use `*Native()` helper methods when you need raw structs instead of DTOs.
+Get/Set operations are split into `Get*()` and `Set*()` helpers; `GetSet*Native()` remains for direct IGCL calls.
 
 ## Building All Samples
 

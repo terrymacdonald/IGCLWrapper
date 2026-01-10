@@ -18,7 +18,9 @@ dotnet run
 
 ## Key Code
 ```csharp
-var displays = igcl.EnumerateDisplays(adapter);
-var (width, height) = IGCLHelpers.GetResolution(display);
-var refreshRate = IGCLHelpers.GetRefreshRate(display);
+using var api = IGCLApiHelper.Initialize();
+var adapter = api.EnumerateAdapters().First();
+var displays = adapter.GetDisplays();
+var (width, height) = displays[0].GetResolution();
+var refreshRate = displays[0].GetRefreshRateHz();
 ```

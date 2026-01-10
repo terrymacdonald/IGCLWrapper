@@ -10,7 +10,7 @@ Monitor and control GPU fan speed (if supported by the hardware).
 - Feature availability detection
 
 ## Important Note
-? Fan control is not available on all Intel GPUs. This sample demonstrates safe feature detection.
+Fan control is not available on all Intel GPUs. This sample demonstrates safe feature detection.
 
 ## How to Run
 ```bash

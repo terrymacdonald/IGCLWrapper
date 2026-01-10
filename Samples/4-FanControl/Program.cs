@@ -11,17 +11,17 @@ namespace FanControl
 
             try
             {
-                using (var igcl = IGCLApi.Initialize())
+                using (var igcl = IGCLApiHelper.Initialize())
                 {
                     var adapters = igcl.EnumerateAdapters();
 
-                    if (adapters.Length == 0)
+                    if (adapters.Count == 0)
                     {
                         Console.WriteLine("No Intel GPU found.");
                         return;
                     }
 
-                    ControlFans(adapters[0]);
+                    ControlFans(igcl, adapters[0]);
                 }
             }
             catch (IGCLException ex)
@@ -34,55 +34,26 @@ namespace FanControl
             }
         }
 
-        static unsafe void ControlFans(IntPtr adapter)
+        static void ControlFans(IGCLApiHelper api, IGCLAdapterHelper adapter)
         {
-            uint count = 0;
-            var result = IGCL.ctlEnumFans((_ctl_device_adapter_handle_t*)adapter, &count, null);
-
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-            {
-                Console.WriteLine($"Fan enumeration failed: {result}");
-                return;
-            }
-
-            if (count == 0)
+            var fanHelper = api.GetFanHelper(adapter);
+            var fans = fanHelper.EnumFans();
+            if (fans.Count == 0)
             {
                 Console.WriteLine("No controllable fans found.");
                 return;
             }
 
-            var fans = new _ctl_fan_handle_t*[count];
-            fixed (_ctl_fan_handle_t** pFans = fans)
+            for (int i = 0; i < fans.Count; i++)
             {
-                IGCL.ctlEnumFans((_ctl_device_adapter_handle_t*)adapter, &count, pFans);
+                var props = fanHelper.FanGetProperties(fans[i]);
 
-                for (int i = 0; i < count; i++)
-                {
-                    var props = new ctl_fan_properties_t
-                    {
-                        Size = (uint)sizeof(ctl_fan_properties_t),
-                        Version = (byte)0
-                    };
+                Console.WriteLine($"Fan {i + 1}:");
+                Console.WriteLine($"  Max RPM    : {props.MaxRpm}");
+                Console.WriteLine($"  Can Control: {props.CanControl}");
 
-                    if (IGCL.ctlFanGetProperties(fans[i], &props) == ctl_result_t.CTL_RESULT_SUCCESS)
-                    {
-                        Console.WriteLine($"Fan {i + 1}:");
-                        Console.WriteLine($"  Max RPM    : {props.maxRPM}");
-                        Console.WriteLine($"  Can Control: {props.canControl != 0}");
-                    }
-
-                    var speed = new ctl_fan_speed_t
-                    {
-                        Size = (uint)sizeof(ctl_fan_speed_t),
-                        Version = (byte)0,
-                        units = ctl_fan_speed_units_t.CTL_FAN_SPEED_UNITS_RPM
-                    };
-
-                    if (IGCL.ctlFanGetState(fans[i], speed.units, &speed.speed) == ctl_result_t.CTL_RESULT_SUCCESS)
-                    {
-                        Console.WriteLine($"  Current RPM: {speed.speed:F0}\n");
-                    }
-                }
+                var speed = fanHelper.FanGetState(fans[i], ctl_fan_speed_units_t.CTL_FAN_SPEED_UNITS_RPM);
+                Console.WriteLine($"  Current RPM: {speed:F0}\n");
             }
         }
     }

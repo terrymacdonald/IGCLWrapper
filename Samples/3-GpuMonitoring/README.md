@@ -4,10 +4,10 @@
 Monitor GPU power, temperature, and frequency in real-time using IGCL telemetry APIs.
 
 ## What You'll Learn
-- Power telemetry access
+- Power domain energy counters
 - Temperature sensor enumeration
 - Frequency domain monitoring
-- Direct IGCL API calls with unsafe code
+- Facade helper usage
 
 ## How to Run
 ```bash
@@ -16,8 +16,8 @@ dotnet run
 ```
 
 ## Demonstrated APIs
-- `ctlPowerTelemetryGet`
-- `ctlEnumTemperatureSensors`
-- `ctlTemperatureGetState`
-- `ctlEnumFrequencyDomains`
-- `ctlFrequencyGetState`
+- `IGCLPowerHelper.PowerGetEnergyCounter`
+- `IGCLTemperatureHelper.EnumTemperatureSensors`
+- `IGCLTemperatureHelper.TemperatureGetState`
+- `IGCLFrequencyHelper.EnumFrequencyDomains`
+- `IGCLFrequencyHelper.FrequencyGetState`
