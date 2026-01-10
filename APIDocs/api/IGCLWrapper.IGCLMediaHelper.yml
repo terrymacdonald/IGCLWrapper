@@ -63,14 +63,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSupportedVideoProcessingCapabilities
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 19
+    startLine: 23
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Get supported video processing feature capabilities for the adapter.
+  example: []
   syntax:
     content: public ctl_video_processing_feature_caps_t GetSupportedVideoProcessingCapabilities()
     return:
       type: IGCLWrapper.ctl_video_processing_feature_caps_t
+      description: Video processing feature capabilities struct.
     content.vb: Public Function GetSupportedVideoProcessingCapabilities() As ctl_video_processing_feature_caps_t
   overload: IGCLWrapper.IGCLMediaHelper.GetSupportedVideoProcessingCapabilities*
 - uid: IGCLWrapper.IGCLMediaHelper.GetSetVideoProcessingFeatureNative(IGCLWrapper.ctl_video_processing_feature_getset_t)
@@ -91,17 +94,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSetVideoProcessingFeatureNative
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 29
+    startLine: 38
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Call the native get/set video processing feature API using the provided struct.
+  example: []
   syntax:
     content: public ctl_video_processing_feature_getset_t GetSetVideoProcessingFeatureNative(ctl_video_processing_feature_getset_t featureGetSet)
     parameters:
     - id: featureGetSet
       type: IGCLWrapper.ctl_video_processing_feature_getset_t
+      description: Video processing feature get/set struct.
     return:
       type: IGCLWrapper.ctl_video_processing_feature_getset_t
+      description: Updated video processing feature get/set struct.
     content.vb: Public Function GetSetVideoProcessingFeatureNative(featureGetSet As ctl_video_processing_feature_getset_t) As ctl_video_processing_feature_getset_t
   overload: IGCLWrapper.IGCLMediaHelper.GetSetVideoProcessingFeatureNative*
 - uid: IGCLWrapper.IGCLMediaHelper.GetVideoProcessingFeature(IGCLWrapper.VideoProcessingFeatureGetSetDto)
@@ -122,17 +129,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetVideoProcessingFeature
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 38
+    startLine: 52
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Get a video processing feature using a DTO request.
+  example: []
   syntax:
     content: public VideoProcessingFeatureGetSetDto GetVideoProcessingFeature(VideoProcessingFeatureGetSetDto featureGetSet)
     parameters:
     - id: featureGetSet
       type: IGCLWrapper.VideoProcessingFeatureGetSetDto
+      description: Video processing feature DTO.
     return:
       type: IGCLWrapper.VideoProcessingFeatureGetSetDto
+      description: Updated video processing feature DTO.
     content.vb: Public Function GetVideoProcessingFeature(featureGetSet As VideoProcessingFeatureGetSetDto) As VideoProcessingFeatureGetSetDto
   overload: IGCLWrapper.IGCLMediaHelper.GetVideoProcessingFeature*
 - uid: IGCLWrapper.IGCLMediaHelper.SetVideoProcessingFeature(IGCLWrapper.VideoProcessingFeatureGetSetDto)
@@ -153,15 +164,18 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetVideoProcessingFeature
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 46
+    startLine: 64
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Set a video processing feature using a DTO request.
+  example: []
   syntax:
     content: public void SetVideoProcessingFeature(VideoProcessingFeatureGetSetDto featureGetSet)
     parameters:
     - id: featureGetSet
       type: IGCLWrapper.VideoProcessingFeatureGetSetDto
+      description: Video processing feature DTO.
     content.vb: Public Sub SetVideoProcessingFeature(featureGetSet As VideoProcessingFeatureGetSetDto)
   overload: IGCLWrapper.IGCLMediaHelper.SetVideoProcessingFeature*
 - uid: IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureGetSet
@@ -182,14 +196,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateVideoProcessingFeatureGetSet
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 60
+    startLine: 82
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a video processing feature get/set struct with Size and Version initialized.
+  example: []
   syntax:
     content: public static ctl_video_processing_feature_getset_t CreateVideoProcessingFeatureGetSet()
     return:
       type: IGCLWrapper.ctl_video_processing_feature_getset_t
+      description: Initialized video processing feature get/set struct.
     content.vb: Public Shared Function CreateVideoProcessingFeatureGetSet() As ctl_video_processing_feature_getset_t
   overload: IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureGetSet*
 - uid: IGCLWrapper.IGCLMediaHelper.Dispose
@@ -210,11 +227,11 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 62
+    startLine: 87
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  summary: Mark the helper as disposed.
   example: []
   syntax:
     content: public void Dispose()

@@ -27,10 +27,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GenlockArgsDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1150
+    startLine: 1750
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: DTO for genlock arguments.
+  example: []
   syntax:
     content: public struct GenlockArgsDto
     content.vb: Public Structure GenlockArgsDto
@@ -59,10 +61,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1152
+    startLine: 1755
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Size of the native struct.
+  example: []
   syntax:
     content: public uint Size
     return:
@@ -86,10 +90,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1153
+    startLine: 1759
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Version of the native struct.
+  example: []
   syntax:
     content: public byte Version
     return:
@@ -113,10 +119,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Operation
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1154
+    startLine: 1763
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Genlock operation.
+  example: []
   syntax:
     content: public ctl_genlock_operation_t Operation
     return:
@@ -140,10 +148,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GenlockTopology
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1155
+    startLine: 1767
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Genlock topology.
+  example: []
   syntax:
     content: public ctl_genlock_topology_t GenlockTopology
     return:
@@ -167,10 +177,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsGenlockEnabled
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1156
+    startLine: 1771
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Indicates whether genlock is enabled.
+  example: []
   syntax:
     content: public bool IsGenlockEnabled
     return:
@@ -194,10 +206,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsGenlockPossible
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1157
+    startLine: 1775
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Indicates whether genlock is possible.
+  example: []
   syntax:
     content: public bool IsGenlockPossible
     return:
@@ -221,17 +235,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1159
+    startLine: 1782
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a DTO from a native struct.
+  example: []
   syntax:
     content: public static GenlockArgsDto FromNative(ctl_genlock_args_t native)
     parameters:
     - id: native
       type: IGCLWrapper.ctl_genlock_args_t
+      description: Native struct.
     return:
       type: IGCLWrapper.GenlockArgsDto
+      description: Genlock args DTO.
     content.vb: Public Shared Function FromNative(native As ctl_genlock_args_t) As GenlockArgsDto
   overload: IGCLWrapper.GenlockArgsDto.FromNative*
 - uid: IGCLWrapper.GenlockArgsDto.ToNative
@@ -252,14 +270,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1172
+    startLine: 1799
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Convert this DTO to a native struct.
+  example: []
   syntax:
     content: public ctl_genlock_args_t ToNative()
     return:
       type: IGCLWrapper.ctl_genlock_args_t
+      description: Genlock args struct.
     content.vb: Public Function ToNative() As ctl_genlock_args_t
   overload: IGCLWrapper.GenlockArgsDto.ToNative*
 references:

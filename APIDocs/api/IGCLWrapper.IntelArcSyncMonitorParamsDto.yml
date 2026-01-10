@@ -28,10 +28,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IntelArcSyncMonitorParamsDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1190
+    startLine: 1820
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: DTO for Intel Arc Sync monitor parameters.
+  example: []
   syntax:
     content: public struct IntelArcSyncMonitorParamsDto
     content.vb: Public Structure IntelArcSyncMonitorParamsDto
@@ -60,10 +62,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1192
+    startLine: 1825
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Size of the native struct.
+  example: []
   syntax:
     content: public uint Size
     return:
@@ -87,10 +91,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1193
+    startLine: 1829
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Version of the native struct.
+  example: []
   syntax:
     content: public byte Version
     return:
@@ -114,10 +120,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsIntelArcSyncSupported
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1194
+    startLine: 1833
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Indicates whether Intel Arc Sync is supported.
+  example: []
   syntax:
     content: public bool IsIntelArcSyncSupported
     return:
@@ -141,10 +149,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: MinimumRefreshRateInHz
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1195
+    startLine: 1837
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Minimum refresh rate in Hz.
+  example: []
   syntax:
     content: public float MinimumRefreshRateInHz
     return:
@@ -168,10 +178,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: MaximumRefreshRateInHz
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1196
+    startLine: 1841
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Maximum refresh rate in Hz.
+  example: []
   syntax:
     content: public float MaximumRefreshRateInHz
     return:
@@ -195,10 +207,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: MaxFrameTimeIncreaseInUs
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1197
+    startLine: 1845
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Maximum frame time increase in microseconds.
+  example: []
   syntax:
     content: public uint MaxFrameTimeIncreaseInUs
     return:
@@ -222,10 +236,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: MaxFrameTimeDecreaseInUs
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1198
+    startLine: 1849
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Maximum frame time decrease in microseconds.
+  example: []
   syntax:
     content: public uint MaxFrameTimeDecreaseInUs
     return:
@@ -249,17 +265,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1200
+    startLine: 1856
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a DTO from a native struct.
+  example: []
   syntax:
     content: public static IntelArcSyncMonitorParamsDto FromNative(ctl_intel_arc_sync_monitor_params_t native)
     parameters:
     - id: native
       type: IGCLWrapper.ctl_intel_arc_sync_monitor_params_t
+      description: Native struct.
     return:
       type: IGCLWrapper.IntelArcSyncMonitorParamsDto
+      description: Intel Arc Sync monitor params DTO.
     content.vb: Public Shared Function FromNative(native As ctl_intel_arc_sync_monitor_params_t) As IntelArcSyncMonitorParamsDto
   overload: IGCLWrapper.IntelArcSyncMonitorParamsDto.FromNative*
 - uid: IGCLWrapper.IntelArcSyncMonitorParamsDto.ToNative
@@ -280,14 +300,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1214
+    startLine: 1874
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Convert this DTO to a native struct.
+  example: []
   syntax:
     content: public ctl_intel_arc_sync_monitor_params_t ToNative()
     return:
       type: IGCLWrapper.ctl_intel_arc_sync_monitor_params_t
+      description: Intel Arc Sync monitor params struct.
     content.vb: Public Function ToNative() As ctl_intel_arc_sync_monitor_params_t
   overload: IGCLWrapper.IntelArcSyncMonitorParamsDto.ToNative*
 references:

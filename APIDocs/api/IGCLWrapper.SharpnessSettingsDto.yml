@@ -26,10 +26,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SharpnessSettingsDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1359
+    startLine: 2118
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: DTO for sharpness settings.
+  example: []
   syntax:
     content: public struct SharpnessSettingsDto
     content.vb: Public Structure SharpnessSettingsDto
@@ -58,10 +60,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1361
+    startLine: 2123
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Size of the native struct.
+  example: []
   syntax:
     content: public uint Size
     return:
@@ -85,10 +89,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1362
+    startLine: 2127
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Version of the native struct.
+  example: []
   syntax:
     content: public byte Version
     return:
@@ -112,10 +118,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Enable
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1363
+    startLine: 2131
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Enable flag.
+  example: []
   syntax:
     content: public bool Enable
     return:
@@ -139,10 +147,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FilterType
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1364
+    startLine: 2135
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Filter type.
+  example: []
   syntax:
     content: public uint FilterType
     return:
@@ -166,10 +176,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Intensity
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1365
+    startLine: 2139
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Intensity value.
+  example: []
   syntax:
     content: public float Intensity
     return:
@@ -193,17 +205,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1367
+    startLine: 2146
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a DTO from a native struct.
+  example: []
   syntax:
     content: public static SharpnessSettingsDto FromNative(ctl_sharpness_settings_t native)
     parameters:
     - id: native
       type: IGCLWrapper.ctl_sharpness_settings_t
+      description: Native struct.
     return:
       type: IGCLWrapper.SharpnessSettingsDto
+      description: Sharpness settings DTO.
     content.vb: Public Shared Function FromNative(native As ctl_sharpness_settings_t) As SharpnessSettingsDto
   overload: IGCLWrapper.SharpnessSettingsDto.FromNative*
 - uid: IGCLWrapper.SharpnessSettingsDto.ToNative
@@ -224,14 +240,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1379
+    startLine: 2162
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Convert this DTO to a native struct.
+  example: []
   syntax:
     content: public ctl_sharpness_settings_t ToNative()
     return:
       type: IGCLWrapper.ctl_sharpness_settings_t
+      description: Sharpness settings struct.
     content.vb: Public Function ToNative() As ctl_sharpness_settings_t
   overload: IGCLWrapper.SharpnessSettingsDto.ToNative*
 references:

@@ -25,10 +25,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PsuInfoDto
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 506
+    startLine: 795
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: DTO for PSU information.
+  example: []
   syntax:
     content: public struct PsuInfoDto
     content.vb: Public Structure PsuInfoDto
@@ -57,10 +59,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsSupported
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 508
+    startLine: 800
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Indicates whether PSU info is supported.
+  example: []
   syntax:
     content: public bool IsSupported
     return:
@@ -84,10 +88,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PsuType
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 509
+    startLine: 804
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: PSU type.
+  example: []
   syntax:
     content: public ctl_psu_type_t PsuType
     return:
@@ -111,10 +117,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnergyCounter
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 510
+    startLine: 808
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Energy counter telemetry item.
+  example: []
   syntax:
     content: public OcTelemetryItemDto EnergyCounter
     return:
@@ -138,10 +146,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Voltage
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 511
+    startLine: 812
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Voltage telemetry item.
+  example: []
   syntax:
     content: public OcTelemetryItemDto Voltage
     return:
@@ -165,17 +175,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 513
+    startLine: 819
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a DTO from a native struct.
+  example: []
   syntax:
     content: public static PsuInfoDto FromNative(ctl_psu_info_t native)
     parameters:
     - id: native
       type: IGCLWrapper.ctl_psu_info_t
+      description: Native struct.
     return:
       type: IGCLWrapper.PsuInfoDto
+      description: PSU info DTO.
     content.vb: Public Shared Function FromNative(native As ctl_psu_info_t) As PsuInfoDto
   overload: IGCLWrapper.PsuInfoDto.FromNative*
 - uid: IGCLWrapper.PsuInfoDto.ToNative
@@ -196,14 +210,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 524
+    startLine: 834
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Convert this DTO to a native struct.
+  example: []
   syntax:
     content: public ctl_psu_info_t ToNative()
     return:
       type: IGCLWrapper.ctl_psu_info_t
+      description: PSU info struct.
     content.vb: Public Function ToNative() As ctl_psu_info_t
   overload: IGCLWrapper.PsuInfoDto.ToNative*
 references:

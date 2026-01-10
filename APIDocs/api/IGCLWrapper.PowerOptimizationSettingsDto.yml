@@ -28,10 +28,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PowerOptimizationSettingsDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1433
+    startLine: 2246
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: DTO for power optimization settings.
+  example: []
   syntax:
     content: public struct PowerOptimizationSettingsDto
     content.vb: Public Structure PowerOptimizationSettingsDto
@@ -60,10 +62,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1435
+    startLine: 2251
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Size of the native struct.
+  example: []
   syntax:
     content: public uint Size
     return:
@@ -87,10 +91,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1436
+    startLine: 2255
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Version of the native struct.
+  example: []
   syntax:
     content: public byte Version
     return:
@@ -114,10 +120,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PowerOptimizationPlan
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1437
+    startLine: 2259
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Power optimization plan.
+  example: []
   syntax:
     content: public ctl_power_optimization_plan_t PowerOptimizationPlan
     return:
@@ -141,10 +149,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PowerOptimizationFeature
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1438
+    startLine: 2263
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Power optimization feature flags.
+  example: []
   syntax:
     content: public uint PowerOptimizationFeature
     return:
@@ -168,10 +178,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Enable
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1439
+    startLine: 2267
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Enable flag.
+  example: []
   syntax:
     content: public bool Enable
     return:
@@ -195,10 +207,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FeatureSpecificData
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1440
+    startLine: 2271
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Feature-specific data.
+  example: []
   syntax:
     content: public ctl_power_optimization_feature_specific_info_t FeatureSpecificData
     return:
@@ -222,10 +236,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PowerSource
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1441
+    startLine: 2275
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Power source.
+  example: []
   syntax:
     content: public ctl_power_source_t PowerSource
     return:
@@ -249,17 +265,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1443
+    startLine: 2282
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a DTO from a native struct.
+  example: []
   syntax:
     content: public static PowerOptimizationSettingsDto FromNative(ctl_power_optimization_settings_t native)
     parameters:
     - id: native
       type: IGCLWrapper.ctl_power_optimization_settings_t
+      description: Native struct.
     return:
       type: IGCLWrapper.PowerOptimizationSettingsDto
+      description: Power optimization settings DTO.
     content.vb: Public Shared Function FromNative(native As ctl_power_optimization_settings_t) As PowerOptimizationSettingsDto
   overload: IGCLWrapper.PowerOptimizationSettingsDto.FromNative*
 - uid: IGCLWrapper.PowerOptimizationSettingsDto.ToNative
@@ -280,14 +300,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1457
+    startLine: 2300
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Convert this DTO to a native struct.
+  example: []
   syntax:
     content: public ctl_power_optimization_settings_t ToNative()
     return:
       type: IGCLWrapper.ctl_power_optimization_settings_t
+      description: Power optimization settings struct.
     content.vb: Public Function ToNative() As ctl_power_optimization_settings_t
   overload: IGCLWrapper.PowerOptimizationSettingsDto.ToNative*
 references:

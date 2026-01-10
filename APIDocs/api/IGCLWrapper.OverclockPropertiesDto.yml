@@ -33,10 +33,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockPropertiesDto
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 422
+    startLine: 639
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: DTO for overclock properties.
+  example: []
   syntax:
     content: public struct OverclockPropertiesDto
     content.vb: Public Structure OverclockPropertiesDto
@@ -65,10 +67,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 424
+    startLine: 644
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Size of the native struct.
+  example: []
   syntax:
     content: public uint Size
     return:
@@ -92,10 +96,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 425
+    startLine: 648
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Version of the native struct.
+  example: []
   syntax:
     content: public byte Version
     return:
@@ -119,10 +125,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsSupported
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 426
+    startLine: 652
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Indicates whether overclocking is supported.
+  example: []
   syntax:
     content: public bool IsSupported
     return:
@@ -146,10 +154,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuFrequencyOffset
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 427
+    startLine: 656
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: GPU frequency offset control info.
+  example: []
   syntax:
     content: public OcControlInfoDto GpuFrequencyOffset
     return:
@@ -173,10 +183,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuVoltageOffset
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 428
+    startLine: 660
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: GPU voltage offset control info.
+  example: []
   syntax:
     content: public OcControlInfoDto GpuVoltageOffset
     return:
@@ -200,10 +212,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramFrequencyOffset
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 429
+    startLine: 664
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: VRAM frequency offset control info.
+  example: []
   syntax:
     content: public OcControlInfoDto VramFrequencyOffset
     return:
@@ -227,10 +241,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramVoltageOffset
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 430
+    startLine: 668
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: VRAM voltage offset control info.
+  example: []
   syntax:
     content: public OcControlInfoDto VramVoltageOffset
     return:
@@ -254,10 +270,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PowerLimit
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 431
+    startLine: 672
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Power limit control info.
+  example: []
   syntax:
     content: public OcControlInfoDto PowerLimit
     return:
@@ -281,10 +299,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: TemperatureLimit
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 432
+    startLine: 676
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Temperature limit control info.
+  example: []
   syntax:
     content: public OcControlInfoDto TemperatureLimit
     return:
@@ -308,10 +328,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramMemSpeedLimit
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 433
+    startLine: 680
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: VRAM memory speed limit control info.
+  example: []
   syntax:
     content: public OcControlInfoDto VramMemSpeedLimit
     return:
@@ -335,10 +357,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuVfCurveVoltageLimit
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 434
+    startLine: 684
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: GPU VF curve voltage limit control info.
+  example: []
   syntax:
     content: public OcControlInfoDto GpuVfCurveVoltageLimit
     return:
@@ -362,10 +386,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuVfCurveFrequencyLimit
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 435
+    startLine: 688
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: GPU VF curve frequency limit control info.
+  example: []
   syntax:
     content: public OcControlInfoDto GpuVfCurveFrequencyLimit
     return:
@@ -389,17 +415,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 437
+    startLine: 695
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a DTO from a native struct.
+  example: []
   syntax:
     content: public static OverclockPropertiesDto FromNative(ctl_oc_properties_t native)
     parameters:
     - id: native
       type: IGCLWrapper.ctl_oc_properties_t
+      description: Native struct.
     return:
       type: IGCLWrapper.OverclockPropertiesDto
+      description: Overclock properties DTO.
     content.vb: Public Shared Function FromNative(native As ctl_oc_properties_t) As OverclockPropertiesDto
   overload: IGCLWrapper.OverclockPropertiesDto.FromNative*
 - uid: IGCLWrapper.OverclockPropertiesDto.ToNative
@@ -420,14 +450,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 456
+    startLine: 718
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Convert this DTO to a native struct.
+  example: []
   syntax:
     content: public ctl_oc_properties_t ToNative()
     return:
       type: IGCLWrapper.ctl_oc_properties_t
+      description: Overclock properties struct.
     content.vb: Public Function ToNative() As ctl_oc_properties_t
   overload: IGCLWrapper.OverclockPropertiesDto.ToNative*
 references:

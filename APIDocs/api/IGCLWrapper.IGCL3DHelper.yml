@@ -63,14 +63,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSupported3DCapabilities
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 19
+    startLine: 23
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Get supported 3D feature capabilities for the adapter.
+  example: []
   syntax:
     content: public ctl_3d_feature_caps_t GetSupported3DCapabilities()
     return:
       type: IGCLWrapper.ctl_3d_feature_caps_t
+      description: 3D feature capabilities struct.
     content.vb: Public Function GetSupported3DCapabilities() As ctl_3d_feature_caps_t
   overload: IGCLWrapper.IGCL3DHelper.GetSupported3DCapabilities*
 - uid: IGCLWrapper.IGCL3DHelper.GetSet3DFeatureNative(IGCLWrapper.ctl_3d_feature_getset_t)
@@ -91,17 +94,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSet3DFeatureNative
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 29
+    startLine: 38
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Call the native get/set 3D feature API using the provided struct.
+  example: []
   syntax:
     content: public ctl_3d_feature_getset_t GetSet3DFeatureNative(ctl_3d_feature_getset_t feature)
     parameters:
     - id: feature
       type: IGCLWrapper.ctl_3d_feature_getset_t
+      description: 3D feature get/set struct.
     return:
       type: IGCLWrapper.ctl_3d_feature_getset_t
+      description: Updated 3D feature get/set struct.
     content.vb: Public Function GetSet3DFeatureNative(feature As ctl_3d_feature_getset_t) As ctl_3d_feature_getset_t
   overload: IGCLWrapper.IGCL3DHelper.GetSet3DFeatureNative*
 - uid: IGCLWrapper.IGCL3DHelper.Get3DFeature(IGCLWrapper.ThreeDFeatureGetSetDto)
@@ -122,17 +129,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Get3DFeature
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 38
+    startLine: 52
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Get a 3D feature using a DTO request.
+  example: []
   syntax:
     content: public ThreeDFeatureGetSetDto Get3DFeature(ThreeDFeatureGetSetDto feature)
     parameters:
     - id: feature
       type: IGCLWrapper.ThreeDFeatureGetSetDto
+      description: 3D feature DTO.
     return:
       type: IGCLWrapper.ThreeDFeatureGetSetDto
+      description: Updated 3D feature DTO.
     content.vb: Public Function Get3DFeature(feature As ThreeDFeatureGetSetDto) As ThreeDFeatureGetSetDto
   overload: IGCLWrapper.IGCL3DHelper.Get3DFeature*
 - uid: IGCLWrapper.IGCL3DHelper.Set3DFeature(IGCLWrapper.ThreeDFeatureGetSetDto)
@@ -153,15 +164,18 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Set3DFeature
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 46
+    startLine: 64
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Set a 3D feature using a DTO request.
+  example: []
   syntax:
     content: public void Set3DFeature(ThreeDFeatureGetSetDto feature)
     parameters:
     - id: feature
       type: IGCLWrapper.ThreeDFeatureGetSetDto
+      description: 3D feature DTO.
     content.vb: Public Sub Set3DFeature(feature As ThreeDFeatureGetSetDto)
   overload: IGCLWrapper.IGCL3DHelper.Set3DFeature*
 - uid: IGCLWrapper.IGCL3DHelper.Create3DFeatureGetSet
@@ -182,14 +196,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Create3DFeatureGetSet
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 60
+    startLine: 82
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a 3D feature get/set struct with Size and Version initialized.
+  example: []
   syntax:
     content: public static ctl_3d_feature_getset_t Create3DFeatureGetSet()
     return:
       type: IGCLWrapper.ctl_3d_feature_getset_t
+      description: Initialized 3D feature get/set struct.
     content.vb: Public Shared Function Create3DFeatureGetSet() As ctl_3d_feature_getset_t
   overload: IGCLWrapper.IGCL3DHelper.Create3DFeatureGetSet*
 - uid: IGCLWrapper.IGCL3DHelper.Dispose
@@ -210,11 +227,11 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 62
+    startLine: 87
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  summary: Mark the helper as disposed.
   example: []
   syntax:
     content: public void Dispose()

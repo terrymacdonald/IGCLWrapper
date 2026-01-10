@@ -31,10 +31,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ThreeDFeatureGetSetDto
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 74
+    startLine: 102
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: DTO for 3D feature get/set operations.
+  example: []
   syntax:
     content: public struct ThreeDFeatureGetSetDto
     content.vb: Public Structure ThreeDFeatureGetSetDto
@@ -63,10 +65,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 76
+    startLine: 107
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Size of the native struct.
+  example: []
   syntax:
     content: public uint Size
     return:
@@ -90,10 +94,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 77
+    startLine: 111
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Version of the native struct.
+  example: []
   syntax:
     content: public byte Version
     return:
@@ -117,10 +123,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FeatureType
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 78
+    startLine: 115
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Feature type identifier.
+  example: []
   syntax:
     content: public ctl_3d_feature_t FeatureType
     return:
@@ -144,10 +152,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ApplicationName
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 79
+    startLine: 119
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Pointer to application name (optional).
+  example: []
   syntax:
     content: public nint ApplicationName
     return:
@@ -171,10 +181,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ApplicationNameLength
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 80
+    startLine: 123
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Length of the application name.
+  example: []
   syntax:
     content: public sbyte ApplicationNameLength
     return:
@@ -198,10 +210,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Set
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 81
+    startLine: 127
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: True to set the feature, false to get.
+  example: []
   syntax:
     content: public bool Set
     return:
@@ -225,10 +239,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ValueType
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 82
+    startLine: 131
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Value type for the feature.
+  example: []
   syntax:
     content: public ctl_property_value_type_t ValueType
     return:
@@ -252,10 +268,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Value
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 83
+    startLine: 135
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Feature value.
+  example: []
   syntax:
     content: public ctl_property_t Value
     return:
@@ -279,10 +297,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CustomValueSize
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 84
+    startLine: 139
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Size of the custom value buffer.
+  example: []
   syntax:
     content: public int CustomValueSize
     return:
@@ -306,10 +326,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CustomValue
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 85
+    startLine: 143
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Pointer to custom value buffer.
+  example: []
   syntax:
     content: public nint CustomValue
     return:
@@ -333,17 +355,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 87
+    startLine: 150
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a DTO from a native struct.
+  example: []
   syntax:
     content: public static ThreeDFeatureGetSetDto FromNative(ctl_3d_feature_getset_t native)
     parameters:
     - id: native
       type: IGCLWrapper.ctl_3d_feature_getset_t
+      description: Native struct.
     return:
       type: IGCLWrapper.ThreeDFeatureGetSetDto
+      description: 3D feature DTO.
     content.vb: Public Shared Function FromNative(native As ctl_3d_feature_getset_t) As ThreeDFeatureGetSetDto
   overload: IGCLWrapper.ThreeDFeatureGetSetDto.FromNative*
 - uid: IGCLWrapper.ThreeDFeatureGetSetDto.ToNative
@@ -364,14 +390,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 104
+    startLine: 171
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Convert this DTO to a native struct.
+  example: []
   syntax:
     content: public ctl_3d_feature_getset_t ToNative()
     return:
       type: IGCLWrapper.ctl_3d_feature_getset_t
+      description: 3D feature get/set struct.
     content.vb: Public Function ToNative() As ctl_3d_feature_getset_t
   overload: IGCLWrapper.ThreeDFeatureGetSetDto.ToNative*
 references:

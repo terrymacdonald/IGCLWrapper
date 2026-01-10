@@ -160,10 +160,11 @@ Class IGCLFrequencyHelper  <a class="header-action link-secondary" title="View s
 
   <h3 id="IGCLWrapper_IGCLFrequencyHelper_CreateFrequencyRangeStruct" data-uid="IGCLWrapper.IGCLFrequencyHelper.CreateFrequencyRangeStruct">
   CreateFrequencyRangeStruct()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLFrequencyHelper.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLFrequencyHelper.cs/#L171"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Create a frequency range struct with Size and Version initialized.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -174,7 +175,8 @@ Class IGCLFrequencyHelper  <a class="header-action link-secondary" title="View s
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="IGCLWrapper.ctl_freq_range_t.html">ctl_freq_range_t</a></dt>
-    <dd></dd>
+    <dd><p>Initialized frequency range struct.</p>
+</dd>
   </dl>
 
 
@@ -191,10 +193,10 @@ Class IGCLFrequencyHelper  <a class="header-action link-secondary" title="View s
 
   <h3 id="IGCLWrapper_IGCLFrequencyHelper_Dispose" data-uid="IGCLWrapper.IGCLFrequencyHelper.Dispose">
   Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLFrequencyHelper.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLFrequencyHelper.cs/#L176"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
+  <div class="markdown level1 summary"><p>Mark the helper as disposed.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -218,10 +220,11 @@ Class IGCLFrequencyHelper  <a class="header-action link-secondary" title="View s
 
   <h3 id="IGCLWrapper_IGCLFrequencyHelper_EnumFrequencyDomains" data-uid="IGCLWrapper.IGCLFrequencyHelper.EnumFrequencyDomains">
   EnumFrequencyDomains()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLFrequencyHelper.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLFrequencyHelper.cs/#L25"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Enumerate frequency domain handles for the adapter.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -232,7 +235,8 @@ Class IGCLFrequencyHelper  <a class="header-action link-secondary" title="View s
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>Read-only list of frequency domain handles.</p>
+</dd>
   </dl>
 
 
@@ -249,10 +253,11 @@ Class IGCLFrequencyHelper  <a class="header-action link-secondary" title="View s
 
   <h3 id="IGCLWrapper_IGCLFrequencyHelper_FrequencyGetAvailableClocks_System_IntPtr_" data-uid="IGCLWrapper.IGCLFrequencyHelper.FrequencyGetAvailableClocks(System.IntPtr)">
   FrequencyGetAvailableClocks(nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLFrequencyHelper.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLFrequencyHelper.cs/#L62"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Get available clocks for a frequency domain.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -262,13 +267,15 @@ Class IGCLFrequencyHelper  <a class="header-action link-secondary" title="View s
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>freqHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
-    <dd></dd>
+    <dd><p>Frequency domain handle.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>[]</dt>
-    <dd></dd>
+    <dd><p>Array of available clock values.</p>
+</dd>
   </dl>
 
 
@@ -285,10 +292,11 @@ Class IGCLFrequencyHelper  <a class="header-action link-secondary" title="View s
 
   <h3 id="IGCLWrapper_IGCLFrequencyHelper_FrequencyGetProperties_System_IntPtr_" data-uid="IGCLWrapper.IGCLFrequencyHelper.FrequencyGetProperties(System.IntPtr)">
   FrequencyGetProperties(nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLFrequencyHelper.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLFrequencyHelper.cs/#L51"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Get frequency domain properties as a DTO.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -298,13 +306,15 @@ Class IGCLFrequencyHelper  <a class="header-action link-secondary" title="View s
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>freqHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
-    <dd></dd>
+    <dd><p>Frequency domain handle.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="IGCLWrapper.FrequencyPropertiesDto.html">FrequencyPropertiesDto</a></dt>
-    <dd></dd>
+    <dd><p>Frequency properties DTO.</p>
+</dd>
   </dl>
 
 
@@ -321,10 +331,11 @@ Class IGCLFrequencyHelper  <a class="header-action link-secondary" title="View s
 
   <h3 id="IGCLWrapper_IGCLFrequencyHelper_FrequencyGetPropertiesNative_System_IntPtr_" data-uid="IGCLWrapper.IGCLFrequencyHelper.FrequencyGetPropertiesNative(System.IntPtr)">
   FrequencyGetPropertiesNative(nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLFrequencyHelper.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLFrequencyHelper.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Get frequency domain properties using the native struct.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -334,13 +345,15 @@ Class IGCLFrequencyHelper  <a class="header-action link-secondary" title="View s
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>freqHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
-    <dd></dd>
+    <dd><p>Frequency domain handle.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="IGCLWrapper.ctl_freq_properties_t.html">ctl_freq_properties_t</a></dt>
-    <dd></dd>
+    <dd><p>Frequency properties struct.</p>
+</dd>
   </dl>
 
 
@@ -357,10 +370,11 @@ Class IGCLFrequencyHelper  <a class="header-action link-secondary" title="View s
 
   <h3 id="IGCLWrapper_IGCLFrequencyHelper_FrequencyGetRange_System_IntPtr_" data-uid="IGCLWrapper.IGCLFrequencyHelper.FrequencyGetRange(System.IntPtr)">
   FrequencyGetRange(nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLFrequencyHelper.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLFrequencyHelper.cs/#L86"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Get the frequency range for a domain.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -370,13 +384,15 @@ Class IGCLFrequencyHelper  <a class="header-action link-secondary" title="View s
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>freqHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
-    <dd></dd>
+    <dd><p>Frequency domain handle.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="IGCLWrapper.ctl_freq_range_t.html">ctl_freq_range_t</a></dt>
-    <dd></dd>
+    <dd><p>Frequency range struct.</p>
+</dd>
   </dl>
 
 
@@ -393,10 +409,11 @@ Class IGCLFrequencyHelper  <a class="header-action link-secondary" title="View s
 
   <h3 id="IGCLWrapper_IGCLFrequencyHelper_FrequencyGetState_System_IntPtr_" data-uid="IGCLWrapper.IGCLFrequencyHelper.FrequencyGetState(System.IntPtr)">
   FrequencyGetState(nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLFrequencyHelper.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLFrequencyHelper.cs/#L114"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Get the current frequency state.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -406,13 +423,15 @@ Class IGCLFrequencyHelper  <a class="header-action link-secondary" title="View s
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>freqHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
-    <dd></dd>
+    <dd><p>Frequency domain handle.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="IGCLWrapper.ctl_freq_state_t.html">ctl_freq_state_t</a></dt>
-    <dd></dd>
+    <dd><p>Frequency state struct.</p>
+</dd>
   </dl>
 
 
@@ -429,10 +448,11 @@ Class IGCLFrequencyHelper  <a class="header-action link-secondary" title="View s
 
   <h3 id="IGCLWrapper_IGCLFrequencyHelper_FrequencyGetThrottleTime_System_IntPtr_" data-uid="IGCLWrapper.IGCLFrequencyHelper.FrequencyGetThrottleTime(System.IntPtr)">
   FrequencyGetThrottleTime(nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLFrequencyHelper.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLFrequencyHelper.cs/#L129"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Get the throttle time for a frequency domain.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -442,13 +462,15 @@ Class IGCLFrequencyHelper  <a class="header-action link-secondary" title="View s
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>freqHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
-    <dd></dd>
+    <dd><p>Frequency domain handle.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="IGCLWrapper.ctl_freq_throttle_time_t.html">ctl_freq_throttle_time_t</a></dt>
-    <dd></dd>
+    <dd><p>Throttle time struct.</p>
+</dd>
   </dl>
 
 
@@ -465,10 +487,11 @@ Class IGCLFrequencyHelper  <a class="header-action link-secondary" title="View s
 
   <h3 id="IGCLWrapper_IGCLFrequencyHelper_FrequencySetRange_System_IntPtr_IGCLWrapper_ctl_freq_range_t_" data-uid="IGCLWrapper.IGCLFrequencyHelper.FrequencySetRange(System.IntPtr,IGCLWrapper.ctl_freq_range_t)">
   FrequencySetRange(nint, ctl_freq_range_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLFrequencyHelper.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLFrequencyHelper.cs/#L101"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Set the frequency range for a domain.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -478,9 +501,11 @@ Class IGCLFrequencyHelper  <a class="header-action link-secondary" title="View s
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>freqHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
-    <dd></dd>
+    <dd><p>Frequency domain handle.</p>
+</dd>
     <dt><code>range</code> <a class="xref" href="IGCLWrapper.ctl_freq_range_t.html">ctl_freq_range_t</a></dt>
-    <dd></dd>
+    <dd><p>Frequency range struct.</p>
+</dd>
   </dl>
 
 

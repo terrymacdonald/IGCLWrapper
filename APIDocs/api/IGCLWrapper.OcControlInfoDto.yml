@@ -30,10 +30,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OcControlInfoDto
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 377
+    startLine: 555
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: DTO for overclock control information.
+  example: []
   syntax:
     content: public struct OcControlInfoDto
     content.vb: Public Structure OcControlInfoDto
@@ -62,10 +64,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsSupported
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 379
+    startLine: 560
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Indicates whether the control is supported.
+  example: []
   syntax:
     content: public bool IsSupported
     return:
@@ -89,10 +93,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsRelative
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 380
+    startLine: 564
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Indicates whether the control is relative.
+  example: []
   syntax:
     content: public bool IsRelative
     return:
@@ -116,10 +122,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsReference
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 381
+    startLine: 568
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Indicates whether the control is reference-based.
+  example: []
   syntax:
     content: public bool IsReference
     return:
@@ -143,10 +151,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Units
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 382
+    startLine: 572
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Units for the control values.
+  example: []
   syntax:
     content: public ctl_units_t Units
     return:
@@ -170,10 +180,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Min
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 383
+    startLine: 576
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Minimum value.
+  example: []
   syntax:
     content: public double Min
     return:
@@ -197,10 +209,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Max
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 384
+    startLine: 580
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Maximum value.
+  example: []
   syntax:
     content: public double Max
     return:
@@ -224,10 +238,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Step
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 385
+    startLine: 584
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Step size.
+  example: []
   syntax:
     content: public double Step
     return:
@@ -251,10 +267,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Default
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 386
+    startLine: 588
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Default value.
+  example: []
   syntax:
     content: public double Default
     return:
@@ -278,10 +296,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Reference
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 387
+    startLine: 592
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Reference value.
+  example: []
   syntax:
     content: public double Reference
     return:
@@ -305,17 +325,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 389
+    startLine: 599
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a DTO from a native struct.
+  example: []
   syntax:
     content: public static OcControlInfoDto FromNative(ctl_oc_control_info_t native)
     parameters:
     - id: native
       type: IGCLWrapper.ctl_oc_control_info_t
+      description: Native struct.
     return:
       type: IGCLWrapper.OcControlInfoDto
+      description: Overclock control info DTO.
     content.vb: Public Shared Function FromNative(native As ctl_oc_control_info_t) As OcControlInfoDto
   overload: IGCLWrapper.OcControlInfoDto.FromNative*
 - uid: IGCLWrapper.OcControlInfoDto.ToNative
@@ -336,14 +360,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 405
+    startLine: 619
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Convert this DTO to a native struct.
+  example: []
   syntax:
     content: public ctl_oc_control_info_t ToNative()
     return:
       type: IGCLWrapper.ctl_oc_control_info_t
+      description: Overclock control info struct.
     content.vb: Public Function ToNative() As ctl_oc_control_info_t
   overload: IGCLWrapper.OcControlInfoDto.ToNative*
 references:

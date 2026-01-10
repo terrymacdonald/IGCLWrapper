@@ -25,10 +25,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OcTelemetryItemDto
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 476
+    startLine: 741
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: DTO for overclock telemetry item.
+  example: []
   syntax:
     content: public struct OcTelemetryItemDto
     content.vb: Public Structure OcTelemetryItemDto
@@ -57,10 +59,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsSupported
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 478
+    startLine: 746
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Indicates whether this item is supported.
+  example: []
   syntax:
     content: public bool IsSupported
     return:
@@ -84,10 +88,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Units
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 479
+    startLine: 750
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Units for the value.
+  example: []
   syntax:
     content: public ctl_units_t Units
     return:
@@ -111,10 +117,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Type
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 480
+    startLine: 754
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Data type for the value.
+  example: []
   syntax:
     content: public ctl_data_type_t Type
     return:
@@ -138,10 +146,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Value
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 481
+    startLine: 758
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Telemetry value.
+  example: []
   syntax:
     content: public ctl_data_value_t Value
     return:
@@ -165,17 +175,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 483
+    startLine: 765
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a DTO from a native struct.
+  example: []
   syntax:
     content: public static OcTelemetryItemDto FromNative(ctl_oc_telemetry_item_t native)
     parameters:
     - id: native
       type: IGCLWrapper.ctl_oc_telemetry_item_t
+      description: Native struct.
     return:
       type: IGCLWrapper.OcTelemetryItemDto
+      description: Telemetry item DTO.
     content.vb: Public Shared Function FromNative(native As ctl_oc_telemetry_item_t) As OcTelemetryItemDto
   overload: IGCLWrapper.OcTelemetryItemDto.FromNative*
 - uid: IGCLWrapper.OcTelemetryItemDto.ToNative
@@ -196,14 +210,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 494
+    startLine: 780
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Convert this DTO to a native struct.
+  example: []
   syntax:
     content: public ctl_oc_telemetry_item_t ToNative()
     return:
       type: IGCLWrapper.ctl_oc_telemetry_item_t
+      description: Telemetry item struct.
     content.vb: Public Function ToNative() As ctl_oc_telemetry_item_t
   overload: IGCLWrapper.OcTelemetryItemDto.ToNative*
 references:

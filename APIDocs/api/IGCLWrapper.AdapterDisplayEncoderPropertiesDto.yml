@@ -32,10 +32,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AdapterDisplayEncoderPropertiesDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 937
+    startLine: 1360
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: DTO for adapter display encoder properties.
+  example: []
   syntax:
     content: public struct AdapterDisplayEncoderPropertiesDto
     content.vb: Public Structure AdapterDisplayEncoderPropertiesDto
@@ -64,10 +66,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 939
+    startLine: 1365
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Size of the native struct.
+  example: []
   syntax:
     content: public uint Size
     return:
@@ -91,10 +95,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 940
+    startLine: 1369
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Version of the native struct.
+  example: []
   syntax:
     content: public byte Version
     return:
@@ -118,10 +124,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OsDisplayEncoderHandle
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 941
+    startLine: 1373
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: OS display encoder handle.
+  example: []
   syntax:
     content: public ctl_os_display_encoder_identifier_t OsDisplayEncoderHandle
     return:
@@ -145,10 +153,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Type
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 942
+    startLine: 1377
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Display output type.
+  example: []
   syntax:
     content: public ctl_display_output_types_t Type
     return:
@@ -172,10 +182,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsOnBoardProtocolConverterOutputPresent
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 943
+    startLine: 1381
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Indicates whether an onboard protocol converter output is present.
+  example: []
   syntax:
     content: public bool IsOnBoardProtocolConverterOutputPresent
     return:
@@ -199,10 +211,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SupportedSpec
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 944
+    startLine: 1385
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Supported specification revision.
+  example: []
   syntax:
     content: public ctl_revision_datatype_t SupportedSpec
     return:
@@ -226,10 +240,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SupportedOutputBpcFlags
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 945
+    startLine: 1389
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Supported output bits-per-component flags.
+  example: []
   syntax:
     content: public uint SupportedOutputBpcFlags
     return:
@@ -253,10 +269,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EncoderConfigFlags
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 946
+    startLine: 1393
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Encoder configuration flags.
+  example: []
   syntax:
     content: public uint EncoderConfigFlags
     return:
@@ -280,10 +298,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FeatureSupportedFlags
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 947
+    startLine: 1397
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Feature supported flags.
+  example: []
   syntax:
     content: public uint FeatureSupportedFlags
     return:
@@ -307,10 +327,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AdvancedFeatureSupportedFlags
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 948
+    startLine: 1401
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Advanced feature supported flags.
+  example: []
   syntax:
     content: public uint AdvancedFeatureSupportedFlags
     return:
@@ -334,10 +356,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ReservedFields
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 949
+    startLine: 1405
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Reserved native fields.
+  example: []
   syntax:
     content: public ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer ReservedFields
     return:
@@ -361,17 +385,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 951
+    startLine: 1412
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a DTO from a native struct.
+  example: []
   syntax:
     content: public static AdapterDisplayEncoderPropertiesDto FromNative(ctl_adapter_display_encoder_properties_t native)
     parameters:
     - id: native
       type: IGCLWrapper.ctl_adapter_display_encoder_properties_t
+      description: Native struct.
     return:
       type: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+      description: Adapter display encoder properties DTO.
     content.vb: Public Shared Function FromNative(native As ctl_adapter_display_encoder_properties_t) As AdapterDisplayEncoderPropertiesDto
   overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.FromNative*
 - uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.ToNative
@@ -392,14 +420,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 969
+    startLine: 1434
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Convert this DTO to a native struct.
+  example: []
   syntax:
     content: public ctl_adapter_display_encoder_properties_t ToNative()
     return:
       type: IGCLWrapper.ctl_adapter_display_encoder_properties_t
+      description: Adapter display encoder properties struct.
     content.vb: Public Function ToNative() As ctl_adapter_display_encoder_properties_t
   overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.ToNative*
 references:

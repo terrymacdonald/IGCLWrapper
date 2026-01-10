@@ -67,14 +67,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumFrequencyDomains
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 20
+    startLine: 24
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Enumerate frequency domain handles for the adapter.
+  example: []
   syntax:
     content: public IReadOnlyList<nint> EnumFrequencyDomains()
     return:
       type: System.Collections.Generic.IReadOnlyList{System.IntPtr}
+      description: Read-only list of frequency domain handles.
     content.vb: Public Function EnumFrequencyDomains() As IReadOnlyList(Of IntPtr)
   overload: IGCLWrapper.IGCLFrequencyHelper.EnumFrequencyDomains*
 - uid: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetPropertiesNative(System.IntPtr)
@@ -95,17 +98,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FrequencyGetPropertiesNative
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 26
+    startLine: 35
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Get frequency domain properties using the native struct.
+  example: []
   syntax:
     content: public ctl_freq_properties_t FrequencyGetPropertiesNative(nint freqHandle)
     parameters:
     - id: freqHandle
       type: System.IntPtr
+      description: Frequency domain handle.
     return:
       type: IGCLWrapper.ctl_freq_properties_t
+      description: Frequency properties struct.
     content.vb: Public Function FrequencyGetPropertiesNative(freqHandle As IntPtr) As ctl_freq_properties_t
   overload: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetPropertiesNative*
   nameWithType.vb: IGCLFrequencyHelper.FrequencyGetPropertiesNative(IntPtr)
@@ -129,17 +136,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FrequencyGetProperties
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 36
+    startLine: 50
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Get frequency domain properties as a DTO.
+  example: []
   syntax:
     content: public FrequencyPropertiesDto FrequencyGetProperties(nint freqHandle)
     parameters:
     - id: freqHandle
       type: System.IntPtr
+      description: Frequency domain handle.
     return:
       type: IGCLWrapper.FrequencyPropertiesDto
+      description: Frequency properties DTO.
     content.vb: Public Function FrequencyGetProperties(freqHandle As IntPtr) As FrequencyPropertiesDto
   overload: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetProperties*
   nameWithType.vb: IGCLFrequencyHelper.FrequencyGetProperties(IntPtr)
@@ -163,17 +174,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FrequencyGetAvailableClocks
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 42
+    startLine: 61
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Get available clocks for a frequency domain.
+  example: []
   syntax:
     content: public double[] FrequencyGetAvailableClocks(nint freqHandle)
     parameters:
     - id: freqHandle
       type: System.IntPtr
+      description: Frequency domain handle.
     return:
       type: System.Double[]
+      description: Array of available clock values.
     content.vb: Public Function FrequencyGetAvailableClocks(freqHandle As IntPtr) As Double()
   overload: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetAvailableClocks*
   nameWithType.vb: IGCLFrequencyHelper.FrequencyGetAvailableClocks(IntPtr)
@@ -197,17 +212,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FrequencyGetRange
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 61
+    startLine: 85
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Get the frequency range for a domain.
+  example: []
   syntax:
     content: public ctl_freq_range_t FrequencyGetRange(nint freqHandle)
     parameters:
     - id: freqHandle
       type: System.IntPtr
+      description: Frequency domain handle.
     return:
       type: IGCLWrapper.ctl_freq_range_t
+      description: Frequency range struct.
     content.vb: Public Function FrequencyGetRange(freqHandle As IntPtr) As ctl_freq_range_t
   overload: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetRange*
   nameWithType.vb: IGCLFrequencyHelper.FrequencyGetRange(IntPtr)
@@ -231,17 +250,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FrequencySetRange
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 71
+    startLine: 100
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Set the frequency range for a domain.
+  example: []
   syntax:
     content: public void FrequencySetRange(nint freqHandle, ctl_freq_range_t range)
     parameters:
     - id: freqHandle
       type: System.IntPtr
+      description: Frequency domain handle.
     - id: range
       type: IGCLWrapper.ctl_freq_range_t
+      description: Frequency range struct.
     content.vb: Public Sub FrequencySetRange(freqHandle As IntPtr, range As ctl_freq_range_t)
   overload: IGCLWrapper.IGCLFrequencyHelper.FrequencySetRange*
   nameWithType.vb: IGCLFrequencyHelper.FrequencySetRange(IntPtr, ctl_freq_range_t)
@@ -265,17 +288,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FrequencyGetState
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 79
+    startLine: 113
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Get the current frequency state.
+  example: []
   syntax:
     content: public ctl_freq_state_t FrequencyGetState(nint freqHandle)
     parameters:
     - id: freqHandle
       type: System.IntPtr
+      description: Frequency domain handle.
     return:
       type: IGCLWrapper.ctl_freq_state_t
+      description: Frequency state struct.
     content.vb: Public Function FrequencyGetState(freqHandle As IntPtr) As ctl_freq_state_t
   overload: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetState*
   nameWithType.vb: IGCLFrequencyHelper.FrequencyGetState(IntPtr)
@@ -299,17 +326,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FrequencyGetThrottleTime
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 89
+    startLine: 128
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Get the throttle time for a frequency domain.
+  example: []
   syntax:
     content: public ctl_freq_throttle_time_t FrequencyGetThrottleTime(nint freqHandle)
     parameters:
     - id: freqHandle
       type: System.IntPtr
+      description: Frequency domain handle.
     return:
       type: IGCLWrapper.ctl_freq_throttle_time_t
+      description: Throttle time struct.
     content.vb: Public Function FrequencyGetThrottleTime(freqHandle As IntPtr) As ctl_freq_throttle_time_t
   overload: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetThrottleTime*
   nameWithType.vb: IGCLFrequencyHelper.FrequencyGetThrottleTime(IntPtr)
@@ -333,14 +364,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateFrequencyRangeStruct
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 127
+    startLine: 170
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a frequency range struct with Size and Version initialized.
+  example: []
   syntax:
     content: public static ctl_freq_range_t CreateFrequencyRangeStruct()
     return:
       type: IGCLWrapper.ctl_freq_range_t
+      description: Initialized frequency range struct.
     content.vb: Public Shared Function CreateFrequencyRangeStruct() As ctl_freq_range_t
   overload: IGCLWrapper.IGCLFrequencyHelper.CreateFrequencyRangeStruct*
 - uid: IGCLWrapper.IGCLFrequencyHelper.Dispose
@@ -361,11 +395,11 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 129
+    startLine: 175
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  summary: Mark the helper as disposed.
   example: []
   syntax:
     content: public void Dispose()

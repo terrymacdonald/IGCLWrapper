@@ -23,10 +23,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PowerPeakLimitDto
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 209
+    startLine: 327
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: DTO for peak power limit settings.
+  example: []
   syntax:
     content: public struct PowerPeakLimitDto
     content.vb: Public Structure PowerPeakLimitDto
@@ -55,10 +57,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PowerAc
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 211
+    startLine: 332
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: AC power value.
+  example: []
   syntax:
     content: public int PowerAc
     return:
@@ -82,10 +86,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PowerDc
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 212
+    startLine: 336
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: DC power value.
+  example: []
   syntax:
     content: public int PowerDc
     return:
@@ -109,17 +115,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 214
+    startLine: 343
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a DTO from a native struct.
+  example: []
   syntax:
     content: public static PowerPeakLimitDto FromNative(ctl_power_peak_limit_t native)
     parameters:
     - id: native
       type: IGCLWrapper.ctl_power_peak_limit_t
+      description: Native struct.
     return:
       type: IGCLWrapper.PowerPeakLimitDto
+      description: Peak power limit DTO.
     content.vb: Public Shared Function FromNative(native As ctl_power_peak_limit_t) As PowerPeakLimitDto
   overload: IGCLWrapper.PowerPeakLimitDto.FromNative*
 - uid: IGCLWrapper.PowerPeakLimitDto.ToNative
@@ -140,14 +150,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 223
+    startLine: 356
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Convert this DTO to a native struct.
+  example: []
   syntax:
     content: public ctl_power_peak_limit_t ToNative()
     return:
       type: IGCLWrapper.ctl_power_peak_limit_t
+      description: Peak power limit struct.
     content.vb: Public Function ToNative() As ctl_power_peak_limit_t
   overload: IGCLWrapper.PowerPeakLimitDto.ToNative*
 references:

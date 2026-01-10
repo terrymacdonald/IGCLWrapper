@@ -23,10 +23,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PowerBurstLimitDto
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 185
+    startLine: 285
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: DTO for burst power limit settings.
+  example: []
   syntax:
     content: public struct PowerBurstLimitDto
     content.vb: Public Structure PowerBurstLimitDto
@@ -55,10 +57,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Enabled
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 187
+    startLine: 290
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Enable flag.
+  example: []
   syntax:
     content: public bool Enabled
     return:
@@ -82,10 +86,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Power
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 188
+    startLine: 294
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Power value.
+  example: []
   syntax:
     content: public int Power
     return:
@@ -109,17 +115,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 190
+    startLine: 301
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a DTO from a native struct.
+  example: []
   syntax:
     content: public static PowerBurstLimitDto FromNative(ctl_power_burst_limit_t native)
     parameters:
     - id: native
       type: IGCLWrapper.ctl_power_burst_limit_t
+      description: Native struct.
     return:
       type: IGCLWrapper.PowerBurstLimitDto
+      description: Burst power limit DTO.
     content.vb: Public Shared Function FromNative(native As ctl_power_burst_limit_t) As PowerBurstLimitDto
   overload: IGCLWrapper.PowerBurstLimitDto.FromNative*
 - uid: IGCLWrapper.PowerBurstLimitDto.ToNative
@@ -140,14 +150,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 199
+    startLine: 314
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Convert this DTO to a native struct.
+  example: []
   syntax:
     content: public ctl_power_burst_limit_t ToNative()
     return:
       type: IGCLWrapper.ctl_power_burst_limit_t
+      description: Burst power limit struct.
     content.vb: Public Function ToNative() As ctl_power_burst_limit_t
   overload: IGCLWrapper.PowerBurstLimitDto.ToNative*
 references:

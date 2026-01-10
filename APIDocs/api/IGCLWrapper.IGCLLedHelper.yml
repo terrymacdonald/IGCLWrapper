@@ -66,14 +66,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumLeds
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 20
+    startLine: 24
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Enumerate LED handles for the adapter.
+  example: []
   syntax:
     content: public IReadOnlyList<nint> EnumLeds()
     return:
       type: System.Collections.Generic.IReadOnlyList{System.IntPtr}
+      description: Read-only list of LED handles.
     content.vb: Public Function EnumLeds() As IReadOnlyList(Of IntPtr)
   overload: IGCLWrapper.IGCLLedHelper.EnumLeds*
 - uid: IGCLWrapper.IGCLLedHelper.LedGetPropertiesNative(System.IntPtr)
@@ -94,17 +97,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LedGetPropertiesNative
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 26
+    startLine: 35
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Get LED properties using the native struct.
+  example: []
   syntax:
     content: public ctl_led_properties_t LedGetPropertiesNative(nint ledHandle)
     parameters:
     - id: ledHandle
       type: System.IntPtr
+      description: LED handle.
     return:
       type: IGCLWrapper.ctl_led_properties_t
+      description: LED properties struct.
     content.vb: Public Function LedGetPropertiesNative(ledHandle As IntPtr) As ctl_led_properties_t
   overload: IGCLWrapper.IGCLLedHelper.LedGetPropertiesNative*
   nameWithType.vb: IGCLLedHelper.LedGetPropertiesNative(IntPtr)
@@ -128,17 +135,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LedGetProperties
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 36
+    startLine: 50
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Get LED properties as a DTO.
+  example: []
   syntax:
     content: public LedPropertiesDto LedGetProperties(nint ledHandle)
     parameters:
     - id: ledHandle
       type: System.IntPtr
+      description: LED handle.
     return:
       type: IGCLWrapper.LedPropertiesDto
+      description: LED properties DTO.
     content.vb: Public Function LedGetProperties(ledHandle As IntPtr) As LedPropertiesDto
   overload: IGCLWrapper.IGCLLedHelper.LedGetProperties*
   nameWithType.vb: IGCLLedHelper.LedGetProperties(IntPtr)
@@ -162,17 +173,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LedGetStateNative
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 42
+    startLine: 61
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Get LED state using the native struct.
+  example: []
   syntax:
     content: public ctl_led_state_t LedGetStateNative(nint ledHandle)
     parameters:
     - id: ledHandle
       type: System.IntPtr
+      description: LED handle.
     return:
       type: IGCLWrapper.ctl_led_state_t
+      description: LED state struct.
     content.vb: Public Function LedGetStateNative(ledHandle As IntPtr) As ctl_led_state_t
   overload: IGCLWrapper.IGCLLedHelper.LedGetStateNative*
   nameWithType.vb: IGCLLedHelper.LedGetStateNative(IntPtr)
@@ -196,17 +211,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LedGetState
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 52
+    startLine: 76
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Get LED state as a DTO.
+  example: []
   syntax:
     content: public LedStateDto LedGetState(nint ledHandle)
     parameters:
     - id: ledHandle
       type: System.IntPtr
+      description: LED handle.
     return:
       type: IGCLWrapper.LedStateDto
+      description: LED state DTO.
     content.vb: Public Function LedGetState(ledHandle As IntPtr) As LedStateDto
   overload: IGCLWrapper.IGCLLedHelper.LedGetState*
   nameWithType.vb: IGCLLedHelper.LedGetState(IntPtr)
@@ -230,17 +249,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LedSetStateNative
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 58
+    startLine: 87
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Set LED state using the native struct.
+  example: []
   syntax:
     content: public void LedSetStateNative(nint ledHandle, ctl_led_state_t state)
     parameters:
     - id: ledHandle
       type: System.IntPtr
+      description: LED handle.
     - id: state
       type: IGCLWrapper.ctl_led_state_t
+      description: LED state struct.
     content.vb: Public Sub LedSetStateNative(ledHandle As IntPtr, state As ctl_led_state_t)
   overload: IGCLWrapper.IGCLLedHelper.LedSetStateNative*
   nameWithType.vb: IGCLLedHelper.LedSetStateNative(IntPtr, ctl_led_state_t)
@@ -264,17 +287,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LedSetState
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 66
+    startLine: 100
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Set LED state using a DTO.
+  example: []
   syntax:
     content: public void LedSetState(nint ledHandle, LedStateDto state)
     parameters:
     - id: ledHandle
       type: System.IntPtr
+      description: LED handle.
     - id: state
       type: IGCLWrapper.LedStateDto
+      description: LED state DTO.
     content.vb: Public Sub LedSetState(ledHandle As IntPtr, state As LedStateDto)
   overload: IGCLWrapper.IGCLLedHelper.LedSetState*
   nameWithType.vb: IGCLLedHelper.LedSetState(IntPtr, LedStateDto)
@@ -298,14 +325,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateLedStateStruct
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 97
+    startLine: 135
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create an LED state struct with Size and Version initialized.
+  example: []
   syntax:
     content: public static ctl_led_state_t CreateLedStateStruct()
     return:
       type: IGCLWrapper.ctl_led_state_t
+      description: Initialized LED state struct.
     content.vb: Public Shared Function CreateLedStateStruct() As ctl_led_state_t
   overload: IGCLWrapper.IGCLLedHelper.CreateLedStateStruct*
 - uid: IGCLWrapper.IGCLLedHelper.Dispose
@@ -326,11 +356,11 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 99
+    startLine: 140
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  summary: Mark the helper as disposed.
   example: []
   syntax:
     content: public void Dispose()

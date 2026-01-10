@@ -24,10 +24,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PowerSustainedLimitDto
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 158
+    startLine: 237
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: DTO for sustained power limit settings.
+  example: []
   syntax:
     content: public struct PowerSustainedLimitDto
     content.vb: Public Structure PowerSustainedLimitDto
@@ -56,10 +58,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Enabled
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 160
+    startLine: 242
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Enable flag.
+  example: []
   syntax:
     content: public bool Enabled
     return:
@@ -83,10 +87,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Power
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 161
+    startLine: 246
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Power value.
+  example: []
   syntax:
     content: public int Power
     return:
@@ -110,10 +116,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Interval
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 162
+    startLine: 250
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Time interval.
+  example: []
   syntax:
     content: public int Interval
     return:
@@ -137,17 +145,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 164
+    startLine: 257
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a DTO from a native struct.
+  example: []
   syntax:
     content: public static PowerSustainedLimitDto FromNative(ctl_power_sustained_limit_t native)
     parameters:
     - id: native
       type: IGCLWrapper.ctl_power_sustained_limit_t
+      description: Native struct.
     return:
       type: IGCLWrapper.PowerSustainedLimitDto
+      description: Sustained power limit DTO.
     content.vb: Public Shared Function FromNative(native As ctl_power_sustained_limit_t) As PowerSustainedLimitDto
   overload: IGCLWrapper.PowerSustainedLimitDto.FromNative*
 - uid: IGCLWrapper.PowerSustainedLimitDto.ToNative
@@ -168,14 +180,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 174
+    startLine: 271
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Convert this DTO to a native struct.
+  example: []
   syntax:
     content: public ctl_power_sustained_limit_t ToNative()
     return:
       type: IGCLWrapper.ctl_power_sustained_limit_t
+      description: Sustained power limit struct.
     content.vb: Public Function ToNative() As ctl_power_sustained_limit_t
   overload: IGCLWrapper.PowerSustainedLimitDto.ToNative*
 references:

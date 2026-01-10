@@ -61,14 +61,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumEngineGroups
     path: ../IGCLWrapper/IGCLEngineHelper.cs
-    startLine: 20
+    startLine: 24
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Enumerate engine group handles for the adapter.
+  example: []
   syntax:
     content: public IReadOnlyList<nint> EnumEngineGroups()
     return:
       type: System.Collections.Generic.IReadOnlyList{System.IntPtr}
+      description: Read-only list of engine handles.
     content.vb: Public Function EnumEngineGroups() As IReadOnlyList(Of IntPtr)
   overload: IGCLWrapper.IGCLEngineHelper.EnumEngineGroups*
 - uid: IGCLWrapper.IGCLEngineHelper.EngineGetProperties(System.IntPtr)
@@ -89,17 +92,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EngineGetProperties
     path: ../IGCLWrapper/IGCLEngineHelper.cs
-    startLine: 26
+    startLine: 35
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Get engine properties for a handle.
+  example: []
   syntax:
     content: public ctl_engine_properties_t EngineGetProperties(nint engineHandle)
     parameters:
     - id: engineHandle
       type: System.IntPtr
+      description: Engine handle.
     return:
       type: IGCLWrapper.ctl_engine_properties_t
+      description: Engine properties struct.
     content.vb: Public Function EngineGetProperties(engineHandle As IntPtr) As ctl_engine_properties_t
   overload: IGCLWrapper.IGCLEngineHelper.EngineGetProperties*
   nameWithType.vb: IGCLEngineHelper.EngineGetProperties(IntPtr)
@@ -123,17 +130,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EngineGetActivity
     path: ../IGCLWrapper/IGCLEngineHelper.cs
-    startLine: 36
+    startLine: 50
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Get engine activity stats for a handle.
+  example: []
   syntax:
     content: public ctl_engine_stats_t EngineGetActivity(nint engineHandle)
     parameters:
     - id: engineHandle
       type: System.IntPtr
+      description: Engine handle.
     return:
       type: IGCLWrapper.ctl_engine_stats_t
+      description: Engine stats struct.
     content.vb: Public Function EngineGetActivity(engineHandle As IntPtr) As ctl_engine_stats_t
   overload: IGCLWrapper.IGCLEngineHelper.EngineGetActivity*
   nameWithType.vb: IGCLEngineHelper.EngineGetActivity(IntPtr)
@@ -157,11 +168,11 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLEngineHelper.cs
-    startLine: 73
+    startLine: 90
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  summary: Mark the helper as disposed.
   example: []
   syntax:
     content: public void Dispose()

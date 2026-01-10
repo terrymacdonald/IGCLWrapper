@@ -26,10 +26,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LedStateDto
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 147
+    startLine: 221
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: DTO for LED state.
+  example: []
   syntax:
     content: public struct LedStateDto
     content.vb: Public Structure LedStateDto
@@ -58,10 +60,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 149
+    startLine: 226
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Size of the native struct.
+  example: []
   syntax:
     content: public uint Size
     return:
@@ -85,10 +89,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 150
+    startLine: 230
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Version of the native struct.
+  example: []
   syntax:
     content: public byte Version
     return:
@@ -112,10 +118,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsOn
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 151
+    startLine: 234
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Indicates whether the LED is on.
+  example: []
   syntax:
     content: public bool IsOn
     return:
@@ -139,10 +147,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Pwm
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 152
+    startLine: 238
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: PWM value.
+  example: []
   syntax:
     content: public double Pwm
     return:
@@ -166,10 +176,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Color
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 153
+    startLine: 242
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: LED color struct.
+  example: []
   syntax:
     content: public ctl_led_color_t Color
     return:
@@ -193,17 +205,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 155
+    startLine: 249
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a DTO from a native struct.
+  example: []
   syntax:
     content: public static LedStateDto FromNative(ctl_led_state_t native)
     parameters:
     - id: native
       type: IGCLWrapper.ctl_led_state_t
+      description: Native struct.
     return:
       type: IGCLWrapper.LedStateDto
+      description: LED state DTO.
     content.vb: Public Shared Function FromNative(native As ctl_led_state_t) As LedStateDto
   overload: IGCLWrapper.LedStateDto.FromNative*
 - uid: IGCLWrapper.LedStateDto.ToNative
@@ -224,14 +240,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 167
+    startLine: 265
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Convert this DTO to a native struct.
+  example: []
   syntax:
     content: public ctl_led_state_t ToNative()
     return:
       type: IGCLWrapper.ctl_led_state_t
+      description: LED state struct.
     content.vb: Public Function ToNative() As ctl_led_state_t
   overload: IGCLWrapper.LedStateDto.ToNative*
 references:

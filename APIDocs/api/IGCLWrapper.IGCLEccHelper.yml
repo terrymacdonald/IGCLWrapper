@@ -62,14 +62,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EccGetPropertiesNative
     path: ../IGCLWrapper/IGCLEccHelper.cs
-    startLine: 19
+    startLine: 23
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Get ECC properties using the native struct.
+  example: []
   syntax:
     content: public ctl_ecc_properties_t EccGetPropertiesNative()
     return:
       type: IGCLWrapper.ctl_ecc_properties_t
+      description: ECC properties struct.
     content.vb: Public Function EccGetPropertiesNative() As ctl_ecc_properties_t
   overload: IGCLWrapper.IGCLEccHelper.EccGetPropertiesNative*
 - uid: IGCLWrapper.IGCLEccHelper.EccGetProperties
@@ -90,14 +93,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EccGetProperties
     path: ../IGCLWrapper/IGCLEccHelper.cs
-    startLine: 29
+    startLine: 37
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Get ECC properties as a DTO.
+  example: []
   syntax:
     content: public EccPropertiesDto EccGetProperties()
     return:
       type: IGCLWrapper.EccPropertiesDto
+      description: ECC properties DTO.
     content.vb: Public Function EccGetProperties() As EccPropertiesDto
   overload: IGCLWrapper.IGCLEccHelper.EccGetProperties*
 - uid: IGCLWrapper.IGCLEccHelper.EccGetState
@@ -118,14 +124,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EccGetState
     path: ../IGCLWrapper/IGCLEccHelper.cs
-    startLine: 35
+    startLine: 47
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Get ECC state description.
+  example: []
   syntax:
     content: public ctl_ecc_state_desc_t EccGetState()
     return:
       type: IGCLWrapper.ctl_ecc_state_desc_t
+      description: ECC state description struct.
     content.vb: Public Function EccGetState() As ctl_ecc_state_desc_t
   overload: IGCLWrapper.IGCLEccHelper.EccGetState*
 - uid: IGCLWrapper.IGCLEccHelper.EccSetState(IGCLWrapper.ctl_ecc_state_t)
@@ -146,15 +155,18 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EccSetState
     path: ../IGCLWrapper/IGCLEccHelper.cs
-    startLine: 45
+    startLine: 61
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Set ECC state.
+  example: []
   syntax:
     content: public void EccSetState(ctl_ecc_state_t desiredState)
     parameters:
     - id: desiredState
       type: IGCLWrapper.ctl_ecc_state_t
+      description: Desired ECC state.
     content.vb: Public Sub EccSetState(desiredState As ctl_ecc_state_t)
   overload: IGCLWrapper.IGCLEccHelper.EccSetState*
 - uid: IGCLWrapper.IGCLEccHelper.Dispose
@@ -175,11 +187,11 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLEccHelper.cs
-    startLine: 64
+    startLine: 83
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  summary: Mark the helper as disposed.
   example: []
   syntax:
     content: public void Dispose()

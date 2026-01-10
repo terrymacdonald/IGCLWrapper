@@ -62,17 +62,17 @@ items:
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Checks if an Intel GPU is present in the system via PCI Vendor ID detection
+  summary: Check if an Intel GPU is present in the system.
   example: []
   syntax:
     content: public static bool HasIntelGPU(out string errorMessage)
     parameters:
     - id: errorMessage
       type: System.String
-      description: Details about why Intel GPU was not detected
+      description: Details about why Intel GPU was not detected.
     return:
       type: System.Boolean
-      description: True if Intel GPU hardware is detected, false otherwise
+      description: True if an Intel GPU is detected; otherwise, false.
     content.vb: Public Shared Function HasIntelGPU(errorMessage As String) As Boolean
   overload: IGCLWrapper.IGCLHardwareDetection.HasIntelGPU*
   nameWithType.vb: IGCLHardwareDetection.HasIntelGPU(String)
@@ -100,13 +100,13 @@ items:
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Gets detailed information about detected Intel GPUs
+  summary: Get the names of detected Intel GPUs.
   example: []
   syntax:
     content: public static string[] GetIntelGPUNames()
     return:
       type: System.String[]
-      description: Array of GPU names, or empty array if none found
+      description: Array of GPU names, or an empty array if none found.
     content.vb: Public Shared Function GetIntelGPUNames() As String()
   overload: IGCLWrapper.IGCLHardwareDetection.GetIntelGPUNames*
 references:

@@ -28,10 +28,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FanPropertiesDto
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 127
+    startLine: 180
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: DTO for fan properties.
+  example: []
   syntax:
     content: public struct FanPropertiesDto
     content.vb: Public Structure FanPropertiesDto
@@ -60,10 +62,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 129
+    startLine: 185
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Size of the native struct.
+  example: []
   syntax:
     content: public uint Size
     return:
@@ -87,10 +91,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 130
+    startLine: 189
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Version of the native struct.
+  example: []
   syntax:
     content: public byte Version
     return:
@@ -114,10 +120,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CanControl
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 131
+    startLine: 193
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Indicates whether the fan can be controlled.
+  example: []
   syntax:
     content: public bool CanControl
     return:
@@ -141,10 +149,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SupportedModes
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 132
+    startLine: 197
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Supported control modes.
+  example: []
   syntax:
     content: public uint SupportedModes
     return:
@@ -168,10 +178,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SupportedUnits
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 133
+    startLine: 201
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Supported speed units.
+  example: []
   syntax:
     content: public uint SupportedUnits
     return:
@@ -195,10 +207,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: MaxRpm
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 134
+    startLine: 205
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Maximum RPM.
+  example: []
   syntax:
     content: public int MaxRpm
     return:
@@ -222,10 +236,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: MaxPoints
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 135
+    startLine: 209
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Maximum points in the speed table.
+  example: []
   syntax:
     content: public int MaxPoints
     return:
@@ -249,17 +265,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 137
+    startLine: 216
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a DTO from a native struct.
+  example: []
   syntax:
     content: public static FanPropertiesDto FromNative(ctl_fan_properties_t native)
     parameters:
     - id: native
       type: IGCLWrapper.ctl_fan_properties_t
+      description: Native struct.
     return:
       type: IGCLWrapper.FanPropertiesDto
+      description: Fan properties DTO.
     content.vb: Public Shared Function FromNative(native As ctl_fan_properties_t) As FanPropertiesDto
   overload: IGCLWrapper.FanPropertiesDto.FromNative*
 - uid: IGCLWrapper.FanPropertiesDto.ToNative
@@ -280,14 +300,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 151
+    startLine: 234
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Convert this DTO to a native struct.
+  example: []
   syntax:
     content: public ctl_fan_properties_t ToNative()
     return:
       type: IGCLWrapper.ctl_fan_properties_t
+      description: Fan properties struct.
     content.vb: Public Function ToNative() As ctl_fan_properties_t
   overload: IGCLWrapper.FanPropertiesDto.ToNative*
 references:

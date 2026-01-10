@@ -160,10 +160,10 @@ Class IGCLMemoryHelper  <a class="header-action link-secondary" title="View sour
 
   <h3 id="IGCLWrapper_IGCLMemoryHelper_Dispose" data-uid="IGCLWrapper.IGCLMemoryHelper.Dispose">
   Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLMemoryHelper.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLMemoryHelper.cs/#L107"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
+  <div class="markdown level1 summary"><p>Mark the helper as disposed.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -187,10 +187,11 @@ Class IGCLMemoryHelper  <a class="header-action link-secondary" title="View sour
 
   <h3 id="IGCLWrapper_IGCLMemoryHelper_EnumMemoryModules" data-uid="IGCLWrapper.IGCLMemoryHelper.EnumMemoryModules">
   EnumMemoryModules()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLMemoryHelper.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLMemoryHelper.cs/#L25"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Enumerate memory module handles for the adapter.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -201,7 +202,8 @@ Class IGCLMemoryHelper  <a class="header-action link-secondary" title="View sour
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>Read-only list of memory module handles.</p>
+</dd>
   </dl>
 
 
@@ -218,10 +220,11 @@ Class IGCLMemoryHelper  <a class="header-action link-secondary" title="View sour
 
   <h3 id="IGCLWrapper_IGCLMemoryHelper_MemoryGetBandwidth_System_IntPtr_" data-uid="IGCLWrapper.IGCLMemoryHelper.MemoryGetBandwidth(System.IntPtr)">
   MemoryGetBandwidth(nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLMemoryHelper.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLMemoryHelper.cs/#L66"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Get memory bandwidth information.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -231,13 +234,15 @@ Class IGCLMemoryHelper  <a class="header-action link-secondary" title="View sour
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>memoryHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
-    <dd></dd>
+    <dd><p>Memory module handle.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="IGCLWrapper.ctl_mem_bandwidth_t.html">ctl_mem_bandwidth_t</a></dt>
-    <dd></dd>
+    <dd><p>Memory bandwidth struct.</p>
+</dd>
   </dl>
 
 
@@ -254,10 +259,11 @@ Class IGCLMemoryHelper  <a class="header-action link-secondary" title="View sour
 
   <h3 id="IGCLWrapper_IGCLMemoryHelper_MemoryGetProperties_System_IntPtr_" data-uid="IGCLWrapper.IGCLMemoryHelper.MemoryGetProperties(System.IntPtr)">
   MemoryGetProperties(nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLMemoryHelper.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLMemoryHelper.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Get memory module properties.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -267,13 +273,15 @@ Class IGCLMemoryHelper  <a class="header-action link-secondary" title="View sour
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>memoryHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
-    <dd></dd>
+    <dd><p>Memory module handle.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="IGCLWrapper.ctl_mem_properties_t.html">ctl_mem_properties_t</a></dt>
-    <dd></dd>
+    <dd><p>Memory properties struct.</p>
+</dd>
   </dl>
 
 
@@ -290,10 +298,11 @@ Class IGCLMemoryHelper  <a class="header-action link-secondary" title="View sour
 
   <h3 id="IGCLWrapper_IGCLMemoryHelper_MemoryGetState_System_IntPtr_" data-uid="IGCLWrapper.IGCLMemoryHelper.MemoryGetState(System.IntPtr)">
   MemoryGetState(nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLMemoryHelper.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLMemoryHelper.cs/#L51"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Get current memory module state.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -303,13 +312,15 @@ Class IGCLMemoryHelper  <a class="header-action link-secondary" title="View sour
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>memoryHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
-    <dd></dd>
+    <dd><p>Memory module handle.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="IGCLWrapper.ctl_mem_state_t.html">ctl_mem_state_t</a></dt>
-    <dd></dd>
+    <dd><p>Memory state struct.</p>
+</dd>
   </dl>
 
 

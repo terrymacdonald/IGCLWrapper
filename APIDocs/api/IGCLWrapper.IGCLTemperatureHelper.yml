@@ -61,14 +61,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumTemperatureSensors
     path: ../IGCLWrapper/IGCLTemperatureHelper.cs
-    startLine: 20
+    startLine: 24
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Enumerate temperature sensor handles for the adapter.
+  example: []
   syntax:
     content: public IReadOnlyList<nint> EnumTemperatureSensors()
     return:
       type: System.Collections.Generic.IReadOnlyList{System.IntPtr}
+      description: Read-only list of temperature sensor handles.
     content.vb: Public Function EnumTemperatureSensors() As IReadOnlyList(Of IntPtr)
   overload: IGCLWrapper.IGCLTemperatureHelper.EnumTemperatureSensors*
 - uid: IGCLWrapper.IGCLTemperatureHelper.TemperatureGetProperties(System.IntPtr)
@@ -89,17 +92,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: TemperatureGetProperties
     path: ../IGCLWrapper/IGCLTemperatureHelper.cs
-    startLine: 26
+    startLine: 35
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Get temperature sensor properties.
+  example: []
   syntax:
     content: public ctl_temp_properties_t TemperatureGetProperties(nint sensorHandle)
     parameters:
     - id: sensorHandle
       type: System.IntPtr
+      description: Temperature sensor handle.
     return:
       type: IGCLWrapper.ctl_temp_properties_t
+      description: Temperature properties struct.
     content.vb: Public Function TemperatureGetProperties(sensorHandle As IntPtr) As ctl_temp_properties_t
   overload: IGCLWrapper.IGCLTemperatureHelper.TemperatureGetProperties*
   nameWithType.vb: IGCLTemperatureHelper.TemperatureGetProperties(IntPtr)
@@ -123,17 +130,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: TemperatureGetState
     path: ../IGCLWrapper/IGCLTemperatureHelper.cs
-    startLine: 36
+    startLine: 50
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Get current temperature for a sensor.
+  example: []
   syntax:
     content: public double TemperatureGetState(nint sensorHandle)
     parameters:
     - id: sensorHandle
       type: System.IntPtr
+      description: Temperature sensor handle.
     return:
       type: System.Double
+      description: Temperature value in degrees C.
     content.vb: Public Function TemperatureGetState(sensorHandle As IntPtr) As Double
   overload: IGCLWrapper.IGCLTemperatureHelper.TemperatureGetState*
   nameWithType.vb: IGCLTemperatureHelper.TemperatureGetState(IntPtr)
@@ -157,11 +168,11 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLTemperatureHelper.cs
-    startLine: 72
+    startLine: 89
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  summary: Mark the helper as disposed.
   example: []
   syntax:
     content: public void Dispose()

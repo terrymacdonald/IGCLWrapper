@@ -27,10 +27,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PowerPropertiesDto
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 122
+    startLine: 171
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: DTO for power properties.
+  example: []
   syntax:
     content: public struct PowerPropertiesDto
     content.vb: Public Structure PowerPropertiesDto
@@ -59,10 +61,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 124
+    startLine: 176
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Size of the native struct.
+  example: []
   syntax:
     content: public uint Size
     return:
@@ -86,10 +90,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 125
+    startLine: 180
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Version of the native struct.
+  example: []
   syntax:
     content: public byte Version
     return:
@@ -113,10 +119,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CanControl
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 126
+    startLine: 184
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Indicates whether power limits can be controlled.
+  example: []
   syntax:
     content: public bool CanControl
     return:
@@ -140,10 +148,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: DefaultLimit
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 127
+    startLine: 188
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Default power limit.
+  example: []
   syntax:
     content: public int DefaultLimit
     return:
@@ -167,10 +177,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: MinLimit
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 128
+    startLine: 192
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Minimum power limit.
+  example: []
   syntax:
     content: public int MinLimit
     return:
@@ -194,10 +206,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: MaxLimit
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 129
+    startLine: 196
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Maximum power limit.
+  example: []
   syntax:
     content: public int MaxLimit
     return:
@@ -221,17 +235,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 131
+    startLine: 203
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a DTO from a native struct.
+  example: []
   syntax:
     content: public static PowerPropertiesDto FromNative(ctl_power_properties_t native)
     parameters:
     - id: native
       type: IGCLWrapper.ctl_power_properties_t
+      description: Native struct.
     return:
       type: IGCLWrapper.PowerPropertiesDto
+      description: Power properties DTO.
     content.vb: Public Shared Function FromNative(native As ctl_power_properties_t) As PowerPropertiesDto
   overload: IGCLWrapper.PowerPropertiesDto.FromNative*
 - uid: IGCLWrapper.PowerPropertiesDto.ToNative
@@ -252,14 +270,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 144
+    startLine: 220
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Convert this DTO to a native struct.
+  example: []
   syntax:
     content: public ctl_power_properties_t ToNative()
     return:
       type: IGCLWrapper.ctl_power_properties_t
+      description: Power properties struct.
     content.vb: Public Function ToNative() As ctl_power_properties_t
   overload: IGCLWrapper.PowerPropertiesDto.ToNative*
 references:

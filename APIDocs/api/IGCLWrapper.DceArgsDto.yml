@@ -30,10 +30,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: DceArgsDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1037
+    startLine: 1544
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: DTO for dynamic contrast enhancement arguments.
+  example: []
   syntax:
     content: public struct DceArgsDto
     content.vb: Public Structure DceArgsDto
@@ -62,10 +64,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1039
+    startLine: 1549
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Size of the native struct.
+  example: []
   syntax:
     content: public uint Size
     return:
@@ -89,10 +93,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1040
+    startLine: 1553
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Version of the native struct.
+  example: []
   syntax:
     content: public byte Version
     return:
@@ -116,10 +122,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Set
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1041
+    startLine: 1557
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: True to set values, false to get.
+  example: []
   syntax:
     content: public bool Set
     return:
@@ -143,10 +151,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: TargetBrightnessPercent
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1042
+    startLine: 1561
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Target brightness percentage.
+  example: []
   syntax:
     content: public uint TargetBrightnessPercent
     return:
@@ -170,10 +180,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PhaseinSpeedMultiplier
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1043
+    startLine: 1565
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Phase-in speed multiplier.
+  example: []
   syntax:
     content: public double PhaseinSpeedMultiplier
     return:
@@ -197,10 +209,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: NumBins
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1044
+    startLine: 1569
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Number of histogram bins.
+  example: []
   syntax:
     content: public uint NumBins
     return:
@@ -224,10 +238,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Enable
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1045
+    startLine: 1573
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Enable flag.
+  example: []
   syntax:
     content: public bool Enable
     return:
@@ -251,10 +267,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsSupported
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1046
+    startLine: 1577
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Indicates whether the feature is supported.
+  example: []
   syntax:
     content: public bool IsSupported
     return:
@@ -278,10 +296,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Histogram
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1047
+    startLine: 1581
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Pointer to histogram buffer.
+  example: []
   syntax:
     content: public nint Histogram
     return:
@@ -305,17 +325,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1049
+    startLine: 1588
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a DTO from a native struct.
+  example: []
   syntax:
     content: public static DceArgsDto FromNative(ctl_dce_args_t native)
     parameters:
     - id: native
       type: IGCLWrapper.ctl_dce_args_t
+      description: Native struct.
     return:
       type: IGCLWrapper.DceArgsDto
+      description: DCE args DTO.
     content.vb: Public Shared Function FromNative(native As ctl_dce_args_t) As DceArgsDto
   overload: IGCLWrapper.DceArgsDto.FromNative*
 - uid: IGCLWrapper.DceArgsDto.ToNative
@@ -336,14 +360,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1065
+    startLine: 1608
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Convert this DTO to a native struct.
+  example: []
   syntax:
     content: public ctl_dce_args_t ToNative()
     return:
       type: IGCLWrapper.ctl_dce_args_t
+      description: DCE args struct.
     content.vb: Public Function ToNative() As ctl_dce_args_t
   overload: IGCLWrapper.DceArgsDto.ToNative*
 references:

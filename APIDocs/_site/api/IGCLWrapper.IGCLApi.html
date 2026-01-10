@@ -89,7 +89,7 @@
 
 
   <h1 id="IGCLWrapper_IGCLApi" data-uid="IGCLWrapper.IGCLApi" class="text-break">
-Class IGCLApi  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApi.cs/#L33"><i class="bi bi-code-slash"></i></a>
+Class IGCLApi  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApi.cs/#L42"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -160,10 +160,10 @@ Class IGCLApi  <a class="header-action link-secondary" title="View source" href=
 
   <h3 id="IGCLWrapper_IGCLApi_Dispose" data-uid="IGCLWrapper.IGCLApi.Dispose">
   Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApi.cs/#L184"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApi.cs/#L200"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
+  <div class="markdown level1 summary"><p>Dispose the IGCL API wrapper and release native resources.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -187,7 +187,7 @@ Class IGCLApi  <a class="header-action link-secondary" title="View source" href=
 
   <h3 id="IGCLWrapper_IGCLApi_EnumerateAdapters" data-uid="IGCLWrapper.IGCLApi.EnumerateAdapters">
   EnumerateAdapters()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApi.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApi.cs/#L92"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Enumerate all GPU adapters in the system</p>
@@ -202,7 +202,8 @@ Class IGCLApi  <a class="header-action link-secondary" title="View source" href=
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a>[]</dt>
-    <dd></dd>
+    <dd><p>Array of adapter handles.</p>
+</dd>
   </dl>
 
 
@@ -219,7 +220,7 @@ Class IGCLApi  <a class="header-action link-secondary" title="View source" href=
 
   <h3 id="IGCLWrapper_IGCLApi_EnumerateDisplays_System_IntPtr_" data-uid="IGCLWrapper.IGCLApi.EnumerateDisplays(System.IntPtr)">
   EnumerateDisplays(nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApi.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApi.cs/#L143"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Enumerate display outputs for a given adapter</p>
@@ -233,13 +234,15 @@ Class IGCLApi  <a class="header-action link-secondary" title="View source" href=
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>hAdapter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
-    <dd></dd>
+    <dd><p>Adapter handle.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a>[]</dt>
-    <dd></dd>
+    <dd><p>Array of display output handles.</p>
+</dd>
   </dl>
 
 
@@ -256,7 +259,7 @@ Class IGCLApi  <a class="header-action link-secondary" title="View source" href=
 
   <h3 id="IGCLWrapper_IGCLApi_Finalize" data-uid="IGCLWrapper.IGCLApi.Finalize">
   ~IGCLApi()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApi.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApi.cs/#L52"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -282,7 +285,7 @@ Class IGCLApi  <a class="header-action link-secondary" title="View source" href=
 
   <h3 id="IGCLWrapper_IGCLApi_GetImplVersion" data-uid="IGCLWrapper.IGCLApi.GetImplVersion">
   GetImplVersion()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApi.cs/#L250"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApi.cs/#L274"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get the IGCL implementation version</p>
@@ -297,7 +300,8 @@ Class IGCLApi  <a class="header-action link-secondary" title="View source" href=
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
+    <dd><p>Implementation version value.</p>
+</dd>
   </dl>
 
 
@@ -314,7 +318,7 @@ Class IGCLApi  <a class="header-action link-secondary" title="View source" href=
 
   <h3 id="IGCLWrapper_IGCLApi_GetMajorVersion_System_UInt32_" data-uid="IGCLWrapper.IGCLApi.GetMajorVersion(System.UInt32)">
   GetMajorVersion(uint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApi.cs/#L234"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApi.cs/#L255"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Extract major version from version number</p>
@@ -328,13 +332,15 @@ Class IGCLApi  <a class="header-action link-secondary" title="View source" href=
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>version</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
+    <dd><p>Combined version value.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
+    <dd><p>Major version.</p>
+</dd>
   </dl>
 
 
@@ -351,7 +357,7 @@ Class IGCLApi  <a class="header-action link-secondary" title="View source" href=
 
   <h3 id="IGCLWrapper_IGCLApi_GetMinorVersion_System_UInt32_" data-uid="IGCLWrapper.IGCLApi.GetMinorVersion(System.UInt32)">
   GetMinorVersion(uint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApi.cs/#L242"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApi.cs/#L265"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Extract minor version from version number</p>
@@ -365,13 +371,15 @@ Class IGCLApi  <a class="header-action link-secondary" title="View source" href=
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>version</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
+    <dd><p>Combined version value.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
+    <dd><p>Minor version.</p>
+</dd>
   </dl>
 
 
@@ -388,7 +396,7 @@ Class IGCLApi  <a class="header-action link-secondary" title="View source" href=
 
   <h3 id="IGCLWrapper_IGCLApi_Initialize" data-uid="IGCLWrapper.IGCLApi.Initialize">
   Initialize()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApi.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApi.cs/#L61"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initialize the IGCL API with default settings</p>
@@ -403,7 +411,8 @@ Class IGCLApi  <a class="header-action link-secondary" title="View source" href=
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="IGCLWrapper.IGCLApi.html">IGCLApi</a></dt>
-    <dd></dd>
+    <dd><p>Initialized IGCL API wrapper.</p>
+</dd>
   </dl>
 
 
@@ -420,7 +429,7 @@ Class IGCLApi  <a class="header-action link-secondary" title="View source" href=
 
   <h3 id="IGCLWrapper_IGCLApi_IsIGCLDllAvailable_System_String__" data-uid="IGCLWrapper.IGCLApi.IsIGCLDllAvailable(System.String@)">
   IsIGCLDllAvailable(out string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApi.cs/#L262"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApi.cs/#L286"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Check if the IGCL DLL is available in the DLL search path</p>
@@ -459,7 +468,7 @@ Class IGCLApi  <a class="header-action link-secondary" title="View source" href=
 
   <h3 id="IGCLWrapper_IGCLApi_MakeVersion_System_UInt32_System_UInt32_" data-uid="IGCLWrapper.IGCLApi.MakeVersion(System.UInt32,System.UInt32)">
   MakeVersion(uint, uint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApi.cs/#L226"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApi.cs/#L245"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a version number from major and minor components</p>
@@ -473,15 +482,18 @@ Class IGCLApi  <a class="header-action link-secondary" title="View source" href=
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>major</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
+    <dd><p>Major version.</p>
+</dd>
     <dt><code>minor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
+    <dd><p>Minor version.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
+    <dd><p>Combined version value.</p>
+</dd>
   </dl>
 
 
@@ -498,7 +510,7 @@ Class IGCLApi  <a class="header-action link-secondary" title="View source" href=
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApi.cs/#L33" class="edit-link">Edit this page</a>
+          <a href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApi.cs/#L42" class="edit-link">Edit this page</a>
         </div>
 
 

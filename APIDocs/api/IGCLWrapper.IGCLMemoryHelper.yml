@@ -62,14 +62,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumMemoryModules
     path: ../IGCLWrapper/IGCLMemoryHelper.cs
-    startLine: 20
+    startLine: 24
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Enumerate memory module handles for the adapter.
+  example: []
   syntax:
     content: public IReadOnlyList<nint> EnumMemoryModules()
     return:
       type: System.Collections.Generic.IReadOnlyList{System.IntPtr}
+      description: Read-only list of memory module handles.
     content.vb: Public Function EnumMemoryModules() As IReadOnlyList(Of IntPtr)
   overload: IGCLWrapper.IGCLMemoryHelper.EnumMemoryModules*
 - uid: IGCLWrapper.IGCLMemoryHelper.MemoryGetProperties(System.IntPtr)
@@ -90,17 +93,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: MemoryGetProperties
     path: ../IGCLWrapper/IGCLMemoryHelper.cs
-    startLine: 26
+    startLine: 35
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Get memory module properties.
+  example: []
   syntax:
     content: public ctl_mem_properties_t MemoryGetProperties(nint memoryHandle)
     parameters:
     - id: memoryHandle
       type: System.IntPtr
+      description: Memory module handle.
     return:
       type: IGCLWrapper.ctl_mem_properties_t
+      description: Memory properties struct.
     content.vb: Public Function MemoryGetProperties(memoryHandle As IntPtr) As ctl_mem_properties_t
   overload: IGCLWrapper.IGCLMemoryHelper.MemoryGetProperties*
   nameWithType.vb: IGCLMemoryHelper.MemoryGetProperties(IntPtr)
@@ -124,17 +131,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: MemoryGetState
     path: ../IGCLWrapper/IGCLMemoryHelper.cs
-    startLine: 36
+    startLine: 50
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Get current memory module state.
+  example: []
   syntax:
     content: public ctl_mem_state_t MemoryGetState(nint memoryHandle)
     parameters:
     - id: memoryHandle
       type: System.IntPtr
+      description: Memory module handle.
     return:
       type: IGCLWrapper.ctl_mem_state_t
+      description: Memory state struct.
     content.vb: Public Function MemoryGetState(memoryHandle As IntPtr) As ctl_mem_state_t
   overload: IGCLWrapper.IGCLMemoryHelper.MemoryGetState*
   nameWithType.vb: IGCLMemoryHelper.MemoryGetState(IntPtr)
@@ -158,17 +169,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: MemoryGetBandwidth
     path: ../IGCLWrapper/IGCLMemoryHelper.cs
-    startLine: 46
+    startLine: 65
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Get memory bandwidth information.
+  example: []
   syntax:
     content: public ctl_mem_bandwidth_t MemoryGetBandwidth(nint memoryHandle)
     parameters:
     - id: memoryHandle
       type: System.IntPtr
+      description: Memory module handle.
     return:
       type: IGCLWrapper.ctl_mem_bandwidth_t
+      description: Memory bandwidth struct.
     content.vb: Public Function MemoryGetBandwidth(memoryHandle As IntPtr) As ctl_mem_bandwidth_t
   overload: IGCLWrapper.IGCLMemoryHelper.MemoryGetBandwidth*
   nameWithType.vb: IGCLMemoryHelper.MemoryGetBandwidth(IntPtr)
@@ -192,11 +207,11 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLMemoryHelper.cs
-    startLine: 84
+    startLine: 106
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  summary: Mark the helper as disposed.
   example: []
   syntax:
     content: public void Dispose()

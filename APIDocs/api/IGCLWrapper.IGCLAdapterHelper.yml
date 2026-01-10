@@ -25,10 +25,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IGCLAdapterHelper
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 130
+    startLine: 257
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Adapter helper facade for IGCL adapter handles.
+  example: []
   syntax:
     content: 'public sealed class IGCLAdapterHelper : IDisposable'
     content.vb: Public NotInheritable Class IGCLAdapterHelper Implements IDisposable
@@ -61,14 +63,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetProperties
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 146
+    startLine: 283
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Get adapter properties.
+  example: []
   syntax:
     content: public ctl_device_adapter_properties_t GetProperties()
     return:
       type: IGCLWrapper.ctl_device_adapter_properties_t
+      description: Adapter properties struct.
     content.vb: Public Function GetProperties() As ctl_device_adapter_properties_t
   overload: IGCLWrapper.IGCLAdapterHelper.GetProperties*
 - uid: IGCLWrapper.IGCLAdapterHelper.GetDisplays
@@ -89,14 +94,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetDisplays
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 168
+    startLine: 309
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Enumerate displays for this adapter.
+  example: []
   syntax:
     content: public IReadOnlyList<IGCLDisplayHelper> GetDisplays()
     return:
       type: System.Collections.Generic.IReadOnlyList{IGCLWrapper.IGCLDisplayHelper}
+      description: Read-only list of display helpers.
     content.vb: Public Function GetDisplays() As IReadOnlyList(Of IGCLDisplayHelper)
   overload: IGCLWrapper.IGCLAdapterHelper.GetDisplays*
 - uid: IGCLWrapper.IGCLAdapterHelper.Name
@@ -117,10 +125,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Name
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 180
+    startLine: 324
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Adapter name as a string.
+  example: []
   syntax:
     content: public string Name { get; }
     parameters: []
@@ -146,10 +156,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PciVendorId
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 190
+    startLine: 337
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: PCI vendor identifier as a hexadecimal string.
+  example: []
   syntax:
     content: public string PciVendorId { get; }
     parameters: []
@@ -175,17 +187,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: WaitForPropertyChange
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 194
+    startLine: 346
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Wait for a property change event.
+  example: []
   syntax:
     content: public ctl_wait_property_change_args_t WaitForPropertyChange(ctl_wait_property_change_args_t args)
     parameters:
     - id: args
       type: IGCLWrapper.ctl_wait_property_change_args_t
+      description: Wait arguments.
     return:
       type: IGCLWrapper.ctl_wait_property_change_args_t
+      description: Updated wait arguments.
     content.vb: Public Function WaitForPropertyChange(args As ctl_wait_property_change_args_t) As ctl_wait_property_change_args_t
   overload: IGCLWrapper.IGCLAdapterHelper.WaitForPropertyChange*
 - uid: IGCLWrapper.IGCLAdapterHelper.Dispose
@@ -206,11 +222,11 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 214
+    startLine: 372
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  summary: Mark the helper as disposed.
   example: []
   syntax:
     content: public void Dispose()

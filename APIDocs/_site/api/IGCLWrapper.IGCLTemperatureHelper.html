@@ -160,10 +160,10 @@ Class IGCLTemperatureHelper  <a class="header-action link-secondary" title="View
 
   <h3 id="IGCLWrapper_IGCLTemperatureHelper_Dispose" data-uid="IGCLWrapper.IGCLTemperatureHelper.Dispose">
   Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLTemperatureHelper.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLTemperatureHelper.cs/#L90"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
+  <div class="markdown level1 summary"><p>Mark the helper as disposed.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -187,10 +187,11 @@ Class IGCLTemperatureHelper  <a class="header-action link-secondary" title="View
 
   <h3 id="IGCLWrapper_IGCLTemperatureHelper_EnumTemperatureSensors" data-uid="IGCLWrapper.IGCLTemperatureHelper.EnumTemperatureSensors">
   EnumTemperatureSensors()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLTemperatureHelper.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLTemperatureHelper.cs/#L25"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Enumerate temperature sensor handles for the adapter.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -201,7 +202,8 @@ Class IGCLTemperatureHelper  <a class="header-action link-secondary" title="View
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>Read-only list of temperature sensor handles.</p>
+</dd>
   </dl>
 
 
@@ -218,10 +220,11 @@ Class IGCLTemperatureHelper  <a class="header-action link-secondary" title="View
 
   <h3 id="IGCLWrapper_IGCLTemperatureHelper_TemperatureGetProperties_System_IntPtr_" data-uid="IGCLWrapper.IGCLTemperatureHelper.TemperatureGetProperties(System.IntPtr)">
   TemperatureGetProperties(nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLTemperatureHelper.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLTemperatureHelper.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Get temperature sensor properties.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -231,13 +234,15 @@ Class IGCLTemperatureHelper  <a class="header-action link-secondary" title="View
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>sensorHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
-    <dd></dd>
+    <dd><p>Temperature sensor handle.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="IGCLWrapper.ctl_temp_properties_t.html">ctl_temp_properties_t</a></dt>
-    <dd></dd>
+    <dd><p>Temperature properties struct.</p>
+</dd>
   </dl>
 
 
@@ -254,10 +259,11 @@ Class IGCLTemperatureHelper  <a class="header-action link-secondary" title="View
 
   <h3 id="IGCLWrapper_IGCLTemperatureHelper_TemperatureGetState_System_IntPtr_" data-uid="IGCLWrapper.IGCLTemperatureHelper.TemperatureGetState(System.IntPtr)">
   TemperatureGetState(nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLTemperatureHelper.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLTemperatureHelper.cs/#L51"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Get current temperature for a sensor.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -267,13 +273,15 @@ Class IGCLTemperatureHelper  <a class="header-action link-secondary" title="View
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>sensorHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
-    <dd></dd>
+    <dd><p>Temperature sensor handle.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd></dd>
+    <dd><p>Temperature value in degrees C.</p>
+</dd>
   </dl>
 
 

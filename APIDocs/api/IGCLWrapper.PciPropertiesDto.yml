@@ -27,10 +27,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PciPropertiesDto
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 63
+    startLine: 81
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: DTO for PCI properties.
+  example: []
   syntax:
     content: public struct PciPropertiesDto
     content.vb: Public Structure PciPropertiesDto
@@ -59,10 +61,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 65
+    startLine: 86
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Size of the native struct.
+  example: []
   syntax:
     content: public uint Size
     return:
@@ -86,10 +90,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 66
+    startLine: 90
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Version of the native struct.
+  example: []
   syntax:
     content: public byte Version
     return:
@@ -113,10 +119,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Address
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 67
+    startLine: 94
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: PCI address.
+  example: []
   syntax:
     content: public ctl_pci_address_t Address
     return:
@@ -140,10 +148,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: MaxSpeed
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 68
+    startLine: 98
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Maximum PCIe speed.
+  example: []
   syntax:
     content: public ctl_pci_speed_t MaxSpeed
     return:
@@ -167,10 +177,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ResizableBarSupported
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 69
+    startLine: 102
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Indicates whether resizable BAR is supported.
+  example: []
   syntax:
     content: public bool ResizableBarSupported
     return:
@@ -194,10 +206,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ResizableBarEnabled
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 70
+    startLine: 106
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Indicates whether resizable BAR is enabled.
+  example: []
   syntax:
     content: public bool ResizableBarEnabled
     return:
@@ -221,17 +235,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 72
+    startLine: 113
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a DTO from a native struct.
+  example: []
   syntax:
     content: public static PciPropertiesDto FromNative(ctl_pci_properties_t native)
     parameters:
     - id: native
       type: IGCLWrapper.ctl_pci_properties_t
+      description: Native struct.
     return:
       type: IGCLWrapper.PciPropertiesDto
+      description: PCI properties DTO.
     content.vb: Public Shared Function FromNative(native As ctl_pci_properties_t) As PciPropertiesDto
   overload: IGCLWrapper.PciPropertiesDto.FromNative*
 - uid: IGCLWrapper.PciPropertiesDto.ToNative
@@ -252,14 +270,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 85
+    startLine: 130
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Convert this DTO to a native struct.
+  example: []
   syntax:
     content: public ctl_pci_properties_t ToNative()
     return:
       type: IGCLWrapper.ctl_pci_properties_t
+      description: PCI properties struct.
     content.vb: Public Function ToNative() As ctl_pci_properties_t
   overload: IGCLWrapper.PciPropertiesDto.ToNative*
 references:

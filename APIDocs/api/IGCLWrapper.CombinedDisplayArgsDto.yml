@@ -30,10 +30,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CombinedDisplayArgsDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 988
+    startLine: 1456
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: DTO for combined display arguments.
+  example: []
   syntax:
     content: public struct CombinedDisplayArgsDto
     content.vb: Public Structure CombinedDisplayArgsDto
@@ -62,10 +64,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 990
+    startLine: 1461
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Size of the native struct.
+  example: []
   syntax:
     content: public uint Size
     return:
@@ -89,10 +93,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 991
+    startLine: 1465
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Version of the native struct.
+  example: []
   syntax:
     content: public byte Version
     return:
@@ -116,10 +122,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OpType
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 992
+    startLine: 1469
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Operation type.
+  example: []
   syntax:
     content: public ctl_combined_display_optype_t OpType
     return:
@@ -143,10 +151,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsSupported
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 993
+    startLine: 1473
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Indicates whether the feature is supported.
+  example: []
   syntax:
     content: public bool IsSupported
     return:
@@ -170,10 +180,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: NumOutputs
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 994
+    startLine: 1477
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Number of outputs in the combined display.
+  example: []
   syntax:
     content: public byte NumOutputs
     return:
@@ -197,10 +209,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CombinedDesktopWidth
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 995
+    startLine: 1481
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Combined desktop width.
+  example: []
   syntax:
     content: public uint CombinedDesktopWidth
     return:
@@ -224,10 +238,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CombinedDesktopHeight
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 996
+    startLine: 1485
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Combined desktop height.
+  example: []
   syntax:
     content: public uint CombinedDesktopHeight
     return:
@@ -251,10 +267,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ChildInfo
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 997
+    startLine: 1489
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Pointer to child info.
+  example: []
   syntax:
     content: public nint ChildInfo
     return:
@@ -278,10 +296,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CombinedDisplayOutput
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 998
+    startLine: 1493
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Combined display output handle.
+  example: []
   syntax:
     content: public nint CombinedDisplayOutput
     return:
@@ -305,17 +325,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1000
+    startLine: 1500
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a DTO from a native struct.
+  example: []
   syntax:
     content: public static CombinedDisplayArgsDto FromNative(ctl_combined_display_args_t native)
     parameters:
     - id: native
       type: IGCLWrapper.ctl_combined_display_args_t
+      description: Native struct.
     return:
       type: IGCLWrapper.CombinedDisplayArgsDto
+      description: Combined display args DTO.
     content.vb: Public Shared Function FromNative(native As ctl_combined_display_args_t) As CombinedDisplayArgsDto
   overload: IGCLWrapper.CombinedDisplayArgsDto.FromNative*
 - uid: IGCLWrapper.CombinedDisplayArgsDto.ToNative
@@ -336,14 +360,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1016
+    startLine: 1520
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Convert this DTO to a native struct.
+  example: []
   syntax:
     content: public ctl_combined_display_args_t ToNative()
     return:
       type: IGCLWrapper.ctl_combined_display_args_t
+      description: Combined display args struct.
     content.vb: Public Function ToNative() As ctl_combined_display_args_t
   overload: IGCLWrapper.CombinedDisplayArgsDto.ToNative*
 references:

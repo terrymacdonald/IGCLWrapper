@@ -160,10 +160,11 @@ Class IGCLPowerHelper  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="IGCLWrapper_IGCLPowerHelper_CreatePowerLimitsStruct" data-uid="IGCLWrapper.IGCLPowerHelper.CreatePowerLimitsStruct">
   CreatePowerLimitsStruct()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLPowerHelper.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLPowerHelper.cs/#L152"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Create a power limits struct with Size and Version initialized.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -174,7 +175,8 @@ Class IGCLPowerHelper  <a class="header-action link-secondary" title="View sourc
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="IGCLWrapper.ctl_power_limits_t.html">ctl_power_limits_t</a></dt>
-    <dd></dd>
+    <dd><p>Initialized power limits struct.</p>
+</dd>
   </dl>
 
 
@@ -191,10 +193,10 @@ Class IGCLPowerHelper  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="IGCLWrapper_IGCLPowerHelper_Dispose" data-uid="IGCLWrapper.IGCLPowerHelper.Dispose">
   Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLPowerHelper.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLPowerHelper.cs/#L157"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
+  <div class="markdown level1 summary"><p>Mark the helper as disposed.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -218,10 +220,11 @@ Class IGCLPowerHelper  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="IGCLWrapper_IGCLPowerHelper_EnumPowerDomains" data-uid="IGCLWrapper.IGCLPowerHelper.EnumPowerDomains">
   EnumPowerDomains()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLPowerHelper.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLPowerHelper.cs/#L25"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Enumerate power domain handles for the adapter.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -232,7 +235,8 @@ Class IGCLPowerHelper  <a class="header-action link-secondary" title="View sourc
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>Read-only list of power domain handles.</p>
+</dd>
   </dl>
 
 
@@ -249,10 +253,11 @@ Class IGCLPowerHelper  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="IGCLWrapper_IGCLPowerHelper_PowerGetEnergyCounter_System_IntPtr_" data-uid="IGCLWrapper.IGCLPowerHelper.PowerGetEnergyCounter(System.IntPtr)">
   PowerGetEnergyCounter(nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLPowerHelper.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLPowerHelper.cs/#L62"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Get the power energy counter.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -262,13 +267,15 @@ Class IGCLPowerHelper  <a class="header-action link-secondary" title="View sourc
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>powerHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
-    <dd></dd>
+    <dd><p>Power domain handle.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="IGCLWrapper.ctl_power_energy_counter_t.html">ctl_power_energy_counter_t</a></dt>
-    <dd></dd>
+    <dd><p>Power energy counter struct.</p>
+</dd>
   </dl>
 
 
@@ -285,10 +292,11 @@ Class IGCLPowerHelper  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="IGCLWrapper_IGCLPowerHelper_PowerGetLimits_System_IntPtr_" data-uid="IGCLWrapper.IGCLPowerHelper.PowerGetLimits(System.IntPtr)">
   PowerGetLimits(nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLPowerHelper.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLPowerHelper.cs/#L92"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Get power limits as a DTO.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -298,13 +306,15 @@ Class IGCLPowerHelper  <a class="header-action link-secondary" title="View sourc
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>powerHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
-    <dd></dd>
+    <dd><p>Power domain handle.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="IGCLWrapper.PowerLimitsDto.html">PowerLimitsDto</a></dt>
-    <dd></dd>
+    <dd><p>Power limits DTO.</p>
+</dd>
   </dl>
 
 
@@ -321,10 +331,11 @@ Class IGCLPowerHelper  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="IGCLWrapper_IGCLPowerHelper_PowerGetLimitsNative_System_IntPtr_" data-uid="IGCLWrapper.IGCLPowerHelper.PowerGetLimitsNative(System.IntPtr)">
   PowerGetLimitsNative(nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLPowerHelper.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLPowerHelper.cs/#L77"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Get power limits using the native struct.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -334,13 +345,15 @@ Class IGCLPowerHelper  <a class="header-action link-secondary" title="View sourc
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>powerHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
-    <dd></dd>
+    <dd><p>Power domain handle.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="IGCLWrapper.ctl_power_limits_t.html">ctl_power_limits_t</a></dt>
-    <dd></dd>
+    <dd><p>Power limits struct.</p>
+</dd>
   </dl>
 
 
@@ -357,10 +370,11 @@ Class IGCLPowerHelper  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="IGCLWrapper_IGCLPowerHelper_PowerGetProperties_System_IntPtr_" data-uid="IGCLWrapper.IGCLPowerHelper.PowerGetProperties(System.IntPtr)">
   PowerGetProperties(nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLPowerHelper.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLPowerHelper.cs/#L51"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Get power domain properties as a DTO.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -370,13 +384,15 @@ Class IGCLPowerHelper  <a class="header-action link-secondary" title="View sourc
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>powerHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
-    <dd></dd>
+    <dd><p>Power domain handle.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="IGCLWrapper.PowerPropertiesDto.html">PowerPropertiesDto</a></dt>
-    <dd></dd>
+    <dd><p>Power properties DTO.</p>
+</dd>
   </dl>
 
 
@@ -393,10 +409,11 @@ Class IGCLPowerHelper  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="IGCLWrapper_IGCLPowerHelper_PowerGetPropertiesNative_System_IntPtr_" data-uid="IGCLWrapper.IGCLPowerHelper.PowerGetPropertiesNative(System.IntPtr)">
   PowerGetPropertiesNative(nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLPowerHelper.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLPowerHelper.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Get power domain properties using the native struct.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -406,13 +423,15 @@ Class IGCLPowerHelper  <a class="header-action link-secondary" title="View sourc
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>powerHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
-    <dd></dd>
+    <dd><p>Power domain handle.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="IGCLWrapper.ctl_power_properties_t.html">ctl_power_properties_t</a></dt>
-    <dd></dd>
+    <dd><p>Power properties struct.</p>
+</dd>
   </dl>
 
 
@@ -429,10 +448,11 @@ Class IGCLPowerHelper  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="IGCLWrapper_IGCLPowerHelper_PowerSetLimits_System_IntPtr_IGCLWrapper_PowerLimitsDto_" data-uid="IGCLWrapper.IGCLPowerHelper.PowerSetLimits(System.IntPtr,IGCLWrapper.PowerLimitsDto)">
   PowerSetLimits(nint, PowerLimitsDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLPowerHelper.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLPowerHelper.cs/#L116"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Set power limits using a DTO.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -442,9 +462,11 @@ Class IGCLPowerHelper  <a class="header-action link-secondary" title="View sourc
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>powerHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
-    <dd></dd>
+    <dd><p>Power domain handle.</p>
+</dd>
     <dt><code>limits</code> <a class="xref" href="IGCLWrapper.PowerLimitsDto.html">PowerLimitsDto</a></dt>
-    <dd></dd>
+    <dd><p>Power limits DTO.</p>
+</dd>
   </dl>
 
 
@@ -462,10 +484,11 @@ Class IGCLPowerHelper  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="IGCLWrapper_IGCLPowerHelper_PowerSetLimitsNative_System_IntPtr_IGCLWrapper_ctl_power_limits_t_" data-uid="IGCLWrapper.IGCLPowerHelper.PowerSetLimitsNative(System.IntPtr,IGCLWrapper.ctl_power_limits_t)">
   PowerSetLimitsNative(nint, ctl_power_limits_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLPowerHelper.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLPowerHelper.cs/#L103"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Set power limits using the native struct.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -475,9 +498,11 @@ Class IGCLPowerHelper  <a class="header-action link-secondary" title="View sourc
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>powerHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
-    <dd></dd>
+    <dd><p>Power domain handle.</p>
+</dd>
     <dt><code>limits</code> <a class="xref" href="IGCLWrapper.ctl_power_limits_t.html">ctl_power_limits_t</a></dt>
-    <dd></dd>
+    <dd><p>Power limits struct.</p>
+</dd>
   </dl>
 
 

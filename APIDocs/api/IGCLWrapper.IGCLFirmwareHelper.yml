@@ -62,14 +62,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetFirmwareProperties
     path: ../IGCLWrapper/IGCLFirmwareHelper.cs
-    startLine: 20
+    startLine: 24
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Get firmware properties for the adapter.
+  example: []
   syntax:
     content: public ctl_firmware_properties_t GetFirmwareProperties()
     return:
       type: IGCLWrapper.ctl_firmware_properties_t
+      description: Firmware properties struct.
     content.vb: Public Function GetFirmwareProperties() As ctl_firmware_properties_t
   overload: IGCLWrapper.IGCLFirmwareHelper.GetFirmwareProperties*
 - uid: IGCLWrapper.IGCLFirmwareHelper.EnumerateFirmwareComponents
@@ -90,14 +93,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumerateFirmwareComponents
     path: ../IGCLWrapper/IGCLFirmwareHelper.cs
-    startLine: 30
+    startLine: 38
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Enumerate firmware component handles for the adapter.
+  example: []
   syntax:
     content: public IReadOnlyList<nint> EnumerateFirmwareComponents()
     return:
       type: System.Collections.Generic.IReadOnlyList{System.IntPtr}
+      description: Read-only list of firmware component handles.
     content.vb: Public Function EnumerateFirmwareComponents() As IReadOnlyList(Of IntPtr)
   overload: IGCLWrapper.IGCLFirmwareHelper.EnumerateFirmwareComponents*
 - uid: IGCLWrapper.IGCLFirmwareHelper.GetFirmwareComponentProperties(System.IntPtr)
@@ -118,17 +124,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetFirmwareComponentProperties
     path: ../IGCLWrapper/IGCLFirmwareHelper.cs
-    startLine: 36
+    startLine: 49
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Get firmware component properties.
+  example: []
   syntax:
     content: public ctl_firmware_component_properties_t GetFirmwareComponentProperties(nint firmwareHandle)
     parameters:
     - id: firmwareHandle
       type: System.IntPtr
+      description: Firmware component handle.
     return:
       type: IGCLWrapper.ctl_firmware_component_properties_t
+      description: Firmware component properties struct.
     content.vb: Public Function GetFirmwareComponentProperties(firmwareHandle As IntPtr) As ctl_firmware_component_properties_t
   overload: IGCLWrapper.IGCLFirmwareHelper.GetFirmwareComponentProperties*
   nameWithType.vb: IGCLFirmwareHelper.GetFirmwareComponentProperties(IntPtr)
@@ -152,15 +162,18 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AllowPCIeLinkSpeedUpdate
     path: ../IGCLWrapper/IGCLFirmwareHelper.cs
-    startLine: 46
+    startLine: 63
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Allow or disallow PCIe link speed updates.
+  example: []
   syntax:
     content: public void AllowPCIeLinkSpeedUpdate(bool allow)
     parameters:
     - id: allow
       type: System.Boolean
+      description: True to allow updates; otherwise false.
     content.vb: Public Sub AllowPCIeLinkSpeedUpdate(allow As Boolean)
   overload: IGCLWrapper.IGCLFirmwareHelper.AllowPCIeLinkSpeedUpdate*
   nameWithType.vb: IGCLFirmwareHelper.AllowPCIeLinkSpeedUpdate(Boolean)
@@ -184,11 +197,11 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLFirmwareHelper.cs
-    startLine: 81
+    startLine: 101
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  summary: Mark the helper as disposed.
   example: []
   syntax:
     content: public void Dispose()

@@ -61,14 +61,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PciGetPropertiesNative
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 19
+    startLine: 23
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Get PCI properties using the native struct.
+  example: []
   syntax:
     content: public ctl_pci_properties_t PciGetPropertiesNative()
     return:
       type: IGCLWrapper.ctl_pci_properties_t
+      description: PCI properties struct.
     content.vb: Public Function PciGetPropertiesNative() As ctl_pci_properties_t
   overload: IGCLWrapper.IGCLPciHelper.PciGetPropertiesNative*
 - uid: IGCLWrapper.IGCLPciHelper.PciGetProperties
@@ -89,14 +92,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PciGetProperties
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 29
+    startLine: 37
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Get PCI properties as a DTO.
+  example: []
   syntax:
     content: public PciPropertiesDto PciGetProperties()
     return:
       type: IGCLWrapper.PciPropertiesDto
+      description: PCI properties DTO.
     content.vb: Public Function PciGetProperties() As PciPropertiesDto
   overload: IGCLWrapper.IGCLPciHelper.PciGetProperties*
 - uid: IGCLWrapper.IGCLPciHelper.PciGetState
@@ -117,14 +123,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PciGetState
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 35
+    startLine: 47
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Get PCI state.
+  example: []
   syntax:
     content: public ctl_pci_state_t PciGetState()
     return:
       type: IGCLWrapper.ctl_pci_state_t
+      description: PCI state struct.
     content.vb: Public Function PciGetState() As ctl_pci_state_t
   overload: IGCLWrapper.IGCLPciHelper.PciGetState*
 - uid: IGCLWrapper.IGCLPciHelper.Dispose
@@ -145,11 +154,11 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 51
+    startLine: 66
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  summary: Mark the helper as disposed.
   example: []
   syntax:
     content: public void Dispose()

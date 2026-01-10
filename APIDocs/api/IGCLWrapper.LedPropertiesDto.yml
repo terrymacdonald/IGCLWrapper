@@ -27,10 +27,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LedPropertiesDto
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 111
+    startLine: 155
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: DTO for LED properties.
+  example: []
   syntax:
     content: public struct LedPropertiesDto
     content.vb: Public Structure LedPropertiesDto
@@ -59,10 +61,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 113
+    startLine: 160
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Size of the native struct.
+  example: []
   syntax:
     content: public uint Size
     return:
@@ -86,10 +90,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 114
+    startLine: 164
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Version of the native struct.
+  example: []
   syntax:
     content: public byte Version
     return:
@@ -113,10 +119,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CanControl
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 115
+    startLine: 168
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Indicates whether LED control is supported.
+  example: []
   syntax:
     content: public bool CanControl
     return:
@@ -140,10 +148,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsI2C
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 116
+    startLine: 172
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Indicates whether LED uses I2C.
+  example: []
   syntax:
     content: public bool IsI2C
     return:
@@ -167,10 +177,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsPwm
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 117
+    startLine: 176
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Indicates whether LED uses PWM.
+  example: []
   syntax:
     content: public bool IsPwm
     return:
@@ -194,10 +206,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: HaveRgb
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 118
+    startLine: 180
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Indicates whether RGB is supported.
+  example: []
   syntax:
     content: public bool HaveRgb
     return:
@@ -221,17 +235,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 120
+    startLine: 187
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a DTO from a native struct.
+  example: []
   syntax:
     content: public static LedPropertiesDto FromNative(ctl_led_properties_t native)
     parameters:
     - id: native
       type: IGCLWrapper.ctl_led_properties_t
+      description: Native struct.
     return:
       type: IGCLWrapper.LedPropertiesDto
+      description: LED properties DTO.
     content.vb: Public Shared Function FromNative(native As ctl_led_properties_t) As LedPropertiesDto
   overload: IGCLWrapper.LedPropertiesDto.FromNative*
 - uid: IGCLWrapper.LedPropertiesDto.ToNative
@@ -252,14 +270,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 133
+    startLine: 204
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Convert this DTO to a native struct.
+  example: []
   syntax:
     content: public ctl_led_properties_t ToNative()
     return:
       type: IGCLWrapper.ctl_led_properties_t
+      description: LED properties struct.
     content.vb: Public Function ToNative() As ctl_led_properties_t
   overload: IGCLWrapper.LedPropertiesDto.ToNative*
 references:

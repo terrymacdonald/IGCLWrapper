@@ -28,10 +28,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LaceConfigDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1233
+    startLine: 1896
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: DTO for LACE configuration.
+  example: []
   syntax:
     content: public struct LaceConfigDto
     content.vb: Public Structure LaceConfigDto
@@ -60,10 +62,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1235
+    startLine: 1901
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Size of the native struct.
+  example: []
   syntax:
     content: public uint Size
     return:
@@ -87,10 +91,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1236
+    startLine: 1905
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Version of the native struct.
+  example: []
   syntax:
     content: public byte Version
     return:
@@ -114,10 +120,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Enabled
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1237
+    startLine: 1909
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Enable flag.
+  example: []
   syntax:
     content: public bool Enabled
     return:
@@ -141,10 +149,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OpTypeGet
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1238
+    startLine: 1913
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Get operation type.
+  example: []
   syntax:
     content: public uint OpTypeGet
     return:
@@ -168,10 +178,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OpTypeSet
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1239
+    startLine: 1917
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Set operation type.
+  example: []
   syntax:
     content: public ctl_set_operation_t OpTypeSet
     return:
@@ -195,10 +207,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Trigger
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1240
+    startLine: 1921
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Trigger flags.
+  example: []
   syntax:
     content: public uint Trigger
     return:
@@ -222,10 +236,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LaceConfig
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1241
+    startLine: 1925
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Aggregation configuration.
+  example: []
   syntax:
     content: public ctl_lace_aggr_config_t LaceConfig
     return:
@@ -249,17 +265,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1243
+    startLine: 1932
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a DTO from a native struct.
+  example: []
   syntax:
     content: public static LaceConfigDto FromNative(ctl_lace_config_t native)
     parameters:
     - id: native
       type: IGCLWrapper.ctl_lace_config_t
+      description: Native struct.
     return:
       type: IGCLWrapper.LaceConfigDto
+      description: LACE config DTO.
     content.vb: Public Shared Function FromNative(native As ctl_lace_config_t) As LaceConfigDto
   overload: IGCLWrapper.LaceConfigDto.FromNative*
 - uid: IGCLWrapper.LaceConfigDto.ToNative
@@ -280,14 +300,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1257
+    startLine: 1950
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Convert this DTO to a native struct.
+  example: []
   syntax:
     content: public ctl_lace_config_t ToNative()
     return:
       type: IGCLWrapper.ctl_lace_config_t
+      description: LACE config struct.
     content.vb: Public Function ToNative() As ctl_lace_config_t
   overload: IGCLWrapper.LaceConfigDto.ToNative*
 references:

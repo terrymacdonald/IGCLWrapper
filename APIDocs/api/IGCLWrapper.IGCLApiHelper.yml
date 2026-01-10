@@ -79,7 +79,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Initialize
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 23
+    startLine: 24
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -89,6 +89,7 @@ items:
     content: public static IGCLApiHelper Initialize()
     return:
       type: IGCLWrapper.IGCLApiHelper
+      description: Initialized API helper.
     content.vb: Public Shared Function Initialize() As IGCLApiHelper
   overload: IGCLWrapper.IGCLApiHelper.Initialize*
 - uid: IGCLWrapper.IGCLApiHelper.IsIGCLDllAvailable(System.String@)
@@ -109,7 +110,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsIGCLDllAvailable
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 31
+    startLine: 34
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -120,8 +121,10 @@ items:
     parameters:
     - id: errorMessage
       type: System.String
+      description: Details about why the DLL could not be loaded.
     return:
       type: System.Boolean
+      description: True if the IGCL DLL can be loaded; otherwise, false.
     content.vb: Public Shared Function IsIGCLDllAvailable(errorMessage As String) As Boolean
   overload: IGCLWrapper.IGCLApiHelper.IsIGCLDllAvailable*
   nameWithType.vb: IGCLApiHelper.IsIGCLDllAvailable(String)
@@ -145,19 +148,24 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: MakeVersion
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 37
+    startLine: 46
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a version value from major and minor components.
+  example: []
   syntax:
     content: public static uint MakeVersion(uint major, uint minor)
     parameters:
     - id: major
       type: System.UInt32
+      description: Major version.
     - id: minor
       type: System.UInt32
+      description: Minor version.
     return:
       type: System.UInt32
+      description: Combined version value.
     content.vb: Public Shared Function MakeVersion(major As UInteger, minor As UInteger) As UInteger
   overload: IGCLWrapper.IGCLApiHelper.MakeVersion*
   nameWithType.vb: IGCLApiHelper.MakeVersion(UInteger, UInteger)
@@ -181,17 +189,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetMajorVersion
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 38
+    startLine: 52
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Extract the major version from a combined value.
+  example: []
   syntax:
     content: public static uint GetMajorVersion(uint version)
     parameters:
     - id: version
       type: System.UInt32
+      description: Combined version value.
     return:
       type: System.UInt32
+      description: Major version.
     content.vb: Public Shared Function GetMajorVersion(version As UInteger) As UInteger
   overload: IGCLWrapper.IGCLApiHelper.GetMajorVersion*
   nameWithType.vb: IGCLApiHelper.GetMajorVersion(UInteger)
@@ -215,17 +227,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetMinorVersion
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 39
+    startLine: 58
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Extract the minor version from a combined value.
+  example: []
   syntax:
     content: public static uint GetMinorVersion(uint version)
     parameters:
     - id: version
       type: System.UInt32
+      description: Combined version value.
     return:
       type: System.UInt32
+      description: Minor version.
     content.vb: Public Shared Function GetMinorVersion(version As UInteger) As UInteger
   overload: IGCLWrapper.IGCLApiHelper.GetMinorVersion*
   nameWithType.vb: IGCLApiHelper.GetMinorVersion(UInteger)
@@ -249,14 +265,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetImplVersion
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 40
+    startLine: 63
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Get the IGCL implementation version.
+  example: []
   syntax:
     content: public static uint GetImplVersion()
     return:
       type: System.UInt32
+      description: Implementation version value.
     content.vb: Public Shared Function GetImplVersion() As UInteger
   overload: IGCLWrapper.IGCLApiHelper.GetImplVersion*
 - uid: IGCLWrapper.IGCLApiHelper.EnumerateAdapters
@@ -277,14 +296,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumerateAdapters
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 43
+    startLine: 70
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Enumerate adapter helpers for all detected Intel GPU adapters.
+  example: []
   syntax:
     content: public IReadOnlyList<IGCLAdapterHelper> EnumerateAdapters()
     return:
       type: System.Collections.Generic.IReadOnlyList{IGCLWrapper.IGCLAdapterHelper}
+      description: Read-only list of adapter helpers.
     content.vb: Public Function EnumerateAdapters() As IReadOnlyList(Of IGCLAdapterHelper)
   overload: IGCLWrapper.IGCLApiHelper.EnumerateAdapters*
 - uid: IGCLWrapper.IGCLApiHelper.Get3DHelper(IGCLWrapper.IGCLAdapterHelper)
@@ -305,17 +327,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Get3DHelper
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 65
+    startLine: 108
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a 3D helper for the specified adapter.
+  example: []
   syntax:
     content: public IGCL3DHelper Get3DHelper(IGCLAdapterHelper adapter)
     parameters:
     - id: adapter
       type: IGCLWrapper.IGCLAdapterHelper
+      description: Adapter helper.
     return:
       type: IGCLWrapper.IGCL3DHelper
+      description: 3D helper.
     content.vb: Public Function Get3DHelper(adapter As IGCLAdapterHelper) As IGCL3DHelper
   overload: IGCLWrapper.IGCLApiHelper.Get3DHelper*
 - uid: IGCLWrapper.IGCLApiHelper.GetEccHelper(IGCLWrapper.IGCLAdapterHelper)
@@ -336,17 +362,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetEccHelper
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 66
+    startLine: 114
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create an ECC helper for the specified adapter.
+  example: []
   syntax:
     content: public IGCLEccHelper GetEccHelper(IGCLAdapterHelper adapter)
     parameters:
     - id: adapter
       type: IGCLWrapper.IGCLAdapterHelper
+      description: Adapter helper.
     return:
       type: IGCLWrapper.IGCLEccHelper
+      description: ECC helper.
     content.vb: Public Function GetEccHelper(adapter As IGCLAdapterHelper) As IGCLEccHelper
   overload: IGCLWrapper.IGCLApiHelper.GetEccHelper*
 - uid: IGCLWrapper.IGCLApiHelper.GetEngineHelper(IGCLWrapper.IGCLAdapterHelper)
@@ -367,17 +397,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetEngineHelper
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 67
+    startLine: 120
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create an engine helper for the specified adapter.
+  example: []
   syntax:
     content: public IGCLEngineHelper GetEngineHelper(IGCLAdapterHelper adapter)
     parameters:
     - id: adapter
       type: IGCLWrapper.IGCLAdapterHelper
+      description: Adapter helper.
     return:
       type: IGCLWrapper.IGCLEngineHelper
+      description: Engine helper.
     content.vb: Public Function GetEngineHelper(adapter As IGCLAdapterHelper) As IGCLEngineHelper
   overload: IGCLWrapper.IGCLApiHelper.GetEngineHelper*
 - uid: IGCLWrapper.IGCLApiHelper.GetFanHelper(IGCLWrapper.IGCLAdapterHelper)
@@ -398,17 +432,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetFanHelper
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 68
+    startLine: 126
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a fan helper for the specified adapter.
+  example: []
   syntax:
     content: public IGCLFanHelper GetFanHelper(IGCLAdapterHelper adapter)
     parameters:
     - id: adapter
       type: IGCLWrapper.IGCLAdapterHelper
+      description: Adapter helper.
     return:
       type: IGCLWrapper.IGCLFanHelper
+      description: Fan helper.
     content.vb: Public Function GetFanHelper(adapter As IGCLAdapterHelper) As IGCLFanHelper
   overload: IGCLWrapper.IGCLApiHelper.GetFanHelper*
 - uid: IGCLWrapper.IGCLApiHelper.GetFirmwareHelper(IGCLWrapper.IGCLAdapterHelper)
@@ -429,17 +467,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetFirmwareHelper
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 69
+    startLine: 132
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a firmware helper for the specified adapter.
+  example: []
   syntax:
     content: public IGCLFirmwareHelper GetFirmwareHelper(IGCLAdapterHelper adapter)
     parameters:
     - id: adapter
       type: IGCLWrapper.IGCLAdapterHelper
+      description: Adapter helper.
     return:
       type: IGCLWrapper.IGCLFirmwareHelper
+      description: Firmware helper.
     content.vb: Public Function GetFirmwareHelper(adapter As IGCLAdapterHelper) As IGCLFirmwareHelper
   overload: IGCLWrapper.IGCLApiHelper.GetFirmwareHelper*
 - uid: IGCLWrapper.IGCLApiHelper.GetFrequencyHelper(IGCLWrapper.IGCLAdapterHelper)
@@ -460,17 +502,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetFrequencyHelper
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 70
+    startLine: 138
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a frequency helper for the specified adapter.
+  example: []
   syntax:
     content: public IGCLFrequencyHelper GetFrequencyHelper(IGCLAdapterHelper adapter)
     parameters:
     - id: adapter
       type: IGCLWrapper.IGCLAdapterHelper
+      description: Adapter helper.
     return:
       type: IGCLWrapper.IGCLFrequencyHelper
+      description: Frequency helper.
     content.vb: Public Function GetFrequencyHelper(adapter As IGCLAdapterHelper) As IGCLFrequencyHelper
   overload: IGCLWrapper.IGCLApiHelper.GetFrequencyHelper*
 - uid: IGCLWrapper.IGCLApiHelper.GetLedHelper(IGCLWrapper.IGCLAdapterHelper)
@@ -491,17 +537,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetLedHelper
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 71
+    startLine: 144
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create an LED helper for the specified adapter.
+  example: []
   syntax:
     content: public IGCLLedHelper GetLedHelper(IGCLAdapterHelper adapter)
     parameters:
     - id: adapter
       type: IGCLWrapper.IGCLAdapterHelper
+      description: Adapter helper.
     return:
       type: IGCLWrapper.IGCLLedHelper
+      description: LED helper.
     content.vb: Public Function GetLedHelper(adapter As IGCLAdapterHelper) As IGCLLedHelper
   overload: IGCLWrapper.IGCLApiHelper.GetLedHelper*
 - uid: IGCLWrapper.IGCLApiHelper.GetMediaHelper(IGCLWrapper.IGCLAdapterHelper)
@@ -522,17 +572,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetMediaHelper
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 72
+    startLine: 150
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a media helper for the specified adapter.
+  example: []
   syntax:
     content: public IGCLMediaHelper GetMediaHelper(IGCLAdapterHelper adapter)
     parameters:
     - id: adapter
       type: IGCLWrapper.IGCLAdapterHelper
+      description: Adapter helper.
     return:
       type: IGCLWrapper.IGCLMediaHelper
+      description: Media helper.
     content.vb: Public Function GetMediaHelper(adapter As IGCLAdapterHelper) As IGCLMediaHelper
   overload: IGCLWrapper.IGCLApiHelper.GetMediaHelper*
 - uid: IGCLWrapper.IGCLApiHelper.GetMemoryHelper(IGCLWrapper.IGCLAdapterHelper)
@@ -553,17 +607,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetMemoryHelper
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 73
+    startLine: 156
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a memory helper for the specified adapter.
+  example: []
   syntax:
     content: public IGCLMemoryHelper GetMemoryHelper(IGCLAdapterHelper adapter)
     parameters:
     - id: adapter
       type: IGCLWrapper.IGCLAdapterHelper
+      description: Adapter helper.
     return:
       type: IGCLWrapper.IGCLMemoryHelper
+      description: Memory helper.
     content.vb: Public Function GetMemoryHelper(adapter As IGCLAdapterHelper) As IGCLMemoryHelper
   overload: IGCLWrapper.IGCLApiHelper.GetMemoryHelper*
 - uid: IGCLWrapper.IGCLApiHelper.GetOverclockHelper(IGCLWrapper.IGCLAdapterHelper)
@@ -584,17 +642,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetOverclockHelper
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 74
+    startLine: 162
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create an overclock helper for the specified adapter.
+  example: []
   syntax:
     content: public IGCLOverclockHelper GetOverclockHelper(IGCLAdapterHelper adapter)
     parameters:
     - id: adapter
       type: IGCLWrapper.IGCLAdapterHelper
+      description: Adapter helper.
     return:
       type: IGCLWrapper.IGCLOverclockHelper
+      description: Overclock helper.
     content.vb: Public Function GetOverclockHelper(adapter As IGCLAdapterHelper) As IGCLOverclockHelper
   overload: IGCLWrapper.IGCLApiHelper.GetOverclockHelper*
 - uid: IGCLWrapper.IGCLApiHelper.GetPciHelper(IGCLWrapper.IGCLAdapterHelper)
@@ -615,17 +677,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetPciHelper
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 75
+    startLine: 168
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a PCI helper for the specified adapter.
+  example: []
   syntax:
     content: public IGCLPciHelper GetPciHelper(IGCLAdapterHelper adapter)
     parameters:
     - id: adapter
       type: IGCLWrapper.IGCLAdapterHelper
+      description: Adapter helper.
     return:
       type: IGCLWrapper.IGCLPciHelper
+      description: PCI helper.
     content.vb: Public Function GetPciHelper(adapter As IGCLAdapterHelper) As IGCLPciHelper
   overload: IGCLWrapper.IGCLApiHelper.GetPciHelper*
 - uid: IGCLWrapper.IGCLApiHelper.GetPowerHelper(IGCLWrapper.IGCLAdapterHelper)
@@ -646,17 +712,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetPowerHelper
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 76
+    startLine: 174
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a power helper for the specified adapter.
+  example: []
   syntax:
     content: public IGCLPowerHelper GetPowerHelper(IGCLAdapterHelper adapter)
     parameters:
     - id: adapter
       type: IGCLWrapper.IGCLAdapterHelper
+      description: Adapter helper.
     return:
       type: IGCLWrapper.IGCLPowerHelper
+      description: Power helper.
     content.vb: Public Function GetPowerHelper(adapter As IGCLAdapterHelper) As IGCLPowerHelper
   overload: IGCLWrapper.IGCLApiHelper.GetPowerHelper*
 - uid: IGCLWrapper.IGCLApiHelper.GetTemperatureHelper(IGCLWrapper.IGCLAdapterHelper)
@@ -677,17 +747,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetTemperatureHelper
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 77
+    startLine: 180
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a temperature helper for the specified adapter.
+  example: []
   syntax:
     content: public IGCLTemperatureHelper GetTemperatureHelper(IGCLAdapterHelper adapter)
     parameters:
     - id: adapter
       type: IGCLWrapper.IGCLAdapterHelper
+      description: Adapter helper.
     return:
       type: IGCLWrapper.IGCLTemperatureHelper
+      description: Temperature helper.
     content.vb: Public Function GetTemperatureHelper(adapter As IGCLAdapterHelper) As IGCLTemperatureHelper
   overload: IGCLWrapper.IGCLApiHelper.GetTemperatureHelper*
 - uid: IGCLWrapper.IGCLApiHelper.SetRuntimePath(IGCLWrapper.ctl_runtime_path_args_t)
@@ -708,15 +782,18 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetRuntimePath
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 90
+    startLine: 204
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Set the IGCL runtime path.
+  example: []
   syntax:
     content: public void SetRuntimePath(ctl_runtime_path_args_t args)
     parameters:
     - id: args
       type: IGCLWrapper.ctl_runtime_path_args_t
+      description: Runtime path arguments.
     content.vb: Public Sub SetRuntimePath(args As ctl_runtime_path_args_t)
   overload: IGCLWrapper.IGCLApiHelper.SetRuntimePath*
 - uid: IGCLWrapper.IGCLApiHelper.Dispose
@@ -737,11 +814,11 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 103
+    startLine: 220
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  summary: Dispose the helper and release the underlying API handle.
   example: []
   syntax:
     content: public void Dispose()

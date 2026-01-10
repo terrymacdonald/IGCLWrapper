@@ -27,10 +27,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FrequencyPropertiesDto
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 141
+    startLine: 190
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: DTO for frequency domain properties.
+  example: []
   syntax:
     content: public struct FrequencyPropertiesDto
     content.vb: Public Structure FrequencyPropertiesDto
@@ -59,10 +61,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 143
+    startLine: 195
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Size of the native struct.
+  example: []
   syntax:
     content: public uint Size
     return:
@@ -86,10 +90,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 144
+    startLine: 199
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Version of the native struct.
+  example: []
   syntax:
     content: public byte Version
     return:
@@ -113,10 +119,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Type
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 145
+    startLine: 203
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Frequency domain type.
+  example: []
   syntax:
     content: public ctl_freq_domain_t Type
     return:
@@ -140,10 +148,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CanControl
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 146
+    startLine: 207
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Indicates whether the domain can be controlled.
+  example: []
   syntax:
     content: public bool CanControl
     return:
@@ -167,10 +177,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Min
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 147
+    startLine: 211
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Minimum frequency.
+  example: []
   syntax:
     content: public double Min
     return:
@@ -194,10 +206,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Max
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 148
+    startLine: 215
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Maximum frequency.
+  example: []
   syntax:
     content: public double Max
     return:
@@ -221,17 +235,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 150
+    startLine: 222
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a DTO from a native struct.
+  example: []
   syntax:
     content: public static FrequencyPropertiesDto FromNative(ctl_freq_properties_t native)
     parameters:
     - id: native
       type: IGCLWrapper.ctl_freq_properties_t
+      description: Native struct.
     return:
       type: IGCLWrapper.FrequencyPropertiesDto
+      description: Frequency properties DTO.
     content.vb: Public Shared Function FromNative(native As ctl_freq_properties_t) As FrequencyPropertiesDto
   overload: IGCLWrapper.FrequencyPropertiesDto.FromNative*
 - uid: IGCLWrapper.FrequencyPropertiesDto.ToNative
@@ -252,14 +270,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 163
+    startLine: 239
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Convert this DTO to a native struct.
+  example: []
   syntax:
     content: public ctl_freq_properties_t ToNative()
     return:
       type: IGCLWrapper.ctl_freq_properties_t
+      description: Frequency properties struct.
     content.vb: Public Function ToNative() As ctl_freq_properties_t
   overload: IGCLWrapper.FrequencyPropertiesDto.ToNative*
 references:

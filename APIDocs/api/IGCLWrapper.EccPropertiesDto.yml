@@ -25,10 +25,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EccPropertiesDto
     path: ../IGCLWrapper/IGCLEccHelper.cs
-    startLine: 76
+    startLine: 98
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: DTO for ECC properties.
+  example: []
   syntax:
     content: public struct EccPropertiesDto
     content.vb: Public Structure EccPropertiesDto
@@ -57,10 +59,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLEccHelper.cs
-    startLine: 78
+    startLine: 103
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Size of the native struct.
+  example: []
   syntax:
     content: public uint Size
     return:
@@ -84,10 +88,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLEccHelper.cs
-    startLine: 79
+    startLine: 107
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Version of the native struct.
+  example: []
   syntax:
     content: public byte Version
     return:
@@ -111,10 +117,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsSupported
     path: ../IGCLWrapper/IGCLEccHelper.cs
-    startLine: 80
+    startLine: 111
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Indicates whether ECC is supported.
+  example: []
   syntax:
     content: public bool IsSupported
     return:
@@ -138,10 +146,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CanControl
     path: ../IGCLWrapper/IGCLEccHelper.cs
-    startLine: 81
+    startLine: 115
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Indicates whether ECC can be controlled.
+  example: []
   syntax:
     content: public bool CanControl
     return:
@@ -165,17 +175,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLEccHelper.cs
-    startLine: 83
+    startLine: 122
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a DTO from a native struct.
+  example: []
   syntax:
     content: public static EccPropertiesDto FromNative(ctl_ecc_properties_t native)
     parameters:
     - id: native
       type: IGCLWrapper.ctl_ecc_properties_t
+      description: Native struct.
     return:
       type: IGCLWrapper.EccPropertiesDto
+      description: ECC properties DTO.
     content.vb: Public Shared Function FromNative(native As ctl_ecc_properties_t) As EccPropertiesDto
   overload: IGCLWrapper.EccPropertiesDto.FromNative*
 - uid: IGCLWrapper.EccPropertiesDto.ToNative
@@ -196,14 +210,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLEccHelper.cs
-    startLine: 94
+    startLine: 137
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Convert this DTO to a native struct.
+  example: []
   syntax:
     content: public ctl_ecc_properties_t ToNative()
     return:
       type: IGCLWrapper.ctl_ecc_properties_t
+      description: ECC properties struct.
     content.vb: Public Function ToNative() As ctl_ecc_properties_t
   overload: IGCLWrapper.EccPropertiesDto.ToNative*
 references:

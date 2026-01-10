@@ -160,10 +160,10 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLApiHelper_Dispose" data-uid="IGCLWrapper.IGCLApiHelper.Dispose">
   Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L221"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
+  <div class="markdown level1 summary"><p>Dispose the helper and release the underlying API handle.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -187,10 +187,11 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLApiHelper_EnumerateAdapters" data-uid="IGCLWrapper.IGCLApiHelper.EnumerateAdapters">
   EnumerateAdapters()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L71"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Enumerate adapter helpers for all detected Intel GPU adapters.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -201,7 +202,8 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="IGCLWrapper.IGCLAdapterHelper.html">IGCLAdapterHelper</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>Read-only list of adapter helpers.</p>
+</dd>
   </dl>
 
 
@@ -218,10 +220,11 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLApiHelper_Get3DHelper_IGCLWrapper_IGCLAdapterHelper_" data-uid="IGCLWrapper.IGCLApiHelper.Get3DHelper(IGCLWrapper.IGCLAdapterHelper)">
   Get3DHelper(IGCLAdapterHelper)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L109"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Create a 3D helper for the specified adapter.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -231,13 +234,15 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>adapter</code> <a class="xref" href="IGCLWrapper.IGCLAdapterHelper.html">IGCLAdapterHelper</a></dt>
-    <dd></dd>
+    <dd><p>Adapter helper.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="IGCLWrapper.IGCL3DHelper.html">IGCL3DHelper</a></dt>
-    <dd></dd>
+    <dd><p>3D helper.</p>
+</dd>
   </dl>
 
 
@@ -254,10 +259,11 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLApiHelper_GetEccHelper_IGCLWrapper_IGCLAdapterHelper_" data-uid="IGCLWrapper.IGCLApiHelper.GetEccHelper(IGCLWrapper.IGCLAdapterHelper)">
   GetEccHelper(IGCLAdapterHelper)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L115"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Create an ECC helper for the specified adapter.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -267,13 +273,15 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>adapter</code> <a class="xref" href="IGCLWrapper.IGCLAdapterHelper.html">IGCLAdapterHelper</a></dt>
-    <dd></dd>
+    <dd><p>Adapter helper.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="IGCLWrapper.IGCLEccHelper.html">IGCLEccHelper</a></dt>
-    <dd></dd>
+    <dd><p>ECC helper.</p>
+</dd>
   </dl>
 
 
@@ -290,10 +298,11 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLApiHelper_GetEngineHelper_IGCLWrapper_IGCLAdapterHelper_" data-uid="IGCLWrapper.IGCLApiHelper.GetEngineHelper(IGCLWrapper.IGCLAdapterHelper)">
   GetEngineHelper(IGCLAdapterHelper)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L121"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Create an engine helper for the specified adapter.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -303,13 +312,15 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>adapter</code> <a class="xref" href="IGCLWrapper.IGCLAdapterHelper.html">IGCLAdapterHelper</a></dt>
-    <dd></dd>
+    <dd><p>Adapter helper.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="IGCLWrapper.IGCLEngineHelper.html">IGCLEngineHelper</a></dt>
-    <dd></dd>
+    <dd><p>Engine helper.</p>
+</dd>
   </dl>
 
 
@@ -326,10 +337,11 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLApiHelper_GetFanHelper_IGCLWrapper_IGCLAdapterHelper_" data-uid="IGCLWrapper.IGCLApiHelper.GetFanHelper(IGCLWrapper.IGCLAdapterHelper)">
   GetFanHelper(IGCLAdapterHelper)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L127"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Create a fan helper for the specified adapter.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -339,13 +351,15 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>adapter</code> <a class="xref" href="IGCLWrapper.IGCLAdapterHelper.html">IGCLAdapterHelper</a></dt>
-    <dd></dd>
+    <dd><p>Adapter helper.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="IGCLWrapper.IGCLFanHelper.html">IGCLFanHelper</a></dt>
-    <dd></dd>
+    <dd><p>Fan helper.</p>
+</dd>
   </dl>
 
 
@@ -362,10 +376,11 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLApiHelper_GetFirmwareHelper_IGCLWrapper_IGCLAdapterHelper_" data-uid="IGCLWrapper.IGCLApiHelper.GetFirmwareHelper(IGCLWrapper.IGCLAdapterHelper)">
   GetFirmwareHelper(IGCLAdapterHelper)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L133"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Create a firmware helper for the specified adapter.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -375,13 +390,15 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>adapter</code> <a class="xref" href="IGCLWrapper.IGCLAdapterHelper.html">IGCLAdapterHelper</a></dt>
-    <dd></dd>
+    <dd><p>Adapter helper.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="IGCLWrapper.IGCLFirmwareHelper.html">IGCLFirmwareHelper</a></dt>
-    <dd></dd>
+    <dd><p>Firmware helper.</p>
+</dd>
   </dl>
 
 
@@ -398,10 +415,11 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLApiHelper_GetFrequencyHelper_IGCLWrapper_IGCLAdapterHelper_" data-uid="IGCLWrapper.IGCLApiHelper.GetFrequencyHelper(IGCLWrapper.IGCLAdapterHelper)">
   GetFrequencyHelper(IGCLAdapterHelper)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L139"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Create a frequency helper for the specified adapter.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -411,13 +429,15 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>adapter</code> <a class="xref" href="IGCLWrapper.IGCLAdapterHelper.html">IGCLAdapterHelper</a></dt>
-    <dd></dd>
+    <dd><p>Adapter helper.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="IGCLWrapper.IGCLFrequencyHelper.html">IGCLFrequencyHelper</a></dt>
-    <dd></dd>
+    <dd><p>Frequency helper.</p>
+</dd>
   </dl>
 
 
@@ -434,10 +454,11 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLApiHelper_GetImplVersion" data-uid="IGCLWrapper.IGCLApiHelper.GetImplVersion">
   GetImplVersion()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L64"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Get the IGCL implementation version.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -448,7 +469,8 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
+    <dd><p>Implementation version value.</p>
+</dd>
   </dl>
 
 
@@ -465,10 +487,11 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLApiHelper_GetLedHelper_IGCLWrapper_IGCLAdapterHelper_" data-uid="IGCLWrapper.IGCLApiHelper.GetLedHelper(IGCLWrapper.IGCLAdapterHelper)">
   GetLedHelper(IGCLAdapterHelper)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L145"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Create an LED helper for the specified adapter.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -478,13 +501,15 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>adapter</code> <a class="xref" href="IGCLWrapper.IGCLAdapterHelper.html">IGCLAdapterHelper</a></dt>
-    <dd></dd>
+    <dd><p>Adapter helper.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="IGCLWrapper.IGCLLedHelper.html">IGCLLedHelper</a></dt>
-    <dd></dd>
+    <dd><p>LED helper.</p>
+</dd>
   </dl>
 
 
@@ -501,10 +526,11 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLApiHelper_GetMajorVersion_System_UInt32_" data-uid="IGCLWrapper.IGCLApiHelper.GetMajorVersion(System.UInt32)">
   GetMajorVersion(uint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L53"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Extract the major version from a combined value.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -514,13 +540,15 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>version</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
+    <dd><p>Combined version value.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
+    <dd><p>Major version.</p>
+</dd>
   </dl>
 
 
@@ -537,10 +565,11 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLApiHelper_GetMediaHelper_IGCLWrapper_IGCLAdapterHelper_" data-uid="IGCLWrapper.IGCLApiHelper.GetMediaHelper(IGCLWrapper.IGCLAdapterHelper)">
   GetMediaHelper(IGCLAdapterHelper)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L151"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Create a media helper for the specified adapter.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -550,13 +579,15 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>adapter</code> <a class="xref" href="IGCLWrapper.IGCLAdapterHelper.html">IGCLAdapterHelper</a></dt>
-    <dd></dd>
+    <dd><p>Adapter helper.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="IGCLWrapper.IGCLMediaHelper.html">IGCLMediaHelper</a></dt>
-    <dd></dd>
+    <dd><p>Media helper.</p>
+</dd>
   </dl>
 
 
@@ -573,10 +604,11 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLApiHelper_GetMemoryHelper_IGCLWrapper_IGCLAdapterHelper_" data-uid="IGCLWrapper.IGCLApiHelper.GetMemoryHelper(IGCLWrapper.IGCLAdapterHelper)">
   GetMemoryHelper(IGCLAdapterHelper)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L157"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Create a memory helper for the specified adapter.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -586,13 +618,15 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>adapter</code> <a class="xref" href="IGCLWrapper.IGCLAdapterHelper.html">IGCLAdapterHelper</a></dt>
-    <dd></dd>
+    <dd><p>Adapter helper.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="IGCLWrapper.IGCLMemoryHelper.html">IGCLMemoryHelper</a></dt>
-    <dd></dd>
+    <dd><p>Memory helper.</p>
+</dd>
   </dl>
 
 
@@ -609,10 +643,11 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLApiHelper_GetMinorVersion_System_UInt32_" data-uid="IGCLWrapper.IGCLApiHelper.GetMinorVersion(System.UInt32)">
   GetMinorVersion(uint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L59"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Extract the minor version from a combined value.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -622,13 +657,15 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>version</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
+    <dd><p>Combined version value.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
+    <dd><p>Minor version.</p>
+</dd>
   </dl>
 
 
@@ -645,10 +682,11 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLApiHelper_GetOverclockHelper_IGCLWrapper_IGCLAdapterHelper_" data-uid="IGCLWrapper.IGCLApiHelper.GetOverclockHelper(IGCLWrapper.IGCLAdapterHelper)">
   GetOverclockHelper(IGCLAdapterHelper)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L163"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Create an overclock helper for the specified adapter.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -658,13 +696,15 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>adapter</code> <a class="xref" href="IGCLWrapper.IGCLAdapterHelper.html">IGCLAdapterHelper</a></dt>
-    <dd></dd>
+    <dd><p>Adapter helper.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="IGCLWrapper.IGCLOverclockHelper.html">IGCLOverclockHelper</a></dt>
-    <dd></dd>
+    <dd><p>Overclock helper.</p>
+</dd>
   </dl>
 
 
@@ -681,10 +721,11 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLApiHelper_GetPciHelper_IGCLWrapper_IGCLAdapterHelper_" data-uid="IGCLWrapper.IGCLApiHelper.GetPciHelper(IGCLWrapper.IGCLAdapterHelper)">
   GetPciHelper(IGCLAdapterHelper)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L169"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Create a PCI helper for the specified adapter.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -694,13 +735,15 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>adapter</code> <a class="xref" href="IGCLWrapper.IGCLAdapterHelper.html">IGCLAdapterHelper</a></dt>
-    <dd></dd>
+    <dd><p>Adapter helper.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="IGCLWrapper.IGCLPciHelper.html">IGCLPciHelper</a></dt>
-    <dd></dd>
+    <dd><p>PCI helper.</p>
+</dd>
   </dl>
 
 
@@ -717,10 +760,11 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLApiHelper_GetPowerHelper_IGCLWrapper_IGCLAdapterHelper_" data-uid="IGCLWrapper.IGCLApiHelper.GetPowerHelper(IGCLWrapper.IGCLAdapterHelper)">
   GetPowerHelper(IGCLAdapterHelper)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L175"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Create a power helper for the specified adapter.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -730,13 +774,15 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>adapter</code> <a class="xref" href="IGCLWrapper.IGCLAdapterHelper.html">IGCLAdapterHelper</a></dt>
-    <dd></dd>
+    <dd><p>Adapter helper.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="IGCLWrapper.IGCLPowerHelper.html">IGCLPowerHelper</a></dt>
-    <dd></dd>
+    <dd><p>Power helper.</p>
+</dd>
   </dl>
 
 
@@ -753,10 +799,11 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLApiHelper_GetTemperatureHelper_IGCLWrapper_IGCLAdapterHelper_" data-uid="IGCLWrapper.IGCLApiHelper.GetTemperatureHelper(IGCLWrapper.IGCLAdapterHelper)">
   GetTemperatureHelper(IGCLAdapterHelper)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L181"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Create a temperature helper for the specified adapter.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -766,13 +813,15 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>adapter</code> <a class="xref" href="IGCLWrapper.IGCLAdapterHelper.html">IGCLAdapterHelper</a></dt>
-    <dd></dd>
+    <dd><p>Adapter helper.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="IGCLWrapper.IGCLTemperatureHelper.html">IGCLTemperatureHelper</a></dt>
-    <dd></dd>
+    <dd><p>Temperature helper.</p>
+</dd>
   </dl>
 
 
@@ -789,7 +838,7 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLApiHelper_Initialize" data-uid="IGCLWrapper.IGCLApiHelper.Initialize">
   Initialize()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L25"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initialize IGCL and return a helper that owns the API lifetime.</p>
@@ -804,7 +853,8 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="IGCLWrapper.IGCLApiHelper.html">IGCLApiHelper</a></dt>
-    <dd></dd>
+    <dd><p>Initialized API helper.</p>
+</dd>
   </dl>
 
 
@@ -821,7 +871,7 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLApiHelper_IsIGCLDllAvailable_System_String__" data-uid="IGCLWrapper.IGCLApiHelper.IsIGCLDllAvailable(System.String@)">
   IsIGCLDllAvailable(out string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L35"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Expose DLL availability check without requiring direct use of IGCLApi.</p>
@@ -835,13 +885,15 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>errorMessage</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>Details about why the DLL could not be loaded.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p>True if the IGCL DLL can be loaded; otherwise, false.</p>
+</dd>
   </dl>
 
 
@@ -858,10 +910,11 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLApiHelper_MakeVersion_System_UInt32_System_UInt32_" data-uid="IGCLWrapper.IGCLApiHelper.MakeVersion(System.UInt32,System.UInt32)">
   MakeVersion(uint, uint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L47"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Create a version value from major and minor components.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -871,15 +924,18 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>major</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
+    <dd><p>Major version.</p>
+</dd>
     <dt><code>minor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
+    <dd><p>Minor version.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
+    <dd><p>Combined version value.</p>
+</dd>
   </dl>
 
 
@@ -896,10 +952,11 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLApiHelper_SetRuntimePath_IGCLWrapper_ctl_runtime_path_args_t_" data-uid="IGCLWrapper.IGCLApiHelper.SetRuntimePath(IGCLWrapper.ctl_runtime_path_args_t)">
   SetRuntimePath(ctl_runtime_path_args_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L205"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Set the IGCL runtime path.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -909,7 +966,8 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>args</code> <a class="xref" href="IGCLWrapper.ctl_runtime_path_args_t.html">ctl_runtime_path_args_t</a></dt>
-    <dd></dd>
+    <dd><p>Runtime path arguments.</p>
+</dd>
   </dl>
 
 

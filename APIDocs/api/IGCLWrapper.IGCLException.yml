@@ -72,10 +72,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Result
     path: ../IGCLWrapper/IGCLApi.cs
-    startLine: 11
+    startLine: 14
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Result code from the failed IGCL API call.
+  example: []
   syntax:
     content: public ctl_result_t Result { get; }
     parameters: []
@@ -101,17 +103,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: .ctor
     path: ../IGCLWrapper/IGCLApi.cs
-    startLine: 13
+    startLine: 21
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a new IGCL exception for a result code.
+  example: []
   syntax:
     content: public IGCLException(ctl_result_t result, string? message = null)
     parameters:
     - id: result
       type: IGCLWrapper.ctl_result_t
+      description: IGCL result code.
     - id: message
       type: System.String
+      description: Optional error message.
     content.vb: Public Sub New(result As ctl_result_t, message As String = Nothing)
   overload: IGCLWrapper.IGCLException.#ctor*
   nameWithType.vb: IGCLException.New(ctl_result_t, String)
@@ -135,7 +141,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsNoDisplayError
     path: ../IGCLWrapper/IGCLApi.cs
-    startLine: 22
+    startLine: 31
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -145,6 +151,7 @@ items:
     content: public bool IsNoDisplayError()
     return:
       type: System.Boolean
+      description: True when the error indicates no display; otherwise, false.
     content.vb: Public Function IsNoDisplayError() As Boolean
   overload: IGCLWrapper.IGCLException.IsNoDisplayError*
 references:

@@ -160,7 +160,7 @@ Class IGCLHardwareDetection  <a class="header-action link-secondary" title="View
   <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLHardwareDetection.cs/#L49"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Gets detailed information about detected Intel GPUs</p>
+  <div class="markdown level1 summary"><p>Get the names of detected Intel GPUs.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -172,7 +172,7 @@ Class IGCLHardwareDetection  <a class="header-action link-secondary" title="View
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
-    <dd><p>Array of GPU names, or empty array if none found</p>
+    <dd><p>Array of GPU names, or an empty array if none found.</p>
 </dd>
   </dl>
 
@@ -193,7 +193,7 @@ Class IGCLHardwareDetection  <a class="header-action link-secondary" title="View
   <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLHardwareDetection.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Checks if an Intel GPU is present in the system via PCI Vendor ID detection</p>
+  <div class="markdown level1 summary"><p>Check if an Intel GPU is present in the system.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -204,14 +204,14 @@ Class IGCLHardwareDetection  <a class="header-action link-secondary" title="View
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>errorMessage</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>Details about why Intel GPU was not detected</p>
+    <dd><p>Details about why Intel GPU was not detected.</p>
 </dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>True if Intel GPU hardware is detected, false otherwise</p>
+    <dd><p>True if an Intel GPU is detected; otherwise, false.</p>
 </dd>
   </dl>
 

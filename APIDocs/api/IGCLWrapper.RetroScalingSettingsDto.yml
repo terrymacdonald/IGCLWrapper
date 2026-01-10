@@ -26,10 +26,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: RetroScalingSettingsDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1276
+    startLine: 1972
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: DTO for retro scaling settings.
+  example: []
   syntax:
     content: public struct RetroScalingSettingsDto
     content.vb: Public Structure RetroScalingSettingsDto
@@ -58,10 +60,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1278
+    startLine: 1977
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Size of the native struct.
+  example: []
   syntax:
     content: public uint Size
     return:
@@ -85,10 +89,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1279
+    startLine: 1981
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Version of the native struct.
+  example: []
   syntax:
     content: public byte Version
     return:
@@ -112,10 +118,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Get
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1280
+    startLine: 1985
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: True to get settings, false to set.
+  example: []
   syntax:
     content: public bool Get
     return:
@@ -139,10 +147,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Enable
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1281
+    startLine: 1989
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Enable flag.
+  example: []
   syntax:
     content: public bool Enable
     return:
@@ -166,10 +176,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: RetroScalingType
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1282
+    startLine: 1993
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Retro scaling type.
+  example: []
   syntax:
     content: public uint RetroScalingType
     return:
@@ -193,17 +205,21 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1284
+    startLine: 2000
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Create a DTO from a native struct.
+  example: []
   syntax:
     content: public static RetroScalingSettingsDto FromNative(ctl_retro_scaling_settings_t native)
     parameters:
     - id: native
       type: IGCLWrapper.ctl_retro_scaling_settings_t
+      description: Native struct.
     return:
       type: IGCLWrapper.RetroScalingSettingsDto
+      description: Retro scaling settings DTO.
     content.vb: Public Shared Function FromNative(native As ctl_retro_scaling_settings_t) As RetroScalingSettingsDto
   overload: IGCLWrapper.RetroScalingSettingsDto.FromNative*
 - uid: IGCLWrapper.RetroScalingSettingsDto.ToNative
@@ -224,14 +240,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1296
+    startLine: 2016
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
+  summary: Convert this DTO to a native struct.
+  example: []
   syntax:
     content: public ctl_retro_scaling_settings_t ToNative()
     return:
       type: IGCLWrapper.ctl_retro_scaling_settings_t
+      description: Retro scaling settings struct.
     content.vb: Public Function ToNative() As ctl_retro_scaling_settings_t
   overload: IGCLWrapper.RetroScalingSettingsDto.ToNative*
 references:
