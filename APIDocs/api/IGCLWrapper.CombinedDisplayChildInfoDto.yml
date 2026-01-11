@@ -1,40 +1,40 @@
 ### YamlMime:ManagedReference
 items:
-- uid: IGCLWrapper.SharpnessSettingsDto
-  commentId: T:IGCLWrapper.SharpnessSettingsDto
-  id: SharpnessSettingsDto
+- uid: IGCLWrapper.CombinedDisplayChildInfoDto
+  commentId: T:IGCLWrapper.CombinedDisplayChildInfoDto
+  id: CombinedDisplayChildInfoDto
   parent: IGCLWrapper
   children:
-  - IGCLWrapper.SharpnessSettingsDto.Enable
-  - IGCLWrapper.SharpnessSettingsDto.FilterType
-  - IGCLWrapper.SharpnessSettingsDto.FromNative(IGCLWrapper.ctl_sharpness_settings_t)
-  - IGCLWrapper.SharpnessSettingsDto.Intensity
-  - IGCLWrapper.SharpnessSettingsDto.Size
-  - IGCLWrapper.SharpnessSettingsDto.ToNative
-  - IGCLWrapper.SharpnessSettingsDto.Version
+  - IGCLWrapper.CombinedDisplayChildInfoDto.DisplayOrientation
+  - IGCLWrapper.CombinedDisplayChildInfoDto.DisplayOutput
+  - IGCLWrapper.CombinedDisplayChildInfoDto.FbPos
+  - IGCLWrapper.CombinedDisplayChildInfoDto.FbSrc
+  - IGCLWrapper.CombinedDisplayChildInfoDto.FromNative(IGCLWrapper.ctl_combined_display_child_info_t)
+  - IGCLWrapper.CombinedDisplayChildInfoDto.TargetMode
+  - IGCLWrapper.CombinedDisplayChildInfoDto.ToNative
   langs:
   - csharp
   - vb
-  name: SharpnessSettingsDto
-  nameWithType: SharpnessSettingsDto
-  fullName: IGCLWrapper.SharpnessSettingsDto
+  name: CombinedDisplayChildInfoDto
+  nameWithType: CombinedDisplayChildInfoDto
+  fullName: IGCLWrapper.CombinedDisplayChildInfoDto
   type: Struct
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: SharpnessSettingsDto
+    id: CombinedDisplayChildInfoDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2280
+    startLine: 1646
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: DTO for sharpness settings.
+  summary: DTO for combined display child information.
   example: []
   syntax:
-    content: public struct SharpnessSettingsDto
-    content.vb: Public Structure SharpnessSettingsDto
+    content: public struct CombinedDisplayChildInfoDto
+    content.vb: Public Structure CombinedDisplayChildInfoDto
   inheritedMembers:
   - System.ValueType.Equals(System.Object)
   - System.ValueType.GetHashCode
@@ -42,161 +42,161 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
-- uid: IGCLWrapper.SharpnessSettingsDto.Size
-  commentId: F:IGCLWrapper.SharpnessSettingsDto.Size
-  id: Size
-  parent: IGCLWrapper.SharpnessSettingsDto
+- uid: IGCLWrapper.CombinedDisplayChildInfoDto.DisplayOutput
+  commentId: F:IGCLWrapper.CombinedDisplayChildInfoDto.DisplayOutput
+  id: DisplayOutput
+  parent: IGCLWrapper.CombinedDisplayChildInfoDto
   langs:
   - csharp
   - vb
-  name: Size
-  nameWithType: SharpnessSettingsDto.Size
-  fullName: IGCLWrapper.SharpnessSettingsDto.Size
+  name: DisplayOutput
+  nameWithType: CombinedDisplayChildInfoDto.DisplayOutput
+  fullName: IGCLWrapper.CombinedDisplayChildInfoDto.DisplayOutput
   type: Field
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: Size
+    id: DisplayOutput
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2285
+    startLine: 1651
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Size of the native struct.
+  summary: Display output handle.
   example: []
   syntax:
-    content: public uint Size
+    content: public nint DisplayOutput
     return:
-      type: System.UInt32
-    content.vb: Public Size As UInteger
-- uid: IGCLWrapper.SharpnessSettingsDto.Version
-  commentId: F:IGCLWrapper.SharpnessSettingsDto.Version
-  id: Version
-  parent: IGCLWrapper.SharpnessSettingsDto
+      type: System.IntPtr
+    content.vb: Public DisplayOutput As IntPtr
+- uid: IGCLWrapper.CombinedDisplayChildInfoDto.FbSrc
+  commentId: F:IGCLWrapper.CombinedDisplayChildInfoDto.FbSrc
+  id: FbSrc
+  parent: IGCLWrapper.CombinedDisplayChildInfoDto
   langs:
   - csharp
   - vb
-  name: Version
-  nameWithType: SharpnessSettingsDto.Version
-  fullName: IGCLWrapper.SharpnessSettingsDto.Version
+  name: FbSrc
+  nameWithType: CombinedDisplayChildInfoDto.FbSrc
+  fullName: IGCLWrapper.CombinedDisplayChildInfoDto.FbSrc
   type: Field
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: Version
+    id: FbSrc
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2289
+    startLine: 1655
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Version of the native struct.
+  summary: Framebuffer source rect.
   example: []
   syntax:
-    content: public byte Version
+    content: public ctl_rect_t FbSrc
     return:
-      type: System.Byte
-    content.vb: Public Version As Byte
-- uid: IGCLWrapper.SharpnessSettingsDto.Enable
-  commentId: F:IGCLWrapper.SharpnessSettingsDto.Enable
-  id: Enable
-  parent: IGCLWrapper.SharpnessSettingsDto
+      type: IGCLWrapper.ctl_rect_t
+    content.vb: Public FbSrc As ctl_rect_t
+- uid: IGCLWrapper.CombinedDisplayChildInfoDto.FbPos
+  commentId: F:IGCLWrapper.CombinedDisplayChildInfoDto.FbPos
+  id: FbPos
+  parent: IGCLWrapper.CombinedDisplayChildInfoDto
   langs:
   - csharp
   - vb
-  name: Enable
-  nameWithType: SharpnessSettingsDto.Enable
-  fullName: IGCLWrapper.SharpnessSettingsDto.Enable
+  name: FbPos
+  nameWithType: CombinedDisplayChildInfoDto.FbPos
+  fullName: IGCLWrapper.CombinedDisplayChildInfoDto.FbPos
   type: Field
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: Enable
+    id: FbPos
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2293
+    startLine: 1659
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Enable flag.
+  summary: Framebuffer target rect.
   example: []
   syntax:
-    content: public bool Enable
+    content: public ctl_rect_t FbPos
     return:
-      type: System.Boolean
-    content.vb: Public Enable As Boolean
-- uid: IGCLWrapper.SharpnessSettingsDto.FilterType
-  commentId: F:IGCLWrapper.SharpnessSettingsDto.FilterType
-  id: FilterType
-  parent: IGCLWrapper.SharpnessSettingsDto
+      type: IGCLWrapper.ctl_rect_t
+    content.vb: Public FbPos As ctl_rect_t
+- uid: IGCLWrapper.CombinedDisplayChildInfoDto.DisplayOrientation
+  commentId: F:IGCLWrapper.CombinedDisplayChildInfoDto.DisplayOrientation
+  id: DisplayOrientation
+  parent: IGCLWrapper.CombinedDisplayChildInfoDto
   langs:
   - csharp
   - vb
-  name: FilterType
-  nameWithType: SharpnessSettingsDto.FilterType
-  fullName: IGCLWrapper.SharpnessSettingsDto.FilterType
+  name: DisplayOrientation
+  nameWithType: CombinedDisplayChildInfoDto.DisplayOrientation
+  fullName: IGCLWrapper.CombinedDisplayChildInfoDto.DisplayOrientation
   type: Field
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: FilterType
+    id: DisplayOrientation
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2297
+    startLine: 1663
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Filter type.
+  summary: Display orientation.
   example: []
   syntax:
-    content: public uint FilterType
+    content: public ctl_display_orientation_t DisplayOrientation
     return:
-      type: System.UInt32
-    content.vb: Public FilterType As UInteger
-- uid: IGCLWrapper.SharpnessSettingsDto.Intensity
-  commentId: F:IGCLWrapper.SharpnessSettingsDto.Intensity
-  id: Intensity
-  parent: IGCLWrapper.SharpnessSettingsDto
+      type: IGCLWrapper.ctl_display_orientation_t
+    content.vb: Public DisplayOrientation As ctl_display_orientation_t
+- uid: IGCLWrapper.CombinedDisplayChildInfoDto.TargetMode
+  commentId: F:IGCLWrapper.CombinedDisplayChildInfoDto.TargetMode
+  id: TargetMode
+  parent: IGCLWrapper.CombinedDisplayChildInfoDto
   langs:
   - csharp
   - vb
-  name: Intensity
-  nameWithType: SharpnessSettingsDto.Intensity
-  fullName: IGCLWrapper.SharpnessSettingsDto.Intensity
+  name: TargetMode
+  nameWithType: CombinedDisplayChildInfoDto.TargetMode
+  fullName: IGCLWrapper.CombinedDisplayChildInfoDto.TargetMode
   type: Field
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: Intensity
+    id: TargetMode
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2301
+    startLine: 1667
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Intensity value.
+  summary: Target mode info.
   example: []
   syntax:
-    content: public float Intensity
+    content: public ctl_child_display_target_mode_t TargetMode
     return:
-      type: System.Single
-    content.vb: Public Intensity As Single
-- uid: IGCLWrapper.SharpnessSettingsDto.FromNative(IGCLWrapper.ctl_sharpness_settings_t)
-  commentId: M:IGCLWrapper.SharpnessSettingsDto.FromNative(IGCLWrapper.ctl_sharpness_settings_t)
-  id: FromNative(IGCLWrapper.ctl_sharpness_settings_t)
-  parent: IGCLWrapper.SharpnessSettingsDto
+      type: IGCLWrapper.ctl_child_display_target_mode_t
+    content.vb: Public TargetMode As ctl_child_display_target_mode_t
+- uid: IGCLWrapper.CombinedDisplayChildInfoDto.FromNative(IGCLWrapper.ctl_combined_display_child_info_t)
+  commentId: M:IGCLWrapper.CombinedDisplayChildInfoDto.FromNative(IGCLWrapper.ctl_combined_display_child_info_t)
+  id: FromNative(IGCLWrapper.ctl_combined_display_child_info_t)
+  parent: IGCLWrapper.CombinedDisplayChildInfoDto
   langs:
   - csharp
   - vb
-  name: FromNative(ctl_sharpness_settings_t)
-  nameWithType: SharpnessSettingsDto.FromNative(ctl_sharpness_settings_t)
-  fullName: IGCLWrapper.SharpnessSettingsDto.FromNative(IGCLWrapper.ctl_sharpness_settings_t)
+  name: FromNative(ctl_combined_display_child_info_t)
+  nameWithType: CombinedDisplayChildInfoDto.FromNative(ctl_combined_display_child_info_t)
+  fullName: IGCLWrapper.CombinedDisplayChildInfoDto.FromNative(IGCLWrapper.ctl_combined_display_child_info_t)
   type: Method
   source:
     remote:
@@ -205,33 +205,33 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2308
+    startLine: 1674
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Create a DTO from a native struct.
   example: []
   syntax:
-    content: public static SharpnessSettingsDto FromNative(ctl_sharpness_settings_t native)
+    content: public static CombinedDisplayChildInfoDto FromNative(ctl_combined_display_child_info_t native)
     parameters:
     - id: native
-      type: IGCLWrapper.ctl_sharpness_settings_t
+      type: IGCLWrapper.ctl_combined_display_child_info_t
       description: Native struct.
     return:
-      type: IGCLWrapper.SharpnessSettingsDto
-      description: Sharpness settings DTO.
-    content.vb: Public Shared Function FromNative(native As ctl_sharpness_settings_t) As SharpnessSettingsDto
-  overload: IGCLWrapper.SharpnessSettingsDto.FromNative*
-- uid: IGCLWrapper.SharpnessSettingsDto.ToNative
-  commentId: M:IGCLWrapper.SharpnessSettingsDto.ToNative
+      type: IGCLWrapper.CombinedDisplayChildInfoDto
+      description: Child info DTO.
+    content.vb: Public Shared Function FromNative(native As ctl_combined_display_child_info_t) As CombinedDisplayChildInfoDto
+  overload: IGCLWrapper.CombinedDisplayChildInfoDto.FromNative*
+- uid: IGCLWrapper.CombinedDisplayChildInfoDto.ToNative
+  commentId: M:IGCLWrapper.CombinedDisplayChildInfoDto.ToNative
   id: ToNative
-  parent: IGCLWrapper.SharpnessSettingsDto
+  parent: IGCLWrapper.CombinedDisplayChildInfoDto
   langs:
   - csharp
   - vb
   name: ToNative()
-  nameWithType: SharpnessSettingsDto.ToNative()
-  fullName: IGCLWrapper.SharpnessSettingsDto.ToNative()
+  nameWithType: CombinedDisplayChildInfoDto.ToNative()
+  fullName: IGCLWrapper.CombinedDisplayChildInfoDto.ToNative()
   type: Method
   source:
     remote:
@@ -240,19 +240,19 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2324
+    startLine: 1690
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Convert this DTO to a native struct.
   example: []
   syntax:
-    content: public ctl_sharpness_settings_t ToNative()
+    content: public ctl_combined_display_child_info_t ToNative()
     return:
-      type: IGCLWrapper.ctl_sharpness_settings_t
-      description: Sharpness settings struct.
-    content.vb: Public Function ToNative() As ctl_sharpness_settings_t
-  overload: IGCLWrapper.SharpnessSettingsDto.ToNative*
+      type: IGCLWrapper.ctl_combined_display_child_info_t
+      description: Child info struct.
+    content.vb: Public Function ToNative() As ctl_combined_display_child_info_t
+  overload: IGCLWrapper.CombinedDisplayChildInfoDto.ToNative*
 references:
 - uid: IGCLWrapper
   commentId: N:IGCLWrapper
@@ -477,73 +477,61 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: System.UInt32
-  commentId: T:System.UInt32
+- uid: System.IntPtr
+  commentId: T:System.IntPtr
   parent: System
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.uint32
-  name: uint
-  nameWithType: uint
-  fullName: uint
-  nameWithType.vb: UInteger
-  fullName.vb: UInteger
-  name.vb: UInteger
-- uid: System.Byte
-  commentId: T:System.Byte
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.byte
-  name: byte
-  nameWithType: byte
-  fullName: byte
-  nameWithType.vb: Byte
-  fullName.vb: Byte
-  name.vb: Byte
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
-- uid: System.Single
-  commentId: T:System.Single
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.single
-  name: float
-  nameWithType: float
-  fullName: float
-  nameWithType.vb: Single
-  fullName.vb: Single
-  name.vb: Single
-- uid: IGCLWrapper.SharpnessSettingsDto.FromNative*
-  commentId: Overload:IGCLWrapper.SharpnessSettingsDto.FromNative
-  href: IGCLWrapper.SharpnessSettingsDto.html#IGCLWrapper_SharpnessSettingsDto_FromNative_IGCLWrapper_ctl_sharpness_settings_t_
+  href: https://learn.microsoft.com/dotnet/api/system.intptr
+  name: nint
+  nameWithType: nint
+  fullName: nint
+  nameWithType.vb: IntPtr
+  fullName.vb: System.IntPtr
+  name.vb: IntPtr
+- uid: IGCLWrapper.ctl_rect_t
+  commentId: T:IGCLWrapper.ctl_rect_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_rect_t.html
+  name: ctl_rect_t
+  nameWithType: ctl_rect_t
+  fullName: IGCLWrapper.ctl_rect_t
+- uid: IGCLWrapper.ctl_display_orientation_t
+  commentId: T:IGCLWrapper.ctl_display_orientation_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_display_orientation_t.html
+  name: ctl_display_orientation_t
+  nameWithType: ctl_display_orientation_t
+  fullName: IGCLWrapper.ctl_display_orientation_t
+- uid: IGCLWrapper.ctl_child_display_target_mode_t
+  commentId: T:IGCLWrapper.ctl_child_display_target_mode_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_child_display_target_mode_t.html
+  name: ctl_child_display_target_mode_t
+  nameWithType: ctl_child_display_target_mode_t
+  fullName: IGCLWrapper.ctl_child_display_target_mode_t
+- uid: IGCLWrapper.CombinedDisplayChildInfoDto.FromNative*
+  commentId: Overload:IGCLWrapper.CombinedDisplayChildInfoDto.FromNative
+  href: IGCLWrapper.CombinedDisplayChildInfoDto.html#IGCLWrapper_CombinedDisplayChildInfoDto_FromNative_IGCLWrapper_ctl_combined_display_child_info_t_
   name: FromNative
-  nameWithType: SharpnessSettingsDto.FromNative
-  fullName: IGCLWrapper.SharpnessSettingsDto.FromNative
-- uid: IGCLWrapper.ctl_sharpness_settings_t
-  commentId: T:IGCLWrapper.ctl_sharpness_settings_t
+  nameWithType: CombinedDisplayChildInfoDto.FromNative
+  fullName: IGCLWrapper.CombinedDisplayChildInfoDto.FromNative
+- uid: IGCLWrapper.ctl_combined_display_child_info_t
+  commentId: T:IGCLWrapper.ctl_combined_display_child_info_t
   parent: IGCLWrapper
-  href: IGCLWrapper.ctl_sharpness_settings_t.html
-  name: ctl_sharpness_settings_t
-  nameWithType: ctl_sharpness_settings_t
-  fullName: IGCLWrapper.ctl_sharpness_settings_t
-- uid: IGCLWrapper.SharpnessSettingsDto
-  commentId: T:IGCLWrapper.SharpnessSettingsDto
+  href: IGCLWrapper.ctl_combined_display_child_info_t.html
+  name: ctl_combined_display_child_info_t
+  nameWithType: ctl_combined_display_child_info_t
+  fullName: IGCLWrapper.ctl_combined_display_child_info_t
+- uid: IGCLWrapper.CombinedDisplayChildInfoDto
+  commentId: T:IGCLWrapper.CombinedDisplayChildInfoDto
   parent: IGCLWrapper
-  href: IGCLWrapper.SharpnessSettingsDto.html
-  name: SharpnessSettingsDto
-  nameWithType: SharpnessSettingsDto
-  fullName: IGCLWrapper.SharpnessSettingsDto
-- uid: IGCLWrapper.SharpnessSettingsDto.ToNative*
-  commentId: Overload:IGCLWrapper.SharpnessSettingsDto.ToNative
-  href: IGCLWrapper.SharpnessSettingsDto.html#IGCLWrapper_SharpnessSettingsDto_ToNative
+  href: IGCLWrapper.CombinedDisplayChildInfoDto.html
+  name: CombinedDisplayChildInfoDto
+  nameWithType: CombinedDisplayChildInfoDto
+  fullName: IGCLWrapper.CombinedDisplayChildInfoDto
+- uid: IGCLWrapper.CombinedDisplayChildInfoDto.ToNative*
+  commentId: Overload:IGCLWrapper.CombinedDisplayChildInfoDto.ToNative
+  href: IGCLWrapper.CombinedDisplayChildInfoDto.html#IGCLWrapper_CombinedDisplayChildInfoDto_ToNative
   name: ToNative
-  nameWithType: SharpnessSettingsDto.ToNative
-  fullName: IGCLWrapper.SharpnessSettingsDto.ToNative
+  nameWithType: CombinedDisplayChildInfoDto.ToNative
+  fullName: IGCLWrapper.CombinedDisplayChildInfoDto.ToNative
