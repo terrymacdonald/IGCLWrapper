@@ -1015,6 +1015,27 @@ namespace IGCLWrapper
             return copy;
         }
 
+        private unsafe byte GetCombinedDisplayMaxOutputs()
+        {
+            var args = CreateCombinedDisplayArgs();
+            args.OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_IS_SUPPORTED_CONFIG;
+            var native = GetSetCombinedDisplayNative(args);
+            return native.NumOutputs;
+        }
+
+        private static unsafe CombinedDisplayChildInfoDto[] CopyCombinedDisplayChildInfos(ctl_combined_display_child_info_t* childInfo, int count)
+        {
+            if (childInfo == null || count <= 0)
+                return Array.Empty<CombinedDisplayChildInfoDto>();
+
+            var results = new CombinedDisplayChildInfoDto[count];
+            for (var i = 0; i < count; i++)
+            {
+                results[i] = CombinedDisplayChildInfoDto.FromNative(childInfo[i]);
+            }
+            return results;
+        }
+
         /// <summary>
         /// Get combined display settings as a DTO.
         /// </summary>
@@ -1025,8 +1046,7 @@ namespace IGCLWrapper
             {
                 OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_QUERY_CONFIG
             };
-            var native = GetSetCombinedDisplayNative(args.ToNative());
-            return CombinedDisplayArgsDto.FromNative(native);
+            return GetCombinedDisplay(args);
         }
 
         /// <summary>
@@ -1039,8 +1059,62 @@ namespace IGCLWrapper
             var request = args;
             if (request.OpType == 0)
                 request.OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_QUERY_CONFIG;
-            var native = GetSetCombinedDisplayNative(request.ToNative());
-            return CombinedDisplayArgsDto.FromNative(native);
+
+            var childInfos = request.ChildInfos;
+            var needsChildInfo = request.OpType == ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_QUERY_CONFIG;
+            var maxOutputs = (byte)0;
+
+            if (needsChildInfo && (childInfos == null || childInfos.Length == 0))
+            {
+                maxOutputs = GetCombinedDisplayMaxOutputs();
+            }
+
+            if (childInfos != null && childInfos.Length > 0)
+            {
+                var nativeChildren = new ctl_combined_display_child_info_t[childInfos.Length];
+                for (var i = 0; i < childInfos.Length; i++)
+                {
+                    nativeChildren[i] = childInfos[i].ToNative();
+                }
+
+                unsafe
+                {
+                    fixed (ctl_combined_display_child_info_t* pChildInfo = nativeChildren)
+                    {
+                        var nativeRequest = request.ToNative();
+                        nativeRequest.pChildInfo = pChildInfo;
+                        if (nativeRequest.NumOutputs == 0)
+                            nativeRequest.NumOutputs = (byte)nativeChildren.Length;
+
+                        var native = GetSetCombinedDisplayNative(nativeRequest);
+                        var dto = CombinedDisplayArgsDto.FromNative(native);
+                        dto.ChildInfos = CopyCombinedDisplayChildInfos(pChildInfo, native.NumOutputs);
+                        return dto;
+                    }
+                }
+            }
+
+            if (needsChildInfo && maxOutputs > 0)
+            {
+                var nativeChildren = new ctl_combined_display_child_info_t[maxOutputs];
+                unsafe
+                {
+                    fixed (ctl_combined_display_child_info_t* pChildInfo = nativeChildren)
+                    {
+                        var nativeRequest = request.ToNative();
+                        nativeRequest.pChildInfo = pChildInfo;
+                        nativeRequest.NumOutputs = 0;
+
+                        var native = GetSetCombinedDisplayNative(nativeRequest);
+                        var dto = CombinedDisplayArgsDto.FromNative(native);
+                        dto.ChildInfos = CopyCombinedDisplayChildInfos(pChildInfo, native.NumOutputs);
+                        return dto;
+                    }
+                }
+            }
+
+            var fallback = GetSetCombinedDisplayNative(request.ToNative());
+            return CombinedDisplayArgsDto.FromNative(fallback);
         }
 
         /// <summary>
@@ -1051,7 +1125,31 @@ namespace IGCLWrapper
         {
             if (args.OpType == 0)
                 throw new ArgumentException("OpType must be set for combined display operations.", nameof(args));
-            GetSetCombinedDisplayNative(args.ToNative());
+
+            var childInfos = args.ChildInfos;
+            if (childInfos == null || childInfos.Length == 0)
+            {
+                GetSetCombinedDisplayNative(args.ToNative());
+                return;
+            }
+
+            var nativeChildren = new ctl_combined_display_child_info_t[childInfos.Length];
+            for (var i = 0; i < childInfos.Length; i++)
+            {
+                nativeChildren[i] = childInfos[i].ToNative();
+            }
+
+            unsafe
+            {
+                fixed (ctl_combined_display_child_info_t* pChildInfo = nativeChildren)
+                {
+                    var nativeRequest = args.ToNative();
+                    nativeRequest.pChildInfo = pChildInfo;
+                    if (nativeRequest.NumOutputs == 0)
+                        nativeRequest.NumOutputs = (byte)nativeChildren.Length;
+                    GetSetCombinedDisplayNative(nativeRequest);
+                }
+            }
         }
 
         /// <summary>
@@ -1489,6 +1587,10 @@ namespace IGCLWrapper
         /// </summary>
         public IntPtr ChildInfo;
         /// <summary>
+        /// Managed child display info list.
+        /// </summary>
+        public CombinedDisplayChildInfoDto[]? ChildInfos;
+        /// <summary>
         /// Combined display output handle.
         /// </summary>
         public IntPtr CombinedDisplayOutput;
@@ -1535,6 +1637,66 @@ namespace IGCLWrapper
                 CombinedDesktopHeight = CombinedDesktopHeight,
                 pChildInfo = (ctl_combined_display_child_info_t*)ChildInfo,
                 hCombinedDisplayOutput = (_ctl_display_output_handle_t*)CombinedDisplayOutput
+            };
+        }
+    }
+
+    /// <summary>
+    /// DTO for combined display child information.
+    /// </summary>
+    public unsafe struct CombinedDisplayChildInfoDto
+    {
+        /// <summary>
+        /// Display output handle.
+        /// </summary>
+        public IntPtr DisplayOutput;
+        /// <summary>
+        /// Framebuffer source rect.
+        /// </summary>
+        public ctl_rect_t FbSrc;
+        /// <summary>
+        /// Framebuffer target rect.
+        /// </summary>
+        public ctl_rect_t FbPos;
+        /// <summary>
+        /// Display orientation.
+        /// </summary>
+        public ctl_display_orientation_t DisplayOrientation;
+        /// <summary>
+        /// Target mode info.
+        /// </summary>
+        public ctl_child_display_target_mode_t TargetMode;
+
+        /// <summary>
+        /// Create a DTO from a native struct.
+        /// </summary>
+        /// <param name="native">Native struct.</param>
+        /// <returns>Child info DTO.</returns>
+        public static CombinedDisplayChildInfoDto FromNative(ctl_combined_display_child_info_t native)
+        {
+            return new CombinedDisplayChildInfoDto
+            {
+                DisplayOutput = (IntPtr)native.hDisplayOutput,
+                FbSrc = native.FbSrc,
+                FbPos = native.FbPos,
+                DisplayOrientation = native.DisplayOrientation,
+                TargetMode = native.TargetMode
+            };
+        }
+
+        /// <summary>
+        /// Convert this DTO to a native struct.
+        /// </summary>
+        /// <returns>Child info struct.</returns>
+        public ctl_combined_display_child_info_t ToNative()
+        {
+            return new ctl_combined_display_child_info_t
+            {
+                hDisplayOutput = (_ctl_display_output_handle_t*)DisplayOutput,
+                FbSrc = FbSrc,
+                FbPos = FbPos,
+                DisplayOrientation = DisplayOrientation,
+                TargetMode = TargetMode
             };
         }
     }

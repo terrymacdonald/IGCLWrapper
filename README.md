@@ -117,6 +117,39 @@ foreach (var adapter in api.EnumerateAdapters())
 }
 ```
 
+### Query combined display layout
+```csharp
+using IGCLWrapper;
+using System.Linq;
+
+using var api = IGCLApiHelper.Initialize();
+foreach (var adapter in api.EnumerateAdapters())
+{
+    var display = adapter.GetDisplays().FirstOrDefault();
+    if (display == null)
+        continue;
+
+    var combined = display.GetCombinedDisplay();
+    if (combined.NumOutputs == 0 || combined.ChildInfos == null)
+    {
+        Console.WriteLine($"Adapter {adapter.Name} has no combined display configured.");
+        continue;
+    }
+
+    Console.WriteLine($"Combined display: {combined.CombinedDesktopWidth}x{combined.CombinedDesktopHeight}");
+    for (var i = 0; i < combined.NumOutputs; i++)
+    {
+        var child = combined.ChildInfos[i];
+        Console.WriteLine(
+            $"  Output {i}: handle={child.DisplayOutput}, " +
+            $"FbSrc={child.FbSrc.Left},{child.FbSrc.Top},{child.FbSrc.Right},{child.FbSrc.Bottom}, " +
+            $"FbPos={child.FbPos.Left},{child.FbPos.Top},{child.FbPos.Right},{child.FbPos.Bottom}, " +
+            $"Orientation={child.DisplayOrientation}, " +
+            $"Target={child.TargetMode.Width}x{child.TargetMode.Height}@{child.TargetMode.RefreshRate}");
+    }
+}
+```
+
 ### Get current temperature
 ```csharp
 using IGCLWrapper;

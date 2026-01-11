@@ -144,7 +144,7 @@ namespace IGCLWrapper
         {
             ThrowIfDisposed();
 
-            const int maxAttempts = 3;
+            const int maxAttempts = 5;
             for (int attempt = 0; attempt < maxAttempts; attempt++)
             {
                 // Get display count
@@ -169,7 +169,10 @@ namespace IGCLWrapper
 
                     if (result == ctl_result_t.CTL_RESULT_ERROR_INVALID_SIZE)
                     {
-                        // Count changed between calls; retry.
+                        // Count changed between calls; re-query and retry.
+                        displayCount = 0;
+                        IGCL.ctlEnumerateDisplayOutputs((_ctl_device_adapter_handle_t*)hAdapter, &displayCount, null);
+                        System.Threading.Thread.Sleep(50);
                         continue;
                     }
 
