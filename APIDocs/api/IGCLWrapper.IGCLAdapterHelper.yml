@@ -26,7 +26,7 @@ items:
   - IGCLWrapper.IGCLAdapterHelper.Name
   - IGCLWrapper.IGCLAdapterHelper.PciVendorId
   - IGCLWrapper.IGCLAdapterHelper.SetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
-  - IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlock(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)
+  - IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlockNative(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)
   - IGCLWrapper.IGCLAdapterHelper.UnlinkDisplayAdapters
   - IGCLWrapper.IGCLAdapterHelper.WaitForPropertyChange(IGCLWrapper.ctl_wait_property_change_args_t)
   langs:
@@ -39,7 +39,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IGCLAdapterHelper
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -77,7 +77,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateCombinedDisplayArgs
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -108,7 +108,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateGenlockArgs
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -139,7 +139,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateLinkedDisplayAdaptersArgs
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -170,7 +170,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetProperties
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -201,7 +201,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumerateDevicesNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -232,7 +232,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumerateDisplayOutputsNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -263,7 +263,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumerateI2CPinPairsNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -294,7 +294,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetDeviceProperties
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -325,7 +325,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetZeDevice
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -356,7 +356,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumerateDisplayOutputs
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -387,7 +387,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Name
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -418,7 +418,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PciVendorId
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -449,7 +449,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSetCombinedDisplayNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -484,7 +484,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetCombinedDisplay
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -515,7 +515,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetCombinedDisplay
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -550,7 +550,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetCombinedDisplay
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -582,7 +582,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSetDisplayGenlockNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -626,7 +626,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetDisplayGenlock
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -659,23 +659,23 @@ items:
   nameWithType.vb: IGCLAdapterHelper.GetDisplayGenlock(IntPtr(), ctl_genlock_operation_t, GenlockArgsDto, IntPtr)
   fullName.vb: IGCLWrapper.IGCLAdapterHelper.GetDisplayGenlock(System.IntPtr(), IGCLWrapper.ctl_genlock_operation_t, IGCLWrapper.GenlockArgsDto, System.IntPtr)
   name.vb: GetDisplayGenlock(IntPtr(), ctl_genlock_operation_t, GenlockArgsDto, IntPtr)
-- uid: IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlock(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)
-  commentId: M:IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlock(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)
-  id: SetDisplayGenlock(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)
+- uid: IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlockNative(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)
+  commentId: M:IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlockNative(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)
+  id: SetDisplayGenlockNative(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)
   parent: IGCLWrapper.IGCLAdapterHelper
   langs:
   - csharp
   - vb
-  name: SetDisplayGenlock(nint[], ctl_genlock_operation_t, GenlockArgsDto, out nint)
-  nameWithType: IGCLAdapterHelper.SetDisplayGenlock(nint[], ctl_genlock_operation_t, GenlockArgsDto, out nint)
-  fullName: IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlock(nint[], IGCLWrapper.ctl_genlock_operation_t, IGCLWrapper.GenlockArgsDto, out nint)
+  name: SetDisplayGenlockNative(nint[], ctl_genlock_operation_t, GenlockArgsDto, out nint)
+  nameWithType: IGCLAdapterHelper.SetDisplayGenlockNative(nint[], ctl_genlock_operation_t, GenlockArgsDto, out nint)
+  fullName: IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlockNative(nint[], IGCLWrapper.ctl_genlock_operation_t, IGCLWrapper.GenlockArgsDto, out nint)
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: SetDisplayGenlock
+    id: SetDisplayGenlockNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
     startLine: 655
   assemblies:
@@ -684,7 +684,7 @@ items:
   summary: Set display genlock settings using a DTO.
   example: []
   syntax:
-    content: public void SetDisplayGenlock(nint[] adapters, ctl_genlock_operation_t operation, GenlockArgsDto args, out nint failureAdapter)
+    content: public void SetDisplayGenlockNative(nint[] adapters, ctl_genlock_operation_t operation, GenlockArgsDto args, out nint failureAdapter)
     parameters:
     - id: adapters
       type: System.IntPtr[]
@@ -698,11 +698,11 @@ items:
     - id: failureAdapter
       type: System.IntPtr
       description: Adapter handle that failed, if any.
-    content.vb: Public Sub SetDisplayGenlock(adapters As IntPtr(), operation As ctl_genlock_operation_t, args As GenlockArgsDto, failureAdapter As IntPtr)
-  overload: IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlock*
-  nameWithType.vb: IGCLAdapterHelper.SetDisplayGenlock(IntPtr(), ctl_genlock_operation_t, GenlockArgsDto, IntPtr)
-  fullName.vb: IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlock(System.IntPtr(), IGCLWrapper.ctl_genlock_operation_t, IGCLWrapper.GenlockArgsDto, System.IntPtr)
-  name.vb: SetDisplayGenlock(IntPtr(), ctl_genlock_operation_t, GenlockArgsDto, IntPtr)
+    content.vb: Public Sub SetDisplayGenlockNative(adapters As IntPtr(), operation As ctl_genlock_operation_t, args As GenlockArgsDto, failureAdapter As IntPtr)
+  overload: IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlockNative*
+  nameWithType.vb: IGCLAdapterHelper.SetDisplayGenlockNative(IntPtr(), ctl_genlock_operation_t, GenlockArgsDto, IntPtr)
+  fullName.vb: IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlockNative(System.IntPtr(), IGCLWrapper.ctl_genlock_operation_t, IGCLWrapper.GenlockArgsDto, System.IntPtr)
+  name.vb: SetDisplayGenlockNative(IntPtr(), ctl_genlock_operation_t, GenlockArgsDto, IntPtr)
 - uid: IGCLWrapper.IGCLAdapterHelper.LinkDisplayAdapters(IGCLWrapper.ctl_lda_args_t)
   commentId: M:IGCLWrapper.IGCLAdapterHelper.LinkDisplayAdapters(IGCLWrapper.ctl_lda_args_t)
   id: LinkDisplayAdapters(IGCLWrapper.ctl_lda_args_t)
@@ -717,7 +717,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LinkDisplayAdapters
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -749,7 +749,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: UnlinkDisplayAdapters
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -777,7 +777,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetLinkedDisplayAdapters
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -808,7 +808,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: WaitForPropertyChange
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -843,7 +843,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -1457,12 +1457,12 @@ references:
   name: GenlockArgsDto
   nameWithType: GenlockArgsDto
   fullName: IGCLWrapper.GenlockArgsDto
-- uid: IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlock*
-  commentId: Overload:IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlock
-  href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_SetDisplayGenlock_System_IntPtr___IGCLWrapper_ctl_genlock_operation_t_IGCLWrapper_GenlockArgsDto_System_IntPtr__
-  name: SetDisplayGenlock
-  nameWithType: IGCLAdapterHelper.SetDisplayGenlock
-  fullName: IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlock
+- uid: IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlockNative*
+  commentId: Overload:IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlockNative
+  href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_SetDisplayGenlockNative_System_IntPtr___IGCLWrapper_ctl_genlock_operation_t_IGCLWrapper_GenlockArgsDto_System_IntPtr__
+  name: SetDisplayGenlockNative
+  nameWithType: IGCLAdapterHelper.SetDisplayGenlockNative
+  fullName: IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlockNative
 - uid: IGCLWrapper.IGCLAdapterHelper.LinkDisplayAdapters*
   commentId: Overload:IGCLWrapper.IGCLAdapterHelper.LinkDisplayAdapters
   href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_LinkDisplayAdapters_IGCLWrapper_ctl_lda_args_t_
