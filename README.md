@@ -51,7 +51,7 @@ foreach (var adapter in adapters)
     Console.WriteLine($"\nGPU: {adapter.Name}");
     Console.WriteLine($"Device ID: 0x{props.pci_device_id:X}");
 
-    foreach (var display in adapter.GetDisplays())
+    foreach (var display in adapter.EnumerateDisplayOutputs())
     {
         if (!display.IsActive()) continue;
         var (width, height) = display.GetResolution();
@@ -90,7 +90,7 @@ using IGCLWrapper;
 using var api = IGCLApiHelper.Initialize();
 foreach (var adapter in api.EnumerateAdapters())
 {
-    foreach (var display in adapter.GetDisplays())
+    foreach (var display in adapter.EnumerateDisplayOutputs())
     {
         if (!display.IsActive()) continue;
         var (w, h) = display.GetResolution();
@@ -108,8 +108,7 @@ using System.Linq;
 using var api = IGCLApiHelper.Initialize();
 foreach (var adapter in api.EnumerateAdapters())
 {
-    var displayHelper = adapter.GetDisplays().First();
-    var result = displayHelper.GetCombinedDisplay();
+    var result = adapter.GetCombinedDisplay();
     if (result.IsSupported && result.NumOutputs > 0)
     {
         Console.WriteLine($"Adapter {adapter.Name} has a combined display with {result.NumOutputs} outputs.");
@@ -125,11 +124,7 @@ using System.Linq;
 using var api = IGCLApiHelper.Initialize();
 foreach (var adapter in api.EnumerateAdapters())
 {
-    var display = adapter.GetDisplays().FirstOrDefault();
-    if (display == null)
-        continue;
-
-    var combined = display.GetCombinedDisplay();
+    var combined = adapter.GetCombinedDisplay();
     if (combined.NumOutputs == 0 || combined.ChildInfos == null)
     {
         Console.WriteLine($"Adapter {adapter.Name} has no combined display configured.");

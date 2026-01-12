@@ -59,10 +59,10 @@ using IGCLWrapper;
 
 using var api = IGCLApiHelper.Initialize();
 var adapter = api.EnumerateAdapters().First();
-var display = adapter.GetDisplays().First();
+var display = adapter.EnumerateDisplayOutputs().First();
 
 var encoder = display.GetAdapterDisplayEncoderProperties();
-var combined = display.GetCombinedDisplay();
+var combined = adapter.GetCombinedDisplay();
 ```
 Use `*Native()` helper methods when you need raw structs instead of DTOs.
 Get/Set operations are split into `Get*()` and `Set*()` helpers; `GetSet*Native()` remains for direct IGCL calls.

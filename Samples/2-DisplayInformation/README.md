@@ -20,7 +20,7 @@ dotnet run
 ```csharp
 using var api = IGCLApiHelper.Initialize();
 var adapter = api.EnumerateAdapters().First();
-var displays = adapter.GetDisplays();
+var displays = adapter.EnumerateDisplayOutputs();
 var (width, height) = displays[0].GetResolution();
 var refreshRate = displays[0].GetRefreshRateHz();
 ```

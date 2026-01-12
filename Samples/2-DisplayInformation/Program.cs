@@ -32,7 +32,7 @@ namespace DisplayInformation
                         Console.WriteLine($"GPU: {adapter.Name}\n");
 
                         // Enumerate displays connected to this adapter
-                        var displays = adapter.GetDisplays();
+                        var displays = adapter.EnumerateDisplayOutputs();
                         Console.WriteLine($"Found {displays.Count} connected display(s)\n");
 
                         if (displays.Count == 0)

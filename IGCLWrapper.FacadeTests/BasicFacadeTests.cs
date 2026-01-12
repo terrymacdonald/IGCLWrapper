@@ -35,7 +35,7 @@ namespace IGCLWrapper.FacadeTests
             var firstAdapter = adapters[0];
             Assert.False(string.IsNullOrWhiteSpace(firstAdapter.Name));
 
-            var displays = firstAdapter.GetDisplays();
+            var displays = firstAdapter.EnumerateDisplayOutputs();
             Assert.NotNull(displays);
         }
 

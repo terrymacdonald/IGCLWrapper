@@ -160,7 +160,7 @@ Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLAdapterHelper_Name" data-uid="IGCLWrapper.IGCLAdapterHelper.Name">
   Name
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L325"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L439"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Adapter name as a string.</p>
@@ -192,7 +192,7 @@ Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLAdapterHelper_PciVendorId" data-uid="IGCLWrapper.IGCLAdapterHelper.PciVendorId">
   PciVendorId
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L338"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L452"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>PCI vendor identifier as a hexadecimal string.</p>
@@ -224,11 +224,110 @@ Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View sou
 </h2>
 
 
+  <a id="IGCLWrapper_IGCLAdapterHelper_CreateCombinedDisplayArgs_" data-uid="IGCLWrapper.IGCLAdapterHelper.CreateCombinedDisplayArgs*"></a>
+
+  <h3 id="IGCLWrapper_IGCLAdapterHelper_CreateCombinedDisplayArgs" data-uid="IGCLWrapper.IGCLAdapterHelper.CreateCombinedDisplayArgs">
+  CreateCombinedDisplayArgs()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L283"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Create a combined display args struct with Size and Version initialized.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ctl_combined_display_args_t CreateCombinedDisplayArgs()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="IGCLWrapper.ctl_combined_display_args_t.html">ctl_combined_display_args_t</a></dt>
+    <dd><p>Initialized combined display args struct.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_IGCLAdapterHelper_CreateGenlockArgs_" data-uid="IGCLWrapper.IGCLAdapterHelper.CreateGenlockArgs*"></a>
+
+  <h3 id="IGCLWrapper_IGCLAdapterHelper_CreateGenlockArgs" data-uid="IGCLWrapper.IGCLAdapterHelper.CreateGenlockArgs">
+  CreateGenlockArgs()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L288"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Create a genlock args struct with Size and Version initialized.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ctl_genlock_args_t CreateGenlockArgs()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="IGCLWrapper.ctl_genlock_args_t.html">ctl_genlock_args_t</a></dt>
+    <dd><p>Initialized genlock args struct.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_IGCLAdapterHelper_CreateLinkedDisplayAdaptersArgs_" data-uid="IGCLWrapper.IGCLAdapterHelper.CreateLinkedDisplayAdaptersArgs*"></a>
+
+  <h3 id="IGCLWrapper_IGCLAdapterHelper_CreateLinkedDisplayAdaptersArgs" data-uid="IGCLWrapper.IGCLAdapterHelper.CreateLinkedDisplayAdaptersArgs">
+  CreateLinkedDisplayAdaptersArgs()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L293"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Create linked display adapters args with Size and Version initialized.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ctl_lda_args_t CreateLinkedDisplayAdaptersArgs()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="IGCLWrapper.ctl_lda_args_t.html">ctl_lda_args_t</a></dt>
+    <dd><p>Initialized linked display adapters args struct.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="IGCLWrapper_IGCLAdapterHelper_Dispose_" data-uid="IGCLWrapper.IGCLAdapterHelper.Dispose*"></a>
 
   <h3 id="IGCLWrapper_IGCLAdapterHelper_Dispose" data-uid="IGCLWrapper.IGCLAdapterHelper.Dispose">
   Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L373"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L748"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Mark the helper as disposed.</p>
@@ -251,11 +350,44 @@ Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View sou
 
 
 
-  <a id="IGCLWrapper_IGCLAdapterHelper_GetDisplays_" data-uid="IGCLWrapper.IGCLAdapterHelper.GetDisplays*"></a>
+  <a id="IGCLWrapper_IGCLAdapterHelper_EnumerateDevicesNative_" data-uid="IGCLWrapper.IGCLAdapterHelper.EnumerateDevicesNative*"></a>
 
-  <h3 id="IGCLWrapper_IGCLAdapterHelper_GetDisplays" data-uid="IGCLWrapper.IGCLAdapterHelper.GetDisplays">
-  GetDisplays()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L310"><i class="bi bi-code-slash"></i></a>
+  <h3 id="IGCLWrapper_IGCLAdapterHelper_EnumerateDevicesNative" data-uid="IGCLWrapper.IGCLAdapterHelper.EnumerateDevicesNative">
+  EnumerateDevicesNative()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L325"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Enumerate device adapter handles available to this API instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public nint[] EnumerateDevicesNative()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a>[]</dt>
+    <dd><p>Array of adapter handles.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_IGCLAdapterHelper_EnumerateDisplayOutputs_" data-uid="IGCLWrapper.IGCLAdapterHelper.EnumerateDisplayOutputs*"></a>
+
+  <h3 id="IGCLWrapper_IGCLAdapterHelper_EnumerateDisplayOutputs" data-uid="IGCLWrapper.IGCLAdapterHelper.EnumerateDisplayOutputs">
+  EnumerateDisplayOutputs()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L424"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Enumerate displays for this adapter.</p>
@@ -263,7 +395,7 @@ Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;IGCLDisplayHelper&gt; GetDisplays()</code></pre>
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;IGCLDisplayHelper&gt; EnumerateDisplayOutputs()</code></pre>
   </div>
 
 
@@ -284,11 +416,263 @@ Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View sou
 
 
 
+  <a id="IGCLWrapper_IGCLAdapterHelper_EnumerateDisplayOutputsNative_" data-uid="IGCLWrapper.IGCLAdapterHelper.EnumerateDisplayOutputsNative*"></a>
+
+  <h3 id="IGCLWrapper_IGCLAdapterHelper_EnumerateDisplayOutputsNative" data-uid="IGCLWrapper.IGCLAdapterHelper.EnumerateDisplayOutputsNative">
+  EnumerateDisplayOutputsNative()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L349"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Enumerate display output handles for this adapter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public nint[] EnumerateDisplayOutputsNative()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a>[]</dt>
+    <dd><p>Array of display output handles.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_IGCLAdapterHelper_EnumerateI2CPinPairsNative_" data-uid="IGCLWrapper.IGCLAdapterHelper.EnumerateI2CPinPairsNative*"></a>
+
+  <h3 id="IGCLWrapper_IGCLAdapterHelper_EnumerateI2CPinPairsNative" data-uid="IGCLWrapper.IGCLAdapterHelper.EnumerateI2CPinPairsNative">
+  EnumerateI2CPinPairsNative()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L372"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Enumerate I2C pin pair handles for this adapter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public nint[] EnumerateI2CPinPairsNative()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a>[]</dt>
+    <dd><p>Array of I2C pin pair handles.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_IGCLAdapterHelper_GetCombinedDisplay_" data-uid="IGCLWrapper.IGCLAdapterHelper.GetCombinedDisplay*"></a>
+
+  <h3 id="IGCLWrapper_IGCLAdapterHelper_GetCombinedDisplay" data-uid="IGCLWrapper.IGCLAdapterHelper.GetCombinedDisplay">
+  GetCombinedDisplay()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L494"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get combined display settings as a DTO.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CombinedDisplayArgsDto GetCombinedDisplay()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="IGCLWrapper.CombinedDisplayArgsDto.html">CombinedDisplayArgsDto</a></dt>
+    <dd><p>Combined display args DTO.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_IGCLAdapterHelper_GetCombinedDisplay_" data-uid="IGCLWrapper.IGCLAdapterHelper.GetCombinedDisplay*"></a>
+
+  <h3 id="IGCLWrapper_IGCLAdapterHelper_GetCombinedDisplay_IGCLWrapper_CombinedDisplayArgsDto_" data-uid="IGCLWrapper.IGCLAdapterHelper.GetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)">
+  GetCombinedDisplay(CombinedDisplayArgsDto)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L508"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get combined display settings using the provided DTO.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CombinedDisplayArgsDto GetCombinedDisplay(CombinedDisplayArgsDto args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>args</code> <a class="xref" href="IGCLWrapper.CombinedDisplayArgsDto.html">CombinedDisplayArgsDto</a></dt>
+    <dd><p>Combined display args DTO.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="IGCLWrapper.CombinedDisplayArgsDto.html">CombinedDisplayArgsDto</a></dt>
+    <dd><p>Updated combined display args DTO.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_IGCLAdapterHelper_GetDeviceProperties_" data-uid="IGCLWrapper.IGCLAdapterHelper.GetDeviceProperties*"></a>
+
+  <h3 id="IGCLWrapper_IGCLAdapterHelper_GetDeviceProperties" data-uid="IGCLWrapper.IGCLAdapterHelper.GetDeviceProperties">
+  GetDeviceProperties()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L395"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get device adapter properties for this adapter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ctl_device_adapter_properties_t GetDeviceProperties()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="IGCLWrapper.ctl_device_adapter_properties_t.html">ctl_device_adapter_properties_t</a></dt>
+    <dd><p>Adapter properties struct.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_IGCLAdapterHelper_GetDisplayGenlock_" data-uid="IGCLWrapper.IGCLAdapterHelper.GetDisplayGenlock*"></a>
+
+  <h3 id="IGCLWrapper_IGCLAdapterHelper_GetDisplayGenlock_System_IntPtr___IGCLWrapper_ctl_genlock_operation_t_IGCLWrapper_GenlockArgsDto_System_IntPtr__" data-uid="IGCLWrapper.IGCLAdapterHelper.GetDisplayGenlock(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)">
+  GetDisplayGenlock(nint[], ctl_genlock_operation_t, GenlockArgsDto, out nint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L641"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get display genlock settings using a DTO.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GenlockArgsDto GetDisplayGenlock(nint[] adapters, ctl_genlock_operation_t operation, GenlockArgsDto args, out nint failureAdapter)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>adapters</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a>[]</dt>
+    <dd><p>Adapter handles.</p>
+</dd>
+    <dt><code>operation</code> <a class="xref" href="IGCLWrapper.ctl_genlock_operation_t.html">ctl_genlock_operation_t</a></dt>
+    <dd><p>Genlock operation.</p>
+</dd>
+    <dt><code>args</code> <a class="xref" href="IGCLWrapper.GenlockArgsDto.html">GenlockArgsDto</a></dt>
+    <dd><p>Genlock args DTO.</p>
+</dd>
+    <dt><code>failureAdapter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd><p>Adapter handle that failed, if any.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="IGCLWrapper.GenlockArgsDto.html">GenlockArgsDto</a></dt>
+    <dd><p>Updated genlock args DTO.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_IGCLAdapterHelper_GetLinkedDisplayAdapters_" data-uid="IGCLWrapper.IGCLAdapterHelper.GetLinkedDisplayAdapters*"></a>
+
+  <h3 id="IGCLWrapper_IGCLAdapterHelper_GetLinkedDisplayAdapters" data-uid="IGCLWrapper.IGCLAdapterHelper.GetLinkedDisplayAdapters">
+  GetLinkedDisplayAdapters()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L691"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get linked display adapter information.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (ctl_lda_args_t args, nint[] adapters) GetLinkedDisplayAdapters()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="IGCLWrapper.ctl_lda_args_t.html">ctl_lda_args_t</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-igclwrapper.ctl_lda_args_t,system.intptr[]-.args">args</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a>[] <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-igclwrapper.ctl_lda_args_t,system.intptr[]-.adapters">adapters</a>)</dt>
+    <dd><p>Tuple containing args and adapter handles.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="IGCLWrapper_IGCLAdapterHelper_GetProperties_" data-uid="IGCLWrapper.IGCLAdapterHelper.GetProperties*"></a>
 
   <h3 id="IGCLWrapper_IGCLAdapterHelper_GetProperties" data-uid="IGCLWrapper.IGCLAdapterHelper.GetProperties">
   GetProperties()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L284"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L299"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get adapter properties.</p>
@@ -317,11 +701,263 @@ Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View sou
 
 
 
+  <a id="IGCLWrapper_IGCLAdapterHelper_GetSetCombinedDisplayNative_" data-uid="IGCLWrapper.IGCLAdapterHelper.GetSetCombinedDisplayNative*"></a>
+
+  <h3 id="IGCLWrapper_IGCLAdapterHelper_GetSetCombinedDisplayNative_IGCLWrapper_ctl_combined_display_args_t_" data-uid="IGCLWrapper.IGCLAdapterHelper.GetSetCombinedDisplayNative(IGCLWrapper.ctl_combined_display_args_t)">
+  GetSetCombinedDisplayNative(ctl_combined_display_args_t)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L459"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Call the native get/set combined display API using the provided struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ctl_combined_display_args_t GetSetCombinedDisplayNative(ctl_combined_display_args_t args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>args</code> <a class="xref" href="IGCLWrapper.ctl_combined_display_args_t.html">ctl_combined_display_args_t</a></dt>
+    <dd><p>Combined display args struct.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="IGCLWrapper.ctl_combined_display_args_t.html">ctl_combined_display_args_t</a></dt>
+    <dd><p>Updated combined display args struct.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_IGCLAdapterHelper_GetSetDisplayGenlockNative_" data-uid="IGCLWrapper.IGCLAdapterHelper.GetSetDisplayGenlockNative*"></a>
+
+  <h3 id="IGCLWrapper_IGCLAdapterHelper_GetSetDisplayGenlockNative_System_IntPtr___IGCLWrapper_ctl_genlock_args_t_System_IntPtr__" data-uid="IGCLWrapper.IGCLAdapterHelper.GetSetDisplayGenlockNative(System.IntPtr[],IGCLWrapper.ctl_genlock_args_t,System.IntPtr@)">
+  GetSetDisplayGenlockNative(nint[], ctl_genlock_args_t, out nint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L613"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Call the native get/set display genlock API using the provided struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ctl_genlock_args_t GetSetDisplayGenlockNative(nint[] adapters, ctl_genlock_args_t args, out nint failureAdapter)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>adapters</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a>[]</dt>
+    <dd><p>Adapter handles.</p>
+</dd>
+    <dt><code>args</code> <a class="xref" href="IGCLWrapper.ctl_genlock_args_t.html">ctl_genlock_args_t</a></dt>
+    <dd><p>Genlock args struct.</p>
+</dd>
+    <dt><code>failureAdapter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd><p>Adapter handle that failed, if any.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="IGCLWrapper.ctl_genlock_args_t.html">ctl_genlock_args_t</a></dt>
+    <dd><p>Updated genlock args struct.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_IGCLAdapterHelper_GetZeDevice_" data-uid="IGCLWrapper.IGCLAdapterHelper.GetZeDevice*"></a>
+
+  <h3 id="IGCLWrapper_IGCLAdapterHelper_GetZeDevice" data-uid="IGCLWrapper.IGCLAdapterHelper.GetZeDevice">
+  GetZeDevice()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L409"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get the Level Zero device and instance for this adapter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (nint zeDevice, nint instance) GetZeDevice()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.intptr,system.intptr-.zedevice">zeDevice</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.intptr,system.intptr-.instance">instance</a>)</dt>
+    <dd><p>Tuple containing zeDevice and instance handles.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_IGCLAdapterHelper_LinkDisplayAdapters_" data-uid="IGCLWrapper.IGCLAdapterHelper.LinkDisplayAdapters*"></a>
+
+  <h3 id="IGCLWrapper_IGCLAdapterHelper_LinkDisplayAdapters_IGCLWrapper_ctl_lda_args_t_" data-uid="IGCLWrapper.IGCLAdapterHelper.LinkDisplayAdapters(IGCLWrapper.ctl_lda_args_t)">
+  LinkDisplayAdapters(ctl_lda_args_t)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L667"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Link display adapters using the provided args.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void LinkDisplayAdapters(ctl_lda_args_t args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>args</code> <a class="xref" href="IGCLWrapper.ctl_lda_args_t.html">ctl_lda_args_t</a></dt>
+    <dd><p>Linked display adapters args.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_IGCLAdapterHelper_SetCombinedDisplay_" data-uid="IGCLWrapper.IGCLAdapterHelper.SetCombinedDisplay*"></a>
+
+  <h3 id="IGCLWrapper_IGCLAdapterHelper_SetCombinedDisplay_IGCLWrapper_CombinedDisplayArgsDto_" data-uid="IGCLWrapper.IGCLAdapterHelper.SetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)">
+  SetCombinedDisplay(CombinedDisplayArgsDto)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L575"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set combined display settings using the provided DTO.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetCombinedDisplay(CombinedDisplayArgsDto args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>args</code> <a class="xref" href="IGCLWrapper.CombinedDisplayArgsDto.html">CombinedDisplayArgsDto</a></dt>
+    <dd><p>Combined display args DTO.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_IGCLAdapterHelper_SetDisplayGenlock_" data-uid="IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlock*"></a>
+
+  <h3 id="IGCLWrapper_IGCLAdapterHelper_SetDisplayGenlock_System_IntPtr___IGCLWrapper_ctl_genlock_operation_t_IGCLWrapper_GenlockArgsDto_System_IntPtr__" data-uid="IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlock(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)">
+  SetDisplayGenlock(nint[], ctl_genlock_operation_t, GenlockArgsDto, out nint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L656"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set display genlock settings using a DTO.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetDisplayGenlock(nint[] adapters, ctl_genlock_operation_t operation, GenlockArgsDto args, out nint failureAdapter)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>adapters</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a>[]</dt>
+    <dd><p>Adapter handles.</p>
+</dd>
+    <dt><code>operation</code> <a class="xref" href="IGCLWrapper.ctl_genlock_operation_t.html">ctl_genlock_operation_t</a></dt>
+    <dd><p>Genlock operation.</p>
+</dd>
+    <dt><code>args</code> <a class="xref" href="IGCLWrapper.GenlockArgsDto.html">GenlockArgsDto</a></dt>
+    <dd><p>Genlock args DTO.</p>
+</dd>
+    <dt><code>failureAdapter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd><p>Adapter handle that failed, if any.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_IGCLAdapterHelper_UnlinkDisplayAdapters_" data-uid="IGCLWrapper.IGCLAdapterHelper.UnlinkDisplayAdapters*"></a>
+
+  <h3 id="IGCLWrapper_IGCLAdapterHelper_UnlinkDisplayAdapters" data-uid="IGCLWrapper.IGCLAdapterHelper.UnlinkDisplayAdapters">
+  UnlinkDisplayAdapters()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L679"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Unlink previously linked display adapters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UnlinkDisplayAdapters()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="IGCLWrapper_IGCLAdapterHelper_WaitForPropertyChange_" data-uid="IGCLWrapper.IGCLAdapterHelper.WaitForPropertyChange*"></a>
 
   <h3 id="IGCLWrapper_IGCLAdapterHelper_WaitForPropertyChange_IGCLWrapper_ctl_wait_property_change_args_t_" data-uid="IGCLWrapper.IGCLAdapterHelper.WaitForPropertyChange(IGCLWrapper.ctl_wait_property_change_args_t)">
   WaitForPropertyChange(ctl_wait_property_change_args_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L347"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-facade-v1/IGCLWrapper/IGCLApiHelper.cs/#L722"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Wait for a property change event.</p>

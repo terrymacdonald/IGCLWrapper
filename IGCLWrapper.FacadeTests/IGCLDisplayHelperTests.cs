@@ -14,11 +14,11 @@ namespace IGCLWrapper.FacadeTests
             var (api, adapter) = FacadeTestUtils.RequireAdapter();
             using (api)
             {
-                var display = adapter.GetDisplays().FirstOrDefault();
+                var display = adapter.EnumerateDisplayOutputs().FirstOrDefault();
                 Skip.If(display == null, "No displays connected.");
                 var props = display!.GetProperties();
                 Assert.True(props.Size > 0);
-                var deviceProps = display.GetDeviceProperties();
+                var deviceProps = adapter.GetDeviceProperties();
                 Assert.True(deviceProps.Size > 0);
             }
         }
@@ -29,7 +29,7 @@ namespace IGCLWrapper.FacadeTests
             var (api, adapter) = FacadeTestUtils.RequireAdapter();
             using (api)
             {
-                var display = adapter.GetDisplays().FirstOrDefault();
+                var display = adapter.EnumerateDisplayOutputs().FirstOrDefault();
                 Skip.If(display == null, "No displays connected.");
 
                 FacadeTestUtils.InvokeOrSkip(() => display.GetAdapterDisplayEncoderProperties(), "Encoder properties unsupported");
@@ -102,7 +102,7 @@ namespace IGCLWrapper.FacadeTests
                 var customModeArgs = IGCLDisplayHelper.CreateCustomModeArgs();
                 FacadeTestUtils.InvokeOrSkip(() => display.GetCustomModes(customModeArgs), "Custom mode unsupported");
 
-                FacadeTestUtils.InvokeOrSkip(() => display.GetLinkedDisplayAdapters(), "Linked adapters unsupported");
+                FacadeTestUtils.InvokeOrSkip(() => adapter.GetLinkedDisplayAdapters(), "Linked adapters unsupported");
 
                 var pixtxQuery = IGCLDisplayHelper.CreatePixtxPipeGetConfig();
                 pixtxQuery.QueryType = ctl_pixtx_config_query_type_t.CTL_PIXTX_CONFIG_QUERY_TYPE_CAPABILITY;
@@ -130,14 +130,14 @@ namespace IGCLWrapper.FacadeTests
             var (api, adapter) = FacadeTestUtils.RequireAdapter();
             using (api)
             {
-                var display = adapter.GetDisplays().FirstOrDefault();
+                var display = adapter.EnumerateDisplayOutputs().FirstOrDefault();
                 Skip.If(display == null, "No displays connected.");
 
                 var probeArgs = new CombinedDisplayArgsDto
                 {
                     OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_IS_SUPPORTED_CONFIG
                 };
-                var support = FacadeTestUtils.InvokeOrSkip(() => display!.GetCombinedDisplay(probeArgs), "Combined display unsupported");
+                var support = FacadeTestUtils.InvokeOrSkip(() => adapter.GetCombinedDisplay(probeArgs), "Combined display unsupported");
                 if (!support.IsSupported || support.NumOutputs == 0)
                 {
                     throw new SkipException("Combined display not configured.");
@@ -146,7 +146,7 @@ namespace IGCLWrapper.FacadeTests
                 CombinedDisplayArgsDto combined;
                 try
                 {
-                    combined = display.GetCombinedDisplay();
+                    combined = adapter.GetCombinedDisplay();
                 }
                 catch (IGCLException ex) when (ex.Result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
                                                ex.Result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION ||

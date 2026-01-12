@@ -15,7 +15,7 @@ namespace IGCLWrapper.FacadeTests
             {
                 var props = adapter.GetProperties();
                 Assert.True(props.Size > 0);
-                var displays = adapter.GetDisplays();
+                var displays = adapter.EnumerateDisplayOutputs();
                 Assert.NotNull(displays);
             }
         }

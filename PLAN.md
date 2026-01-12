@@ -31,7 +31,7 @@ Concrete facade classes to add (all in `IGCLWrapper/`):
 - `IGCLAdapterHelper`:
   - Holds adapter handle (`IntPtr`) + back-reference to `IGCLApiHelper`.
   - Cached properties from `ctl_device_adapter_properties_t` (name, PCI IDs, device ID, flags).
-  - Methods: `GetDisplays()` -> `IReadOnlyList<IGCLDisplayHelper>`, and factory methods to get adapter-scoped feature helpers (could call back into `IGCLApiHelper`).
+  - Methods: `EnumerateDisplayOutputs()` -> `IReadOnlyList<IGCLDisplayHelper>`, and factory methods to get adapter-scoped feature helpers (could call back into `IGCLApiHelper`).
   - Dispose flag; guard all public methods.
 - `IGCLDisplayHelper`:
   - Holds display handle + back-reference.
@@ -105,7 +105,7 @@ Test coverage expectations:
    - Add factory methods for feature helpers (accept `IGCLAdapterHelper` or handle).
    - Implement dispose pattern; guard disposed in all public methods.
 2) **Add adapter/display helpers**
-   - `IGCLAdapterHelper.cs`: store adapter handle + back-reference; cache properties via struct init helpers; provide `GetDisplays()` and feature helper accessors.
+   - `IGCLAdapterHelper.cs`: store adapter handle + back-reference; cache properties via struct init helpers; provide `EnumerateDisplayOutputs()` and feature helper accessors.
    - `IGCLDisplayHelper.cs`: store display handle + back-reference; cache display properties; convenience methods for active/resolution/refresh/timing.
 3) **Add feature helpers (one class per feature)**
    - For each of: 3D, Ecc, Engine, Fan, Firmware, Frequency, Led, Media, Memory, Overclock, Pci, Power, Temperature.
@@ -127,7 +127,7 @@ Test coverage expectations:
      ```
      using var api = IGCLApiHelper.Initialize();
      var adapters = api.EnumerateAdapters();
-     var displays = adapters[0].GetDisplays();
+     var displays = adapters[0].EnumerateDisplayOutputs();
      var power = api.GetPowerHelper(adapters[0]);
      ```
    - Note DLL/hardware prerequisites and test split.

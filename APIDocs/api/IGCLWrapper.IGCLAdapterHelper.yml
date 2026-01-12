@@ -5,11 +5,29 @@ items:
   id: IGCLAdapterHelper
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.IGCLAdapterHelper.CreateCombinedDisplayArgs
+  - IGCLWrapper.IGCLAdapterHelper.CreateGenlockArgs
+  - IGCLWrapper.IGCLAdapterHelper.CreateLinkedDisplayAdaptersArgs
   - IGCLWrapper.IGCLAdapterHelper.Dispose
-  - IGCLWrapper.IGCLAdapterHelper.GetDisplays
+  - IGCLWrapper.IGCLAdapterHelper.EnumerateDevicesNative
+  - IGCLWrapper.IGCLAdapterHelper.EnumerateDisplayOutputs
+  - IGCLWrapper.IGCLAdapterHelper.EnumerateDisplayOutputsNative
+  - IGCLWrapper.IGCLAdapterHelper.EnumerateI2CPinPairsNative
+  - IGCLWrapper.IGCLAdapterHelper.GetCombinedDisplay
+  - IGCLWrapper.IGCLAdapterHelper.GetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
+  - IGCLWrapper.IGCLAdapterHelper.GetDeviceProperties
+  - IGCLWrapper.IGCLAdapterHelper.GetDisplayGenlock(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)
+  - IGCLWrapper.IGCLAdapterHelper.GetLinkedDisplayAdapters
   - IGCLWrapper.IGCLAdapterHelper.GetProperties
+  - IGCLWrapper.IGCLAdapterHelper.GetSetCombinedDisplayNative(IGCLWrapper.ctl_combined_display_args_t)
+  - IGCLWrapper.IGCLAdapterHelper.GetSetDisplayGenlockNative(System.IntPtr[],IGCLWrapper.ctl_genlock_args_t,System.IntPtr@)
+  - IGCLWrapper.IGCLAdapterHelper.GetZeDevice
+  - IGCLWrapper.IGCLAdapterHelper.LinkDisplayAdapters(IGCLWrapper.ctl_lda_args_t)
   - IGCLWrapper.IGCLAdapterHelper.Name
   - IGCLWrapper.IGCLAdapterHelper.PciVendorId
+  - IGCLWrapper.IGCLAdapterHelper.SetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
+  - IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlock(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)
+  - IGCLWrapper.IGCLAdapterHelper.UnlinkDisplayAdapters
   - IGCLWrapper.IGCLAdapterHelper.WaitForPropertyChange(IGCLWrapper.ctl_wait_property_change_args_t)
   langs:
   - csharp
@@ -45,6 +63,99 @@ items:
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+- uid: IGCLWrapper.IGCLAdapterHelper.CreateCombinedDisplayArgs
+  commentId: M:IGCLWrapper.IGCLAdapterHelper.CreateCombinedDisplayArgs
+  id: CreateCombinedDisplayArgs
+  parent: IGCLWrapper.IGCLAdapterHelper
+  langs:
+  - csharp
+  - vb
+  name: CreateCombinedDisplayArgs()
+  nameWithType: IGCLAdapterHelper.CreateCombinedDisplayArgs()
+  fullName: IGCLWrapper.IGCLAdapterHelper.CreateCombinedDisplayArgs()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: CreateCombinedDisplayArgs
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 282
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Create a combined display args struct with Size and Version initialized.
+  example: []
+  syntax:
+    content: public static ctl_combined_display_args_t CreateCombinedDisplayArgs()
+    return:
+      type: IGCLWrapper.ctl_combined_display_args_t
+      description: Initialized combined display args struct.
+    content.vb: Public Shared Function CreateCombinedDisplayArgs() As ctl_combined_display_args_t
+  overload: IGCLWrapper.IGCLAdapterHelper.CreateCombinedDisplayArgs*
+- uid: IGCLWrapper.IGCLAdapterHelper.CreateGenlockArgs
+  commentId: M:IGCLWrapper.IGCLAdapterHelper.CreateGenlockArgs
+  id: CreateGenlockArgs
+  parent: IGCLWrapper.IGCLAdapterHelper
+  langs:
+  - csharp
+  - vb
+  name: CreateGenlockArgs()
+  nameWithType: IGCLAdapterHelper.CreateGenlockArgs()
+  fullName: IGCLWrapper.IGCLAdapterHelper.CreateGenlockArgs()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: CreateGenlockArgs
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 287
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Create a genlock args struct with Size and Version initialized.
+  example: []
+  syntax:
+    content: public static ctl_genlock_args_t CreateGenlockArgs()
+    return:
+      type: IGCLWrapper.ctl_genlock_args_t
+      description: Initialized genlock args struct.
+    content.vb: Public Shared Function CreateGenlockArgs() As ctl_genlock_args_t
+  overload: IGCLWrapper.IGCLAdapterHelper.CreateGenlockArgs*
+- uid: IGCLWrapper.IGCLAdapterHelper.CreateLinkedDisplayAdaptersArgs
+  commentId: M:IGCLWrapper.IGCLAdapterHelper.CreateLinkedDisplayAdaptersArgs
+  id: CreateLinkedDisplayAdaptersArgs
+  parent: IGCLWrapper.IGCLAdapterHelper
+  langs:
+  - csharp
+  - vb
+  name: CreateLinkedDisplayAdaptersArgs()
+  nameWithType: IGCLAdapterHelper.CreateLinkedDisplayAdaptersArgs()
+  fullName: IGCLWrapper.IGCLAdapterHelper.CreateLinkedDisplayAdaptersArgs()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: CreateLinkedDisplayAdaptersArgs
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 292
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Create linked display adapters args with Size and Version initialized.
+  example: []
+  syntax:
+    content: public static ctl_lda_args_t CreateLinkedDisplayAdaptersArgs()
+    return:
+      type: IGCLWrapper.ctl_lda_args_t
+      description: Initialized linked display adapters args struct.
+    content.vb: Public Shared Function CreateLinkedDisplayAdaptersArgs() As ctl_lda_args_t
+  overload: IGCLWrapper.IGCLAdapterHelper.CreateLinkedDisplayAdaptersArgs*
 - uid: IGCLWrapper.IGCLAdapterHelper.GetProperties
   commentId: M:IGCLWrapper.IGCLAdapterHelper.GetProperties
   id: GetProperties
@@ -63,7 +174,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetProperties
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 283
+    startLine: 298
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -76,37 +187,192 @@ items:
       description: Adapter properties struct.
     content.vb: Public Function GetProperties() As ctl_device_adapter_properties_t
   overload: IGCLWrapper.IGCLAdapterHelper.GetProperties*
-- uid: IGCLWrapper.IGCLAdapterHelper.GetDisplays
-  commentId: M:IGCLWrapper.IGCLAdapterHelper.GetDisplays
-  id: GetDisplays
+- uid: IGCLWrapper.IGCLAdapterHelper.EnumerateDevicesNative
+  commentId: M:IGCLWrapper.IGCLAdapterHelper.EnumerateDevicesNative
+  id: EnumerateDevicesNative
   parent: IGCLWrapper.IGCLAdapterHelper
   langs:
   - csharp
   - vb
-  name: GetDisplays()
-  nameWithType: IGCLAdapterHelper.GetDisplays()
-  fullName: IGCLWrapper.IGCLAdapterHelper.GetDisplays()
+  name: EnumerateDevicesNative()
+  nameWithType: IGCLAdapterHelper.EnumerateDevicesNative()
+  fullName: IGCLWrapper.IGCLAdapterHelper.EnumerateDevicesNative()
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
       branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetDisplays
+    id: EnumerateDevicesNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 309
+    startLine: 324
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Enumerate device adapter handles available to this API instance.
+  example: []
+  syntax:
+    content: public nint[] EnumerateDevicesNative()
+    return:
+      type: System.IntPtr[]
+      description: Array of adapter handles.
+    content.vb: Public Function EnumerateDevicesNative() As IntPtr()
+  overload: IGCLWrapper.IGCLAdapterHelper.EnumerateDevicesNative*
+- uid: IGCLWrapper.IGCLAdapterHelper.EnumerateDisplayOutputsNative
+  commentId: M:IGCLWrapper.IGCLAdapterHelper.EnumerateDisplayOutputsNative
+  id: EnumerateDisplayOutputsNative
+  parent: IGCLWrapper.IGCLAdapterHelper
+  langs:
+  - csharp
+  - vb
+  name: EnumerateDisplayOutputsNative()
+  nameWithType: IGCLAdapterHelper.EnumerateDisplayOutputsNative()
+  fullName: IGCLWrapper.IGCLAdapterHelper.EnumerateDisplayOutputsNative()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: EnumerateDisplayOutputsNative
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 348
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Enumerate display output handles for this adapter.
+  example: []
+  syntax:
+    content: public nint[] EnumerateDisplayOutputsNative()
+    return:
+      type: System.IntPtr[]
+      description: Array of display output handles.
+    content.vb: Public Function EnumerateDisplayOutputsNative() As IntPtr()
+  overload: IGCLWrapper.IGCLAdapterHelper.EnumerateDisplayOutputsNative*
+- uid: IGCLWrapper.IGCLAdapterHelper.EnumerateI2CPinPairsNative
+  commentId: M:IGCLWrapper.IGCLAdapterHelper.EnumerateI2CPinPairsNative
+  id: EnumerateI2CPinPairsNative
+  parent: IGCLWrapper.IGCLAdapterHelper
+  langs:
+  - csharp
+  - vb
+  name: EnumerateI2CPinPairsNative()
+  nameWithType: IGCLAdapterHelper.EnumerateI2CPinPairsNative()
+  fullName: IGCLWrapper.IGCLAdapterHelper.EnumerateI2CPinPairsNative()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: EnumerateI2CPinPairsNative
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 371
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Enumerate I2C pin pair handles for this adapter.
+  example: []
+  syntax:
+    content: public nint[] EnumerateI2CPinPairsNative()
+    return:
+      type: System.IntPtr[]
+      description: Array of I2C pin pair handles.
+    content.vb: Public Function EnumerateI2CPinPairsNative() As IntPtr()
+  overload: IGCLWrapper.IGCLAdapterHelper.EnumerateI2CPinPairsNative*
+- uid: IGCLWrapper.IGCLAdapterHelper.GetDeviceProperties
+  commentId: M:IGCLWrapper.IGCLAdapterHelper.GetDeviceProperties
+  id: GetDeviceProperties
+  parent: IGCLWrapper.IGCLAdapterHelper
+  langs:
+  - csharp
+  - vb
+  name: GetDeviceProperties()
+  nameWithType: IGCLAdapterHelper.GetDeviceProperties()
+  fullName: IGCLWrapper.IGCLAdapterHelper.GetDeviceProperties()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetDeviceProperties
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 394
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get device adapter properties for this adapter.
+  example: []
+  syntax:
+    content: public ctl_device_adapter_properties_t GetDeviceProperties()
+    return:
+      type: IGCLWrapper.ctl_device_adapter_properties_t
+      description: Adapter properties struct.
+    content.vb: Public Function GetDeviceProperties() As ctl_device_adapter_properties_t
+  overload: IGCLWrapper.IGCLAdapterHelper.GetDeviceProperties*
+- uid: IGCLWrapper.IGCLAdapterHelper.GetZeDevice
+  commentId: M:IGCLWrapper.IGCLAdapterHelper.GetZeDevice
+  id: GetZeDevice
+  parent: IGCLWrapper.IGCLAdapterHelper
+  langs:
+  - csharp
+  - vb
+  name: GetZeDevice()
+  nameWithType: IGCLAdapterHelper.GetZeDevice()
+  fullName: IGCLWrapper.IGCLAdapterHelper.GetZeDevice()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetZeDevice
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 408
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get the Level Zero device and instance for this adapter.
+  example: []
+  syntax:
+    content: public (nint zeDevice, nint instance) GetZeDevice()
+    return:
+      type: System.ValueTuple{System.IntPtr,System.IntPtr}
+      description: Tuple containing zeDevice and instance handles.
+    content.vb: Public Function GetZeDevice() As (zeDevice As IntPtr, instance As IntPtr)
+  overload: IGCLWrapper.IGCLAdapterHelper.GetZeDevice*
+- uid: IGCLWrapper.IGCLAdapterHelper.EnumerateDisplayOutputs
+  commentId: M:IGCLWrapper.IGCLAdapterHelper.EnumerateDisplayOutputs
+  id: EnumerateDisplayOutputs
+  parent: IGCLWrapper.IGCLAdapterHelper
+  langs:
+  - csharp
+  - vb
+  name: EnumerateDisplayOutputs()
+  nameWithType: IGCLAdapterHelper.EnumerateDisplayOutputs()
+  fullName: IGCLWrapper.IGCLAdapterHelper.EnumerateDisplayOutputs()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: EnumerateDisplayOutputs
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 423
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Enumerate displays for this adapter.
   example: []
   syntax:
-    content: public IReadOnlyList<IGCLDisplayHelper> GetDisplays()
+    content: public IReadOnlyList<IGCLDisplayHelper> EnumerateDisplayOutputs()
     return:
       type: System.Collections.Generic.IReadOnlyList{IGCLWrapper.IGCLDisplayHelper}
       description: Read-only list of display helpers.
-    content.vb: Public Function GetDisplays() As IReadOnlyList(Of IGCLDisplayHelper)
-  overload: IGCLWrapper.IGCLAdapterHelper.GetDisplays*
+    content.vb: Public Function EnumerateDisplayOutputs() As IReadOnlyList(Of IGCLDisplayHelper)
+  overload: IGCLWrapper.IGCLAdapterHelper.EnumerateDisplayOutputs*
 - uid: IGCLWrapper.IGCLAdapterHelper.Name
   commentId: P:IGCLWrapper.IGCLAdapterHelper.Name
   id: Name
@@ -125,7 +391,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Name
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 324
+    startLine: 438
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -156,7 +422,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PciVendorId
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 337
+    startLine: 451
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -169,6 +435,365 @@ items:
       type: System.String
     content.vb: Public ReadOnly Property PciVendorId As String
   overload: IGCLWrapper.IGCLAdapterHelper.PciVendorId*
+- uid: IGCLWrapper.IGCLAdapterHelper.GetSetCombinedDisplayNative(IGCLWrapper.ctl_combined_display_args_t)
+  commentId: M:IGCLWrapper.IGCLAdapterHelper.GetSetCombinedDisplayNative(IGCLWrapper.ctl_combined_display_args_t)
+  id: GetSetCombinedDisplayNative(IGCLWrapper.ctl_combined_display_args_t)
+  parent: IGCLWrapper.IGCLAdapterHelper
+  langs:
+  - csharp
+  - vb
+  name: GetSetCombinedDisplayNative(ctl_combined_display_args_t)
+  nameWithType: IGCLAdapterHelper.GetSetCombinedDisplayNative(ctl_combined_display_args_t)
+  fullName: IGCLWrapper.IGCLAdapterHelper.GetSetCombinedDisplayNative(IGCLWrapper.ctl_combined_display_args_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetSetCombinedDisplayNative
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 458
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Call the native get/set combined display API using the provided struct.
+  example: []
+  syntax:
+    content: public ctl_combined_display_args_t GetSetCombinedDisplayNative(ctl_combined_display_args_t args)
+    parameters:
+    - id: args
+      type: IGCLWrapper.ctl_combined_display_args_t
+      description: Combined display args struct.
+    return:
+      type: IGCLWrapper.ctl_combined_display_args_t
+      description: Updated combined display args struct.
+    content.vb: Public Function GetSetCombinedDisplayNative(args As ctl_combined_display_args_t) As ctl_combined_display_args_t
+  overload: IGCLWrapper.IGCLAdapterHelper.GetSetCombinedDisplayNative*
+- uid: IGCLWrapper.IGCLAdapterHelper.GetCombinedDisplay
+  commentId: M:IGCLWrapper.IGCLAdapterHelper.GetCombinedDisplay
+  id: GetCombinedDisplay
+  parent: IGCLWrapper.IGCLAdapterHelper
+  langs:
+  - csharp
+  - vb
+  name: GetCombinedDisplay()
+  nameWithType: IGCLAdapterHelper.GetCombinedDisplay()
+  fullName: IGCLWrapper.IGCLAdapterHelper.GetCombinedDisplay()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetCombinedDisplay
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 493
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get combined display settings as a DTO.
+  example: []
+  syntax:
+    content: public CombinedDisplayArgsDto GetCombinedDisplay()
+    return:
+      type: IGCLWrapper.CombinedDisplayArgsDto
+      description: Combined display args DTO.
+    content.vb: Public Function GetCombinedDisplay() As CombinedDisplayArgsDto
+  overload: IGCLWrapper.IGCLAdapterHelper.GetCombinedDisplay*
+- uid: IGCLWrapper.IGCLAdapterHelper.GetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
+  commentId: M:IGCLWrapper.IGCLAdapterHelper.GetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
+  id: GetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
+  parent: IGCLWrapper.IGCLAdapterHelper
+  langs:
+  - csharp
+  - vb
+  name: GetCombinedDisplay(CombinedDisplayArgsDto)
+  nameWithType: IGCLAdapterHelper.GetCombinedDisplay(CombinedDisplayArgsDto)
+  fullName: IGCLWrapper.IGCLAdapterHelper.GetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetCombinedDisplay
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 507
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get combined display settings using the provided DTO.
+  example: []
+  syntax:
+    content: public CombinedDisplayArgsDto GetCombinedDisplay(CombinedDisplayArgsDto args)
+    parameters:
+    - id: args
+      type: IGCLWrapper.CombinedDisplayArgsDto
+      description: Combined display args DTO.
+    return:
+      type: IGCLWrapper.CombinedDisplayArgsDto
+      description: Updated combined display args DTO.
+    content.vb: Public Function GetCombinedDisplay(args As CombinedDisplayArgsDto) As CombinedDisplayArgsDto
+  overload: IGCLWrapper.IGCLAdapterHelper.GetCombinedDisplay*
+- uid: IGCLWrapper.IGCLAdapterHelper.SetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
+  commentId: M:IGCLWrapper.IGCLAdapterHelper.SetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
+  id: SetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
+  parent: IGCLWrapper.IGCLAdapterHelper
+  langs:
+  - csharp
+  - vb
+  name: SetCombinedDisplay(CombinedDisplayArgsDto)
+  nameWithType: IGCLAdapterHelper.SetCombinedDisplay(CombinedDisplayArgsDto)
+  fullName: IGCLWrapper.IGCLAdapterHelper.SetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SetCombinedDisplay
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 574
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Set combined display settings using the provided DTO.
+  example: []
+  syntax:
+    content: public void SetCombinedDisplay(CombinedDisplayArgsDto args)
+    parameters:
+    - id: args
+      type: IGCLWrapper.CombinedDisplayArgsDto
+      description: Combined display args DTO.
+    content.vb: Public Sub SetCombinedDisplay(args As CombinedDisplayArgsDto)
+  overload: IGCLWrapper.IGCLAdapterHelper.SetCombinedDisplay*
+- uid: IGCLWrapper.IGCLAdapterHelper.GetSetDisplayGenlockNative(System.IntPtr[],IGCLWrapper.ctl_genlock_args_t,System.IntPtr@)
+  commentId: M:IGCLWrapper.IGCLAdapterHelper.GetSetDisplayGenlockNative(System.IntPtr[],IGCLWrapper.ctl_genlock_args_t,System.IntPtr@)
+  id: GetSetDisplayGenlockNative(System.IntPtr[],IGCLWrapper.ctl_genlock_args_t,System.IntPtr@)
+  parent: IGCLWrapper.IGCLAdapterHelper
+  langs:
+  - csharp
+  - vb
+  name: GetSetDisplayGenlockNative(nint[], ctl_genlock_args_t, out nint)
+  nameWithType: IGCLAdapterHelper.GetSetDisplayGenlockNative(nint[], ctl_genlock_args_t, out nint)
+  fullName: IGCLWrapper.IGCLAdapterHelper.GetSetDisplayGenlockNative(nint[], IGCLWrapper.ctl_genlock_args_t, out nint)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetSetDisplayGenlockNative
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 612
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Call the native get/set display genlock API using the provided struct.
+  example: []
+  syntax:
+    content: public ctl_genlock_args_t GetSetDisplayGenlockNative(nint[] adapters, ctl_genlock_args_t args, out nint failureAdapter)
+    parameters:
+    - id: adapters
+      type: System.IntPtr[]
+      description: Adapter handles.
+    - id: args
+      type: IGCLWrapper.ctl_genlock_args_t
+      description: Genlock args struct.
+    - id: failureAdapter
+      type: System.IntPtr
+      description: Adapter handle that failed, if any.
+    return:
+      type: IGCLWrapper.ctl_genlock_args_t
+      description: Updated genlock args struct.
+    content.vb: Public Function GetSetDisplayGenlockNative(adapters As IntPtr(), args As ctl_genlock_args_t, failureAdapter As IntPtr) As ctl_genlock_args_t
+  overload: IGCLWrapper.IGCLAdapterHelper.GetSetDisplayGenlockNative*
+  nameWithType.vb: IGCLAdapterHelper.GetSetDisplayGenlockNative(IntPtr(), ctl_genlock_args_t, IntPtr)
+  fullName.vb: IGCLWrapper.IGCLAdapterHelper.GetSetDisplayGenlockNative(System.IntPtr(), IGCLWrapper.ctl_genlock_args_t, System.IntPtr)
+  name.vb: GetSetDisplayGenlockNative(IntPtr(), ctl_genlock_args_t, IntPtr)
+- uid: IGCLWrapper.IGCLAdapterHelper.GetDisplayGenlock(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)
+  commentId: M:IGCLWrapper.IGCLAdapterHelper.GetDisplayGenlock(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)
+  id: GetDisplayGenlock(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)
+  parent: IGCLWrapper.IGCLAdapterHelper
+  langs:
+  - csharp
+  - vb
+  name: GetDisplayGenlock(nint[], ctl_genlock_operation_t, GenlockArgsDto, out nint)
+  nameWithType: IGCLAdapterHelper.GetDisplayGenlock(nint[], ctl_genlock_operation_t, GenlockArgsDto, out nint)
+  fullName: IGCLWrapper.IGCLAdapterHelper.GetDisplayGenlock(nint[], IGCLWrapper.ctl_genlock_operation_t, IGCLWrapper.GenlockArgsDto, out nint)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetDisplayGenlock
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 640
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get display genlock settings using a DTO.
+  example: []
+  syntax:
+    content: public GenlockArgsDto GetDisplayGenlock(nint[] adapters, ctl_genlock_operation_t operation, GenlockArgsDto args, out nint failureAdapter)
+    parameters:
+    - id: adapters
+      type: System.IntPtr[]
+      description: Adapter handles.
+    - id: operation
+      type: IGCLWrapper.ctl_genlock_operation_t
+      description: Genlock operation.
+    - id: args
+      type: IGCLWrapper.GenlockArgsDto
+      description: Genlock args DTO.
+    - id: failureAdapter
+      type: System.IntPtr
+      description: Adapter handle that failed, if any.
+    return:
+      type: IGCLWrapper.GenlockArgsDto
+      description: Updated genlock args DTO.
+    content.vb: Public Function GetDisplayGenlock(adapters As IntPtr(), operation As ctl_genlock_operation_t, args As GenlockArgsDto, failureAdapter As IntPtr) As GenlockArgsDto
+  overload: IGCLWrapper.IGCLAdapterHelper.GetDisplayGenlock*
+  nameWithType.vb: IGCLAdapterHelper.GetDisplayGenlock(IntPtr(), ctl_genlock_operation_t, GenlockArgsDto, IntPtr)
+  fullName.vb: IGCLWrapper.IGCLAdapterHelper.GetDisplayGenlock(System.IntPtr(), IGCLWrapper.ctl_genlock_operation_t, IGCLWrapper.GenlockArgsDto, System.IntPtr)
+  name.vb: GetDisplayGenlock(IntPtr(), ctl_genlock_operation_t, GenlockArgsDto, IntPtr)
+- uid: IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlock(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)
+  commentId: M:IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlock(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)
+  id: SetDisplayGenlock(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)
+  parent: IGCLWrapper.IGCLAdapterHelper
+  langs:
+  - csharp
+  - vb
+  name: SetDisplayGenlock(nint[], ctl_genlock_operation_t, GenlockArgsDto, out nint)
+  nameWithType: IGCLAdapterHelper.SetDisplayGenlock(nint[], ctl_genlock_operation_t, GenlockArgsDto, out nint)
+  fullName: IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlock(nint[], IGCLWrapper.ctl_genlock_operation_t, IGCLWrapper.GenlockArgsDto, out nint)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SetDisplayGenlock
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 655
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Set display genlock settings using a DTO.
+  example: []
+  syntax:
+    content: public void SetDisplayGenlock(nint[] adapters, ctl_genlock_operation_t operation, GenlockArgsDto args, out nint failureAdapter)
+    parameters:
+    - id: adapters
+      type: System.IntPtr[]
+      description: Adapter handles.
+    - id: operation
+      type: IGCLWrapper.ctl_genlock_operation_t
+      description: Genlock operation.
+    - id: args
+      type: IGCLWrapper.GenlockArgsDto
+      description: Genlock args DTO.
+    - id: failureAdapter
+      type: System.IntPtr
+      description: Adapter handle that failed, if any.
+    content.vb: Public Sub SetDisplayGenlock(adapters As IntPtr(), operation As ctl_genlock_operation_t, args As GenlockArgsDto, failureAdapter As IntPtr)
+  overload: IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlock*
+  nameWithType.vb: IGCLAdapterHelper.SetDisplayGenlock(IntPtr(), ctl_genlock_operation_t, GenlockArgsDto, IntPtr)
+  fullName.vb: IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlock(System.IntPtr(), IGCLWrapper.ctl_genlock_operation_t, IGCLWrapper.GenlockArgsDto, System.IntPtr)
+  name.vb: SetDisplayGenlock(IntPtr(), ctl_genlock_operation_t, GenlockArgsDto, IntPtr)
+- uid: IGCLWrapper.IGCLAdapterHelper.LinkDisplayAdapters(IGCLWrapper.ctl_lda_args_t)
+  commentId: M:IGCLWrapper.IGCLAdapterHelper.LinkDisplayAdapters(IGCLWrapper.ctl_lda_args_t)
+  id: LinkDisplayAdapters(IGCLWrapper.ctl_lda_args_t)
+  parent: IGCLWrapper.IGCLAdapterHelper
+  langs:
+  - csharp
+  - vb
+  name: LinkDisplayAdapters(ctl_lda_args_t)
+  nameWithType: IGCLAdapterHelper.LinkDisplayAdapters(ctl_lda_args_t)
+  fullName: IGCLWrapper.IGCLAdapterHelper.LinkDisplayAdapters(IGCLWrapper.ctl_lda_args_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: LinkDisplayAdapters
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 666
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Link display adapters using the provided args.
+  example: []
+  syntax:
+    content: public void LinkDisplayAdapters(ctl_lda_args_t args)
+    parameters:
+    - id: args
+      type: IGCLWrapper.ctl_lda_args_t
+      description: Linked display adapters args.
+    content.vb: Public Sub LinkDisplayAdapters(args As ctl_lda_args_t)
+  overload: IGCLWrapper.IGCLAdapterHelper.LinkDisplayAdapters*
+- uid: IGCLWrapper.IGCLAdapterHelper.UnlinkDisplayAdapters
+  commentId: M:IGCLWrapper.IGCLAdapterHelper.UnlinkDisplayAdapters
+  id: UnlinkDisplayAdapters
+  parent: IGCLWrapper.IGCLAdapterHelper
+  langs:
+  - csharp
+  - vb
+  name: UnlinkDisplayAdapters()
+  nameWithType: IGCLAdapterHelper.UnlinkDisplayAdapters()
+  fullName: IGCLWrapper.IGCLAdapterHelper.UnlinkDisplayAdapters()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: UnlinkDisplayAdapters
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 678
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Unlink previously linked display adapters.
+  example: []
+  syntax:
+    content: public void UnlinkDisplayAdapters()
+    content.vb: Public Sub UnlinkDisplayAdapters()
+  overload: IGCLWrapper.IGCLAdapterHelper.UnlinkDisplayAdapters*
+- uid: IGCLWrapper.IGCLAdapterHelper.GetLinkedDisplayAdapters
+  commentId: M:IGCLWrapper.IGCLAdapterHelper.GetLinkedDisplayAdapters
+  id: GetLinkedDisplayAdapters
+  parent: IGCLWrapper.IGCLAdapterHelper
+  langs:
+  - csharp
+  - vb
+  name: GetLinkedDisplayAdapters()
+  nameWithType: IGCLAdapterHelper.GetLinkedDisplayAdapters()
+  fullName: IGCLWrapper.IGCLAdapterHelper.GetLinkedDisplayAdapters()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetLinkedDisplayAdapters
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 690
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get linked display adapter information.
+  example: []
+  syntax:
+    content: public (ctl_lda_args_t args, nint[] adapters) GetLinkedDisplayAdapters()
+    return:
+      type: System.ValueTuple{IGCLWrapper.ctl_lda_args_t,System.IntPtr[]}
+      description: Tuple containing args and adapter handles.
+    content.vb: Public Function GetLinkedDisplayAdapters() As (args As ctl_lda_args_t, adapters As IntPtr())
+  overload: IGCLWrapper.IGCLAdapterHelper.GetLinkedDisplayAdapters*
 - uid: IGCLWrapper.IGCLAdapterHelper.WaitForPropertyChange(IGCLWrapper.ctl_wait_property_change_args_t)
   commentId: M:IGCLWrapper.IGCLAdapterHelper.WaitForPropertyChange(IGCLWrapper.ctl_wait_property_change_args_t)
   id: WaitForPropertyChange(IGCLWrapper.ctl_wait_property_change_args_t)
@@ -187,7 +812,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: WaitForPropertyChange
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 346
+    startLine: 721
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -222,7 +847,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 372
+    startLine: 747
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -462,6 +1087,45 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: IGCLWrapper.IGCLAdapterHelper.CreateCombinedDisplayArgs*
+  commentId: Overload:IGCLWrapper.IGCLAdapterHelper.CreateCombinedDisplayArgs
+  href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_CreateCombinedDisplayArgs
+  name: CreateCombinedDisplayArgs
+  nameWithType: IGCLAdapterHelper.CreateCombinedDisplayArgs
+  fullName: IGCLWrapper.IGCLAdapterHelper.CreateCombinedDisplayArgs
+- uid: IGCLWrapper.ctl_combined_display_args_t
+  commentId: T:IGCLWrapper.ctl_combined_display_args_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_combined_display_args_t.html
+  name: ctl_combined_display_args_t
+  nameWithType: ctl_combined_display_args_t
+  fullName: IGCLWrapper.ctl_combined_display_args_t
+- uid: IGCLWrapper.IGCLAdapterHelper.CreateGenlockArgs*
+  commentId: Overload:IGCLWrapper.IGCLAdapterHelper.CreateGenlockArgs
+  href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_CreateGenlockArgs
+  name: CreateGenlockArgs
+  nameWithType: IGCLAdapterHelper.CreateGenlockArgs
+  fullName: IGCLWrapper.IGCLAdapterHelper.CreateGenlockArgs
+- uid: IGCLWrapper.ctl_genlock_args_t
+  commentId: T:IGCLWrapper.ctl_genlock_args_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_genlock_args_t.html
+  name: ctl_genlock_args_t
+  nameWithType: ctl_genlock_args_t
+  fullName: IGCLWrapper.ctl_genlock_args_t
+- uid: IGCLWrapper.IGCLAdapterHelper.CreateLinkedDisplayAdaptersArgs*
+  commentId: Overload:IGCLWrapper.IGCLAdapterHelper.CreateLinkedDisplayAdaptersArgs
+  href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_CreateLinkedDisplayAdaptersArgs
+  name: CreateLinkedDisplayAdaptersArgs
+  nameWithType: IGCLAdapterHelper.CreateLinkedDisplayAdaptersArgs
+  fullName: IGCLWrapper.IGCLAdapterHelper.CreateLinkedDisplayAdaptersArgs
+- uid: IGCLWrapper.ctl_lda_args_t
+  commentId: T:IGCLWrapper.ctl_lda_args_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_lda_args_t.html
+  name: ctl_lda_args_t
+  nameWithType: ctl_lda_args_t
+  fullName: IGCLWrapper.ctl_lda_args_t
 - uid: IGCLWrapper.IGCLAdapterHelper.GetProperties*
   commentId: Overload:IGCLWrapper.IGCLAdapterHelper.GetProperties
   href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_GetProperties
@@ -475,12 +1139,141 @@ references:
   name: ctl_device_adapter_properties_t
   nameWithType: ctl_device_adapter_properties_t
   fullName: IGCLWrapper.ctl_device_adapter_properties_t
-- uid: IGCLWrapper.IGCLAdapterHelper.GetDisplays*
-  commentId: Overload:IGCLWrapper.IGCLAdapterHelper.GetDisplays
-  href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_GetDisplays
-  name: GetDisplays
-  nameWithType: IGCLAdapterHelper.GetDisplays
-  fullName: IGCLWrapper.IGCLAdapterHelper.GetDisplays
+- uid: IGCLWrapper.IGCLAdapterHelper.EnumerateDevicesNative*
+  commentId: Overload:IGCLWrapper.IGCLAdapterHelper.EnumerateDevicesNative
+  href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_EnumerateDevicesNative
+  name: EnumerateDevicesNative
+  nameWithType: IGCLAdapterHelper.EnumerateDevicesNative
+  fullName: IGCLWrapper.IGCLAdapterHelper.EnumerateDevicesNative
+- uid: System.IntPtr[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.intptr
+  name: nint[]
+  nameWithType: nint[]
+  fullName: nint[]
+  nameWithType.vb: IntPtr()
+  fullName.vb: System.IntPtr()
+  name.vb: IntPtr()
+  spec.csharp:
+  - uid: System.IntPtr
+    name: nint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.intptr
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.IntPtr
+    name: IntPtr
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.intptr
+  - name: (
+  - name: )
+- uid: IGCLWrapper.IGCLAdapterHelper.EnumerateDisplayOutputsNative*
+  commentId: Overload:IGCLWrapper.IGCLAdapterHelper.EnumerateDisplayOutputsNative
+  href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_EnumerateDisplayOutputsNative
+  name: EnumerateDisplayOutputsNative
+  nameWithType: IGCLAdapterHelper.EnumerateDisplayOutputsNative
+  fullName: IGCLWrapper.IGCLAdapterHelper.EnumerateDisplayOutputsNative
+- uid: IGCLWrapper.IGCLAdapterHelper.EnumerateI2CPinPairsNative*
+  commentId: Overload:IGCLWrapper.IGCLAdapterHelper.EnumerateI2CPinPairsNative
+  href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_EnumerateI2CPinPairsNative
+  name: EnumerateI2CPinPairsNative
+  nameWithType: IGCLAdapterHelper.EnumerateI2CPinPairsNative
+  fullName: IGCLWrapper.IGCLAdapterHelper.EnumerateI2CPinPairsNative
+- uid: IGCLWrapper.IGCLAdapterHelper.GetDeviceProperties*
+  commentId: Overload:IGCLWrapper.IGCLAdapterHelper.GetDeviceProperties
+  href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_GetDeviceProperties
+  name: GetDeviceProperties
+  nameWithType: IGCLAdapterHelper.GetDeviceProperties
+  fullName: IGCLWrapper.IGCLAdapterHelper.GetDeviceProperties
+- uid: IGCLWrapper.IGCLAdapterHelper.GetZeDevice*
+  commentId: Overload:IGCLWrapper.IGCLAdapterHelper.GetZeDevice
+  href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_GetZeDevice
+  name: GetZeDevice
+  nameWithType: IGCLAdapterHelper.GetZeDevice
+  fullName: IGCLWrapper.IGCLAdapterHelper.GetZeDevice
+- uid: System.ValueTuple{System.IntPtr,System.IntPtr}
+  commentId: T:System.ValueTuple{System.IntPtr,System.IntPtr}
+  parent: System
+  definition: System.ValueTuple`2
+  href: https://learn.microsoft.com/dotnet/api/system.intptr
+  name: (nint zeDevice, nint instance)
+  nameWithType: (nint zeDevice, nint instance)
+  fullName: (nint zeDevice, nint instance)
+  nameWithType.vb: (zeDevice As IntPtr, instance As IntPtr)
+  fullName.vb: (zeDevice As System.IntPtr, instance As System.IntPtr)
+  name.vb: (zeDevice As IntPtr, instance As IntPtr)
+  spec.csharp:
+  - name: (
+  - uid: System.IntPtr
+    name: nint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.intptr
+  - name: " "
+  - uid: System.ValueTuple{System.IntPtr,System.IntPtr}.zeDevice
+    name: zeDevice
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.intptr,system.intptr-.zedevice
+  - name: ','
+  - name: " "
+  - uid: System.IntPtr
+    name: nint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.intptr
+  - name: " "
+  - uid: System.ValueTuple{System.IntPtr,System.IntPtr}.instance
+    name: instance
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.intptr,system.intptr-.instance
+  - name: )
+  spec.vb:
+  - name: (
+  - uid: System.ValueTuple{System.IntPtr,System.IntPtr}.zeDevice
+    name: zeDevice
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.intptr,system.intptr-.zedevice
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.IntPtr
+    name: IntPtr
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.intptr
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.IntPtr,System.IntPtr}.instance
+    name: instance
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.intptr,system.intptr-.instance
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.IntPtr
+    name: IntPtr
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.intptr
+  - name: )
+- uid: System.ValueTuple`2
+  commentId: T:System.ValueTuple`2
+  name: (T1, T2)
+  nameWithType: (T1, T2)
+  fullName: (T1, T2)
+  spec.csharp:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+  spec.vb:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+- uid: IGCLWrapper.IGCLAdapterHelper.EnumerateDisplayOutputs*
+  commentId: Overload:IGCLWrapper.IGCLAdapterHelper.EnumerateDisplayOutputs
+  href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_EnumerateDisplayOutputs
+  name: EnumerateDisplayOutputs
+  nameWithType: IGCLAdapterHelper.EnumerateDisplayOutputs
+  fullName: IGCLWrapper.IGCLAdapterHelper.EnumerateDisplayOutputs
 - uid: System.Collections.Generic.IReadOnlyList{IGCLWrapper.IGCLDisplayHelper}
   commentId: T:System.Collections.Generic.IReadOnlyList{IGCLWrapper.IGCLDisplayHelper}
   parent: System.Collections.Generic
@@ -602,6 +1395,151 @@ references:
   name: PciVendorId
   nameWithType: IGCLAdapterHelper.PciVendorId
   fullName: IGCLWrapper.IGCLAdapterHelper.PciVendorId
+- uid: IGCLWrapper.IGCLAdapterHelper.GetSetCombinedDisplayNative*
+  commentId: Overload:IGCLWrapper.IGCLAdapterHelper.GetSetCombinedDisplayNative
+  href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_GetSetCombinedDisplayNative_IGCLWrapper_ctl_combined_display_args_t_
+  name: GetSetCombinedDisplayNative
+  nameWithType: IGCLAdapterHelper.GetSetCombinedDisplayNative
+  fullName: IGCLWrapper.IGCLAdapterHelper.GetSetCombinedDisplayNative
+- uid: IGCLWrapper.IGCLAdapterHelper.GetCombinedDisplay*
+  commentId: Overload:IGCLWrapper.IGCLAdapterHelper.GetCombinedDisplay
+  href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_GetCombinedDisplay
+  name: GetCombinedDisplay
+  nameWithType: IGCLAdapterHelper.GetCombinedDisplay
+  fullName: IGCLWrapper.IGCLAdapterHelper.GetCombinedDisplay
+- uid: IGCLWrapper.CombinedDisplayArgsDto
+  commentId: T:IGCLWrapper.CombinedDisplayArgsDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.CombinedDisplayArgsDto.html
+  name: CombinedDisplayArgsDto
+  nameWithType: CombinedDisplayArgsDto
+  fullName: IGCLWrapper.CombinedDisplayArgsDto
+- uid: IGCLWrapper.IGCLAdapterHelper.SetCombinedDisplay*
+  commentId: Overload:IGCLWrapper.IGCLAdapterHelper.SetCombinedDisplay
+  href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_SetCombinedDisplay_IGCLWrapper_CombinedDisplayArgsDto_
+  name: SetCombinedDisplay
+  nameWithType: IGCLAdapterHelper.SetCombinedDisplay
+  fullName: IGCLWrapper.IGCLAdapterHelper.SetCombinedDisplay
+- uid: IGCLWrapper.IGCLAdapterHelper.GetSetDisplayGenlockNative*
+  commentId: Overload:IGCLWrapper.IGCLAdapterHelper.GetSetDisplayGenlockNative
+  href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_GetSetDisplayGenlockNative_System_IntPtr___IGCLWrapper_ctl_genlock_args_t_System_IntPtr__
+  name: GetSetDisplayGenlockNative
+  nameWithType: IGCLAdapterHelper.GetSetDisplayGenlockNative
+  fullName: IGCLWrapper.IGCLAdapterHelper.GetSetDisplayGenlockNative
+- uid: System.IntPtr
+  commentId: T:System.IntPtr
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.intptr
+  name: nint
+  nameWithType: nint
+  fullName: nint
+  nameWithType.vb: IntPtr
+  fullName.vb: System.IntPtr
+  name.vb: IntPtr
+- uid: IGCLWrapper.IGCLAdapterHelper.GetDisplayGenlock*
+  commentId: Overload:IGCLWrapper.IGCLAdapterHelper.GetDisplayGenlock
+  href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_GetDisplayGenlock_System_IntPtr___IGCLWrapper_ctl_genlock_operation_t_IGCLWrapper_GenlockArgsDto_System_IntPtr__
+  name: GetDisplayGenlock
+  nameWithType: IGCLAdapterHelper.GetDisplayGenlock
+  fullName: IGCLWrapper.IGCLAdapterHelper.GetDisplayGenlock
+- uid: IGCLWrapper.ctl_genlock_operation_t
+  commentId: T:IGCLWrapper.ctl_genlock_operation_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_genlock_operation_t.html
+  name: ctl_genlock_operation_t
+  nameWithType: ctl_genlock_operation_t
+  fullName: IGCLWrapper.ctl_genlock_operation_t
+- uid: IGCLWrapper.GenlockArgsDto
+  commentId: T:IGCLWrapper.GenlockArgsDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.GenlockArgsDto.html
+  name: GenlockArgsDto
+  nameWithType: GenlockArgsDto
+  fullName: IGCLWrapper.GenlockArgsDto
+- uid: IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlock*
+  commentId: Overload:IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlock
+  href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_SetDisplayGenlock_System_IntPtr___IGCLWrapper_ctl_genlock_operation_t_IGCLWrapper_GenlockArgsDto_System_IntPtr__
+  name: SetDisplayGenlock
+  nameWithType: IGCLAdapterHelper.SetDisplayGenlock
+  fullName: IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlock
+- uid: IGCLWrapper.IGCLAdapterHelper.LinkDisplayAdapters*
+  commentId: Overload:IGCLWrapper.IGCLAdapterHelper.LinkDisplayAdapters
+  href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_LinkDisplayAdapters_IGCLWrapper_ctl_lda_args_t_
+  name: LinkDisplayAdapters
+  nameWithType: IGCLAdapterHelper.LinkDisplayAdapters
+  fullName: IGCLWrapper.IGCLAdapterHelper.LinkDisplayAdapters
+- uid: IGCLWrapper.IGCLAdapterHelper.UnlinkDisplayAdapters*
+  commentId: Overload:IGCLWrapper.IGCLAdapterHelper.UnlinkDisplayAdapters
+  href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_UnlinkDisplayAdapters
+  name: UnlinkDisplayAdapters
+  nameWithType: IGCLAdapterHelper.UnlinkDisplayAdapters
+  fullName: IGCLWrapper.IGCLAdapterHelper.UnlinkDisplayAdapters
+- uid: IGCLWrapper.IGCLAdapterHelper.GetLinkedDisplayAdapters*
+  commentId: Overload:IGCLWrapper.IGCLAdapterHelper.GetLinkedDisplayAdapters
+  href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_GetLinkedDisplayAdapters
+  name: GetLinkedDisplayAdapters
+  nameWithType: IGCLAdapterHelper.GetLinkedDisplayAdapters
+  fullName: IGCLWrapper.IGCLAdapterHelper.GetLinkedDisplayAdapters
+- uid: System.ValueTuple{IGCLWrapper.ctl_lda_args_t,System.IntPtr[]}
+  commentId: T:System.ValueTuple{IGCLWrapper.ctl_lda_args_t,System.IntPtr[]}
+  parent: System
+  definition: System.ValueTuple`2
+  href: IGCLWrapper.ctl_lda_args_t.html
+  name: (ctl_lda_args_t args, nint[] adapters)
+  nameWithType: (ctl_lda_args_t args, nint[] adapters)
+  fullName: (IGCLWrapper.ctl_lda_args_t args, nint[] adapters)
+  nameWithType.vb: (args As ctl_lda_args_t, adapters As IntPtr())
+  fullName.vb: (args As IGCLWrapper.ctl_lda_args_t, adapters As System.IntPtr())
+  name.vb: (args As ctl_lda_args_t, adapters As IntPtr())
+  spec.csharp:
+  - name: (
+  - uid: IGCLWrapper.ctl_lda_args_t
+    name: ctl_lda_args_t
+    href: IGCLWrapper.ctl_lda_args_t.html
+  - name: " "
+  - uid: System.ValueTuple{IGCLWrapper.ctl_lda_args_t,System.IntPtr[]}.args
+    name: args
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-igclwrapper.ctl_lda_args_t,system.intptr[]-.args
+  - name: ','
+  - name: " "
+  - uid: System.IntPtr
+    name: nint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.intptr
+  - name: '['
+  - name: ']'
+  - name: " "
+  - uid: System.ValueTuple{IGCLWrapper.ctl_lda_args_t,System.IntPtr[]}.adapters
+    name: adapters
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-igclwrapper.ctl_lda_args_t,system.intptr[]-.adapters
+  - name: )
+  spec.vb:
+  - name: (
+  - uid: System.ValueTuple{IGCLWrapper.ctl_lda_args_t,System.IntPtr[]}.args
+    name: args
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-igclwrapper.ctl_lda_args_t,system.intptr[]-.args
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: IGCLWrapper.ctl_lda_args_t
+    name: ctl_lda_args_t
+    href: IGCLWrapper.ctl_lda_args_t.html
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{IGCLWrapper.ctl_lda_args_t,System.IntPtr[]}.adapters
+    name: adapters
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-igclwrapper.ctl_lda_args_t,system.intptr[]-.adapters
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.IntPtr
+    name: IntPtr
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.intptr
+  - name: (
+  - name: )
+  - name: )
 - uid: IGCLWrapper.IGCLAdapterHelper.WaitForPropertyChange*
   commentId: Overload:IGCLWrapper.IGCLAdapterHelper.WaitForPropertyChange
   href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_WaitForPropertyChange_IGCLWrapper_ctl_wait_property_change_args_t_
