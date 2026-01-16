@@ -99,8 +99,7 @@ namespace IGCLWrapper.FacadeTests
                     throw new SkipException("Brightness unsupported: display is not a companion display.");
                 }
 
-                var customModeArgs = IGCLDisplayHelper.CreateCustomModeArgs();
-                FacadeTestUtils.InvokeOrSkip(() => display.GetCustomModes(customModeArgs), "Custom mode unsupported");
+                FacadeTestUtils.InvokeOrSkip(() => display.GetCustomModes(), "Custom mode unsupported");
 
                 FacadeTestUtils.InvokeOrSkip(() => adapter.GetLinkedDisplayAdapters(), "Linked adapters unsupported");
 
@@ -120,6 +119,34 @@ namespace IGCLWrapper.FacadeTests
                 if (muxes.Length > 0)
                 {
                     FacadeTestUtils.InvokeOrSkip(() => display.GetMuxProperties(muxes[0]), "Mux properties unsupported");
+                }
+            }
+        }
+
+        [SkippableFact]
+        public void GetEdid_ShouldReturnBytesOrSkip()
+        {
+            var (api, adapter) = FacadeTestUtils.RequireAdapter();
+            using (api)
+            {
+                var display = adapter.EnumerateDisplayOutputs().FirstOrDefault();
+                Skip.If(display == null, "No displays connected.");
+
+                try
+                {
+                    var edid = display.GetEdid();
+                    if (edid.Length == 0)
+                        throw new SkipException("EDID not available.");
+
+                    var (edidWithFlags, _) = display.GetEdidWithFlags();
+                    Assert.True(edidWithFlags.Length > 0);
+                }
+                catch (IGCLException ex) when (ex.Result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
+                                               ex.Result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION ||
+                                               ex.Result == ctl_result_t.CTL_RESULT_ERROR_DISPLAY_NOT_ATTACHED ||
+                                               ex.Result == ctl_result_t.CTL_RESULT_ERROR_DATA_NOT_FOUND)
+                {
+                    throw new SkipException($"EDID read unsupported: {ex.Result}");
                 }
             }
         }

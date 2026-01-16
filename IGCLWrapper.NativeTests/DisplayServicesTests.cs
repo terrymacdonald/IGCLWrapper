@@ -491,5 +491,103 @@ namespace IGCLWrapper.Tests
                 );
             }
         }
+
+        [SkippableFact]
+        public void CtlEdidManagement_ReadEdid_ShouldReturnBytesOrSkip()
+        {
+            // Arrange
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable, _skipReason);
+
+            unsafe
+            {
+                bool anyAttached = false;
+                bool anySuccess = false;
+
+                for (var displayIndex = 0; displayIndex < _displays.Length; displayIndex++)
+                {
+                    var displayHandle = _displays[displayIndex];
+                    var props = new ctl_display_properties_t
+                    {
+                        Size = (uint)sizeof(ctl_display_properties_t),
+                        Version = 0
+                    };
+
+                    var propsResult = IGCL.ctlGetDisplayProperties((_ctl_display_output_handle_t*)displayHandle, &props);
+                    if (propsResult != ctl_result_t.CTL_RESULT_SUCCESS)
+                        continue;
+
+                    var isAttached = (props.DisplayConfigFlags & (uint)ctl_display_config_flag_t.CTL_DISPLAY_CONFIG_FLAG_DISPLAY_ATTACHED) != 0;
+                    if (!isAttached)
+                        continue;
+
+                    anyAttached = true;
+
+                    var args = new ctl_edid_management_args_t
+                    {
+                        Size = (uint)sizeof(ctl_edid_management_args_t),
+                        Version = 0,
+                        OpType = ctl_edid_management_optype_t.CTL_EDID_MANAGEMENT_OPTYPE_READ_EDID,
+                        EdidType = ctl_edid_type_t.CTL_EDID_TYPE_CURRENT,
+                        EdidSize = 0,
+                        pEdidBuf = null
+                    };
+
+                    var result = IGCL.ctlEdidManagement((_ctl_display_output_handle_t*)displayHandle, &args);
+                    if (result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
+                        result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION)
+                    {
+                        continue;
+                    }
+                    if (result == ctl_result_t.CTL_RESULT_ERROR_DISPLAY_NOT_ATTACHED ||
+                        result == ctl_result_t.CTL_RESULT_ERROR_DATA_NOT_FOUND)
+                    {
+                        continue;
+                    }
+                    if (result != ctl_result_t.CTL_RESULT_SUCCESS || args.EdidSize == 0)
+                        continue;
+
+                    var buffer = new byte[args.EdidSize];
+                    for (var attempt = 0; attempt < 2; attempt++)
+                    {
+                        fixed (byte* pBuf = buffer)
+                        {
+                            args.EdidSize = (uint)buffer.Length;
+                            args.pEdidBuf = pBuf;
+                            result = IGCL.ctlEdidManagement((_ctl_display_output_handle_t*)displayHandle, &args);
+                        }
+
+                        if (result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
+                            result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION)
+                        {
+                            break;
+                        }
+                        if (result == ctl_result_t.CTL_RESULT_ERROR_DISPLAY_NOT_ATTACHED ||
+                            result == ctl_result_t.CTL_RESULT_ERROR_DATA_NOT_FOUND)
+                        {
+                            break;
+                        }
+                        if (result != ctl_result_t.CTL_RESULT_SUCCESS || args.EdidSize == 0)
+                            break;
+
+                        if (args.EdidSize <= buffer.Length)
+                        {
+                            anySuccess = true;
+                            break;
+                        }
+
+                        buffer = new byte[args.EdidSize];
+                    }
+
+                    if (anySuccess)
+                        break;
+                }
+
+                if (!anyAttached)
+                    throw new SkipException("No attached displays reported.");
+
+                if (!anySuccess)
+                    throw new SkipException("No attached display returned EDID successfully.");
+            }
+        }
     }
 }

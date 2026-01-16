@@ -823,11 +823,72 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get custom display modes using the provided arguments.
+        /// Read the EDID bytes for this display output.
+        /// </summary>
+        /// <param name="edidType">EDID type to read.</param>
+        /// <returns>EDID bytes.</returns>
+        public byte[] GetEdid(ctl_edid_type_t edidType = ctl_edid_type_t.CTL_EDID_TYPE_CURRENT)
+        {
+            var result = GetEdidWithFlags(edidType);
+            return result.edid;
+        }
+
+        /// <summary>
+        /// Read the EDID bytes for this display output and return EDID management output flags.
+        /// </summary>
+        /// <param name="edidType">EDID type to read.</param>
+        /// <returns>Tuple containing EDID bytes and output flags.</returns>
+        public unsafe (byte[] edid, uint outFlags) GetEdidWithFlags(ctl_edid_type_t edidType = ctl_edid_type_t.CTL_EDID_TYPE_CURRENT)
+        {
+            ThrowIfDisposed();
+
+            var args = CreateEdidManagementArgs();
+            args.OpType = ctl_edid_management_optype_t.CTL_EDID_MANAGEMENT_OPTYPE_READ_EDID;
+            args.EdidType = edidType;
+            args.EdidSize = 0;
+            args.pEdidBuf = null;
+
+            args = EdidManagement(args);
+            var outFlags = args.OutFlags;
+            if (args.EdidSize == 0)
+                return (Array.Empty<byte>(), outFlags);
+
+            var buffer = new byte[args.EdidSize];
+            for (var attempt = 0; attempt < 2; attempt++)
+            {
+                fixed (byte* pBuffer = buffer)
+                {
+                    args.EdidSize = (uint)buffer.Length;
+                    args.pEdidBuf = pBuffer;
+                    args = EdidManagement(args);
+                }
+
+                outFlags = args.OutFlags;
+                if (args.EdidSize <= buffer.Length)
+                {
+                    if (args.EdidSize == buffer.Length)
+                        return (buffer, outFlags);
+
+                    if (args.EdidSize == 0)
+                        return (Array.Empty<byte>(), outFlags);
+
+                    var trimmed = new byte[args.EdidSize];
+                    Array.Copy(buffer, trimmed, trimmed.Length);
+                    return (trimmed, outFlags);
+                }
+
+                buffer = new byte[args.EdidSize];
+            }
+
+            return (buffer, outFlags);
+        }
+
+        /// <summary>
+        /// Get custom display modes using the provided native arguments.
         /// </summary>
         /// <param name="args">Custom mode args.</param>
         /// <returns>Tuple containing updated args and modes.</returns>
-        public unsafe (ctl_get_set_custom_mode_args_t args, ctl_custom_src_mode_t[] modes) GetCustomModes(ctl_get_set_custom_mode_args_t args)
+        public unsafe (ctl_get_set_custom_mode_args_t args, ctl_custom_src_mode_t[] modes) GetCustomModesNative(ctl_get_set_custom_mode_args_t args)
         {
             ThrowIfDisposed();
             var request = args;
@@ -855,6 +916,17 @@ namespace IGCLWrapper
             }
 
             return (request, modesOut);
+        }
+
+        /// <summary>
+        /// Get custom display modes.
+        /// </summary>
+        /// <returns>Tuple containing updated args and modes.</returns>
+        public unsafe (ctl_get_set_custom_mode_args_t args, ctl_custom_src_mode_t[] modes) GetCustomModes()
+        {
+            var args = CreateCustomModeArgs();
+            args.CustomModeOpType = ctl_custom_mode_operation_types_t.CTL_CUSTOM_MODE_OPERATION_TYPES_GET_CUSTOM_SOURCE_MODES;
+            return GetCustomModesNative(args);
         }
 
         /// <summary>
