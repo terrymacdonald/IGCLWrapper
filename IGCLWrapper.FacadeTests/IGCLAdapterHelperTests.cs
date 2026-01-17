@@ -71,11 +71,39 @@ namespace IGCLWrapper.FacadeTests
                     throw new SkipException("Combined display not configured.");
                 }
 
+                var displayLookup = new System.Collections.Generic.Dictionary<string, IGCLDisplayHelper>(StringComparer.OrdinalIgnoreCase);
+                foreach (var display in adapter.EnumerateDisplayOutputs())
+                {
+                    displayLookup[display.Name] = display;
+                }
+
+                Console.WriteLine("Combined display detected.");
+                Console.WriteLine($" - NumOutputs={combined.NumOutputs} Width={combined.CombinedDesktopWidth} Height={combined.CombinedDesktopHeight}");
+
                 Assert.True(combined.ChildInfos.Length >= combined.NumOutputs);
                 Assert.True(combined.CombinedDisplayOutput != IntPtr.Zero);
                 for (var i = 0; i < combined.NumOutputs; i++)
                 {
-                    Assert.True(combined.ChildInfos[i].DisplayOutput != IntPtr.Zero);
+                    var child = combined.ChildInfos[i];
+                    Assert.True(child.DisplayOutput != IntPtr.Zero);
+
+                    var displayName = $"Display-{child.DisplayOutput.ToInt64():X}";
+                    if (displayLookup.TryGetValue(displayName, out var displayHelper))
+                    {
+                        try
+                        {
+                            var props = displayHelper.GetProperties();
+                            Console.WriteLine($" - Child {i}: name={displayHelper.Name} handle=0x{child.DisplayOutput.ToInt64():X} type={props.Type} flags=0x{props.DisplayConfigFlags:X}");
+                        }
+                        catch (IGCLException ex)
+                        {
+                            Console.WriteLine($" - Child {i}: name={displayHelper.Name} handle=0x{child.DisplayOutput.ToInt64():X} (properties unavailable: {ex.Result})");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine($" - Child {i}: handle=0x{child.DisplayOutput.ToInt64():X} (no matching display helper)");
+                    }
                 }
             }
         }
