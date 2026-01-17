@@ -548,26 +548,20 @@ namespace IGCLWrapper
             {
                 Size = (uint)sizeof(ctl_combined_display_args_t),
                 Version = 1,
+                // OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_IS_SUPPORTED_CONFIG
                 OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_IS_SUPPORTED_CONFIG
             };
 
             var probeResult = IGCL.ctlGetSetCombinedDisplay((_ctl_device_adapter_handle_t*)AdapterHandle, &probe);
-            if (probeResult == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
-                probeResult == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION)
+            byte maxOutputs = 0;
+            if (probeResult == ctl_result_t.CTL_RESULT_SUCCESS)
             {
-                throw new IGCLException(probeResult, $"Combined display unsupported: {probeResult}");
+                maxOutputs = probe.NumOutputs;
             }
-            if (probeResult != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(probeResult, $"Combined display probe failed: {probeResult}");
-
-            if (probe.NumOutputs == 0)
+            else if (probeResult != ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE &&
+                     probeResult != ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION)
             {
-                return new CombinedDisplayArgsDto
-                {
-                    OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_QUERY_CONFIG,
-                    IsSupported = IGCLDisplayDtoBool.ToBool(probe.IsSupported),
-                    NumOutputs = 0
-                };
+                throw new IGCLException(probeResult, $"Combined display probe unsupported: {probeResult}");
             }
 
             IntPtr combinedHandle = IntPtr.Zero;
@@ -598,17 +592,8 @@ namespace IGCLWrapper
                 }
             }
 
-            if (combinedHandle == IntPtr.Zero)
-            {
-                return new CombinedDisplayArgsDto
-                {
-                    OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_QUERY_CONFIG,
-                    IsSupported = IGCLDisplayDtoBool.ToBool(probe.IsSupported),
-                    NumOutputs = 0
-                };
-            }
-
-            var children = new ctl_combined_display_child_info_t[probe.NumOutputs];
+            var childCapacity = maxOutputs > 0 ? maxOutputs : IGCL.CTL_MAX_DISPLAYS_FOR_MGPU_COLLAGE;
+            var children = new ctl_combined_display_child_info_t[childCapacity];
             fixed (ctl_combined_display_child_info_t* pChildren = children)
             {
                 var query = new ctl_combined_display_args_t
@@ -627,6 +612,16 @@ namespace IGCLWrapper
                 {
                     throw new IGCLException(queryResult, $"Combined display query unsupported: {queryResult}");
                 }
+                if (queryResult == ctl_result_t.CTL_RESULT_ERROR_NULL_OS_DISPLAY_OUTPUT_HANDLE ||
+                    queryResult == ctl_result_t.CTL_RESULT_ERROR_INVALID_NULL_HANDLE ||
+                    queryResult == ctl_result_t.CTL_RESULT_ERROR_INVALID_NULL_POINTER)
+                {
+                    return new CombinedDisplayArgsDto
+                    {
+                        OpType = query.OpType,
+                        NumOutputs = 0
+                    };
+                }
                 if (queryResult != ctl_result_t.CTL_RESULT_SUCCESS)
                     throw new IGCLException(queryResult, $"Combined display query failed: {queryResult}");
 
@@ -637,7 +632,6 @@ namespace IGCLWrapper
                         Size = query.Size,
                         Version = query.Version,
                         OpType = query.OpType,
-                        IsSupported = IGCLDisplayDtoBool.ToBool(query.IsSupported),
                         NumOutputs = 0,
                         CombinedDesktopWidth = query.CombinedDesktopWidth,
                         CombinedDesktopHeight = query.CombinedDesktopHeight,
@@ -647,6 +641,7 @@ namespace IGCLWrapper
                 }
 
                 var dto = CombinedDisplayArgsDto.FromNative(query);
+                dto.IsSupported = false;
                 dto.ChildInfos = CopyCombinedDisplayChildInfos(pChildren, query.NumOutputs);
                 return dto;
             }
@@ -853,7 +848,7 @@ namespace IGCLWrapper
         /// </summary>
         public ctl_combined_display_optype_t OpType;
         /// <summary>
-        /// Indicates whether the feature is supported.
+        /// Indicates whether the combined display configuration is supported for IS_SUPPORTED_CONFIG.
         /// </summary>
         public bool IsSupported;
         /// <summary>
