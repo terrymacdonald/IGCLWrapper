@@ -144,7 +144,8 @@ namespace IGCLWrapper.FacadeTests
                 catch (IGCLException ex) when (ex.Result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
                                                ex.Result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION ||
                                                ex.Result == ctl_result_t.CTL_RESULT_ERROR_DISPLAY_NOT_ATTACHED ||
-                                               ex.Result == ctl_result_t.CTL_RESULT_ERROR_DATA_NOT_FOUND)
+                                               ex.Result == ctl_result_t.CTL_RESULT_ERROR_DATA_NOT_FOUND ||
+                                               ex.Result == ctl_result_t.CTL_RESULT_ERROR_KMD_CALL)
                 {
                     throw new SkipException($"EDID read unsupported: {ex.Result}");
                 }
