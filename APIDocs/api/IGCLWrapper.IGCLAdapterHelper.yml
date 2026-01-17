@@ -14,7 +14,6 @@ items:
   - IGCLWrapper.IGCLAdapterHelper.EnumerateDisplayOutputsNative
   - IGCLWrapper.IGCLAdapterHelper.EnumerateI2CPinPairsNative
   - IGCLWrapper.IGCLAdapterHelper.GetCombinedDisplay
-  - IGCLWrapper.IGCLAdapterHelper.GetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
   - IGCLWrapper.IGCLAdapterHelper.GetDeviceProperties
   - IGCLWrapper.IGCLAdapterHelper.GetDisplayGenlock(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)
   - IGCLWrapper.IGCLAdapterHelper.GetLinkedDisplayAdapters
@@ -43,7 +42,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IGCLAdapterHelper
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 257
+    startLine: 259
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -81,7 +80,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateCombinedDisplayArgs
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 282
+    startLine: 284
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -112,7 +111,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateGenlockArgs
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 287
+    startLine: 289
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -143,7 +142,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateLinkedDisplayAdaptersArgs
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 292
+    startLine: 294
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -174,7 +173,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetProperties
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 298
+    startLine: 300
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -205,7 +204,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumerateDevicesNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 324
+    startLine: 326
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -236,7 +235,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumerateDisplayOutputsNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 348
+    startLine: 350
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -267,7 +266,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumerateI2CPinPairsNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 371
+    startLine: 373
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -298,7 +297,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetDeviceProperties
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 394
+    startLine: 396
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -329,7 +328,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetZeDevice
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 408
+    startLine: 410
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -360,7 +359,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumerateDisplayOutputs
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 423
+    startLine: 425
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -391,7 +390,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Name
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 438
+    startLine: 440
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -422,7 +421,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PciVendorId
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 451
+    startLine: 453
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -453,7 +452,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSetCombinedDisplayNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 458
+    startLine: 460
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -488,53 +487,18 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetCombinedDisplay
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 493
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  summary: Get combined display settings as a DTO.
-  example: []
-  syntax:
-    content: public CombinedDisplayArgsDto GetCombinedDisplay()
-    return:
-      type: IGCLWrapper.CombinedDisplayArgsDto
-      description: Combined display args DTO.
-    content.vb: Public Function GetCombinedDisplay() As CombinedDisplayArgsDto
-  overload: IGCLWrapper.IGCLAdapterHelper.GetCombinedDisplay*
-- uid: IGCLWrapper.IGCLAdapterHelper.GetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
-  commentId: M:IGCLWrapper.IGCLAdapterHelper.GetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
-  id: GetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
-  parent: IGCLWrapper.IGCLAdapterHelper
-  langs:
-  - csharp
-  - vb
-  name: GetCombinedDisplay(CombinedDisplayArgsDto)
-  nameWithType: IGCLAdapterHelper.GetCombinedDisplay(CombinedDisplayArgsDto)
-  fullName: IGCLWrapper.IGCLAdapterHelper.GetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetCombinedDisplay
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 507
+    startLine: 543
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get combined display settings using the provided DTO.
   example: []
   syntax:
-    content: public CombinedDisplayArgsDto GetCombinedDisplay(CombinedDisplayArgsDto args)
-    parameters:
-    - id: args
-      type: IGCLWrapper.CombinedDisplayArgsDto
-      description: Combined display args DTO.
+    content: public CombinedDisplayArgsDto GetCombinedDisplay()
     return:
       type: IGCLWrapper.CombinedDisplayArgsDto
       description: Updated combined display args DTO.
-    content.vb: Public Function GetCombinedDisplay(args As CombinedDisplayArgsDto) As CombinedDisplayArgsDto
+    content.vb: Public Function GetCombinedDisplay() As CombinedDisplayArgsDto
   overload: IGCLWrapper.IGCLAdapterHelper.GetCombinedDisplay*
 - uid: IGCLWrapper.IGCLAdapterHelper.SetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
   commentId: M:IGCLWrapper.IGCLAdapterHelper.SetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
@@ -554,7 +518,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetCombinedDisplay
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 574
+    startLine: 658
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -586,7 +550,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSetDisplayGenlockNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 612
+    startLine: 696
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -630,7 +594,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetDisplayGenlock
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 640
+    startLine: 724
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -677,7 +641,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetDisplayGenlockNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 655
+    startLine: 739
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -721,7 +685,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LinkDisplayAdapters
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 666
+    startLine: 750
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -753,7 +717,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: UnlinkDisplayAdapters
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 678
+    startLine: 762
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -781,7 +745,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetLinkedDisplayAdapters
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 690
+    startLine: 774
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -812,7 +776,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: WaitForPropertyChange
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 721
+    startLine: 805
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -847,7 +811,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 747
+    startLine: 831
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
