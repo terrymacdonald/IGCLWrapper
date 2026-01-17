@@ -280,7 +280,7 @@ namespace IGCLWrapper
         /// Create a combined display args struct with Size and Version initialized.
         /// </summary>
         /// <returns>Initialized combined display args struct.</returns>
-        public static unsafe ctl_combined_display_args_t CreateCombinedDisplayArgs() => new ctl_combined_display_args_t { Size = (uint)sizeof(ctl_combined_display_args_t), Version = 0 };
+        public static unsafe ctl_combined_display_args_t CreateCombinedDisplayArgs() => new ctl_combined_display_args_t { Size = (uint)sizeof(ctl_combined_display_args_t), Version = 1 };
         /// <summary>
         /// Create a genlock args struct with Size and Version initialized.
         /// </summary>
@@ -466,10 +466,12 @@ namespace IGCLWrapper
             return copy;
         }
 
-        private unsafe byte GetCombinedDisplayMaxOutputs()
+        private unsafe byte GetCombinedDisplayMaxOutputs(IntPtr combinedDisplayOutput)
         {
             var args = CreateCombinedDisplayArgs();
             args.OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_IS_SUPPORTED_CONFIG;
+            if (combinedDisplayOutput != IntPtr.Zero)
+                args.hCombinedDisplayOutput = (_ctl_display_output_handle_t*)combinedDisplayOutput;
             var native = GetSetCombinedDisplayNative(args);
             return native.NumOutputs;
         }
@@ -560,7 +562,7 @@ namespace IGCLWrapper
 
             if (needsChildInfo && (childInfos == null || childInfos.Length == 0))
             {
-                maxOutputs = GetCombinedDisplayMaxOutputs();
+                maxOutputs = GetCombinedDisplayMaxOutputs(request.CombinedDisplayOutput);
             }
 
             if (childInfos != null && childInfos.Length > 0)
@@ -597,7 +599,7 @@ namespace IGCLWrapper
                     {
                         var nativeRequest = request.ToNative();
                         nativeRequest.pChildInfo = pChildInfo;
-                        nativeRequest.NumOutputs = maxOutputs;
+                        nativeRequest.NumOutputs = 0;
 
                         var native = GetSetCombinedDisplayNative(nativeRequest);
                         var dto = CombinedDisplayArgsDto.FromNative(native);
@@ -870,11 +872,12 @@ namespace IGCLWrapper
             var size = Size;
             if (size == 0)
                 size = (uint)sizeof(ctl_combined_display_args_t);
+            var version = Version == 0 ? (byte)1 : Version;
 
             return new ctl_combined_display_args_t
             {
                 Size = size,
-                Version = Version,
+                Version = version,
                 OpType = OpType,
                 IsSupported = IGCLDisplayDtoBool.ToByte(IsSupported),
                 NumOutputs = NumOutputs,
