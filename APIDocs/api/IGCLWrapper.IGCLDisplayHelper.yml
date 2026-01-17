@@ -34,9 +34,12 @@ items:
   - IGCLWrapper.IGCLDisplayHelper.GetCurrentScalingNative
   - IGCLWrapper.IGCLDisplayHelper.GetCurrentSharpness
   - IGCLWrapper.IGCLDisplayHelper.GetCurrentSharpnessNative
-  - IGCLWrapper.IGCLDisplayHelper.GetCustomModes(IGCLWrapper.ctl_get_set_custom_mode_args_t)
+  - IGCLWrapper.IGCLDisplayHelper.GetCustomModes
+  - IGCLWrapper.IGCLDisplayHelper.GetCustomModesNative(IGCLWrapper.ctl_get_set_custom_mode_args_t)
   - IGCLWrapper.IGCLDisplayHelper.GetDisplaySettings
   - IGCLWrapper.IGCLDisplayHelper.GetDynamicContrastEnhancement
+  - IGCLWrapper.IGCLDisplayHelper.GetEdid(IGCLWrapper.ctl_edid_type_t)
+  - IGCLWrapper.IGCLDisplayHelper.GetEdidWithFlags(IGCLWrapper.ctl_edid_type_t)
   - IGCLWrapper.IGCLDisplayHelper.GetIntelArcSyncInfoForMonitor
   - IGCLWrapper.IGCLDisplayHelper.GetIntelArcSyncInfoForMonitorNative
   - IGCLWrapper.IGCLDisplayHelper.GetIntelArcSyncProfile
@@ -95,7 +98,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IGCLDisplayHelper
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -133,7 +136,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateScalingSettings
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -164,7 +167,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateSharpnessSettings
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -195,7 +198,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreatePowerOptimizationSettings
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -226,7 +229,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateLaceConfig
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -257,7 +260,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateArcSyncProfileParams
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -288,7 +291,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateSetBrightness
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -319,7 +322,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateRetroScalingSettings
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -350,7 +353,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateSoftwarePsrSettings
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -381,7 +384,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateWireFormatConfig
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -412,7 +415,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateDisplaySettings
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -443,7 +446,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateEdidManagementArgs
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -474,7 +477,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreatePanelDescriptorArgs
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -505,7 +508,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreatePixtxPipeSetConfig
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -536,7 +539,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreatePixtxPipeGetConfig
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -567,7 +570,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateVblankTimestampArgs
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -598,7 +601,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateCustomModeArgs
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -629,7 +632,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateDceArgs
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -660,7 +663,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetProperties
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -691,7 +694,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetTiming
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -722,7 +725,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsActive
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -753,7 +756,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetResolution
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -784,7 +787,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetRefreshRateHz
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -815,7 +818,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Name
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -846,7 +849,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CheckDriverVersion
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -884,7 +887,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetAdapterDisplayEncoderPropertiesNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -915,7 +918,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetAdapterDisplayEncoderProperties
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -946,7 +949,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSharpnessCaps
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -977,7 +980,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetCurrentSharpnessNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1008,7 +1011,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetCurrentSharpness
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1039,7 +1042,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetCurrentSharpnessNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1071,7 +1074,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetCurrentSharpness
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1103,7 +1106,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: I2CAccess
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1138,7 +1141,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: I2CAccessOnPinPair
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1176,7 +1179,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AUXAccess
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1211,7 +1214,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetPowerOptimizationCaps
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1242,7 +1245,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetPowerOptimizationSettingNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1277,7 +1280,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetPowerOptimizationSetting
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1312,7 +1315,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetPowerOptimizationSettingNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1344,7 +1347,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetPowerOptimizationSetting
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1376,7 +1379,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetBrightnessSetting
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1408,7 +1411,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetBrightnessSetting
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1439,7 +1442,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PixelTransformationGetConfig
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1474,7 +1477,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PixelTransformationSetConfig
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1506,7 +1509,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PanelDescriptorAccess
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1541,7 +1544,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSupportedRetroScalingCapability
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1572,7 +1575,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSetRetroScalingNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1607,7 +1610,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetRetroScalingSettings
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1638,7 +1641,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetRetroScalingSettings
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1670,7 +1673,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSupportedScalingCapability
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1701,7 +1704,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetCurrentScalingNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1732,7 +1735,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetCurrentScaling
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1763,7 +1766,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetCurrentScalingNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1795,7 +1798,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetCurrentScaling
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1827,7 +1830,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetLACEConfigNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1858,7 +1861,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetLACEConfig
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1889,7 +1892,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetLACEConfigNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1921,7 +1924,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetLACEConfig
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1953,7 +1956,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SoftwarePSRNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1988,7 +1991,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SoftwarePSR
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -2023,7 +2026,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetIntelArcSyncInfoForMonitorNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -2054,7 +2057,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetIntelArcSyncInfoForMonitor
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -2085,7 +2088,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumerateMuxDevices
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -2116,7 +2119,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetMuxProperties
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -2154,7 +2157,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SwitchMux
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -2192,7 +2195,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetIntelArcSyncProfile
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -2223,7 +2226,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetIntelArcSyncProfile
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -2255,7 +2258,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EdidManagement
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -2276,32 +2279,102 @@ items:
       description: Updated EDID management arguments.
     content.vb: Public Function EdidManagement(args As ctl_edid_management_args_t) As ctl_edid_management_args_t
   overload: IGCLWrapper.IGCLDisplayHelper.EdidManagement*
-- uid: IGCLWrapper.IGCLDisplayHelper.GetCustomModes(IGCLWrapper.ctl_get_set_custom_mode_args_t)
-  commentId: M:IGCLWrapper.IGCLDisplayHelper.GetCustomModes(IGCLWrapper.ctl_get_set_custom_mode_args_t)
-  id: GetCustomModes(IGCLWrapper.ctl_get_set_custom_mode_args_t)
+- uid: IGCLWrapper.IGCLDisplayHelper.GetEdid(IGCLWrapper.ctl_edid_type_t)
+  commentId: M:IGCLWrapper.IGCLDisplayHelper.GetEdid(IGCLWrapper.ctl_edid_type_t)
+  id: GetEdid(IGCLWrapper.ctl_edid_type_t)
   parent: IGCLWrapper.IGCLDisplayHelper
   langs:
   - csharp
   - vb
-  name: GetCustomModes(ctl_get_set_custom_mode_args_t)
-  nameWithType: IGCLDisplayHelper.GetCustomModes(ctl_get_set_custom_mode_args_t)
-  fullName: IGCLWrapper.IGCLDisplayHelper.GetCustomModes(IGCLWrapper.ctl_get_set_custom_mode_args_t)
+  name: GetEdid(ctl_edid_type_t)
+  nameWithType: IGCLDisplayHelper.GetEdid(ctl_edid_type_t)
+  fullName: IGCLWrapper.IGCLDisplayHelper.GetEdid(IGCLWrapper.ctl_edid_type_t)
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetCustomModes
+    id: GetEdid
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
     startLine: 829
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Get custom display modes using the provided arguments.
+  summary: Read the EDID bytes for this display output.
   example: []
   syntax:
-    content: public (ctl_get_set_custom_mode_args_t args, ctl_custom_src_mode_t[] modes) GetCustomModes(ctl_get_set_custom_mode_args_t args)
+    content: public byte[] GetEdid(ctl_edid_type_t edidType = ctl_edid_type_t.CTL_EDID_TYPE_CURRENT)
+    parameters:
+    - id: edidType
+      type: IGCLWrapper.ctl_edid_type_t
+      description: EDID type to read.
+    return:
+      type: System.Byte[]
+      description: EDID bytes.
+    content.vb: Public Function GetEdid(edidType As ctl_edid_type_t = ctl_edid_type_t.CTL_EDID_TYPE_CURRENT) As Byte()
+  overload: IGCLWrapper.IGCLDisplayHelper.GetEdid*
+- uid: IGCLWrapper.IGCLDisplayHelper.GetEdidWithFlags(IGCLWrapper.ctl_edid_type_t)
+  commentId: M:IGCLWrapper.IGCLDisplayHelper.GetEdidWithFlags(IGCLWrapper.ctl_edid_type_t)
+  id: GetEdidWithFlags(IGCLWrapper.ctl_edid_type_t)
+  parent: IGCLWrapper.IGCLDisplayHelper
+  langs:
+  - csharp
+  - vb
+  name: GetEdidWithFlags(ctl_edid_type_t)
+  nameWithType: IGCLDisplayHelper.GetEdidWithFlags(ctl_edid_type_t)
+  fullName: IGCLWrapper.IGCLDisplayHelper.GetEdidWithFlags(IGCLWrapper.ctl_edid_type_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetEdidWithFlags
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 840
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Read the EDID bytes for this display output and return EDID management output flags.
+  example: []
+  syntax:
+    content: public (byte[] edid, uint outFlags) GetEdidWithFlags(ctl_edid_type_t edidType = ctl_edid_type_t.CTL_EDID_TYPE_CURRENT)
+    parameters:
+    - id: edidType
+      type: IGCLWrapper.ctl_edid_type_t
+      description: EDID type to read.
+    return:
+      type: System.ValueTuple{System.Byte[],System.UInt32}
+      description: Tuple containing EDID bytes and output flags.
+    content.vb: Public Function GetEdidWithFlags(edidType As ctl_edid_type_t = ctl_edid_type_t.CTL_EDID_TYPE_CURRENT) As (edid As Byte(), outFlags As UInteger)
+  overload: IGCLWrapper.IGCLDisplayHelper.GetEdidWithFlags*
+- uid: IGCLWrapper.IGCLDisplayHelper.GetCustomModesNative(IGCLWrapper.ctl_get_set_custom_mode_args_t)
+  commentId: M:IGCLWrapper.IGCLDisplayHelper.GetCustomModesNative(IGCLWrapper.ctl_get_set_custom_mode_args_t)
+  id: GetCustomModesNative(IGCLWrapper.ctl_get_set_custom_mode_args_t)
+  parent: IGCLWrapper.IGCLDisplayHelper
+  langs:
+  - csharp
+  - vb
+  name: GetCustomModesNative(ctl_get_set_custom_mode_args_t)
+  nameWithType: IGCLDisplayHelper.GetCustomModesNative(ctl_get_set_custom_mode_args_t)
+  fullName: IGCLWrapper.IGCLDisplayHelper.GetCustomModesNative(IGCLWrapper.ctl_get_set_custom_mode_args_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetCustomModesNative
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 890
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get custom display modes using the provided native arguments.
+  example: []
+  syntax:
+    content: public (ctl_get_set_custom_mode_args_t args, ctl_custom_src_mode_t[] modes) GetCustomModesNative(ctl_get_set_custom_mode_args_t args)
     parameters:
     - id: args
       type: IGCLWrapper.ctl_get_set_custom_mode_args_t
@@ -2309,7 +2382,38 @@ items:
     return:
       type: System.ValueTuple{IGCLWrapper.ctl_get_set_custom_mode_args_t,IGCLWrapper.ctl_custom_src_mode_t[]}
       description: Tuple containing updated args and modes.
-    content.vb: Public Function GetCustomModes(args As ctl_get_set_custom_mode_args_t) As (args As ctl_get_set_custom_mode_args_t, modes As ctl_custom_src_mode_t())
+    content.vb: Public Function GetCustomModesNative(args As ctl_get_set_custom_mode_args_t) As (args As ctl_get_set_custom_mode_args_t, modes As ctl_custom_src_mode_t())
+  overload: IGCLWrapper.IGCLDisplayHelper.GetCustomModesNative*
+- uid: IGCLWrapper.IGCLDisplayHelper.GetCustomModes
+  commentId: M:IGCLWrapper.IGCLDisplayHelper.GetCustomModes
+  id: GetCustomModes
+  parent: IGCLWrapper.IGCLDisplayHelper
+  langs:
+  - csharp
+  - vb
+  name: GetCustomModes()
+  nameWithType: IGCLDisplayHelper.GetCustomModes()
+  fullName: IGCLWrapper.IGCLDisplayHelper.GetCustomModes()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: feature-facade-v1
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetCustomModes
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 924
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get custom display modes.
+  example: []
+  syntax:
+    content: public (ctl_get_set_custom_mode_args_t args, ctl_custom_src_mode_t[] modes) GetCustomModes()
+    return:
+      type: System.ValueTuple{IGCLWrapper.ctl_get_set_custom_mode_args_t,IGCLWrapper.ctl_custom_src_mode_t[]}
+      description: Tuple containing updated args and modes.
+    content.vb: Public Function GetCustomModes() As (args As ctl_get_set_custom_mode_args_t, modes As ctl_custom_src_mode_t())
   overload: IGCLWrapper.IGCLDisplayHelper.GetCustomModes*
 - uid: IGCLWrapper.IGCLDisplayHelper.SetCustomModes(IGCLWrapper.ctl_get_set_custom_mode_args_t,IGCLWrapper.ctl_custom_src_mode_t[])
   commentId: M:IGCLWrapper.IGCLDisplayHelper.SetCustomModes(IGCLWrapper.ctl_get_set_custom_mode_args_t,IGCLWrapper.ctl_custom_src_mode_t[])
@@ -2325,11 +2429,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetCustomModes
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 864
+    startLine: 936
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2363,11 +2467,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetVblankTimestamp
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 891
+    startLine: 963
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2394,11 +2498,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSetDynamicContrastEnhancementNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 909
+    startLine: 981
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2435,11 +2539,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetDynamicContrastEnhancement
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 954
+    startLine: 1026
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2466,11 +2570,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetDynamicContrastEnhancement
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 966
+    startLine: 1038
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2504,11 +2608,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSetWireFormatNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 978
+    startLine: 1050
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2539,11 +2643,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetWireFormat
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 992
+    startLine: 1064
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2570,11 +2674,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetWireFormat
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1007
+    startLine: 1079
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2602,11 +2706,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSetDisplaySettingsNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1023
+    startLine: 1095
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2637,11 +2741,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetDisplaySettings
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1037
+    startLine: 1109
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2668,11 +2772,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetDisplaySettings
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1048
+    startLine: 1120
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2700,11 +2804,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
+      branch: feature-facade-v1
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1065
+    startLine: 1137
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3932,12 +4036,115 @@ references:
   name: EdidManagement
   nameWithType: IGCLDisplayHelper.EdidManagement
   fullName: IGCLWrapper.IGCLDisplayHelper.EdidManagement
-- uid: IGCLWrapper.IGCLDisplayHelper.GetCustomModes*
-  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.GetCustomModes
-  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetCustomModes_IGCLWrapper_ctl_get_set_custom_mode_args_t_
-  name: GetCustomModes
-  nameWithType: IGCLDisplayHelper.GetCustomModes
-  fullName: IGCLWrapper.IGCLDisplayHelper.GetCustomModes
+- uid: IGCLWrapper.IGCLDisplayHelper.GetEdid*
+  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.GetEdid
+  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetEdid_IGCLWrapper_ctl_edid_type_t_
+  name: GetEdid
+  nameWithType: IGCLDisplayHelper.GetEdid
+  fullName: IGCLWrapper.IGCLDisplayHelper.GetEdid
+- uid: IGCLWrapper.ctl_edid_type_t
+  commentId: T:IGCLWrapper.ctl_edid_type_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_edid_type_t.html
+  name: ctl_edid_type_t
+  nameWithType: ctl_edid_type_t
+  fullName: IGCLWrapper.ctl_edid_type_t
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: IGCLWrapper.IGCLDisplayHelper.GetEdidWithFlags*
+  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.GetEdidWithFlags
+  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetEdidWithFlags_IGCLWrapper_ctl_edid_type_t_
+  name: GetEdidWithFlags
+  nameWithType: IGCLDisplayHelper.GetEdidWithFlags
+  fullName: IGCLWrapper.IGCLDisplayHelper.GetEdidWithFlags
+- uid: System.ValueTuple{System.Byte[],System.UInt32}
+  commentId: T:System.ValueTuple{System.Byte[],System.UInt32}
+  parent: System
+  definition: System.ValueTuple`2
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: (byte[] edid, uint outFlags)
+  nameWithType: (byte[] edid, uint outFlags)
+  fullName: (byte[] edid, uint outFlags)
+  nameWithType.vb: (edid As Byte(), outFlags As UInteger)
+  fullName.vb: (edid As Byte(), outFlags As UInteger)
+  name.vb: (edid As Byte(), outFlags As UInteger)
+  spec.csharp:
+  - name: (
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  - name: " "
+  - uid: System.ValueTuple{System.Byte[],System.UInt32}.edid
+    name: edid
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.byte[],system.uint32-.edid
+  - name: ','
+  - name: " "
+  - uid: System.UInt32
+    name: uint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: " "
+  - uid: System.ValueTuple{System.Byte[],System.UInt32}.outFlags
+    name: outFlags
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.byte[],system.uint32-.outflags
+  - name: )
+  spec.vb:
+  - name: (
+  - uid: System.ValueTuple{System.Byte[],System.UInt32}.edid
+    name: edid
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.byte[],system.uint32-.edid
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.Byte[],System.UInt32}.outFlags
+    name: outFlags
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.byte[],system.uint32-.outflags
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.UInt32
+    name: UInteger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: )
+- uid: IGCLWrapper.IGCLDisplayHelper.GetCustomModesNative*
+  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.GetCustomModesNative
+  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetCustomModesNative_IGCLWrapper_ctl_get_set_custom_mode_args_t_
+  name: GetCustomModesNative
+  nameWithType: IGCLDisplayHelper.GetCustomModesNative
+  fullName: IGCLWrapper.IGCLDisplayHelper.GetCustomModesNative
 - uid: System.ValueTuple{IGCLWrapper.ctl_get_set_custom_mode_args_t,IGCLWrapper.ctl_custom_src_mode_t[]}
   commentId: T:System.ValueTuple{IGCLWrapper.ctl_get_set_custom_mode_args_t,IGCLWrapper.ctl_custom_src_mode_t[]}
   parent: System
@@ -3995,6 +4202,12 @@ references:
   - name: (
   - name: )
   - name: )
+- uid: IGCLWrapper.IGCLDisplayHelper.GetCustomModes*
+  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.GetCustomModes
+  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetCustomModes
+  name: GetCustomModes
+  nameWithType: IGCLDisplayHelper.GetCustomModes
+  fullName: IGCLWrapper.IGCLDisplayHelper.GetCustomModes
 - uid: IGCLWrapper.IGCLDisplayHelper.SetCustomModes*
   commentId: Overload:IGCLWrapper.IGCLDisplayHelper.SetCustomModes
   href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_SetCustomModes_IGCLWrapper_ctl_get_set_custom_mode_args_t_IGCLWrapper_ctl_custom_src_mode_t___
