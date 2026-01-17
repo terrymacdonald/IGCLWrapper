@@ -46,5 +46,38 @@ namespace IGCLWrapper.FacadeTests
                 }
             }
         }
+
+        [SkippableFact]
+        public void GetCombinedDisplay_ShouldReturnChildInfos_WhenConfigured()
+        {
+            var (api, adapter) = FacadeTestUtils.RequireAdapter();
+            using (api)
+            {
+                CombinedDisplayArgsDto combined;
+                try
+                {
+                    combined = adapter.GetCombinedDisplay();
+                }
+                catch (IGCLException ex) when (ex.Result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
+                                               ex.Result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION ||
+                                               ex.Result == ctl_result_t.CTL_RESULT_ERROR_INVALID_OPERATION_TYPE ||
+                                               ex.Result == ctl_result_t.CTL_RESULT_ERROR_INVALID_ARGUMENT)
+                {
+                    throw new SkipException($"Combined display query unsupported: {ex.Result}");
+                }
+
+                if (combined.NumOutputs == 0 || combined.ChildInfos == null || combined.ChildInfos.Length == 0)
+                {
+                    throw new SkipException("Combined display not configured.");
+                }
+
+                Assert.True(combined.ChildInfos.Length >= combined.NumOutputs);
+                Assert.True(combined.CombinedDisplayOutput != IntPtr.Zero);
+                for (var i = 0; i < combined.NumOutputs; i++)
+                {
+                    Assert.True(combined.ChildInfos[i].DisplayOutput != IntPtr.Zero);
+                }
+            }
+        }
     }
 }

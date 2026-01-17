@@ -1,5 +1,7 @@
-using System;
+﻿using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
+using System.Net.Mail;
 using System.Runtime.CompilerServices;
 
 namespace IGCLWrapper
@@ -460,9 +462,15 @@ namespace IGCLWrapper
         {
             ThrowIfDisposed();
             var copy = args;
+            if (copy.Size == 0)
+                copy.Size = (uint)sizeof(ctl_combined_display_args_t);
+            if (copy.Version == 0)
+                copy.Version = 1;
+
             var result = IGCL.ctlGetSetCombinedDisplay((_ctl_device_adapter_handle_t*)AdapterHandle, &copy);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get/set combined display");
+
             return copy;
         }
 
@@ -472,8 +480,14 @@ namespace IGCLWrapper
             args.OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_IS_SUPPORTED_CONFIG;
             if (combinedDisplayOutput != IntPtr.Zero)
                 args.hCombinedDisplayOutput = (_ctl_display_output_handle_t*)combinedDisplayOutput;
-            var native = GetSetCombinedDisplayNative(args);
-            return native.NumOutputs;
+
+            var result = IGCL.ctlGetSetCombinedDisplay((_ctl_device_adapter_handle_t*)AdapterHandle, &args);
+            if (result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
+                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION)
+            {
+                throw new IGCLException(result, $"GetCombinedDisplayMaxOutputs: Get Max Outputs Unsupported: {result}");
+            }
+            return args.NumOutputs;
         }
 
         private unsafe IntPtr FindCombinedDisplayOutputHandle()
@@ -524,93 +538,118 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get combined display settings as a DTO.
-        /// </summary>
-        /// <returns>Combined display args DTO.</returns>
-        public CombinedDisplayArgsDto GetCombinedDisplay()
-        {
-            var args = new CombinedDisplayArgsDto
-            {
-                OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_QUERY_CONFIG
-            };
-            return GetCombinedDisplay(args);
-        }
-
-        /// <summary>
         /// Get combined display settings using the provided DTO.
         /// </summary>
-        /// <param name="args">Combined display args DTO.</param>
         /// <returns>Updated combined display args DTO.</returns>
-        public CombinedDisplayArgsDto GetCombinedDisplay(CombinedDisplayArgsDto args)
+        public unsafe CombinedDisplayArgsDto GetCombinedDisplay()
         {
             ThrowIfDisposed();
-            var request = args;
-            if (request.OpType == 0)
-                request.OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_QUERY_CONFIG;
-
-            var needsHandle = request.OpType != ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_IS_SUPPORTED_CONFIG;
-            if (needsHandle && request.CombinedDisplayOutput == IntPtr.Zero)
+            var probe = new ctl_combined_display_args_t
             {
-                request.CombinedDisplayOutput = FindCombinedDisplayOutputHandle();
-                if (request.CombinedDisplayOutput == IntPtr.Zero)
-                    throw new IGCLException(ctl_result_t.CTL_RESULT_ERROR_INVALID_NULL_HANDLE, "Combined display output handle not found for this adapter.");
+                Size = (uint)sizeof(ctl_combined_display_args_t),
+                Version = 1,
+                OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_IS_SUPPORTED_CONFIG
+            };
+
+            var probeResult = IGCL.ctlGetSetCombinedDisplay((_ctl_device_adapter_handle_t*)AdapterHandle, &probe);
+            if (probeResult == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
+                probeResult == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION)
+            {
+                throw new IGCLException(probeResult, $"Combined display unsupported: {probeResult}");
             }
+            if (probeResult != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(probeResult, $"Combined display probe failed: {probeResult}");
 
-            var childInfos = request.ChildInfos;
-            var needsChildInfo = request.OpType == ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_QUERY_CONFIG;
-            var maxOutputs = (byte)0;
-
-            if (needsChildInfo && (childInfos == null || childInfos.Length == 0))
+            if (probe.NumOutputs == 0)
             {
-                maxOutputs = GetCombinedDisplayMaxOutputs(request.CombinedDisplayOutput);
-            }
-
-            if (childInfos != null && childInfos.Length > 0)
-            {
-                var nativeChildren = new ctl_combined_display_child_info_t[childInfos.Length];
-                for (var i = 0; i < childInfos.Length; i++)
+                return new CombinedDisplayArgsDto
                 {
-                    nativeChildren[i] = childInfos[i].ToNative();
+                    OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_QUERY_CONFIG,
+                    IsSupported = IGCLDisplayDtoBool.ToBool(probe.IsSupported),
+                    NumOutputs = 0
+                };
+            }
+
+            IntPtr combinedHandle = IntPtr.Zero;
+            var displays = EnumerateDisplayOutputsNative();
+            foreach (var display in displays)
+            {
+                if (display == IntPtr.Zero)
+                    continue;
+
+                var encoderProps = new ctl_adapter_display_encoder_properties_t
+                {
+                    Size = (uint)sizeof(ctl_adapter_display_encoder_properties_t),
+                    Version = 0
+                };
+
+                var encoderResult = IGCL.ctlGetAdaperDisplayEncoderProperties((_ctl_display_output_handle_t*)display, &encoderProps);
+                if (encoderResult != ctl_result_t.CTL_RESULT_SUCCESS)
+                    continue;
+
+                var flags = encoderProps.EncoderConfigFlags;
+                var isCombined = (flags & (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_COLLAGE_DISPLAY) != 0 ||
+                                 (flags & (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_MGPU_COLLAGE_DISPLAY) != 0 ||
+                                 (flags & (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_SPLIT_DISPLAY) != 0;
+                if (isCombined)
+                {
+                    combinedHandle = display;
+                    break;
                 }
+            }
 
-                unsafe
+            if (combinedHandle == IntPtr.Zero)
+            {
+                return new CombinedDisplayArgsDto
                 {
-                    fixed (ctl_combined_display_child_info_t* pChildInfo = nativeChildren)
+                    OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_QUERY_CONFIG,
+                    IsSupported = IGCLDisplayDtoBool.ToBool(probe.IsSupported),
+                    NumOutputs = 0
+                };
+            }
+
+            var children = new ctl_combined_display_child_info_t[probe.NumOutputs];
+            fixed (ctl_combined_display_child_info_t* pChildren = children)
+            {
+                var query = new ctl_combined_display_args_t
+                {
+                    Size = (uint)sizeof(ctl_combined_display_args_t),
+                    Version = 1,
+                    OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_QUERY_CONFIG,
+                    NumOutputs = 0,
+                    pChildInfo = pChildren,
+                    hCombinedDisplayOutput = (_ctl_display_output_handle_t*)combinedHandle
+                };
+
+                var queryResult = IGCL.ctlGetSetCombinedDisplay((_ctl_device_adapter_handle_t*)AdapterHandle, &query);
+                if (queryResult == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
+                    queryResult == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION)
+                {
+                    throw new IGCLException(queryResult, $"Combined display query unsupported: {queryResult}");
+                }
+                if (queryResult != ctl_result_t.CTL_RESULT_SUCCESS)
+                    throw new IGCLException(queryResult, $"Combined display query failed: {queryResult}");
+
+                if (query.NumOutputs == 0)
+                {
+                    return new CombinedDisplayArgsDto
                     {
-                        var nativeRequest = request.ToNative();
-                        nativeRequest.pChildInfo = pChildInfo;
-                        if (nativeRequest.NumOutputs == 0)
-                            nativeRequest.NumOutputs = (byte)nativeChildren.Length;
-
-                        var native = GetSetCombinedDisplayNative(nativeRequest);
-                        var dto = CombinedDisplayArgsDto.FromNative(native);
-                        dto.ChildInfos = CopyCombinedDisplayChildInfos(pChildInfo, native.NumOutputs);
-                        return dto;
-                    }
+                        Size = query.Size,
+                        Version = query.Version,
+                        OpType = query.OpType,
+                        IsSupported = IGCLDisplayDtoBool.ToBool(query.IsSupported),
+                        NumOutputs = 0,
+                        CombinedDesktopWidth = query.CombinedDesktopWidth,
+                        CombinedDesktopHeight = query.CombinedDesktopHeight,
+                        CombinedDisplayOutput = (IntPtr)query.hCombinedDisplayOutput,
+                        ChildInfos = Array.Empty<CombinedDisplayChildInfoDto>()
+                    };
                 }
+
+                var dto = CombinedDisplayArgsDto.FromNative(query);
+                dto.ChildInfos = CopyCombinedDisplayChildInfos(pChildren, query.NumOutputs);
+                return dto;
             }
-
-            if (needsChildInfo && maxOutputs > 0)
-            {
-                var nativeChildren = new ctl_combined_display_child_info_t[maxOutputs];
-                unsafe
-                {
-                    fixed (ctl_combined_display_child_info_t* pChildInfo = nativeChildren)
-                    {
-                        var nativeRequest = request.ToNative();
-                        nativeRequest.pChildInfo = pChildInfo;
-                        nativeRequest.NumOutputs = 0;
-
-                        var native = GetSetCombinedDisplayNative(nativeRequest);
-                        var dto = CombinedDisplayArgsDto.FromNative(native);
-                        dto.ChildInfos = CopyCombinedDisplayChildInfos(pChildInfo, native.NumOutputs);
-                        return dto;
-                    }
-                }
-            }
-
-            var fallback = GetSetCombinedDisplayNative(request.ToNative());
-            return CombinedDisplayArgsDto.FromNative(fallback);
         }
 
         /// <summary>
@@ -1020,3 +1059,4 @@ namespace IGCLWrapper
     }
 
 }
+

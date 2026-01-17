@@ -150,51 +150,7 @@ namespace IGCLWrapper.FacadeTests
                     throw new SkipException($"EDID read unsupported: {ex.Result}");
                 }
             }
-        }
-
-        [SkippableFact]
-        public void GetCombinedDisplay_ShouldReturnChildInfos_WhenConfigured()
-        {
-            var (api, adapter) = FacadeTestUtils.RequireAdapter();
-            using (api)
-            {
-                var display = adapter.EnumerateDisplayOutputs().FirstOrDefault();
-                Skip.If(display == null, "No displays connected.");
-
-                var probeArgs = new CombinedDisplayArgsDto
-                {
-                    OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_IS_SUPPORTED_CONFIG
-                };
-                var support = FacadeTestUtils.InvokeOrSkip(() => adapter.GetCombinedDisplay(probeArgs), "Combined display unsupported");
-                if (!support.IsSupported || support.NumOutputs == 0)
-                {
-                    throw new SkipException("Combined display not configured.");
-                }
-
-                CombinedDisplayArgsDto combined;
-                try
-                {
-                    combined = adapter.GetCombinedDisplay();
-                }
-                catch (IGCLException ex) when (ex.Result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
-                                               ex.Result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION ||
-                                               ex.Result == ctl_result_t.CTL_RESULT_ERROR_INVALID_OPERATION_TYPE ||
-                                               ex.Result == ctl_result_t.CTL_RESULT_ERROR_INVALID_ARGUMENT)
-                {
-                    throw new SkipException($"Combined display query unsupported: {ex.Result}");
-                }
-
-                if (combined.NumOutputs == 0 || combined.ChildInfos == null || combined.ChildInfos.Length == 0)
-                {
-                    throw new SkipException("Combined display not configured.");
-                }
-
-                Assert.True(combined.ChildInfos.Length >= combined.NumOutputs);
-                for (var i = 0; i < combined.NumOutputs; i++)
-                {
-                    Assert.True(combined.ChildInfos[i].DisplayOutput != IntPtr.Zero);
-                }
-            }
-        }
+        }        
+        
     }
 }
