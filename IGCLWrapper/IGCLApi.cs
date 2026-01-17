@@ -151,6 +151,13 @@ namespace IGCLWrapper
                 uint displayCount = 0;
                 var result = IGCL.ctlEnumerateDisplayOutputs((_ctl_device_adapter_handle_t*)hAdapter, &displayCount, null);
 
+                if (result == ctl_result_t.CTL_RESULT_ERROR_INVALID_SIZE)
+                {
+                    // Driver reported size mismatch; retry the whole loop to requery count.
+                    System.Threading.Thread.Sleep(50);
+                    continue;
+                }
+
                 if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 {
                     throw new IGCLException(result, $"Failed to get display count: {result}");
@@ -161,18 +168,21 @@ namespace IGCLWrapper
                     return Array.Empty<IntPtr>();
                 }
 
-                // Get displays
-                var displays = new _ctl_display_output_handle_t*[displayCount];
-                fixed (_ctl_display_output_handle_t** pDisplays = displays)
+                // Get displays; allow one reallocation if count changes during the call.
+                _ctl_display_output_handle_t*[]? displays = null;
+                for (int fillAttempt = 0; fillAttempt < 2; fillAttempt++)
                 {
-                    result = IGCL.ctlEnumerateDisplayOutputs((_ctl_device_adapter_handle_t*)hAdapter, &displayCount, pDisplays);
+                    displays = new _ctl_display_output_handle_t*[displayCount];
+                    fixed (_ctl_display_output_handle_t** pDisplays = displays)
+                    {
+                        result = IGCL.ctlEnumerateDisplayOutputs((_ctl_device_adapter_handle_t*)hAdapter, &displayCount, pDisplays);
+                    }
 
                     if (result == ctl_result_t.CTL_RESULT_ERROR_INVALID_SIZE)
                     {
-                        // Count changed between calls; re-query and retry.
-                        displayCount = 0;
-                        IGCL.ctlEnumerateDisplayOutputs((_ctl_device_adapter_handle_t*)hAdapter, &displayCount, null);
-                        System.Threading.Thread.Sleep(50);
+                        // Driver updated required count; retry with the new size.
+                        if (displayCount == 0)
+                            break;
                         continue;
                     }
 
@@ -180,18 +190,20 @@ namespace IGCLWrapper
                     {
                         throw new IGCLException(result, $"Failed to enumerate displays: {result}");
                     }
+
+                    var actualCount = (int)Math.Min(displayCount, (uint)displays.Length);
+
+                    // Convert to IntPtr array for easier downstream use
+                    var intPtrDisplays = new IntPtr[actualCount];
+                    for (int i = 0; i < actualCount; i++)
+                    {
+                        intPtrDisplays[i] = (IntPtr)displays[i];
+                    }
+
+                    return intPtrDisplays;
                 }
 
-                var actualCount = (int)Math.Min(displayCount, (uint)displays.Length);
-
-                // Convert to IntPtr array for easier downstream use
-                var intPtrDisplays = new IntPtr[actualCount];
-                for (int i = 0; i < actualCount; i++)
-                {
-                    intPtrDisplays[i] = (IntPtr)displays[i];
-                }
-
-                return intPtrDisplays;
+                System.Threading.Thread.Sleep(50);
             }
 
             throw new IGCLException(ctl_result_t.CTL_RESULT_ERROR_INVALID_SIZE, "Failed to enumerate displays: CTL_RESULT_ERROR_INVALID_SIZE");

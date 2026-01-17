@@ -818,7 +818,7 @@ namespace IGCLWrapper
             var copy = args;
             var result = IGCL.ctlEdidManagement((_ctl_display_output_handle_t*)DisplayHandle, &copy);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to perform EDID management");
+                throw new IGCLException(result, $"Failed to perform EDID management (op={args.OpType}, edidType={args.EdidType}, result={result})");
             return copy;
         }
 
