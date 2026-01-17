@@ -474,6 +474,40 @@ namespace IGCLWrapper
             return native.NumOutputs;
         }
 
+        private unsafe IntPtr FindCombinedDisplayOutputHandle()
+        {
+            ThrowIfDisposed();
+            var displays = EnumerateDisplayOutputsNative();
+            if (displays == null || displays.Length == 0)
+                return IntPtr.Zero;
+
+            foreach (var display in displays)
+            {
+                if (display == IntPtr.Zero)
+                    continue;
+
+                var encoderProps = new ctl_adapter_display_encoder_properties_t
+                {
+                    Size = (uint)sizeof(ctl_adapter_display_encoder_properties_t),
+                    Version = 0
+                };
+
+                var result = IGCL.ctlGetAdaperDisplayEncoderProperties((_ctl_display_output_handle_t*)display, &encoderProps);
+                if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                    continue;
+
+                var flags = encoderProps.EncoderConfigFlags;
+                var isCombined = (flags & (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_COLLAGE_DISPLAY) != 0 ||
+                                 (flags & (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_MGPU_COLLAGE_DISPLAY) != 0 ||
+                                 (flags & (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_SPLIT_DISPLAY) != 0;
+
+                if (isCombined)
+                    return display;
+            }
+
+            return IntPtr.Zero;
+        }
+
         private static unsafe CombinedDisplayChildInfoDto[] CopyCombinedDisplayChildInfos(ctl_combined_display_child_info_t* childInfo, int count)
         {
             if (childInfo == null || count <= 0)
@@ -507,9 +541,18 @@ namespace IGCLWrapper
         /// <returns>Updated combined display args DTO.</returns>
         public CombinedDisplayArgsDto GetCombinedDisplay(CombinedDisplayArgsDto args)
         {
+            ThrowIfDisposed();
             var request = args;
             if (request.OpType == 0)
                 request.OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_QUERY_CONFIG;
+
+            var needsHandle = request.OpType != ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_IS_SUPPORTED_CONFIG;
+            if (needsHandle && request.CombinedDisplayOutput == IntPtr.Zero)
+            {
+                request.CombinedDisplayOutput = FindCombinedDisplayOutputHandle();
+                if (request.CombinedDisplayOutput == IntPtr.Zero)
+                    throw new IGCLException(ctl_result_t.CTL_RESULT_ERROR_INVALID_NULL_HANDLE, "Combined display output handle not found for this adapter.");
+            }
 
             var childInfos = request.ChildInfos;
             var needsChildInfo = request.OpType == ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_QUERY_CONFIG;
@@ -554,7 +597,7 @@ namespace IGCLWrapper
                     {
                         var nativeRequest = request.ToNative();
                         nativeRequest.pChildInfo = pChildInfo;
-                        nativeRequest.NumOutputs = 0;
+                        nativeRequest.NumOutputs = maxOutputs;
 
                         var native = GetSetCombinedDisplayNative(nativeRequest);
                         var dto = CombinedDisplayArgsDto.FromNative(native);
