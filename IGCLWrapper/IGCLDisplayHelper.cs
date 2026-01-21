@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace IGCLWrapper
 {
@@ -500,6 +501,86 @@ namespace IGCLWrapper
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to access panel descriptor");
             return copy;
+        }
+
+        /// <summary>
+        /// Read the panel descriptor data (EDID) as a single concatenated byte array.
+        /// </summary>
+        /// <returns>Concatenated panel descriptor bytes.</returns>
+        public unsafe byte[] GetPanelDescriptorData()
+        {
+            ThrowIfDisposed();
+
+            var sizeArgs = CreatePanelDescriptorArgs();
+            sizeArgs.OpType = ctl_operation_type_t.CTL_OPERATION_TYPE_READ;
+            sizeArgs.BlockNumber = 0;
+            sizeArgs.DescriptorDataSize = 0;
+            sizeArgs.pDescriptorData = null;
+
+            sizeArgs = PanelDescriptorAccess(sizeArgs);
+
+            if (sizeArgs.DescriptorDataSize == 0)
+                return Array.Empty<byte>();
+
+            var baseBlock = new byte[sizeArgs.DescriptorDataSize];
+            fixed (byte* pBase = baseBlock)
+            {
+                var readArgs = CreatePanelDescriptorArgs();
+                readArgs.OpType = ctl_operation_type_t.CTL_OPERATION_TYPE_READ;
+                readArgs.BlockNumber = 0;
+                readArgs.DescriptorDataSize = sizeArgs.DescriptorDataSize;
+                readArgs.pDescriptorData = pBase;
+                readArgs = PanelDescriptorAccess(readArgs);
+            }
+
+            byte extensionCount = 0;
+            if (baseBlock.Length > 126)
+                extensionCount = baseBlock[126];
+
+            if (extensionCount == 0)
+                return baseBlock;
+
+            var blocks = new List<byte[]>(extensionCount + 1) { baseBlock };
+            for (var i = 0; i < extensionCount; i++)
+            {
+                var extSizeArgs = CreatePanelDescriptorArgs();
+                extSizeArgs.OpType = ctl_operation_type_t.CTL_OPERATION_TYPE_READ;
+                extSizeArgs.BlockNumber = (uint)(i + 1);
+                extSizeArgs.DescriptorDataSize = 0;
+                extSizeArgs.pDescriptorData = null;
+
+                extSizeArgs = PanelDescriptorAccess(extSizeArgs);
+
+                if (extSizeArgs.DescriptorDataSize == 0)
+                    continue;
+
+                var extBlock = new byte[extSizeArgs.DescriptorDataSize];
+                fixed (byte* pExt = extBlock)
+                {
+                    var extReadArgs = CreatePanelDescriptorArgs();
+                    extReadArgs.OpType = ctl_operation_type_t.CTL_OPERATION_TYPE_READ;
+                    extReadArgs.BlockNumber = (uint)(i + 1);
+                    extReadArgs.DescriptorDataSize = extSizeArgs.DescriptorDataSize;
+                    extReadArgs.pDescriptorData = pExt;
+                    extReadArgs = PanelDescriptorAccess(extReadArgs);
+                }
+
+                blocks.Add(extBlock);
+            }
+
+            var totalLength = 0;
+            foreach (var block in blocks)
+                totalLength += block.Length;
+
+            var result = new byte[totalLength];
+            var offset = 0;
+            foreach (var block in blocks)
+            {
+                Buffer.BlockCopy(block, 0, result, offset, block.Length);
+                offset += block.Length;
+            }
+
+            return result;
         }
 
         /// <summary>

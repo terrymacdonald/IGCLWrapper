@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Runtime.Versioning;
+using EDIDParser;
 using Xunit;
 
 namespace IGCLWrapper.FacadeTests
@@ -151,6 +152,37 @@ namespace IGCLWrapper.FacadeTests
                 }
             }
         }        
+
+        [SkippableFact]
+        public void PanelDescriptorData_ShouldParseWithEdidParser()
+        {
+            var (api, adapter) = FacadeTestUtils.RequireAdapter();
+            using (api)
+            {
+                var display = adapter.EnumerateDisplayOutputs().FirstOrDefault();
+                Skip.If(display == null, "No displays connected.");
+
+                byte[] data;
+                try
+                {
+                    data = display.GetPanelDescriptorData();
+                }
+                catch (IGCLException ex) when (ex.Result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
+                                               ex.Result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION)
+                {
+                    throw new SkipException($"Panel descriptor access unsupported: {ex.Result}");
+                }
+
+                Skip.If(data.Length == 0, "Panel descriptor data unavailable.");
+
+                var edid = new EDID(data);
+                var manufacturerCode = edid.ManufacturerCode;
+                var productCode = edid.ProductCode;
+
+                Assert.False(string.IsNullOrWhiteSpace(manufacturerCode));
+                Assert.True(productCode > 0);
+            }
+        }
         
     }
 }
