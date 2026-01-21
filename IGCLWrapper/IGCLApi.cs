@@ -145,6 +145,7 @@ namespace IGCLWrapper
             ThrowIfDisposed();
 
             const int maxAttempts = 5;
+            const uint fallbackDisplayCapacity = IGCL.CTL_MAX_DISPLAYS_FOR_MGPU_COLLAGE;
             for (int attempt = 0; attempt < maxAttempts; attempt++)
             {
                 // Get display count
@@ -153,12 +154,13 @@ namespace IGCLWrapper
 
                 if (result == ctl_result_t.CTL_RESULT_ERROR_INVALID_SIZE)
                 {
-                    // Driver reported size mismatch; retry the whole loop to requery count.
-                    System.Threading.Thread.Sleep(50);
-                    continue;
+                    // Driver reported size mismatch; fall back to the reported count if provided.
+                    if (displayCount == 0)
+                    {
+                        displayCount = fallbackDisplayCapacity;
+                    }
                 }
-
-                if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                else if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 {
                     throw new IGCLException(result, $"Failed to get display count: {result}");
                 }
@@ -206,7 +208,7 @@ namespace IGCLWrapper
                 System.Threading.Thread.Sleep(50);
             }
 
-            throw new IGCLException(ctl_result_t.CTL_RESULT_ERROR_INVALID_SIZE, "Failed to enumerate displays: CTL_RESULT_ERROR_INVALID_SIZE");
+            return Array.Empty<IntPtr>();
         }
 
         /// <summary>
