@@ -1,7 +1,9 @@
 using Xunit;
 using IGCLWrapper;
 using System;
+using System.Collections.Generic;
 using System.Runtime.Versioning;
+using System.Text;
 
 namespace IGCLWrapper.Tests
 {
@@ -344,6 +346,351 @@ namespace IGCLWrapper.Tests
                             Console.WriteLine($" - Child {i}: handle=0x{childHandle.ToString("X")} (properties unavailable, result {propsResult})");
                         }
                     }
+                }
+            }
+        }
+
+        [Trait("Category", "Active")]
+        [SkippableFact]
+        public void CtlGetSetCombinedDisplay_EnableDisable_ShouldCreateAndRevert_WhenActiveTestsEnabled()
+        {
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _adapters == null || _adapters.Length == 0 || _displays == null || _displays.Length == 0 || _noDisplaysAvailable, _skipReason);
+
+            unsafe
+            {
+                const byte desiredOutputs = 2;
+                const int targetWidth = 2560;
+                const int targetHeight = 1440;
+                const float targetRefreshRate = 60.0f;
+
+                IntPtr FindCombinedDisplayOutput(IntPtr[] displayHandles)
+                {
+                    foreach (var display in displayHandles)
+                    {
+                        if (display == IntPtr.Zero)
+                            continue;
+
+                        var encoderProps = new ctl_adapter_display_encoder_properties_t
+                        {
+                            Size = (uint)sizeof(ctl_adapter_display_encoder_properties_t),
+                            Version = 0
+                        };
+
+                        var encoderResult = IGCL.ctlGetAdaperDisplayEncoderProperties((_ctl_display_output_handle_t*)display, &encoderProps);
+                        if (encoderResult != ctl_result_t.CTL_RESULT_SUCCESS)
+                            continue;
+
+                        var flags = encoderProps.EncoderConfigFlags;
+                        var isCombined = (flags & (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_COLLAGE_DISPLAY) != 0 ||
+                                         (flags & (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_MGPU_COLLAGE_DISPLAY) != 0 ||
+                                         (flags & (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_SPLIT_DISPLAY) != 0;
+                        if (isCombined)
+                        {
+                            return display;
+                        }
+                    }
+
+                    return IntPtr.Zero;
+                }
+
+                if (desiredOutputs < 2 || desiredOutputs > 4)
+                {
+                    throw new SkipException($"Combined display requires between 2 and 4 outputs; requested {desiredOutputs}.");
+                }
+
+                var probe = new ctl_combined_display_args_t
+                {
+                    Size = (uint)sizeof(ctl_combined_display_args_t),
+                    Version = 1,
+                    OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_IS_SUPPORTED_CONFIG
+                };
+
+                var probeResult = IGCL.ctlGetSetCombinedDisplay((_ctl_device_adapter_handle_t*)_adapters[0], &probe);
+                if (probeResult == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
+                    probeResult == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION)
+                {
+                    throw new SkipException($"Combined display unsupported: {probeResult}");
+                }
+
+                Assert.True(probeResult == ctl_result_t.CTL_RESULT_SUCCESS, $"Combined display probe failed: {probeResult} (NumOutputs={probe.NumOutputs})");
+                if (probe.NumOutputs < desiredOutputs)
+                {
+                    throw new SkipException($"Combined display requires {desiredOutputs} outputs but driver reports {probe.NumOutputs}.");
+                }
+
+                var existingCombinedOutput = FindCombinedDisplayOutput(_displays);
+                if (existingCombinedOutput != IntPtr.Zero)
+                {
+                    throw new SkipException("Combined display already active; refusing to modify current layout.");
+                }
+
+                uint combinedAllowedEncoderTypes =
+                    (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_TYPEC_CAPABLE |
+                    (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_TBT_CAPABLE |
+                    (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_DITHERING_SUPPORTED |
+                    (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_INTERNAL_DISPLAY;
+
+                var activeOutputs = new List<(IntPtr Handle, int Width, int Height, float RefreshRate, uint DisplayConfigFlags, uint EncoderFlags, uint EncoderId)>();
+                var matchingOutputs = new List<(IntPtr Handle, int Width, int Height, float RefreshRate, uint DisplayConfigFlags, uint EncoderFlags, uint EncoderId)>();
+
+                foreach (var display in _displays)
+                {
+                    if (display == IntPtr.Zero)
+                        continue;
+
+                    var props = new ctl_display_properties_t
+                    {
+                        Size = (uint)sizeof(ctl_display_properties_t),
+                        Version = 0
+                    };
+
+                    var propsResult = IGCL.ctlGetDisplayProperties((_ctl_display_output_handle_t*)display, &props);
+                    if (propsResult != ctl_result_t.CTL_RESULT_SUCCESS)
+                        continue;
+
+                    var encoderProps = new ctl_adapter_display_encoder_properties_t
+                    {
+                        Size = (uint)sizeof(ctl_adapter_display_encoder_properties_t),
+                        Version = 0
+                    };
+
+                    var encoderResult = IGCL.ctlGetAdaperDisplayEncoderProperties((_ctl_display_output_handle_t*)display, &encoderProps);
+                    if (encoderResult != ctl_result_t.CTL_RESULT_SUCCESS)
+                        continue;
+
+                    var isDisplayActive = (props.DisplayConfigFlags & (uint)ctl_display_config_flag_t.CTL_DISPLAY_CONFIG_FLAG_DISPLAY_ACTIVE) != 0;
+                    var isDisplayAttached = (props.DisplayConfigFlags & (uint)ctl_display_config_flag_t.CTL_DISPLAY_CONFIG_FLAG_DISPLAY_ATTACHED) != 0;
+                    var encoderFlags = encoderProps.EncoderConfigFlags;
+                    var isCombinedAvailable = encoderFlags == 0 || (encoderFlags & combinedAllowedEncoderTypes) != 0;
+
+                    if (isDisplayActive && isDisplayAttached && isCombinedAvailable)
+                    {
+                        var width = (int)props.Display_Timing_Info.HActive;
+                        var height = (int)props.Display_Timing_Info.VActive;
+                        if (width <= 0 || height <= 0)
+                        {
+                            continue;
+                        }
+
+                        var refreshRate = props.Display_Timing_Info.RefreshRate;
+                        var encoderId = encoderProps.Os_display_encoder_handle.WindowsDisplayEncoderID;
+                        var entry = (display, width, height, refreshRate, props.DisplayConfigFlags, encoderFlags, encoderId);
+                        activeOutputs.Add(entry);
+                        if (width == targetWidth && height == targetHeight)
+                        {
+                            matchingOutputs.Add(entry);
+                        }
+                    }
+                }
+
+                if (activeOutputs.Count < desiredOutputs)
+                {
+                    throw new SkipException($"Combined display requires {desiredOutputs} active outputs but only {activeOutputs.Count} are available.");
+                }
+
+                if (matchingOutputs.Count > 4)
+                {
+                    matchingOutputs.RemoveRange(4, matchingOutputs.Count - 4);
+                }
+
+                if (matchingOutputs.Count < desiredOutputs)
+                {
+                    throw new SkipException($"Combined display requires {desiredOutputs} active outputs at {targetWidth}x{targetHeight} but only {matchingOutputs.Count} are available.");
+                }
+
+                var displayOrder = new[] { 1, 0 };
+                if (displayOrder.Length != desiredOutputs)
+                {
+                    throw new SkipException($"Display order length {displayOrder.Length} does not match NumOutputs {desiredOutputs}.");
+                }
+
+                var firstOutput = matchingOutputs[displayOrder[0]];
+                var secondOutput = matchingOutputs[displayOrder[1]];
+                const int combinedWidth = targetWidth * 2;
+                const int combinedHeight = targetHeight;
+
+                static string DescribeOutput(string label, (IntPtr Handle, int Width, int Height, float RefreshRate, uint DisplayConfigFlags, uint EncoderFlags, uint EncoderId) output)
+                {
+                    return $"{label}: handle=0x{output.Handle.ToString("X")} size={output.Width}x{output.Height} refresh={output.RefreshRate:F3} displayFlags=0x{output.DisplayConfigFlags:X} encoderFlags=0x{output.EncoderFlags:X} encoderId={output.EncoderId}";
+                }
+
+                var diagBuilder = new StringBuilder();
+                diagBuilder.AppendLine($"Combined layout (IGCL order): combined={combinedWidth}x{combinedHeight} target={targetWidth}x{targetHeight}@{targetRefreshRate:F1}");
+                diagBuilder.AppendLine($"  {DescribeOutput("first", firstOutput)}");
+                diagBuilder.AppendLine($"  {DescribeOutput("second", secondOutput)}");
+                diagBuilder.AppendLine($"DisplayOrder: {string.Join(",", displayOrder)}");
+                diagBuilder.AppendLine("Placement: left=first, right=second");
+                var combinedDiag = diagBuilder.ToString().TrimEnd();
+                Console.WriteLine(combinedDiag);
+
+                var childInfos = new ctl_combined_display_child_info_t[desiredOutputs];
+                childInfos[0] = new ctl_combined_display_child_info_t
+                {
+                    hDisplayOutput = (_ctl_display_output_handle_t*)firstOutput.Handle,
+                    FbSrc = new ctl_rect_t { Left = 0, Top = 0, Right = targetWidth, Bottom = targetHeight },
+                    FbPos = new ctl_rect_t { Left = 0, Top = 0, Right = targetWidth, Bottom = targetHeight },
+                    DisplayOrientation = ctl_display_orientation_t.CTL_DISPLAY_ORIENTATION_0,
+                    TargetMode = new ctl_child_display_target_mode_t { Width = targetWidth, Height = targetHeight, RefreshRate = targetRefreshRate }
+                };
+
+                childInfos[1] = new ctl_combined_display_child_info_t
+                {
+                    hDisplayOutput = (_ctl_display_output_handle_t*)secondOutput.Handle,
+                    FbSrc = new ctl_rect_t { Left = targetWidth, Top = 0, Right = targetWidth * 2, Bottom = targetHeight },
+                    FbPos = new ctl_rect_t { Left = 0, Top = 0, Right = targetWidth, Bottom = targetHeight },
+                    DisplayOrientation = ctl_display_orientation_t.CTL_DISPLAY_ORIENTATION_0,
+                    TargetMode = new ctl_child_display_target_mode_t { Width = targetWidth, Height = targetHeight, RefreshRate = targetRefreshRate }
+                };
+
+                for (var i = 0; i < childInfos.Length; i++)
+                {
+                    var orientation = childInfos[i].DisplayOrientation;
+                    if (orientation != ctl_display_orientation_t.CTL_DISPLAY_ORIENTATION_0 &&
+                        orientation != ctl_display_orientation_t.CTL_DISPLAY_ORIENTATION_180)
+                    {
+                        throw new SkipException("Only 0/180 degree rotation is supported.");
+                    }
+                }
+
+                var combinedEnabled = false;
+                var combinedOutput = IntPtr.Zero;
+
+                var enableSkipped = false;
+                try
+                {
+                    fixed (ctl_combined_display_child_info_t* pChildInfos = childInfos)
+                    {
+                        var supportArgs = new ctl_combined_display_args_t
+                        {
+                            Size = (uint)sizeof(ctl_combined_display_args_t),
+                            Version = 1,
+                            OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_IS_SUPPORTED_CONFIG,
+                            NumOutputs = desiredOutputs,
+                            CombinedDesktopWidth = (uint)combinedWidth,
+                            CombinedDesktopHeight = (uint)combinedHeight,
+                            pChildInfo = pChildInfos,
+                            hCombinedDisplayOutput = null
+                        };
+
+                        var supportResult = IGCL.ctlGetSetCombinedDisplay((_ctl_device_adapter_handle_t*)_adapters[0], &supportArgs);
+                        if (supportResult == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
+                            supportResult == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION)
+                        {
+                            throw new SkipException($"Combined display unsupported: {supportResult}");
+                        }
+
+                        Assert.True(supportResult == ctl_result_t.CTL_RESULT_SUCCESS, $"Combined display support probe failed: {supportResult} (0x{(uint)supportResult:X}). {combinedDiag}");
+
+                        if (supportArgs.IsSupported == 0)
+                        {
+                            enableSkipped = true;
+                        }
+
+                        if (!enableSkipped)
+                        {
+                            var enableArgs = supportArgs;
+                            enableArgs.OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_ENABLE;
+
+                            var enableResult = IGCL.ctlGetSetCombinedDisplay((_ctl_device_adapter_handle_t*)_adapters[0], &enableArgs);
+                            if (enableResult == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
+                                enableResult == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION)
+                            {
+                                throw new SkipException($"Combined display unsupported: {enableResult}");
+                            }
+
+                            Assert.True(enableResult == ctl_result_t.CTL_RESULT_SUCCESS, $"Combined display enable failed: {enableResult} (0x{(uint)enableResult:X}). {combinedDiag}");
+
+                            combinedEnabled = true;
+                            if (enableArgs.hCombinedDisplayOutput != null)
+                            {
+                                combinedOutput = (IntPtr)enableArgs.hCombinedDisplayOutput;
+                            }
+                        }
+                    }
+
+                    if (!enableSkipped)
+                    {
+                        var updatedDisplays = _api.EnumerateDisplays(_adapters[0]);
+                        if (combinedOutput == IntPtr.Zero && updatedDisplays.Length > 0)
+                        {
+                            combinedOutput = FindCombinedDisplayOutput(updatedDisplays);
+                        }
+
+                        Assert.True(combinedOutput != IntPtr.Zero, "Combined display output handle not found after enable.");
+
+                        var queryChildCount = probe.NumOutputs > 0 ? probe.NumOutputs : desiredOutputs;
+                        var queryChildren = new ctl_combined_display_child_info_t[queryChildCount];
+                        fixed (ctl_combined_display_child_info_t* pQueryChildren = queryChildren)
+                        {
+                            var queryArgs = new ctl_combined_display_args_t
+                            {
+                                Size = (uint)sizeof(ctl_combined_display_args_t),
+                                Version = 1,
+                                OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_QUERY_CONFIG,
+                                NumOutputs = 0,
+                                CombinedDesktopWidth = 0,
+                                CombinedDesktopHeight = 0,
+                                pChildInfo = pQueryChildren,
+                                hCombinedDisplayOutput = (_ctl_display_output_handle_t*)combinedOutput
+                            };
+
+                            var queryResult = IGCL.ctlGetSetCombinedDisplay((_ctl_device_adapter_handle_t*)_adapters[0], &queryArgs);
+                            if (queryResult == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
+                                queryResult == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION)
+                            {
+                                throw new SkipException($"Combined display query unsupported: {queryResult}");
+                            }
+
+                            Assert.True(queryResult == ctl_result_t.CTL_RESULT_SUCCESS, $"Combined display query failed: {queryResult} (0x{(uint)queryResult:X})");
+                            Assert.Equal(desiredOutputs, queryArgs.NumOutputs);
+                            Assert.Equal((uint)combinedWidth, queryArgs.CombinedDesktopWidth);
+                            Assert.Equal((uint)combinedHeight, queryArgs.CombinedDesktopHeight);
+                        }
+
+                        Console.WriteLine("Combined display enabled; waiting 10 seconds before disable.");
+                        System.Threading.Thread.Sleep(10000);
+                    }
+                }
+                finally
+                {
+                    if (combinedEnabled)
+                    {
+                        if (combinedOutput == IntPtr.Zero)
+                        {
+                            var currentDisplays = _api.EnumerateDisplays(_adapters[0]);
+                            if (currentDisplays.Length > 0)
+                            {
+                                combinedOutput = FindCombinedDisplayOutput(currentDisplays);
+                            }
+                        }
+
+                        Assert.True(combinedOutput != IntPtr.Zero, "Combined display output handle not found for disable.");
+
+                        Console.WriteLine("Disabling combined display.");
+                        var disableChildren = new ctl_combined_display_child_info_t[1];
+                        fixed (ctl_combined_display_child_info_t* pDisableChildren = disableChildren)
+                        {
+                            var disableArgs = new ctl_combined_display_args_t
+                            {
+                                Size = (uint)sizeof(ctl_combined_display_args_t),
+                                Version = 1,
+                                OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_DISABLE,
+                                NumOutputs = 1,
+                                CombinedDesktopWidth = 0,
+                                CombinedDesktopHeight = 0,
+                                pChildInfo = pDisableChildren,
+                                hCombinedDisplayOutput = (_ctl_display_output_handle_t*)combinedOutput
+                            };
+
+                            var disableResult = IGCL.ctlGetSetCombinedDisplay((_ctl_device_adapter_handle_t*)_adapters[0], &disableArgs);
+                            Assert.True(disableResult == ctl_result_t.CTL_RESULT_SUCCESS, $"Combined display disable failed: {disableResult} (0x{(uint)disableResult:X})");
+                        }
+                    }
+                }
+
+                if (enableSkipped)
+                {
+                    throw new SkipException("Combined display configuration is not supported by the driver.");
                 }
             }
         }
