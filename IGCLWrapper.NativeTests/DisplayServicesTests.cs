@@ -927,6 +927,144 @@ namespace IGCLWrapper.Tests
         }
 
         [SkippableFact]
+        public void CtlPanelDescriptorAccess_TwoStageRead_ShouldReturnData()
+        {
+            // Arrange
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable, _skipReason);
+
+            unsafe
+            {
+                _ctl_display_output_handle_t* attachedDisplay = null;
+                foreach (var display in _displays)
+                {
+                    if (display == IntPtr.Zero)
+                        continue;
+
+                    var props = new ctl_display_properties_t
+                    {
+                        Size = (uint)sizeof(ctl_display_properties_t),
+                        Version = 0
+                    };
+
+                    var propsResult = IGCL.ctlGetDisplayProperties((_ctl_display_output_handle_t*)display, &props);
+                    if (propsResult != ctl_result_t.CTL_RESULT_SUCCESS)
+                        continue;
+
+                    var isDisplayAttached = ((uint)props.DisplayConfigFlags & (uint)ctl_display_config_flag_t.CTL_DISPLAY_CONFIG_FLAG_DISPLAY_ATTACHED) != 0;
+                    if (isDisplayAttached)
+                    {
+                        attachedDisplay = (_ctl_display_output_handle_t*)display;
+                        break;
+                    }
+                }
+
+                Skip.If(attachedDisplay == null, "No attached display found for panel descriptor access.");
+
+                var sizeArgs = new ctl_panel_descriptor_access_args_t
+                {
+                    Size = (uint)sizeof(ctl_panel_descriptor_access_args_t),
+                    Version = 0,
+                    OpType = ctl_operation_type_t.CTL_OPERATION_TYPE_READ,
+                    BlockNumber = 0,
+                    DescriptorDataSize = 0,
+                    pDescriptorData = null
+                };
+
+                var sizeResult = IGCL.ctlPanelDescriptorAccess(attachedDisplay, &sizeArgs);
+                if (sizeResult == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
+                    sizeResult == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION)
+                {
+                    throw new SkipException($"Panel descriptor access unsupported: {sizeResult}");
+                }
+
+                Assert.True(sizeResult == ctl_result_t.CTL_RESULT_SUCCESS, $"Panel descriptor size query failed: {sizeResult}");
+                if (sizeArgs.DescriptorDataSize == 0)
+                {
+                    throw new SkipException("Panel descriptor size query returned 0.");
+                }
+
+                var data = new byte[sizeArgs.DescriptorDataSize];
+                fixed (byte* pData = data)
+                {
+                    var readArgs = new ctl_panel_descriptor_access_args_t
+                    {
+                        Size = (uint)sizeof(ctl_panel_descriptor_access_args_t),
+                        Version = 0,
+                        OpType = ctl_operation_type_t.CTL_OPERATION_TYPE_READ,
+                        BlockNumber = 0,
+                        DescriptorDataSize = sizeArgs.DescriptorDataSize,
+                        pDescriptorData = pData
+                    };
+
+                    var readResult = IGCL.ctlPanelDescriptorAccess(attachedDisplay, &readArgs);
+                    if (readResult == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
+                        readResult == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION)
+                    {
+                        throw new SkipException($"Panel descriptor access unsupported: {readResult}");
+                    }
+
+                    Assert.True(readResult == ctl_result_t.CTL_RESULT_SUCCESS, $"Panel descriptor read failed: {readResult}");
+                    Assert.Equal(sizeArgs.DescriptorDataSize, readArgs.DescriptorDataSize);
+                }
+
+                if (data.Length <= 126)
+                    return;
+
+                var extensionBlocks = data[126];
+                if (extensionBlocks == 0)
+                    return;
+
+                for (var blockIndex = 0; blockIndex < extensionBlocks; blockIndex++)
+                {
+                    var extSizeArgs = new ctl_panel_descriptor_access_args_t
+                    {
+                        Size = (uint)sizeof(ctl_panel_descriptor_access_args_t),
+                        Version = 0,
+                        OpType = ctl_operation_type_t.CTL_OPERATION_TYPE_READ,
+                        BlockNumber = (uint)(blockIndex + 1),
+                        DescriptorDataSize = 0,
+                        pDescriptorData = null
+                    };
+
+                    var extSizeResult = IGCL.ctlPanelDescriptorAccess(attachedDisplay, &extSizeArgs);
+                    if (extSizeResult == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
+                        extSizeResult == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION)
+                    {
+                        throw new SkipException($"Panel descriptor access unsupported: {extSizeResult}");
+                    }
+
+                    Assert.True(extSizeResult == ctl_result_t.CTL_RESULT_SUCCESS, $"Panel descriptor extension size query failed: {extSizeResult}");
+                    if (extSizeArgs.DescriptorDataSize == 0)
+                        continue;
+
+                    var extData = new byte[extSizeArgs.DescriptorDataSize];
+                    fixed (byte* pExtData = extData)
+                    {
+                        var extReadArgs = new ctl_panel_descriptor_access_args_t
+                        {
+                            Size = (uint)sizeof(ctl_panel_descriptor_access_args_t),
+                            Version = 0,
+                            OpType = ctl_operation_type_t.CTL_OPERATION_TYPE_READ,
+                            BlockNumber = (uint)(blockIndex + 1),
+                            DescriptorDataSize = extSizeArgs.DescriptorDataSize,
+                            pDescriptorData = pExtData
+                        };
+
+                        var extReadResult = IGCL.ctlPanelDescriptorAccess(attachedDisplay, &extReadArgs);
+                        if (extReadResult == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
+                            extReadResult == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION)
+                        {
+                            throw new SkipException($"Panel descriptor access unsupported: {extReadResult}");
+                        }
+
+                        Assert.True(extReadResult == ctl_result_t.CTL_RESULT_SUCCESS, $"Panel descriptor extension read failed: {extReadResult}");
+                        Assert.Equal(extSizeArgs.DescriptorDataSize, extReadArgs.DescriptorDataSize);
+                    }
+                }
+            }
+        }
+
+        [SkippableFact]
         public void CtlGetSetDisplaySettings_ShouldReadSettings()
         {
             // Arrange
