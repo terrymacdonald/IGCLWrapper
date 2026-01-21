@@ -720,7 +720,7 @@ namespace IGCLWrapper
                 }
             }
 
-            var activeOutputs = new List<(IntPtr Handle, int Width, int Height)>();
+            var activeOutputs = new List<(IntPtr Handle, int Width, int Height, uint EncoderId)>();
             var displayHandles = EnumerateDisplayOutputsNative();
             if (displayHandles != null)
             {
@@ -766,7 +766,8 @@ namespace IGCLWrapper
                         if (width <= 0 || height <= 0)
                             continue;
 
-                        activeOutputs.Add((display, width, height));
+                        var encoderId = encoderProps.Os_display_encoder_handle.WindowsDisplayEncoderID;
+                        activeOutputs.Add((display, width, height, encoderId));
                     }
                 }
             }
@@ -793,16 +794,43 @@ namespace IGCLWrapper
 
             if (!allConnected)
             {
-                var remainingOutputs = new List<(IntPtr Handle, int Width, int Height)>(activeOutputs);
+                var remainingOutputs = new List<(IntPtr Handle, int Width, int Height, uint EncoderId)>(activeOutputs);
+
+                var childIndexes = new List<int>(desiredChildren.Length);
                 for (var i = 0; i < desiredChildren.Length; i++)
+                    childIndexes.Add(i);
+
+                // Order children by intended layout (top-to-bottom, left-to-right).
+                childIndexes.Sort((a, b) =>
                 {
-                    var target = desiredChildren[i].TargetMode;
+                    var aPos = desiredChildren[a].FbPos;
+                    var bPos = desiredChildren[b].FbPos;
+                    var top = aPos.Top.CompareTo(bPos.Top);
+                    if (top != 0) return top;
+                    var left = aPos.Left.CompareTo(bPos.Left);
+                    if (left != 0) return left;
+                    return a.CompareTo(b);
+                });
+
+                // Stable output order (encoder id, then handle).
+                remainingOutputs.Sort((a, b) =>
+                {
+                    var cmp = a.EncoderId.CompareTo(b.EncoderId);
+                    if (cmp != 0) return cmp;
+                    return a.Handle.ToInt64().CompareTo(b.Handle.ToInt64());
+                });
+
+                foreach (var childIndex in childIndexes)
+                {
+                    var target = desiredChildren[childIndex].TargetMode;
                     var matchIndex = -1;
+
                     if (target.Width > 0 && target.Height > 0)
                     {
                         for (var j = 0; j < remainingOutputs.Count; j++)
                         {
-                            if (remainingOutputs[j].Width == target.Width && remainingOutputs[j].Height == target.Height)
+                            if (remainingOutputs[j].Width == target.Width &&
+                                remainingOutputs[j].Height == target.Height)
                             {
                                 matchIndex = j;
                                 break;
@@ -813,7 +841,7 @@ namespace IGCLWrapper
                     if (matchIndex < 0)
                         matchIndex = 0;
 
-                    desiredChildren[i].DisplayOutput = remainingOutputs[matchIndex].Handle;
+                    desiredChildren[childIndex].DisplayOutput = remainingOutputs[matchIndex].Handle;
                     remainingOutputs.RemoveAt(matchIndex);
                 }
             }
