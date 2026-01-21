@@ -653,31 +653,224 @@ namespace IGCLWrapper
         /// <param name="args">Combined display args DTO.</param>
         public void SetCombinedDisplay(CombinedDisplayArgsDto args)
         {
+            ThrowIfDisposed();
             if (args.OpType == 0)
                 throw new ArgumentException("OpType must be set for combined display operations.", nameof(args));
 
-            var childInfos = args.ChildInfos;
-            if (childInfos == null || childInfos.Length == 0)
+            if (args.OpType == ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_DISABLE)
             {
-                GetSetCombinedDisplayNative(args.ToNative());
+                var combinedOutput = args.CombinedDisplayOutput;
+                if (combinedOutput == IntPtr.Zero)
+                    combinedOutput = FindCombinedDisplayOutputHandle();
+                if (combinedOutput == IntPtr.Zero)
+                    throw new InvalidOperationException("Combined display output handle not found for disable.");
+
+                var disableChildren = new ctl_combined_display_child_info_t[1];
+                unsafe
+                {
+                    fixed (ctl_combined_display_child_info_t* pDisableChildren = disableChildren)
+                    {
+                        var disableArgs = new ctl_combined_display_args_t
+                        {
+                            Size = (uint)sizeof(ctl_combined_display_args_t),
+                            Version = 1,
+                            OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_DISABLE,
+                            NumOutputs = 1,
+                            CombinedDesktopWidth = 0,
+                            CombinedDesktopHeight = 0,
+                            pChildInfo = pDisableChildren,
+                            hCombinedDisplayOutput = (_ctl_display_output_handle_t*)combinedOutput
+                        };
+                        GetSetCombinedDisplayNative(disableArgs);
+                    }
+                }
                 return;
             }
 
-            var nativeChildren = new ctl_combined_display_child_info_t[childInfos.Length];
-            for (var i = 0; i < childInfos.Length; i++)
+            var opType = args.OpType;
+            if (opType == ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_QUERY_CONFIG)
+                opType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_ENABLE;
+
+            if (opType != ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_ENABLE &&
+                opType != ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_IS_SUPPORTED_CONFIG)
             {
-                nativeChildren[i] = childInfos[i].ToNative();
+                throw new ArgumentException($"Unsupported combined display operation: {args.OpType}", nameof(args));
+            }
+
+            var childInfos = args.ChildInfos;
+            if (childInfos == null || childInfos.Length == 0)
+                throw new ArgumentException("ChildInfos must be provided to enable combined display.", nameof(args));
+
+            var numOutputs = args.NumOutputs == 0 ? (byte)childInfos.Length : args.NumOutputs;
+            if (numOutputs < 2 || numOutputs > 4)
+                throw new ArgumentException("Combined display requires between 2 and 4 outputs.", nameof(args));
+            if (childInfos.Length < numOutputs)
+                throw new ArgumentException("ChildInfos length does not match NumOutputs.", nameof(args));
+
+            var desiredChildren = new CombinedDisplayChildInfoDto[numOutputs];
+            Array.Copy(childInfos, desiredChildren, numOutputs);
+
+            for (var i = 0; i < desiredChildren.Length; i++)
+            {
+                var orientation = desiredChildren[i].DisplayOrientation;
+                if (orientation != ctl_display_orientation_t.CTL_DISPLAY_ORIENTATION_0 &&
+                    orientation != ctl_display_orientation_t.CTL_DISPLAY_ORIENTATION_180)
+                {
+                    throw new ArgumentException("Only 0/180 degree rotation is supported.", nameof(args));
+                }
+            }
+
+            var activeOutputs = new List<(IntPtr Handle, int Width, int Height)>();
+            var displayHandles = EnumerateDisplayOutputsNative();
+            if (displayHandles != null)
+            {
+                uint combinedAllowedEncoderTypes =
+                    (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_TYPEC_CAPABLE |
+                    (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_TBT_CAPABLE |
+                    (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_DITHERING_SUPPORTED |
+                    (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_INTERNAL_DISPLAY;
+
+                foreach (var display in displayHandles)
+                {
+                    if (display == IntPtr.Zero)
+                        continue;
+
+                    unsafe
+                    {
+                        var props = new ctl_display_properties_t
+                        {
+                            Size = (uint)sizeof(ctl_display_properties_t),
+                            Version = 0
+                        };
+                        if (IGCL.ctlGetDisplayProperties((_ctl_display_output_handle_t*)display, &props) != ctl_result_t.CTL_RESULT_SUCCESS)
+                            continue;
+
+                        var encoderProps = new ctl_adapter_display_encoder_properties_t
+                        {
+                            Size = (uint)sizeof(ctl_adapter_display_encoder_properties_t),
+                            Version = 0
+                        };
+                        if (IGCL.ctlGetAdaperDisplayEncoderProperties((_ctl_display_output_handle_t*)display, &encoderProps) != ctl_result_t.CTL_RESULT_SUCCESS)
+                            continue;
+
+                        var isDisplayActive = (props.DisplayConfigFlags & (uint)ctl_display_config_flag_t.CTL_DISPLAY_CONFIG_FLAG_DISPLAY_ACTIVE) != 0;
+                        var isDisplayAttached = (props.DisplayConfigFlags & (uint)ctl_display_config_flag_t.CTL_DISPLAY_CONFIG_FLAG_DISPLAY_ATTACHED) != 0;
+                        var encoderFlags = encoderProps.EncoderConfigFlags;
+                        var isCombinedAvailable = encoderFlags == 0 || (encoderFlags & combinedAllowedEncoderTypes) != 0;
+
+                        if (!isDisplayActive || !isDisplayAttached || !isCombinedAvailable)
+                            continue;
+
+                        var width = (int)props.Display_Timing_Info.HActive;
+                        var height = (int)props.Display_Timing_Info.VActive;
+                        if (width <= 0 || height <= 0)
+                            continue;
+
+                        activeOutputs.Add((display, width, height));
+                    }
+                }
+            }
+
+            if (activeOutputs.Count < numOutputs)
+            {
+                throw new InvalidOperationException($"Combined display requires {numOutputs} active outputs but only {activeOutputs.Count} are available.");
+            }
+
+            var activeOutputHandles = new HashSet<IntPtr>();
+            for (var i = 0; i < activeOutputs.Count; i++)
+                activeOutputHandles.Add(activeOutputs[i].Handle);
+
+            var allConnected = true;
+            for (var i = 0; i < desiredChildren.Length; i++)
+            {
+                var handle = desiredChildren[i].DisplayOutput;
+                if (handle == IntPtr.Zero || !activeOutputHandles.Contains(handle))
+                {
+                    allConnected = false;
+                    break;
+                }
+            }
+
+            if (!allConnected)
+            {
+                var remainingOutputs = new List<(IntPtr Handle, int Width, int Height)>(activeOutputs);
+                for (var i = 0; i < desiredChildren.Length; i++)
+                {
+                    var target = desiredChildren[i].TargetMode;
+                    var matchIndex = -1;
+                    if (target.Width > 0 && target.Height > 0)
+                    {
+                        for (var j = 0; j < remainingOutputs.Count; j++)
+                        {
+                            if (remainingOutputs[j].Width == target.Width && remainingOutputs[j].Height == target.Height)
+                            {
+                                matchIndex = j;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (matchIndex < 0)
+                        matchIndex = 0;
+
+                    desiredChildren[i].DisplayOutput = remainingOutputs[matchIndex].Handle;
+                    remainingOutputs.RemoveAt(matchIndex);
+                }
+            }
+
+            var combinedWidth = args.CombinedDesktopWidth;
+            var combinedHeight = args.CombinedDesktopHeight;
+            if (combinedWidth == 0 || combinedHeight == 0)
+            {
+                var maxRight = 0;
+                var maxBottom = 0;
+                for (var i = 0; i < desiredChildren.Length; i++)
+                {
+                    var rect = desiredChildren[i].FbSrc;
+                    if (rect.Right > maxRight)
+                        maxRight = rect.Right;
+                    if (rect.Bottom > maxBottom)
+                        maxBottom = rect.Bottom;
+                }
+
+                if (combinedWidth == 0 && maxRight > 0)
+                    combinedWidth = (uint)maxRight;
+                if (combinedHeight == 0 && maxBottom > 0)
+                    combinedHeight = (uint)maxBottom;
+            }
+
+            var nativeChildren = new ctl_combined_display_child_info_t[numOutputs];
+            for (var i = 0; i < nativeChildren.Length; i++)
+            {
+                nativeChildren[i] = desiredChildren[i].ToNative();
             }
 
             unsafe
             {
                 fixed (ctl_combined_display_child_info_t* pChildInfo = nativeChildren)
                 {
-                    var nativeRequest = args.ToNative();
-                    nativeRequest.pChildInfo = pChildInfo;
-                    if (nativeRequest.NumOutputs == 0)
-                        nativeRequest.NumOutputs = (byte)nativeChildren.Length;
-                    GetSetCombinedDisplayNative(nativeRequest);
+                    var supportArgs = new ctl_combined_display_args_t
+                    {
+                        Size = (uint)sizeof(ctl_combined_display_args_t),
+                        Version = 1,
+                        OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_IS_SUPPORTED_CONFIG,
+                        NumOutputs = numOutputs,
+                        CombinedDesktopWidth = combinedWidth,
+                        CombinedDesktopHeight = combinedHeight,
+                        pChildInfo = pChildInfo,
+                        hCombinedDisplayOutput = null
+                    };
+
+                    var supportResult = GetSetCombinedDisplayNative(supportArgs);
+                    if (supportResult.IsSupported == 0)
+                        throw new IGCLException(ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE, "Combined display configuration is not supported.");
+
+                    if (opType == ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_IS_SUPPORTED_CONFIG)
+                        return;
+
+                    var enableArgs = supportResult;
+                    enableArgs.OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_ENABLE;
+                    GetSetCombinedDisplayNative(enableArgs);
                 }
             }
         }
