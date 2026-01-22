@@ -9,7 +9,9 @@ items:
   - IGCLWrapper.IGCLFirmwareHelper.Dispose
   - IGCLWrapper.IGCLFirmwareHelper.EnumerateFirmwareComponents
   - IGCLWrapper.IGCLFirmwareHelper.GetFirmwareComponentProperties(System.IntPtr)
+  - IGCLWrapper.IGCLFirmwareHelper.GetFirmwareComponentPropertiesNative(System.IntPtr)
   - IGCLWrapper.IGCLFirmwareHelper.GetFirmwareProperties
+  - IGCLWrapper.IGCLFirmwareHelper.GetFirmwarePropertiesNative
   langs:
   - csharp
   - vb
@@ -24,7 +26,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IGCLFirmwareHelper
     path: ../IGCLWrapper/IGCLFirmwareHelper.cs
-    startLine: 8
+    startLine: 10
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -44,6 +46,37 @@ items:
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+- uid: IGCLWrapper.IGCLFirmwareHelper.GetFirmwarePropertiesNative
+  commentId: M:IGCLWrapper.IGCLFirmwareHelper.GetFirmwarePropertiesNative
+  id: GetFirmwarePropertiesNative
+  parent: IGCLWrapper.IGCLFirmwareHelper
+  langs:
+  - csharp
+  - vb
+  name: GetFirmwarePropertiesNative()
+  nameWithType: IGCLFirmwareHelper.GetFirmwarePropertiesNative()
+  fullName: IGCLWrapper.IGCLFirmwareHelper.GetFirmwarePropertiesNative()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFirmwareHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetFirmwarePropertiesNative
+    path: ../IGCLWrapper/IGCLFirmwareHelper.cs
+    startLine: 26
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get firmware properties for the adapter.
+  example: []
+  syntax:
+    content: public ctl_firmware_properties_t GetFirmwarePropertiesNative()
+    return:
+      type: IGCLWrapper.ctl_firmware_properties_t
+      description: Firmware properties struct.
+    content.vb: Public Function GetFirmwarePropertiesNative() As ctl_firmware_properties_t
+  overload: IGCLWrapper.IGCLFirmwareHelper.GetFirmwarePropertiesNative*
 - uid: IGCLWrapper.IGCLFirmwareHelper.GetFirmwareProperties
   commentId: M:IGCLWrapper.IGCLFirmwareHelper.GetFirmwareProperties
   id: GetFirmwareProperties
@@ -62,18 +95,18 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetFirmwareProperties
     path: ../IGCLWrapper/IGCLFirmwareHelper.cs
-    startLine: 24
+    startLine: 40
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Get firmware properties for the adapter.
+  summary: Get firmware properties for the adapter as a DTO.
   example: []
   syntax:
-    content: public ctl_firmware_properties_t GetFirmwareProperties()
+    content: public FirmwarePropertiesDto GetFirmwareProperties()
     return:
-      type: IGCLWrapper.ctl_firmware_properties_t
-      description: Firmware properties struct.
-    content.vb: Public Function GetFirmwareProperties() As ctl_firmware_properties_t
+      type: IGCLWrapper.FirmwarePropertiesDto
+      description: Firmware properties DTO.
+    content.vb: Public Function GetFirmwareProperties() As FirmwarePropertiesDto
   overload: IGCLWrapper.IGCLFirmwareHelper.GetFirmwareProperties*
 - uid: IGCLWrapper.IGCLFirmwareHelper.EnumerateFirmwareComponents
   commentId: M:IGCLWrapper.IGCLFirmwareHelper.EnumerateFirmwareComponents
@@ -93,7 +126,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumerateFirmwareComponents
     path: ../IGCLWrapper/IGCLFirmwareHelper.cs
-    startLine: 38
+    startLine: 54
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -106,6 +139,44 @@ items:
       description: Read-only list of firmware component handles.
     content.vb: Public Function EnumerateFirmwareComponents() As IReadOnlyList(Of IntPtr)
   overload: IGCLWrapper.IGCLFirmwareHelper.EnumerateFirmwareComponents*
+- uid: IGCLWrapper.IGCLFirmwareHelper.GetFirmwareComponentPropertiesNative(System.IntPtr)
+  commentId: M:IGCLWrapper.IGCLFirmwareHelper.GetFirmwareComponentPropertiesNative(System.IntPtr)
+  id: GetFirmwareComponentPropertiesNative(System.IntPtr)
+  parent: IGCLWrapper.IGCLFirmwareHelper
+  langs:
+  - csharp
+  - vb
+  name: GetFirmwareComponentPropertiesNative(nint)
+  nameWithType: IGCLFirmwareHelper.GetFirmwareComponentPropertiesNative(nint)
+  fullName: IGCLWrapper.IGCLFirmwareHelper.GetFirmwareComponentPropertiesNative(nint)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFirmwareHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetFirmwareComponentPropertiesNative
+    path: ../IGCLWrapper/IGCLFirmwareHelper.cs
+    startLine: 65
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get firmware component properties.
+  example: []
+  syntax:
+    content: public ctl_firmware_component_properties_t GetFirmwareComponentPropertiesNative(nint firmwareHandle)
+    parameters:
+    - id: firmwareHandle
+      type: System.IntPtr
+      description: Firmware component handle.
+    return:
+      type: IGCLWrapper.ctl_firmware_component_properties_t
+      description: Firmware component properties struct.
+    content.vb: Public Function GetFirmwareComponentPropertiesNative(firmwareHandle As IntPtr) As ctl_firmware_component_properties_t
+  overload: IGCLWrapper.IGCLFirmwareHelper.GetFirmwareComponentPropertiesNative*
+  nameWithType.vb: IGCLFirmwareHelper.GetFirmwareComponentPropertiesNative(IntPtr)
+  fullName.vb: IGCLWrapper.IGCLFirmwareHelper.GetFirmwareComponentPropertiesNative(System.IntPtr)
+  name.vb: GetFirmwareComponentPropertiesNative(IntPtr)
 - uid: IGCLWrapper.IGCLFirmwareHelper.GetFirmwareComponentProperties(System.IntPtr)
   commentId: M:IGCLWrapper.IGCLFirmwareHelper.GetFirmwareComponentProperties(System.IntPtr)
   id: GetFirmwareComponentProperties(System.IntPtr)
@@ -124,22 +195,22 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetFirmwareComponentProperties
     path: ../IGCLWrapper/IGCLFirmwareHelper.cs
-    startLine: 49
+    startLine: 80
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Get firmware component properties.
+  summary: Get firmware component properties as a DTO.
   example: []
   syntax:
-    content: public ctl_firmware_component_properties_t GetFirmwareComponentProperties(nint firmwareHandle)
+    content: public FirmwareComponentPropertiesDto GetFirmwareComponentProperties(nint firmwareHandle)
     parameters:
     - id: firmwareHandle
       type: System.IntPtr
       description: Firmware component handle.
     return:
-      type: IGCLWrapper.ctl_firmware_component_properties_t
-      description: Firmware component properties struct.
-    content.vb: Public Function GetFirmwareComponentProperties(firmwareHandle As IntPtr) As ctl_firmware_component_properties_t
+      type: IGCLWrapper.FirmwareComponentPropertiesDto
+      description: Firmware component properties DTO.
+    content.vb: Public Function GetFirmwareComponentProperties(firmwareHandle As IntPtr) As FirmwareComponentPropertiesDto
   overload: IGCLWrapper.IGCLFirmwareHelper.GetFirmwareComponentProperties*
   nameWithType.vb: IGCLFirmwareHelper.GetFirmwareComponentProperties(IntPtr)
   fullName.vb: IGCLWrapper.IGCLFirmwareHelper.GetFirmwareComponentProperties(System.IntPtr)
@@ -162,7 +233,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AllowPCIeLinkSpeedUpdate
     path: ../IGCLWrapper/IGCLFirmwareHelper.cs
-    startLine: 63
+    startLine: 94
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -197,7 +268,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLFirmwareHelper.cs
-    startLine: 101
+    startLine: 132
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -437,12 +508,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: IGCLWrapper.IGCLFirmwareHelper.GetFirmwareProperties*
-  commentId: Overload:IGCLWrapper.IGCLFirmwareHelper.GetFirmwareProperties
-  href: IGCLWrapper.IGCLFirmwareHelper.html#IGCLWrapper_IGCLFirmwareHelper_GetFirmwareProperties
-  name: GetFirmwareProperties
-  nameWithType: IGCLFirmwareHelper.GetFirmwareProperties
-  fullName: IGCLWrapper.IGCLFirmwareHelper.GetFirmwareProperties
+- uid: IGCLWrapper.IGCLFirmwareHelper.GetFirmwarePropertiesNative*
+  commentId: Overload:IGCLWrapper.IGCLFirmwareHelper.GetFirmwarePropertiesNative
+  href: IGCLWrapper.IGCLFirmwareHelper.html#IGCLWrapper_IGCLFirmwareHelper_GetFirmwarePropertiesNative
+  name: GetFirmwarePropertiesNative
+  nameWithType: IGCLFirmwareHelper.GetFirmwarePropertiesNative
+  fullName: IGCLWrapper.IGCLFirmwareHelper.GetFirmwarePropertiesNative
 - uid: IGCLWrapper.ctl_firmware_properties_t
   commentId: T:IGCLWrapper.ctl_firmware_properties_t
   parent: IGCLWrapper
@@ -450,6 +521,19 @@ references:
   name: ctl_firmware_properties_t
   nameWithType: ctl_firmware_properties_t
   fullName: IGCLWrapper.ctl_firmware_properties_t
+- uid: IGCLWrapper.IGCLFirmwareHelper.GetFirmwareProperties*
+  commentId: Overload:IGCLWrapper.IGCLFirmwareHelper.GetFirmwareProperties
+  href: IGCLWrapper.IGCLFirmwareHelper.html#IGCLWrapper_IGCLFirmwareHelper_GetFirmwareProperties
+  name: GetFirmwareProperties
+  nameWithType: IGCLFirmwareHelper.GetFirmwareProperties
+  fullName: IGCLWrapper.IGCLFirmwareHelper.GetFirmwareProperties
+- uid: IGCLWrapper.FirmwarePropertiesDto
+  commentId: T:IGCLWrapper.FirmwarePropertiesDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.FirmwarePropertiesDto.html
+  name: FirmwarePropertiesDto
+  nameWithType: FirmwarePropertiesDto
+  fullName: IGCLWrapper.FirmwarePropertiesDto
 - uid: IGCLWrapper.IGCLFirmwareHelper.EnumerateFirmwareComponents*
   commentId: Overload:IGCLWrapper.IGCLFirmwareHelper.EnumerateFirmwareComponents
   href: IGCLWrapper.IGCLFirmwareHelper.html#IGCLWrapper_IGCLFirmwareHelper_EnumerateFirmwareComponents
@@ -556,12 +640,12 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: IGCLWrapper.IGCLFirmwareHelper.GetFirmwareComponentProperties*
-  commentId: Overload:IGCLWrapper.IGCLFirmwareHelper.GetFirmwareComponentProperties
-  href: IGCLWrapper.IGCLFirmwareHelper.html#IGCLWrapper_IGCLFirmwareHelper_GetFirmwareComponentProperties_System_IntPtr_
-  name: GetFirmwareComponentProperties
-  nameWithType: IGCLFirmwareHelper.GetFirmwareComponentProperties
-  fullName: IGCLWrapper.IGCLFirmwareHelper.GetFirmwareComponentProperties
+- uid: IGCLWrapper.IGCLFirmwareHelper.GetFirmwareComponentPropertiesNative*
+  commentId: Overload:IGCLWrapper.IGCLFirmwareHelper.GetFirmwareComponentPropertiesNative
+  href: IGCLWrapper.IGCLFirmwareHelper.html#IGCLWrapper_IGCLFirmwareHelper_GetFirmwareComponentPropertiesNative_System_IntPtr_
+  name: GetFirmwareComponentPropertiesNative
+  nameWithType: IGCLFirmwareHelper.GetFirmwareComponentPropertiesNative
+  fullName: IGCLWrapper.IGCLFirmwareHelper.GetFirmwareComponentPropertiesNative
 - uid: System.IntPtr
   commentId: T:System.IntPtr
   parent: System
@@ -580,6 +664,19 @@ references:
   name: ctl_firmware_component_properties_t
   nameWithType: ctl_firmware_component_properties_t
   fullName: IGCLWrapper.ctl_firmware_component_properties_t
+- uid: IGCLWrapper.IGCLFirmwareHelper.GetFirmwareComponentProperties*
+  commentId: Overload:IGCLWrapper.IGCLFirmwareHelper.GetFirmwareComponentProperties
+  href: IGCLWrapper.IGCLFirmwareHelper.html#IGCLWrapper_IGCLFirmwareHelper_GetFirmwareComponentProperties_System_IntPtr_
+  name: GetFirmwareComponentProperties
+  nameWithType: IGCLFirmwareHelper.GetFirmwareComponentProperties
+  fullName: IGCLWrapper.IGCLFirmwareHelper.GetFirmwareComponentProperties
+- uid: IGCLWrapper.FirmwareComponentPropertiesDto
+  commentId: T:IGCLWrapper.FirmwareComponentPropertiesDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.FirmwareComponentPropertiesDto.html
+  name: FirmwareComponentPropertiesDto
+  nameWithType: FirmwareComponentPropertiesDto
+  fullName: IGCLWrapper.FirmwareComponentPropertiesDto
 - uid: IGCLWrapper.IGCLFirmwareHelper.AllowPCIeLinkSpeedUpdate*
   commentId: Overload:IGCLWrapper.IGCLFirmwareHelper.AllowPCIeLinkSpeedUpdate
   href: IGCLWrapper.IGCLFirmwareHelper.html#IGCLWrapper_IGCLFirmwareHelper_AllowPCIeLinkSpeedUpdate_System_Boolean_

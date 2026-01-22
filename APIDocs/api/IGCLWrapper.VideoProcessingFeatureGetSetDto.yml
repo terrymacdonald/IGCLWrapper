@@ -32,7 +32,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VideoProcessingFeatureGetSetDto
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 102
+    startLine: 103
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -66,7 +66,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 107
+    startLine: 109
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -95,7 +95,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 111
+    startLine: 113
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -124,7 +124,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FeatureType
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 115
+    startLine: 117
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -153,7 +153,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ApplicationName
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 119
+    startLine: 121
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -182,7 +182,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ApplicationNameLength
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 123
+    startLine: 125
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -211,7 +211,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Set
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 127
+    startLine: 129
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -240,7 +240,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ValueType
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 131
+    startLine: 133
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -269,7 +269,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Value
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 135
+    startLine: 137
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -298,7 +298,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CustomValueSize
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 139
+    startLine: 141
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -327,7 +327,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CustomValue
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 143
+    startLine: 145
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -356,17 +356,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ReservedFields
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 147
+    startLine: 149
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Reserved fields from the native struct.
   example: []
   syntax:
-    content: public ctl_video_processing_feature_getset_t._ReservedFields_e__FixedBuffer ReservedFields
+    content: public uint[]? ReservedFields
     return:
-      type: IGCLWrapper.ctl_video_processing_feature_getset_t._ReservedFields_e__FixedBuffer
-    content.vb: Public ReservedFields As ctl_video_processing_feature_getset_t._ReservedFields_e__FixedBuffer
+      type: System.UInt32[]
+    content.vb: Public ReservedFields As UInteger()
 - uid: IGCLWrapper.VideoProcessingFeatureGetSetDto.FromNative(IGCLWrapper.ctl_video_processing_feature_getset_t)
   commentId: M:IGCLWrapper.VideoProcessingFeatureGetSetDto.FromNative(IGCLWrapper.ctl_video_processing_feature_getset_t)
   id: FromNative(IGCLWrapper.ctl_video_processing_feature_getset_t)
@@ -385,7 +385,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 154
+    startLine: 156
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -420,7 +420,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 176
+    startLine: 178
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -744,29 +744,29 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
-- uid: IGCLWrapper.ctl_video_processing_feature_getset_t._ReservedFields_e__FixedBuffer
-  commentId: T:IGCLWrapper.ctl_video_processing_feature_getset_t._ReservedFields_e__FixedBuffer
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_video_processing_feature_getset_t.html
-  name: ctl_video_processing_feature_getset_t._ReservedFields_e__FixedBuffer
-  nameWithType: ctl_video_processing_feature_getset_t._ReservedFields_e__FixedBuffer
-  fullName: IGCLWrapper.ctl_video_processing_feature_getset_t._ReservedFields_e__FixedBuffer
+- uid: System.UInt32[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint[]
+  nameWithType: uint[]
+  fullName: uint[]
+  nameWithType.vb: UInteger()
+  fullName.vb: UInteger()
+  name.vb: UInteger()
   spec.csharp:
-  - uid: IGCLWrapper.ctl_video_processing_feature_getset_t
-    name: ctl_video_processing_feature_getset_t
-    href: IGCLWrapper.ctl_video_processing_feature_getset_t.html
-  - name: .
-  - uid: IGCLWrapper.ctl_video_processing_feature_getset_t._ReservedFields_e__FixedBuffer
-    name: _ReservedFields_e__FixedBuffer
-    href: IGCLWrapper.ctl_video_processing_feature_getset_t._ReservedFields_e__FixedBuffer.html
+  - uid: System.UInt32
+    name: uint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: '['
+  - name: ']'
   spec.vb:
-  - uid: IGCLWrapper.ctl_video_processing_feature_getset_t
-    name: ctl_video_processing_feature_getset_t
-    href: IGCLWrapper.ctl_video_processing_feature_getset_t.html
-  - name: .
-  - uid: IGCLWrapper.ctl_video_processing_feature_getset_t._ReservedFields_e__FixedBuffer
-    name: _ReservedFields_e__FixedBuffer
-    href: IGCLWrapper.ctl_video_processing_feature_getset_t._ReservedFields_e__FixedBuffer.html
+  - uid: System.UInt32
+    name: UInteger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: (
+  - name: )
 - uid: IGCLWrapper.VideoProcessingFeatureGetSetDto.FromNative*
   commentId: Overload:IGCLWrapper.VideoProcessingFeatureGetSetDto.FromNative
   href: IGCLWrapper.VideoProcessingFeatureGetSetDto.html#IGCLWrapper_VideoProcessingFeatureGetSetDto_FromNative_IGCLWrapper_ctl_video_processing_feature_getset_t_

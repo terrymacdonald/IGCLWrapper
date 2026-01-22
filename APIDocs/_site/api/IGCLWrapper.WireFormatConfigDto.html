@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Struct LaceConfigDto | IGCLWrapper </title>
+      <title>Struct WireFormatConfigDto | IGCLWrapper </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Struct LaceConfigDto | IGCLWrapper ">
+      <meta name="title" content="Struct WireFormatConfigDto | IGCLWrapper ">
       
-      <meta name="description" content="DTO for LACE configuration.">
+      <meta name="description" content="DTO for wire format settings.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/terrymacdonald/IGCLWrapper/new/develop/apiSpec/new?filename=IGCLWrapper_LaceConfigDto.md&amp;value=---%0Auid%3A%20IGCLWrapper.LaceConfigDto%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/terrymacdonald/IGCLWrapper/new/develop/apiSpec/new?filename=IGCLWrapper_WireFormatConfigDto.md&amp;value=---%0Auid%3A%20IGCLWrapper.WireFormatConfigDto%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,12 +84,12 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="IGCLWrapper.LaceConfigDto">
+        <article data-uid="IGCLWrapper.WireFormatConfigDto">
 
 
 
-  <h1 id="IGCLWrapper_LaceConfigDto" data-uid="IGCLWrapper.LaceConfigDto" class="text-break">
-Struct LaceConfigDto  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1916"><i class="bi bi-code-slash"></i></a>
+  <h1 id="IGCLWrapper_WireFormatConfigDto" data-uid="IGCLWrapper.WireFormatConfigDto" class="text-break">
+Struct WireFormatConfigDto  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1448"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,12 +97,12 @@ Struct LaceConfigDto  <a class="header-action link-secondary" title="View source
   <dl><dt>Assembly</dt><dd>IGCLWrapper.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>DTO for LACE configuration.</p>
+  <div class="markdown summary"><p>DTO for wire format settings.</p>
 </div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public struct LaceConfigDto</code></pre>
+    <pre><code class="lang-csharp hljs">public struct WireFormatConfigDto</code></pre>
   </div>
 
 
@@ -144,17 +144,17 @@ Struct LaceConfigDto  <a class="header-action link-secondary" title="View source
 
 
 
-  <h3 id="IGCLWrapper_LaceConfigDto_Enabled" data-uid="IGCLWrapper.LaceConfigDto.Enabled">
-  Enabled
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1929"><i class="bi bi-code-slash"></i></a>
+  <h3 id="IGCLWrapper_WireFormatConfigDto_Operation" data-uid="IGCLWrapper.WireFormatConfigDto.Operation">
+  Operation
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1462"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Enable flag.</p>
+  <div class="markdown level1 summary"><p>Wire format operation type.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool Enabled</code></pre>
+    <pre><code class="lang-csharp hljs">public ctl_wire_format_operation_type_t Operation</code></pre>
   </div>
 
 
@@ -162,7 +162,7 @@ Struct LaceConfigDto  <a class="header-action link-secondary" title="View source
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dt><a class="xref" href="IGCLWrapper.ctl_wire_format_operation_type_t.html">ctl_wire_format_operation_type_t</a></dt>
     <dd></dd>
   </dl>
 
@@ -175,102 +175,9 @@ Struct LaceConfigDto  <a class="header-action link-secondary" title="View source
 
 
 
-  <h3 id="IGCLWrapper_LaceConfigDto_LaceConfig" data-uid="IGCLWrapper.LaceConfigDto.LaceConfig">
-  LaceConfig
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1945"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Aggregation configuration.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_lace_aggr_config_t LaceConfig</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_lace_aggr_config_t.html">ctl_lace_aggr_config_t</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="IGCLWrapper_LaceConfigDto_OpTypeGet" data-uid="IGCLWrapper.LaceConfigDto.OpTypeGet">
-  OpTypeGet
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1933"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Get operation type.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public uint OpTypeGet</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="IGCLWrapper_LaceConfigDto_OpTypeSet" data-uid="IGCLWrapper.LaceConfigDto.OpTypeSet">
-  OpTypeSet
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1937"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Set operation type.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_set_operation_t OpTypeSet</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_set_operation_t.html">ctl_set_operation_t</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="IGCLWrapper_LaceConfigDto_Size" data-uid="IGCLWrapper.LaceConfigDto.Size">
+  <h3 id="IGCLWrapper_WireFormatConfigDto_Size" data-uid="IGCLWrapper.WireFormatConfigDto.Size">
   Size
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1921"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1454"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Size of the native struct.</p>
@@ -299,17 +206,17 @@ Struct LaceConfigDto  <a class="header-action link-secondary" title="View source
 
 
 
-  <h3 id="IGCLWrapper_LaceConfigDto_Trigger" data-uid="IGCLWrapper.LaceConfigDto.Trigger">
-  Trigger
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1941"><i class="bi bi-code-slash"></i></a>
+  <h3 id="IGCLWrapper_WireFormatConfigDto_SupportedWireFormat" data-uid="IGCLWrapper.WireFormatConfigDto.SupportedWireFormat">
+  SupportedWireFormat
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1466"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Trigger flags.</p>
+  <div class="markdown level1 summary"><p>Supported wire format values.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public uint Trigger</code></pre>
+    <pre><code class="lang-csharp hljs">public ctl_wire_format_t[]? SupportedWireFormat</code></pre>
   </div>
 
 
@@ -317,7 +224,7 @@ Struct LaceConfigDto  <a class="header-action link-secondary" title="View source
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dt><a class="xref" href="IGCLWrapper.ctl_wire_format_t.html">ctl_wire_format_t</a>[]</dt>
     <dd></dd>
   </dl>
 
@@ -330,9 +237,9 @@ Struct LaceConfigDto  <a class="header-action link-secondary" title="View source
 
 
 
-  <h3 id="IGCLWrapper_LaceConfigDto_Version" data-uid="IGCLWrapper.LaceConfigDto.Version">
+  <h3 id="IGCLWrapper_WireFormatConfigDto_Version" data-uid="IGCLWrapper.WireFormatConfigDto.Version">
   Version
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1925"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1458"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Version of the native struct.</p>
@@ -360,15 +267,46 @@ Struct LaceConfigDto  <a class="header-action link-secondary" title="View source
 
 
 
+
+  <h3 id="IGCLWrapper_WireFormatConfigDto_WireFormat" data-uid="IGCLWrapper.WireFormatConfigDto.WireFormat">
+  WireFormat
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1470"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Selected wire format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ctl_wire_format_t WireFormat</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="IGCLWrapper.ctl_wire_format_t.html">ctl_wire_format_t</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
   <h2 class="section" id="methods">Methods
 </h2>
 
 
-  <a id="IGCLWrapper_LaceConfigDto_FromNative_" data-uid="IGCLWrapper.LaceConfigDto.FromNative*"></a>
+  <a id="IGCLWrapper_WireFormatConfigDto_FromNative_" data-uid="IGCLWrapper.WireFormatConfigDto.FromNative*"></a>
 
-  <h3 id="IGCLWrapper_LaceConfigDto_FromNative_IGCLWrapper_ctl_lace_config_t_" data-uid="IGCLWrapper.LaceConfigDto.FromNative(IGCLWrapper.ctl_lace_config_t)">
-  FromNative(ctl_lace_config_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1952"><i class="bi bi-code-slash"></i></a>
+  <h3 id="IGCLWrapper_WireFormatConfigDto_FromNative_IGCLWrapper_ctl_get_set_wire_format_config_t_" data-uid="IGCLWrapper.WireFormatConfigDto.FromNative(IGCLWrapper.ctl_get_set_wire_format_config_t)">
+  FromNative(ctl_get_set_wire_format_config_t)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1477"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a DTO from a native struct.</p>
@@ -376,20 +314,20 @@ Struct LaceConfigDto  <a class="header-action link-secondary" title="View source
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static LaceConfigDto FromNative(ctl_lace_config_t native)</code></pre>
+    <pre><code class="lang-csharp hljs">public static WireFormatConfigDto FromNative(ctl_get_set_wire_format_config_t native)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>native</code> <a class="xref" href="IGCLWrapper.ctl_lace_config_t.html">ctl_lace_config_t</a></dt>
+    <dt><code>native</code> <a class="xref" href="IGCLWrapper.ctl_get_set_wire_format_config_t.html">ctl_get_set_wire_format_config_t</a></dt>
     <dd><p>Native struct.</p>
 </dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.LaceConfigDto.html">LaceConfigDto</a></dt>
-    <dd><p>LACE config DTO.</p>
+    <dt><a class="xref" href="IGCLWrapper.WireFormatConfigDto.html">WireFormatConfigDto</a></dt>
+    <dd><p>Wire format settings DTO.</p>
 </dd>
   </dl>
 
@@ -403,11 +341,11 @@ Struct LaceConfigDto  <a class="header-action link-secondary" title="View source
 
 
 
-  <a id="IGCLWrapper_LaceConfigDto_ToNative_" data-uid="IGCLWrapper.LaceConfigDto.ToNative*"></a>
+  <a id="IGCLWrapper_WireFormatConfigDto_ToNative_" data-uid="IGCLWrapper.WireFormatConfigDto.ToNative*"></a>
 
-  <h3 id="IGCLWrapper_LaceConfigDto_ToNative" data-uid="IGCLWrapper.LaceConfigDto.ToNative">
+  <h3 id="IGCLWrapper_WireFormatConfigDto_ToNative" data-uid="IGCLWrapper.WireFormatConfigDto.ToNative">
   ToNative()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1970"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1493"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Convert this DTO to a native struct.</p>
@@ -415,14 +353,14 @@ Struct LaceConfigDto  <a class="header-action link-secondary" title="View source
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_lace_config_t ToNative()</code></pre>
+    <pre><code class="lang-csharp hljs">public ctl_get_set_wire_format_config_t ToNative()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_lace_config_t.html">ctl_lace_config_t</a></dt>
-    <dd><p>LACE config struct.</p>
+    <dt><a class="xref" href="IGCLWrapper.ctl_get_set_wire_format_config_t.html">ctl_get_set_wire_format_config_t</a></dt>
+    <dd><p>Wire format settings struct.</p>
 </dd>
   </dl>
 
@@ -440,7 +378,7 @@ Struct LaceConfigDto  <a class="header-action link-secondary" title="View source
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1916" class="edit-link">Edit this page</a>
+          <a href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1448" class="edit-link">Edit this page</a>
         </div>
 
 

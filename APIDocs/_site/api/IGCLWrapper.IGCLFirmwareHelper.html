@@ -89,7 +89,7 @@
 
 
   <h1 id="IGCLWrapper_IGCLFirmwareHelper" data-uid="IGCLWrapper.IGCLFirmwareHelper" class="text-break">
-Class IGCLFirmwareHelper  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFirmwareHelper.cs/#L9"><i class="bi bi-code-slash"></i></a>
+Class IGCLFirmwareHelper  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFirmwareHelper.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -160,7 +160,7 @@ Class IGCLFirmwareHelper  <a class="header-action link-secondary" title="View so
 
   <h3 id="IGCLWrapper_IGCLFirmwareHelper_AllowPCIeLinkSpeedUpdate_System_Boolean_" data-uid="IGCLWrapper.IGCLFirmwareHelper.AllowPCIeLinkSpeedUpdate(System.Boolean)">
   AllowPCIeLinkSpeedUpdate(bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFirmwareHelper.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFirmwareHelper.cs/#L95"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Allow or disallow PCIe link speed updates.</p>
@@ -193,7 +193,7 @@ Class IGCLFirmwareHelper  <a class="header-action link-secondary" title="View so
 
   <h3 id="IGCLWrapper_IGCLFirmwareHelper_Dispose" data-uid="IGCLWrapper.IGCLFirmwareHelper.Dispose">
   Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFirmwareHelper.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFirmwareHelper.cs/#L133"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Mark the helper as disposed.</p>
@@ -220,7 +220,7 @@ Class IGCLFirmwareHelper  <a class="header-action link-secondary" title="View so
 
   <h3 id="IGCLWrapper_IGCLFirmwareHelper_EnumerateFirmwareComponents" data-uid="IGCLWrapper.IGCLFirmwareHelper.EnumerateFirmwareComponents">
   EnumerateFirmwareComponents()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFirmwareHelper.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFirmwareHelper.cs/#L55"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Enumerate firmware component handles for the adapter.</p>
@@ -253,7 +253,46 @@ Class IGCLFirmwareHelper  <a class="header-action link-secondary" title="View so
 
   <h3 id="IGCLWrapper_IGCLFirmwareHelper_GetFirmwareComponentProperties_System_IntPtr_" data-uid="IGCLWrapper.IGCLFirmwareHelper.GetFirmwareComponentProperties(System.IntPtr)">
   GetFirmwareComponentProperties(nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFirmwareHelper.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFirmwareHelper.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get firmware component properties as a DTO.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FirmwareComponentPropertiesDto GetFirmwareComponentProperties(nint firmwareHandle)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>firmwareHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd><p>Firmware component handle.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="IGCLWrapper.FirmwareComponentPropertiesDto.html">FirmwareComponentPropertiesDto</a></dt>
+    <dd><p>Firmware component properties DTO.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_IGCLFirmwareHelper_GetFirmwareComponentPropertiesNative_" data-uid="IGCLWrapper.IGCLFirmwareHelper.GetFirmwareComponentPropertiesNative*"></a>
+
+  <h3 id="IGCLWrapper_IGCLFirmwareHelper_GetFirmwareComponentPropertiesNative_System_IntPtr_" data-uid="IGCLWrapper.IGCLFirmwareHelper.GetFirmwareComponentPropertiesNative(System.IntPtr)">
+  GetFirmwareComponentPropertiesNative(nint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFirmwareHelper.cs/#L66"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get firmware component properties.</p>
@@ -261,7 +300,7 @@ Class IGCLFirmwareHelper  <a class="header-action link-secondary" title="View so
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_firmware_component_properties_t GetFirmwareComponentProperties(nint firmwareHandle)</code></pre>
+    <pre><code class="lang-csharp hljs">public ctl_firmware_component_properties_t GetFirmwareComponentPropertiesNative(nint firmwareHandle)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -292,7 +331,40 @@ Class IGCLFirmwareHelper  <a class="header-action link-secondary" title="View so
 
   <h3 id="IGCLWrapper_IGCLFirmwareHelper_GetFirmwareProperties" data-uid="IGCLWrapper.IGCLFirmwareHelper.GetFirmwareProperties">
   GetFirmwareProperties()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFirmwareHelper.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFirmwareHelper.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get firmware properties for the adapter as a DTO.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FirmwarePropertiesDto GetFirmwareProperties()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="IGCLWrapper.FirmwarePropertiesDto.html">FirmwarePropertiesDto</a></dt>
+    <dd><p>Firmware properties DTO.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_IGCLFirmwareHelper_GetFirmwarePropertiesNative_" data-uid="IGCLWrapper.IGCLFirmwareHelper.GetFirmwarePropertiesNative*"></a>
+
+  <h3 id="IGCLWrapper_IGCLFirmwareHelper_GetFirmwarePropertiesNative" data-uid="IGCLWrapper.IGCLFirmwareHelper.GetFirmwarePropertiesNative">
+  GetFirmwarePropertiesNative()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFirmwareHelper.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get firmware properties for the adapter.</p>
@@ -300,7 +372,7 @@ Class IGCLFirmwareHelper  <a class="header-action link-secondary" title="View so
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_firmware_properties_t GetFirmwareProperties()</code></pre>
+    <pre><code class="lang-csharp hljs">public ctl_firmware_properties_t GetFirmwarePropertiesNative()</code></pre>
   </div>
 
 
@@ -325,7 +397,7 @@ Class IGCLFirmwareHelper  <a class="header-action link-secondary" title="View so
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFirmwareHelper.cs/#L9" class="edit-link">Edit this page</a>
+          <a href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFirmwareHelper.cs/#L11" class="edit-link">Edit this page</a>
         </div>
 
 

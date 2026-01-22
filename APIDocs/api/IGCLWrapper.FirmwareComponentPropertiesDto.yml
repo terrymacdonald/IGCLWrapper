@@ -1,42 +1,40 @@
 ### YamlMime:ManagedReference
 items:
-- uid: IGCLWrapper.PowerOptimizationSettingsDto
-  commentId: T:IGCLWrapper.PowerOptimizationSettingsDto
-  id: PowerOptimizationSettingsDto
+- uid: IGCLWrapper.FirmwareComponentPropertiesDto
+  commentId: T:IGCLWrapper.FirmwareComponentPropertiesDto
+  id: FirmwareComponentPropertiesDto
   parent: IGCLWrapper
   children:
-  - IGCLWrapper.PowerOptimizationSettingsDto.Enable
-  - IGCLWrapper.PowerOptimizationSettingsDto.FeatureSpecificData
-  - IGCLWrapper.PowerOptimizationSettingsDto.FromNative(IGCLWrapper.ctl_power_optimization_settings_t)
-  - IGCLWrapper.PowerOptimizationSettingsDto.PowerOptimizationFeature
-  - IGCLWrapper.PowerOptimizationSettingsDto.PowerOptimizationPlan
-  - IGCLWrapper.PowerOptimizationSettingsDto.PowerSource
-  - IGCLWrapper.PowerOptimizationSettingsDto.Size
-  - IGCLWrapper.PowerOptimizationSettingsDto.ToNative
-  - IGCLWrapper.PowerOptimizationSettingsDto.Version
+  - IGCLWrapper.FirmwareComponentPropertiesDto.ComponentVersion
+  - IGCLWrapper.FirmwareComponentPropertiesDto.FromNative(IGCLWrapper.ctl_firmware_component_properties_t)
+  - IGCLWrapper.FirmwareComponentPropertiesDto.Name
+  - IGCLWrapper.FirmwareComponentPropertiesDto.Reserved
+  - IGCLWrapper.FirmwareComponentPropertiesDto.Size
+  - IGCLWrapper.FirmwareComponentPropertiesDto.ToNative
+  - IGCLWrapper.FirmwareComponentPropertiesDto.Version
   langs:
   - csharp
   - vb
-  name: PowerOptimizationSettingsDto
-  nameWithType: PowerOptimizationSettingsDto
-  fullName: IGCLWrapper.PowerOptimizationSettingsDto
+  name: FirmwareComponentPropertiesDto
+  nameWithType: FirmwareComponentPropertiesDto
+  fullName: IGCLWrapper.FirmwareComponentPropertiesDto
   type: Struct
   source:
     remote:
-      path: IGCLWrapper/IGCLDisplayHelper.cs
+      path: IGCLWrapper/IGCLFirmwareHelper.cs
       branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: PowerOptimizationSettingsDto
-    path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2265
+    id: FirmwareComponentPropertiesDto
+    path: ../IGCLWrapper/IGCLFirmwareHelper.cs
+    startLine: 303
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: DTO for power optimization settings.
+  summary: DTO for firmware component properties.
   example: []
   syntax:
-    content: public struct PowerOptimizationSettingsDto
-    content.vb: Public Structure PowerOptimizationSettingsDto
+    content: public struct FirmwareComponentPropertiesDto
+    content.vb: Public Structure FirmwareComponentPropertiesDto
   inheritedMembers:
   - System.ValueType.Equals(System.Object)
   - System.ValueType.GetHashCode
@@ -44,25 +42,25 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
-- uid: IGCLWrapper.PowerOptimizationSettingsDto.Size
-  commentId: F:IGCLWrapper.PowerOptimizationSettingsDto.Size
+- uid: IGCLWrapper.FirmwareComponentPropertiesDto.Size
+  commentId: F:IGCLWrapper.FirmwareComponentPropertiesDto.Size
   id: Size
-  parent: IGCLWrapper.PowerOptimizationSettingsDto
+  parent: IGCLWrapper.FirmwareComponentPropertiesDto
   langs:
   - csharp
   - vb
   name: Size
-  nameWithType: PowerOptimizationSettingsDto.Size
-  fullName: IGCLWrapper.PowerOptimizationSettingsDto.Size
+  nameWithType: FirmwareComponentPropertiesDto.Size
+  fullName: IGCLWrapper.FirmwareComponentPropertiesDto.Size
   type: Field
   source:
     remote:
-      path: IGCLWrapper/IGCLDisplayHelper.cs
+      path: IGCLWrapper/IGCLFirmwareHelper.cs
       branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
-    path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2270
+    path: ../IGCLWrapper/IGCLFirmwareHelper.cs
+    startLine: 311
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -73,25 +71,25 @@ items:
     return:
       type: System.UInt32
     content.vb: Public Size As UInteger
-- uid: IGCLWrapper.PowerOptimizationSettingsDto.Version
-  commentId: F:IGCLWrapper.PowerOptimizationSettingsDto.Version
+- uid: IGCLWrapper.FirmwareComponentPropertiesDto.Version
+  commentId: F:IGCLWrapper.FirmwareComponentPropertiesDto.Version
   id: Version
-  parent: IGCLWrapper.PowerOptimizationSettingsDto
+  parent: IGCLWrapper.FirmwareComponentPropertiesDto
   langs:
   - csharp
   - vb
   name: Version
-  nameWithType: PowerOptimizationSettingsDto.Version
-  fullName: IGCLWrapper.PowerOptimizationSettingsDto.Version
+  nameWithType: FirmwareComponentPropertiesDto.Version
+  fullName: IGCLWrapper.FirmwareComponentPropertiesDto.Version
   type: Field
   source:
     remote:
-      path: IGCLWrapper/IGCLDisplayHelper.cs
+      path: IGCLWrapper/IGCLFirmwareHelper.cs
       branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
-    path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2274
+    path: ../IGCLWrapper/IGCLFirmwareHelper.cs
+    startLine: 315
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -102,217 +100,159 @@ items:
     return:
       type: System.Byte
     content.vb: Public Version As Byte
-- uid: IGCLWrapper.PowerOptimizationSettingsDto.PowerOptimizationPlan
-  commentId: F:IGCLWrapper.PowerOptimizationSettingsDto.PowerOptimizationPlan
-  id: PowerOptimizationPlan
-  parent: IGCLWrapper.PowerOptimizationSettingsDto
+- uid: IGCLWrapper.FirmwareComponentPropertiesDto.Name
+  commentId: F:IGCLWrapper.FirmwareComponentPropertiesDto.Name
+  id: Name
+  parent: IGCLWrapper.FirmwareComponentPropertiesDto
   langs:
   - csharp
   - vb
-  name: PowerOptimizationPlan
-  nameWithType: PowerOptimizationSettingsDto.PowerOptimizationPlan
-  fullName: IGCLWrapper.PowerOptimizationSettingsDto.PowerOptimizationPlan
+  name: Name
+  nameWithType: FirmwareComponentPropertiesDto.Name
+  fullName: IGCLWrapper.FirmwareComponentPropertiesDto.Name
   type: Field
   source:
     remote:
-      path: IGCLWrapper/IGCLDisplayHelper.cs
+      path: IGCLWrapper/IGCLFirmwareHelper.cs
       branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: PowerOptimizationPlan
-    path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2278
+    id: Name
+    path: ../IGCLWrapper/IGCLFirmwareHelper.cs
+    startLine: 319
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Power optimization plan.
+  summary: Component name.
   example: []
   syntax:
-    content: public ctl_power_optimization_plan_t PowerOptimizationPlan
+    content: public string Name
     return:
-      type: IGCLWrapper.ctl_power_optimization_plan_t
-    content.vb: Public PowerOptimizationPlan As ctl_power_optimization_plan_t
-- uid: IGCLWrapper.PowerOptimizationSettingsDto.PowerOptimizationFeature
-  commentId: F:IGCLWrapper.PowerOptimizationSettingsDto.PowerOptimizationFeature
-  id: PowerOptimizationFeature
-  parent: IGCLWrapper.PowerOptimizationSettingsDto
+      type: System.String
+    content.vb: Public Name As String
+- uid: IGCLWrapper.FirmwareComponentPropertiesDto.ComponentVersion
+  commentId: F:IGCLWrapper.FirmwareComponentPropertiesDto.ComponentVersion
+  id: ComponentVersion
+  parent: IGCLWrapper.FirmwareComponentPropertiesDto
   langs:
   - csharp
   - vb
-  name: PowerOptimizationFeature
-  nameWithType: PowerOptimizationSettingsDto.PowerOptimizationFeature
-  fullName: IGCLWrapper.PowerOptimizationSettingsDto.PowerOptimizationFeature
+  name: ComponentVersion
+  nameWithType: FirmwareComponentPropertiesDto.ComponentVersion
+  fullName: IGCLWrapper.FirmwareComponentPropertiesDto.ComponentVersion
   type: Field
   source:
     remote:
-      path: IGCLWrapper/IGCLDisplayHelper.cs
+      path: IGCLWrapper/IGCLFirmwareHelper.cs
       branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: PowerOptimizationFeature
-    path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2282
+    id: ComponentVersion
+    path: ../IGCLWrapper/IGCLFirmwareHelper.cs
+    startLine: 323
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Power optimization feature flags.
+  summary: Component version string.
   example: []
   syntax:
-    content: public uint PowerOptimizationFeature
+    content: public string ComponentVersion
     return:
-      type: System.UInt32
-    content.vb: Public PowerOptimizationFeature As UInteger
-- uid: IGCLWrapper.PowerOptimizationSettingsDto.Enable
-  commentId: F:IGCLWrapper.PowerOptimizationSettingsDto.Enable
-  id: Enable
-  parent: IGCLWrapper.PowerOptimizationSettingsDto
+      type: System.String
+    content.vb: Public ComponentVersion As String
+- uid: IGCLWrapper.FirmwareComponentPropertiesDto.Reserved
+  commentId: F:IGCLWrapper.FirmwareComponentPropertiesDto.Reserved
+  id: Reserved
+  parent: IGCLWrapper.FirmwareComponentPropertiesDto
   langs:
   - csharp
   - vb
-  name: Enable
-  nameWithType: PowerOptimizationSettingsDto.Enable
-  fullName: IGCLWrapper.PowerOptimizationSettingsDto.Enable
+  name: Reserved
+  nameWithType: FirmwareComponentPropertiesDto.Reserved
+  fullName: IGCLWrapper.FirmwareComponentPropertiesDto.Reserved
   type: Field
   source:
     remote:
-      path: IGCLWrapper/IGCLDisplayHelper.cs
+      path: IGCLWrapper/IGCLFirmwareHelper.cs
       branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: Enable
-    path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2286
+    id: Reserved
+    path: ../IGCLWrapper/IGCLFirmwareHelper.cs
+    startLine: 327
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Enable flag.
+  summary: Reserved native fields.
   example: []
   syntax:
-    content: public bool Enable
+    content: public byte[]? Reserved
     return:
-      type: System.Boolean
-    content.vb: Public Enable As Boolean
-- uid: IGCLWrapper.PowerOptimizationSettingsDto.FeatureSpecificData
-  commentId: F:IGCLWrapper.PowerOptimizationSettingsDto.FeatureSpecificData
-  id: FeatureSpecificData
-  parent: IGCLWrapper.PowerOptimizationSettingsDto
+      type: System.Byte[]
+    content.vb: Public Reserved As Byte()
+- uid: IGCLWrapper.FirmwareComponentPropertiesDto.FromNative(IGCLWrapper.ctl_firmware_component_properties_t)
+  commentId: M:IGCLWrapper.FirmwareComponentPropertiesDto.FromNative(IGCLWrapper.ctl_firmware_component_properties_t)
+  id: FromNative(IGCLWrapper.ctl_firmware_component_properties_t)
+  parent: IGCLWrapper.FirmwareComponentPropertiesDto
   langs:
   - csharp
   - vb
-  name: FeatureSpecificData
-  nameWithType: PowerOptimizationSettingsDto.FeatureSpecificData
-  fullName: IGCLWrapper.PowerOptimizationSettingsDto.FeatureSpecificData
-  type: Field
-  source:
-    remote:
-      path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: FeatureSpecificData
-    path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2290
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  summary: Feature-specific data.
-  example: []
-  syntax:
-    content: public ctl_power_optimization_feature_specific_info_t FeatureSpecificData
-    return:
-      type: IGCLWrapper.ctl_power_optimization_feature_specific_info_t
-    content.vb: Public FeatureSpecificData As ctl_power_optimization_feature_specific_info_t
-- uid: IGCLWrapper.PowerOptimizationSettingsDto.PowerSource
-  commentId: F:IGCLWrapper.PowerOptimizationSettingsDto.PowerSource
-  id: PowerSource
-  parent: IGCLWrapper.PowerOptimizationSettingsDto
-  langs:
-  - csharp
-  - vb
-  name: PowerSource
-  nameWithType: PowerOptimizationSettingsDto.PowerSource
-  fullName: IGCLWrapper.PowerOptimizationSettingsDto.PowerSource
-  type: Field
-  source:
-    remote:
-      path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: PowerSource
-    path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2294
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  summary: Power source.
-  example: []
-  syntax:
-    content: public ctl_power_source_t PowerSource
-    return:
-      type: IGCLWrapper.ctl_power_source_t
-    content.vb: Public PowerSource As ctl_power_source_t
-- uid: IGCLWrapper.PowerOptimizationSettingsDto.FromNative(IGCLWrapper.ctl_power_optimization_settings_t)
-  commentId: M:IGCLWrapper.PowerOptimizationSettingsDto.FromNative(IGCLWrapper.ctl_power_optimization_settings_t)
-  id: FromNative(IGCLWrapper.ctl_power_optimization_settings_t)
-  parent: IGCLWrapper.PowerOptimizationSettingsDto
-  langs:
-  - csharp
-  - vb
-  name: FromNative(ctl_power_optimization_settings_t)
-  nameWithType: PowerOptimizationSettingsDto.FromNative(ctl_power_optimization_settings_t)
-  fullName: IGCLWrapper.PowerOptimizationSettingsDto.FromNative(IGCLWrapper.ctl_power_optimization_settings_t)
+  name: FromNative(ctl_firmware_component_properties_t)
+  nameWithType: FirmwareComponentPropertiesDto.FromNative(ctl_firmware_component_properties_t)
+  fullName: IGCLWrapper.FirmwareComponentPropertiesDto.FromNative(IGCLWrapper.ctl_firmware_component_properties_t)
   type: Method
   source:
     remote:
-      path: IGCLWrapper/IGCLDisplayHelper.cs
+      path: IGCLWrapper/IGCLFirmwareHelper.cs
       branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
-    path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2301
+    path: ../IGCLWrapper/IGCLFirmwareHelper.cs
+    startLine: 334
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Create a DTO from a native struct.
   example: []
   syntax:
-    content: public static PowerOptimizationSettingsDto FromNative(ctl_power_optimization_settings_t native)
+    content: public static FirmwareComponentPropertiesDto FromNative(ctl_firmware_component_properties_t native)
     parameters:
     - id: native
-      type: IGCLWrapper.ctl_power_optimization_settings_t
+      type: IGCLWrapper.ctl_firmware_component_properties_t
       description: Native struct.
     return:
-      type: IGCLWrapper.PowerOptimizationSettingsDto
-      description: Power optimization settings DTO.
-    content.vb: Public Shared Function FromNative(native As ctl_power_optimization_settings_t) As PowerOptimizationSettingsDto
-  overload: IGCLWrapper.PowerOptimizationSettingsDto.FromNative*
-- uid: IGCLWrapper.PowerOptimizationSettingsDto.ToNative
-  commentId: M:IGCLWrapper.PowerOptimizationSettingsDto.ToNative
+      type: IGCLWrapper.FirmwareComponentPropertiesDto
+      description: Firmware component properties DTO.
+    content.vb: Public Shared Function FromNative(native As ctl_firmware_component_properties_t) As FirmwareComponentPropertiesDto
+  overload: IGCLWrapper.FirmwareComponentPropertiesDto.FromNative*
+- uid: IGCLWrapper.FirmwareComponentPropertiesDto.ToNative
+  commentId: M:IGCLWrapper.FirmwareComponentPropertiesDto.ToNative
   id: ToNative
-  parent: IGCLWrapper.PowerOptimizationSettingsDto
+  parent: IGCLWrapper.FirmwareComponentPropertiesDto
   langs:
   - csharp
   - vb
   name: ToNative()
-  nameWithType: PowerOptimizationSettingsDto.ToNative()
-  fullName: IGCLWrapper.PowerOptimizationSettingsDto.ToNative()
+  nameWithType: FirmwareComponentPropertiesDto.ToNative()
+  fullName: IGCLWrapper.FirmwareComponentPropertiesDto.ToNative()
   type: Method
   source:
     remote:
-      path: IGCLWrapper/IGCLDisplayHelper.cs
+      path: IGCLWrapper/IGCLFirmwareHelper.cs
       branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
-    path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2319
+    path: ../IGCLWrapper/IGCLFirmwareHelper.cs
+    startLine: 350
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Convert this DTO to a native struct.
   example: []
   syntax:
-    content: public ctl_power_optimization_settings_t ToNative()
+    content: public ctl_firmware_component_properties_t ToNative()
     return:
-      type: IGCLWrapper.ctl_power_optimization_settings_t
-      description: Power optimization settings struct.
-    content.vb: Public Function ToNative() As ctl_power_optimization_settings_t
-  overload: IGCLWrapper.PowerOptimizationSettingsDto.ToNative*
+      type: IGCLWrapper.ctl_firmware_component_properties_t
+      description: Firmware component properties struct.
+    content.vb: Public Function ToNative() As ctl_firmware_component_properties_t
+  overload: IGCLWrapper.FirmwareComponentPropertiesDto.ToNative*
 references:
 - uid: IGCLWrapper
   commentId: N:IGCLWrapper
@@ -559,61 +499,63 @@ references:
   nameWithType.vb: Byte
   fullName.vb: Byte
   name.vb: Byte
-- uid: IGCLWrapper.ctl_power_optimization_plan_t
-  commentId: T:IGCLWrapper.ctl_power_optimization_plan_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_power_optimization_plan_t.html
-  name: ctl_power_optimization_plan_t
-  nameWithType: ctl_power_optimization_plan_t
-  fullName: IGCLWrapper.ctl_power_optimization_plan_t
-- uid: System.Boolean
-  commentId: T:System.Boolean
+- uid: System.String
+  commentId: T:System.String
   parent: System
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
-- uid: IGCLWrapper.ctl_power_optimization_feature_specific_info_t
-  commentId: T:IGCLWrapper.ctl_power_optimization_feature_specific_info_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_power_optimization_feature_specific_info_t.html
-  name: ctl_power_optimization_feature_specific_info_t
-  nameWithType: ctl_power_optimization_feature_specific_info_t
-  fullName: IGCLWrapper.ctl_power_optimization_feature_specific_info_t
-- uid: IGCLWrapper.ctl_power_source_t
-  commentId: T:IGCLWrapper.ctl_power_source_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_power_source_t.html
-  name: ctl_power_source_t
-  nameWithType: ctl_power_source_t
-  fullName: IGCLWrapper.ctl_power_source_t
-- uid: IGCLWrapper.PowerOptimizationSettingsDto.FromNative*
-  commentId: Overload:IGCLWrapper.PowerOptimizationSettingsDto.FromNative
-  href: IGCLWrapper.PowerOptimizationSettingsDto.html#IGCLWrapper_PowerOptimizationSettingsDto_FromNative_IGCLWrapper_ctl_power_optimization_settings_t_
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: IGCLWrapper.FirmwareComponentPropertiesDto.FromNative*
+  commentId: Overload:IGCLWrapper.FirmwareComponentPropertiesDto.FromNative
+  href: IGCLWrapper.FirmwareComponentPropertiesDto.html#IGCLWrapper_FirmwareComponentPropertiesDto_FromNative_IGCLWrapper_ctl_firmware_component_properties_t_
   name: FromNative
-  nameWithType: PowerOptimizationSettingsDto.FromNative
-  fullName: IGCLWrapper.PowerOptimizationSettingsDto.FromNative
-- uid: IGCLWrapper.ctl_power_optimization_settings_t
-  commentId: T:IGCLWrapper.ctl_power_optimization_settings_t
+  nameWithType: FirmwareComponentPropertiesDto.FromNative
+  fullName: IGCLWrapper.FirmwareComponentPropertiesDto.FromNative
+- uid: IGCLWrapper.ctl_firmware_component_properties_t
+  commentId: T:IGCLWrapper.ctl_firmware_component_properties_t
   parent: IGCLWrapper
-  href: IGCLWrapper.ctl_power_optimization_settings_t.html
-  name: ctl_power_optimization_settings_t
-  nameWithType: ctl_power_optimization_settings_t
-  fullName: IGCLWrapper.ctl_power_optimization_settings_t
-- uid: IGCLWrapper.PowerOptimizationSettingsDto
-  commentId: T:IGCLWrapper.PowerOptimizationSettingsDto
+  href: IGCLWrapper.ctl_firmware_component_properties_t.html
+  name: ctl_firmware_component_properties_t
+  nameWithType: ctl_firmware_component_properties_t
+  fullName: IGCLWrapper.ctl_firmware_component_properties_t
+- uid: IGCLWrapper.FirmwareComponentPropertiesDto
+  commentId: T:IGCLWrapper.FirmwareComponentPropertiesDto
   parent: IGCLWrapper
-  href: IGCLWrapper.PowerOptimizationSettingsDto.html
-  name: PowerOptimizationSettingsDto
-  nameWithType: PowerOptimizationSettingsDto
-  fullName: IGCLWrapper.PowerOptimizationSettingsDto
-- uid: IGCLWrapper.PowerOptimizationSettingsDto.ToNative*
-  commentId: Overload:IGCLWrapper.PowerOptimizationSettingsDto.ToNative
-  href: IGCLWrapper.PowerOptimizationSettingsDto.html#IGCLWrapper_PowerOptimizationSettingsDto_ToNative
+  href: IGCLWrapper.FirmwareComponentPropertiesDto.html
+  name: FirmwareComponentPropertiesDto
+  nameWithType: FirmwareComponentPropertiesDto
+  fullName: IGCLWrapper.FirmwareComponentPropertiesDto
+- uid: IGCLWrapper.FirmwareComponentPropertiesDto.ToNative*
+  commentId: Overload:IGCLWrapper.FirmwareComponentPropertiesDto.ToNative
+  href: IGCLWrapper.FirmwareComponentPropertiesDto.html#IGCLWrapper_FirmwareComponentPropertiesDto_ToNative
   name: ToNative
-  nameWithType: PowerOptimizationSettingsDto.ToNative
-  fullName: IGCLWrapper.PowerOptimizationSettingsDto.ToNative
+  nameWithType: FirmwareComponentPropertiesDto.ToNative
+  fullName: IGCLWrapper.FirmwareComponentPropertiesDto.ToNative

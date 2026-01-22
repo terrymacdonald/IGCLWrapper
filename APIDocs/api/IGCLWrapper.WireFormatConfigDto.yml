@@ -1,42 +1,40 @@
 ### YamlMime:ManagedReference
 items:
-- uid: IGCLWrapper.PowerOptimizationSettingsDto
-  commentId: T:IGCLWrapper.PowerOptimizationSettingsDto
-  id: PowerOptimizationSettingsDto
+- uid: IGCLWrapper.WireFormatConfigDto
+  commentId: T:IGCLWrapper.WireFormatConfigDto
+  id: WireFormatConfigDto
   parent: IGCLWrapper
   children:
-  - IGCLWrapper.PowerOptimizationSettingsDto.Enable
-  - IGCLWrapper.PowerOptimizationSettingsDto.FeatureSpecificData
-  - IGCLWrapper.PowerOptimizationSettingsDto.FromNative(IGCLWrapper.ctl_power_optimization_settings_t)
-  - IGCLWrapper.PowerOptimizationSettingsDto.PowerOptimizationFeature
-  - IGCLWrapper.PowerOptimizationSettingsDto.PowerOptimizationPlan
-  - IGCLWrapper.PowerOptimizationSettingsDto.PowerSource
-  - IGCLWrapper.PowerOptimizationSettingsDto.Size
-  - IGCLWrapper.PowerOptimizationSettingsDto.ToNative
-  - IGCLWrapper.PowerOptimizationSettingsDto.Version
+  - IGCLWrapper.WireFormatConfigDto.FromNative(IGCLWrapper.ctl_get_set_wire_format_config_t)
+  - IGCLWrapper.WireFormatConfigDto.Operation
+  - IGCLWrapper.WireFormatConfigDto.Size
+  - IGCLWrapper.WireFormatConfigDto.SupportedWireFormat
+  - IGCLWrapper.WireFormatConfigDto.ToNative
+  - IGCLWrapper.WireFormatConfigDto.Version
+  - IGCLWrapper.WireFormatConfigDto.WireFormat
   langs:
   - csharp
   - vb
-  name: PowerOptimizationSettingsDto
-  nameWithType: PowerOptimizationSettingsDto
-  fullName: IGCLWrapper.PowerOptimizationSettingsDto
+  name: WireFormatConfigDto
+  nameWithType: WireFormatConfigDto
+  fullName: IGCLWrapper.WireFormatConfigDto
   type: Struct
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
       branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: PowerOptimizationSettingsDto
+    id: WireFormatConfigDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2265
+    startLine: 1447
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: DTO for power optimization settings.
+  summary: DTO for wire format settings.
   example: []
   syntax:
-    content: public struct PowerOptimizationSettingsDto
-    content.vb: Public Structure PowerOptimizationSettingsDto
+    content: public struct WireFormatConfigDto
+    content.vb: Public Structure WireFormatConfigDto
   inheritedMembers:
   - System.ValueType.Equals(System.Object)
   - System.ValueType.GetHashCode
@@ -44,16 +42,16 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
-- uid: IGCLWrapper.PowerOptimizationSettingsDto.Size
-  commentId: F:IGCLWrapper.PowerOptimizationSettingsDto.Size
+- uid: IGCLWrapper.WireFormatConfigDto.Size
+  commentId: F:IGCLWrapper.WireFormatConfigDto.Size
   id: Size
-  parent: IGCLWrapper.PowerOptimizationSettingsDto
+  parent: IGCLWrapper.WireFormatConfigDto
   langs:
   - csharp
   - vb
   name: Size
-  nameWithType: PowerOptimizationSettingsDto.Size
-  fullName: IGCLWrapper.PowerOptimizationSettingsDto.Size
+  nameWithType: WireFormatConfigDto.Size
+  fullName: IGCLWrapper.WireFormatConfigDto.Size
   type: Field
   source:
     remote:
@@ -62,7 +60,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2270
+    startLine: 1453
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -73,16 +71,16 @@ items:
     return:
       type: System.UInt32
     content.vb: Public Size As UInteger
-- uid: IGCLWrapper.PowerOptimizationSettingsDto.Version
-  commentId: F:IGCLWrapper.PowerOptimizationSettingsDto.Version
+- uid: IGCLWrapper.WireFormatConfigDto.Version
+  commentId: F:IGCLWrapper.WireFormatConfigDto.Version
   id: Version
-  parent: IGCLWrapper.PowerOptimizationSettingsDto
+  parent: IGCLWrapper.WireFormatConfigDto
   langs:
   - csharp
   - vb
   name: Version
-  nameWithType: PowerOptimizationSettingsDto.Version
-  fullName: IGCLWrapper.PowerOptimizationSettingsDto.Version
+  nameWithType: WireFormatConfigDto.Version
+  fullName: IGCLWrapper.WireFormatConfigDto.Version
   type: Field
   source:
     remote:
@@ -91,7 +89,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2274
+    startLine: 1457
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -102,161 +100,103 @@ items:
     return:
       type: System.Byte
     content.vb: Public Version As Byte
-- uid: IGCLWrapper.PowerOptimizationSettingsDto.PowerOptimizationPlan
-  commentId: F:IGCLWrapper.PowerOptimizationSettingsDto.PowerOptimizationPlan
-  id: PowerOptimizationPlan
-  parent: IGCLWrapper.PowerOptimizationSettingsDto
+- uid: IGCLWrapper.WireFormatConfigDto.Operation
+  commentId: F:IGCLWrapper.WireFormatConfigDto.Operation
+  id: Operation
+  parent: IGCLWrapper.WireFormatConfigDto
   langs:
   - csharp
   - vb
-  name: PowerOptimizationPlan
-  nameWithType: PowerOptimizationSettingsDto.PowerOptimizationPlan
-  fullName: IGCLWrapper.PowerOptimizationSettingsDto.PowerOptimizationPlan
+  name: Operation
+  nameWithType: WireFormatConfigDto.Operation
+  fullName: IGCLWrapper.WireFormatConfigDto.Operation
   type: Field
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
       branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: PowerOptimizationPlan
+    id: Operation
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2278
+    startLine: 1461
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Power optimization plan.
+  summary: Wire format operation type.
   example: []
   syntax:
-    content: public ctl_power_optimization_plan_t PowerOptimizationPlan
+    content: public ctl_wire_format_operation_type_t Operation
     return:
-      type: IGCLWrapper.ctl_power_optimization_plan_t
-    content.vb: Public PowerOptimizationPlan As ctl_power_optimization_plan_t
-- uid: IGCLWrapper.PowerOptimizationSettingsDto.PowerOptimizationFeature
-  commentId: F:IGCLWrapper.PowerOptimizationSettingsDto.PowerOptimizationFeature
-  id: PowerOptimizationFeature
-  parent: IGCLWrapper.PowerOptimizationSettingsDto
+      type: IGCLWrapper.ctl_wire_format_operation_type_t
+    content.vb: Public Operation As ctl_wire_format_operation_type_t
+- uid: IGCLWrapper.WireFormatConfigDto.SupportedWireFormat
+  commentId: F:IGCLWrapper.WireFormatConfigDto.SupportedWireFormat
+  id: SupportedWireFormat
+  parent: IGCLWrapper.WireFormatConfigDto
   langs:
   - csharp
   - vb
-  name: PowerOptimizationFeature
-  nameWithType: PowerOptimizationSettingsDto.PowerOptimizationFeature
-  fullName: IGCLWrapper.PowerOptimizationSettingsDto.PowerOptimizationFeature
+  name: SupportedWireFormat
+  nameWithType: WireFormatConfigDto.SupportedWireFormat
+  fullName: IGCLWrapper.WireFormatConfigDto.SupportedWireFormat
   type: Field
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
       branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: PowerOptimizationFeature
+    id: SupportedWireFormat
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2282
+    startLine: 1465
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Power optimization feature flags.
+  summary: Supported wire format values.
   example: []
   syntax:
-    content: public uint PowerOptimizationFeature
+    content: public ctl_wire_format_t[]? SupportedWireFormat
     return:
-      type: System.UInt32
-    content.vb: Public PowerOptimizationFeature As UInteger
-- uid: IGCLWrapper.PowerOptimizationSettingsDto.Enable
-  commentId: F:IGCLWrapper.PowerOptimizationSettingsDto.Enable
-  id: Enable
-  parent: IGCLWrapper.PowerOptimizationSettingsDto
+      type: IGCLWrapper.ctl_wire_format_t[]
+    content.vb: Public SupportedWireFormat As ctl_wire_format_t()
+- uid: IGCLWrapper.WireFormatConfigDto.WireFormat
+  commentId: F:IGCLWrapper.WireFormatConfigDto.WireFormat
+  id: WireFormat
+  parent: IGCLWrapper.WireFormatConfigDto
   langs:
   - csharp
   - vb
-  name: Enable
-  nameWithType: PowerOptimizationSettingsDto.Enable
-  fullName: IGCLWrapper.PowerOptimizationSettingsDto.Enable
+  name: WireFormat
+  nameWithType: WireFormatConfigDto.WireFormat
+  fullName: IGCLWrapper.WireFormatConfigDto.WireFormat
   type: Field
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
       branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: Enable
+    id: WireFormat
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2286
+    startLine: 1469
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Enable flag.
+  summary: Selected wire format.
   example: []
   syntax:
-    content: public bool Enable
+    content: public ctl_wire_format_t WireFormat
     return:
-      type: System.Boolean
-    content.vb: Public Enable As Boolean
-- uid: IGCLWrapper.PowerOptimizationSettingsDto.FeatureSpecificData
-  commentId: F:IGCLWrapper.PowerOptimizationSettingsDto.FeatureSpecificData
-  id: FeatureSpecificData
-  parent: IGCLWrapper.PowerOptimizationSettingsDto
+      type: IGCLWrapper.ctl_wire_format_t
+    content.vb: Public WireFormat As ctl_wire_format_t
+- uid: IGCLWrapper.WireFormatConfigDto.FromNative(IGCLWrapper.ctl_get_set_wire_format_config_t)
+  commentId: M:IGCLWrapper.WireFormatConfigDto.FromNative(IGCLWrapper.ctl_get_set_wire_format_config_t)
+  id: FromNative(IGCLWrapper.ctl_get_set_wire_format_config_t)
+  parent: IGCLWrapper.WireFormatConfigDto
   langs:
   - csharp
   - vb
-  name: FeatureSpecificData
-  nameWithType: PowerOptimizationSettingsDto.FeatureSpecificData
-  fullName: IGCLWrapper.PowerOptimizationSettingsDto.FeatureSpecificData
-  type: Field
-  source:
-    remote:
-      path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: FeatureSpecificData
-    path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2290
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  summary: Feature-specific data.
-  example: []
-  syntax:
-    content: public ctl_power_optimization_feature_specific_info_t FeatureSpecificData
-    return:
-      type: IGCLWrapper.ctl_power_optimization_feature_specific_info_t
-    content.vb: Public FeatureSpecificData As ctl_power_optimization_feature_specific_info_t
-- uid: IGCLWrapper.PowerOptimizationSettingsDto.PowerSource
-  commentId: F:IGCLWrapper.PowerOptimizationSettingsDto.PowerSource
-  id: PowerSource
-  parent: IGCLWrapper.PowerOptimizationSettingsDto
-  langs:
-  - csharp
-  - vb
-  name: PowerSource
-  nameWithType: PowerOptimizationSettingsDto.PowerSource
-  fullName: IGCLWrapper.PowerOptimizationSettingsDto.PowerSource
-  type: Field
-  source:
-    remote:
-      path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: develop
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: PowerSource
-    path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2294
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  summary: Power source.
-  example: []
-  syntax:
-    content: public ctl_power_source_t PowerSource
-    return:
-      type: IGCLWrapper.ctl_power_source_t
-    content.vb: Public PowerSource As ctl_power_source_t
-- uid: IGCLWrapper.PowerOptimizationSettingsDto.FromNative(IGCLWrapper.ctl_power_optimization_settings_t)
-  commentId: M:IGCLWrapper.PowerOptimizationSettingsDto.FromNative(IGCLWrapper.ctl_power_optimization_settings_t)
-  id: FromNative(IGCLWrapper.ctl_power_optimization_settings_t)
-  parent: IGCLWrapper.PowerOptimizationSettingsDto
-  langs:
-  - csharp
-  - vb
-  name: FromNative(ctl_power_optimization_settings_t)
-  nameWithType: PowerOptimizationSettingsDto.FromNative(ctl_power_optimization_settings_t)
-  fullName: IGCLWrapper.PowerOptimizationSettingsDto.FromNative(IGCLWrapper.ctl_power_optimization_settings_t)
+  name: FromNative(ctl_get_set_wire_format_config_t)
+  nameWithType: WireFormatConfigDto.FromNative(ctl_get_set_wire_format_config_t)
+  fullName: IGCLWrapper.WireFormatConfigDto.FromNative(IGCLWrapper.ctl_get_set_wire_format_config_t)
   type: Method
   source:
     remote:
@@ -265,33 +205,33 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2301
+    startLine: 1476
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Create a DTO from a native struct.
   example: []
   syntax:
-    content: public static PowerOptimizationSettingsDto FromNative(ctl_power_optimization_settings_t native)
+    content: public static WireFormatConfigDto FromNative(ctl_get_set_wire_format_config_t native)
     parameters:
     - id: native
-      type: IGCLWrapper.ctl_power_optimization_settings_t
+      type: IGCLWrapper.ctl_get_set_wire_format_config_t
       description: Native struct.
     return:
-      type: IGCLWrapper.PowerOptimizationSettingsDto
-      description: Power optimization settings DTO.
-    content.vb: Public Shared Function FromNative(native As ctl_power_optimization_settings_t) As PowerOptimizationSettingsDto
-  overload: IGCLWrapper.PowerOptimizationSettingsDto.FromNative*
-- uid: IGCLWrapper.PowerOptimizationSettingsDto.ToNative
-  commentId: M:IGCLWrapper.PowerOptimizationSettingsDto.ToNative
+      type: IGCLWrapper.WireFormatConfigDto
+      description: Wire format settings DTO.
+    content.vb: Public Shared Function FromNative(native As ctl_get_set_wire_format_config_t) As WireFormatConfigDto
+  overload: IGCLWrapper.WireFormatConfigDto.FromNative*
+- uid: IGCLWrapper.WireFormatConfigDto.ToNative
+  commentId: M:IGCLWrapper.WireFormatConfigDto.ToNative
   id: ToNative
-  parent: IGCLWrapper.PowerOptimizationSettingsDto
+  parent: IGCLWrapper.WireFormatConfigDto
   langs:
   - csharp
   - vb
   name: ToNative()
-  nameWithType: PowerOptimizationSettingsDto.ToNative()
-  fullName: IGCLWrapper.PowerOptimizationSettingsDto.ToNative()
+  nameWithType: WireFormatConfigDto.ToNative()
+  fullName: IGCLWrapper.WireFormatConfigDto.ToNative()
   type: Method
   source:
     remote:
@@ -300,19 +240,19 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2319
+    startLine: 1492
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Convert this DTO to a native struct.
   example: []
   syntax:
-    content: public ctl_power_optimization_settings_t ToNative()
+    content: public ctl_get_set_wire_format_config_t ToNative()
     return:
-      type: IGCLWrapper.ctl_power_optimization_settings_t
-      description: Power optimization settings struct.
-    content.vb: Public Function ToNative() As ctl_power_optimization_settings_t
-  overload: IGCLWrapper.PowerOptimizationSettingsDto.ToNative*
+      type: IGCLWrapper.ctl_get_set_wire_format_config_t
+      description: Wire format settings struct.
+    content.vb: Public Function ToNative() As ctl_get_set_wire_format_config_t
+  overload: IGCLWrapper.WireFormatConfigDto.ToNative*
 references:
 - uid: IGCLWrapper
   commentId: N:IGCLWrapper
@@ -559,61 +499,64 @@ references:
   nameWithType.vb: Byte
   fullName.vb: Byte
   name.vb: Byte
-- uid: IGCLWrapper.ctl_power_optimization_plan_t
-  commentId: T:IGCLWrapper.ctl_power_optimization_plan_t
+- uid: IGCLWrapper.ctl_wire_format_operation_type_t
+  commentId: T:IGCLWrapper.ctl_wire_format_operation_type_t
   parent: IGCLWrapper
-  href: IGCLWrapper.ctl_power_optimization_plan_t.html
-  name: ctl_power_optimization_plan_t
-  nameWithType: ctl_power_optimization_plan_t
-  fullName: IGCLWrapper.ctl_power_optimization_plan_t
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
+  href: IGCLWrapper.ctl_wire_format_operation_type_t.html
+  name: ctl_wire_format_operation_type_t
+  nameWithType: ctl_wire_format_operation_type_t
+  fullName: IGCLWrapper.ctl_wire_format_operation_type_t
+- uid: IGCLWrapper.ctl_wire_format_t[]
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
-- uid: IGCLWrapper.ctl_power_optimization_feature_specific_info_t
-  commentId: T:IGCLWrapper.ctl_power_optimization_feature_specific_info_t
+  href: IGCLWrapper.ctl_wire_format_t.html
+  name: ctl_wire_format_t[]
+  nameWithType: ctl_wire_format_t[]
+  fullName: IGCLWrapper.ctl_wire_format_t[]
+  nameWithType.vb: ctl_wire_format_t()
+  fullName.vb: IGCLWrapper.ctl_wire_format_t()
+  name.vb: ctl_wire_format_t()
+  spec.csharp:
+  - uid: IGCLWrapper.ctl_wire_format_t
+    name: ctl_wire_format_t
+    href: IGCLWrapper.ctl_wire_format_t.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: IGCLWrapper.ctl_wire_format_t
+    name: ctl_wire_format_t
+    href: IGCLWrapper.ctl_wire_format_t.html
+  - name: (
+  - name: )
+- uid: IGCLWrapper.ctl_wire_format_t
+  commentId: T:IGCLWrapper.ctl_wire_format_t
   parent: IGCLWrapper
-  href: IGCLWrapper.ctl_power_optimization_feature_specific_info_t.html
-  name: ctl_power_optimization_feature_specific_info_t
-  nameWithType: ctl_power_optimization_feature_specific_info_t
-  fullName: IGCLWrapper.ctl_power_optimization_feature_specific_info_t
-- uid: IGCLWrapper.ctl_power_source_t
-  commentId: T:IGCLWrapper.ctl_power_source_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_power_source_t.html
-  name: ctl_power_source_t
-  nameWithType: ctl_power_source_t
-  fullName: IGCLWrapper.ctl_power_source_t
-- uid: IGCLWrapper.PowerOptimizationSettingsDto.FromNative*
-  commentId: Overload:IGCLWrapper.PowerOptimizationSettingsDto.FromNative
-  href: IGCLWrapper.PowerOptimizationSettingsDto.html#IGCLWrapper_PowerOptimizationSettingsDto_FromNative_IGCLWrapper_ctl_power_optimization_settings_t_
+  href: IGCLWrapper.ctl_wire_format_t.html
+  name: ctl_wire_format_t
+  nameWithType: ctl_wire_format_t
+  fullName: IGCLWrapper.ctl_wire_format_t
+- uid: IGCLWrapper.WireFormatConfigDto.FromNative*
+  commentId: Overload:IGCLWrapper.WireFormatConfigDto.FromNative
+  href: IGCLWrapper.WireFormatConfigDto.html#IGCLWrapper_WireFormatConfigDto_FromNative_IGCLWrapper_ctl_get_set_wire_format_config_t_
   name: FromNative
-  nameWithType: PowerOptimizationSettingsDto.FromNative
-  fullName: IGCLWrapper.PowerOptimizationSettingsDto.FromNative
-- uid: IGCLWrapper.ctl_power_optimization_settings_t
-  commentId: T:IGCLWrapper.ctl_power_optimization_settings_t
+  nameWithType: WireFormatConfigDto.FromNative
+  fullName: IGCLWrapper.WireFormatConfigDto.FromNative
+- uid: IGCLWrapper.ctl_get_set_wire_format_config_t
+  commentId: T:IGCLWrapper.ctl_get_set_wire_format_config_t
   parent: IGCLWrapper
-  href: IGCLWrapper.ctl_power_optimization_settings_t.html
-  name: ctl_power_optimization_settings_t
-  nameWithType: ctl_power_optimization_settings_t
-  fullName: IGCLWrapper.ctl_power_optimization_settings_t
-- uid: IGCLWrapper.PowerOptimizationSettingsDto
-  commentId: T:IGCLWrapper.PowerOptimizationSettingsDto
+  href: IGCLWrapper.ctl_get_set_wire_format_config_t.html
+  name: ctl_get_set_wire_format_config_t
+  nameWithType: ctl_get_set_wire_format_config_t
+  fullName: IGCLWrapper.ctl_get_set_wire_format_config_t
+- uid: IGCLWrapper.WireFormatConfigDto
+  commentId: T:IGCLWrapper.WireFormatConfigDto
   parent: IGCLWrapper
-  href: IGCLWrapper.PowerOptimizationSettingsDto.html
-  name: PowerOptimizationSettingsDto
-  nameWithType: PowerOptimizationSettingsDto
-  fullName: IGCLWrapper.PowerOptimizationSettingsDto
-- uid: IGCLWrapper.PowerOptimizationSettingsDto.ToNative*
-  commentId: Overload:IGCLWrapper.PowerOptimizationSettingsDto.ToNative
-  href: IGCLWrapper.PowerOptimizationSettingsDto.html#IGCLWrapper_PowerOptimizationSettingsDto_ToNative
+  href: IGCLWrapper.WireFormatConfigDto.html
+  name: WireFormatConfigDto
+  nameWithType: WireFormatConfigDto
+  fullName: IGCLWrapper.WireFormatConfigDto
+- uid: IGCLWrapper.WireFormatConfigDto.ToNative*
+  commentId: Overload:IGCLWrapper.WireFormatConfigDto.ToNative
+  href: IGCLWrapper.WireFormatConfigDto.html#IGCLWrapper_WireFormatConfigDto_ToNative
   name: ToNative
-  nameWithType: PowerOptimizationSettingsDto.ToNative
-  fullName: IGCLWrapper.PowerOptimizationSettingsDto.ToNative
+  nameWithType: WireFormatConfigDto.ToNative
+  fullName: IGCLWrapper.WireFormatConfigDto.ToNative

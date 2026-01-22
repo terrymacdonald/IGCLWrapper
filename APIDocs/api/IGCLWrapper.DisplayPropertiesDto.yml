@@ -1,46 +1,51 @@
 ### YamlMime:ManagedReference
 items:
-- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
-  commentId: T:IGCLWrapper.AdapterDisplayEncoderPropertiesDto
-  id: AdapterDisplayEncoderPropertiesDto
+- uid: IGCLWrapper.DisplayPropertiesDto
+  commentId: T:IGCLWrapper.DisplayPropertiesDto
+  id: DisplayPropertiesDto
   parent: IGCLWrapper
   children:
-  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.AdvancedFeatureSupportedFlags
-  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.EncoderConfigFlags
-  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.FeatureSupportedFlags
-  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.FromNative(IGCLWrapper.ctl_adapter_display_encoder_properties_t)
-  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsOnBoardProtocolConverterOutputPresent
-  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.OsDisplayEncoderHandle
-  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.ReservedFields
-  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Size
-  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportedOutputBpcFlags
-  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportedSpec
-  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.ToNative
-  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Type
-  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Version
+  - IGCLWrapper.DisplayPropertiesDto.AdvancedFeatureEnabledFlags
+  - IGCLWrapper.DisplayPropertiesDto.AdvancedFeatureSupportedFlags
+  - IGCLWrapper.DisplayPropertiesDto.AttachedDisplayMuxType
+  - IGCLWrapper.DisplayPropertiesDto.DisplayConfigFlags
+  - IGCLWrapper.DisplayPropertiesDto.DisplayTimingInfo
+  - IGCLWrapper.DisplayPropertiesDto.FeatureEnabledFlags
+  - IGCLWrapper.DisplayPropertiesDto.FeatureSupportedFlags
+  - IGCLWrapper.DisplayPropertiesDto.FromNative(IGCLWrapper.ctl_display_properties_t)
+  - IGCLWrapper.DisplayPropertiesDto.OsDisplayEncoderHandle
+  - IGCLWrapper.DisplayPropertiesDto.ProtocolConverterOutput
+  - IGCLWrapper.DisplayPropertiesDto.ProtocolConverterType
+  - IGCLWrapper.DisplayPropertiesDto.ReservedFields
+  - IGCLWrapper.DisplayPropertiesDto.Size
+  - IGCLWrapper.DisplayPropertiesDto.SupportedOutputBpcFlags
+  - IGCLWrapper.DisplayPropertiesDto.SupportedSpec
+  - IGCLWrapper.DisplayPropertiesDto.ToNative
+  - IGCLWrapper.DisplayPropertiesDto.Type
+  - IGCLWrapper.DisplayPropertiesDto.Version
   langs:
   - csharp
   - vb
-  name: AdapterDisplayEncoderPropertiesDto
-  nameWithType: AdapterDisplayEncoderPropertiesDto
-  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  name: DisplayPropertiesDto
+  nameWithType: DisplayPropertiesDto
+  fullName: IGCLWrapper.DisplayPropertiesDto
   type: Struct
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
       branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: AdapterDisplayEncoderPropertiesDto
+    id: DisplayPropertiesDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1537
+    startLine: 1291
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: DTO for adapter display encoder properties.
+  summary: DTO for display properties.
   example: []
   syntax:
-    content: public struct AdapterDisplayEncoderPropertiesDto
-    content.vb: Public Structure AdapterDisplayEncoderPropertiesDto
+    content: public struct DisplayPropertiesDto
+    content.vb: Public Structure DisplayPropertiesDto
   inheritedMembers:
   - System.ValueType.Equals(System.Object)
   - System.ValueType.GetHashCode
@@ -48,16 +53,16 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
-- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Size
-  commentId: F:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Size
+- uid: IGCLWrapper.DisplayPropertiesDto.Size
+  commentId: F:IGCLWrapper.DisplayPropertiesDto.Size
   id: Size
-  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  parent: IGCLWrapper.DisplayPropertiesDto
   langs:
   - csharp
   - vb
   name: Size
-  nameWithType: AdapterDisplayEncoderPropertiesDto.Size
-  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Size
+  nameWithType: DisplayPropertiesDto.Size
+  fullName: IGCLWrapper.DisplayPropertiesDto.Size
   type: Field
   source:
     remote:
@@ -66,7 +71,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1542
+    startLine: 1297
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -77,16 +82,16 @@ items:
     return:
       type: System.UInt32
     content.vb: Public Size As UInteger
-- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Version
-  commentId: F:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Version
+- uid: IGCLWrapper.DisplayPropertiesDto.Version
+  commentId: F:IGCLWrapper.DisplayPropertiesDto.Version
   id: Version
-  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  parent: IGCLWrapper.DisplayPropertiesDto
   langs:
   - csharp
   - vb
   name: Version
-  nameWithType: AdapterDisplayEncoderPropertiesDto.Version
-  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Version
+  nameWithType: DisplayPropertiesDto.Version
+  fullName: IGCLWrapper.DisplayPropertiesDto.Version
   type: Field
   source:
     remote:
@@ -95,7 +100,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1546
+    startLine: 1301
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -106,16 +111,16 @@ items:
     return:
       type: System.Byte
     content.vb: Public Version As Byte
-- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.OsDisplayEncoderHandle
-  commentId: F:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.OsDisplayEncoderHandle
+- uid: IGCLWrapper.DisplayPropertiesDto.OsDisplayEncoderHandle
+  commentId: F:IGCLWrapper.DisplayPropertiesDto.OsDisplayEncoderHandle
   id: OsDisplayEncoderHandle
-  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  parent: IGCLWrapper.DisplayPropertiesDto
   langs:
   - csharp
   - vb
   name: OsDisplayEncoderHandle
-  nameWithType: AdapterDisplayEncoderPropertiesDto.OsDisplayEncoderHandle
-  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.OsDisplayEncoderHandle
+  nameWithType: DisplayPropertiesDto.OsDisplayEncoderHandle
+  fullName: IGCLWrapper.DisplayPropertiesDto.OsDisplayEncoderHandle
   type: Field
   source:
     remote:
@@ -124,7 +129,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OsDisplayEncoderHandle
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1550
+    startLine: 1305
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -135,16 +140,16 @@ items:
     return:
       type: IGCLWrapper.ctl_os_display_encoder_identifier_t
     content.vb: Public OsDisplayEncoderHandle As ctl_os_display_encoder_identifier_t
-- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Type
-  commentId: F:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Type
+- uid: IGCLWrapper.DisplayPropertiesDto.Type
+  commentId: F:IGCLWrapper.DisplayPropertiesDto.Type
   id: Type
-  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  parent: IGCLWrapper.DisplayPropertiesDto
   langs:
   - csharp
   - vb
   name: Type
-  nameWithType: AdapterDisplayEncoderPropertiesDto.Type
-  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Type
+  nameWithType: DisplayPropertiesDto.Type
+  fullName: IGCLWrapper.DisplayPropertiesDto.Type
   type: Field
   source:
     remote:
@@ -153,7 +158,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Type
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1554
+    startLine: 1309
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -164,45 +169,74 @@ items:
     return:
       type: IGCLWrapper.ctl_display_output_types_t
     content.vb: Public Type As ctl_display_output_types_t
-- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsOnBoardProtocolConverterOutputPresent
-  commentId: F:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsOnBoardProtocolConverterOutputPresent
-  id: IsOnBoardProtocolConverterOutputPresent
-  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+- uid: IGCLWrapper.DisplayPropertiesDto.AttachedDisplayMuxType
+  commentId: F:IGCLWrapper.DisplayPropertiesDto.AttachedDisplayMuxType
+  id: AttachedDisplayMuxType
+  parent: IGCLWrapper.DisplayPropertiesDto
   langs:
   - csharp
   - vb
-  name: IsOnBoardProtocolConverterOutputPresent
-  nameWithType: AdapterDisplayEncoderPropertiesDto.IsOnBoardProtocolConverterOutputPresent
-  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsOnBoardProtocolConverterOutputPresent
+  name: AttachedDisplayMuxType
+  nameWithType: DisplayPropertiesDto.AttachedDisplayMuxType
+  fullName: IGCLWrapper.DisplayPropertiesDto.AttachedDisplayMuxType
   type: Field
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
       branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: IsOnBoardProtocolConverterOutputPresent
+    id: AttachedDisplayMuxType
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1558
+    startLine: 1313
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Indicates whether an onboard protocol converter output is present.
+  summary: Attached display mux type.
   example: []
   syntax:
-    content: public bool IsOnBoardProtocolConverterOutputPresent
+    content: public ctl_attached_display_mux_type_t AttachedDisplayMuxType
     return:
-      type: System.Boolean
-    content.vb: Public IsOnBoardProtocolConverterOutputPresent As Boolean
-- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportedSpec
-  commentId: F:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportedSpec
+      type: IGCLWrapper.ctl_attached_display_mux_type_t
+    content.vb: Public AttachedDisplayMuxType As ctl_attached_display_mux_type_t
+- uid: IGCLWrapper.DisplayPropertiesDto.ProtocolConverterOutput
+  commentId: F:IGCLWrapper.DisplayPropertiesDto.ProtocolConverterOutput
+  id: ProtocolConverterOutput
+  parent: IGCLWrapper.DisplayPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: ProtocolConverterOutput
+  nameWithType: DisplayPropertiesDto.ProtocolConverterOutput
+  fullName: IGCLWrapper.DisplayPropertiesDto.ProtocolConverterOutput
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: ProtocolConverterOutput
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 1317
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Protocol converter output type.
+  example: []
+  syntax:
+    content: public ctl_display_output_types_t ProtocolConverterOutput
+    return:
+      type: IGCLWrapper.ctl_display_output_types_t
+    content.vb: Public ProtocolConverterOutput As ctl_display_output_types_t
+- uid: IGCLWrapper.DisplayPropertiesDto.SupportedSpec
+  commentId: F:IGCLWrapper.DisplayPropertiesDto.SupportedSpec
   id: SupportedSpec
-  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  parent: IGCLWrapper.DisplayPropertiesDto
   langs:
   - csharp
   - vb
   name: SupportedSpec
-  nameWithType: AdapterDisplayEncoderPropertiesDto.SupportedSpec
-  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportedSpec
+  nameWithType: DisplayPropertiesDto.SupportedSpec
+  fullName: IGCLWrapper.DisplayPropertiesDto.SupportedSpec
   type: Field
   source:
     remote:
@@ -211,27 +245,27 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SupportedSpec
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1562
+    startLine: 1321
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Supported specification revision.
+  summary: Supported specification version.
   example: []
   syntax:
     content: public ctl_revision_datatype_t SupportedSpec
     return:
       type: IGCLWrapper.ctl_revision_datatype_t
     content.vb: Public SupportedSpec As ctl_revision_datatype_t
-- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportedOutputBpcFlags
-  commentId: F:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportedOutputBpcFlags
+- uid: IGCLWrapper.DisplayPropertiesDto.SupportedOutputBpcFlags
+  commentId: F:IGCLWrapper.DisplayPropertiesDto.SupportedOutputBpcFlags
   id: SupportedOutputBpcFlags
-  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  parent: IGCLWrapper.DisplayPropertiesDto
   langs:
   - csharp
   - vb
   name: SupportedOutputBpcFlags
-  nameWithType: AdapterDisplayEncoderPropertiesDto.SupportedOutputBpcFlags
-  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportedOutputBpcFlags
+  nameWithType: DisplayPropertiesDto.SupportedOutputBpcFlags
+  fullName: IGCLWrapper.DisplayPropertiesDto.SupportedOutputBpcFlags
   type: Field
   source:
     remote:
@@ -240,56 +274,114 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SupportedOutputBpcFlags
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1566
+    startLine: 1325
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Supported output bits-per-component flags.
+  summary: Supported output BPC flags.
   example: []
   syntax:
     content: public uint SupportedOutputBpcFlags
     return:
       type: System.UInt32
     content.vb: Public SupportedOutputBpcFlags As UInteger
-- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.EncoderConfigFlags
-  commentId: F:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.EncoderConfigFlags
-  id: EncoderConfigFlags
-  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+- uid: IGCLWrapper.DisplayPropertiesDto.ProtocolConverterType
+  commentId: F:IGCLWrapper.DisplayPropertiesDto.ProtocolConverterType
+  id: ProtocolConverterType
+  parent: IGCLWrapper.DisplayPropertiesDto
   langs:
   - csharp
   - vb
-  name: EncoderConfigFlags
-  nameWithType: AdapterDisplayEncoderPropertiesDto.EncoderConfigFlags
-  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.EncoderConfigFlags
+  name: ProtocolConverterType
+  nameWithType: DisplayPropertiesDto.ProtocolConverterType
+  fullName: IGCLWrapper.DisplayPropertiesDto.ProtocolConverterType
   type: Field
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
       branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: EncoderConfigFlags
+    id: ProtocolConverterType
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1570
+    startLine: 1329
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Encoder configuration flags.
+  summary: Protocol converter type flags.
   example: []
   syntax:
-    content: public uint EncoderConfigFlags
+    content: public uint ProtocolConverterType
     return:
       type: System.UInt32
-    content.vb: Public EncoderConfigFlags As UInteger
-- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.FeatureSupportedFlags
-  commentId: F:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.FeatureSupportedFlags
+    content.vb: Public ProtocolConverterType As UInteger
+- uid: IGCLWrapper.DisplayPropertiesDto.DisplayConfigFlags
+  commentId: F:IGCLWrapper.DisplayPropertiesDto.DisplayConfigFlags
+  id: DisplayConfigFlags
+  parent: IGCLWrapper.DisplayPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: DisplayConfigFlags
+  nameWithType: DisplayPropertiesDto.DisplayConfigFlags
+  fullName: IGCLWrapper.DisplayPropertiesDto.DisplayConfigFlags
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: DisplayConfigFlags
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 1333
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Display configuration flags.
+  example: []
+  syntax:
+    content: public uint DisplayConfigFlags
+    return:
+      type: System.UInt32
+    content.vb: Public DisplayConfigFlags As UInteger
+- uid: IGCLWrapper.DisplayPropertiesDto.FeatureEnabledFlags
+  commentId: F:IGCLWrapper.DisplayPropertiesDto.FeatureEnabledFlags
+  id: FeatureEnabledFlags
+  parent: IGCLWrapper.DisplayPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: FeatureEnabledFlags
+  nameWithType: DisplayPropertiesDto.FeatureEnabledFlags
+  fullName: IGCLWrapper.DisplayPropertiesDto.FeatureEnabledFlags
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: FeatureEnabledFlags
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 1337
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Feature enabled flags.
+  example: []
+  syntax:
+    content: public uint FeatureEnabledFlags
+    return:
+      type: System.UInt32
+    content.vb: Public FeatureEnabledFlags As UInteger
+- uid: IGCLWrapper.DisplayPropertiesDto.FeatureSupportedFlags
+  commentId: F:IGCLWrapper.DisplayPropertiesDto.FeatureSupportedFlags
   id: FeatureSupportedFlags
-  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  parent: IGCLWrapper.DisplayPropertiesDto
   langs:
   - csharp
   - vb
   name: FeatureSupportedFlags
-  nameWithType: AdapterDisplayEncoderPropertiesDto.FeatureSupportedFlags
-  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.FeatureSupportedFlags
+  nameWithType: DisplayPropertiesDto.FeatureSupportedFlags
+  fullName: IGCLWrapper.DisplayPropertiesDto.FeatureSupportedFlags
   type: Field
   source:
     remote:
@@ -298,7 +390,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FeatureSupportedFlags
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1574
+    startLine: 1341
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -309,16 +401,45 @@ items:
     return:
       type: System.UInt32
     content.vb: Public FeatureSupportedFlags As UInteger
-- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.AdvancedFeatureSupportedFlags
-  commentId: F:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.AdvancedFeatureSupportedFlags
+- uid: IGCLWrapper.DisplayPropertiesDto.AdvancedFeatureEnabledFlags
+  commentId: F:IGCLWrapper.DisplayPropertiesDto.AdvancedFeatureEnabledFlags
+  id: AdvancedFeatureEnabledFlags
+  parent: IGCLWrapper.DisplayPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: AdvancedFeatureEnabledFlags
+  nameWithType: DisplayPropertiesDto.AdvancedFeatureEnabledFlags
+  fullName: IGCLWrapper.DisplayPropertiesDto.AdvancedFeatureEnabledFlags
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: AdvancedFeatureEnabledFlags
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 1345
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Advanced feature enabled flags.
+  example: []
+  syntax:
+    content: public uint AdvancedFeatureEnabledFlags
+    return:
+      type: System.UInt32
+    content.vb: Public AdvancedFeatureEnabledFlags As UInteger
+- uid: IGCLWrapper.DisplayPropertiesDto.AdvancedFeatureSupportedFlags
+  commentId: F:IGCLWrapper.DisplayPropertiesDto.AdvancedFeatureSupportedFlags
   id: AdvancedFeatureSupportedFlags
-  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  parent: IGCLWrapper.DisplayPropertiesDto
   langs:
   - csharp
   - vb
   name: AdvancedFeatureSupportedFlags
-  nameWithType: AdapterDisplayEncoderPropertiesDto.AdvancedFeatureSupportedFlags
-  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.AdvancedFeatureSupportedFlags
+  nameWithType: DisplayPropertiesDto.AdvancedFeatureSupportedFlags
+  fullName: IGCLWrapper.DisplayPropertiesDto.AdvancedFeatureSupportedFlags
   type: Field
   source:
     remote:
@@ -327,7 +448,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AdvancedFeatureSupportedFlags
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1578
+    startLine: 1349
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -338,16 +459,45 @@ items:
     return:
       type: System.UInt32
     content.vb: Public AdvancedFeatureSupportedFlags As UInteger
-- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.ReservedFields
-  commentId: F:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.ReservedFields
+- uid: IGCLWrapper.DisplayPropertiesDto.DisplayTimingInfo
+  commentId: F:IGCLWrapper.DisplayPropertiesDto.DisplayTimingInfo
+  id: DisplayTimingInfo
+  parent: IGCLWrapper.DisplayPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: DisplayTimingInfo
+  nameWithType: DisplayPropertiesDto.DisplayTimingInfo
+  fullName: IGCLWrapper.DisplayPropertiesDto.DisplayTimingInfo
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: DisplayTimingInfo
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 1353
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Display timing info.
+  example: []
+  syntax:
+    content: public ctl_display_timing_t DisplayTimingInfo
+    return:
+      type: IGCLWrapper.ctl_display_timing_t
+    content.vb: Public DisplayTimingInfo As ctl_display_timing_t
+- uid: IGCLWrapper.DisplayPropertiesDto.ReservedFields
+  commentId: F:IGCLWrapper.DisplayPropertiesDto.ReservedFields
   id: ReservedFields
-  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  parent: IGCLWrapper.DisplayPropertiesDto
   langs:
   - csharp
   - vb
   name: ReservedFields
-  nameWithType: AdapterDisplayEncoderPropertiesDto.ReservedFields
-  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.ReservedFields
+  nameWithType: DisplayPropertiesDto.ReservedFields
+  fullName: IGCLWrapper.DisplayPropertiesDto.ReservedFields
   type: Field
   source:
     remote:
@@ -356,27 +506,27 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ReservedFields
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1582
+    startLine: 1357
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Reserved native fields.
   example: []
   syntax:
-    content: public ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer ReservedFields
+    content: public uint[]? ReservedFields
     return:
-      type: IGCLWrapper.ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer
-    content.vb: Public ReservedFields As ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer
-- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.FromNative(IGCLWrapper.ctl_adapter_display_encoder_properties_t)
-  commentId: M:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.FromNative(IGCLWrapper.ctl_adapter_display_encoder_properties_t)
-  id: FromNative(IGCLWrapper.ctl_adapter_display_encoder_properties_t)
-  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+      type: System.UInt32[]
+    content.vb: Public ReservedFields As UInteger()
+- uid: IGCLWrapper.DisplayPropertiesDto.FromNative(IGCLWrapper.ctl_display_properties_t)
+  commentId: M:IGCLWrapper.DisplayPropertiesDto.FromNative(IGCLWrapper.ctl_display_properties_t)
+  id: FromNative(IGCLWrapper.ctl_display_properties_t)
+  parent: IGCLWrapper.DisplayPropertiesDto
   langs:
   - csharp
   - vb
-  name: FromNative(ctl_adapter_display_encoder_properties_t)
-  nameWithType: AdapterDisplayEncoderPropertiesDto.FromNative(ctl_adapter_display_encoder_properties_t)
-  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.FromNative(IGCLWrapper.ctl_adapter_display_encoder_properties_t)
+  name: FromNative(ctl_display_properties_t)
+  nameWithType: DisplayPropertiesDto.FromNative(ctl_display_properties_t)
+  fullName: IGCLWrapper.DisplayPropertiesDto.FromNative(IGCLWrapper.ctl_display_properties_t)
   type: Method
   source:
     remote:
@@ -385,33 +535,33 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1589
+    startLine: 1364
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Create a DTO from a native struct.
   example: []
   syntax:
-    content: public static AdapterDisplayEncoderPropertiesDto FromNative(ctl_adapter_display_encoder_properties_t native)
+    content: public static DisplayPropertiesDto FromNative(ctl_display_properties_t native)
     parameters:
     - id: native
-      type: IGCLWrapper.ctl_adapter_display_encoder_properties_t
+      type: IGCLWrapper.ctl_display_properties_t
       description: Native struct.
     return:
-      type: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
-      description: Adapter display encoder properties DTO.
-    content.vb: Public Shared Function FromNative(native As ctl_adapter_display_encoder_properties_t) As AdapterDisplayEncoderPropertiesDto
-  overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.FromNative*
-- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.ToNative
-  commentId: M:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.ToNative
+      type: IGCLWrapper.DisplayPropertiesDto
+      description: Display properties DTO.
+    content.vb: Public Shared Function FromNative(native As ctl_display_properties_t) As DisplayPropertiesDto
+  overload: IGCLWrapper.DisplayPropertiesDto.FromNative*
+- uid: IGCLWrapper.DisplayPropertiesDto.ToNative
+  commentId: M:IGCLWrapper.DisplayPropertiesDto.ToNative
   id: ToNative
-  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  parent: IGCLWrapper.DisplayPropertiesDto
   langs:
   - csharp
   - vb
   name: ToNative()
-  nameWithType: AdapterDisplayEncoderPropertiesDto.ToNative()
-  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.ToNative()
+  nameWithType: DisplayPropertiesDto.ToNative()
+  fullName: IGCLWrapper.DisplayPropertiesDto.ToNative()
   type: Method
   source:
     remote:
@@ -420,19 +570,19 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1611
+    startLine: 1391
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Convert this DTO to a native struct.
   example: []
   syntax:
-    content: public ctl_adapter_display_encoder_properties_t ToNative()
+    content: public ctl_display_properties_t ToNative()
     return:
-      type: IGCLWrapper.ctl_adapter_display_encoder_properties_t
-      description: Adapter display encoder properties struct.
-    content.vb: Public Function ToNative() As ctl_adapter_display_encoder_properties_t
-  overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.ToNative*
+      type: IGCLWrapper.ctl_display_properties_t
+      description: Display properties struct.
+    content.vb: Public Function ToNative() As ctl_display_properties_t
+  overload: IGCLWrapper.DisplayPropertiesDto.ToNative*
 references:
 - uid: IGCLWrapper
   commentId: N:IGCLWrapper
@@ -693,17 +843,13 @@ references:
   name: ctl_display_output_types_t
   nameWithType: ctl_display_output_types_t
   fullName: IGCLWrapper.ctl_display_output_types_t
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
+- uid: IGCLWrapper.ctl_attached_display_mux_type_t
+  commentId: T:IGCLWrapper.ctl_attached_display_mux_type_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_attached_display_mux_type_t.html
+  name: ctl_attached_display_mux_type_t
+  nameWithType: ctl_attached_display_mux_type_t
+  fullName: IGCLWrapper.ctl_attached_display_mux_type_t
 - uid: IGCLWrapper.ctl_revision_datatype_t
   commentId: T:IGCLWrapper.ctl_revision_datatype_t
   parent: IGCLWrapper
@@ -711,52 +857,59 @@ references:
   name: ctl_revision_datatype_t
   nameWithType: ctl_revision_datatype_t
   fullName: IGCLWrapper.ctl_revision_datatype_t
-- uid: IGCLWrapper.ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer
-  commentId: T:IGCLWrapper.ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer
+- uid: IGCLWrapper.ctl_display_timing_t
+  commentId: T:IGCLWrapper.ctl_display_timing_t
   parent: IGCLWrapper
-  href: IGCLWrapper.ctl_adapter_display_encoder_properties_t.html
-  name: ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer
-  nameWithType: ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer
-  fullName: IGCLWrapper.ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer
+  href: IGCLWrapper.ctl_display_timing_t.html
+  name: ctl_display_timing_t
+  nameWithType: ctl_display_timing_t
+  fullName: IGCLWrapper.ctl_display_timing_t
+- uid: System.UInt32[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint[]
+  nameWithType: uint[]
+  fullName: uint[]
+  nameWithType.vb: UInteger()
+  fullName.vb: UInteger()
+  name.vb: UInteger()
   spec.csharp:
-  - uid: IGCLWrapper.ctl_adapter_display_encoder_properties_t
-    name: ctl_adapter_display_encoder_properties_t
-    href: IGCLWrapper.ctl_adapter_display_encoder_properties_t.html
-  - name: .
-  - uid: IGCLWrapper.ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer
-    name: _ReservedFields_e__FixedBuffer
-    href: IGCLWrapper.ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer.html
+  - uid: System.UInt32
+    name: uint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: '['
+  - name: ']'
   spec.vb:
-  - uid: IGCLWrapper.ctl_adapter_display_encoder_properties_t
-    name: ctl_adapter_display_encoder_properties_t
-    href: IGCLWrapper.ctl_adapter_display_encoder_properties_t.html
-  - name: .
-  - uid: IGCLWrapper.ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer
-    name: _ReservedFields_e__FixedBuffer
-    href: IGCLWrapper.ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer.html
-- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.FromNative*
-  commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.FromNative
-  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_FromNative_IGCLWrapper_ctl_adapter_display_encoder_properties_t_
+  - uid: System.UInt32
+    name: UInteger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: (
+  - name: )
+- uid: IGCLWrapper.DisplayPropertiesDto.FromNative*
+  commentId: Overload:IGCLWrapper.DisplayPropertiesDto.FromNative
+  href: IGCLWrapper.DisplayPropertiesDto.html#IGCLWrapper_DisplayPropertiesDto_FromNative_IGCLWrapper_ctl_display_properties_t_
   name: FromNative
-  nameWithType: AdapterDisplayEncoderPropertiesDto.FromNative
-  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.FromNative
-- uid: IGCLWrapper.ctl_adapter_display_encoder_properties_t
-  commentId: T:IGCLWrapper.ctl_adapter_display_encoder_properties_t
+  nameWithType: DisplayPropertiesDto.FromNative
+  fullName: IGCLWrapper.DisplayPropertiesDto.FromNative
+- uid: IGCLWrapper.ctl_display_properties_t
+  commentId: T:IGCLWrapper.ctl_display_properties_t
   parent: IGCLWrapper
-  href: IGCLWrapper.ctl_adapter_display_encoder_properties_t.html
-  name: ctl_adapter_display_encoder_properties_t
-  nameWithType: ctl_adapter_display_encoder_properties_t
-  fullName: IGCLWrapper.ctl_adapter_display_encoder_properties_t
-- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
-  commentId: T:IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  href: IGCLWrapper.ctl_display_properties_t.html
+  name: ctl_display_properties_t
+  nameWithType: ctl_display_properties_t
+  fullName: IGCLWrapper.ctl_display_properties_t
+- uid: IGCLWrapper.DisplayPropertiesDto
+  commentId: T:IGCLWrapper.DisplayPropertiesDto
   parent: IGCLWrapper
-  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html
-  name: AdapterDisplayEncoderPropertiesDto
-  nameWithType: AdapterDisplayEncoderPropertiesDto
-  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
-- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.ToNative*
-  commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.ToNative
-  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_ToNative
+  href: IGCLWrapper.DisplayPropertiesDto.html
+  name: DisplayPropertiesDto
+  nameWithType: DisplayPropertiesDto
+  fullName: IGCLWrapper.DisplayPropertiesDto
+- uid: IGCLWrapper.DisplayPropertiesDto.ToNative*
+  commentId: Overload:IGCLWrapper.DisplayPropertiesDto.ToNative
+  href: IGCLWrapper.DisplayPropertiesDto.html#IGCLWrapper_DisplayPropertiesDto_ToNative
   name: ToNative
-  nameWithType: AdapterDisplayEncoderPropertiesDto.ToNative
-  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.ToNative
+  nameWithType: DisplayPropertiesDto.ToNative
+  fullName: IGCLWrapper.DisplayPropertiesDto.ToNative
