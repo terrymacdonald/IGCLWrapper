@@ -15,7 +15,7 @@ namespace IGCLWrapper.FacadeTests
             var (api, adapter) = FacadeTestUtils.RequireAdapter();
             using (api)
             {
-                var props = adapter.GetProperties();
+                var props = adapter.GetPropertiesNative();
                 Assert.True(props.Size > 0);
                 var displays = adapter.EnumerateDisplayOutputs();
                 Assert.NotNull(displays);
@@ -29,6 +29,22 @@ namespace IGCLWrapper.FacadeTests
             using (api)
             {
                 var props = adapter.GetDeviceProperties();
+                Assert.True(props.Size > 0);
+                Assert.NotNull(props.Name);
+                Assert.NotNull(props.Reserved);
+                Assert.Equal(108, props.Reserved!.Length);
+                Assert.True(props.Equals(props));
+                _ = props.GetHashCode();
+            }
+        }
+
+        [SkippableFact]
+        public void GetPropertiesDto_ShouldBeSafeToConsume()
+        {
+            var (api, adapter) = FacadeTestUtils.RequireAdapter();
+            using (api)
+            {
+                var props = adapter.GetProperties();
                 Assert.True(props.Size > 0);
                 Assert.NotNull(props.Name);
                 Assert.NotNull(props.Reserved);

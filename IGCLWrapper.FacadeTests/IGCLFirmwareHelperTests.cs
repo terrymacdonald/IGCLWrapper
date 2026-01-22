@@ -15,7 +15,7 @@ namespace IGCLWrapper.FacadeTests
             {
                 var adapters = api.EnumerateAdapters();
                 var discrete = adapters.FirstOrDefault(a =>
-                    (a.GetProperties().graphics_adapter_properties & (uint)ctl_adapter_properties_flag_t.CTL_ADAPTER_PROPERTIES_FLAG_INTEGRATED) == 0);
+                    (a.GetPropertiesNative().graphics_adapter_properties & (uint)ctl_adapter_properties_flag_t.CTL_ADAPTER_PROPERTIES_FLAG_INTEGRATED) == 0);
 
                 Skip.If(discrete == null, "Firmware properties require a discrete adapter.");
 

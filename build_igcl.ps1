@@ -261,7 +261,8 @@ Write-Host "====================================================================
 Write-Host ""
 Write-Host "Projects built:" -ForegroundColor Cyan
 Write-Host "  - IGCLWrapper (ClangSharp-based wrapper)" -ForegroundColor Green
-Write-Host "  - IGCLWrapper.Tests (Test suite)" -ForegroundColor Green
+Write-Host "  - IGCLWrapper.NativeTests (Test suite)" -ForegroundColor Green
+Write-Host "  - IGCLWrapper.FacadeTests (Test suite)" -ForegroundColor Green
 Write-Host ""
 Write-Host "Next steps:" -ForegroundColor Cyan
 Write-Host "  - Run tests: .\test_igcl.ps1" -ForegroundColor Gray

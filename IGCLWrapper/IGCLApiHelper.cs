@@ -299,7 +299,7 @@ namespace IGCLWrapper
         /// Get adapter properties.
         /// </summary>
         /// <returns>Adapter properties struct.</returns>
-        public unsafe ctl_device_adapter_properties_t GetProperties()
+        public unsafe ctl_device_adapter_properties_t GetPropertiesNative()
         {
             ThrowIfDisposed();
             lock (_lock)
@@ -319,6 +319,23 @@ namespace IGCLWrapper
                 _properties = props;
                 return props;
             }
+        }
+
+        /// <summary>
+        /// Get adapter properties as a DTO.
+        /// </summary>
+        /// <returns>Adapter properties DTO.</returns>
+        public unsafe DeviceAdapterPropertiesDto GetProperties()
+        {
+            ThrowIfDisposed();
+            var props = CreateAdapterProperties();
+            var result = IGCL.ctlGetDeviceProperties((_ctl_device_adapter_handle_t*)AdapterHandle, &props);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+            {
+                throw new IGCLException(result, "Failed to get adapter properties");
+            }
+
+            return DeviceAdapterPropertiesDto.FromNative(props);
         }
 
         /// <summary>
@@ -457,7 +474,7 @@ namespace IGCLWrapper
         {
             get
             {
-                var props = GetProperties();
+                var props = GetPropertiesNative();
                 var pName = (sbyte*)Unsafe.AsPointer(ref props.name);
                 return new string(pName);
             }
@@ -466,7 +483,7 @@ namespace IGCLWrapper
         /// <summary>
         /// PCI vendor identifier as a hexadecimal string.
         /// </summary>
-        public string PciVendorId => GetProperties().pci_vendor_id.ToString("X4");
+        public string PciVendorId => GetPropertiesNative().pci_vendor_id.ToString("X4");
 
         /// <summary>
         /// Call the native get/set combined display API using the provided struct.
