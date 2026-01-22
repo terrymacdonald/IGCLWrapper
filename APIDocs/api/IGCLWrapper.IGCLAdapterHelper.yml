@@ -15,6 +15,7 @@ items:
   - IGCLWrapper.IGCLAdapterHelper.EnumerateI2CPinPairsNative
   - IGCLWrapper.IGCLAdapterHelper.GetCombinedDisplay
   - IGCLWrapper.IGCLAdapterHelper.GetDeviceProperties
+  - IGCLWrapper.IGCLAdapterHelper.GetDevicePropertiesNative
   - IGCLWrapper.IGCLAdapterHelper.GetDisplayGenlock(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)
   - IGCLWrapper.IGCLAdapterHelper.GetLinkedDisplayAdapters
   - IGCLWrapper.IGCLAdapterHelper.GetProperties
@@ -38,11 +39,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IGCLAdapterHelper
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 259
+    startLine: 260
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -76,11 +77,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateCombinedDisplayArgs
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 284
+    startLine: 285
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -107,11 +108,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateGenlockArgs
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 289
+    startLine: 290
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -138,11 +139,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateLinkedDisplayAdaptersArgs
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 294
+    startLine: 295
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -169,11 +170,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetProperties
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 300
+    startLine: 301
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -200,11 +201,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumerateDevicesNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 326
+    startLine: 327
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -231,11 +232,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumerateDisplayOutputsNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 350
+    startLine: 351
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -262,11 +263,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumerateI2CPinPairsNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 373
+    startLine: 374
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -279,6 +280,37 @@ items:
       description: Array of I2C pin pair handles.
     content.vb: Public Function EnumerateI2CPinPairsNative() As IntPtr()
   overload: IGCLWrapper.IGCLAdapterHelper.EnumerateI2CPinPairsNative*
+- uid: IGCLWrapper.IGCLAdapterHelper.GetDevicePropertiesNative
+  commentId: M:IGCLWrapper.IGCLAdapterHelper.GetDevicePropertiesNative
+  id: GetDevicePropertiesNative
+  parent: IGCLWrapper.IGCLAdapterHelper
+  langs:
+  - csharp
+  - vb
+  name: GetDevicePropertiesNative()
+  nameWithType: IGCLAdapterHelper.GetDevicePropertiesNative()
+  fullName: IGCLWrapper.IGCLAdapterHelper.GetDevicePropertiesNative()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetDevicePropertiesNative
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 397
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get device adapter properties for this adapter.
+  example: []
+  syntax:
+    content: public ctl_device_adapter_properties_t GetDevicePropertiesNative()
+    return:
+      type: IGCLWrapper.ctl_device_adapter_properties_t
+      description: Adapter properties struct.
+    content.vb: Public Function GetDevicePropertiesNative() As ctl_device_adapter_properties_t
+  overload: IGCLWrapper.IGCLAdapterHelper.GetDevicePropertiesNative*
 - uid: IGCLWrapper.IGCLAdapterHelper.GetDeviceProperties
   commentId: M:IGCLWrapper.IGCLAdapterHelper.GetDeviceProperties
   id: GetDeviceProperties
@@ -293,22 +325,22 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetDeviceProperties
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 396
+    startLine: 411
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Get device adapter properties for this adapter.
+  summary: Get device adapter properties for this adapter as a DTO.
   example: []
   syntax:
-    content: public ctl_device_adapter_properties_t GetDeviceProperties()
+    content: public DeviceAdapterPropertiesDto GetDeviceProperties()
     return:
-      type: IGCLWrapper.ctl_device_adapter_properties_t
-      description: Adapter properties struct.
-    content.vb: Public Function GetDeviceProperties() As ctl_device_adapter_properties_t
+      type: IGCLWrapper.DeviceAdapterPropertiesDto
+      description: Adapter properties DTO.
+    content.vb: Public Function GetDeviceProperties() As DeviceAdapterPropertiesDto
   overload: IGCLWrapper.IGCLAdapterHelper.GetDeviceProperties*
 - uid: IGCLWrapper.IGCLAdapterHelper.GetZeDevice
   commentId: M:IGCLWrapper.IGCLAdapterHelper.GetZeDevice
@@ -324,11 +356,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetZeDevice
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 410
+    startLine: 425
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -355,11 +387,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumerateDisplayOutputs
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 425
+    startLine: 440
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -386,11 +418,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Name
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 440
+    startLine: 455
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -417,11 +449,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PciVendorId
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 453
+    startLine: 468
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -448,11 +480,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSetCombinedDisplayNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 460
+    startLine: 475
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -483,11 +515,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetCombinedDisplay
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 543
+    startLine: 558
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -514,11 +546,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetCombinedDisplay
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 653
+    startLine: 668
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -546,11 +578,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSetDisplayGenlockNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 884
+    startLine: 927
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -590,11 +622,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetDisplayGenlock
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 912
+    startLine: 955
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -637,11 +669,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetDisplayGenlockNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 927
+    startLine: 970
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -681,11 +713,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LinkDisplayAdapters
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 938
+    startLine: 981
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -713,11 +745,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: UnlinkDisplayAdapters
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 950
+    startLine: 993
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -741,11 +773,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetLinkedDisplayAdapters
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 962
+    startLine: 1005
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -772,11 +804,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: WaitForPropertyChange
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 993
+    startLine: 1036
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -807,11 +839,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: feature-facade-v1
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1019
+    startLine: 1062
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1144,12 +1176,25 @@ references:
   name: EnumerateI2CPinPairsNative
   nameWithType: IGCLAdapterHelper.EnumerateI2CPinPairsNative
   fullName: IGCLWrapper.IGCLAdapterHelper.EnumerateI2CPinPairsNative
+- uid: IGCLWrapper.IGCLAdapterHelper.GetDevicePropertiesNative*
+  commentId: Overload:IGCLWrapper.IGCLAdapterHelper.GetDevicePropertiesNative
+  href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_GetDevicePropertiesNative
+  name: GetDevicePropertiesNative
+  nameWithType: IGCLAdapterHelper.GetDevicePropertiesNative
+  fullName: IGCLWrapper.IGCLAdapterHelper.GetDevicePropertiesNative
 - uid: IGCLWrapper.IGCLAdapterHelper.GetDeviceProperties*
   commentId: Overload:IGCLWrapper.IGCLAdapterHelper.GetDeviceProperties
   href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_GetDeviceProperties
   name: GetDeviceProperties
   nameWithType: IGCLAdapterHelper.GetDeviceProperties
   fullName: IGCLWrapper.IGCLAdapterHelper.GetDeviceProperties
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto
+  commentId: T:IGCLWrapper.DeviceAdapterPropertiesDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.DeviceAdapterPropertiesDto.html
+  name: DeviceAdapterPropertiesDto
+  nameWithType: DeviceAdapterPropertiesDto
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto
 - uid: IGCLWrapper.IGCLAdapterHelper.GetZeDevice*
   commentId: Overload:IGCLWrapper.IGCLAdapterHelper.GetZeDevice
   href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_GetZeDevice

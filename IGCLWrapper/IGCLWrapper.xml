@@ -455,11 +455,17 @@
             </summary>
             <returns>Array of I2C pin pair handles.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLAdapterHelper.GetDeviceProperties">
+        <member name="M:IGCLWrapper.IGCLAdapterHelper.GetDevicePropertiesNative">
             <summary>
             Get device adapter properties for this adapter.
             </summary>
             <returns>Adapter properties struct.</returns>
+        </member>
+        <member name="M:IGCLWrapper.IGCLAdapterHelper.GetDeviceProperties">
+            <summary>
+            Get device adapter properties for this adapter as a DTO.
+            </summary>
+            <returns>Adapter properties DTO.</returns>
         </member>
         <member name="M:IGCLWrapper.IGCLAdapterHelper.GetZeDevice">
             <summary>
@@ -563,6 +569,129 @@
             <summary>
             Mark the helper as disposed.
             </summary>
+        </member>
+        <member name="T:IGCLWrapper.DeviceAdapterPropertiesDto">
+            <summary>
+            DTO for adapter properties.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DeviceAdapterPropertiesDto.Size">
+            <summary>
+            Size of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DeviceAdapterPropertiesDto.Version">
+            <summary>
+            Version of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DeviceAdapterPropertiesDto.DeviceIdSize">
+            <summary>
+            Size of the device ID buffer reported by native calls.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DeviceAdapterPropertiesDto.DeviceType">
+            <summary>
+            Device type.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DeviceAdapterPropertiesDto.SupportedSubfunctionFlags">
+            <summary>
+            Supported functions bitmask.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DeviceAdapterPropertiesDto.DriverVersion">
+            <summary>
+            Driver version value.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DeviceAdapterPropertiesDto.FirmwareVersion">
+            <summary>
+            Firmware version info.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DeviceAdapterPropertiesDto.PciVendorId">
+            <summary>
+            PCI vendor ID.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DeviceAdapterPropertiesDto.PciDeviceId">
+            <summary>
+            PCI device ID.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DeviceAdapterPropertiesDto.RevId">
+            <summary>
+            PCI revision ID.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DeviceAdapterPropertiesDto.NumEusPerSubSlice">
+            <summary>
+            Number of EUs per sub-slice.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DeviceAdapterPropertiesDto.NumSubSlicesPerSlice">
+            <summary>
+            Number of sub-slices per slice.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DeviceAdapterPropertiesDto.NumSlices">
+            <summary>
+            Number of slices.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DeviceAdapterPropertiesDto.Name">
+            <summary>
+            Adapter name.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DeviceAdapterPropertiesDto.GraphicsAdapterProperties">
+            <summary>
+            Graphics adapter properties flags.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DeviceAdapterPropertiesDto.Frequency">
+            <summary>
+            Average graphics clock (MHz).
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DeviceAdapterPropertiesDto.PciSubsysId">
+            <summary>
+            PCI sub-system ID.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DeviceAdapterPropertiesDto.PciSubsysVendorId">
+            <summary>
+            PCI sub-system vendor ID.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DeviceAdapterPropertiesDto.AdapterBdf">
+            <summary>
+            Adapter BDF.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DeviceAdapterPropertiesDto.NumXeCores">
+            <summary>
+            Number of Xe cores.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DeviceAdapterPropertiesDto.Reserved">
+            <summary>
+            Reserved native fields.
+            </summary>
+        </member>
+        <member name="M:IGCLWrapper.DeviceAdapterPropertiesDto.FromNative(IGCLWrapper.ctl_device_adapter_properties_t)">
+            <summary>
+            Create a DTO from a native struct.
+            </summary>
+            <param name="native">Native struct.</param>
+            <returns>Adapter properties DTO.</returns>
+        </member>
+        <member name="M:IGCLWrapper.DeviceAdapterPropertiesDto.ToNative">
+            <summary>
+            Convert this DTO to a native struct.
+            </summary>
+            <returns>Adapter properties struct.</returns>
         </member>
         <member name="T:IGCLWrapper.CombinedDisplayArgsDto">
             <summary>

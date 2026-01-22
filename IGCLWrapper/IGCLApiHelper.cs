@@ -3,6 +3,7 @@ using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Net.Mail;
 using System.Runtime.CompilerServices;
+using System.Text;
 
 namespace IGCLWrapper
 {
@@ -394,7 +395,7 @@ namespace IGCLWrapper
         /// Get device adapter properties for this adapter.
         /// </summary>
         /// <returns>Adapter properties struct.</returns>
-        public unsafe ctl_device_adapter_properties_t GetDeviceProperties()
+        public unsafe ctl_device_adapter_properties_t GetDevicePropertiesNative()
         {
             ThrowIfDisposed();
             var props = CreateAdapterProperties();
@@ -402,6 +403,20 @@ namespace IGCLWrapper
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get device properties");
             return props;
+        }
+
+        /// <summary>
+        /// Get device adapter properties for this adapter as a DTO.
+        /// </summary>
+        /// <returns>Adapter properties DTO.</returns>
+        public unsafe DeviceAdapterPropertiesDto GetDeviceProperties()
+        {
+            ThrowIfDisposed();
+            var props = CreateAdapterProperties();
+            var result = IGCL.ctlGetDeviceProperties((_ctl_device_adapter_handle_t*)AdapterHandle, &props);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, "Failed to get device properties");
+            return DeviceAdapterPropertiesDto.FromNative(props);
         }
 
         /// <summary>
@@ -1048,6 +1063,227 @@ namespace IGCLWrapper
         public void Dispose()
         {
             _disposed = true;
+        }
+    }
+
+    /// <summary>
+    /// DTO for adapter properties.
+    /// </summary>
+    public struct DeviceAdapterPropertiesDto
+    {
+        private const int NameLength = 100;
+        private const int ReservedLength = 108;
+        /// <summary>
+        /// Size of the native struct.
+        /// </summary>
+        public uint Size;
+        /// <summary>
+        /// Version of the native struct.
+        /// </summary>
+        public byte Version;
+        /// <summary>
+        /// Size of the device ID buffer reported by native calls.
+        /// </summary>
+        public uint DeviceIdSize;
+        /// <summary>
+        /// Device type.
+        /// </summary>
+        public ctl_device_type_t DeviceType;
+        /// <summary>
+        /// Supported functions bitmask.
+        /// </summary>
+        public uint SupportedSubfunctionFlags;
+        /// <summary>
+        /// Driver version value.
+        /// </summary>
+        public ulong DriverVersion;
+        /// <summary>
+        /// Firmware version info.
+        /// </summary>
+        public ctl_firmware_version_t FirmwareVersion;
+        /// <summary>
+        /// PCI vendor ID.
+        /// </summary>
+        public uint PciVendorId;
+        /// <summary>
+        /// PCI device ID.
+        /// </summary>
+        public uint PciDeviceId;
+        /// <summary>
+        /// PCI revision ID.
+        /// </summary>
+        public uint RevId;
+        /// <summary>
+        /// Number of EUs per sub-slice.
+        /// </summary>
+        public uint NumEusPerSubSlice;
+        /// <summary>
+        /// Number of sub-slices per slice.
+        /// </summary>
+        public uint NumSubSlicesPerSlice;
+        /// <summary>
+        /// Number of slices.
+        /// </summary>
+        public uint NumSlices;
+        /// <summary>
+        /// Adapter name.
+        /// </summary>
+        public string Name;
+        /// <summary>
+        /// Graphics adapter properties flags.
+        /// </summary>
+        public uint GraphicsAdapterProperties;
+        /// <summary>
+        /// Average graphics clock (MHz).
+        /// </summary>
+        public uint Frequency;
+        /// <summary>
+        /// PCI sub-system ID.
+        /// </summary>
+        public ushort PciSubsysId;
+        /// <summary>
+        /// PCI sub-system vendor ID.
+        /// </summary>
+        public ushort PciSubsysVendorId;
+        /// <summary>
+        /// Adapter BDF.
+        /// </summary>
+        public ctl_adapter_bdf_t AdapterBdf;
+        /// <summary>
+        /// Number of Xe cores.
+        /// </summary>
+        public uint NumXeCores;
+        /// <summary>
+        /// Reserved native fields.
+        /// </summary>
+        public byte[]? Reserved;
+
+        /// <summary>
+        /// Create a DTO from a native struct.
+        /// </summary>
+        /// <param name="native">Native struct.</param>
+        /// <returns>Adapter properties DTO.</returns>
+        public static DeviceAdapterPropertiesDto FromNative(ctl_device_adapter_properties_t native)
+        {
+            return new DeviceAdapterPropertiesDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                DeviceIdSize = native.device_id_size,
+                DeviceType = native.device_type,
+                SupportedSubfunctionFlags = native.supported_subfunction_flags,
+                DriverVersion = native.driver_version,
+                FirmwareVersion = native.firmware_version,
+                PciVendorId = native.pci_vendor_id,
+                PciDeviceId = native.pci_device_id,
+                RevId = native.rev_id,
+                NumEusPerSubSlice = native.num_eus_per_sub_slice,
+                NumSubSlicesPerSlice = native.num_sub_slices_per_slice,
+                NumSlices = native.num_slices,
+                Name = ReadName(native.name),
+                GraphicsAdapterProperties = native.graphics_adapter_properties,
+                Frequency = native.Frequency,
+                PciSubsysId = native.pci_subsys_id,
+                PciSubsysVendorId = native.pci_subsys_vendor_id,
+                AdapterBdf = native.adapter_bdf,
+                NumXeCores = native.num_xe_cores,
+                Reserved = ReadReserved(native.reserved)
+            };
+        }
+
+        /// <summary>
+        /// Convert this DTO to a native struct.
+        /// </summary>
+        /// <returns>Adapter properties struct.</returns>
+        public unsafe ctl_device_adapter_properties_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_device_adapter_properties_t);
+            var version = Version == 0 ? (byte)1 : Version;
+
+            var native = new ctl_device_adapter_properties_t
+            {
+                Size = size,
+                Version = version,
+                pDeviceID = null,
+                device_id_size = DeviceIdSize,
+                device_type = DeviceType,
+                supported_subfunction_flags = SupportedSubfunctionFlags,
+                driver_version = DriverVersion,
+                firmware_version = FirmwareVersion,
+                pci_vendor_id = PciVendorId,
+                pci_device_id = PciDeviceId,
+                rev_id = RevId,
+                num_eus_per_sub_slice = NumEusPerSubSlice,
+                num_sub_slices_per_slice = NumSubSlicesPerSlice,
+                num_slices = NumSlices,
+                graphics_adapter_properties = GraphicsAdapterProperties,
+                Frequency = Frequency,
+                pci_subsys_id = PciSubsysId,
+                pci_subsys_vendor_id = PciSubsysVendorId,
+                adapter_bdf = AdapterBdf,
+                num_xe_cores = NumXeCores
+            };
+
+            WriteName(Name, ref native.name);
+            WriteReserved(Reserved, ref native.reserved);
+            return native;
+        }
+
+        private static unsafe string ReadName(ctl_device_adapter_properties_t._name_e__FixedBuffer buffer)
+        {
+            var bytes = new byte[NameLength];
+            var pName = (sbyte*)Unsafe.AsPointer(ref buffer.e0);
+            var length = 0;
+            for (var i = 0; i < NameLength; i++)
+            {
+                var value = pName[i];
+                if (value == 0)
+                    break;
+                bytes[i] = (byte)value;
+                length++;
+            }
+
+            return length == 0 ? string.Empty : Encoding.ASCII.GetString(bytes, 0, length);
+        }
+
+        private static unsafe byte[] ReadReserved(ctl_device_adapter_properties_t._reserved_e__FixedBuffer buffer)
+        {
+            var bytes = new byte[ReservedLength];
+            var pReserved = (sbyte*)Unsafe.AsPointer(ref buffer.e0);
+            for (var i = 0; i < ReservedLength; i++)
+                bytes[i] = (byte)pReserved[i];
+            return bytes;
+        }
+
+        private static unsafe void WriteName(string? value, ref ctl_device_adapter_properties_t._name_e__FixedBuffer buffer)
+        {
+            var pName = (sbyte*)Unsafe.AsPointer(ref buffer.e0);
+            for (var i = 0; i < NameLength; i++)
+                pName[i] = 0;
+
+            if (string.IsNullOrEmpty(value))
+                return;
+
+            var bytes = Encoding.ASCII.GetBytes(value);
+            var count = Math.Min(bytes.Length, NameLength - 1);
+            for (var i = 0; i < count; i++)
+                pName[i] = unchecked((sbyte)bytes[i]);
+        }
+
+        private static unsafe void WriteReserved(byte[]? value, ref ctl_device_adapter_properties_t._reserved_e__FixedBuffer buffer)
+        {
+            var pReserved = (sbyte*)Unsafe.AsPointer(ref buffer.e0);
+            for (var i = 0; i < ReservedLength; i++)
+                pReserved[i] = 0;
+
+            if (value == null || value.Length == 0)
+                return;
+
+            var count = Math.Min(value.Length, ReservedLength);
+            for (var i = 0; i < count; i++)
+                pReserved[i] = unchecked((sbyte)value[i]);
         }
     }
 

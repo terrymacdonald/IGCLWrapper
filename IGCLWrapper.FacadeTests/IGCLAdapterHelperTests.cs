@@ -23,6 +23,22 @@ namespace IGCLWrapper.FacadeTests
         }
 
         [SkippableFact]
+        public void GetDevicePropertiesDto_ShouldBeSafeToConsume()
+        {
+            var (api, adapter) = FacadeTestUtils.RequireAdapter();
+            using (api)
+            {
+                var props = adapter.GetDeviceProperties();
+                Assert.True(props.Size > 0);
+                Assert.NotNull(props.Name);
+                Assert.NotNull(props.Reserved);
+                Assert.Equal(108, props.Reserved!.Length);
+                Assert.True(props.Equals(props));
+                _ = props.GetHashCode();
+            }
+        }
+
+        [SkippableFact]
         public void WaitForPropertyChange_ReturnsOrSkips()
         {
             var (api, adapter) = FacadeTestUtils.RequireAdapter();

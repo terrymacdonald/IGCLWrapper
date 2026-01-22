@@ -1,0 +1,1084 @@
+### YamlMime:ManagedReference
+items:
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto
+  commentId: T:IGCLWrapper.DeviceAdapterPropertiesDto
+  id: DeviceAdapterPropertiesDto
+  parent: IGCLWrapper
+  children:
+  - IGCLWrapper.DeviceAdapterPropertiesDto.AdapterBdf
+  - IGCLWrapper.DeviceAdapterPropertiesDto.DeviceIdSize
+  - IGCLWrapper.DeviceAdapterPropertiesDto.DeviceType
+  - IGCLWrapper.DeviceAdapterPropertiesDto.DriverVersion
+  - IGCLWrapper.DeviceAdapterPropertiesDto.FirmwareVersion
+  - IGCLWrapper.DeviceAdapterPropertiesDto.Frequency
+  - IGCLWrapper.DeviceAdapterPropertiesDto.FromNative(IGCLWrapper.ctl_device_adapter_properties_t)
+  - IGCLWrapper.DeviceAdapterPropertiesDto.GraphicsAdapterProperties
+  - IGCLWrapper.DeviceAdapterPropertiesDto.Name
+  - IGCLWrapper.DeviceAdapterPropertiesDto.NumEusPerSubSlice
+  - IGCLWrapper.DeviceAdapterPropertiesDto.NumSlices
+  - IGCLWrapper.DeviceAdapterPropertiesDto.NumSubSlicesPerSlice
+  - IGCLWrapper.DeviceAdapterPropertiesDto.NumXeCores
+  - IGCLWrapper.DeviceAdapterPropertiesDto.PciDeviceId
+  - IGCLWrapper.DeviceAdapterPropertiesDto.PciSubsysId
+  - IGCLWrapper.DeviceAdapterPropertiesDto.PciSubsysVendorId
+  - IGCLWrapper.DeviceAdapterPropertiesDto.PciVendorId
+  - IGCLWrapper.DeviceAdapterPropertiesDto.Reserved
+  - IGCLWrapper.DeviceAdapterPropertiesDto.RevId
+  - IGCLWrapper.DeviceAdapterPropertiesDto.Size
+  - IGCLWrapper.DeviceAdapterPropertiesDto.SupportedSubfunctionFlags
+  - IGCLWrapper.DeviceAdapterPropertiesDto.ToNative
+  - IGCLWrapper.DeviceAdapterPropertiesDto.Version
+  langs:
+  - csharp
+  - vb
+  name: DeviceAdapterPropertiesDto
+  nameWithType: DeviceAdapterPropertiesDto
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto
+  type: Struct
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: DeviceAdapterPropertiesDto
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1071
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: DTO for adapter properties.
+  example: []
+  syntax:
+    content: public struct DeviceAdapterPropertiesDto
+    content.vb: Public Structure DeviceAdapterPropertiesDto
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.Size
+  commentId: F:IGCLWrapper.DeviceAdapterPropertiesDto.Size
+  id: Size
+  parent: IGCLWrapper.DeviceAdapterPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: Size
+  nameWithType: DeviceAdapterPropertiesDto.Size
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.Size
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Size
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1078
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Size of the native struct.
+  example: []
+  syntax:
+    content: public uint Size
+    return:
+      type: System.UInt32
+    content.vb: Public Size As UInteger
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.Version
+  commentId: F:IGCLWrapper.DeviceAdapterPropertiesDto.Version
+  id: Version
+  parent: IGCLWrapper.DeviceAdapterPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: Version
+  nameWithType: DeviceAdapterPropertiesDto.Version
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.Version
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Version
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1082
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Version of the native struct.
+  example: []
+  syntax:
+    content: public byte Version
+    return:
+      type: System.Byte
+    content.vb: Public Version As Byte
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.DeviceIdSize
+  commentId: F:IGCLWrapper.DeviceAdapterPropertiesDto.DeviceIdSize
+  id: DeviceIdSize
+  parent: IGCLWrapper.DeviceAdapterPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: DeviceIdSize
+  nameWithType: DeviceAdapterPropertiesDto.DeviceIdSize
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.DeviceIdSize
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: DeviceIdSize
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1086
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Size of the device ID buffer reported by native calls.
+  example: []
+  syntax:
+    content: public uint DeviceIdSize
+    return:
+      type: System.UInt32
+    content.vb: Public DeviceIdSize As UInteger
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.DeviceType
+  commentId: F:IGCLWrapper.DeviceAdapterPropertiesDto.DeviceType
+  id: DeviceType
+  parent: IGCLWrapper.DeviceAdapterPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: DeviceType
+  nameWithType: DeviceAdapterPropertiesDto.DeviceType
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.DeviceType
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: DeviceType
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1090
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Device type.
+  example: []
+  syntax:
+    content: public ctl_device_type_t DeviceType
+    return:
+      type: IGCLWrapper.ctl_device_type_t
+    content.vb: Public DeviceType As ctl_device_type_t
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.SupportedSubfunctionFlags
+  commentId: F:IGCLWrapper.DeviceAdapterPropertiesDto.SupportedSubfunctionFlags
+  id: SupportedSubfunctionFlags
+  parent: IGCLWrapper.DeviceAdapterPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: SupportedSubfunctionFlags
+  nameWithType: DeviceAdapterPropertiesDto.SupportedSubfunctionFlags
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.SupportedSubfunctionFlags
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportedSubfunctionFlags
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1094
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Supported functions bitmask.
+  example: []
+  syntax:
+    content: public uint SupportedSubfunctionFlags
+    return:
+      type: System.UInt32
+    content.vb: Public SupportedSubfunctionFlags As UInteger
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.DriverVersion
+  commentId: F:IGCLWrapper.DeviceAdapterPropertiesDto.DriverVersion
+  id: DriverVersion
+  parent: IGCLWrapper.DeviceAdapterPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: DriverVersion
+  nameWithType: DeviceAdapterPropertiesDto.DriverVersion
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.DriverVersion
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: DriverVersion
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1098
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Driver version value.
+  example: []
+  syntax:
+    content: public ulong DriverVersion
+    return:
+      type: System.UInt64
+    content.vb: Public DriverVersion As ULong
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.FirmwareVersion
+  commentId: F:IGCLWrapper.DeviceAdapterPropertiesDto.FirmwareVersion
+  id: FirmwareVersion
+  parent: IGCLWrapper.DeviceAdapterPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: FirmwareVersion
+  nameWithType: DeviceAdapterPropertiesDto.FirmwareVersion
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.FirmwareVersion
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: FirmwareVersion
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1102
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Firmware version info.
+  example: []
+  syntax:
+    content: public ctl_firmware_version_t FirmwareVersion
+    return:
+      type: IGCLWrapper.ctl_firmware_version_t
+    content.vb: Public FirmwareVersion As ctl_firmware_version_t
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.PciVendorId
+  commentId: F:IGCLWrapper.DeviceAdapterPropertiesDto.PciVendorId
+  id: PciVendorId
+  parent: IGCLWrapper.DeviceAdapterPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: PciVendorId
+  nameWithType: DeviceAdapterPropertiesDto.PciVendorId
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.PciVendorId
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: PciVendorId
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1106
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: PCI vendor ID.
+  example: []
+  syntax:
+    content: public uint PciVendorId
+    return:
+      type: System.UInt32
+    content.vb: Public PciVendorId As UInteger
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.PciDeviceId
+  commentId: F:IGCLWrapper.DeviceAdapterPropertiesDto.PciDeviceId
+  id: PciDeviceId
+  parent: IGCLWrapper.DeviceAdapterPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: PciDeviceId
+  nameWithType: DeviceAdapterPropertiesDto.PciDeviceId
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.PciDeviceId
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: PciDeviceId
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1110
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: PCI device ID.
+  example: []
+  syntax:
+    content: public uint PciDeviceId
+    return:
+      type: System.UInt32
+    content.vb: Public PciDeviceId As UInteger
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.RevId
+  commentId: F:IGCLWrapper.DeviceAdapterPropertiesDto.RevId
+  id: RevId
+  parent: IGCLWrapper.DeviceAdapterPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: RevId
+  nameWithType: DeviceAdapterPropertiesDto.RevId
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.RevId
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: RevId
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1114
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: PCI revision ID.
+  example: []
+  syntax:
+    content: public uint RevId
+    return:
+      type: System.UInt32
+    content.vb: Public RevId As UInteger
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.NumEusPerSubSlice
+  commentId: F:IGCLWrapper.DeviceAdapterPropertiesDto.NumEusPerSubSlice
+  id: NumEusPerSubSlice
+  parent: IGCLWrapper.DeviceAdapterPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: NumEusPerSubSlice
+  nameWithType: DeviceAdapterPropertiesDto.NumEusPerSubSlice
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.NumEusPerSubSlice
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: NumEusPerSubSlice
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1118
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Number of EUs per sub-slice.
+  example: []
+  syntax:
+    content: public uint NumEusPerSubSlice
+    return:
+      type: System.UInt32
+    content.vb: Public NumEusPerSubSlice As UInteger
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.NumSubSlicesPerSlice
+  commentId: F:IGCLWrapper.DeviceAdapterPropertiesDto.NumSubSlicesPerSlice
+  id: NumSubSlicesPerSlice
+  parent: IGCLWrapper.DeviceAdapterPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: NumSubSlicesPerSlice
+  nameWithType: DeviceAdapterPropertiesDto.NumSubSlicesPerSlice
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.NumSubSlicesPerSlice
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: NumSubSlicesPerSlice
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1122
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Number of sub-slices per slice.
+  example: []
+  syntax:
+    content: public uint NumSubSlicesPerSlice
+    return:
+      type: System.UInt32
+    content.vb: Public NumSubSlicesPerSlice As UInteger
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.NumSlices
+  commentId: F:IGCLWrapper.DeviceAdapterPropertiesDto.NumSlices
+  id: NumSlices
+  parent: IGCLWrapper.DeviceAdapterPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: NumSlices
+  nameWithType: DeviceAdapterPropertiesDto.NumSlices
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.NumSlices
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: NumSlices
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1126
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Number of slices.
+  example: []
+  syntax:
+    content: public uint NumSlices
+    return:
+      type: System.UInt32
+    content.vb: Public NumSlices As UInteger
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.Name
+  commentId: F:IGCLWrapper.DeviceAdapterPropertiesDto.Name
+  id: Name
+  parent: IGCLWrapper.DeviceAdapterPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: DeviceAdapterPropertiesDto.Name
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.Name
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Name
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1130
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Adapter name.
+  example: []
+  syntax:
+    content: public string Name
+    return:
+      type: System.String
+    content.vb: Public Name As String
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.GraphicsAdapterProperties
+  commentId: F:IGCLWrapper.DeviceAdapterPropertiesDto.GraphicsAdapterProperties
+  id: GraphicsAdapterProperties
+  parent: IGCLWrapper.DeviceAdapterPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: GraphicsAdapterProperties
+  nameWithType: DeviceAdapterPropertiesDto.GraphicsAdapterProperties
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.GraphicsAdapterProperties
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GraphicsAdapterProperties
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1134
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Graphics adapter properties flags.
+  example: []
+  syntax:
+    content: public uint GraphicsAdapterProperties
+    return:
+      type: System.UInt32
+    content.vb: Public GraphicsAdapterProperties As UInteger
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.Frequency
+  commentId: F:IGCLWrapper.DeviceAdapterPropertiesDto.Frequency
+  id: Frequency
+  parent: IGCLWrapper.DeviceAdapterPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: Frequency
+  nameWithType: DeviceAdapterPropertiesDto.Frequency
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.Frequency
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Frequency
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1138
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Average graphics clock (MHz).
+  example: []
+  syntax:
+    content: public uint Frequency
+    return:
+      type: System.UInt32
+    content.vb: Public Frequency As UInteger
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.PciSubsysId
+  commentId: F:IGCLWrapper.DeviceAdapterPropertiesDto.PciSubsysId
+  id: PciSubsysId
+  parent: IGCLWrapper.DeviceAdapterPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: PciSubsysId
+  nameWithType: DeviceAdapterPropertiesDto.PciSubsysId
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.PciSubsysId
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: PciSubsysId
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1142
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: PCI sub-system ID.
+  example: []
+  syntax:
+    content: public ushort PciSubsysId
+    return:
+      type: System.UInt16
+    content.vb: Public PciSubsysId As UShort
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.PciSubsysVendorId
+  commentId: F:IGCLWrapper.DeviceAdapterPropertiesDto.PciSubsysVendorId
+  id: PciSubsysVendorId
+  parent: IGCLWrapper.DeviceAdapterPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: PciSubsysVendorId
+  nameWithType: DeviceAdapterPropertiesDto.PciSubsysVendorId
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.PciSubsysVendorId
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: PciSubsysVendorId
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1146
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: PCI sub-system vendor ID.
+  example: []
+  syntax:
+    content: public ushort PciSubsysVendorId
+    return:
+      type: System.UInt16
+    content.vb: Public PciSubsysVendorId As UShort
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.AdapterBdf
+  commentId: F:IGCLWrapper.DeviceAdapterPropertiesDto.AdapterBdf
+  id: AdapterBdf
+  parent: IGCLWrapper.DeviceAdapterPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: AdapterBdf
+  nameWithType: DeviceAdapterPropertiesDto.AdapterBdf
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.AdapterBdf
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: AdapterBdf
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1150
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Adapter BDF.
+  example: []
+  syntax:
+    content: public ctl_adapter_bdf_t AdapterBdf
+    return:
+      type: IGCLWrapper.ctl_adapter_bdf_t
+    content.vb: Public AdapterBdf As ctl_adapter_bdf_t
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.NumXeCores
+  commentId: F:IGCLWrapper.DeviceAdapterPropertiesDto.NumXeCores
+  id: NumXeCores
+  parent: IGCLWrapper.DeviceAdapterPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: NumXeCores
+  nameWithType: DeviceAdapterPropertiesDto.NumXeCores
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.NumXeCores
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: NumXeCores
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1154
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Number of Xe cores.
+  example: []
+  syntax:
+    content: public uint NumXeCores
+    return:
+      type: System.UInt32
+    content.vb: Public NumXeCores As UInteger
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.Reserved
+  commentId: F:IGCLWrapper.DeviceAdapterPropertiesDto.Reserved
+  id: Reserved
+  parent: IGCLWrapper.DeviceAdapterPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: Reserved
+  nameWithType: DeviceAdapterPropertiesDto.Reserved
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.Reserved
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Reserved
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1158
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Reserved native fields.
+  example: []
+  syntax:
+    content: public byte[]? Reserved
+    return:
+      type: System.Byte[]
+    content.vb: Public Reserved As Byte()
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.FromNative(IGCLWrapper.ctl_device_adapter_properties_t)
+  commentId: M:IGCLWrapper.DeviceAdapterPropertiesDto.FromNative(IGCLWrapper.ctl_device_adapter_properties_t)
+  id: FromNative(IGCLWrapper.ctl_device_adapter_properties_t)
+  parent: IGCLWrapper.DeviceAdapterPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: FromNative(ctl_device_adapter_properties_t)
+  nameWithType: DeviceAdapterPropertiesDto.FromNative(ctl_device_adapter_properties_t)
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.FromNative(IGCLWrapper.ctl_device_adapter_properties_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: FromNative
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1165
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Create a DTO from a native struct.
+  example: []
+  syntax:
+    content: public static DeviceAdapterPropertiesDto FromNative(ctl_device_adapter_properties_t native)
+    parameters:
+    - id: native
+      type: IGCLWrapper.ctl_device_adapter_properties_t
+      description: Native struct.
+    return:
+      type: IGCLWrapper.DeviceAdapterPropertiesDto
+      description: Adapter properties DTO.
+    content.vb: Public Shared Function FromNative(native As ctl_device_adapter_properties_t) As DeviceAdapterPropertiesDto
+  overload: IGCLWrapper.DeviceAdapterPropertiesDto.FromNative*
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.ToNative
+  commentId: M:IGCLWrapper.DeviceAdapterPropertiesDto.ToNative
+  id: ToNative
+  parent: IGCLWrapper.DeviceAdapterPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: ToNative()
+  nameWithType: DeviceAdapterPropertiesDto.ToNative()
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.ToNative()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: ToNative
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1197
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Convert this DTO to a native struct.
+  example: []
+  syntax:
+    content: public ctl_device_adapter_properties_t ToNative()
+    return:
+      type: IGCLWrapper.ctl_device_adapter_properties_t
+      description: Adapter properties struct.
+    content.vb: Public Function ToNative() As ctl_device_adapter_properties_t
+  overload: IGCLWrapper.DeviceAdapterPropertiesDto.ToNative*
+references:
+- uid: IGCLWrapper
+  commentId: N:IGCLWrapper
+  href: IGCLWrapper.html
+  name: IGCLWrapper
+  nameWithType: IGCLWrapper
+  fullName: IGCLWrapper
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: IGCLWrapper.ctl_device_type_t
+  commentId: T:IGCLWrapper.ctl_device_type_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_device_type_t.html
+  name: ctl_device_type_t
+  nameWithType: ctl_device_type_t
+  fullName: IGCLWrapper.ctl_device_type_t
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint64
+  name: ulong
+  nameWithType: ulong
+  fullName: ulong
+  nameWithType.vb: ULong
+  fullName.vb: ULong
+  name.vb: ULong
+- uid: IGCLWrapper.ctl_firmware_version_t
+  commentId: T:IGCLWrapper.ctl_firmware_version_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_firmware_version_t.html
+  name: ctl_firmware_version_t
+  nameWithType: ctl_firmware_version_t
+  fullName: IGCLWrapper.ctl_firmware_version_t
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.UInt16
+  commentId: T:System.UInt16
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint16
+  name: ushort
+  nameWithType: ushort
+  fullName: ushort
+  nameWithType.vb: UShort
+  fullName.vb: UShort
+  name.vb: UShort
+- uid: IGCLWrapper.ctl_adapter_bdf_t
+  commentId: T:IGCLWrapper.ctl_adapter_bdf_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_adapter_bdf_t.html
+  name: ctl_adapter_bdf_t
+  nameWithType: ctl_adapter_bdf_t
+  fullName: IGCLWrapper.ctl_adapter_bdf_t
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.FromNative*
+  commentId: Overload:IGCLWrapper.DeviceAdapterPropertiesDto.FromNative
+  href: IGCLWrapper.DeviceAdapterPropertiesDto.html#IGCLWrapper_DeviceAdapterPropertiesDto_FromNative_IGCLWrapper_ctl_device_adapter_properties_t_
+  name: FromNative
+  nameWithType: DeviceAdapterPropertiesDto.FromNative
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.FromNative
+- uid: IGCLWrapper.ctl_device_adapter_properties_t
+  commentId: T:IGCLWrapper.ctl_device_adapter_properties_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_device_adapter_properties_t.html
+  name: ctl_device_adapter_properties_t
+  nameWithType: ctl_device_adapter_properties_t
+  fullName: IGCLWrapper.ctl_device_adapter_properties_t
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto
+  commentId: T:IGCLWrapper.DeviceAdapterPropertiesDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.DeviceAdapterPropertiesDto.html
+  name: DeviceAdapterPropertiesDto
+  nameWithType: DeviceAdapterPropertiesDto
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.ToNative*
+  commentId: Overload:IGCLWrapper.DeviceAdapterPropertiesDto.ToNative
+  href: IGCLWrapper.DeviceAdapterPropertiesDto.html#IGCLWrapper_DeviceAdapterPropertiesDto_ToNative
+  name: ToNative
+  nameWithType: DeviceAdapterPropertiesDto.ToNative
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.ToNative
