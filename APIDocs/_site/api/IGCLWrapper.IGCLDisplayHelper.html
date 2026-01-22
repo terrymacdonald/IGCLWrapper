@@ -1293,19 +1293,19 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
 
 
-  <a id="IGCLWrapper_IGCLDisplayHelper_GetEdid_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetEdid*"></a>
+  <a id="IGCLWrapper_IGCLDisplayHelper_GetEdidManagement_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetEdidManagement*"></a>
 
-  <h3 id="IGCLWrapper_IGCLDisplayHelper_GetEdid_IGCLWrapper_ctl_edid_type_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetEdid(IGCLWrapper.ctl_edid_type_t)">
-  GetEdid(ctl_edid_type_t)
+  <h3 id="IGCLWrapper_IGCLDisplayHelper_GetEdidManagement_IGCLWrapper_ctl_edid_type_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetEdidManagement(IGCLWrapper.ctl_edid_type_t)">
+  GetEdidManagement(ctl_edid_type_t)
   <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L929"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Read the EDID bytes for this display output.</p>
+  <div class="markdown level1 summary"><p>Read EDID bytes via the EDID management API.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public byte[] GetEdid(ctl_edid_type_t edidType = ctl_edid_type_t.CTL_EDID_TYPE_CURRENT)</code></pre>
+    <pre><code class="lang-csharp hljs">public byte[] GetEdidManagement(ctl_edid_type_t edidType = ctl_edid_type_t.CTL_EDID_TYPE_CURRENT)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -1332,19 +1332,19 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
 
 
-  <a id="IGCLWrapper_IGCLDisplayHelper_GetEdidWithFlags_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetEdidWithFlags*"></a>
+  <a id="IGCLWrapper_IGCLDisplayHelper_GetEdidManagementWithFlags_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetEdidManagementWithFlags*"></a>
 
-  <h3 id="IGCLWrapper_IGCLDisplayHelper_GetEdidWithFlags_IGCLWrapper_ctl_edid_type_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetEdidWithFlags(IGCLWrapper.ctl_edid_type_t)">
-  GetEdidWithFlags(ctl_edid_type_t)
+  <h3 id="IGCLWrapper_IGCLDisplayHelper_GetEdidManagementWithFlags_IGCLWrapper_ctl_edid_type_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetEdidManagementWithFlags(IGCLWrapper.ctl_edid_type_t)">
+  GetEdidManagementWithFlags(ctl_edid_type_t)
   <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L940"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Read the EDID bytes for this display output and return EDID management output flags.</p>
+  <div class="markdown level1 summary"><p>Read EDID bytes via the EDID management API and return output flags.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public (byte[] edid, uint outFlags) GetEdidWithFlags(ctl_edid_type_t edidType = ctl_edid_type_t.CTL_EDID_TYPE_CURRENT)</code></pre>
+    <pre><code class="lang-csharp hljs">public (byte[] edid, uint outFlags) GetEdidManagementWithFlags(ctl_edid_type_t edidType = ctl_edid_type_t.CTL_EDID_TYPE_CURRENT)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -1575,19 +1575,19 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
 
 
-  <a id="IGCLWrapper_IGCLDisplayHelper_GetPanelDescriptorData_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetPanelDescriptorData*"></a>
+  <a id="IGCLWrapper_IGCLDisplayHelper_GetPanelEdidData_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetPanelEdidData*"></a>
 
-  <h3 id="IGCLWrapper_IGCLDisplayHelper_GetPanelDescriptorData" data-uid="IGCLWrapper.IGCLDisplayHelper.GetPanelDescriptorData">
-  GetPanelDescriptorData()
+  <h3 id="IGCLWrapper_IGCLDisplayHelper_GetPanelEdidData" data-uid="IGCLWrapper.IGCLDisplayHelper.GetPanelEdidData">
+  GetPanelEdidData()
   <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L528"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Read the panel descriptor data (EDID) as a single concatenated byte array.</p>
+  <div class="markdown level1 summary"><p>Read EDID via panel descriptor access as a single concatenated byte array.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public byte[] GetPanelDescriptorData()</code></pre>
+    <pre><code class="lang-csharp hljs">public byte[] GetPanelEdidData()</code></pre>
   </div>
 
 

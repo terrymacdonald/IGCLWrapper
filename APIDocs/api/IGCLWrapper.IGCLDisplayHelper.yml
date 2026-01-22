@@ -38,15 +38,15 @@ items:
   - IGCLWrapper.IGCLDisplayHelper.GetCustomModesNative(IGCLWrapper.ctl_get_set_custom_mode_args_t)
   - IGCLWrapper.IGCLDisplayHelper.GetDisplaySettings
   - IGCLWrapper.IGCLDisplayHelper.GetDynamicContrastEnhancement
-  - IGCLWrapper.IGCLDisplayHelper.GetEdid(IGCLWrapper.ctl_edid_type_t)
-  - IGCLWrapper.IGCLDisplayHelper.GetEdidWithFlags(IGCLWrapper.ctl_edid_type_t)
+  - IGCLWrapper.IGCLDisplayHelper.GetEdidManagement(IGCLWrapper.ctl_edid_type_t)
+  - IGCLWrapper.IGCLDisplayHelper.GetEdidManagementWithFlags(IGCLWrapper.ctl_edid_type_t)
   - IGCLWrapper.IGCLDisplayHelper.GetIntelArcSyncInfoForMonitor
   - IGCLWrapper.IGCLDisplayHelper.GetIntelArcSyncInfoForMonitorNative
   - IGCLWrapper.IGCLDisplayHelper.GetIntelArcSyncProfile
   - IGCLWrapper.IGCLDisplayHelper.GetLACEConfig
   - IGCLWrapper.IGCLDisplayHelper.GetLACEConfigNative
   - IGCLWrapper.IGCLDisplayHelper.GetMuxProperties(System.IntPtr)
-  - IGCLWrapper.IGCLDisplayHelper.GetPanelDescriptorData
+  - IGCLWrapper.IGCLDisplayHelper.GetPanelEdidData
   - IGCLWrapper.IGCLDisplayHelper.GetPowerOptimizationCaps
   - IGCLWrapper.IGCLDisplayHelper.GetPowerOptimizationSetting(IGCLWrapper.PowerOptimizationSettingsDto)
   - IGCLWrapper.IGCLDisplayHelper.GetPowerOptimizationSettingNative(IGCLWrapper.ctl_power_optimization_settings_t)
@@ -1565,37 +1565,37 @@ items:
       description: Updated panel descriptor access arguments.
     content.vb: Public Function PanelDescriptorAccess(args As ctl_panel_descriptor_access_args_t) As ctl_panel_descriptor_access_args_t
   overload: IGCLWrapper.IGCLDisplayHelper.PanelDescriptorAccess*
-- uid: IGCLWrapper.IGCLDisplayHelper.GetPanelDescriptorData
-  commentId: M:IGCLWrapper.IGCLDisplayHelper.GetPanelDescriptorData
-  id: GetPanelDescriptorData
+- uid: IGCLWrapper.IGCLDisplayHelper.GetPanelEdidData
+  commentId: M:IGCLWrapper.IGCLDisplayHelper.GetPanelEdidData
+  id: GetPanelEdidData
   parent: IGCLWrapper.IGCLDisplayHelper
   langs:
   - csharp
   - vb
-  name: GetPanelDescriptorData()
-  nameWithType: IGCLDisplayHelper.GetPanelDescriptorData()
-  fullName: IGCLWrapper.IGCLDisplayHelper.GetPanelDescriptorData()
+  name: GetPanelEdidData()
+  nameWithType: IGCLDisplayHelper.GetPanelEdidData()
+  fullName: IGCLWrapper.IGCLDisplayHelper.GetPanelEdidData()
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
       branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetPanelDescriptorData
+    id: GetPanelEdidData
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
     startLine: 527
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Read the panel descriptor data (EDID) as a single concatenated byte array.
+  summary: Read EDID via panel descriptor access as a single concatenated byte array.
   example: []
   syntax:
-    content: public byte[] GetPanelDescriptorData()
+    content: public byte[] GetPanelEdidData()
     return:
       type: System.Byte[]
       description: Concatenated panel descriptor bytes.
-    content.vb: Public Function GetPanelDescriptorData() As Byte()
-  overload: IGCLWrapper.IGCLDisplayHelper.GetPanelDescriptorData*
+    content.vb: Public Function GetPanelEdidData() As Byte()
+  overload: IGCLWrapper.IGCLDisplayHelper.GetPanelEdidData*
 - uid: IGCLWrapper.IGCLDisplayHelper.GetSupportedRetroScalingCapability
   commentId: M:IGCLWrapper.IGCLDisplayHelper.GetSupportedRetroScalingCapability
   id: GetSupportedRetroScalingCapability
@@ -2345,32 +2345,32 @@ items:
       description: Updated EDID management arguments.
     content.vb: Public Function EdidManagement(args As ctl_edid_management_args_t) As ctl_edid_management_args_t
   overload: IGCLWrapper.IGCLDisplayHelper.EdidManagement*
-- uid: IGCLWrapper.IGCLDisplayHelper.GetEdid(IGCLWrapper.ctl_edid_type_t)
-  commentId: M:IGCLWrapper.IGCLDisplayHelper.GetEdid(IGCLWrapper.ctl_edid_type_t)
-  id: GetEdid(IGCLWrapper.ctl_edid_type_t)
+- uid: IGCLWrapper.IGCLDisplayHelper.GetEdidManagement(IGCLWrapper.ctl_edid_type_t)
+  commentId: M:IGCLWrapper.IGCLDisplayHelper.GetEdidManagement(IGCLWrapper.ctl_edid_type_t)
+  id: GetEdidManagement(IGCLWrapper.ctl_edid_type_t)
   parent: IGCLWrapper.IGCLDisplayHelper
   langs:
   - csharp
   - vb
-  name: GetEdid(ctl_edid_type_t)
-  nameWithType: IGCLDisplayHelper.GetEdid(ctl_edid_type_t)
-  fullName: IGCLWrapper.IGCLDisplayHelper.GetEdid(IGCLWrapper.ctl_edid_type_t)
+  name: GetEdidManagement(ctl_edid_type_t)
+  nameWithType: IGCLDisplayHelper.GetEdidManagement(ctl_edid_type_t)
+  fullName: IGCLWrapper.IGCLDisplayHelper.GetEdidManagement(IGCLWrapper.ctl_edid_type_t)
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
       branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetEdid
+    id: GetEdidManagement
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
     startLine: 928
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Read the EDID bytes for this display output.
+  summary: Read EDID bytes via the EDID management API.
   example: []
   syntax:
-    content: public byte[] GetEdid(ctl_edid_type_t edidType = ctl_edid_type_t.CTL_EDID_TYPE_CURRENT)
+    content: public byte[] GetEdidManagement(ctl_edid_type_t edidType = ctl_edid_type_t.CTL_EDID_TYPE_CURRENT)
     parameters:
     - id: edidType
       type: IGCLWrapper.ctl_edid_type_t
@@ -2378,34 +2378,34 @@ items:
     return:
       type: System.Byte[]
       description: EDID bytes.
-    content.vb: Public Function GetEdid(edidType As ctl_edid_type_t = ctl_edid_type_t.CTL_EDID_TYPE_CURRENT) As Byte()
-  overload: IGCLWrapper.IGCLDisplayHelper.GetEdid*
-- uid: IGCLWrapper.IGCLDisplayHelper.GetEdidWithFlags(IGCLWrapper.ctl_edid_type_t)
-  commentId: M:IGCLWrapper.IGCLDisplayHelper.GetEdidWithFlags(IGCLWrapper.ctl_edid_type_t)
-  id: GetEdidWithFlags(IGCLWrapper.ctl_edid_type_t)
+    content.vb: Public Function GetEdidManagement(edidType As ctl_edid_type_t = ctl_edid_type_t.CTL_EDID_TYPE_CURRENT) As Byte()
+  overload: IGCLWrapper.IGCLDisplayHelper.GetEdidManagement*
+- uid: IGCLWrapper.IGCLDisplayHelper.GetEdidManagementWithFlags(IGCLWrapper.ctl_edid_type_t)
+  commentId: M:IGCLWrapper.IGCLDisplayHelper.GetEdidManagementWithFlags(IGCLWrapper.ctl_edid_type_t)
+  id: GetEdidManagementWithFlags(IGCLWrapper.ctl_edid_type_t)
   parent: IGCLWrapper.IGCLDisplayHelper
   langs:
   - csharp
   - vb
-  name: GetEdidWithFlags(ctl_edid_type_t)
-  nameWithType: IGCLDisplayHelper.GetEdidWithFlags(ctl_edid_type_t)
-  fullName: IGCLWrapper.IGCLDisplayHelper.GetEdidWithFlags(IGCLWrapper.ctl_edid_type_t)
+  name: GetEdidManagementWithFlags(ctl_edid_type_t)
+  nameWithType: IGCLDisplayHelper.GetEdidManagementWithFlags(ctl_edid_type_t)
+  fullName: IGCLWrapper.IGCLDisplayHelper.GetEdidManagementWithFlags(IGCLWrapper.ctl_edid_type_t)
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
       branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetEdidWithFlags
+    id: GetEdidManagementWithFlags
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
     startLine: 939
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Read the EDID bytes for this display output and return EDID management output flags.
+  summary: Read EDID bytes via the EDID management API and return output flags.
   example: []
   syntax:
-    content: public (byte[] edid, uint outFlags) GetEdidWithFlags(ctl_edid_type_t edidType = ctl_edid_type_t.CTL_EDID_TYPE_CURRENT)
+    content: public (byte[] edid, uint outFlags) GetEdidManagementWithFlags(ctl_edid_type_t edidType = ctl_edid_type_t.CTL_EDID_TYPE_CURRENT)
     parameters:
     - id: edidType
       type: IGCLWrapper.ctl_edid_type_t
@@ -2413,8 +2413,8 @@ items:
     return:
       type: System.ValueTuple{System.Byte[],System.UInt32}
       description: Tuple containing EDID bytes and output flags.
-    content.vb: Public Function GetEdidWithFlags(edidType As ctl_edid_type_t = ctl_edid_type_t.CTL_EDID_TYPE_CURRENT) As (edid As Byte(), outFlags As UInteger)
-  overload: IGCLWrapper.IGCLDisplayHelper.GetEdidWithFlags*
+    content.vb: Public Function GetEdidManagementWithFlags(edidType As ctl_edid_type_t = ctl_edid_type_t.CTL_EDID_TYPE_CURRENT) As (edid As Byte(), outFlags As UInteger)
+  overload: IGCLWrapper.IGCLDisplayHelper.GetEdidManagementWithFlags*
 - uid: IGCLWrapper.IGCLDisplayHelper.GetCustomModesNative(IGCLWrapper.ctl_get_set_custom_mode_args_t)
   commentId: M:IGCLWrapper.IGCLDisplayHelper.GetCustomModesNative(IGCLWrapper.ctl_get_set_custom_mode_args_t)
   id: GetCustomModesNative(IGCLWrapper.ctl_get_set_custom_mode_args_t)
@@ -3902,12 +3902,12 @@ references:
   name: PanelDescriptorAccess
   nameWithType: IGCLDisplayHelper.PanelDescriptorAccess
   fullName: IGCLWrapper.IGCLDisplayHelper.PanelDescriptorAccess
-- uid: IGCLWrapper.IGCLDisplayHelper.GetPanelDescriptorData*
-  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.GetPanelDescriptorData
-  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetPanelDescriptorData
-  name: GetPanelDescriptorData
-  nameWithType: IGCLDisplayHelper.GetPanelDescriptorData
-  fullName: IGCLWrapper.IGCLDisplayHelper.GetPanelDescriptorData
+- uid: IGCLWrapper.IGCLDisplayHelper.GetPanelEdidData*
+  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.GetPanelEdidData
+  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetPanelEdidData
+  name: GetPanelEdidData
+  nameWithType: IGCLDisplayHelper.GetPanelEdidData
+  fullName: IGCLWrapper.IGCLDisplayHelper.GetPanelEdidData
 - uid: System.Byte[]
   isExternal: true
   href: https://learn.microsoft.com/dotnet/api/system.byte
@@ -4207,12 +4207,12 @@ references:
   name: EdidManagement
   nameWithType: IGCLDisplayHelper.EdidManagement
   fullName: IGCLWrapper.IGCLDisplayHelper.EdidManagement
-- uid: IGCLWrapper.IGCLDisplayHelper.GetEdid*
-  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.GetEdid
-  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetEdid_IGCLWrapper_ctl_edid_type_t_
-  name: GetEdid
-  nameWithType: IGCLDisplayHelper.GetEdid
-  fullName: IGCLWrapper.IGCLDisplayHelper.GetEdid
+- uid: IGCLWrapper.IGCLDisplayHelper.GetEdidManagement*
+  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.GetEdidManagement
+  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetEdidManagement_IGCLWrapper_ctl_edid_type_t_
+  name: GetEdidManagement
+  nameWithType: IGCLDisplayHelper.GetEdidManagement
+  fullName: IGCLWrapper.IGCLDisplayHelper.GetEdidManagement
 - uid: IGCLWrapper.ctl_edid_type_t
   commentId: T:IGCLWrapper.ctl_edid_type_t
   parent: IGCLWrapper
@@ -4220,12 +4220,12 @@ references:
   name: ctl_edid_type_t
   nameWithType: ctl_edid_type_t
   fullName: IGCLWrapper.ctl_edid_type_t
-- uid: IGCLWrapper.IGCLDisplayHelper.GetEdidWithFlags*
-  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.GetEdidWithFlags
-  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetEdidWithFlags_IGCLWrapper_ctl_edid_type_t_
-  name: GetEdidWithFlags
-  nameWithType: IGCLDisplayHelper.GetEdidWithFlags
-  fullName: IGCLWrapper.IGCLDisplayHelper.GetEdidWithFlags
+- uid: IGCLWrapper.IGCLDisplayHelper.GetEdidManagementWithFlags*
+  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.GetEdidManagementWithFlags
+  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetEdidManagementWithFlags_IGCLWrapper_ctl_edid_type_t_
+  name: GetEdidManagementWithFlags
+  nameWithType: IGCLDisplayHelper.GetEdidManagementWithFlags
+  fullName: IGCLWrapper.IGCLDisplayHelper.GetEdidManagementWithFlags
 - uid: System.ValueTuple{System.Byte[],System.UInt32}
   commentId: T:System.ValueTuple{System.Byte[],System.UInt32}
   parent: System
