@@ -832,12 +832,12 @@ namespace IGCLWrapper
                 for (var i = 0; i < desiredChildren.Length; i++)
                     childIndexes.Add(i);
 
-                // Order children by intended layout (top-to-bottom, left-to-right).
+                // Order children by intended src layout (bottom-to-top, left-to-right).
                 childIndexes.Sort((a, b) =>
                 {
-                    var aPos = desiredChildren[a].FbPos;
-                    var bPos = desiredChildren[b].FbPos;
-                    var top = aPos.Top.CompareTo(bPos.Top);
+                    var aPos = desiredChildren[a].FbSrc;
+                    var bPos = desiredChildren[b].FbSrc;
+                    var top = bPos.Top.CompareTo(aPos.Top);
                     if (top != 0) return top;
                     var left = aPos.Left.CompareTo(bPos.Left);
                     if (left != 0) return left;
