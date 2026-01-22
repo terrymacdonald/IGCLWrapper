@@ -161,7 +161,7 @@ namespace IGCLWrapper.FacadeTests
         }
 
         [SkippableFact]
-        public void GetEdid_ShouldReturnBytesOrSkip()
+        public void GetEdidManagement_ShouldReturnBytesOrSkip()
         {
             var (api, adapter) = FacadeTestUtils.RequireAdapter();
             using (api)
@@ -171,11 +171,11 @@ namespace IGCLWrapper.FacadeTests
 
                 try
                 {
-                    var edid = display.GetEdid();
+                    var edid = display.GetEdidManagement();
                     if (edid.Length == 0)
                         throw new SkipException("EDID not available.");
 
-                    var (edidWithFlags, _) = display.GetEdidWithFlags();
+                    var (edidWithFlags, _) = display.GetEdidManagementWithFlags();
                     Assert.True(edidWithFlags.Length > 0);
                 }
                 catch (IGCLException ex) when (ex.Result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
@@ -190,7 +190,7 @@ namespace IGCLWrapper.FacadeTests
         }        
 
         [SkippableFact]
-        public void PanelDescriptorData_ShouldParseWithEdidParser()
+        public void PanelEdidData_ShouldParseWithEdidParser()
         {
             var (api, adapter) = FacadeTestUtils.RequireAdapter();
             using (api)
@@ -201,7 +201,7 @@ namespace IGCLWrapper.FacadeTests
                 byte[] data;
                 try
                 {
-                    data = display.GetPanelDescriptorData();
+                    data = display.GetPanelEdidData();
                 }
                 catch (IGCLException ex) when (ex.Result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
                                                ex.Result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION)

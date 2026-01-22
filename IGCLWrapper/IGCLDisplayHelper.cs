@@ -522,10 +522,10 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Read the panel descriptor data (EDID) as a single concatenated byte array.
+        /// Read EDID via panel descriptor access as a single concatenated byte array.
         /// </summary>
         /// <returns>Concatenated panel descriptor bytes.</returns>
-        public unsafe byte[] GetPanelDescriptorData()
+        public unsafe byte[] GetPanelEdidData()
         {
             ThrowIfDisposed();
 
@@ -922,22 +922,22 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Read the EDID bytes for this display output.
+        /// Read EDID bytes via the EDID management API.
         /// </summary>
         /// <param name="edidType">EDID type to read.</param>
         /// <returns>EDID bytes.</returns>
-        public byte[] GetEdid(ctl_edid_type_t edidType = ctl_edid_type_t.CTL_EDID_TYPE_CURRENT)
+        public byte[] GetEdidManagement(ctl_edid_type_t edidType = ctl_edid_type_t.CTL_EDID_TYPE_CURRENT)
         {
-            var result = GetEdidWithFlags(edidType);
+            var result = GetEdidManagementWithFlags(edidType);
             return result.edid;
         }
 
         /// <summary>
-        /// Read the EDID bytes for this display output and return EDID management output flags.
+        /// Read EDID bytes via the EDID management API and return output flags.
         /// </summary>
         /// <param name="edidType">EDID type to read.</param>
         /// <returns>Tuple containing EDID bytes and output flags.</returns>
-        public unsafe (byte[] edid, uint outFlags) GetEdidWithFlags(ctl_edid_type_t edidType = ctl_edid_type_t.CTL_EDID_TYPE_CURRENT)
+        public unsafe (byte[] edid, uint outFlags) GetEdidManagementWithFlags(ctl_edid_type_t edidType = ctl_edid_type_t.CTL_EDID_TYPE_CURRENT)
         {
             ThrowIfDisposed();
 

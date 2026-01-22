@@ -1138,9 +1138,9 @@
             <param name="args">Panel descriptor access arguments.</param>
             <returns>Updated panel descriptor access arguments.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetPanelDescriptorData">
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetPanelEdidData">
             <summary>
-            Read the panel descriptor data (EDID) as a single concatenated byte array.
+            Read EDID via panel descriptor access as a single concatenated byte array.
             </summary>
             <returns>Concatenated panel descriptor bytes.</returns>
         </member>
@@ -1288,16 +1288,16 @@
             <param name="args">EDID management arguments.</param>
             <returns>Updated EDID management arguments.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetEdid(IGCLWrapper.ctl_edid_type_t)">
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetEdidManagement(IGCLWrapper.ctl_edid_type_t)">
             <summary>
-            Read the EDID bytes for this display output.
+            Read EDID bytes via the EDID management API.
             </summary>
             <param name="edidType">EDID type to read.</param>
             <returns>EDID bytes.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetEdidWithFlags(IGCLWrapper.ctl_edid_type_t)">
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetEdidManagementWithFlags(IGCLWrapper.ctl_edid_type_t)">
             <summary>
-            Read the EDID bytes for this display output and return EDID management output flags.
+            Read EDID bytes via the EDID management API and return output flags.
             </summary>
             <param name="edidType">EDID type to read.</param>
             <returns>Tuple containing EDID bytes and output flags.</returns>
