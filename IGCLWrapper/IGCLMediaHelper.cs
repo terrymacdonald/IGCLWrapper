@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 
 namespace IGCLWrapper
 {
@@ -102,6 +103,7 @@ namespace IGCLWrapper
     /// </summary>
     public unsafe struct VideoProcessingFeatureGetSetDto
     {
+        private const int ReservedFieldCount = 16;
         /// <summary>
         /// Size of the native struct.
         /// </summary>
@@ -145,7 +147,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Reserved fields from the native struct.
         /// </summary>
-        public ctl_video_processing_feature_getset_t._ReservedFields_e__FixedBuffer ReservedFields;
+        public uint[]? ReservedFields;
 
         /// <summary>
         /// Create a DTO from a native struct.
@@ -166,7 +168,7 @@ namespace IGCLWrapper
                 Value = native.Value,
                 CustomValueSize = native.CustomValueSize,
                 CustomValue = (IntPtr)native.pCustomValue,
-                ReservedFields = native.ReservedFields
+                ReservedFields = ReadReservedFields(native.ReservedFields)
             };
         }
 
@@ -176,7 +178,7 @@ namespace IGCLWrapper
         /// <returns>Video processing feature get/set struct.</returns>
         public ctl_video_processing_feature_getset_t ToNative()
         {
-            return new ctl_video_processing_feature_getset_t
+            var native = new ctl_video_processing_feature_getset_t
             {
                 Size = Size,
                 Version = Version,
@@ -187,9 +189,33 @@ namespace IGCLWrapper
                 ValueType = ValueType,
                 Value = Value,
                 CustomValueSize = CustomValueSize,
-                pCustomValue = (void*)CustomValue,
-                ReservedFields = ReservedFields
+                pCustomValue = (void*)CustomValue
             };
+            WriteReservedFields(ReservedFields, ref native.ReservedFields);
+            return native;
+        }
+
+        private static unsafe uint[] ReadReservedFields(ctl_video_processing_feature_getset_t._ReservedFields_e__FixedBuffer buffer)
+        {
+            var values = new uint[ReservedFieldCount];
+            var pValues = (uint*)Unsafe.AsPointer(ref buffer.e0);
+            for (var i = 0; i < ReservedFieldCount; i++)
+                values[i] = pValues[i];
+            return values;
+        }
+
+        private static unsafe void WriteReservedFields(uint[]? values, ref ctl_video_processing_feature_getset_t._ReservedFields_e__FixedBuffer buffer)
+        {
+            var pValues = (uint*)Unsafe.AsPointer(ref buffer.e0);
+            for (var i = 0; i < ReservedFieldCount; i++)
+                pValues[i] = 0;
+
+            if (values == null || values.Length == 0)
+                return;
+
+            var count = Math.Min(values.Length, ReservedFieldCount);
+            for (var i = 0; i < count; i++)
+                pValues[i] = values[i];
         }
     }
 }

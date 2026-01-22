@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 namespace IGCLWrapper
 {
@@ -121,7 +122,7 @@ namespace IGCLWrapper
         /// Get display properties for this display handle.
         /// </summary>
         /// <returns>Display properties struct.</returns>
-        public unsafe ctl_display_properties_t GetProperties()
+        public unsafe ctl_display_properties_t GetPropertiesNative()
         {
             ThrowIfDisposed();
             lock (_lock)
@@ -144,12 +145,29 @@ namespace IGCLWrapper
         }
 
         /// <summary>
+        /// Get display properties for this display handle as a DTO.
+        /// </summary>
+        /// <returns>Display properties DTO.</returns>
+        public unsafe DisplayPropertiesDto GetProperties()
+        {
+            ThrowIfDisposed();
+            var props = CreateDisplayProperties();
+            var result = IGCL.ctlGetDisplayProperties((_ctl_display_output_handle_t*)DisplayHandle, &props);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+            {
+                throw new IGCLException(result, "Failed to get display properties");
+            }
+
+            return DisplayPropertiesDto.FromNative(props);
+        }
+
+        /// <summary>
         /// Get display timing information.
         /// </summary>
         /// <returns>Display timing struct.</returns>
         public ctl_display_timing_t GetTiming()
         {
-            var props = GetProperties();
+            var props = GetPropertiesNative();
             return props.Display_Timing_Info;
         }
 
@@ -1143,7 +1161,7 @@ namespace IGCLWrapper
         /// Get wire format settings.
         /// </summary>
         /// <returns>Wire format args struct.</returns>
-        public unsafe ctl_get_set_wire_format_config_t GetWireFormat()
+        public unsafe ctl_get_set_wire_format_config_t GetWireFormatNative()
         {
             var request = new ctl_get_set_wire_format_config_t
             {
@@ -1155,10 +1173,31 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Set wire format settings.
+        /// Get wire format settings as a DTO.
+        /// </summary>
+        /// <returns>Wire format settings DTO.</returns>
+        public unsafe WireFormatConfigDto GetWireFormat()
+        {
+            ThrowIfDisposed();
+            var request = new ctl_get_set_wire_format_config_t
+            {
+                Size = (uint)sizeof(ctl_get_set_wire_format_config_t),
+                Version = 0,
+                Operation = ctl_wire_format_operation_type_t.CTL_WIRE_FORMAT_OPERATION_TYPE_GET
+            };
+
+            var result = IGCL.ctlGetSetWireFormat((_ctl_display_output_handle_t*)DisplayHandle, &request);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, "Failed to get wire format");
+
+            return WireFormatConfigDto.FromNative(request);
+        }
+
+        /// <summary>
+        /// Set wire format settings using a native struct.
         /// </summary>
         /// <param name="args">Wire format args struct.</param>
-        public unsafe void SetWireFormat(ctl_get_set_wire_format_config_t args)
+        public unsafe void SetWireFormatNative(ctl_get_set_wire_format_config_t args)
         {
             var request = args;
             if (request.Size == 0)
@@ -1167,6 +1206,25 @@ namespace IGCLWrapper
                 request.Version = 0;
             request.Operation = ctl_wire_format_operation_type_t.CTL_WIRE_FORMAT_OPERATION_TYPE_SET;
             GetSetWireFormatNative(request);
+        }
+
+        /// <summary>
+        /// Set wire format settings using a DTO.
+        /// </summary>
+        /// <param name="args">Wire format settings DTO.</param>
+        public unsafe void SetWireFormat(WireFormatConfigDto args)
+        {
+            ThrowIfDisposed();
+            var request = args.ToNative();
+            if (request.Size == 0)
+                request.Size = (uint)sizeof(ctl_get_set_wire_format_config_t);
+            if (request.Version == 0)
+                request.Version = 0;
+            request.Operation = ctl_wire_format_operation_type_t.CTL_WIRE_FORMAT_OPERATION_TYPE_SET;
+
+            var result = IGCL.ctlGetSetWireFormat((_ctl_display_output_handle_t*)DisplayHandle, &request);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, "Failed to set wire format");
         }
 
         /// <summary>
@@ -1226,6 +1284,252 @@ namespace IGCLWrapper
     {
         public static bool ToBool(byte value) => value != 0;
         public static byte ToByte(bool value) => value ? (byte)1 : (byte)0;
+    }
+
+    /// <summary>
+    /// DTO for display properties.
+    /// </summary>
+    public struct DisplayPropertiesDto
+    {
+        private const int ReservedFieldCount = 16;
+        /// <summary>
+        /// Size of the native struct.
+        /// </summary>
+        public uint Size;
+        /// <summary>
+        /// Version of the native struct.
+        /// </summary>
+        public byte Version;
+        /// <summary>
+        /// OS display encoder handle.
+        /// </summary>
+        public ctl_os_display_encoder_identifier_t OsDisplayEncoderHandle;
+        /// <summary>
+        /// Display output type.
+        /// </summary>
+        public ctl_display_output_types_t Type;
+        /// <summary>
+        /// Attached display mux type.
+        /// </summary>
+        public ctl_attached_display_mux_type_t AttachedDisplayMuxType;
+        /// <summary>
+        /// Protocol converter output type.
+        /// </summary>
+        public ctl_display_output_types_t ProtocolConverterOutput;
+        /// <summary>
+        /// Supported specification version.
+        /// </summary>
+        public ctl_revision_datatype_t SupportedSpec;
+        /// <summary>
+        /// Supported output BPC flags.
+        /// </summary>
+        public uint SupportedOutputBpcFlags;
+        /// <summary>
+        /// Protocol converter type flags.
+        /// </summary>
+        public uint ProtocolConverterType;
+        /// <summary>
+        /// Display configuration flags.
+        /// </summary>
+        public uint DisplayConfigFlags;
+        /// <summary>
+        /// Feature enabled flags.
+        /// </summary>
+        public uint FeatureEnabledFlags;
+        /// <summary>
+        /// Feature supported flags.
+        /// </summary>
+        public uint FeatureSupportedFlags;
+        /// <summary>
+        /// Advanced feature enabled flags.
+        /// </summary>
+        public uint AdvancedFeatureEnabledFlags;
+        /// <summary>
+        /// Advanced feature supported flags.
+        /// </summary>
+        public uint AdvancedFeatureSupportedFlags;
+        /// <summary>
+        /// Display timing info.
+        /// </summary>
+        public ctl_display_timing_t DisplayTimingInfo;
+        /// <summary>
+        /// Reserved native fields.
+        /// </summary>
+        public uint[]? ReservedFields;
+
+        /// <summary>
+        /// Create a DTO from a native struct.
+        /// </summary>
+        /// <param name="native">Native struct.</param>
+        /// <returns>Display properties DTO.</returns>
+        public static DisplayPropertiesDto FromNative(ctl_display_properties_t native)
+        {
+            return new DisplayPropertiesDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                OsDisplayEncoderHandle = native.Os_display_encoder_handle,
+                Type = native.Type,
+                AttachedDisplayMuxType = native.AttachedDisplayMuxType,
+                ProtocolConverterOutput = native.ProtocolConverterOutput,
+                SupportedSpec = native.SupportedSpec,
+                SupportedOutputBpcFlags = native.SupportedOutputBPCFlags,
+                ProtocolConverterType = native.ProtocolConverterType,
+                DisplayConfigFlags = native.DisplayConfigFlags,
+                FeatureEnabledFlags = native.FeatureEnabledFlags,
+                FeatureSupportedFlags = native.FeatureSupportedFlags,
+                AdvancedFeatureEnabledFlags = native.AdvancedFeatureEnabledFlags,
+                AdvancedFeatureSupportedFlags = native.AdvancedFeatureSupportedFlags,
+                DisplayTimingInfo = native.Display_Timing_Info,
+                ReservedFields = ReadReservedFields(native.ReservedFields)
+            };
+        }
+
+        /// <summary>
+        /// Convert this DTO to a native struct.
+        /// </summary>
+        /// <returns>Display properties struct.</returns>
+        public unsafe ctl_display_properties_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_display_properties_t);
+
+            var native = new ctl_display_properties_t
+            {
+                Size = size,
+                Version = Version,
+                Os_display_encoder_handle = OsDisplayEncoderHandle,
+                Type = Type,
+                AttachedDisplayMuxType = AttachedDisplayMuxType,
+                ProtocolConverterOutput = ProtocolConverterOutput,
+                SupportedSpec = SupportedSpec,
+                SupportedOutputBPCFlags = SupportedOutputBpcFlags,
+                ProtocolConverterType = ProtocolConverterType,
+                DisplayConfigFlags = DisplayConfigFlags,
+                FeatureEnabledFlags = FeatureEnabledFlags,
+                FeatureSupportedFlags = FeatureSupportedFlags,
+                AdvancedFeatureEnabledFlags = AdvancedFeatureEnabledFlags,
+                AdvancedFeatureSupportedFlags = AdvancedFeatureSupportedFlags,
+                Display_Timing_Info = DisplayTimingInfo
+            };
+
+            WriteReservedFields(ReservedFields, ref native.ReservedFields);
+            return native;
+        }
+
+        private static unsafe uint[] ReadReservedFields(ctl_display_properties_t._ReservedFields_e__FixedBuffer buffer)
+        {
+            var values = new uint[ReservedFieldCount];
+            var pValues = (uint*)Unsafe.AsPointer(ref buffer.e0);
+            for (var i = 0; i < ReservedFieldCount; i++)
+                values[i] = pValues[i];
+            return values;
+        }
+
+        private static unsafe void WriteReservedFields(uint[]? values, ref ctl_display_properties_t._ReservedFields_e__FixedBuffer buffer)
+        {
+            var pValues = (uint*)Unsafe.AsPointer(ref buffer.e0);
+            for (var i = 0; i < ReservedFieldCount; i++)
+                pValues[i] = 0;
+
+            if (values == null || values.Length == 0)
+                return;
+
+            var count = Math.Min(values.Length, ReservedFieldCount);
+            for (var i = 0; i < count; i++)
+                pValues[i] = values[i];
+        }
+    }
+
+    /// <summary>
+    /// DTO for wire format settings.
+    /// </summary>
+    public struct WireFormatConfigDto
+    {
+        private const int SupportedWireFormatCount = 4;
+        /// <summary>
+        /// Size of the native struct.
+        /// </summary>
+        public uint Size;
+        /// <summary>
+        /// Version of the native struct.
+        /// </summary>
+        public byte Version;
+        /// <summary>
+        /// Wire format operation type.
+        /// </summary>
+        public ctl_wire_format_operation_type_t Operation;
+        /// <summary>
+        /// Supported wire format values.
+        /// </summary>
+        public ctl_wire_format_t[]? SupportedWireFormat;
+        /// <summary>
+        /// Selected wire format.
+        /// </summary>
+        public ctl_wire_format_t WireFormat;
+
+        /// <summary>
+        /// Create a DTO from a native struct.
+        /// </summary>
+        /// <param name="native">Native struct.</param>
+        /// <returns>Wire format settings DTO.</returns>
+        public static WireFormatConfigDto FromNative(ctl_get_set_wire_format_config_t native)
+        {
+            return new WireFormatConfigDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                Operation = native.Operation,
+                SupportedWireFormat = ReadSupportedWireFormat(native.SupportedWireFormat),
+                WireFormat = native.WireFormat
+            };
+        }
+
+        /// <summary>
+        /// Convert this DTO to a native struct.
+        /// </summary>
+        /// <returns>Wire format settings struct.</returns>
+        public unsafe ctl_get_set_wire_format_config_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_get_set_wire_format_config_t);
+
+            var native = new ctl_get_set_wire_format_config_t
+            {
+                Size = size,
+                Version = Version,
+                Operation = Operation,
+                WireFormat = WireFormat
+            };
+
+            WriteSupportedWireFormat(SupportedWireFormat, ref native.SupportedWireFormat);
+            return native;
+        }
+
+        private static unsafe ctl_wire_format_t[] ReadSupportedWireFormat(ctl_get_set_wire_format_config_t._SupportedWireFormat_e__FixedBuffer buffer)
+        {
+            var values = new ctl_wire_format_t[SupportedWireFormatCount];
+            var pValues = (ctl_wire_format_t*)Unsafe.AsPointer(ref buffer.e0);
+            for (var i = 0; i < SupportedWireFormatCount; i++)
+                values[i] = pValues[i];
+            return values;
+        }
+
+        private static unsafe void WriteSupportedWireFormat(ctl_wire_format_t[]? values, ref ctl_get_set_wire_format_config_t._SupportedWireFormat_e__FixedBuffer buffer)
+        {
+            var pValues = (ctl_wire_format_t*)Unsafe.AsPointer(ref buffer.e0);
+            for (var i = 0; i < SupportedWireFormatCount; i++)
+                pValues[i] = default;
+
+            if (values == null || values.Length == 0)
+                return;
+
+            var count = Math.Min(values.Length, SupportedWireFormatCount);
+            for (var i = 0; i < count; i++)
+                pValues[i] = values[i];
+        }
     }
 
     /// <summary>

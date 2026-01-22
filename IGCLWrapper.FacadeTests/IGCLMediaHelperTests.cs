@@ -17,5 +17,16 @@ namespace IGCLWrapper.FacadeTests
                 Assert.True(caps.Size > 0);
             }
         }
+
+        [Fact]
+        public void VideoProcessingFeatureDto_ShouldBeSafeToConsume()
+        {
+            var native = IGCLMediaHelper.CreateVideoProcessingFeatureGetSet();
+            var dto = VideoProcessingFeatureGetSetDto.FromNative(native);
+            Assert.NotNull(dto.ReservedFields);
+            Assert.Equal(16, dto.ReservedFields!.Length);
+            Assert.True(dto.Equals(dto));
+            _ = dto.GetHashCode();
+        }
     }
 }

@@ -25,6 +25,24 @@ namespace IGCLWrapper.FacadeTests
         }
 
         [SkippableFact]
+        public void GetDisplayPropertiesDto_ShouldBeSafeToConsume()
+        {
+            var (api, adapter) = FacadeTestUtils.RequireAdapter();
+            using (api)
+            {
+                var display = adapter.EnumerateDisplayOutputs().FirstOrDefault();
+                Skip.If(display == null, "No displays connected.");
+
+                var props = display!.GetProperties();
+                Assert.True(props.Size > 0);
+                Assert.NotNull(props.ReservedFields);
+                Assert.Equal(16, props.ReservedFields!.Length);
+                Assert.True(props.Equals(props));
+                _ = props.GetHashCode();
+            }
+        }
+
+        [SkippableFact]
         public void AdditionalDisplayGetters_ShouldSucceedOrSkip()
         {
             var (api, adapter) = FacadeTestUtils.RequireAdapter();
@@ -121,6 +139,24 @@ namespace IGCLWrapper.FacadeTests
                 {
                     FacadeTestUtils.InvokeOrSkip(() => display.GetMuxProperties(muxes[0]), "Mux properties unsupported");
                 }
+            }
+        }
+
+        [SkippableFact]
+        public void GetWireFormatDto_ShouldBeSafeToConsume()
+        {
+            var (api, adapter) = FacadeTestUtils.RequireAdapter();
+            using (api)
+            {
+                var display = adapter.EnumerateDisplayOutputs().FirstOrDefault();
+                Skip.If(display == null, "No displays connected.");
+
+                var wireFormat = FacadeTestUtils.InvokeOrSkip(() => display!.GetWireFormat(), "Wire format unsupported");
+                Assert.True(wireFormat.Size > 0);
+                Assert.NotNull(wireFormat.SupportedWireFormat);
+                Assert.Equal(4, wireFormat.SupportedWireFormat!.Length);
+                Assert.True(wireFormat.Equals(wireFormat));
+                _ = wireFormat.GetHashCode();
             }
         }
 

@@ -126,7 +126,7 @@ namespace IGCLWrapper.FacadeTests
                     {
                         try
                         {
-                            var props = displayHelper.GetProperties();
+                            var props = displayHelper.GetPropertiesNative();
                             Console.WriteLine($" - Child {i}: name={displayHelper.Name} handle=0x{child.DisplayOutput.ToInt64():X} type={props.Type} flags=0x{props.DisplayConfigFlags:X}");
                         }
                         catch (IGCLException ex)
@@ -191,7 +191,7 @@ namespace IGCLWrapper.FacadeTests
                     AdapterDisplayEncoderPropertiesDto encoderProps;
                     try
                     {
-                        props = display.GetProperties();
+                        props = display.GetPropertiesNative();
                         encoderProps = display.GetAdapterDisplayEncoderProperties();
                     }
                     catch (IGCLException)

@@ -29,5 +29,56 @@ namespace IGCLWrapper.FacadeTests
                 }
             }
         }
+
+        [SkippableFact]
+        public void GetFirmwarePropertiesDto_ShouldBeSafeToConsume()
+        {
+            var (api, _) = FacadeTestUtils.RequireAdapter();
+            using (api)
+            {
+                var adapters = api.EnumerateAdapters();
+                var discrete = adapters.FirstOrDefault(a =>
+                    (a.GetPropertiesNative().graphics_adapter_properties & (uint)ctl_adapter_properties_flag_t.CTL_ADAPTER_PROPERTIES_FLAG_INTEGRATED) == 0);
+
+                Skip.If(discrete == null, "Firmware properties require a discrete adapter.");
+
+                var helper = api.GetFirmwareHelper(discrete);
+                var props = FacadeTestUtils.InvokeOrSkip(() => helper.GetFirmwareProperties(), "Firmware properties unsupported");
+                Assert.True(props.Size > 0);
+                Assert.NotNull(props.Name);
+                Assert.NotNull(props.FirmwareVersion);
+                Assert.NotNull(props.Reserved);
+                Assert.Equal(16, props.Reserved!.Length);
+                Assert.True(props.Equals(props));
+                _ = props.GetHashCode();
+            }
+        }
+
+        [SkippableFact]
+        public void GetFirmwareComponentPropertiesDto_ShouldBeSafeToConsume()
+        {
+            var (api, _) = FacadeTestUtils.RequireAdapter();
+            using (api)
+            {
+                var adapters = api.EnumerateAdapters();
+                var discrete = adapters.FirstOrDefault(a =>
+                    (a.GetPropertiesNative().graphics_adapter_properties & (uint)ctl_adapter_properties_flag_t.CTL_ADAPTER_PROPERTIES_FLAG_INTEGRATED) == 0);
+
+                Skip.If(discrete == null, "Firmware component properties require a discrete adapter.");
+
+                var helper = api.GetFirmwareHelper(discrete);
+                var components = helper.EnumerateFirmwareComponents();
+                Skip.If(components.Count == 0, "No firmware components reported.");
+
+                var props = FacadeTestUtils.InvokeOrSkip(() => helper.GetFirmwareComponentProperties(components[0]), "Firmware component properties unsupported");
+                Assert.True(props.Size > 0);
+                Assert.NotNull(props.Name);
+                Assert.NotNull(props.ComponentVersion);
+                Assert.NotNull(props.Reserved);
+                Assert.Equal(20, props.Reserved!.Length);
+                Assert.True(props.Equals(props));
+                _ = props.GetHashCode();
+            }
+        }
     }
 }

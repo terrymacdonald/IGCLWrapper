@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using System.Text;
 
 namespace IGCLWrapper
 {
@@ -22,7 +24,7 @@ namespace IGCLWrapper
         /// Get firmware properties for the adapter.
         /// </summary>
         /// <returns>Firmware properties struct.</returns>
-        public unsafe ctl_firmware_properties_t GetFirmwareProperties()
+        public unsafe ctl_firmware_properties_t GetFirmwarePropertiesNative()
         {
             ThrowIfDisposed();
             var props = CreateFirmwareProperties();
@@ -30,6 +32,20 @@ namespace IGCLWrapper
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, $"Failed to get firmware properties: {result}");
             return props;
+        }
+
+        /// <summary>
+        /// Get firmware properties for the adapter as a DTO.
+        /// </summary>
+        /// <returns>Firmware properties DTO.</returns>
+        public unsafe FirmwarePropertiesDto GetFirmwareProperties()
+        {
+            ThrowIfDisposed();
+            var props = CreateFirmwareProperties();
+            var result = IGCL.ctlGetFirmwareProperties((_ctl_device_adapter_handle_t*)_adapter, &props);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, $"Failed to get firmware properties: {result}");
+            return FirmwarePropertiesDto.FromNative(props);
         }
 
         /// <summary>
@@ -47,7 +63,7 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="firmwareHandle">Firmware component handle.</param>
         /// <returns>Firmware component properties struct.</returns>
-        public unsafe ctl_firmware_component_properties_t GetFirmwareComponentProperties(IntPtr firmwareHandle)
+        public unsafe ctl_firmware_component_properties_t GetFirmwareComponentPropertiesNative(IntPtr firmwareHandle)
         {
             ThrowIfDisposed();
             var props = CreateFirmwareComponentProperties();
@@ -55,6 +71,21 @@ namespace IGCLWrapper
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get firmware component properties");
             return props;
+        }
+
+        /// <summary>
+        /// Get firmware component properties as a DTO.
+        /// </summary>
+        /// <param name="firmwareHandle">Firmware component handle.</param>
+        /// <returns>Firmware component properties DTO.</returns>
+        public unsafe FirmwareComponentPropertiesDto GetFirmwareComponentProperties(IntPtr firmwareHandle)
+        {
+            ThrowIfDisposed();
+            var props = CreateFirmwareComponentProperties();
+            var result = IGCL.ctlGetFirmwareComponentProperties((_ctl_firmware_component_handle_t*)firmwareHandle, &props);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, "Failed to get firmware component properties");
+            return FirmwareComponentPropertiesDto.FromNative(props);
         }
 
         /// <summary>
@@ -102,6 +133,324 @@ namespace IGCLWrapper
         public void Dispose()
         {
             _disposed = true;
+        }
+    }
+
+    /// <summary>
+    /// DTO for firmware properties.
+    /// </summary>
+    public struct FirmwarePropertiesDto
+    {
+        private const int NameLength = 64;
+        private const int VersionLength = 64;
+        private const int ReservedLength = 16;
+        /// <summary>
+        /// Size of the native struct.
+        /// </summary>
+        public uint Size;
+        /// <summary>
+        /// Version of the native struct.
+        /// </summary>
+        public byte Version;
+        /// <summary>
+        /// Firmware name.
+        /// </summary>
+        public string Name;
+        /// <summary>
+        /// Firmware version string.
+        /// </summary>
+        public string FirmwareVersion;
+        /// <summary>
+        /// Firmware config flags.
+        /// </summary>
+        public uint FirmwareConfig;
+        /// <summary>
+        /// Reserved native fields.
+        /// </summary>
+        public byte[]? Reserved;
+
+        /// <summary>
+        /// Create a DTO from a native struct.
+        /// </summary>
+        /// <param name="native">Native struct.</param>
+        /// <returns>Firmware properties DTO.</returns>
+        public static FirmwarePropertiesDto FromNative(ctl_firmware_properties_t native)
+        {
+            return new FirmwarePropertiesDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                Name = ReadString(native.name, NameLength),
+                FirmwareVersion = ReadString(native.version, VersionLength),
+                FirmwareConfig = native.FirmwareConfig,
+                Reserved = ReadReserved(native.reserved, ReservedLength)
+            };
+        }
+
+        /// <summary>
+        /// Convert this DTO to a native struct.
+        /// </summary>
+        /// <returns>Firmware properties struct.</returns>
+        public unsafe ctl_firmware_properties_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_firmware_properties_t);
+
+            var native = new ctl_firmware_properties_t
+            {
+                Size = size,
+                Version = Version,
+                FirmwareConfig = FirmwareConfig
+            };
+
+            WriteString(Name, NameLength, ref native.name);
+            WriteString(FirmwareVersion, VersionLength, ref native.version);
+            WriteReserved(Reserved, ReservedLength, ref native.reserved);
+            return native;
+        }
+
+        private static unsafe string ReadString(ctl_firmware_properties_t._name_e__FixedBuffer buffer, int maxLength)
+        {
+            var bytes = new byte[maxLength];
+            var pBuffer = (sbyte*)Unsafe.AsPointer(ref buffer.e0);
+            var length = 0;
+            for (var i = 0; i < maxLength; i++)
+            {
+                var value = pBuffer[i];
+                if (value == 0)
+                    break;
+                bytes[i] = (byte)value;
+                length++;
+            }
+
+            return length == 0 ? string.Empty : Encoding.ASCII.GetString(bytes, 0, length);
+        }
+
+        private static unsafe string ReadString(ctl_firmware_properties_t._version_e__FixedBuffer buffer, int maxLength)
+        {
+            var bytes = new byte[maxLength];
+            var pBuffer = (sbyte*)Unsafe.AsPointer(ref buffer.e0);
+            var length = 0;
+            for (var i = 0; i < maxLength; i++)
+            {
+                var value = pBuffer[i];
+                if (value == 0)
+                    break;
+                bytes[i] = (byte)value;
+                length++;
+            }
+
+            return length == 0 ? string.Empty : Encoding.ASCII.GetString(bytes, 0, length);
+        }
+
+        private static unsafe byte[] ReadReserved(ctl_firmware_properties_t._reserved_e__FixedBuffer buffer, int length)
+        {
+            var bytes = new byte[length];
+            var pBuffer = (sbyte*)Unsafe.AsPointer(ref buffer.e0);
+            for (var i = 0; i < length; i++)
+                bytes[i] = (byte)pBuffer[i];
+            return bytes;
+        }
+
+        private static unsafe void WriteString(string? value, int maxLength, ref ctl_firmware_properties_t._name_e__FixedBuffer buffer)
+        {
+            var pBuffer = (sbyte*)Unsafe.AsPointer(ref buffer.e0);
+            for (var i = 0; i < maxLength; i++)
+                pBuffer[i] = 0;
+
+            if (string.IsNullOrEmpty(value))
+                return;
+
+            var bytes = Encoding.ASCII.GetBytes(value);
+            var count = Math.Min(bytes.Length, maxLength - 1);
+            for (var i = 0; i < count; i++)
+                pBuffer[i] = unchecked((sbyte)bytes[i]);
+        }
+
+        private static unsafe void WriteString(string? value, int maxLength, ref ctl_firmware_properties_t._version_e__FixedBuffer buffer)
+        {
+            var pBuffer = (sbyte*)Unsafe.AsPointer(ref buffer.e0);
+            for (var i = 0; i < maxLength; i++)
+                pBuffer[i] = 0;
+
+            if (string.IsNullOrEmpty(value))
+                return;
+
+            var bytes = Encoding.ASCII.GetBytes(value);
+            var count = Math.Min(bytes.Length, maxLength - 1);
+            for (var i = 0; i < count; i++)
+                pBuffer[i] = unchecked((sbyte)bytes[i]);
+        }
+
+        private static unsafe void WriteReserved(byte[]? value, int maxLength, ref ctl_firmware_properties_t._reserved_e__FixedBuffer buffer)
+        {
+            var pBuffer = (sbyte*)Unsafe.AsPointer(ref buffer.e0);
+            for (var i = 0; i < maxLength; i++)
+                pBuffer[i] = 0;
+
+            if (value == null || value.Length == 0)
+                return;
+
+            var count = Math.Min(value.Length, maxLength);
+            for (var i = 0; i < count; i++)
+                pBuffer[i] = unchecked((sbyte)value[i]);
+        }
+    }
+
+    /// <summary>
+    /// DTO for firmware component properties.
+    /// </summary>
+    public struct FirmwareComponentPropertiesDto
+    {
+        private const int NameLength = 64;
+        private const int VersionLength = 64;
+        private const int ReservedLength = 20;
+        /// <summary>
+        /// Size of the native struct.
+        /// </summary>
+        public uint Size;
+        /// <summary>
+        /// Version of the native struct.
+        /// </summary>
+        public byte Version;
+        /// <summary>
+        /// Component name.
+        /// </summary>
+        public string Name;
+        /// <summary>
+        /// Component version string.
+        /// </summary>
+        public string ComponentVersion;
+        /// <summary>
+        /// Reserved native fields.
+        /// </summary>
+        public byte[]? Reserved;
+
+        /// <summary>
+        /// Create a DTO from a native struct.
+        /// </summary>
+        /// <param name="native">Native struct.</param>
+        /// <returns>Firmware component properties DTO.</returns>
+        public static FirmwareComponentPropertiesDto FromNative(ctl_firmware_component_properties_t native)
+        {
+            return new FirmwareComponentPropertiesDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                Name = ReadString(native.name, NameLength),
+                ComponentVersion = ReadString(native.version, VersionLength),
+                Reserved = ReadReserved(native.reserved, ReservedLength)
+            };
+        }
+
+        /// <summary>
+        /// Convert this DTO to a native struct.
+        /// </summary>
+        /// <returns>Firmware component properties struct.</returns>
+        public unsafe ctl_firmware_component_properties_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_firmware_component_properties_t);
+
+            var native = new ctl_firmware_component_properties_t
+            {
+                Size = size,
+                Version = Version
+            };
+
+            WriteString(Name, NameLength, ref native.name);
+            WriteString(ComponentVersion, VersionLength, ref native.version);
+            WriteReserved(Reserved, ReservedLength, ref native.reserved);
+            return native;
+        }
+
+        private static unsafe string ReadString(ctl_firmware_component_properties_t._name_e__FixedBuffer buffer, int maxLength)
+        {
+            var bytes = new byte[maxLength];
+            var pBuffer = (sbyte*)Unsafe.AsPointer(ref buffer.e0);
+            var length = 0;
+            for (var i = 0; i < maxLength; i++)
+            {
+                var value = pBuffer[i];
+                if (value == 0)
+                    break;
+                bytes[i] = (byte)value;
+                length++;
+            }
+
+            return length == 0 ? string.Empty : Encoding.ASCII.GetString(bytes, 0, length);
+        }
+
+        private static unsafe string ReadString(ctl_firmware_component_properties_t._version_e__FixedBuffer buffer, int maxLength)
+        {
+            var bytes = new byte[maxLength];
+            var pBuffer = (sbyte*)Unsafe.AsPointer(ref buffer.e0);
+            var length = 0;
+            for (var i = 0; i < maxLength; i++)
+            {
+                var value = pBuffer[i];
+                if (value == 0)
+                    break;
+                bytes[i] = (byte)value;
+                length++;
+            }
+
+            return length == 0 ? string.Empty : Encoding.ASCII.GetString(bytes, 0, length);
+        }
+
+        private static unsafe byte[] ReadReserved(ctl_firmware_component_properties_t._reserved_e__FixedBuffer buffer, int length)
+        {
+            var bytes = new byte[length];
+            var pBuffer = (sbyte*)Unsafe.AsPointer(ref buffer.e0);
+            for (var i = 0; i < length; i++)
+                bytes[i] = (byte)pBuffer[i];
+            return bytes;
+        }
+
+        private static unsafe void WriteString(string? value, int maxLength, ref ctl_firmware_component_properties_t._name_e__FixedBuffer buffer)
+        {
+            var pBuffer = (sbyte*)Unsafe.AsPointer(ref buffer.e0);
+            for (var i = 0; i < maxLength; i++)
+                pBuffer[i] = 0;
+
+            if (string.IsNullOrEmpty(value))
+                return;
+
+            var bytes = Encoding.ASCII.GetBytes(value);
+            var count = Math.Min(bytes.Length, maxLength - 1);
+            for (var i = 0; i < count; i++)
+                pBuffer[i] = unchecked((sbyte)bytes[i]);
+        }
+
+        private static unsafe void WriteString(string? value, int maxLength, ref ctl_firmware_component_properties_t._version_e__FixedBuffer buffer)
+        {
+            var pBuffer = (sbyte*)Unsafe.AsPointer(ref buffer.e0);
+            for (var i = 0; i < maxLength; i++)
+                pBuffer[i] = 0;
+
+            if (string.IsNullOrEmpty(value))
+                return;
+
+            var bytes = Encoding.ASCII.GetBytes(value);
+            var count = Math.Min(bytes.Length, maxLength - 1);
+            for (var i = 0; i < count; i++)
+                pBuffer[i] = unchecked((sbyte)bytes[i]);
+        }
+
+        private static unsafe void WriteReserved(byte[]? value, int maxLength, ref ctl_firmware_component_properties_t._reserved_e__FixedBuffer buffer)
+        {
+            var pBuffer = (sbyte*)Unsafe.AsPointer(ref buffer.e0);
+            for (var i = 0; i < maxLength; i++)
+                pBuffer[i] = 0;
+
+            if (value == null || value.Length == 0)
+                return;
+
+            var count = Math.Min(value.Length, maxLength);
+            for (var i = 0; i < count; i++)
+                pBuffer[i] = unchecked((sbyte)value[i]);
         }
     }
 }
