@@ -102,24 +102,24 @@ Struct AdapterDisplayEncoderPropertiesDto  <a class="header-action link-secondar
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public struct AdapterDisplayEncoderPropertiesDto</code></pre>
+    <pre><code class="lang-csharp hljs">public struct AdapterDisplayEncoderPropertiesDto : IEquatable&lt;AdapterDisplayEncoderPropertiesDto&gt;</code></pre>
   </div>
 
 
 
 
 
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html">AdapterDisplayEncoderPropertiesDto</a>&gt;</div>
+    </dd>
+  </dl>
 
 
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.equals">ValueType.Equals(object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode">ValueType.GetHashCode()</a>
-    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.tostring">ValueType.ToString()</a>
     </div>
@@ -488,11 +488,89 @@ Struct AdapterDisplayEncoderPropertiesDto  <a class="header-action link-secondar
 </h2>
 
 
+  <a id="IGCLWrapper_AdapterDisplayEncoderPropertiesDto_Equals_" data-uid="IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Equals*"></a>
+
+  <h3 id="IGCLWrapper_AdapterDisplayEncoderPropertiesDto_Equals_IGCLWrapper_AdapterDisplayEncoderPropertiesDto_" data-uid="IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Equals(IGCLWrapper.AdapterDisplayEncoderPropertiesDto)">
+  Equals(AdapterDisplayEncoderPropertiesDto)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1590"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compare adapter display encoder properties while ignoring reserved native fields.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(AdapterDisplayEncoderPropertiesDto other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html">AdapterDisplayEncoderPropertiesDto</a></dt>
+    <dd><p>Other properties instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_AdapterDisplayEncoderPropertiesDto_Equals_" data-uid="IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Equals*"></a>
+
+  <h3 id="IGCLWrapper_AdapterDisplayEncoderPropertiesDto_Equals_System_Object_" data-uid="IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1610"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compare to another object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Object to compare.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="IGCLWrapper_AdapterDisplayEncoderPropertiesDto_FromNative_" data-uid="IGCLWrapper.AdapterDisplayEncoderPropertiesDto.FromNative*"></a>
 
   <h3 id="IGCLWrapper_AdapterDisplayEncoderPropertiesDto_FromNative_IGCLWrapper_ctl_adapter_display_encoder_properties_t_" data-uid="IGCLWrapper.AdapterDisplayEncoderPropertiesDto.FromNative(IGCLWrapper.ctl_adapter_display_encoder_properties_t)">
   FromNative(ctl_adapter_display_encoder_properties_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1590"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1637"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a DTO from a native struct.</p>
@@ -527,11 +605,44 @@ Struct AdapterDisplayEncoderPropertiesDto  <a class="header-action link-secondar
 
 
 
+  <a id="IGCLWrapper_AdapterDisplayEncoderPropertiesDto_GetHashCode_" data-uid="IGCLWrapper.AdapterDisplayEncoderPropertiesDto.GetHashCode*"></a>
+
+  <h3 id="IGCLWrapper_AdapterDisplayEncoderPropertiesDto_GetHashCode" data-uid="IGCLWrapper.AdapterDisplayEncoderPropertiesDto.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1616"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get a hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Hash code value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="IGCLWrapper_AdapterDisplayEncoderPropertiesDto_ToNative_" data-uid="IGCLWrapper.AdapterDisplayEncoderPropertiesDto.ToNative*"></a>
 
   <h3 id="IGCLWrapper_AdapterDisplayEncoderPropertiesDto_ToNative" data-uid="IGCLWrapper.AdapterDisplayEncoderPropertiesDto.ToNative">
   ToNative()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1612"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1659"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Convert this DTO to a native struct.</p>

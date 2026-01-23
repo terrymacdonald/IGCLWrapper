@@ -1535,7 +1535,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for adapter display encoder properties.
     /// </summary>
-    public struct AdapterDisplayEncoderPropertiesDto
+    public struct AdapterDisplayEncoderPropertiesDto : IEquatable<AdapterDisplayEncoderPropertiesDto>
     {
         /// <summary>
         /// Size of the native struct.
@@ -1581,6 +1581,53 @@ namespace IGCLWrapper
         /// Reserved native fields.
         /// </summary>
         public ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer ReservedFields;
+
+        /// <summary>
+        /// Compare adapter display encoder properties while ignoring reserved native fields.
+        /// </summary>
+        /// <param name="other">Other properties instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(AdapterDisplayEncoderPropertiesDto other)
+        {
+            // ReservedFields is an inline array in the native struct and is intentionally excluded.
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   OsDisplayEncoderHandle.Equals(other.OsDisplayEncoderHandle) &&
+                   Type == other.Type &&
+                   IsOnBoardProtocolConverterOutputPresent == other.IsOnBoardProtocolConverterOutputPresent &&
+                   SupportedSpec.Equals(other.SupportedSpec) &&
+                   SupportedOutputBpcFlags == other.SupportedOutputBpcFlags &&
+                   EncoderConfigFlags == other.EncoderConfigFlags &&
+                   FeatureSupportedFlags == other.FeatureSupportedFlags &&
+                   AdvancedFeatureSupportedFlags == other.AdvancedFeatureSupportedFlags;
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is AdapterDisplayEncoderPropertiesDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(OsDisplayEncoderHandle);
+            hash.Add(Type);
+            hash.Add(IsOnBoardProtocolConverterOutputPresent);
+            hash.Add(SupportedSpec);
+            hash.Add(SupportedOutputBpcFlags);
+            hash.Add(EncoderConfigFlags);
+            hash.Add(FeatureSupportedFlags);
+            hash.Add(AdvancedFeatureSupportedFlags);
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.
@@ -1719,7 +1766,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for display settings.
     /// </summary>
-    public struct DisplaySettingsDto
+    public struct DisplaySettingsDto : IEquatable<DisplaySettingsDto>
     {
         /// <summary>
         /// Size of the native struct.
@@ -1777,6 +1824,59 @@ namespace IGCLWrapper
         /// Reserved native fields.
         /// </summary>
         public ctl_display_settings_t._Reserved_e__FixedBuffer Reserved;
+
+        /// <summary>
+        /// Compare display settings while ignoring reserved native fields.
+        /// </summary>
+        /// <param name="other">Other settings instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(DisplaySettingsDto other)
+        {
+            // Reserved is an inline array in the native struct and is intentionally excluded.
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   Set == other.Set &&
+                   SupportedFlags == other.SupportedFlags &&
+                   ControllableFlags == other.ControllableFlags &&
+                   ValidFlags == other.ValidFlags &&
+                   LowLatency == other.LowLatency &&
+                   SourceTm == other.SourceTm &&
+                   ContentType == other.ContentType &&
+                   QuantizationRange == other.QuantizationRange &&
+                   SupportedPictureAr == other.SupportedPictureAr &&
+                   PictureAr == other.PictureAr &&
+                   AudioSettings == other.AudioSettings;
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is DisplaySettingsDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(Set);
+            hash.Add(SupportedFlags);
+            hash.Add(ControllableFlags);
+            hash.Add(ValidFlags);
+            hash.Add(LowLatency);
+            hash.Add(SourceTm);
+            hash.Add(ContentType);
+            hash.Add(QuantizationRange);
+            hash.Add(SupportedPictureAr);
+            hash.Add(PictureAr);
+            hash.Add(AudioSettings);
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.

@@ -8,7 +8,10 @@ items:
   - IGCLWrapper.DisplaySettingsDto.AudioSettings
   - IGCLWrapper.DisplaySettingsDto.ContentType
   - IGCLWrapper.DisplaySettingsDto.ControllableFlags
+  - IGCLWrapper.DisplaySettingsDto.Equals(IGCLWrapper.DisplaySettingsDto)
+  - IGCLWrapper.DisplaySettingsDto.Equals(System.Object)
   - IGCLWrapper.DisplaySettingsDto.FromNative(IGCLWrapper.ctl_display_settings_t)
+  - IGCLWrapper.DisplaySettingsDto.GetHashCode
   - IGCLWrapper.DisplaySettingsDto.LowLatency
   - IGCLWrapper.DisplaySettingsDto.PictureAr
   - IGCLWrapper.DisplaySettingsDto.QuantizationRange
@@ -35,18 +38,18 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: DisplaySettingsDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1721
+    startLine: 1768
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: DTO for display settings.
   example: []
   syntax:
-    content: public struct DisplaySettingsDto
-    content.vb: Public Structure DisplaySettingsDto
+    content: 'public struct DisplaySettingsDto : IEquatable<DisplaySettingsDto>'
+    content.vb: Public Structure DisplaySettingsDto Implements IEquatable(Of DisplaySettingsDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.DisplaySettingsDto}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -69,7 +72,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1726
+    startLine: 1773
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -98,7 +101,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1730
+    startLine: 1777
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -127,7 +130,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Set
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1734
+    startLine: 1781
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -156,7 +159,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SupportedFlags
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1738
+    startLine: 1785
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -185,7 +188,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ControllableFlags
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1742
+    startLine: 1789
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -214,7 +217,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ValidFlags
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1746
+    startLine: 1793
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -243,7 +246,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LowLatency
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1750
+    startLine: 1797
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -272,7 +275,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SourceTm
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1754
+    startLine: 1801
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -301,7 +304,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ContentType
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1758
+    startLine: 1805
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -330,7 +333,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: QuantizationRange
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1762
+    startLine: 1809
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -359,7 +362,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SupportedPictureAr
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1766
+    startLine: 1813
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -388,7 +391,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PictureAr
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1770
+    startLine: 1817
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -417,7 +420,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AudioSettings
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1774
+    startLine: 1821
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -446,7 +449,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Reserved
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1778
+    startLine: 1825
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -457,6 +460,114 @@ items:
     return:
       type: IGCLWrapper.ctl_display_settings_t._Reserved_e__FixedBuffer
     content.vb: Public Reserved As ctl_display_settings_t._Reserved_e__FixedBuffer
+- uid: IGCLWrapper.DisplaySettingsDto.Equals(IGCLWrapper.DisplaySettingsDto)
+  commentId: M:IGCLWrapper.DisplaySettingsDto.Equals(IGCLWrapper.DisplaySettingsDto)
+  id: Equals(IGCLWrapper.DisplaySettingsDto)
+  parent: IGCLWrapper.DisplaySettingsDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(DisplaySettingsDto)
+  nameWithType: DisplaySettingsDto.Equals(DisplaySettingsDto)
+  fullName: IGCLWrapper.DisplaySettingsDto.Equals(IGCLWrapper.DisplaySettingsDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 1832
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare display settings while ignoring reserved native fields.
+  example: []
+  syntax:
+    content: public bool Equals(DisplaySettingsDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.DisplaySettingsDto
+      description: Other settings instance.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Function Equals(other As DisplaySettingsDto) As Boolean
+  overload: IGCLWrapper.DisplaySettingsDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.DisplaySettingsDto}.Equals(IGCLWrapper.DisplaySettingsDto)
+- uid: IGCLWrapper.DisplaySettingsDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.DisplaySettingsDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.DisplaySettingsDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: DisplaySettingsDto.Equals(object?)
+  fullName: IGCLWrapper.DisplaySettingsDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 1855
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare to another object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: Object to compare.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.DisplaySettingsDto.Equals*
+  nameWithType.vb: DisplaySettingsDto.Equals(Object)
+  fullName.vb: IGCLWrapper.DisplaySettingsDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.DisplaySettingsDto.GetHashCode
+  commentId: M:IGCLWrapper.DisplaySettingsDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.DisplaySettingsDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: DisplaySettingsDto.GetHashCode()
+  fullName: IGCLWrapper.DisplaySettingsDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 1861
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get a hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: Hash code value.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.DisplaySettingsDto.GetHashCode*
 - uid: IGCLWrapper.DisplaySettingsDto.FromNative(IGCLWrapper.ctl_display_settings_t)
   commentId: M:IGCLWrapper.DisplaySettingsDto.FromNative(IGCLWrapper.ctl_display_settings_t)
   id: FromNative(IGCLWrapper.ctl_display_settings_t)
@@ -475,7 +586,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1785
+    startLine: 1885
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -510,7 +621,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1810
+    startLine: 1910
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -530,60 +641,38 @@ references:
   name: IGCLWrapper
   nameWithType: IGCLWrapper
   fullName: IGCLWrapper
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{IGCLWrapper.DisplaySettingsDto}
+  commentId: T:System.IEquatable{IGCLWrapper.DisplaySettingsDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<DisplaySettingsDto>
+  nameWithType: IEquatable<DisplaySettingsDto>
+  fullName: System.IEquatable<IGCLWrapper.DisplaySettingsDto>
+  nameWithType.vb: IEquatable(Of DisplaySettingsDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.DisplaySettingsDto)
+  name.vb: IEquatable(Of DisplaySettingsDto)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.DisplaySettingsDto
+    name: DisplaySettingsDto
+    href: IGCLWrapper.DisplaySettingsDto.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.DisplaySettingsDto
+    name: DisplaySettingsDto
+    href: IGCLWrapper.DisplaySettingsDto.html
   - name: )
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
@@ -721,6 +810,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.ValueType
   commentId: T:System.ValueType
   parent: System
@@ -740,13 +864,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System
@@ -845,6 +962,146 @@ references:
   - uid: IGCLWrapper.ctl_display_settings_t._Reserved_e__FixedBuffer
     name: _Reserved_e__FixedBuffer
     href: IGCLWrapper.ctl_display_settings_t._Reserved_e__FixedBuffer.html
+- uid: IGCLWrapper.DisplaySettingsDto.Equals*
+  commentId: Overload:IGCLWrapper.DisplaySettingsDto.Equals
+  href: IGCLWrapper.DisplaySettingsDto.html#IGCLWrapper_DisplaySettingsDto_Equals_IGCLWrapper_DisplaySettingsDto_
+  name: Equals
+  nameWithType: DisplaySettingsDto.Equals
+  fullName: IGCLWrapper.DisplaySettingsDto.Equals
+- uid: System.IEquatable{IGCLWrapper.DisplaySettingsDto}.Equals(IGCLWrapper.DisplaySettingsDto)
+  commentId: M:System.IEquatable{IGCLWrapper.DisplaySettingsDto}.Equals(IGCLWrapper.DisplaySettingsDto)
+  parent: System.IEquatable{IGCLWrapper.DisplaySettingsDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(DisplaySettingsDto)
+  nameWithType: IEquatable<DisplaySettingsDto>.Equals(DisplaySettingsDto)
+  fullName: System.IEquatable<IGCLWrapper.DisplaySettingsDto>.Equals(IGCLWrapper.DisplaySettingsDto)
+  nameWithType.vb: IEquatable(Of DisplaySettingsDto).Equals(DisplaySettingsDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.DisplaySettingsDto).Equals(IGCLWrapper.DisplaySettingsDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.DisplaySettingsDto}.Equals(IGCLWrapper.DisplaySettingsDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.DisplaySettingsDto
+    name: DisplaySettingsDto
+    href: IGCLWrapper.DisplaySettingsDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.DisplaySettingsDto}.Equals(IGCLWrapper.DisplaySettingsDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.DisplaySettingsDto
+    name: DisplaySettingsDto
+    href: IGCLWrapper.DisplaySettingsDto.html
+  - name: )
+- uid: IGCLWrapper.DisplaySettingsDto
+  commentId: T:IGCLWrapper.DisplaySettingsDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.DisplaySettingsDto.html
+  name: DisplaySettingsDto
+  nameWithType: DisplaySettingsDto
+  fullName: IGCLWrapper.DisplaySettingsDto
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.DisplaySettingsDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.DisplaySettingsDto.GetHashCode
+  href: IGCLWrapper.DisplaySettingsDto.html#IGCLWrapper_DisplaySettingsDto_GetHashCode
+  name: GetHashCode
+  nameWithType: DisplaySettingsDto.GetHashCode
+  fullName: IGCLWrapper.DisplaySettingsDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: IGCLWrapper.DisplaySettingsDto.FromNative*
   commentId: Overload:IGCLWrapper.DisplaySettingsDto.FromNative
   href: IGCLWrapper.DisplaySettingsDto.html#IGCLWrapper_DisplaySettingsDto_FromNative_IGCLWrapper_ctl_display_settings_t_
@@ -858,13 +1115,6 @@ references:
   name: ctl_display_settings_t
   nameWithType: ctl_display_settings_t
   fullName: IGCLWrapper.ctl_display_settings_t
-- uid: IGCLWrapper.DisplaySettingsDto
-  commentId: T:IGCLWrapper.DisplaySettingsDto
-  parent: IGCLWrapper
-  href: IGCLWrapper.DisplaySettingsDto.html
-  name: DisplaySettingsDto
-  nameWithType: DisplaySettingsDto
-  fullName: IGCLWrapper.DisplaySettingsDto
 - uid: IGCLWrapper.DisplaySettingsDto.ToNative*
   commentId: Overload:IGCLWrapper.DisplaySettingsDto.ToNative
   href: IGCLWrapper.DisplaySettingsDto.html#IGCLWrapper_DisplaySettingsDto_ToNative

@@ -7,8 +7,11 @@ items:
   children:
   - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.AdvancedFeatureSupportedFlags
   - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.EncoderConfigFlags
+  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Equals(IGCLWrapper.AdapterDisplayEncoderPropertiesDto)
+  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Equals(System.Object)
   - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.FeatureSupportedFlags
   - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.FromNative(IGCLWrapper.ctl_adapter_display_encoder_properties_t)
+  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.GetHashCode
   - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsOnBoardProtocolConverterOutputPresent
   - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.OsDisplayEncoderHandle
   - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.ReservedFields
@@ -39,11 +42,11 @@ items:
   summary: DTO for adapter display encoder properties.
   example: []
   syntax:
-    content: public struct AdapterDisplayEncoderPropertiesDto
-    content.vb: Public Structure AdapterDisplayEncoderPropertiesDto
+    content: 'public struct AdapterDisplayEncoderPropertiesDto : IEquatable<AdapterDisplayEncoderPropertiesDto>'
+    content.vb: Public Structure AdapterDisplayEncoderPropertiesDto Implements IEquatable(Of AdapterDisplayEncoderPropertiesDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.AdapterDisplayEncoderPropertiesDto}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -367,6 +370,114 @@ items:
     return:
       type: IGCLWrapper.ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer
     content.vb: Public ReservedFields As ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Equals(IGCLWrapper.AdapterDisplayEncoderPropertiesDto)
+  commentId: M:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Equals(IGCLWrapper.AdapterDisplayEncoderPropertiesDto)
+  id: Equals(IGCLWrapper.AdapterDisplayEncoderPropertiesDto)
+  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(AdapterDisplayEncoderPropertiesDto)
+  nameWithType: AdapterDisplayEncoderPropertiesDto.Equals(AdapterDisplayEncoderPropertiesDto)
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Equals(IGCLWrapper.AdapterDisplayEncoderPropertiesDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 1589
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare adapter display encoder properties while ignoring reserved native fields.
+  example: []
+  syntax:
+    content: public bool Equals(AdapterDisplayEncoderPropertiesDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+      description: Other properties instance.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Function Equals(other As AdapterDisplayEncoderPropertiesDto) As Boolean
+  overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.AdapterDisplayEncoderPropertiesDto}.Equals(IGCLWrapper.AdapterDisplayEncoderPropertiesDto)
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: AdapterDisplayEncoderPropertiesDto.Equals(object?)
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 1609
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare to another object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: Object to compare.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Equals*
+  nameWithType.vb: AdapterDisplayEncoderPropertiesDto.Equals(Object)
+  fullName.vb: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.GetHashCode
+  commentId: M:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: AdapterDisplayEncoderPropertiesDto.GetHashCode()
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 1615
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get a hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: Hash code value.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.GetHashCode*
 - uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.FromNative(IGCLWrapper.ctl_adapter_display_encoder_properties_t)
   commentId: M:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.FromNative(IGCLWrapper.ctl_adapter_display_encoder_properties_t)
   id: FromNative(IGCLWrapper.ctl_adapter_display_encoder_properties_t)
@@ -385,7 +496,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1589
+    startLine: 1636
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -420,7 +531,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1611
+    startLine: 1658
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -440,60 +551,38 @@ references:
   name: IGCLWrapper
   nameWithType: IGCLWrapper
   fullName: IGCLWrapper
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{IGCLWrapper.AdapterDisplayEncoderPropertiesDto}
+  commentId: T:System.IEquatable{IGCLWrapper.AdapterDisplayEncoderPropertiesDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<AdapterDisplayEncoderPropertiesDto>
+  nameWithType: IEquatable<AdapterDisplayEncoderPropertiesDto>
+  fullName: System.IEquatable<IGCLWrapper.AdapterDisplayEncoderPropertiesDto>
+  nameWithType.vb: IEquatable(Of AdapterDisplayEncoderPropertiesDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.AdapterDisplayEncoderPropertiesDto)
+  name.vb: IEquatable(Of AdapterDisplayEncoderPropertiesDto)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+    name: AdapterDisplayEncoderPropertiesDto
+    href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+    name: AdapterDisplayEncoderPropertiesDto
+    href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html
   - name: )
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
@@ -631,6 +720,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.ValueType
   commentId: T:System.ValueType
   parent: System
@@ -650,13 +774,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System
@@ -734,6 +851,146 @@ references:
   - uid: IGCLWrapper.ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer
     name: _ReservedFields_e__FixedBuffer
     href: IGCLWrapper.ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer.html
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Equals*
+  commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Equals
+  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_Equals_IGCLWrapper_AdapterDisplayEncoderPropertiesDto_
+  name: Equals
+  nameWithType: AdapterDisplayEncoderPropertiesDto.Equals
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Equals
+- uid: System.IEquatable{IGCLWrapper.AdapterDisplayEncoderPropertiesDto}.Equals(IGCLWrapper.AdapterDisplayEncoderPropertiesDto)
+  commentId: M:System.IEquatable{IGCLWrapper.AdapterDisplayEncoderPropertiesDto}.Equals(IGCLWrapper.AdapterDisplayEncoderPropertiesDto)
+  parent: System.IEquatable{IGCLWrapper.AdapterDisplayEncoderPropertiesDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(AdapterDisplayEncoderPropertiesDto)
+  nameWithType: IEquatable<AdapterDisplayEncoderPropertiesDto>.Equals(AdapterDisplayEncoderPropertiesDto)
+  fullName: System.IEquatable<IGCLWrapper.AdapterDisplayEncoderPropertiesDto>.Equals(IGCLWrapper.AdapterDisplayEncoderPropertiesDto)
+  nameWithType.vb: IEquatable(Of AdapterDisplayEncoderPropertiesDto).Equals(AdapterDisplayEncoderPropertiesDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.AdapterDisplayEncoderPropertiesDto).Equals(IGCLWrapper.AdapterDisplayEncoderPropertiesDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.AdapterDisplayEncoderPropertiesDto}.Equals(IGCLWrapper.AdapterDisplayEncoderPropertiesDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+    name: AdapterDisplayEncoderPropertiesDto
+    href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.AdapterDisplayEncoderPropertiesDto}.Equals(IGCLWrapper.AdapterDisplayEncoderPropertiesDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+    name: AdapterDisplayEncoderPropertiesDto
+    href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html
+  - name: )
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  commentId: T:IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html
+  name: AdapterDisplayEncoderPropertiesDto
+  nameWithType: AdapterDisplayEncoderPropertiesDto
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.GetHashCode
+  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_GetHashCode
+  name: GetHashCode
+  nameWithType: AdapterDisplayEncoderPropertiesDto.GetHashCode
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.FromNative*
   commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.FromNative
   href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_FromNative_IGCLWrapper_ctl_adapter_display_encoder_properties_t_
@@ -747,13 +1004,6 @@ references:
   name: ctl_adapter_display_encoder_properties_t
   nameWithType: ctl_adapter_display_encoder_properties_t
   fullName: IGCLWrapper.ctl_adapter_display_encoder_properties_t
-- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
-  commentId: T:IGCLWrapper.AdapterDisplayEncoderPropertiesDto
-  parent: IGCLWrapper
-  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html
-  name: AdapterDisplayEncoderPropertiesDto
-  nameWithType: AdapterDisplayEncoderPropertiesDto
-  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
 - uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.ToNative*
   commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.ToNative
   href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_ToNative
