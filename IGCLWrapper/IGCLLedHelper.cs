@@ -136,6 +136,28 @@ namespace IGCLWrapper
         public static unsafe ctl_led_state_t CreateLedStateStruct() => CreateLedState();
 
         /// <summary>
+        /// Compare LED properties while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left properties struct.</param>
+        /// <param name="right">Right properties struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreLedPropertiesEqual(ctl_led_properties_t left, ctl_led_properties_t right)
+        {
+            return LedPropertiesDto.FromNative(left).Equals(LedPropertiesDto.FromNative(right));
+        }
+
+        /// <summary>
+        /// Compare LED state while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left state struct.</param>
+        /// <param name="right">Right state struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreLedStateEqual(ctl_led_state_t left, ctl_led_state_t right)
+        {
+            return LedStateDto.FromNative(left).Equals(LedStateDto.FromNative(right));
+        }
+
+        /// <summary>
         /// Mark the helper as disposed.
         /// </summary>
         public void Dispose()
@@ -358,3 +380,4 @@ namespace IGCLWrapper
         }
     }
 }
+

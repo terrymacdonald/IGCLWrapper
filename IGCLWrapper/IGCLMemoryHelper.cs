@@ -102,6 +102,53 @@ namespace IGCLWrapper
         private static unsafe ctl_mem_bandwidth_t CreateMemoryBandwidth() => new ctl_mem_bandwidth_t { Size = (uint)sizeof(ctl_mem_bandwidth_t), Version = 0 };
 
         /// <summary>
+        /// Compare memory properties while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left properties struct.</param>
+        /// <param name="right">Right properties struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreMemoryPropertiesEqual(ctl_mem_properties_t left, ctl_mem_properties_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.type == right.type &&
+                   left.location == right.location &&
+                   left.physicalSize == right.physicalSize &&
+                   left.busWidth == right.busWidth &&
+                   left.numChannels == right.numChannels;
+        }
+
+        /// <summary>
+        /// Compare memory state while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left state struct.</param>
+        /// <param name="right">Right state struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreMemoryStatesEqual(ctl_mem_state_t left, ctl_mem_state_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.free == right.free &&
+                   left.size == right.size;
+        }
+
+        /// <summary>
+        /// Compare memory bandwidth while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left bandwidth struct.</param>
+        /// <param name="right">Right bandwidth struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreMemoryBandwidthEqual(ctl_mem_bandwidth_t left, ctl_mem_bandwidth_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.maxBandwidth == right.maxBandwidth &&
+                   left.timestamp == right.timestamp &&
+                   left.readCounter == right.readCounter &&
+                   left.writeCounter == right.writeCounter;
+        }
+
+        /// <summary>
         /// Mark the helper as disposed.
         /// </summary>
         public void Dispose()
@@ -110,3 +157,4 @@ namespace IGCLWrapper
         }
     }
 }
+

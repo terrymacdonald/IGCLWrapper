@@ -85,6 +85,20 @@ namespace IGCLWrapper
         private static unsafe ctl_temp_properties_t CreateTemperatureProperties() => new ctl_temp_properties_t { Size = (uint)sizeof(ctl_temp_properties_t), Version = 0 };
 
         /// <summary>
+        /// Compare temperature properties while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left properties struct.</param>
+        /// <param name="right">Right properties struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreTemperaturePropertiesEqual(ctl_temp_properties_t left, ctl_temp_properties_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.type == right.type &&
+                   left.maxTemperature.Equals(right.maxTemperature);
+        }
+
+        /// <summary>
         /// Mark the helper as disposed.
         /// </summary>
         public void Dispose()
@@ -93,3 +107,4 @@ namespace IGCLWrapper
         }
     }
 }
+

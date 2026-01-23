@@ -1,8 +1,9 @@
-﻿using System;
+using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Net.Mail;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace IGCLWrapper
@@ -219,6 +220,35 @@ namespace IGCLWrapper
         }
 
         /// <summary>
+        /// Compare runtime path arguments while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left runtime path args struct.</param>
+        /// <param name="right">Right runtime path args struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreRuntimePathArgsEqual(ctl_runtime_path_args_t left, ctl_runtime_path_args_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   AreApplicationIdsEqual(left.UnlockID, right.UnlockID) &&
+                   left.DeviceID == right.DeviceID &&
+                   left.RevID == right.RevID;
+        }
+
+        private static bool AreApplicationIdsEqual(ctl_application_id_t left, ctl_application_id_t right)
+        {
+            if (left.Data1 != right.Data1 ||
+                left.Data2 != right.Data2 ||
+                left.Data3 != right.Data3)
+            {
+                return false;
+            }
+
+            var leftSpan = MemoryMarshal.CreateReadOnlySpan(ref left.Data4.e0, 8);
+            var rightSpan = MemoryMarshal.CreateReadOnlySpan(ref right.Data4.e0, 8);
+            return leftSpan.SequenceEqual(rightSpan);
+        }
+
+        /// <summary>
         /// Dispose the helper and release the underlying API handle.
         /// </summary>
         public void Dispose()
@@ -294,6 +324,68 @@ namespace IGCLWrapper
         /// </summary>
         /// <returns>Initialized linked display adapters args struct.</returns>
         public static unsafe ctl_lda_args_t CreateLinkedDisplayAdaptersArgs() => new ctl_lda_args_t { Size = (uint)sizeof(ctl_lda_args_t), Version = 0 };
+
+        /// <summary>
+        /// Compare device adapter properties while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left properties struct.</param>
+        /// <param name="right">Right properties struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreDeviceAdapterPropertiesEqual(ctl_device_adapter_properties_t left, ctl_device_adapter_properties_t right)
+        {
+            return DeviceAdapterPropertiesDto.FromNative(left).Equals(DeviceAdapterPropertiesDto.FromNative(right));
+        }
+
+        /// <summary>
+        /// Compare combined display args while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left args struct.</param>
+        /// <param name="right">Right args struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreCombinedDisplayArgsEqual(ctl_combined_display_args_t left, ctl_combined_display_args_t right)
+        {
+            return CombinedDisplayArgsDto.FromNative(left).Equals(CombinedDisplayArgsDto.FromNative(right));
+        }
+
+        /// <summary>
+        /// Compare genlock args while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left args struct.</param>
+        /// <param name="right">Right args struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreGenlockArgsEqual(ctl_genlock_args_t left, ctl_genlock_args_t right)
+        {
+            return GenlockArgsDto.FromNative(left).Equals(GenlockArgsDto.FromNative(right));
+        }
+
+        /// <summary>
+        /// Compare linked display adapters args while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left args struct.</param>
+        /// <param name="right">Right args struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreLinkedDisplayAdaptersArgsEqual(ctl_lda_args_t left, ctl_lda_args_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.NumAdapters == right.NumAdapters;
+        }
+
+        /// <summary>
+        /// Compare wait property change args while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left args struct.</param>
+        /// <param name="right">Right args struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreWaitPropertyChangeArgsEqual(ctl_wait_property_change_args_t left, ctl_wait_property_change_args_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.PropertyType == right.PropertyType &&
+                   left.TimeOutMilliSec == right.TimeOutMilliSec &&
+                   left.EventMiscFlags == right.EventMiscFlags &&
+                   left.ReservedOutFlags == right.ReservedOutFlags;
+        }
 
         /// <summary>
         /// Get adapter properties.
@@ -1746,4 +1838,5 @@ namespace IGCLWrapper
     }
 
 }
+
 

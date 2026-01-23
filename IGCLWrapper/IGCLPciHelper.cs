@@ -62,6 +62,54 @@ namespace IGCLWrapper
         }
 
         /// <summary>
+        /// Compare PCI properties while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left properties struct.</param>
+        /// <param name="right">Right properties struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool ArePciPropertiesEqual(ctl_pci_properties_t left, ctl_pci_properties_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   ArePciAddressEqual(left.address, right.address) &&
+                   ArePciSpeedEqual(left.maxSpeed, right.maxSpeed) &&
+                   left.resizable_bar_supported == right.resizable_bar_supported &&
+                   left.resizable_bar_enabled == right.resizable_bar_enabled;
+        }
+
+        /// <summary>
+        /// Compare PCI state while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left state struct.</param>
+        /// <param name="right">Right state struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool ArePciStateEqual(ctl_pci_state_t left, ctl_pci_state_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   ArePciSpeedEqual(left.speed, right.speed);
+        }
+
+        private static bool ArePciAddressEqual(ctl_pci_address_t left, ctl_pci_address_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.domain == right.domain &&
+                   left.bus == right.bus &&
+                   left.device == right.device &&
+                   left.function == right.function;
+        }
+
+        private static bool ArePciSpeedEqual(ctl_pci_speed_t left, ctl_pci_speed_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.gen == right.gen &&
+                   left.width == right.width &&
+                   left.maxBandwidth == right.maxBandwidth;
+        }
+
+        /// <summary>
         /// Mark the helper as disposed.
         /// </summary>
         public void Dispose()
@@ -180,3 +228,4 @@ namespace IGCLWrapper
         }
     }
 }
+

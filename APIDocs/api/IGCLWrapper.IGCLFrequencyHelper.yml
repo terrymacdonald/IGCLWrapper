@@ -5,6 +5,10 @@ items:
   id: IGCLFrequencyHelper
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.IGCLFrequencyHelper.AreFrequencyPropertiesEqual(IGCLWrapper.ctl_freq_properties_t,IGCLWrapper.ctl_freq_properties_t)
+  - IGCLWrapper.IGCLFrequencyHelper.AreFrequencyRangeEqual(IGCLWrapper.ctl_freq_range_t,IGCLWrapper.ctl_freq_range_t)
+  - IGCLWrapper.IGCLFrequencyHelper.AreFrequencyStateEqual(IGCLWrapper.ctl_freq_state_t,IGCLWrapper.ctl_freq_state_t)
+  - IGCLWrapper.IGCLFrequencyHelper.AreFrequencyThrottleTimeEqual(IGCLWrapper.ctl_freq_throttle_time_t,IGCLWrapper.ctl_freq_throttle_time_t)
   - IGCLWrapper.IGCLFrequencyHelper.CreateFrequencyRangeStruct
   - IGCLWrapper.IGCLFrequencyHelper.Dispose
   - IGCLWrapper.IGCLFrequencyHelper.EnumFrequencyDomains
@@ -377,6 +381,158 @@ items:
       description: Initialized frequency range struct.
     content.vb: Public Shared Function CreateFrequencyRangeStruct() As ctl_freq_range_t
   overload: IGCLWrapper.IGCLFrequencyHelper.CreateFrequencyRangeStruct*
+- uid: IGCLWrapper.IGCLFrequencyHelper.AreFrequencyPropertiesEqual(IGCLWrapper.ctl_freq_properties_t,IGCLWrapper.ctl_freq_properties_t)
+  commentId: M:IGCLWrapper.IGCLFrequencyHelper.AreFrequencyPropertiesEqual(IGCLWrapper.ctl_freq_properties_t,IGCLWrapper.ctl_freq_properties_t)
+  id: AreFrequencyPropertiesEqual(IGCLWrapper.ctl_freq_properties_t,IGCLWrapper.ctl_freq_properties_t)
+  parent: IGCLWrapper.IGCLFrequencyHelper
+  langs:
+  - csharp
+  - vb
+  name: AreFrequencyPropertiesEqual(ctl_freq_properties_t, ctl_freq_properties_t)
+  nameWithType: IGCLFrequencyHelper.AreFrequencyPropertiesEqual(ctl_freq_properties_t, ctl_freq_properties_t)
+  fullName: IGCLWrapper.IGCLFrequencyHelper.AreFrequencyPropertiesEqual(IGCLWrapper.ctl_freq_properties_t, IGCLWrapper.ctl_freq_properties_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFrequencyHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: AreFrequencyPropertiesEqual
+    path: ../IGCLWrapper/IGCLFrequencyHelper.cs
+    startLine: 178
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare frequency properties while ignoring native-only fields.
+  example: []
+  syntax:
+    content: public static bool AreFrequencyPropertiesEqual(ctl_freq_properties_t left, ctl_freq_properties_t right)
+    parameters:
+    - id: left
+      type: IGCLWrapper.ctl_freq_properties_t
+      description: Left properties struct.
+    - id: right
+      type: IGCLWrapper.ctl_freq_properties_t
+      description: Right properties struct.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Shared Function AreFrequencyPropertiesEqual(left As ctl_freq_properties_t, right As ctl_freq_properties_t) As Boolean
+  overload: IGCLWrapper.IGCLFrequencyHelper.AreFrequencyPropertiesEqual*
+- uid: IGCLWrapper.IGCLFrequencyHelper.AreFrequencyRangeEqual(IGCLWrapper.ctl_freq_range_t,IGCLWrapper.ctl_freq_range_t)
+  commentId: M:IGCLWrapper.IGCLFrequencyHelper.AreFrequencyRangeEqual(IGCLWrapper.ctl_freq_range_t,IGCLWrapper.ctl_freq_range_t)
+  id: AreFrequencyRangeEqual(IGCLWrapper.ctl_freq_range_t,IGCLWrapper.ctl_freq_range_t)
+  parent: IGCLWrapper.IGCLFrequencyHelper
+  langs:
+  - csharp
+  - vb
+  name: AreFrequencyRangeEqual(ctl_freq_range_t, ctl_freq_range_t)
+  nameWithType: IGCLFrequencyHelper.AreFrequencyRangeEqual(ctl_freq_range_t, ctl_freq_range_t)
+  fullName: IGCLWrapper.IGCLFrequencyHelper.AreFrequencyRangeEqual(IGCLWrapper.ctl_freq_range_t, IGCLWrapper.ctl_freq_range_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFrequencyHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: AreFrequencyRangeEqual
+    path: ../IGCLWrapper/IGCLFrequencyHelper.cs
+    startLine: 189
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare frequency ranges while ignoring native-only fields.
+  example: []
+  syntax:
+    content: public static bool AreFrequencyRangeEqual(ctl_freq_range_t left, ctl_freq_range_t right)
+    parameters:
+    - id: left
+      type: IGCLWrapper.ctl_freq_range_t
+      description: Left range struct.
+    - id: right
+      type: IGCLWrapper.ctl_freq_range_t
+      description: Right range struct.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Shared Function AreFrequencyRangeEqual(left As ctl_freq_range_t, right As ctl_freq_range_t) As Boolean
+  overload: IGCLWrapper.IGCLFrequencyHelper.AreFrequencyRangeEqual*
+- uid: IGCLWrapper.IGCLFrequencyHelper.AreFrequencyStateEqual(IGCLWrapper.ctl_freq_state_t,IGCLWrapper.ctl_freq_state_t)
+  commentId: M:IGCLWrapper.IGCLFrequencyHelper.AreFrequencyStateEqual(IGCLWrapper.ctl_freq_state_t,IGCLWrapper.ctl_freq_state_t)
+  id: AreFrequencyStateEqual(IGCLWrapper.ctl_freq_state_t,IGCLWrapper.ctl_freq_state_t)
+  parent: IGCLWrapper.IGCLFrequencyHelper
+  langs:
+  - csharp
+  - vb
+  name: AreFrequencyStateEqual(ctl_freq_state_t, ctl_freq_state_t)
+  nameWithType: IGCLFrequencyHelper.AreFrequencyStateEqual(ctl_freq_state_t, ctl_freq_state_t)
+  fullName: IGCLWrapper.IGCLFrequencyHelper.AreFrequencyStateEqual(IGCLWrapper.ctl_freq_state_t, IGCLWrapper.ctl_freq_state_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFrequencyHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: AreFrequencyStateEqual
+    path: ../IGCLWrapper/IGCLFrequencyHelper.cs
+    startLine: 203
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare frequency state while ignoring native-only fields.
+  example: []
+  syntax:
+    content: public static bool AreFrequencyStateEqual(ctl_freq_state_t left, ctl_freq_state_t right)
+    parameters:
+    - id: left
+      type: IGCLWrapper.ctl_freq_state_t
+      description: Left state struct.
+    - id: right
+      type: IGCLWrapper.ctl_freq_state_t
+      description: Right state struct.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Shared Function AreFrequencyStateEqual(left As ctl_freq_state_t, right As ctl_freq_state_t) As Boolean
+  overload: IGCLWrapper.IGCLFrequencyHelper.AreFrequencyStateEqual*
+- uid: IGCLWrapper.IGCLFrequencyHelper.AreFrequencyThrottleTimeEqual(IGCLWrapper.ctl_freq_throttle_time_t,IGCLWrapper.ctl_freq_throttle_time_t)
+  commentId: M:IGCLWrapper.IGCLFrequencyHelper.AreFrequencyThrottleTimeEqual(IGCLWrapper.ctl_freq_throttle_time_t,IGCLWrapper.ctl_freq_throttle_time_t)
+  id: AreFrequencyThrottleTimeEqual(IGCLWrapper.ctl_freq_throttle_time_t,IGCLWrapper.ctl_freq_throttle_time_t)
+  parent: IGCLWrapper.IGCLFrequencyHelper
+  langs:
+  - csharp
+  - vb
+  name: AreFrequencyThrottleTimeEqual(ctl_freq_throttle_time_t, ctl_freq_throttle_time_t)
+  nameWithType: IGCLFrequencyHelper.AreFrequencyThrottleTimeEqual(ctl_freq_throttle_time_t, ctl_freq_throttle_time_t)
+  fullName: IGCLWrapper.IGCLFrequencyHelper.AreFrequencyThrottleTimeEqual(IGCLWrapper.ctl_freq_throttle_time_t, IGCLWrapper.ctl_freq_throttle_time_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFrequencyHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: AreFrequencyThrottleTimeEqual
+    path: ../IGCLWrapper/IGCLFrequencyHelper.cs
+    startLine: 221
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare frequency throttle times while ignoring native-only fields.
+  example: []
+  syntax:
+    content: public static bool AreFrequencyThrottleTimeEqual(ctl_freq_throttle_time_t left, ctl_freq_throttle_time_t right)
+    parameters:
+    - id: left
+      type: IGCLWrapper.ctl_freq_throttle_time_t
+      description: Left throttle time struct.
+    - id: right
+      type: IGCLWrapper.ctl_freq_throttle_time_t
+      description: Right throttle time struct.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Shared Function AreFrequencyThrottleTimeEqual(left As ctl_freq_throttle_time_t, right As ctl_freq_throttle_time_t) As Boolean
+  overload: IGCLWrapper.IGCLFrequencyHelper.AreFrequencyThrottleTimeEqual*
 - uid: IGCLWrapper.IGCLFrequencyHelper.Dispose
   commentId: M:IGCLWrapper.IGCLFrequencyHelper.Dispose
   id: Dispose
@@ -395,7 +551,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 175
+    startLine: 232
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -858,6 +1014,41 @@ references:
   name: CreateFrequencyRangeStruct
   nameWithType: IGCLFrequencyHelper.CreateFrequencyRangeStruct
   fullName: IGCLWrapper.IGCLFrequencyHelper.CreateFrequencyRangeStruct
+- uid: IGCLWrapper.IGCLFrequencyHelper.AreFrequencyPropertiesEqual*
+  commentId: Overload:IGCLWrapper.IGCLFrequencyHelper.AreFrequencyPropertiesEqual
+  href: IGCLWrapper.IGCLFrequencyHelper.html#IGCLWrapper_IGCLFrequencyHelper_AreFrequencyPropertiesEqual_IGCLWrapper_ctl_freq_properties_t_IGCLWrapper_ctl_freq_properties_t_
+  name: AreFrequencyPropertiesEqual
+  nameWithType: IGCLFrequencyHelper.AreFrequencyPropertiesEqual
+  fullName: IGCLWrapper.IGCLFrequencyHelper.AreFrequencyPropertiesEqual
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: IGCLWrapper.IGCLFrequencyHelper.AreFrequencyRangeEqual*
+  commentId: Overload:IGCLWrapper.IGCLFrequencyHelper.AreFrequencyRangeEqual
+  href: IGCLWrapper.IGCLFrequencyHelper.html#IGCLWrapper_IGCLFrequencyHelper_AreFrequencyRangeEqual_IGCLWrapper_ctl_freq_range_t_IGCLWrapper_ctl_freq_range_t_
+  name: AreFrequencyRangeEqual
+  nameWithType: IGCLFrequencyHelper.AreFrequencyRangeEqual
+  fullName: IGCLWrapper.IGCLFrequencyHelper.AreFrequencyRangeEqual
+- uid: IGCLWrapper.IGCLFrequencyHelper.AreFrequencyStateEqual*
+  commentId: Overload:IGCLWrapper.IGCLFrequencyHelper.AreFrequencyStateEqual
+  href: IGCLWrapper.IGCLFrequencyHelper.html#IGCLWrapper_IGCLFrequencyHelper_AreFrequencyStateEqual_IGCLWrapper_ctl_freq_state_t_IGCLWrapper_ctl_freq_state_t_
+  name: AreFrequencyStateEqual
+  nameWithType: IGCLFrequencyHelper.AreFrequencyStateEqual
+  fullName: IGCLWrapper.IGCLFrequencyHelper.AreFrequencyStateEqual
+- uid: IGCLWrapper.IGCLFrequencyHelper.AreFrequencyThrottleTimeEqual*
+  commentId: Overload:IGCLWrapper.IGCLFrequencyHelper.AreFrequencyThrottleTimeEqual
+  href: IGCLWrapper.IGCLFrequencyHelper.html#IGCLWrapper_IGCLFrequencyHelper_AreFrequencyThrottleTimeEqual_IGCLWrapper_ctl_freq_throttle_time_t_IGCLWrapper_ctl_freq_throttle_time_t_
+  name: AreFrequencyThrottleTimeEqual
+  nameWithType: IGCLFrequencyHelper.AreFrequencyThrottleTimeEqual
+  fullName: IGCLWrapper.IGCLFrequencyHelper.AreFrequencyThrottleTimeEqual
 - uid: IGCLWrapper.IGCLFrequencyHelper.Dispose*
   commentId: Overload:IGCLWrapper.IGCLFrequencyHelper.Dispose
   href: IGCLWrapper.IGCLFrequencyHelper.html#IGCLWrapper_IGCLFrequencyHelper_Dispose

@@ -156,6 +156,174 @@ Class IGCLOverclockHelper  <a class="header-action link-secondary" title="View s
 </h2>
 
 
+  <a id="IGCLWrapper_IGCLOverclockHelper_AreOverclockPropertiesEqual_" data-uid="IGCLWrapper.IGCLOverclockHelper.AreOverclockPropertiesEqual*"></a>
+
+  <h3 id="IGCLWrapper_IGCLOverclockHelper_AreOverclockPropertiesEqual_IGCLWrapper_ctl_oc_properties_t_IGCLWrapper_ctl_oc_properties_t_" data-uid="IGCLWrapper.IGCLOverclockHelper.AreOverclockPropertiesEqual(IGCLWrapper.ctl_oc_properties_t,IGCLWrapper.ctl_oc_properties_t)">
+  AreOverclockPropertiesEqual(ctl_oc_properties_t, ctl_oc_properties_t)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLOverclockHelper.cs/#L544"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compare overclock properties while ignoring native-only fields.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool AreOverclockPropertiesEqual(ctl_oc_properties_t left, ctl_oc_properties_t right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="IGCLWrapper.ctl_oc_properties_t.html">ctl_oc_properties_t</a></dt>
+    <dd><p>Left properties struct.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="IGCLWrapper.ctl_oc_properties_t.html">ctl_oc_properties_t</a></dt>
+    <dd><p>Right properties struct.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_IGCLOverclockHelper_ArePowerTelemetryEqual_" data-uid="IGCLWrapper.IGCLOverclockHelper.ArePowerTelemetryEqual*"></a>
+
+  <h3 id="IGCLWrapper_IGCLOverclockHelper_ArePowerTelemetryEqual_IGCLWrapper_ctl_power_telemetry_t_IGCLWrapper_ctl_power_telemetry_t_" data-uid="IGCLWrapper.IGCLOverclockHelper.ArePowerTelemetryEqual(IGCLWrapper.ctl_power_telemetry_t,IGCLWrapper.ctl_power_telemetry_t)">
+  ArePowerTelemetryEqual(ctl_power_telemetry_t, ctl_power_telemetry_t)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLOverclockHelper.cs/#L569"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compare power telemetry while ignoring native-only fields.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ArePowerTelemetryEqual(ctl_power_telemetry_t left, ctl_power_telemetry_t right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="IGCLWrapper.ctl_power_telemetry_t.html">ctl_power_telemetry_t</a></dt>
+    <dd><p>Left telemetry struct.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="IGCLWrapper.ctl_power_telemetry_t.html">ctl_power_telemetry_t</a></dt>
+    <dd><p>Right telemetry struct.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_IGCLOverclockHelper_AreVfPairEqual_" data-uid="IGCLWrapper.IGCLOverclockHelper.AreVfPairEqual*"></a>
+
+  <h3 id="IGCLWrapper_IGCLOverclockHelper_AreVfPairEqual_IGCLWrapper_ctl_oc_vf_pair_t_IGCLWrapper_ctl_oc_vf_pair_t_" data-uid="IGCLWrapper.IGCLOverclockHelper.AreVfPairEqual(IGCLWrapper.ctl_oc_vf_pair_t,IGCLWrapper.ctl_oc_vf_pair_t)">
+  AreVfPairEqual(ctl_oc_vf_pair_t, ctl_oc_vf_pair_t)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLOverclockHelper.cs/#L555"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compare voltage/frequency pairs while ignoring native-only fields.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool AreVfPairEqual(ctl_oc_vf_pair_t left, ctl_oc_vf_pair_t right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="IGCLWrapper.ctl_oc_vf_pair_t.html">ctl_oc_vf_pair_t</a></dt>
+    <dd><p>Left pair struct.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="IGCLWrapper.ctl_oc_vf_pair_t.html">ctl_oc_vf_pair_t</a></dt>
+    <dd><p>Right pair struct.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_IGCLOverclockHelper_AreVoltageFrequencyPointEqual_" data-uid="IGCLWrapper.IGCLOverclockHelper.AreVoltageFrequencyPointEqual*"></a>
+
+  <h3 id="IGCLWrapper_IGCLOverclockHelper_AreVoltageFrequencyPointEqual_IGCLWrapper_ctl_voltage_frequency_point_t_IGCLWrapper_ctl_voltage_frequency_point_t_" data-uid="IGCLWrapper.IGCLOverclockHelper.AreVoltageFrequencyPointEqual(IGCLWrapper.ctl_voltage_frequency_point_t,IGCLWrapper.ctl_voltage_frequency_point_t)">
+  AreVoltageFrequencyPointEqual(ctl_voltage_frequency_point_t, ctl_voltage_frequency_point_t)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLOverclockHelper.cs/#L580"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compare voltage/frequency points while ignoring native-only fields.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool AreVoltageFrequencyPointEqual(ctl_voltage_frequency_point_t left, ctl_voltage_frequency_point_t right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="IGCLWrapper.ctl_voltage_frequency_point_t.html">ctl_voltage_frequency_point_t</a></dt>
+    <dd><p>Left point struct.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="IGCLWrapper.ctl_voltage_frequency_point_t.html">ctl_voltage_frequency_point_t</a></dt>
+    <dd><p>Right point struct.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="IGCLWrapper_IGCLOverclockHelper_CreateVfPair_" data-uid="IGCLWrapper.IGCLOverclockHelper.CreateVfPair*"></a>
 
   <h3 id="IGCLWrapper_IGCLOverclockHelper_CreateVfPair" data-uid="IGCLWrapper.IGCLOverclockHelper.CreateVfPair">
@@ -193,7 +361,7 @@ Class IGCLOverclockHelper  <a class="header-action link-secondary" title="View s
 
   <h3 id="IGCLWrapper_IGCLOverclockHelper_Dispose" data-uid="IGCLWrapper.IGCLOverclockHelper.Dispose">
   Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLOverclockHelper.cs/#L541"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLOverclockHelper.cs/#L589"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Mark the helper as disposed.</p>

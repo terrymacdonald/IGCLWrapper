@@ -128,6 +128,28 @@ namespace IGCLWrapper
         private static unsafe ctl_firmware_component_properties_t CreateFirmwareComponentProperties() => new ctl_firmware_component_properties_t { Size = (uint)sizeof(ctl_firmware_component_properties_t), Version = 0 };
 
         /// <summary>
+        /// Compare firmware properties while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left properties struct.</param>
+        /// <param name="right">Right properties struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreFirmwarePropertiesEqual(ctl_firmware_properties_t left, ctl_firmware_properties_t right)
+        {
+            return FirmwarePropertiesDto.FromNative(left).Equals(FirmwarePropertiesDto.FromNative(right));
+        }
+
+        /// <summary>
+        /// Compare firmware component properties while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left properties struct.</param>
+        /// <param name="right">Right properties struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreFirmwareComponentPropertiesEqual(ctl_firmware_component_properties_t left, ctl_firmware_component_properties_t right)
+        {
+            return FirmwareComponentPropertiesDto.FromNative(left).Equals(FirmwareComponentPropertiesDto.FromNative(right));
+        }
+
+        /// <summary>
         /// Mark the helper as disposed.
         /// </summary>
         public void Dispose()
@@ -526,3 +548,4 @@ namespace IGCLWrapper
         }
     }
 }
+

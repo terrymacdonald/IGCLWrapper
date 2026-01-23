@@ -75,6 +75,31 @@ namespace IGCLWrapper
                 throw new ObjectDisposedException(nameof(IGCLEccHelper));
         }
 
+        /// <summary>
+        /// Compare ECC properties while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left properties struct.</param>
+        /// <param name="right">Right properties struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreEccPropertiesEqual(ctl_ecc_properties_t left, ctl_ecc_properties_t right)
+        {
+            return EccPropertiesDto.FromNative(left).Equals(EccPropertiesDto.FromNative(right));
+        }
+
+        /// <summary>
+        /// Compare ECC state descriptions while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left state description struct.</param>
+        /// <param name="right">Right state description struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreEccStateDescriptionsEqual(ctl_ecc_state_desc_t left, ctl_ecc_state_desc_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.currentEccState == right.currentEccState &&
+                   left.pendingEccState == right.pendingEccState;
+        }
+
         private static unsafe ctl_ecc_properties_t CreateEccProperties() => new ctl_ecc_properties_t { Size = (uint)sizeof(ctl_ecc_properties_t), Version = 0 };
         private static unsafe ctl_ecc_state_desc_t CreateEccState() => new ctl_ecc_state_desc_t { Size = (uint)sizeof(ctl_ecc_state_desc_t), Version = 0 };
 
@@ -181,3 +206,4 @@ namespace IGCLWrapper
         }
     }
 }
+

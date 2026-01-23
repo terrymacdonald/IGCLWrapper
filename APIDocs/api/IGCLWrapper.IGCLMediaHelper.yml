@@ -5,6 +5,8 @@ items:
   id: IGCLMediaHelper
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.IGCLMediaHelper.AreVideoProcessingFeatureCapsEqual(IGCLWrapper.ctl_video_processing_feature_caps_t,IGCLWrapper.ctl_video_processing_feature_caps_t)
+  - IGCLWrapper.IGCLMediaHelper.AreVideoProcessingFeatureGetSetEqual(IGCLWrapper.ctl_video_processing_feature_getset_t,IGCLWrapper.ctl_video_processing_feature_getset_t)
   - IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureGetSet
   - IGCLWrapper.IGCLMediaHelper.Dispose
   - IGCLWrapper.IGCLMediaHelper.GetSetVideoProcessingFeatureNative(IGCLWrapper.ctl_video_processing_feature_getset_t)
@@ -209,6 +211,82 @@ items:
       description: Initialized video processing feature get/set struct.
     content.vb: Public Shared Function CreateVideoProcessingFeatureGetSet() As ctl_video_processing_feature_getset_t
   overload: IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureGetSet*
+- uid: IGCLWrapper.IGCLMediaHelper.AreVideoProcessingFeatureCapsEqual(IGCLWrapper.ctl_video_processing_feature_caps_t,IGCLWrapper.ctl_video_processing_feature_caps_t)
+  commentId: M:IGCLWrapper.IGCLMediaHelper.AreVideoProcessingFeatureCapsEqual(IGCLWrapper.ctl_video_processing_feature_caps_t,IGCLWrapper.ctl_video_processing_feature_caps_t)
+  id: AreVideoProcessingFeatureCapsEqual(IGCLWrapper.ctl_video_processing_feature_caps_t,IGCLWrapper.ctl_video_processing_feature_caps_t)
+  parent: IGCLWrapper.IGCLMediaHelper
+  langs:
+  - csharp
+  - vb
+  name: AreVideoProcessingFeatureCapsEqual(ctl_video_processing_feature_caps_t, ctl_video_processing_feature_caps_t)
+  nameWithType: IGCLMediaHelper.AreVideoProcessingFeatureCapsEqual(ctl_video_processing_feature_caps_t, ctl_video_processing_feature_caps_t)
+  fullName: IGCLWrapper.IGCLMediaHelper.AreVideoProcessingFeatureCapsEqual(IGCLWrapper.ctl_video_processing_feature_caps_t, IGCLWrapper.ctl_video_processing_feature_caps_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLMediaHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: AreVideoProcessingFeatureCapsEqual
+    path: ../IGCLWrapper/IGCLMediaHelper.cs
+    startLine: 91
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare video processing feature capabilities while ignoring native-only fields.
+  example: []
+  syntax:
+    content: public static bool AreVideoProcessingFeatureCapsEqual(ctl_video_processing_feature_caps_t left, ctl_video_processing_feature_caps_t right)
+    parameters:
+    - id: left
+      type: IGCLWrapper.ctl_video_processing_feature_caps_t
+      description: Left capabilities struct.
+    - id: right
+      type: IGCLWrapper.ctl_video_processing_feature_caps_t
+      description: Right capabilities struct.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Shared Function AreVideoProcessingFeatureCapsEqual(left As ctl_video_processing_feature_caps_t, right As ctl_video_processing_feature_caps_t) As Boolean
+  overload: IGCLWrapper.IGCLMediaHelper.AreVideoProcessingFeatureCapsEqual*
+- uid: IGCLWrapper.IGCLMediaHelper.AreVideoProcessingFeatureGetSetEqual(IGCLWrapper.ctl_video_processing_feature_getset_t,IGCLWrapper.ctl_video_processing_feature_getset_t)
+  commentId: M:IGCLWrapper.IGCLMediaHelper.AreVideoProcessingFeatureGetSetEqual(IGCLWrapper.ctl_video_processing_feature_getset_t,IGCLWrapper.ctl_video_processing_feature_getset_t)
+  id: AreVideoProcessingFeatureGetSetEqual(IGCLWrapper.ctl_video_processing_feature_getset_t,IGCLWrapper.ctl_video_processing_feature_getset_t)
+  parent: IGCLWrapper.IGCLMediaHelper
+  langs:
+  - csharp
+  - vb
+  name: AreVideoProcessingFeatureGetSetEqual(ctl_video_processing_feature_getset_t, ctl_video_processing_feature_getset_t)
+  nameWithType: IGCLMediaHelper.AreVideoProcessingFeatureGetSetEqual(ctl_video_processing_feature_getset_t, ctl_video_processing_feature_getset_t)
+  fullName: IGCLWrapper.IGCLMediaHelper.AreVideoProcessingFeatureGetSetEqual(IGCLWrapper.ctl_video_processing_feature_getset_t, IGCLWrapper.ctl_video_processing_feature_getset_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLMediaHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: AreVideoProcessingFeatureGetSetEqual
+    path: ../IGCLWrapper/IGCLMediaHelper.cs
+    startLine: 104
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare video processing feature get/set data while ignoring native-only fields.
+  example: []
+  syntax:
+    content: public static bool AreVideoProcessingFeatureGetSetEqual(ctl_video_processing_feature_getset_t left, ctl_video_processing_feature_getset_t right)
+    parameters:
+    - id: left
+      type: IGCLWrapper.ctl_video_processing_feature_getset_t
+      description: Left get/set struct.
+    - id: right
+      type: IGCLWrapper.ctl_video_processing_feature_getset_t
+      description: Right get/set struct.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Shared Function AreVideoProcessingFeatureGetSetEqual(left As ctl_video_processing_feature_getset_t, right As ctl_video_processing_feature_getset_t) As Boolean
+  overload: IGCLWrapper.IGCLMediaHelper.AreVideoProcessingFeatureGetSetEqual*
 - uid: IGCLWrapper.IGCLMediaHelper.Dispose
   commentId: M:IGCLWrapper.IGCLMediaHelper.Dispose
   id: Dispose
@@ -227,7 +305,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 88
+    startLine: 112
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -518,6 +596,29 @@ references:
   name: CreateVideoProcessingFeatureGetSet
   nameWithType: IGCLMediaHelper.CreateVideoProcessingFeatureGetSet
   fullName: IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureGetSet
+- uid: IGCLWrapper.IGCLMediaHelper.AreVideoProcessingFeatureCapsEqual*
+  commentId: Overload:IGCLWrapper.IGCLMediaHelper.AreVideoProcessingFeatureCapsEqual
+  href: IGCLWrapper.IGCLMediaHelper.html#IGCLWrapper_IGCLMediaHelper_AreVideoProcessingFeatureCapsEqual_IGCLWrapper_ctl_video_processing_feature_caps_t_IGCLWrapper_ctl_video_processing_feature_caps_t_
+  name: AreVideoProcessingFeatureCapsEqual
+  nameWithType: IGCLMediaHelper.AreVideoProcessingFeatureCapsEqual
+  fullName: IGCLWrapper.IGCLMediaHelper.AreVideoProcessingFeatureCapsEqual
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: IGCLWrapper.IGCLMediaHelper.AreVideoProcessingFeatureGetSetEqual*
+  commentId: Overload:IGCLWrapper.IGCLMediaHelper.AreVideoProcessingFeatureGetSetEqual
+  href: IGCLWrapper.IGCLMediaHelper.html#IGCLWrapper_IGCLMediaHelper_AreVideoProcessingFeatureGetSetEqual_IGCLWrapper_ctl_video_processing_feature_getset_t_IGCLWrapper_ctl_video_processing_feature_getset_t_
+  name: AreVideoProcessingFeatureGetSetEqual
+  nameWithType: IGCLMediaHelper.AreVideoProcessingFeatureGetSetEqual
+  fullName: IGCLWrapper.IGCLMediaHelper.AreVideoProcessingFeatureGetSetEqual
 - uid: IGCLWrapper.IGCLMediaHelper.Dispose*
   commentId: Overload:IGCLWrapper.IGCLMediaHelper.Dispose
   href: IGCLWrapper.IGCLMediaHelper.html#IGCLWrapper_IGCLMediaHelper_Dispose

@@ -84,6 +84,30 @@ namespace IGCLWrapper
         public static unsafe ctl_video_processing_feature_getset_t CreateVideoProcessingFeatureGetSet() => new ctl_video_processing_feature_getset_t { Size = (uint)sizeof(ctl_video_processing_feature_getset_t), Version = 0 };
 
         /// <summary>
+        /// Compare video processing feature capabilities while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left capabilities struct.</param>
+        /// <param name="right">Right capabilities struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreVideoProcessingFeatureCapsEqual(ctl_video_processing_feature_caps_t left, ctl_video_processing_feature_caps_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.NumSupportedFeatures == right.NumSupportedFeatures;
+        }
+
+        /// <summary>
+        /// Compare video processing feature get/set data while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left get/set struct.</param>
+        /// <param name="right">Right get/set struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreVideoProcessingFeatureGetSetEqual(ctl_video_processing_feature_getset_t left, ctl_video_processing_feature_getset_t right)
+        {
+            return VideoProcessingFeatureGetSetDto.FromNative(left).Equals(VideoProcessingFeatureGetSetDto.FromNative(right));
+        }
+
+        /// <summary>
         /// Mark the helper as disposed.
         /// </summary>
         public void Dispose()
@@ -262,3 +286,4 @@ namespace IGCLWrapper
         }
     }
 }
+

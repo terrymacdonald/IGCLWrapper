@@ -89,7 +89,7 @@
 
 
   <h1 id="IGCLWrapper_IGCLAdapterHelper" data-uid="IGCLWrapper.IGCLAdapterHelper" class="text-break">
-Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L261"><i class="bi bi-code-slash"></i></a>
+Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L291"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -160,7 +160,7 @@ Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLAdapterHelper_Name" data-uid="IGCLWrapper.IGCLAdapterHelper.Name">
   Name
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L473"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L565"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Adapter name as a string.</p>
@@ -192,7 +192,7 @@ Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLAdapterHelper_PciVendorId" data-uid="IGCLWrapper.IGCLAdapterHelper.PciVendorId">
   PciVendorId
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L486"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L578"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>PCI vendor identifier as a hexadecimal string.</p>
@@ -224,11 +224,221 @@ Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View sou
 </h2>
 
 
+  <a id="IGCLWrapper_IGCLAdapterHelper_AreCombinedDisplayArgsEqual_" data-uid="IGCLWrapper.IGCLAdapterHelper.AreCombinedDisplayArgsEqual*"></a>
+
+  <h3 id="IGCLWrapper_IGCLAdapterHelper_AreCombinedDisplayArgsEqual_IGCLWrapper_ctl_combined_display_args_t_IGCLWrapper_ctl_combined_display_args_t_" data-uid="IGCLWrapper.IGCLAdapterHelper.AreCombinedDisplayArgsEqual(IGCLWrapper.ctl_combined_display_args_t,IGCLWrapper.ctl_combined_display_args_t)">
+  AreCombinedDisplayArgsEqual(ctl_combined_display_args_t, ctl_combined_display_args_t)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L345"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compare combined display args while ignoring native-only fields.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool AreCombinedDisplayArgsEqual(ctl_combined_display_args_t left, ctl_combined_display_args_t right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="IGCLWrapper.ctl_combined_display_args_t.html">ctl_combined_display_args_t</a></dt>
+    <dd><p>Left args struct.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="IGCLWrapper.ctl_combined_display_args_t.html">ctl_combined_display_args_t</a></dt>
+    <dd><p>Right args struct.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_IGCLAdapterHelper_AreDeviceAdapterPropertiesEqual_" data-uid="IGCLWrapper.IGCLAdapterHelper.AreDeviceAdapterPropertiesEqual*"></a>
+
+  <h3 id="IGCLWrapper_IGCLAdapterHelper_AreDeviceAdapterPropertiesEqual_IGCLWrapper_ctl_device_adapter_properties_t_IGCLWrapper_ctl_device_adapter_properties_t_" data-uid="IGCLWrapper.IGCLAdapterHelper.AreDeviceAdapterPropertiesEqual(IGCLWrapper.ctl_device_adapter_properties_t,IGCLWrapper.ctl_device_adapter_properties_t)">
+  AreDeviceAdapterPropertiesEqual(ctl_device_adapter_properties_t, ctl_device_adapter_properties_t)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L334"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compare device adapter properties while ignoring native-only fields.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool AreDeviceAdapterPropertiesEqual(ctl_device_adapter_properties_t left, ctl_device_adapter_properties_t right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="IGCLWrapper.ctl_device_adapter_properties_t.html">ctl_device_adapter_properties_t</a></dt>
+    <dd><p>Left properties struct.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="IGCLWrapper.ctl_device_adapter_properties_t.html">ctl_device_adapter_properties_t</a></dt>
+    <dd><p>Right properties struct.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_IGCLAdapterHelper_AreGenlockArgsEqual_" data-uid="IGCLWrapper.IGCLAdapterHelper.AreGenlockArgsEqual*"></a>
+
+  <h3 id="IGCLWrapper_IGCLAdapterHelper_AreGenlockArgsEqual_IGCLWrapper_ctl_genlock_args_t_IGCLWrapper_ctl_genlock_args_t_" data-uid="IGCLWrapper.IGCLAdapterHelper.AreGenlockArgsEqual(IGCLWrapper.ctl_genlock_args_t,IGCLWrapper.ctl_genlock_args_t)">
+  AreGenlockArgsEqual(ctl_genlock_args_t, ctl_genlock_args_t)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L356"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compare genlock args while ignoring native-only fields.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool AreGenlockArgsEqual(ctl_genlock_args_t left, ctl_genlock_args_t right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="IGCLWrapper.ctl_genlock_args_t.html">ctl_genlock_args_t</a></dt>
+    <dd><p>Left args struct.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="IGCLWrapper.ctl_genlock_args_t.html">ctl_genlock_args_t</a></dt>
+    <dd><p>Right args struct.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_IGCLAdapterHelper_AreLinkedDisplayAdaptersArgsEqual_" data-uid="IGCLWrapper.IGCLAdapterHelper.AreLinkedDisplayAdaptersArgsEqual*"></a>
+
+  <h3 id="IGCLWrapper_IGCLAdapterHelper_AreLinkedDisplayAdaptersArgsEqual_IGCLWrapper_ctl_lda_args_t_IGCLWrapper_ctl_lda_args_t_" data-uid="IGCLWrapper.IGCLAdapterHelper.AreLinkedDisplayAdaptersArgsEqual(IGCLWrapper.ctl_lda_args_t,IGCLWrapper.ctl_lda_args_t)">
+  AreLinkedDisplayAdaptersArgsEqual(ctl_lda_args_t, ctl_lda_args_t)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L367"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compare linked display adapters args while ignoring native-only fields.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool AreLinkedDisplayAdaptersArgsEqual(ctl_lda_args_t left, ctl_lda_args_t right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="IGCLWrapper.ctl_lda_args_t.html">ctl_lda_args_t</a></dt>
+    <dd><p>Left args struct.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="IGCLWrapper.ctl_lda_args_t.html">ctl_lda_args_t</a></dt>
+    <dd><p>Right args struct.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_IGCLAdapterHelper_AreWaitPropertyChangeArgsEqual_" data-uid="IGCLWrapper.IGCLAdapterHelper.AreWaitPropertyChangeArgsEqual*"></a>
+
+  <h3 id="IGCLWrapper_IGCLAdapterHelper_AreWaitPropertyChangeArgsEqual_IGCLWrapper_ctl_wait_property_change_args_t_IGCLWrapper_ctl_wait_property_change_args_t_" data-uid="IGCLWrapper.IGCLAdapterHelper.AreWaitPropertyChangeArgsEqual(IGCLWrapper.ctl_wait_property_change_args_t,IGCLWrapper.ctl_wait_property_change_args_t)">
+  AreWaitPropertyChangeArgsEqual(ctl_wait_property_change_args_t, ctl_wait_property_change_args_t)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L380"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compare wait property change args while ignoring native-only fields.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool AreWaitPropertyChangeArgsEqual(ctl_wait_property_change_args_t left, ctl_wait_property_change_args_t right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="IGCLWrapper.ctl_wait_property_change_args_t.html">ctl_wait_property_change_args_t</a></dt>
+    <dd><p>Left args struct.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="IGCLWrapper.ctl_wait_property_change_args_t.html">ctl_wait_property_change_args_t</a></dt>
+    <dd><p>Right args struct.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="IGCLWrapper_IGCLAdapterHelper_CreateCombinedDisplayArgs_" data-uid="IGCLWrapper.IGCLAdapterHelper.CreateCombinedDisplayArgs*"></a>
 
   <h3 id="IGCLWrapper_IGCLAdapterHelper_CreateCombinedDisplayArgs" data-uid="IGCLWrapper.IGCLAdapterHelper.CreateCombinedDisplayArgs">
   CreateCombinedDisplayArgs()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L286"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L316"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a combined display args struct with Size and Version initialized.</p>
@@ -261,7 +471,7 @@ Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLAdapterHelper_CreateGenlockArgs" data-uid="IGCLWrapper.IGCLAdapterHelper.CreateGenlockArgs">
   CreateGenlockArgs()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L291"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L321"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a genlock args struct with Size and Version initialized.</p>
@@ -294,7 +504,7 @@ Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLAdapterHelper_CreateLinkedDisplayAdaptersArgs" data-uid="IGCLWrapper.IGCLAdapterHelper.CreateLinkedDisplayAdaptersArgs">
   CreateLinkedDisplayAdaptersArgs()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L296"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L326"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create linked display adapters args with Size and Version initialized.</p>
@@ -327,7 +537,7 @@ Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLAdapterHelper_Dispose" data-uid="IGCLWrapper.IGCLAdapterHelper.Dispose">
   Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L1080"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L1172"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Mark the helper as disposed.</p>
@@ -354,7 +564,7 @@ Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLAdapterHelper_EnumerateDevicesNative" data-uid="IGCLWrapper.IGCLAdapterHelper.EnumerateDevicesNative">
   EnumerateDevicesNative()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L345"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L437"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Enumerate device adapter handles available to this API instance.</p>
@@ -387,7 +597,7 @@ Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLAdapterHelper_EnumerateDisplayOutputs" data-uid="IGCLWrapper.IGCLAdapterHelper.EnumerateDisplayOutputs">
   EnumerateDisplayOutputs()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L458"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L550"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Enumerate displays for this adapter.</p>
@@ -420,7 +630,7 @@ Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLAdapterHelper_EnumerateDisplayOutputsNative" data-uid="IGCLWrapper.IGCLAdapterHelper.EnumerateDisplayOutputsNative">
   EnumerateDisplayOutputsNative()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L369"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L461"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Enumerate display output handles for this adapter.</p>
@@ -453,7 +663,7 @@ Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLAdapterHelper_EnumerateI2CPinPairsNative" data-uid="IGCLWrapper.IGCLAdapterHelper.EnumerateI2CPinPairsNative">
   EnumerateI2CPinPairsNative()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L392"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L484"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Enumerate I2C pin pair handles for this adapter.</p>
@@ -486,7 +696,7 @@ Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLAdapterHelper_GetCombinedDisplay" data-uid="IGCLWrapper.IGCLAdapterHelper.GetCombinedDisplay">
   GetCombinedDisplay()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L576"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L668"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get combined display settings using the provided DTO.</p>
@@ -519,7 +729,7 @@ Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLAdapterHelper_GetDeviceProperties" data-uid="IGCLWrapper.IGCLAdapterHelper.GetDeviceProperties">
   GetDeviceProperties()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L429"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L521"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get device adapter properties for this adapter as a DTO.</p>
@@ -552,7 +762,7 @@ Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLAdapterHelper_GetDevicePropertiesNative" data-uid="IGCLWrapper.IGCLAdapterHelper.GetDevicePropertiesNative">
   GetDevicePropertiesNative()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L415"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L507"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get device adapter properties for this adapter.</p>
@@ -585,7 +795,7 @@ Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLAdapterHelper_GetDisplayGenlock_System_IntPtr___IGCLWrapper_ctl_genlock_operation_t_IGCLWrapper_GenlockArgsDto_System_IntPtr__" data-uid="IGCLWrapper.IGCLAdapterHelper.GetDisplayGenlock(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)">
   GetDisplayGenlock(nint[], ctl_genlock_operation_t, GenlockArgsDto, out nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L973"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L1065"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get display genlock settings using a DTO.</p>
@@ -633,7 +843,7 @@ Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLAdapterHelper_GetLinkedDisplayAdapters" data-uid="IGCLWrapper.IGCLAdapterHelper.GetLinkedDisplayAdapters">
   GetLinkedDisplayAdapters()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L1023"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L1115"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get linked display adapter information.</p>
@@ -666,7 +876,7 @@ Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLAdapterHelper_GetProperties" data-uid="IGCLWrapper.IGCLAdapterHelper.GetProperties">
   GetProperties()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L328"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L420"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get adapter properties as a DTO.</p>
@@ -699,7 +909,7 @@ Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLAdapterHelper_GetPropertiesNative" data-uid="IGCLWrapper.IGCLAdapterHelper.GetPropertiesNative">
   GetPropertiesNative()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L302"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L394"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get adapter properties.</p>
@@ -732,7 +942,7 @@ Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLAdapterHelper_GetSetCombinedDisplayNative_IGCLWrapper_ctl_combined_display_args_t_" data-uid="IGCLWrapper.IGCLAdapterHelper.GetSetCombinedDisplayNative(IGCLWrapper.ctl_combined_display_args_t)">
   GetSetCombinedDisplayNative(ctl_combined_display_args_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L493"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L585"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Call the native get/set combined display API using the provided struct.</p>
@@ -771,7 +981,7 @@ Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLAdapterHelper_GetSetDisplayGenlockNative_System_IntPtr___IGCLWrapper_ctl_genlock_args_t_System_IntPtr__" data-uid="IGCLWrapper.IGCLAdapterHelper.GetSetDisplayGenlockNative(System.IntPtr[],IGCLWrapper.ctl_genlock_args_t,System.IntPtr@)">
   GetSetDisplayGenlockNative(nint[], ctl_genlock_args_t, out nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L945"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L1037"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Call the native get/set display genlock API using the provided struct.</p>
@@ -816,7 +1026,7 @@ Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLAdapterHelper_GetZeDevice" data-uid="IGCLWrapper.IGCLAdapterHelper.GetZeDevice">
   GetZeDevice()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L443"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L535"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get the Level Zero device and instance for this adapter.</p>
@@ -849,7 +1059,7 @@ Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLAdapterHelper_LinkDisplayAdapters_IGCLWrapper_ctl_lda_args_t_" data-uid="IGCLWrapper.IGCLAdapterHelper.LinkDisplayAdapters(IGCLWrapper.ctl_lda_args_t)">
   LinkDisplayAdapters(ctl_lda_args_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L999"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L1091"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Link display adapters using the provided args.</p>
@@ -882,7 +1092,7 @@ Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLAdapterHelper_SetCombinedDisplay_IGCLWrapper_CombinedDisplayArgsDto_" data-uid="IGCLWrapper.IGCLAdapterHelper.SetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)">
   SetCombinedDisplay(CombinedDisplayArgsDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L686"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L778"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Set combined display settings using the provided DTO.</p>
@@ -915,7 +1125,7 @@ Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLAdapterHelper_SetDisplayGenlockNative_System_IntPtr___IGCLWrapper_ctl_genlock_operation_t_IGCLWrapper_GenlockArgsDto_System_IntPtr__" data-uid="IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlockNative(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)">
   SetDisplayGenlockNative(nint[], ctl_genlock_operation_t, GenlockArgsDto, out nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L988"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L1080"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Set display genlock settings using a DTO.</p>
@@ -957,7 +1167,7 @@ Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLAdapterHelper_UnlinkDisplayAdapters" data-uid="IGCLWrapper.IGCLAdapterHelper.UnlinkDisplayAdapters">
   UnlinkDisplayAdapters()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L1011"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L1103"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Unlink previously linked display adapters.</p>
@@ -984,7 +1194,7 @@ Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLAdapterHelper_WaitForPropertyChange_IGCLWrapper_ctl_wait_property_change_args_t_" data-uid="IGCLWrapper.IGCLAdapterHelper.WaitForPropertyChange(IGCLWrapper.ctl_wait_property_change_args_t)">
   WaitForPropertyChange(ctl_wait_property_change_args_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L1054"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L1146"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Wait for a property change event.</p>
@@ -1023,7 +1233,7 @@ Class IGCLAdapterHelper  <a class="header-action link-secondary" title="View sou
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L261" class="edit-link">Edit this page</a>
+          <a href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L291" class="edit-link">Edit this page</a>
         </div>
 
 

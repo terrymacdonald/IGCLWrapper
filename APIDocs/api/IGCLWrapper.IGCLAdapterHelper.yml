@@ -5,6 +5,11 @@ items:
   id: IGCLAdapterHelper
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.IGCLAdapterHelper.AreCombinedDisplayArgsEqual(IGCLWrapper.ctl_combined_display_args_t,IGCLWrapper.ctl_combined_display_args_t)
+  - IGCLWrapper.IGCLAdapterHelper.AreDeviceAdapterPropertiesEqual(IGCLWrapper.ctl_device_adapter_properties_t,IGCLWrapper.ctl_device_adapter_properties_t)
+  - IGCLWrapper.IGCLAdapterHelper.AreGenlockArgsEqual(IGCLWrapper.ctl_genlock_args_t,IGCLWrapper.ctl_genlock_args_t)
+  - IGCLWrapper.IGCLAdapterHelper.AreLinkedDisplayAdaptersArgsEqual(IGCLWrapper.ctl_lda_args_t,IGCLWrapper.ctl_lda_args_t)
+  - IGCLWrapper.IGCLAdapterHelper.AreWaitPropertyChangeArgsEqual(IGCLWrapper.ctl_wait_property_change_args_t,IGCLWrapper.ctl_wait_property_change_args_t)
   - IGCLWrapper.IGCLAdapterHelper.CreateCombinedDisplayArgs
   - IGCLWrapper.IGCLAdapterHelper.CreateGenlockArgs
   - IGCLWrapper.IGCLAdapterHelper.CreateLinkedDisplayAdaptersArgs
@@ -44,7 +49,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IGCLAdapterHelper
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 260
+    startLine: 290
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -82,7 +87,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateCombinedDisplayArgs
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 285
+    startLine: 315
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -113,7 +118,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateGenlockArgs
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 290
+    startLine: 320
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -144,7 +149,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateLinkedDisplayAdaptersArgs
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 295
+    startLine: 325
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -157,6 +162,196 @@ items:
       description: Initialized linked display adapters args struct.
     content.vb: Public Shared Function CreateLinkedDisplayAdaptersArgs() As ctl_lda_args_t
   overload: IGCLWrapper.IGCLAdapterHelper.CreateLinkedDisplayAdaptersArgs*
+- uid: IGCLWrapper.IGCLAdapterHelper.AreDeviceAdapterPropertiesEqual(IGCLWrapper.ctl_device_adapter_properties_t,IGCLWrapper.ctl_device_adapter_properties_t)
+  commentId: M:IGCLWrapper.IGCLAdapterHelper.AreDeviceAdapterPropertiesEqual(IGCLWrapper.ctl_device_adapter_properties_t,IGCLWrapper.ctl_device_adapter_properties_t)
+  id: AreDeviceAdapterPropertiesEqual(IGCLWrapper.ctl_device_adapter_properties_t,IGCLWrapper.ctl_device_adapter_properties_t)
+  parent: IGCLWrapper.IGCLAdapterHelper
+  langs:
+  - csharp
+  - vb
+  name: AreDeviceAdapterPropertiesEqual(ctl_device_adapter_properties_t, ctl_device_adapter_properties_t)
+  nameWithType: IGCLAdapterHelper.AreDeviceAdapterPropertiesEqual(ctl_device_adapter_properties_t, ctl_device_adapter_properties_t)
+  fullName: IGCLWrapper.IGCLAdapterHelper.AreDeviceAdapterPropertiesEqual(IGCLWrapper.ctl_device_adapter_properties_t, IGCLWrapper.ctl_device_adapter_properties_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: AreDeviceAdapterPropertiesEqual
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 333
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare device adapter properties while ignoring native-only fields.
+  example: []
+  syntax:
+    content: public static bool AreDeviceAdapterPropertiesEqual(ctl_device_adapter_properties_t left, ctl_device_adapter_properties_t right)
+    parameters:
+    - id: left
+      type: IGCLWrapper.ctl_device_adapter_properties_t
+      description: Left properties struct.
+    - id: right
+      type: IGCLWrapper.ctl_device_adapter_properties_t
+      description: Right properties struct.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Shared Function AreDeviceAdapterPropertiesEqual(left As ctl_device_adapter_properties_t, right As ctl_device_adapter_properties_t) As Boolean
+  overload: IGCLWrapper.IGCLAdapterHelper.AreDeviceAdapterPropertiesEqual*
+- uid: IGCLWrapper.IGCLAdapterHelper.AreCombinedDisplayArgsEqual(IGCLWrapper.ctl_combined_display_args_t,IGCLWrapper.ctl_combined_display_args_t)
+  commentId: M:IGCLWrapper.IGCLAdapterHelper.AreCombinedDisplayArgsEqual(IGCLWrapper.ctl_combined_display_args_t,IGCLWrapper.ctl_combined_display_args_t)
+  id: AreCombinedDisplayArgsEqual(IGCLWrapper.ctl_combined_display_args_t,IGCLWrapper.ctl_combined_display_args_t)
+  parent: IGCLWrapper.IGCLAdapterHelper
+  langs:
+  - csharp
+  - vb
+  name: AreCombinedDisplayArgsEqual(ctl_combined_display_args_t, ctl_combined_display_args_t)
+  nameWithType: IGCLAdapterHelper.AreCombinedDisplayArgsEqual(ctl_combined_display_args_t, ctl_combined_display_args_t)
+  fullName: IGCLWrapper.IGCLAdapterHelper.AreCombinedDisplayArgsEqual(IGCLWrapper.ctl_combined_display_args_t, IGCLWrapper.ctl_combined_display_args_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: AreCombinedDisplayArgsEqual
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 344
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare combined display args while ignoring native-only fields.
+  example: []
+  syntax:
+    content: public static bool AreCombinedDisplayArgsEqual(ctl_combined_display_args_t left, ctl_combined_display_args_t right)
+    parameters:
+    - id: left
+      type: IGCLWrapper.ctl_combined_display_args_t
+      description: Left args struct.
+    - id: right
+      type: IGCLWrapper.ctl_combined_display_args_t
+      description: Right args struct.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Shared Function AreCombinedDisplayArgsEqual(left As ctl_combined_display_args_t, right As ctl_combined_display_args_t) As Boolean
+  overload: IGCLWrapper.IGCLAdapterHelper.AreCombinedDisplayArgsEqual*
+- uid: IGCLWrapper.IGCLAdapterHelper.AreGenlockArgsEqual(IGCLWrapper.ctl_genlock_args_t,IGCLWrapper.ctl_genlock_args_t)
+  commentId: M:IGCLWrapper.IGCLAdapterHelper.AreGenlockArgsEqual(IGCLWrapper.ctl_genlock_args_t,IGCLWrapper.ctl_genlock_args_t)
+  id: AreGenlockArgsEqual(IGCLWrapper.ctl_genlock_args_t,IGCLWrapper.ctl_genlock_args_t)
+  parent: IGCLWrapper.IGCLAdapterHelper
+  langs:
+  - csharp
+  - vb
+  name: AreGenlockArgsEqual(ctl_genlock_args_t, ctl_genlock_args_t)
+  nameWithType: IGCLAdapterHelper.AreGenlockArgsEqual(ctl_genlock_args_t, ctl_genlock_args_t)
+  fullName: IGCLWrapper.IGCLAdapterHelper.AreGenlockArgsEqual(IGCLWrapper.ctl_genlock_args_t, IGCLWrapper.ctl_genlock_args_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: AreGenlockArgsEqual
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 355
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare genlock args while ignoring native-only fields.
+  example: []
+  syntax:
+    content: public static bool AreGenlockArgsEqual(ctl_genlock_args_t left, ctl_genlock_args_t right)
+    parameters:
+    - id: left
+      type: IGCLWrapper.ctl_genlock_args_t
+      description: Left args struct.
+    - id: right
+      type: IGCLWrapper.ctl_genlock_args_t
+      description: Right args struct.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Shared Function AreGenlockArgsEqual(left As ctl_genlock_args_t, right As ctl_genlock_args_t) As Boolean
+  overload: IGCLWrapper.IGCLAdapterHelper.AreGenlockArgsEqual*
+- uid: IGCLWrapper.IGCLAdapterHelper.AreLinkedDisplayAdaptersArgsEqual(IGCLWrapper.ctl_lda_args_t,IGCLWrapper.ctl_lda_args_t)
+  commentId: M:IGCLWrapper.IGCLAdapterHelper.AreLinkedDisplayAdaptersArgsEqual(IGCLWrapper.ctl_lda_args_t,IGCLWrapper.ctl_lda_args_t)
+  id: AreLinkedDisplayAdaptersArgsEqual(IGCLWrapper.ctl_lda_args_t,IGCLWrapper.ctl_lda_args_t)
+  parent: IGCLWrapper.IGCLAdapterHelper
+  langs:
+  - csharp
+  - vb
+  name: AreLinkedDisplayAdaptersArgsEqual(ctl_lda_args_t, ctl_lda_args_t)
+  nameWithType: IGCLAdapterHelper.AreLinkedDisplayAdaptersArgsEqual(ctl_lda_args_t, ctl_lda_args_t)
+  fullName: IGCLWrapper.IGCLAdapterHelper.AreLinkedDisplayAdaptersArgsEqual(IGCLWrapper.ctl_lda_args_t, IGCLWrapper.ctl_lda_args_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: AreLinkedDisplayAdaptersArgsEqual
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 366
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare linked display adapters args while ignoring native-only fields.
+  example: []
+  syntax:
+    content: public static bool AreLinkedDisplayAdaptersArgsEqual(ctl_lda_args_t left, ctl_lda_args_t right)
+    parameters:
+    - id: left
+      type: IGCLWrapper.ctl_lda_args_t
+      description: Left args struct.
+    - id: right
+      type: IGCLWrapper.ctl_lda_args_t
+      description: Right args struct.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Shared Function AreLinkedDisplayAdaptersArgsEqual(left As ctl_lda_args_t, right As ctl_lda_args_t) As Boolean
+  overload: IGCLWrapper.IGCLAdapterHelper.AreLinkedDisplayAdaptersArgsEqual*
+- uid: IGCLWrapper.IGCLAdapterHelper.AreWaitPropertyChangeArgsEqual(IGCLWrapper.ctl_wait_property_change_args_t,IGCLWrapper.ctl_wait_property_change_args_t)
+  commentId: M:IGCLWrapper.IGCLAdapterHelper.AreWaitPropertyChangeArgsEqual(IGCLWrapper.ctl_wait_property_change_args_t,IGCLWrapper.ctl_wait_property_change_args_t)
+  id: AreWaitPropertyChangeArgsEqual(IGCLWrapper.ctl_wait_property_change_args_t,IGCLWrapper.ctl_wait_property_change_args_t)
+  parent: IGCLWrapper.IGCLAdapterHelper
+  langs:
+  - csharp
+  - vb
+  name: AreWaitPropertyChangeArgsEqual(ctl_wait_property_change_args_t, ctl_wait_property_change_args_t)
+  nameWithType: IGCLAdapterHelper.AreWaitPropertyChangeArgsEqual(ctl_wait_property_change_args_t, ctl_wait_property_change_args_t)
+  fullName: IGCLWrapper.IGCLAdapterHelper.AreWaitPropertyChangeArgsEqual(IGCLWrapper.ctl_wait_property_change_args_t, IGCLWrapper.ctl_wait_property_change_args_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: AreWaitPropertyChangeArgsEqual
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 379
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare wait property change args while ignoring native-only fields.
+  example: []
+  syntax:
+    content: public static bool AreWaitPropertyChangeArgsEqual(ctl_wait_property_change_args_t left, ctl_wait_property_change_args_t right)
+    parameters:
+    - id: left
+      type: IGCLWrapper.ctl_wait_property_change_args_t
+      description: Left args struct.
+    - id: right
+      type: IGCLWrapper.ctl_wait_property_change_args_t
+      description: Right args struct.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Shared Function AreWaitPropertyChangeArgsEqual(left As ctl_wait_property_change_args_t, right As ctl_wait_property_change_args_t) As Boolean
+  overload: IGCLWrapper.IGCLAdapterHelper.AreWaitPropertyChangeArgsEqual*
 - uid: IGCLWrapper.IGCLAdapterHelper.GetPropertiesNative
   commentId: M:IGCLWrapper.IGCLAdapterHelper.GetPropertiesNative
   id: GetPropertiesNative
@@ -175,7 +370,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetPropertiesNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 301
+    startLine: 393
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -206,7 +401,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetProperties
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 327
+    startLine: 419
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -237,7 +432,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumerateDevicesNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 344
+    startLine: 436
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -268,7 +463,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumerateDisplayOutputsNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 368
+    startLine: 460
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -299,7 +494,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumerateI2CPinPairsNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 391
+    startLine: 483
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -330,7 +525,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetDevicePropertiesNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 414
+    startLine: 506
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -361,7 +556,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetDeviceProperties
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 428
+    startLine: 520
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -392,7 +587,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetZeDevice
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 442
+    startLine: 534
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -423,7 +618,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumerateDisplayOutputs
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 457
+    startLine: 549
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -454,7 +649,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Name
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 472
+    startLine: 564
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -485,7 +680,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PciVendorId
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 485
+    startLine: 577
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -516,7 +711,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSetCombinedDisplayNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 492
+    startLine: 584
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -551,7 +746,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetCombinedDisplay
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 575
+    startLine: 667
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -582,7 +777,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetCombinedDisplay
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 685
+    startLine: 777
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -614,7 +809,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSetDisplayGenlockNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 944
+    startLine: 1036
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -658,7 +853,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetDisplayGenlock
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 972
+    startLine: 1064
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -705,7 +900,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetDisplayGenlockNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 987
+    startLine: 1079
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -749,7 +944,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LinkDisplayAdapters
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 998
+    startLine: 1090
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -781,7 +976,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: UnlinkDisplayAdapters
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1010
+    startLine: 1102
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -809,7 +1004,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetLinkedDisplayAdapters
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1022
+    startLine: 1114
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -840,7 +1035,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: WaitForPropertyChange
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1053
+    startLine: 1145
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -875,7 +1070,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1079
+    startLine: 1171
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1154,12 +1349,12 @@ references:
   name: ctl_lda_args_t
   nameWithType: ctl_lda_args_t
   fullName: IGCLWrapper.ctl_lda_args_t
-- uid: IGCLWrapper.IGCLAdapterHelper.GetPropertiesNative*
-  commentId: Overload:IGCLWrapper.IGCLAdapterHelper.GetPropertiesNative
-  href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_GetPropertiesNative
-  name: GetPropertiesNative
-  nameWithType: IGCLAdapterHelper.GetPropertiesNative
-  fullName: IGCLWrapper.IGCLAdapterHelper.GetPropertiesNative
+- uid: IGCLWrapper.IGCLAdapterHelper.AreDeviceAdapterPropertiesEqual*
+  commentId: Overload:IGCLWrapper.IGCLAdapterHelper.AreDeviceAdapterPropertiesEqual
+  href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_AreDeviceAdapterPropertiesEqual_IGCLWrapper_ctl_device_adapter_properties_t_IGCLWrapper_ctl_device_adapter_properties_t_
+  name: AreDeviceAdapterPropertiesEqual
+  nameWithType: IGCLAdapterHelper.AreDeviceAdapterPropertiesEqual
+  fullName: IGCLWrapper.IGCLAdapterHelper.AreDeviceAdapterPropertiesEqual
 - uid: IGCLWrapper.ctl_device_adapter_properties_t
   commentId: T:IGCLWrapper.ctl_device_adapter_properties_t
   parent: IGCLWrapper
@@ -1167,6 +1362,54 @@ references:
   name: ctl_device_adapter_properties_t
   nameWithType: ctl_device_adapter_properties_t
   fullName: IGCLWrapper.ctl_device_adapter_properties_t
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: IGCLWrapper.IGCLAdapterHelper.AreCombinedDisplayArgsEqual*
+  commentId: Overload:IGCLWrapper.IGCLAdapterHelper.AreCombinedDisplayArgsEqual
+  href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_AreCombinedDisplayArgsEqual_IGCLWrapper_ctl_combined_display_args_t_IGCLWrapper_ctl_combined_display_args_t_
+  name: AreCombinedDisplayArgsEqual
+  nameWithType: IGCLAdapterHelper.AreCombinedDisplayArgsEqual
+  fullName: IGCLWrapper.IGCLAdapterHelper.AreCombinedDisplayArgsEqual
+- uid: IGCLWrapper.IGCLAdapterHelper.AreGenlockArgsEqual*
+  commentId: Overload:IGCLWrapper.IGCLAdapterHelper.AreGenlockArgsEqual
+  href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_AreGenlockArgsEqual_IGCLWrapper_ctl_genlock_args_t_IGCLWrapper_ctl_genlock_args_t_
+  name: AreGenlockArgsEqual
+  nameWithType: IGCLAdapterHelper.AreGenlockArgsEqual
+  fullName: IGCLWrapper.IGCLAdapterHelper.AreGenlockArgsEqual
+- uid: IGCLWrapper.IGCLAdapterHelper.AreLinkedDisplayAdaptersArgsEqual*
+  commentId: Overload:IGCLWrapper.IGCLAdapterHelper.AreLinkedDisplayAdaptersArgsEqual
+  href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_AreLinkedDisplayAdaptersArgsEqual_IGCLWrapper_ctl_lda_args_t_IGCLWrapper_ctl_lda_args_t_
+  name: AreLinkedDisplayAdaptersArgsEqual
+  nameWithType: IGCLAdapterHelper.AreLinkedDisplayAdaptersArgsEqual
+  fullName: IGCLWrapper.IGCLAdapterHelper.AreLinkedDisplayAdaptersArgsEqual
+- uid: IGCLWrapper.IGCLAdapterHelper.AreWaitPropertyChangeArgsEqual*
+  commentId: Overload:IGCLWrapper.IGCLAdapterHelper.AreWaitPropertyChangeArgsEqual
+  href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_AreWaitPropertyChangeArgsEqual_IGCLWrapper_ctl_wait_property_change_args_t_IGCLWrapper_ctl_wait_property_change_args_t_
+  name: AreWaitPropertyChangeArgsEqual
+  nameWithType: IGCLAdapterHelper.AreWaitPropertyChangeArgsEqual
+  fullName: IGCLWrapper.IGCLAdapterHelper.AreWaitPropertyChangeArgsEqual
+- uid: IGCLWrapper.ctl_wait_property_change_args_t
+  commentId: T:IGCLWrapper.ctl_wait_property_change_args_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_wait_property_change_args_t.html
+  name: ctl_wait_property_change_args_t
+  nameWithType: ctl_wait_property_change_args_t
+  fullName: IGCLWrapper.ctl_wait_property_change_args_t
+- uid: IGCLWrapper.IGCLAdapterHelper.GetPropertiesNative*
+  commentId: Overload:IGCLWrapper.IGCLAdapterHelper.GetPropertiesNative
+  href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_GetPropertiesNative
+  name: GetPropertiesNative
+  nameWithType: IGCLAdapterHelper.GetPropertiesNative
+  fullName: IGCLWrapper.IGCLAdapterHelper.GetPropertiesNative
 - uid: IGCLWrapper.IGCLAdapterHelper.GetProperties*
   commentId: Overload:IGCLWrapper.IGCLAdapterHelper.GetProperties
   href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_GetProperties
@@ -1593,13 +1836,6 @@ references:
   name: WaitForPropertyChange
   nameWithType: IGCLAdapterHelper.WaitForPropertyChange
   fullName: IGCLWrapper.IGCLAdapterHelper.WaitForPropertyChange
-- uid: IGCLWrapper.ctl_wait_property_change_args_t
-  commentId: T:IGCLWrapper.ctl_wait_property_change_args_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_wait_property_change_args_t.html
-  name: ctl_wait_property_change_args_t
-  nameWithType: ctl_wait_property_change_args_t
-  fullName: IGCLWrapper.ctl_wait_property_change_args_t
 - uid: IGCLWrapper.IGCLAdapterHelper.Dispose*
   commentId: Overload:IGCLWrapper.IGCLAdapterHelper.Dispose
   href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_Dispose

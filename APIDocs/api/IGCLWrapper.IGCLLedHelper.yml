@@ -5,6 +5,8 @@ items:
   id: IGCLLedHelper
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.IGCLLedHelper.AreLedPropertiesEqual(IGCLWrapper.ctl_led_properties_t,IGCLWrapper.ctl_led_properties_t)
+  - IGCLWrapper.IGCLLedHelper.AreLedStateEqual(IGCLWrapper.ctl_led_state_t,IGCLWrapper.ctl_led_state_t)
   - IGCLWrapper.IGCLLedHelper.CreateLedStateStruct
   - IGCLWrapper.IGCLLedHelper.Dispose
   - IGCLWrapper.IGCLLedHelper.EnumLeds
@@ -338,6 +340,82 @@ items:
       description: Initialized LED state struct.
     content.vb: Public Shared Function CreateLedStateStruct() As ctl_led_state_t
   overload: IGCLWrapper.IGCLLedHelper.CreateLedStateStruct*
+- uid: IGCLWrapper.IGCLLedHelper.AreLedPropertiesEqual(IGCLWrapper.ctl_led_properties_t,IGCLWrapper.ctl_led_properties_t)
+  commentId: M:IGCLWrapper.IGCLLedHelper.AreLedPropertiesEqual(IGCLWrapper.ctl_led_properties_t,IGCLWrapper.ctl_led_properties_t)
+  id: AreLedPropertiesEqual(IGCLWrapper.ctl_led_properties_t,IGCLWrapper.ctl_led_properties_t)
+  parent: IGCLWrapper.IGCLLedHelper
+  langs:
+  - csharp
+  - vb
+  name: AreLedPropertiesEqual(ctl_led_properties_t, ctl_led_properties_t)
+  nameWithType: IGCLLedHelper.AreLedPropertiesEqual(ctl_led_properties_t, ctl_led_properties_t)
+  fullName: IGCLWrapper.IGCLLedHelper.AreLedPropertiesEqual(IGCLWrapper.ctl_led_properties_t, IGCLWrapper.ctl_led_properties_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLLedHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: AreLedPropertiesEqual
+    path: ../IGCLWrapper/IGCLLedHelper.cs
+    startLine: 143
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare LED properties while ignoring native-only fields.
+  example: []
+  syntax:
+    content: public static bool AreLedPropertiesEqual(ctl_led_properties_t left, ctl_led_properties_t right)
+    parameters:
+    - id: left
+      type: IGCLWrapper.ctl_led_properties_t
+      description: Left properties struct.
+    - id: right
+      type: IGCLWrapper.ctl_led_properties_t
+      description: Right properties struct.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Shared Function AreLedPropertiesEqual(left As ctl_led_properties_t, right As ctl_led_properties_t) As Boolean
+  overload: IGCLWrapper.IGCLLedHelper.AreLedPropertiesEqual*
+- uid: IGCLWrapper.IGCLLedHelper.AreLedStateEqual(IGCLWrapper.ctl_led_state_t,IGCLWrapper.ctl_led_state_t)
+  commentId: M:IGCLWrapper.IGCLLedHelper.AreLedStateEqual(IGCLWrapper.ctl_led_state_t,IGCLWrapper.ctl_led_state_t)
+  id: AreLedStateEqual(IGCLWrapper.ctl_led_state_t,IGCLWrapper.ctl_led_state_t)
+  parent: IGCLWrapper.IGCLLedHelper
+  langs:
+  - csharp
+  - vb
+  name: AreLedStateEqual(ctl_led_state_t, ctl_led_state_t)
+  nameWithType: IGCLLedHelper.AreLedStateEqual(ctl_led_state_t, ctl_led_state_t)
+  fullName: IGCLWrapper.IGCLLedHelper.AreLedStateEqual(IGCLWrapper.ctl_led_state_t, IGCLWrapper.ctl_led_state_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLLedHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: AreLedStateEqual
+    path: ../IGCLWrapper/IGCLLedHelper.cs
+    startLine: 154
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare LED state while ignoring native-only fields.
+  example: []
+  syntax:
+    content: public static bool AreLedStateEqual(ctl_led_state_t left, ctl_led_state_t right)
+    parameters:
+    - id: left
+      type: IGCLWrapper.ctl_led_state_t
+      description: Left state struct.
+    - id: right
+      type: IGCLWrapper.ctl_led_state_t
+      description: Right state struct.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Shared Function AreLedStateEqual(left As ctl_led_state_t, right As ctl_led_state_t) As Boolean
+  overload: IGCLWrapper.IGCLLedHelper.AreLedStateEqual*
 - uid: IGCLWrapper.IGCLLedHelper.Dispose
   commentId: M:IGCLWrapper.IGCLLedHelper.Dispose
   id: Dispose
@@ -356,7 +434,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 140
+    startLine: 162
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -783,6 +861,29 @@ references:
   name: CreateLedStateStruct
   nameWithType: IGCLLedHelper.CreateLedStateStruct
   fullName: IGCLWrapper.IGCLLedHelper.CreateLedStateStruct
+- uid: IGCLWrapper.IGCLLedHelper.AreLedPropertiesEqual*
+  commentId: Overload:IGCLWrapper.IGCLLedHelper.AreLedPropertiesEqual
+  href: IGCLWrapper.IGCLLedHelper.html#IGCLWrapper_IGCLLedHelper_AreLedPropertiesEqual_IGCLWrapper_ctl_led_properties_t_IGCLWrapper_ctl_led_properties_t_
+  name: AreLedPropertiesEqual
+  nameWithType: IGCLLedHelper.AreLedPropertiesEqual
+  fullName: IGCLWrapper.IGCLLedHelper.AreLedPropertiesEqual
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: IGCLWrapper.IGCLLedHelper.AreLedStateEqual*
+  commentId: Overload:IGCLWrapper.IGCLLedHelper.AreLedStateEqual
+  href: IGCLWrapper.IGCLLedHelper.html#IGCLWrapper_IGCLLedHelper_AreLedStateEqual_IGCLWrapper_ctl_led_state_t_IGCLWrapper_ctl_led_state_t_
+  name: AreLedStateEqual
+  nameWithType: IGCLLedHelper.AreLedStateEqual
+  fullName: IGCLWrapper.IGCLLedHelper.AreLedStateEqual
 - uid: IGCLWrapper.IGCLLedHelper.Dispose*
   commentId: Overload:IGCLWrapper.IGCLLedHelper.Dispose
   href: IGCLWrapper.IGCLLedHelper.html#IGCLWrapper_IGCLLedHelper_Dispose

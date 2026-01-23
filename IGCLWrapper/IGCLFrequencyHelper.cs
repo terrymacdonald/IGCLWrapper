@@ -171,6 +171,63 @@ namespace IGCLWrapper
         public static unsafe ctl_freq_range_t CreateFrequencyRangeStruct() => CreateFrequencyRange();
 
         /// <summary>
+        /// Compare frequency properties while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left properties struct.</param>
+        /// <param name="right">Right properties struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreFrequencyPropertiesEqual(ctl_freq_properties_t left, ctl_freq_properties_t right)
+        {
+            return FrequencyPropertiesDto.FromNative(left).Equals(FrequencyPropertiesDto.FromNative(right));
+        }
+
+        /// <summary>
+        /// Compare frequency ranges while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left range struct.</param>
+        /// <param name="right">Right range struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreFrequencyRangeEqual(ctl_freq_range_t left, ctl_freq_range_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.min.Equals(right.min) &&
+                   left.max.Equals(right.max);
+        }
+
+        /// <summary>
+        /// Compare frequency state while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left state struct.</param>
+        /// <param name="right">Right state struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreFrequencyStateEqual(ctl_freq_state_t left, ctl_freq_state_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.currentVoltage.Equals(right.currentVoltage) &&
+                   left.request.Equals(right.request) &&
+                   left.tdp.Equals(right.tdp) &&
+                   left.efficient.Equals(right.efficient) &&
+                   left.actual.Equals(right.actual) &&
+                   left.throttleReasons == right.throttleReasons;
+        }
+
+        /// <summary>
+        /// Compare frequency throttle times while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left throttle time struct.</param>
+        /// <param name="right">Right throttle time struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreFrequencyThrottleTimeEqual(ctl_freq_throttle_time_t left, ctl_freq_throttle_time_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.throttleTime == right.throttleTime &&
+                   left.timestamp == right.timestamp;
+        }
+
+        /// <summary>
         /// Mark the helper as disposed.
         /// </summary>
         public void Dispose()
@@ -289,3 +346,4 @@ namespace IGCLWrapper
         }
     }
 }
+

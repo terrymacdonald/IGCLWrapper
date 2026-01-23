@@ -86,6 +86,33 @@ namespace IGCLWrapper
         private static unsafe ctl_engine_stats_t CreateEngineStats() => new ctl_engine_stats_t { Size = (uint)sizeof(ctl_engine_stats_t), Version = 0 };
 
         /// <summary>
+        /// Compare engine properties while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left properties struct.</param>
+        /// <param name="right">Right properties struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreEnginePropertiesEqual(ctl_engine_properties_t left, ctl_engine_properties_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.type == right.type;
+        }
+
+        /// <summary>
+        /// Compare engine statistics while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left statistics struct.</param>
+        /// <param name="right">Right statistics struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreEngineStatsEqual(ctl_engine_stats_t left, ctl_engine_stats_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.activeTime == right.activeTime &&
+                   left.timestamp == right.timestamp;
+        }
+
+        /// <summary>
         /// Mark the helper as disposed.
         /// </summary>
         public void Dispose()
@@ -94,3 +121,4 @@ namespace IGCLWrapper
         }
     }
 }
+

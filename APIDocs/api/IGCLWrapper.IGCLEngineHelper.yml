@@ -5,6 +5,8 @@ items:
   id: IGCLEngineHelper
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.IGCLEngineHelper.AreEnginePropertiesEqual(IGCLWrapper.ctl_engine_properties_t,IGCLWrapper.ctl_engine_properties_t)
+  - IGCLWrapper.IGCLEngineHelper.AreEngineStatsEqual(IGCLWrapper.ctl_engine_stats_t,IGCLWrapper.ctl_engine_stats_t)
   - IGCLWrapper.IGCLEngineHelper.Dispose
   - IGCLWrapper.IGCLEngineHelper.EngineGetActivity(System.IntPtr)
   - IGCLWrapper.IGCLEngineHelper.EngineGetProperties(System.IntPtr)
@@ -150,6 +152,82 @@ items:
   nameWithType.vb: IGCLEngineHelper.EngineGetActivity(IntPtr)
   fullName.vb: IGCLWrapper.IGCLEngineHelper.EngineGetActivity(System.IntPtr)
   name.vb: EngineGetActivity(IntPtr)
+- uid: IGCLWrapper.IGCLEngineHelper.AreEnginePropertiesEqual(IGCLWrapper.ctl_engine_properties_t,IGCLWrapper.ctl_engine_properties_t)
+  commentId: M:IGCLWrapper.IGCLEngineHelper.AreEnginePropertiesEqual(IGCLWrapper.ctl_engine_properties_t,IGCLWrapper.ctl_engine_properties_t)
+  id: AreEnginePropertiesEqual(IGCLWrapper.ctl_engine_properties_t,IGCLWrapper.ctl_engine_properties_t)
+  parent: IGCLWrapper.IGCLEngineHelper
+  langs:
+  - csharp
+  - vb
+  name: AreEnginePropertiesEqual(ctl_engine_properties_t, ctl_engine_properties_t)
+  nameWithType: IGCLEngineHelper.AreEnginePropertiesEqual(ctl_engine_properties_t, ctl_engine_properties_t)
+  fullName: IGCLWrapper.IGCLEngineHelper.AreEnginePropertiesEqual(IGCLWrapper.ctl_engine_properties_t, IGCLWrapper.ctl_engine_properties_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLEngineHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: AreEnginePropertiesEqual
+    path: ../IGCLWrapper/IGCLEngineHelper.cs
+    startLine: 93
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare engine properties while ignoring native-only fields.
+  example: []
+  syntax:
+    content: public static bool AreEnginePropertiesEqual(ctl_engine_properties_t left, ctl_engine_properties_t right)
+    parameters:
+    - id: left
+      type: IGCLWrapper.ctl_engine_properties_t
+      description: Left properties struct.
+    - id: right
+      type: IGCLWrapper.ctl_engine_properties_t
+      description: Right properties struct.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Shared Function AreEnginePropertiesEqual(left As ctl_engine_properties_t, right As ctl_engine_properties_t) As Boolean
+  overload: IGCLWrapper.IGCLEngineHelper.AreEnginePropertiesEqual*
+- uid: IGCLWrapper.IGCLEngineHelper.AreEngineStatsEqual(IGCLWrapper.ctl_engine_stats_t,IGCLWrapper.ctl_engine_stats_t)
+  commentId: M:IGCLWrapper.IGCLEngineHelper.AreEngineStatsEqual(IGCLWrapper.ctl_engine_stats_t,IGCLWrapper.ctl_engine_stats_t)
+  id: AreEngineStatsEqual(IGCLWrapper.ctl_engine_stats_t,IGCLWrapper.ctl_engine_stats_t)
+  parent: IGCLWrapper.IGCLEngineHelper
+  langs:
+  - csharp
+  - vb
+  name: AreEngineStatsEqual(ctl_engine_stats_t, ctl_engine_stats_t)
+  nameWithType: IGCLEngineHelper.AreEngineStatsEqual(ctl_engine_stats_t, ctl_engine_stats_t)
+  fullName: IGCLWrapper.IGCLEngineHelper.AreEngineStatsEqual(IGCLWrapper.ctl_engine_stats_t, IGCLWrapper.ctl_engine_stats_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLEngineHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: AreEngineStatsEqual
+    path: ../IGCLWrapper/IGCLEngineHelper.cs
+    startLine: 106
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare engine statistics while ignoring native-only fields.
+  example: []
+  syntax:
+    content: public static bool AreEngineStatsEqual(ctl_engine_stats_t left, ctl_engine_stats_t right)
+    parameters:
+    - id: left
+      type: IGCLWrapper.ctl_engine_stats_t
+      description: Left statistics struct.
+    - id: right
+      type: IGCLWrapper.ctl_engine_stats_t
+      description: Right statistics struct.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Shared Function AreEngineStatsEqual(left As ctl_engine_stats_t, right As ctl_engine_stats_t) As Boolean
+  overload: IGCLWrapper.IGCLEngineHelper.AreEngineStatsEqual*
 - uid: IGCLWrapper.IGCLEngineHelper.Dispose
   commentId: M:IGCLWrapper.IGCLEngineHelper.Dispose
   id: Dispose
@@ -168,7 +246,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLEngineHelper.cs
-    startLine: 90
+    startLine: 117
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -551,6 +629,29 @@ references:
   name: ctl_engine_stats_t
   nameWithType: ctl_engine_stats_t
   fullName: IGCLWrapper.ctl_engine_stats_t
+- uid: IGCLWrapper.IGCLEngineHelper.AreEnginePropertiesEqual*
+  commentId: Overload:IGCLWrapper.IGCLEngineHelper.AreEnginePropertiesEqual
+  href: IGCLWrapper.IGCLEngineHelper.html#IGCLWrapper_IGCLEngineHelper_AreEnginePropertiesEqual_IGCLWrapper_ctl_engine_properties_t_IGCLWrapper_ctl_engine_properties_t_
+  name: AreEnginePropertiesEqual
+  nameWithType: IGCLEngineHelper.AreEnginePropertiesEqual
+  fullName: IGCLWrapper.IGCLEngineHelper.AreEnginePropertiesEqual
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: IGCLWrapper.IGCLEngineHelper.AreEngineStatsEqual*
+  commentId: Overload:IGCLWrapper.IGCLEngineHelper.AreEngineStatsEqual
+  href: IGCLWrapper.IGCLEngineHelper.html#IGCLWrapper_IGCLEngineHelper_AreEngineStatsEqual_IGCLWrapper_ctl_engine_stats_t_IGCLWrapper_ctl_engine_stats_t_
+  name: AreEngineStatsEqual
+  nameWithType: IGCLEngineHelper.AreEngineStatsEqual
+  fullName: IGCLWrapper.IGCLEngineHelper.AreEngineStatsEqual
 - uid: IGCLWrapper.IGCLEngineHelper.Dispose*
   commentId: Overload:IGCLWrapper.IGCLEngineHelper.Dispose
   href: IGCLWrapper.IGCLEngineHelper.html#IGCLWrapper_IGCLEngineHelper_Dispose

@@ -5,6 +5,8 @@ items:
   id: IGCL3DHelper
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.IGCL3DHelper.Are3dFeatureCapsEqual(IGCLWrapper.ctl_3d_feature_caps_t,IGCLWrapper.ctl_3d_feature_caps_t)
+  - IGCLWrapper.IGCL3DHelper.Are3dFeatureGetSetEqual(IGCLWrapper.ctl_3d_feature_getset_t,IGCLWrapper.ctl_3d_feature_getset_t)
   - IGCLWrapper.IGCL3DHelper.Create3DFeatureGetSet
   - IGCLWrapper.IGCL3DHelper.Dispose
   - IGCLWrapper.IGCL3DHelper.Get3DFeature(IGCLWrapper.ThreeDFeatureGetSetDto)
@@ -209,6 +211,82 @@ items:
       description: Initialized 3D feature get/set struct.
     content.vb: Public Shared Function Create3DFeatureGetSet() As ctl_3d_feature_getset_t
   overload: IGCLWrapper.IGCL3DHelper.Create3DFeatureGetSet*
+- uid: IGCLWrapper.IGCL3DHelper.Are3dFeatureCapsEqual(IGCLWrapper.ctl_3d_feature_caps_t,IGCLWrapper.ctl_3d_feature_caps_t)
+  commentId: M:IGCLWrapper.IGCL3DHelper.Are3dFeatureCapsEqual(IGCLWrapper.ctl_3d_feature_caps_t,IGCLWrapper.ctl_3d_feature_caps_t)
+  id: Are3dFeatureCapsEqual(IGCLWrapper.ctl_3d_feature_caps_t,IGCLWrapper.ctl_3d_feature_caps_t)
+  parent: IGCLWrapper.IGCL3DHelper
+  langs:
+  - csharp
+  - vb
+  name: Are3dFeatureCapsEqual(ctl_3d_feature_caps_t, ctl_3d_feature_caps_t)
+  nameWithType: IGCL3DHelper.Are3dFeatureCapsEqual(ctl_3d_feature_caps_t, ctl_3d_feature_caps_t)
+  fullName: IGCLWrapper.IGCL3DHelper.Are3dFeatureCapsEqual(IGCLWrapper.ctl_3d_feature_caps_t, IGCLWrapper.ctl_3d_feature_caps_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCL3DHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Are3dFeatureCapsEqual
+    path: ../IGCLWrapper/IGCL3DHelper.cs
+    startLine: 90
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare 3D feature capabilities while ignoring native-only fields.
+  example: []
+  syntax:
+    content: public static bool Are3dFeatureCapsEqual(ctl_3d_feature_caps_t left, ctl_3d_feature_caps_t right)
+    parameters:
+    - id: left
+      type: IGCLWrapper.ctl_3d_feature_caps_t
+      description: Left capabilities struct.
+    - id: right
+      type: IGCLWrapper.ctl_3d_feature_caps_t
+      description: Right capabilities struct.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Shared Function Are3dFeatureCapsEqual(left As ctl_3d_feature_caps_t, right As ctl_3d_feature_caps_t) As Boolean
+  overload: IGCLWrapper.IGCL3DHelper.Are3dFeatureCapsEqual*
+- uid: IGCLWrapper.IGCL3DHelper.Are3dFeatureGetSetEqual(IGCLWrapper.ctl_3d_feature_getset_t,IGCLWrapper.ctl_3d_feature_getset_t)
+  commentId: M:IGCLWrapper.IGCL3DHelper.Are3dFeatureGetSetEqual(IGCLWrapper.ctl_3d_feature_getset_t,IGCLWrapper.ctl_3d_feature_getset_t)
+  id: Are3dFeatureGetSetEqual(IGCLWrapper.ctl_3d_feature_getset_t,IGCLWrapper.ctl_3d_feature_getset_t)
+  parent: IGCLWrapper.IGCL3DHelper
+  langs:
+  - csharp
+  - vb
+  name: Are3dFeatureGetSetEqual(ctl_3d_feature_getset_t, ctl_3d_feature_getset_t)
+  nameWithType: IGCL3DHelper.Are3dFeatureGetSetEqual(ctl_3d_feature_getset_t, ctl_3d_feature_getset_t)
+  fullName: IGCLWrapper.IGCL3DHelper.Are3dFeatureGetSetEqual(IGCLWrapper.ctl_3d_feature_getset_t, IGCLWrapper.ctl_3d_feature_getset_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCL3DHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Are3dFeatureGetSetEqual
+    path: ../IGCLWrapper/IGCL3DHelper.cs
+    startLine: 103
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare 3D feature get/set data while ignoring native-only fields.
+  example: []
+  syntax:
+    content: public static bool Are3dFeatureGetSetEqual(ctl_3d_feature_getset_t left, ctl_3d_feature_getset_t right)
+    parameters:
+    - id: left
+      type: IGCLWrapper.ctl_3d_feature_getset_t
+      description: Left get/set struct.
+    - id: right
+      type: IGCLWrapper.ctl_3d_feature_getset_t
+      description: Right get/set struct.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Shared Function Are3dFeatureGetSetEqual(left As ctl_3d_feature_getset_t, right As ctl_3d_feature_getset_t) As Boolean
+  overload: IGCLWrapper.IGCL3DHelper.Are3dFeatureGetSetEqual*
 - uid: IGCLWrapper.IGCL3DHelper.Dispose
   commentId: M:IGCLWrapper.IGCL3DHelper.Dispose
   id: Dispose
@@ -227,7 +305,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 87
+    startLine: 111
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -518,6 +596,29 @@ references:
   name: Create3DFeatureGetSet
   nameWithType: IGCL3DHelper.Create3DFeatureGetSet
   fullName: IGCLWrapper.IGCL3DHelper.Create3DFeatureGetSet
+- uid: IGCLWrapper.IGCL3DHelper.Are3dFeatureCapsEqual*
+  commentId: Overload:IGCLWrapper.IGCL3DHelper.Are3dFeatureCapsEqual
+  href: IGCLWrapper.IGCL3DHelper.html#IGCLWrapper_IGCL3DHelper_Are3dFeatureCapsEqual_IGCLWrapper_ctl_3d_feature_caps_t_IGCLWrapper_ctl_3d_feature_caps_t_
+  name: Are3dFeatureCapsEqual
+  nameWithType: IGCL3DHelper.Are3dFeatureCapsEqual
+  fullName: IGCLWrapper.IGCL3DHelper.Are3dFeatureCapsEqual
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: IGCLWrapper.IGCL3DHelper.Are3dFeatureGetSetEqual*
+  commentId: Overload:IGCLWrapper.IGCL3DHelper.Are3dFeatureGetSetEqual
+  href: IGCLWrapper.IGCL3DHelper.html#IGCLWrapper_IGCL3DHelper_Are3dFeatureGetSetEqual_IGCLWrapper_ctl_3d_feature_getset_t_IGCLWrapper_ctl_3d_feature_getset_t_
+  name: Are3dFeatureGetSetEqual
+  nameWithType: IGCL3DHelper.Are3dFeatureGetSetEqual
+  fullName: IGCLWrapper.IGCL3DHelper.Are3dFeatureGetSetEqual
 - uid: IGCLWrapper.IGCL3DHelper.Dispose*
   commentId: Overload:IGCLWrapper.IGCL3DHelper.Dispose
   href: IGCLWrapper.IGCL3DHelper.html#IGCLWrapper_IGCL3DHelper_Dispose

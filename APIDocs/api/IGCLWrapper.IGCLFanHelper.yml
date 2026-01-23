@@ -5,6 +5,10 @@ items:
   id: IGCLFanHelper
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.IGCLFanHelper.AreFanConfigEqual(IGCLWrapper.ctl_fan_config_t,IGCLWrapper.ctl_fan_config_t)
+  - IGCLWrapper.IGCLFanHelper.AreFanPropertiesEqual(IGCLWrapper.ctl_fan_properties_t,IGCLWrapper.ctl_fan_properties_t)
+  - IGCLWrapper.IGCLFanHelper.AreFanSpeedEqual(IGCLWrapper.ctl_fan_speed_t,IGCLWrapper.ctl_fan_speed_t)
+  - IGCLWrapper.IGCLFanHelper.AreFanSpeedTableEqual(IGCLWrapper.ctl_fan_speed_table_t,IGCLWrapper.ctl_fan_speed_table_t)
   - IGCLWrapper.IGCLFanHelper.CreateFanSpeed
   - IGCLWrapper.IGCLFanHelper.CreateFanSpeedTable
   - IGCLWrapper.IGCLFanHelper.Dispose
@@ -30,7 +34,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IGCLFanHelper
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 8
+    startLine: 9
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -68,7 +72,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumFans
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 24
+    startLine: 25
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -99,7 +103,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FanGetPropertiesNative
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 35
+    startLine: 36
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -137,7 +141,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FanGetProperties
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 50
+    startLine: 51
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -175,7 +179,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FanGetConfig
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 61
+    startLine: 62
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -213,7 +217,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FanSetDefaultMode
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 75
+    startLine: 76
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -248,7 +252,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FanSetFixedSpeedMode
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 88
+    startLine: 89
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -286,7 +290,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FanSetSpeedTableMode
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 101
+    startLine: 102
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -324,7 +328,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FanGetState
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 115
+    startLine: 116
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -365,7 +369,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateFanSpeed
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 155
+    startLine: 156
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -396,7 +400,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateFanSpeedTable
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 160
+    startLine: 161
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -409,6 +413,158 @@ items:
       description: Initialized fan speed table struct.
     content.vb: Public Shared Function CreateFanSpeedTable() As ctl_fan_speed_table_t
   overload: IGCLWrapper.IGCLFanHelper.CreateFanSpeedTable*
+- uid: IGCLWrapper.IGCLFanHelper.AreFanPropertiesEqual(IGCLWrapper.ctl_fan_properties_t,IGCLWrapper.ctl_fan_properties_t)
+  commentId: M:IGCLWrapper.IGCLFanHelper.AreFanPropertiesEqual(IGCLWrapper.ctl_fan_properties_t,IGCLWrapper.ctl_fan_properties_t)
+  id: AreFanPropertiesEqual(IGCLWrapper.ctl_fan_properties_t,IGCLWrapper.ctl_fan_properties_t)
+  parent: IGCLWrapper.IGCLFanHelper
+  langs:
+  - csharp
+  - vb
+  name: AreFanPropertiesEqual(ctl_fan_properties_t, ctl_fan_properties_t)
+  nameWithType: IGCLFanHelper.AreFanPropertiesEqual(ctl_fan_properties_t, ctl_fan_properties_t)
+  fullName: IGCLWrapper.IGCLFanHelper.AreFanPropertiesEqual(IGCLWrapper.ctl_fan_properties_t, IGCLWrapper.ctl_fan_properties_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFanHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: AreFanPropertiesEqual
+    path: ../IGCLWrapper/IGCLFanHelper.cs
+    startLine: 169
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare fan properties while ignoring native-only fields.
+  example: []
+  syntax:
+    content: public static bool AreFanPropertiesEqual(ctl_fan_properties_t left, ctl_fan_properties_t right)
+    parameters:
+    - id: left
+      type: IGCLWrapper.ctl_fan_properties_t
+      description: Left properties struct.
+    - id: right
+      type: IGCLWrapper.ctl_fan_properties_t
+      description: Right properties struct.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Shared Function AreFanPropertiesEqual(left As ctl_fan_properties_t, right As ctl_fan_properties_t) As Boolean
+  overload: IGCLWrapper.IGCLFanHelper.AreFanPropertiesEqual*
+- uid: IGCLWrapper.IGCLFanHelper.AreFanConfigEqual(IGCLWrapper.ctl_fan_config_t,IGCLWrapper.ctl_fan_config_t)
+  commentId: M:IGCLWrapper.IGCLFanHelper.AreFanConfigEqual(IGCLWrapper.ctl_fan_config_t,IGCLWrapper.ctl_fan_config_t)
+  id: AreFanConfigEqual(IGCLWrapper.ctl_fan_config_t,IGCLWrapper.ctl_fan_config_t)
+  parent: IGCLWrapper.IGCLFanHelper
+  langs:
+  - csharp
+  - vb
+  name: AreFanConfigEqual(ctl_fan_config_t, ctl_fan_config_t)
+  nameWithType: IGCLFanHelper.AreFanConfigEqual(ctl_fan_config_t, ctl_fan_config_t)
+  fullName: IGCLWrapper.IGCLFanHelper.AreFanConfigEqual(IGCLWrapper.ctl_fan_config_t, IGCLWrapper.ctl_fan_config_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFanHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: AreFanConfigEqual
+    path: ../IGCLWrapper/IGCLFanHelper.cs
+    startLine: 180
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare fan configuration while ignoring native-only fields.
+  example: []
+  syntax:
+    content: public static bool AreFanConfigEqual(ctl_fan_config_t left, ctl_fan_config_t right)
+    parameters:
+    - id: left
+      type: IGCLWrapper.ctl_fan_config_t
+      description: Left config struct.
+    - id: right
+      type: IGCLWrapper.ctl_fan_config_t
+      description: Right config struct.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Shared Function AreFanConfigEqual(left As ctl_fan_config_t, right As ctl_fan_config_t) As Boolean
+  overload: IGCLWrapper.IGCLFanHelper.AreFanConfigEqual*
+- uid: IGCLWrapper.IGCLFanHelper.AreFanSpeedEqual(IGCLWrapper.ctl_fan_speed_t,IGCLWrapper.ctl_fan_speed_t)
+  commentId: M:IGCLWrapper.IGCLFanHelper.AreFanSpeedEqual(IGCLWrapper.ctl_fan_speed_t,IGCLWrapper.ctl_fan_speed_t)
+  id: AreFanSpeedEqual(IGCLWrapper.ctl_fan_speed_t,IGCLWrapper.ctl_fan_speed_t)
+  parent: IGCLWrapper.IGCLFanHelper
+  langs:
+  - csharp
+  - vb
+  name: AreFanSpeedEqual(ctl_fan_speed_t, ctl_fan_speed_t)
+  nameWithType: IGCLFanHelper.AreFanSpeedEqual(ctl_fan_speed_t, ctl_fan_speed_t)
+  fullName: IGCLWrapper.IGCLFanHelper.AreFanSpeedEqual(IGCLWrapper.ctl_fan_speed_t, IGCLWrapper.ctl_fan_speed_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFanHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: AreFanSpeedEqual
+    path: ../IGCLWrapper/IGCLFanHelper.cs
+    startLine: 195
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare fan speed while ignoring native-only fields.
+  example: []
+  syntax:
+    content: public static bool AreFanSpeedEqual(ctl_fan_speed_t left, ctl_fan_speed_t right)
+    parameters:
+    - id: left
+      type: IGCLWrapper.ctl_fan_speed_t
+      description: Left speed struct.
+    - id: right
+      type: IGCLWrapper.ctl_fan_speed_t
+      description: Right speed struct.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Shared Function AreFanSpeedEqual(left As ctl_fan_speed_t, right As ctl_fan_speed_t) As Boolean
+  overload: IGCLWrapper.IGCLFanHelper.AreFanSpeedEqual*
+- uid: IGCLWrapper.IGCLFanHelper.AreFanSpeedTableEqual(IGCLWrapper.ctl_fan_speed_table_t,IGCLWrapper.ctl_fan_speed_table_t)
+  commentId: M:IGCLWrapper.IGCLFanHelper.AreFanSpeedTableEqual(IGCLWrapper.ctl_fan_speed_table_t,IGCLWrapper.ctl_fan_speed_table_t)
+  id: AreFanSpeedTableEqual(IGCLWrapper.ctl_fan_speed_table_t,IGCLWrapper.ctl_fan_speed_table_t)
+  parent: IGCLWrapper.IGCLFanHelper
+  langs:
+  - csharp
+  - vb
+  name: AreFanSpeedTableEqual(ctl_fan_speed_table_t, ctl_fan_speed_table_t)
+  nameWithType: IGCLFanHelper.AreFanSpeedTableEqual(ctl_fan_speed_table_t, ctl_fan_speed_table_t)
+  fullName: IGCLWrapper.IGCLFanHelper.AreFanSpeedTableEqual(IGCLWrapper.ctl_fan_speed_table_t, IGCLWrapper.ctl_fan_speed_table_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFanHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: AreFanSpeedTableEqual
+    path: ../IGCLWrapper/IGCLFanHelper.cs
+    startLine: 209
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare fan speed tables while ignoring native-only fields.
+  example: []
+  syntax:
+    content: public static bool AreFanSpeedTableEqual(ctl_fan_speed_table_t left, ctl_fan_speed_table_t right)
+    parameters:
+    - id: left
+      type: IGCLWrapper.ctl_fan_speed_table_t
+      description: Left table struct.
+    - id: right
+      type: IGCLWrapper.ctl_fan_speed_table_t
+      description: Right table struct.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Shared Function AreFanSpeedTableEqual(left As ctl_fan_speed_table_t, right As ctl_fan_speed_table_t) As Boolean
+  overload: IGCLWrapper.IGCLFanHelper.AreFanSpeedTableEqual*
 - uid: IGCLWrapper.IGCLFanHelper.Dispose
   commentId: M:IGCLWrapper.IGCLFanHelper.Dispose
   id: Dispose
@@ -427,7 +583,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 165
+    startLine: 245
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -891,6 +1047,41 @@ references:
   name: CreateFanSpeedTable
   nameWithType: IGCLFanHelper.CreateFanSpeedTable
   fullName: IGCLWrapper.IGCLFanHelper.CreateFanSpeedTable
+- uid: IGCLWrapper.IGCLFanHelper.AreFanPropertiesEqual*
+  commentId: Overload:IGCLWrapper.IGCLFanHelper.AreFanPropertiesEqual
+  href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_AreFanPropertiesEqual_IGCLWrapper_ctl_fan_properties_t_IGCLWrapper_ctl_fan_properties_t_
+  name: AreFanPropertiesEqual
+  nameWithType: IGCLFanHelper.AreFanPropertiesEqual
+  fullName: IGCLWrapper.IGCLFanHelper.AreFanPropertiesEqual
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: IGCLWrapper.IGCLFanHelper.AreFanConfigEqual*
+  commentId: Overload:IGCLWrapper.IGCLFanHelper.AreFanConfigEqual
+  href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_AreFanConfigEqual_IGCLWrapper_ctl_fan_config_t_IGCLWrapper_ctl_fan_config_t_
+  name: AreFanConfigEqual
+  nameWithType: IGCLFanHelper.AreFanConfigEqual
+  fullName: IGCLWrapper.IGCLFanHelper.AreFanConfigEqual
+- uid: IGCLWrapper.IGCLFanHelper.AreFanSpeedEqual*
+  commentId: Overload:IGCLWrapper.IGCLFanHelper.AreFanSpeedEqual
+  href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_AreFanSpeedEqual_IGCLWrapper_ctl_fan_speed_t_IGCLWrapper_ctl_fan_speed_t_
+  name: AreFanSpeedEqual
+  nameWithType: IGCLFanHelper.AreFanSpeedEqual
+  fullName: IGCLWrapper.IGCLFanHelper.AreFanSpeedEqual
+- uid: IGCLWrapper.IGCLFanHelper.AreFanSpeedTableEqual*
+  commentId: Overload:IGCLWrapper.IGCLFanHelper.AreFanSpeedTableEqual
+  href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_AreFanSpeedTableEqual_IGCLWrapper_ctl_fan_speed_table_t_IGCLWrapper_ctl_fan_speed_table_t_
+  name: AreFanSpeedTableEqual
+  nameWithType: IGCLFanHelper.AreFanSpeedTableEqual
+  fullName: IGCLWrapper.IGCLFanHelper.AreFanSpeedTableEqual
 - uid: IGCLWrapper.IGCLFanHelper.Dispose*
   commentId: Overload:IGCLWrapper.IGCLFanHelper.Dispose
   href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_Dispose

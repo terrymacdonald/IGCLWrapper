@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 namespace IGCLWrapper
 {
@@ -161,6 +162,85 @@ namespace IGCLWrapper
         public static unsafe ctl_fan_speed_table_t CreateFanSpeedTable() => new ctl_fan_speed_table_t { Size = (uint)sizeof(ctl_fan_speed_table_t), Version = 0 };
 
         /// <summary>
+        /// Compare fan properties while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left properties struct.</param>
+        /// <param name="right">Right properties struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreFanPropertiesEqual(ctl_fan_properties_t left, ctl_fan_properties_t right)
+        {
+            return FanPropertiesDto.FromNative(left).Equals(FanPropertiesDto.FromNative(right));
+        }
+
+        /// <summary>
+        /// Compare fan configuration while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left config struct.</param>
+        /// <param name="right">Right config struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreFanConfigEqual(ctl_fan_config_t left, ctl_fan_config_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.mode == right.mode &&
+                   AreFanSpeedEqual(left.speedFixed, right.speedFixed) &&
+                   AreFanSpeedTableEqualInternal(left.speedTable, right.speedTable);
+        }
+
+        /// <summary>
+        /// Compare fan speed while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left speed struct.</param>
+        /// <param name="right">Right speed struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreFanSpeedEqual(ctl_fan_speed_t left, ctl_fan_speed_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.speed == right.speed &&
+                   left.units == right.units;
+        }
+
+        /// <summary>
+        /// Compare fan speed tables while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left table struct.</param>
+        /// <param name="right">Right table struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreFanSpeedTableEqual(ctl_fan_speed_table_t left, ctl_fan_speed_table_t right)
+        {
+            return AreFanSpeedTableEqualInternal(left, right);
+        }
+
+        private static bool AreFanSpeedTableEqualInternal(ctl_fan_speed_table_t left, ctl_fan_speed_table_t right)
+        {
+            if (left.Size != right.Size || left.Version != right.Version || left.numPoints != right.numPoints)
+                return false;
+
+            var count = Math.Min(Math.Max(left.numPoints, 0), 32);
+            var leftSpan = MemoryMarshal.CreateReadOnlySpan(ref left.table.e0, 32);
+            var rightSpan = MemoryMarshal.CreateReadOnlySpan(ref right.table.e0, 32);
+            for (var i = 0; i < count; i++)
+            {
+                if (!AreFanTempSpeedEqual(leftSpan[i], rightSpan[i]))
+                    return false;
+            }
+
+            return true;
+        }
+
+        private static bool AreFanTempSpeedEqual(ctl_fan_temp_speed_t left, ctl_fan_temp_speed_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.temperature == right.temperature &&
+                   left.speed.speed == right.speed.speed &&
+                   left.speed.units == right.speed.units &&
+                   left.speed.Size == right.speed.Size &&
+                   left.speed.Version == right.speed.Version;
+        }
+
+        /// <summary>
         /// Mark the helper as disposed.
         /// </summary>
         public void Dispose()
@@ -287,3 +367,4 @@ namespace IGCLWrapper
         }
     }
 }
+

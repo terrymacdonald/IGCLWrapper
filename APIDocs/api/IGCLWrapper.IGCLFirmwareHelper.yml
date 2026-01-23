@@ -6,6 +6,8 @@ items:
   parent: IGCLWrapper
   children:
   - IGCLWrapper.IGCLFirmwareHelper.AllowPCIeLinkSpeedUpdate(System.Boolean)
+  - IGCLWrapper.IGCLFirmwareHelper.AreFirmwareComponentPropertiesEqual(IGCLWrapper.ctl_firmware_component_properties_t,IGCLWrapper.ctl_firmware_component_properties_t)
+  - IGCLWrapper.IGCLFirmwareHelper.AreFirmwarePropertiesEqual(IGCLWrapper.ctl_firmware_properties_t,IGCLWrapper.ctl_firmware_properties_t)
   - IGCLWrapper.IGCLFirmwareHelper.Dispose
   - IGCLWrapper.IGCLFirmwareHelper.EnumerateFirmwareComponents
   - IGCLWrapper.IGCLFirmwareHelper.GetFirmwareComponentProperties(System.IntPtr)
@@ -250,6 +252,82 @@ items:
   nameWithType.vb: IGCLFirmwareHelper.AllowPCIeLinkSpeedUpdate(Boolean)
   fullName.vb: IGCLWrapper.IGCLFirmwareHelper.AllowPCIeLinkSpeedUpdate(Boolean)
   name.vb: AllowPCIeLinkSpeedUpdate(Boolean)
+- uid: IGCLWrapper.IGCLFirmwareHelper.AreFirmwarePropertiesEqual(IGCLWrapper.ctl_firmware_properties_t,IGCLWrapper.ctl_firmware_properties_t)
+  commentId: M:IGCLWrapper.IGCLFirmwareHelper.AreFirmwarePropertiesEqual(IGCLWrapper.ctl_firmware_properties_t,IGCLWrapper.ctl_firmware_properties_t)
+  id: AreFirmwarePropertiesEqual(IGCLWrapper.ctl_firmware_properties_t,IGCLWrapper.ctl_firmware_properties_t)
+  parent: IGCLWrapper.IGCLFirmwareHelper
+  langs:
+  - csharp
+  - vb
+  name: AreFirmwarePropertiesEqual(ctl_firmware_properties_t, ctl_firmware_properties_t)
+  nameWithType: IGCLFirmwareHelper.AreFirmwarePropertiesEqual(ctl_firmware_properties_t, ctl_firmware_properties_t)
+  fullName: IGCLWrapper.IGCLFirmwareHelper.AreFirmwarePropertiesEqual(IGCLWrapper.ctl_firmware_properties_t, IGCLWrapper.ctl_firmware_properties_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFirmwareHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: AreFirmwarePropertiesEqual
+    path: ../IGCLWrapper/IGCLFirmwareHelper.cs
+    startLine: 135
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare firmware properties while ignoring native-only fields.
+  example: []
+  syntax:
+    content: public static bool AreFirmwarePropertiesEqual(ctl_firmware_properties_t left, ctl_firmware_properties_t right)
+    parameters:
+    - id: left
+      type: IGCLWrapper.ctl_firmware_properties_t
+      description: Left properties struct.
+    - id: right
+      type: IGCLWrapper.ctl_firmware_properties_t
+      description: Right properties struct.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Shared Function AreFirmwarePropertiesEqual(left As ctl_firmware_properties_t, right As ctl_firmware_properties_t) As Boolean
+  overload: IGCLWrapper.IGCLFirmwareHelper.AreFirmwarePropertiesEqual*
+- uid: IGCLWrapper.IGCLFirmwareHelper.AreFirmwareComponentPropertiesEqual(IGCLWrapper.ctl_firmware_component_properties_t,IGCLWrapper.ctl_firmware_component_properties_t)
+  commentId: M:IGCLWrapper.IGCLFirmwareHelper.AreFirmwareComponentPropertiesEqual(IGCLWrapper.ctl_firmware_component_properties_t,IGCLWrapper.ctl_firmware_component_properties_t)
+  id: AreFirmwareComponentPropertiesEqual(IGCLWrapper.ctl_firmware_component_properties_t,IGCLWrapper.ctl_firmware_component_properties_t)
+  parent: IGCLWrapper.IGCLFirmwareHelper
+  langs:
+  - csharp
+  - vb
+  name: AreFirmwareComponentPropertiesEqual(ctl_firmware_component_properties_t, ctl_firmware_component_properties_t)
+  nameWithType: IGCLFirmwareHelper.AreFirmwareComponentPropertiesEqual(ctl_firmware_component_properties_t, ctl_firmware_component_properties_t)
+  fullName: IGCLWrapper.IGCLFirmwareHelper.AreFirmwareComponentPropertiesEqual(IGCLWrapper.ctl_firmware_component_properties_t, IGCLWrapper.ctl_firmware_component_properties_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFirmwareHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: AreFirmwareComponentPropertiesEqual
+    path: ../IGCLWrapper/IGCLFirmwareHelper.cs
+    startLine: 146
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare firmware component properties while ignoring native-only fields.
+  example: []
+  syntax:
+    content: public static bool AreFirmwareComponentPropertiesEqual(ctl_firmware_component_properties_t left, ctl_firmware_component_properties_t right)
+    parameters:
+    - id: left
+      type: IGCLWrapper.ctl_firmware_component_properties_t
+      description: Left properties struct.
+    - id: right
+      type: IGCLWrapper.ctl_firmware_component_properties_t
+      description: Right properties struct.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Shared Function AreFirmwareComponentPropertiesEqual(left As ctl_firmware_component_properties_t, right As ctl_firmware_component_properties_t) As Boolean
+  overload: IGCLWrapper.IGCLFirmwareHelper.AreFirmwareComponentPropertiesEqual*
 - uid: IGCLWrapper.IGCLFirmwareHelper.Dispose
   commentId: M:IGCLWrapper.IGCLFirmwareHelper.Dispose
   id: Dispose
@@ -268,7 +346,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLFirmwareHelper.cs
-    startLine: 132
+    startLine: 154
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -694,6 +772,18 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: IGCLWrapper.IGCLFirmwareHelper.AreFirmwarePropertiesEqual*
+  commentId: Overload:IGCLWrapper.IGCLFirmwareHelper.AreFirmwarePropertiesEqual
+  href: IGCLWrapper.IGCLFirmwareHelper.html#IGCLWrapper_IGCLFirmwareHelper_AreFirmwarePropertiesEqual_IGCLWrapper_ctl_firmware_properties_t_IGCLWrapper_ctl_firmware_properties_t_
+  name: AreFirmwarePropertiesEqual
+  nameWithType: IGCLFirmwareHelper.AreFirmwarePropertiesEqual
+  fullName: IGCLWrapper.IGCLFirmwareHelper.AreFirmwarePropertiesEqual
+- uid: IGCLWrapper.IGCLFirmwareHelper.AreFirmwareComponentPropertiesEqual*
+  commentId: Overload:IGCLWrapper.IGCLFirmwareHelper.AreFirmwareComponentPropertiesEqual
+  href: IGCLWrapper.IGCLFirmwareHelper.html#IGCLWrapper_IGCLFirmwareHelper_AreFirmwareComponentPropertiesEqual_IGCLWrapper_ctl_firmware_component_properties_t_IGCLWrapper_ctl_firmware_component_properties_t_
+  name: AreFirmwareComponentPropertiesEqual
+  nameWithType: IGCLFirmwareHelper.AreFirmwareComponentPropertiesEqual
+  fullName: IGCLWrapper.IGCLFirmwareHelper.AreFirmwareComponentPropertiesEqual
 - uid: IGCLWrapper.IGCLFirmwareHelper.Dispose*
   commentId: Overload:IGCLWrapper.IGCLFirmwareHelper.Dispose
   href: IGCLWrapper.IGCLFirmwareHelper.html#IGCLWrapper_IGCLFirmwareHelper_Dispose

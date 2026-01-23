@@ -5,6 +5,9 @@ items:
   id: IGCLMemoryHelper
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.IGCLMemoryHelper.AreMemoryBandwidthEqual(IGCLWrapper.ctl_mem_bandwidth_t,IGCLWrapper.ctl_mem_bandwidth_t)
+  - IGCLWrapper.IGCLMemoryHelper.AreMemoryPropertiesEqual(IGCLWrapper.ctl_mem_properties_t,IGCLWrapper.ctl_mem_properties_t)
+  - IGCLWrapper.IGCLMemoryHelper.AreMemoryStatesEqual(IGCLWrapper.ctl_mem_state_t,IGCLWrapper.ctl_mem_state_t)
   - IGCLWrapper.IGCLMemoryHelper.Dispose
   - IGCLWrapper.IGCLMemoryHelper.EnumMemoryModules
   - IGCLWrapper.IGCLMemoryHelper.MemoryGetBandwidth(System.IntPtr)
@@ -189,6 +192,120 @@ items:
   nameWithType.vb: IGCLMemoryHelper.MemoryGetBandwidth(IntPtr)
   fullName.vb: IGCLWrapper.IGCLMemoryHelper.MemoryGetBandwidth(System.IntPtr)
   name.vb: MemoryGetBandwidth(IntPtr)
+- uid: IGCLWrapper.IGCLMemoryHelper.AreMemoryPropertiesEqual(IGCLWrapper.ctl_mem_properties_t,IGCLWrapper.ctl_mem_properties_t)
+  commentId: M:IGCLWrapper.IGCLMemoryHelper.AreMemoryPropertiesEqual(IGCLWrapper.ctl_mem_properties_t,IGCLWrapper.ctl_mem_properties_t)
+  id: AreMemoryPropertiesEqual(IGCLWrapper.ctl_mem_properties_t,IGCLWrapper.ctl_mem_properties_t)
+  parent: IGCLWrapper.IGCLMemoryHelper
+  langs:
+  - csharp
+  - vb
+  name: AreMemoryPropertiesEqual(ctl_mem_properties_t, ctl_mem_properties_t)
+  nameWithType: IGCLMemoryHelper.AreMemoryPropertiesEqual(ctl_mem_properties_t, ctl_mem_properties_t)
+  fullName: IGCLWrapper.IGCLMemoryHelper.AreMemoryPropertiesEqual(IGCLWrapper.ctl_mem_properties_t, IGCLWrapper.ctl_mem_properties_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLMemoryHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: AreMemoryPropertiesEqual
+    path: ../IGCLWrapper/IGCLMemoryHelper.cs
+    startLine: 109
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare memory properties while ignoring native-only fields.
+  example: []
+  syntax:
+    content: public static bool AreMemoryPropertiesEqual(ctl_mem_properties_t left, ctl_mem_properties_t right)
+    parameters:
+    - id: left
+      type: IGCLWrapper.ctl_mem_properties_t
+      description: Left properties struct.
+    - id: right
+      type: IGCLWrapper.ctl_mem_properties_t
+      description: Right properties struct.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Shared Function AreMemoryPropertiesEqual(left As ctl_mem_properties_t, right As ctl_mem_properties_t) As Boolean
+  overload: IGCLWrapper.IGCLMemoryHelper.AreMemoryPropertiesEqual*
+- uid: IGCLWrapper.IGCLMemoryHelper.AreMemoryStatesEqual(IGCLWrapper.ctl_mem_state_t,IGCLWrapper.ctl_mem_state_t)
+  commentId: M:IGCLWrapper.IGCLMemoryHelper.AreMemoryStatesEqual(IGCLWrapper.ctl_mem_state_t,IGCLWrapper.ctl_mem_state_t)
+  id: AreMemoryStatesEqual(IGCLWrapper.ctl_mem_state_t,IGCLWrapper.ctl_mem_state_t)
+  parent: IGCLWrapper.IGCLMemoryHelper
+  langs:
+  - csharp
+  - vb
+  name: AreMemoryStatesEqual(ctl_mem_state_t, ctl_mem_state_t)
+  nameWithType: IGCLMemoryHelper.AreMemoryStatesEqual(ctl_mem_state_t, ctl_mem_state_t)
+  fullName: IGCLWrapper.IGCLMemoryHelper.AreMemoryStatesEqual(IGCLWrapper.ctl_mem_state_t, IGCLWrapper.ctl_mem_state_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLMemoryHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: AreMemoryStatesEqual
+    path: ../IGCLWrapper/IGCLMemoryHelper.cs
+    startLine: 126
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare memory state while ignoring native-only fields.
+  example: []
+  syntax:
+    content: public static bool AreMemoryStatesEqual(ctl_mem_state_t left, ctl_mem_state_t right)
+    parameters:
+    - id: left
+      type: IGCLWrapper.ctl_mem_state_t
+      description: Left state struct.
+    - id: right
+      type: IGCLWrapper.ctl_mem_state_t
+      description: Right state struct.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Shared Function AreMemoryStatesEqual(left As ctl_mem_state_t, right As ctl_mem_state_t) As Boolean
+  overload: IGCLWrapper.IGCLMemoryHelper.AreMemoryStatesEqual*
+- uid: IGCLWrapper.IGCLMemoryHelper.AreMemoryBandwidthEqual(IGCLWrapper.ctl_mem_bandwidth_t,IGCLWrapper.ctl_mem_bandwidth_t)
+  commentId: M:IGCLWrapper.IGCLMemoryHelper.AreMemoryBandwidthEqual(IGCLWrapper.ctl_mem_bandwidth_t,IGCLWrapper.ctl_mem_bandwidth_t)
+  id: AreMemoryBandwidthEqual(IGCLWrapper.ctl_mem_bandwidth_t,IGCLWrapper.ctl_mem_bandwidth_t)
+  parent: IGCLWrapper.IGCLMemoryHelper
+  langs:
+  - csharp
+  - vb
+  name: AreMemoryBandwidthEqual(ctl_mem_bandwidth_t, ctl_mem_bandwidth_t)
+  nameWithType: IGCLMemoryHelper.AreMemoryBandwidthEqual(ctl_mem_bandwidth_t, ctl_mem_bandwidth_t)
+  fullName: IGCLWrapper.IGCLMemoryHelper.AreMemoryBandwidthEqual(IGCLWrapper.ctl_mem_bandwidth_t, IGCLWrapper.ctl_mem_bandwidth_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLMemoryHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: AreMemoryBandwidthEqual
+    path: ../IGCLWrapper/IGCLMemoryHelper.cs
+    startLine: 140
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare memory bandwidth while ignoring native-only fields.
+  example: []
+  syntax:
+    content: public static bool AreMemoryBandwidthEqual(ctl_mem_bandwidth_t left, ctl_mem_bandwidth_t right)
+    parameters:
+    - id: left
+      type: IGCLWrapper.ctl_mem_bandwidth_t
+      description: Left bandwidth struct.
+    - id: right
+      type: IGCLWrapper.ctl_mem_bandwidth_t
+      description: Right bandwidth struct.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Shared Function AreMemoryBandwidthEqual(left As ctl_mem_bandwidth_t, right As ctl_mem_bandwidth_t) As Boolean
+  overload: IGCLWrapper.IGCLMemoryHelper.AreMemoryBandwidthEqual*
 - uid: IGCLWrapper.IGCLMemoryHelper.Dispose
   commentId: M:IGCLWrapper.IGCLMemoryHelper.Dispose
   id: Dispose
@@ -207,7 +324,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLMemoryHelper.cs
-    startLine: 106
+    startLine: 153
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -603,6 +720,35 @@ references:
   name: ctl_mem_bandwidth_t
   nameWithType: ctl_mem_bandwidth_t
   fullName: IGCLWrapper.ctl_mem_bandwidth_t
+- uid: IGCLWrapper.IGCLMemoryHelper.AreMemoryPropertiesEqual*
+  commentId: Overload:IGCLWrapper.IGCLMemoryHelper.AreMemoryPropertiesEqual
+  href: IGCLWrapper.IGCLMemoryHelper.html#IGCLWrapper_IGCLMemoryHelper_AreMemoryPropertiesEqual_IGCLWrapper_ctl_mem_properties_t_IGCLWrapper_ctl_mem_properties_t_
+  name: AreMemoryPropertiesEqual
+  nameWithType: IGCLMemoryHelper.AreMemoryPropertiesEqual
+  fullName: IGCLWrapper.IGCLMemoryHelper.AreMemoryPropertiesEqual
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: IGCLWrapper.IGCLMemoryHelper.AreMemoryStatesEqual*
+  commentId: Overload:IGCLWrapper.IGCLMemoryHelper.AreMemoryStatesEqual
+  href: IGCLWrapper.IGCLMemoryHelper.html#IGCLWrapper_IGCLMemoryHelper_AreMemoryStatesEqual_IGCLWrapper_ctl_mem_state_t_IGCLWrapper_ctl_mem_state_t_
+  name: AreMemoryStatesEqual
+  nameWithType: IGCLMemoryHelper.AreMemoryStatesEqual
+  fullName: IGCLWrapper.IGCLMemoryHelper.AreMemoryStatesEqual
+- uid: IGCLWrapper.IGCLMemoryHelper.AreMemoryBandwidthEqual*
+  commentId: Overload:IGCLWrapper.IGCLMemoryHelper.AreMemoryBandwidthEqual
+  href: IGCLWrapper.IGCLMemoryHelper.html#IGCLWrapper_IGCLMemoryHelper_AreMemoryBandwidthEqual_IGCLWrapper_ctl_mem_bandwidth_t_IGCLWrapper_ctl_mem_bandwidth_t_
+  name: AreMemoryBandwidthEqual
+  nameWithType: IGCLMemoryHelper.AreMemoryBandwidthEqual
+  fullName: IGCLWrapper.IGCLMemoryHelper.AreMemoryBandwidthEqual
 - uid: IGCLWrapper.IGCLMemoryHelper.Dispose*
   commentId: Overload:IGCLWrapper.IGCLMemoryHelper.Dispose
   href: IGCLWrapper.IGCLMemoryHelper.html#IGCLWrapper_IGCLMemoryHelper_Dispose

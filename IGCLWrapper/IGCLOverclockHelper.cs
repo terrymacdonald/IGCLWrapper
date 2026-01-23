@@ -536,6 +536,54 @@ namespace IGCLWrapper
         private static unsafe ctl_power_telemetry_t CreatePowerTelemetry() => new ctl_power_telemetry_t { Size = (uint)sizeof(ctl_power_telemetry_t), Version = 0 };
 
         /// <summary>
+        /// Compare overclock properties while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left properties struct.</param>
+        /// <param name="right">Right properties struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreOverclockPropertiesEqual(ctl_oc_properties_t left, ctl_oc_properties_t right)
+        {
+            return OverclockPropertiesDto.FromNative(left).Equals(OverclockPropertiesDto.FromNative(right));
+        }
+
+        /// <summary>
+        /// Compare voltage/frequency pairs while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left pair struct.</param>
+        /// <param name="right">Right pair struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreVfPairEqual(ctl_oc_vf_pair_t left, ctl_oc_vf_pair_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.Voltage.Equals(right.Voltage) &&
+                   left.Frequency.Equals(right.Frequency);
+        }
+
+        /// <summary>
+        /// Compare power telemetry while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left telemetry struct.</param>
+        /// <param name="right">Right telemetry struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool ArePowerTelemetryEqual(ctl_power_telemetry_t left, ctl_power_telemetry_t right)
+        {
+            return PowerTelemetryDto.FromNative(left).Equals(PowerTelemetryDto.FromNative(right));
+        }
+
+        /// <summary>
+        /// Compare voltage/frequency points while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left point struct.</param>
+        /// <param name="right">Right point struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreVoltageFrequencyPointEqual(ctl_voltage_frequency_point_t left, ctl_voltage_frequency_point_t right)
+        {
+            return left.Voltage.Equals(right.Voltage) &&
+                   left.Frequency.Equals(right.Frequency);
+        }
+
+        /// <summary>
         /// Mark the helper as disposed.
         /// </summary>
         public void Dispose()
@@ -1440,3 +1488,4 @@ namespace IGCLWrapper
         }
     }
 }
+

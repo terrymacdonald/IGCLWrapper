@@ -89,7 +89,7 @@
 
 
   <h1 id="IGCLWrapper_IGCLFanHelper" data-uid="IGCLWrapper.IGCLFanHelper" class="text-break">
-Class IGCLFanHelper  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFanHelper.cs/#L9"><i class="bi bi-code-slash"></i></a>
+Class IGCLFanHelper  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFanHelper.cs/#L10"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -156,11 +156,179 @@ Class IGCLFanHelper  <a class="header-action link-secondary" title="View source"
 </h2>
 
 
+  <a id="IGCLWrapper_IGCLFanHelper_AreFanConfigEqual_" data-uid="IGCLWrapper.IGCLFanHelper.AreFanConfigEqual*"></a>
+
+  <h3 id="IGCLWrapper_IGCLFanHelper_AreFanConfigEqual_IGCLWrapper_ctl_fan_config_t_IGCLWrapper_ctl_fan_config_t_" data-uid="IGCLWrapper.IGCLFanHelper.AreFanConfigEqual(IGCLWrapper.ctl_fan_config_t,IGCLWrapper.ctl_fan_config_t)">
+  AreFanConfigEqual(ctl_fan_config_t, ctl_fan_config_t)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFanHelper.cs/#L181"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compare fan configuration while ignoring native-only fields.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool AreFanConfigEqual(ctl_fan_config_t left, ctl_fan_config_t right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="IGCLWrapper.ctl_fan_config_t.html">ctl_fan_config_t</a></dt>
+    <dd><p>Left config struct.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="IGCLWrapper.ctl_fan_config_t.html">ctl_fan_config_t</a></dt>
+    <dd><p>Right config struct.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_IGCLFanHelper_AreFanPropertiesEqual_" data-uid="IGCLWrapper.IGCLFanHelper.AreFanPropertiesEqual*"></a>
+
+  <h3 id="IGCLWrapper_IGCLFanHelper_AreFanPropertiesEqual_IGCLWrapper_ctl_fan_properties_t_IGCLWrapper_ctl_fan_properties_t_" data-uid="IGCLWrapper.IGCLFanHelper.AreFanPropertiesEqual(IGCLWrapper.ctl_fan_properties_t,IGCLWrapper.ctl_fan_properties_t)">
+  AreFanPropertiesEqual(ctl_fan_properties_t, ctl_fan_properties_t)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFanHelper.cs/#L170"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compare fan properties while ignoring native-only fields.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool AreFanPropertiesEqual(ctl_fan_properties_t left, ctl_fan_properties_t right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="IGCLWrapper.ctl_fan_properties_t.html">ctl_fan_properties_t</a></dt>
+    <dd><p>Left properties struct.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="IGCLWrapper.ctl_fan_properties_t.html">ctl_fan_properties_t</a></dt>
+    <dd><p>Right properties struct.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_IGCLFanHelper_AreFanSpeedEqual_" data-uid="IGCLWrapper.IGCLFanHelper.AreFanSpeedEqual*"></a>
+
+  <h3 id="IGCLWrapper_IGCLFanHelper_AreFanSpeedEqual_IGCLWrapper_ctl_fan_speed_t_IGCLWrapper_ctl_fan_speed_t_" data-uid="IGCLWrapper.IGCLFanHelper.AreFanSpeedEqual(IGCLWrapper.ctl_fan_speed_t,IGCLWrapper.ctl_fan_speed_t)">
+  AreFanSpeedEqual(ctl_fan_speed_t, ctl_fan_speed_t)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFanHelper.cs/#L196"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compare fan speed while ignoring native-only fields.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool AreFanSpeedEqual(ctl_fan_speed_t left, ctl_fan_speed_t right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="IGCLWrapper.ctl_fan_speed_t.html">ctl_fan_speed_t</a></dt>
+    <dd><p>Left speed struct.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="IGCLWrapper.ctl_fan_speed_t.html">ctl_fan_speed_t</a></dt>
+    <dd><p>Right speed struct.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_IGCLFanHelper_AreFanSpeedTableEqual_" data-uid="IGCLWrapper.IGCLFanHelper.AreFanSpeedTableEqual*"></a>
+
+  <h3 id="IGCLWrapper_IGCLFanHelper_AreFanSpeedTableEqual_IGCLWrapper_ctl_fan_speed_table_t_IGCLWrapper_ctl_fan_speed_table_t_" data-uid="IGCLWrapper.IGCLFanHelper.AreFanSpeedTableEqual(IGCLWrapper.ctl_fan_speed_table_t,IGCLWrapper.ctl_fan_speed_table_t)">
+  AreFanSpeedTableEqual(ctl_fan_speed_table_t, ctl_fan_speed_table_t)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFanHelper.cs/#L210"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compare fan speed tables while ignoring native-only fields.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool AreFanSpeedTableEqual(ctl_fan_speed_table_t left, ctl_fan_speed_table_t right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="IGCLWrapper.ctl_fan_speed_table_t.html">ctl_fan_speed_table_t</a></dt>
+    <dd><p>Left table struct.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="IGCLWrapper.ctl_fan_speed_table_t.html">ctl_fan_speed_table_t</a></dt>
+    <dd><p>Right table struct.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="IGCLWrapper_IGCLFanHelper_CreateFanSpeed_" data-uid="IGCLWrapper.IGCLFanHelper.CreateFanSpeed*"></a>
 
   <h3 id="IGCLWrapper_IGCLFanHelper_CreateFanSpeed" data-uid="IGCLWrapper.IGCLFanHelper.CreateFanSpeed">
   CreateFanSpeed()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFanHelper.cs/#L156"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFanHelper.cs/#L157"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a fan speed struct with Size and Version initialized.</p>
@@ -193,7 +361,7 @@ Class IGCLFanHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLFanHelper_CreateFanSpeedTable" data-uid="IGCLWrapper.IGCLFanHelper.CreateFanSpeedTable">
   CreateFanSpeedTable()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFanHelper.cs/#L161"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFanHelper.cs/#L162"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a fan speed table struct with Size and Version initialized.</p>
@@ -226,7 +394,7 @@ Class IGCLFanHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLFanHelper_Dispose" data-uid="IGCLWrapper.IGCLFanHelper.Dispose">
   Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFanHelper.cs/#L166"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFanHelper.cs/#L246"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Mark the helper as disposed.</p>
@@ -253,7 +421,7 @@ Class IGCLFanHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLFanHelper_EnumFans" data-uid="IGCLWrapper.IGCLFanHelper.EnumFans">
   EnumFans()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFanHelper.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFanHelper.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Enumerate fan handles for the adapter.</p>
@@ -286,7 +454,7 @@ Class IGCLFanHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLFanHelper_FanGetConfig_System_IntPtr_" data-uid="IGCLWrapper.IGCLFanHelper.FanGetConfig(System.IntPtr)">
   FanGetConfig(nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFanHelper.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFanHelper.cs/#L63"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get fan configuration.</p>
@@ -325,7 +493,7 @@ Class IGCLFanHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLFanHelper_FanGetProperties_System_IntPtr_" data-uid="IGCLWrapper.IGCLFanHelper.FanGetProperties(System.IntPtr)">
   FanGetProperties(nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFanHelper.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFanHelper.cs/#L52"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get fan properties as a DTO.</p>
@@ -364,7 +532,7 @@ Class IGCLFanHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLFanHelper_FanGetPropertiesNative_System_IntPtr_" data-uid="IGCLWrapper.IGCLFanHelper.FanGetPropertiesNative(System.IntPtr)">
   FanGetPropertiesNative(nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFanHelper.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFanHelper.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get fan properties using the native struct.</p>
@@ -403,7 +571,7 @@ Class IGCLFanHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLFanHelper_FanGetState_System_IntPtr_IGCLWrapper_ctl_fan_speed_units_t_" data-uid="IGCLWrapper.IGCLFanHelper.FanGetState(System.IntPtr,IGCLWrapper.ctl_fan_speed_units_t)">
   FanGetState(nint, ctl_fan_speed_units_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFanHelper.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFanHelper.cs/#L117"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get the current fan speed.</p>
@@ -445,7 +613,7 @@ Class IGCLFanHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLFanHelper_FanSetDefaultMode_System_IntPtr_" data-uid="IGCLWrapper.IGCLFanHelper.FanSetDefaultMode(System.IntPtr)">
   FanSetDefaultMode(nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFanHelper.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFanHelper.cs/#L77"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Set the fan to default control mode.</p>
@@ -478,7 +646,7 @@ Class IGCLFanHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLFanHelper_FanSetFixedSpeedMode_System_IntPtr_IGCLWrapper_ctl_fan_speed_t_" data-uid="IGCLWrapper.IGCLFanHelper.FanSetFixedSpeedMode(System.IntPtr,IGCLWrapper.ctl_fan_speed_t)">
   FanSetFixedSpeedMode(nint, ctl_fan_speed_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFanHelper.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFanHelper.cs/#L90"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Set the fan to fixed speed mode.</p>
@@ -514,7 +682,7 @@ Class IGCLFanHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLFanHelper_FanSetSpeedTableMode_System_IntPtr_IGCLWrapper_ctl_fan_speed_table_t_" data-uid="IGCLWrapper.IGCLFanHelper.FanSetSpeedTableMode(System.IntPtr,IGCLWrapper.ctl_fan_speed_table_t)">
   FanSetSpeedTableMode(nint, ctl_fan_speed_table_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFanHelper.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFanHelper.cs/#L103"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Set the fan to speed table mode.</p>
@@ -550,7 +718,7 @@ Class IGCLFanHelper  <a class="header-action link-secondary" title="View source"
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFanHelper.cs/#L9" class="edit-link">Edit this page</a>
+          <a href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFanHelper.cs/#L10" class="edit-link">Edit this page</a>
         </div>
 
 

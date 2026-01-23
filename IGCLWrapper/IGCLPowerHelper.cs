@@ -152,6 +152,70 @@ namespace IGCLWrapper
         public static unsafe ctl_power_limits_t CreatePowerLimitsStruct() => CreatePowerLimits();
 
         /// <summary>
+        /// Compare power properties while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left properties struct.</param>
+        /// <param name="right">Right properties struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool ArePowerPropertiesEqual(ctl_power_properties_t left, ctl_power_properties_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.canControl == right.canControl &&
+                   left.defaultLimit == right.defaultLimit &&
+                   left.minLimit == right.minLimit &&
+                   left.maxLimit == right.maxLimit;
+        }
+
+        /// <summary>
+        /// Compare power energy counters while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left counter struct.</param>
+        /// <param name="right">Right counter struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool ArePowerEnergyCounterEqual(ctl_power_energy_counter_t left, ctl_power_energy_counter_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.energy == right.energy &&
+                   left.timestamp == right.timestamp;
+        }
+
+        /// <summary>
+        /// Compare power limits while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left limits struct.</param>
+        /// <param name="right">Right limits struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool ArePowerLimitsEqual(ctl_power_limits_t left, ctl_power_limits_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   ArePowerSustainedLimitEqual(left.sustainedPowerLimit, right.sustainedPowerLimit) &&
+                   ArePowerBurstLimitEqual(left.burstPowerLimit, right.burstPowerLimit) &&
+                   ArePowerPeakLimitEqual(left.peakPowerLimits, right.peakPowerLimits);
+        }
+
+        private static bool ArePowerSustainedLimitEqual(ctl_power_sustained_limit_t left, ctl_power_sustained_limit_t right)
+        {
+            return left.enabled == right.enabled &&
+                   left.power == right.power &&
+                   left.interval == right.interval;
+        }
+
+        private static bool ArePowerBurstLimitEqual(ctl_power_burst_limit_t left, ctl_power_burst_limit_t right)
+        {
+            return left.enabled == right.enabled &&
+                   left.power == right.power;
+        }
+
+        private static bool ArePowerPeakLimitEqual(ctl_power_peak_limit_t left, ctl_power_peak_limit_t right)
+        {
+            return left.powerAC == right.powerAC &&
+                   left.powerDC == right.powerDC;
+        }
+
+        /// <summary>
         /// Mark the helper as disposed.
         /// </summary>
         public void Dispose()
@@ -594,3 +658,4 @@ namespace IGCLWrapper
         }
     }
 }
+

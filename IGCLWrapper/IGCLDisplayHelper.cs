@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
 namespace IGCLWrapper
 {
@@ -116,6 +117,739 @@ namespace IGCLWrapper
         /// </summary>
         /// <returns>Initialized DCE args struct.</returns>
         public static unsafe ctl_dce_args_t CreateDceArgs() => new ctl_dce_args_t { Size = (uint)sizeof(ctl_dce_args_t), Version = 0 };
+
+        /// <summary>
+        /// Compare display properties while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left properties struct.</param>
+        /// <param name="right">Right properties struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreDisplayPropertiesEqual(ctl_display_properties_t left, ctl_display_properties_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.Type == right.Type &&
+                   left.AttachedDisplayMuxType == right.AttachedDisplayMuxType &&
+                   left.ProtocolConverterOutput == right.ProtocolConverterOutput &&
+                   AreRevisionEqual(left.SupportedSpec, right.SupportedSpec) &&
+                   left.SupportedOutputBPCFlags == right.SupportedOutputBPCFlags &&
+                   left.ProtocolConverterType == right.ProtocolConverterType &&
+                   left.DisplayConfigFlags == right.DisplayConfigFlags &&
+                   left.FeatureEnabledFlags == right.FeatureEnabledFlags &&
+                   left.FeatureSupportedFlags == right.FeatureSupportedFlags &&
+                   left.AdvancedFeatureEnabledFlags == right.AdvancedFeatureEnabledFlags &&
+                   left.AdvancedFeatureSupportedFlags == right.AdvancedFeatureSupportedFlags &&
+                   AreDisplayTimingEqual(left.Display_Timing_Info, right.Display_Timing_Info);
+        }
+
+        /// <summary>
+        /// Compare display timing while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left timing struct.</param>
+        /// <param name="right">Right timing struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreDisplayTimingEqual(ctl_display_timing_t left, ctl_display_timing_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.PixelClock == right.PixelClock &&
+                   left.HActive == right.HActive &&
+                   left.VActive == right.VActive &&
+                   left.HTotal == right.HTotal &&
+                   left.VTotal == right.VTotal &&
+                   left.HBlank == right.HBlank &&
+                   left.VBlank == right.VBlank &&
+                   left.HSync == right.HSync &&
+                   left.VSync == right.VSync &&
+                   left.RefreshRate.Equals(right.RefreshRate) &&
+                   left.SignalStandard == right.SignalStandard &&
+                   left.VicId == right.VicId;
+        }
+
+        /// <summary>
+        /// Compare adapter display encoder properties while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left properties struct.</param>
+        /// <param name="right">Right properties struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreAdapterDisplayEncoderPropertiesEqual(ctl_adapter_display_encoder_properties_t left, ctl_adapter_display_encoder_properties_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.Type == right.Type &&
+                   left.IsOnBoardProtocolConverterOutputPresent == right.IsOnBoardProtocolConverterOutputPresent &&
+                   AreRevisionEqual(left.SupportedSpec, right.SupportedSpec) &&
+                   left.SupportedOutputBPCFlags == right.SupportedOutputBPCFlags &&
+                   left.EncoderConfigFlags == right.EncoderConfigFlags &&
+                   left.FeatureSupportedFlags == right.FeatureSupportedFlags &&
+                   left.AdvancedFeatureSupportedFlags == right.AdvancedFeatureSupportedFlags;
+        }
+
+        /// <summary>
+        /// Compare sharpness capabilities while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left caps struct.</param>
+        /// <param name="right">Right caps struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreSharpnessCapsEqual(ctl_sharpness_caps_t left, ctl_sharpness_caps_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.SupportedFilterFlags == right.SupportedFilterFlags &&
+                   left.NumFilterTypes == right.NumFilterTypes;
+        }
+
+        /// <summary>
+        /// Compare sharpness filter properties while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left filter properties struct.</param>
+        /// <param name="right">Right filter properties struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreSharpnessFilterPropertiesEqual(ctl_sharpness_filter_properties_t left, ctl_sharpness_filter_properties_t right)
+        {
+            return left.FilterType == right.FilterType &&
+                   ArePropertyRangeInfoEqual(left.FilterDetails, right.FilterDetails);
+        }
+
+        /// <summary>
+        /// Compare sharpness settings while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left settings struct.</param>
+        /// <param name="right">Right settings struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreSharpnessSettingsEqual(ctl_sharpness_settings_t left, ctl_sharpness_settings_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.Enable == right.Enable &&
+                   left.FilterType == right.FilterType &&
+                   left.Intensity.Equals(right.Intensity);
+        }
+
+        /// <summary>
+        /// Compare I2C access args while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left args struct.</param>
+        /// <param name="right">Right args struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreI2CAccessArgsEqual(ctl_i2c_access_args_t left, ctl_i2c_access_args_t right)
+        {
+            if (left.Size != right.Size ||
+                left.Version != right.Version ||
+                left.DataSize != right.DataSize ||
+                left.Address != right.Address ||
+                left.OpType != right.OpType ||
+                left.Offset != right.Offset ||
+                left.Flags != right.Flags ||
+                left.RAD != right.RAD)
+            {
+                return false;
+            }
+
+            var count = left.DataSize > 128u ? 128 : (int)left.DataSize;
+            var leftSpan = MemoryMarshal.CreateReadOnlySpan(ref left.Data.e0, 128);
+            var rightSpan = MemoryMarshal.CreateReadOnlySpan(ref right.Data.e0, 128);
+            return leftSpan.Slice(0, count).SequenceEqual(rightSpan.Slice(0, count));
+        }
+
+        /// <summary>
+        /// Compare I2C pin-pair access args while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left args struct.</param>
+        /// <param name="right">Right args struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreI2CAccessPinPairArgsEqual(ctl_i2c_access_pinpair_args_t left, ctl_i2c_access_pinpair_args_t right)
+        {
+            if (left.Size != right.Size ||
+                left.Version != right.Version ||
+                left.DataSize != right.DataSize ||
+                left.Address != right.Address ||
+                left.OpType != right.OpType ||
+                left.Offset != right.Offset ||
+                left.Flags != right.Flags)
+            {
+                return false;
+            }
+
+            var count = left.DataSize > 128u ? 128 : (int)left.DataSize;
+            var leftSpan = MemoryMarshal.CreateReadOnlySpan(ref left.Data.e0, 128);
+            var rightSpan = MemoryMarshal.CreateReadOnlySpan(ref right.Data.e0, 128);
+            return leftSpan.Slice(0, count).SequenceEqual(rightSpan.Slice(0, count));
+        }
+
+        /// <summary>
+        /// Compare AUX access args while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left args struct.</param>
+        /// <param name="right">Right args struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreAuxAccessArgsEqual(ctl_aux_access_args_t left, ctl_aux_access_args_t right)
+        {
+            if (left.Size != right.Size ||
+                left.Version != right.Version ||
+                left.OpType != right.OpType ||
+                left.Flags != right.Flags ||
+                left.Address != right.Address ||
+                left.RAD != right.RAD ||
+                left.PortID != right.PortID ||
+                left.DataSize != right.DataSize)
+            {
+                return false;
+            }
+
+            var count = left.DataSize > 132u ? 132 : (int)left.DataSize;
+            var leftSpan = MemoryMarshal.CreateReadOnlySpan(ref left.Data.e0, 132);
+            var rightSpan = MemoryMarshal.CreateReadOnlySpan(ref right.Data.e0, 132);
+            return leftSpan.Slice(0, count).SequenceEqual(rightSpan.Slice(0, count));
+        }
+
+        /// <summary>
+        /// Compare power optimization capabilities while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left caps struct.</param>
+        /// <param name="right">Right caps struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool ArePowerOptimizationCapsEqual(ctl_power_optimization_caps_t left, ctl_power_optimization_caps_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.SupportedFeatures == right.SupportedFeatures;
+        }
+
+        /// <summary>
+        /// Compare power optimization settings while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left settings struct.</param>
+        /// <param name="right">Right settings struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool ArePowerOptimizationSettingsEqual(ctl_power_optimization_settings_t left, ctl_power_optimization_settings_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.PowerOptimizationPlan == right.PowerOptimizationPlan &&
+                   left.PowerOptimizationFeature == right.PowerOptimizationFeature &&
+                   left.Enable == right.Enable &&
+                   left.PowerSource == right.PowerSource &&
+                   ArePowerOptimizationFeatureSpecificInfoEqual(left.FeatureSpecificData, right.FeatureSpecificData);
+        }
+
+        /// <summary>
+        /// Compare set brightness args while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left args struct.</param>
+        /// <param name="right">Right args struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreSetBrightnessEqual(ctl_set_brightness_t left, ctl_set_brightness_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.TargetBrightness == right.TargetBrightness &&
+                   left.SmoothTransitionTimeInMs == right.SmoothTransitionTimeInMs;
+        }
+
+        /// <summary>
+        /// Compare get brightness args while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left args struct.</param>
+        /// <param name="right">Right args struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreGetBrightnessEqual(ctl_get_brightness_t left, ctl_get_brightness_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.TargetBrightness == right.TargetBrightness &&
+                   left.CurrentBrightness == right.CurrentBrightness;
+        }
+
+        /// <summary>
+        /// Compare pixel transformation pipe get configs while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left config struct.</param>
+        /// <param name="right">Right config struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool ArePixtxPipeGetConfigEqual(ctl_pixtx_pipe_get_config_t left, ctl_pixtx_pipe_get_config_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.QueryType == right.QueryType &&
+                   ArePixtxPixelFormatEqual(left.InputPixelFormat, right.InputPixelFormat) &&
+                   ArePixtxPixelFormatEqual(left.OutputPixelFormat, right.OutputPixelFormat) &&
+                   left.NumBlocks == right.NumBlocks;
+        }
+
+        /// <summary>
+        /// Compare pixel transformation pipe set configs while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left config struct.</param>
+        /// <param name="right">Right config struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool ArePixtxPipeSetConfigEqual(ctl_pixtx_pipe_set_config_t left, ctl_pixtx_pipe_set_config_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.OpertaionType == right.OpertaionType &&
+                   left.Flags == right.Flags &&
+                   left.NumBlocks == right.NumBlocks;
+        }
+
+        /// <summary>
+        /// Compare pixel transformation block configs while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left config struct.</param>
+        /// <param name="right">Right config struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool ArePixtxBlockConfigEqual(ctl_pixtx_block_config_t left, ctl_pixtx_block_config_t right)
+        {
+            if (left.Size != right.Size ||
+                left.Version != right.Version ||
+                left.BlockId != right.BlockId ||
+                left.BlockType != right.BlockType)
+            {
+                return false;
+            }
+
+            return ArePixtxConfigEqual(left.BlockType, left.Config, right.Config);
+        }
+
+        /// <summary>
+        /// Compare panel descriptor access args while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left args struct.</param>
+        /// <param name="right">Right args struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool ArePanelDescriptorAccessArgsEqual(ctl_panel_descriptor_access_args_t left, ctl_panel_descriptor_access_args_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.OpType == right.OpType &&
+                   left.BlockNumber == right.BlockNumber &&
+                   left.DescriptorDataSize == right.DescriptorDataSize;
+        }
+
+        /// <summary>
+        /// Compare retro scaling capabilities while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left caps struct.</param>
+        /// <param name="right">Right caps struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreRetroScalingCapsEqual(ctl_retro_scaling_caps_t left, ctl_retro_scaling_caps_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.SupportedRetroScaling == right.SupportedRetroScaling;
+        }
+
+        /// <summary>
+        /// Compare retro scaling settings while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left settings struct.</param>
+        /// <param name="right">Right settings struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreRetroScalingSettingsEqual(ctl_retro_scaling_settings_t left, ctl_retro_scaling_settings_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.Get == right.Get &&
+                   left.Enable == right.Enable &&
+                   left.RetroScalingType == right.RetroScalingType;
+        }
+
+        /// <summary>
+        /// Compare scaling capabilities while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left caps struct.</param>
+        /// <param name="right">Right caps struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreScalingCapsEqual(ctl_scaling_caps_t left, ctl_scaling_caps_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.SupportedScaling == right.SupportedScaling;
+        }
+
+        /// <summary>
+        /// Compare scaling settings while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left settings struct.</param>
+        /// <param name="right">Right settings struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreScalingSettingsEqual(ctl_scaling_settings_t left, ctl_scaling_settings_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.Enable == right.Enable &&
+                   left.ScalingType == right.ScalingType &&
+                   left.CustomScalingX == right.CustomScalingX &&
+                   left.CustomScalingY == right.CustomScalingY &&
+                   left.HardwareModeSet == right.HardwareModeSet &&
+                   left.PreferredScalingType == right.PreferredScalingType;
+        }
+
+        /// <summary>
+        /// Compare LACE config while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left config struct.</param>
+        /// <param name="right">Right config struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreLaceConfigEqual(ctl_lace_config_t left, ctl_lace_config_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.Enabled == right.Enabled &&
+                   left.OpTypeGet == right.OpTypeGet &&
+                   left.OpTypeSet == right.OpTypeSet &&
+                   left.Trigger == right.Trigger &&
+                   AreLaceAggrConfigEqual(left.LaceConfig, right.LaceConfig);
+        }
+
+        /// <summary>
+        /// Compare software PSR settings while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left settings struct.</param>
+        /// <param name="right">Right settings struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreSoftwarePsrSettingsEqual(ctl_sw_psr_settings_t left, ctl_sw_psr_settings_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.Set == right.Set &&
+                   left.Supported == right.Supported &&
+                   left.Enable == right.Enable;
+        }
+
+        /// <summary>
+        /// Compare Intel Arc Sync monitor params while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left params struct.</param>
+        /// <param name="right">Right params struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreIntelArcSyncMonitorParamsEqual(ctl_intel_arc_sync_monitor_params_t left, ctl_intel_arc_sync_monitor_params_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.IsIntelArcSyncSupported == right.IsIntelArcSyncSupported &&
+                   left.MinimumRefreshRateInHz.Equals(right.MinimumRefreshRateInHz) &&
+                   left.MaximumRefreshRateInHz.Equals(right.MaximumRefreshRateInHz) &&
+                   left.MaxFrameTimeIncreaseInUs == right.MaxFrameTimeIncreaseInUs &&
+                   left.MaxFrameTimeDecreaseInUs == right.MaxFrameTimeDecreaseInUs;
+        }
+
+        /// <summary>
+        /// Compare mux properties while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left properties struct.</param>
+        /// <param name="right">Right properties struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreMuxPropertiesEqual(ctl_mux_properties_t left, ctl_mux_properties_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.MuxId == right.MuxId &&
+                   left.Count == right.Count &&
+                   left.IndexOfDisplayOutputOwningMux == right.IndexOfDisplayOutputOwningMux;
+        }
+
+        /// <summary>
+        /// Compare Intel Arc Sync profile params while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left params struct.</param>
+        /// <param name="right">Right params struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreIntelArcSyncProfileParamsEqual(ctl_intel_arc_sync_profile_params_t left, ctl_intel_arc_sync_profile_params_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.IntelArcSyncProfile == right.IntelArcSyncProfile &&
+                   left.MaxRefreshRateInHz.Equals(right.MaxRefreshRateInHz) &&
+                   left.MinRefreshRateInHz.Equals(right.MinRefreshRateInHz) &&
+                   left.MaxFrameTimeIncreaseInUs == right.MaxFrameTimeIncreaseInUs &&
+                   left.MaxFrameTimeDecreaseInUs == right.MaxFrameTimeDecreaseInUs;
+        }
+
+        /// <summary>
+        /// Compare EDID management args while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left args struct.</param>
+        /// <param name="right">Right args struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreEdidManagementArgsEqual(ctl_edid_management_args_t left, ctl_edid_management_args_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.OpType == right.OpType &&
+                   left.EdidType == right.EdidType &&
+                   left.EdidSize == right.EdidSize &&
+                   left.OutFlags == right.OutFlags;
+        }
+
+        /// <summary>
+        /// Compare custom mode args while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left args struct.</param>
+        /// <param name="right">Right args struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreCustomModeArgsEqual(ctl_get_set_custom_mode_args_t left, ctl_get_set_custom_mode_args_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.CustomModeOpType == right.CustomModeOpType &&
+                   left.NumOfModes == right.NumOfModes;
+        }
+
+        /// <summary>
+        /// Compare custom source modes while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left mode struct.</param>
+        /// <param name="right">Right mode struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreCustomSrcModeEqual(ctl_custom_src_mode_t left, ctl_custom_src_mode_t right)
+        {
+            return left.SourceX == right.SourceX &&
+                   left.SourceY == right.SourceY;
+        }
+
+        /// <summary>
+        /// Compare vblank timestamp args while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left args struct.</param>
+        /// <param name="right">Right args struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreVblankTimestampArgsEqual(ctl_vblank_ts_args_t left, ctl_vblank_ts_args_t right)
+        {
+            if (left.Size != right.Size ||
+                left.Version != right.Version ||
+                left.NumOfTargets != right.NumOfTargets)
+            {
+                return false;
+            }
+
+            var count = Math.Min((int)left.NumOfTargets, 16);
+            var leftSpan = MemoryMarshal.CreateReadOnlySpan(ref left.VblankTS.e0, 16);
+            var rightSpan = MemoryMarshal.CreateReadOnlySpan(ref right.VblankTS.e0, 16);
+            return leftSpan.Slice(0, count).SequenceEqual(rightSpan.Slice(0, count));
+        }
+
+        /// <summary>
+        /// Compare DCE args while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left args struct.</param>
+        /// <param name="right">Right args struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreDceArgsEqual(ctl_dce_args_t left, ctl_dce_args_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.Set == right.Set &&
+                   left.TargetBrightnessPercent == right.TargetBrightnessPercent &&
+                   left.PhaseinSpeedMultiplier.Equals(right.PhaseinSpeedMultiplier) &&
+                   left.NumBins == right.NumBins &&
+                   left.Enable == right.Enable &&
+                   left.IsSupported == right.IsSupported;
+        }
+
+        /// <summary>
+        /// Compare wire format config while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left config struct.</param>
+        /// <param name="right">Right config struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreWireFormatConfigEqual(ctl_get_set_wire_format_config_t left, ctl_get_set_wire_format_config_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.Operation == right.Operation &&
+                   AreSupportedWireFormatsEqual(left, right) &&
+                   AreWireFormatEqual(left.WireFormat, right.WireFormat);
+        }
+
+        /// <summary>
+        /// Compare display settings while ignoring native-only fields.
+        /// </summary>
+        /// <param name="left">Left settings struct.</param>
+        /// <param name="right">Right settings struct.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public static bool AreDisplaySettingsEqual(ctl_display_settings_t left, ctl_display_settings_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.Set == right.Set &&
+                   left.SupportedFlags == right.SupportedFlags &&
+                   left.ControllableFlags == right.ControllableFlags &&
+                   left.ValidFlags == right.ValidFlags &&
+                   left.LowLatency == right.LowLatency &&
+                   left.SourceTM == right.SourceTM &&
+                   left.ContentType == right.ContentType &&
+                   left.QuantizationRange == right.QuantizationRange &&
+                   left.SupportedPictureAR == right.SupportedPictureAR &&
+                   left.PictureAR == right.PictureAR &&
+                   left.AudioSettings == right.AudioSettings;
+        }
+
+        private static bool AreRevisionEqual(ctl_revision_datatype_t left, ctl_revision_datatype_t right)
+        {
+            return left.major_version == right.major_version &&
+                   left.minor_version == right.minor_version &&
+                   left.revision_version == right.revision_version;
+        }
+
+        private static bool ArePropertyRangeInfoEqual(ctl_property_range_info_t left, ctl_property_range_info_t right)
+        {
+            return left.min_possible_value.Equals(right.min_possible_value) &&
+                   left.max_possible_value.Equals(right.max_possible_value) &&
+                   left.step_size.Equals(right.step_size) &&
+                   left.default_value.Equals(right.default_value);
+        }
+
+        private static bool ArePowerOptimizationFeatureSpecificInfoEqual(ctl_power_optimization_feature_specific_info_t left, ctl_power_optimization_feature_specific_info_t right)
+        {
+            return ArePowerOptimizationDpstEqual(left.DPSTInfo, right.DPSTInfo) &&
+                   ArePowerOptimizationPsrEqual(left.PSRInfo, right.PSRInfo) &&
+                   ArePowerOptimizationLrrEqual(left.LRRInfo, right.LRRInfo);
+        }
+
+        private static bool ArePowerOptimizationDpstEqual(ctl_power_optimization_dpst_t left, ctl_power_optimization_dpst_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.MinLevel == right.MinLevel &&
+                   left.MaxLevel == right.MaxLevel &&
+                   left.Level == right.Level &&
+                   left.SupportedFeatures == right.SupportedFeatures &&
+                   left.EnabledFeatures == right.EnabledFeatures;
+        }
+
+        private static bool ArePowerOptimizationPsrEqual(ctl_power_optimization_psr_t left, ctl_power_optimization_psr_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.PSRVersion == right.PSRVersion &&
+                   left.FullFetchUpdate == right.FullFetchUpdate;
+        }
+
+        private static bool ArePowerOptimizationLrrEqual(ctl_power_optimization_lrr_t left, ctl_power_optimization_lrr_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.SupportedLRRTypes == right.SupportedLRRTypes &&
+                   left.CurrentLRRTypes == right.CurrentLRRTypes &&
+                   left.bRequirePSRDisable == right.bRequirePSRDisable &&
+                   left.LowRR == right.LowRR;
+        }
+
+        private static bool AreWireFormatEqual(ctl_wire_format_t left, ctl_wire_format_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.ColorModel == right.ColorModel &&
+                   left.ColorDepth == right.ColorDepth;
+        }
+
+        private static bool AreSupportedWireFormatsEqual(ctl_get_set_wire_format_config_t left, ctl_get_set_wire_format_config_t right)
+        {
+            var leftSpan = MemoryMarshal.CreateReadOnlySpan(ref left.SupportedWireFormat.e0, 4);
+            var rightSpan = MemoryMarshal.CreateReadOnlySpan(ref right.SupportedWireFormat.e0, 4);
+            for (var i = 0; i < 4; i++)
+            {
+                if (!AreWireFormatEqual(leftSpan[i], rightSpan[i]))
+                    return false;
+            }
+
+            return true;
+        }
+
+        private static bool ArePixtxPixelFormatEqual(ctl_pixtx_pixel_format_t left, ctl_pixtx_pixel_format_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.BitsPerColor == right.BitsPerColor &&
+                   left.IsFloat == right.IsFloat &&
+                   left.EncodingType == right.EncodingType &&
+                   left.ColorSpace == right.ColorSpace &&
+                   left.ColorModel == right.ColorModel &&
+                   ArePixtxColorPrimariesEqual(left.ColorPrimaries, right.ColorPrimaries) &&
+                   left.MaxBrightness.Equals(right.MaxBrightness) &&
+                   left.MinBrightness.Equals(right.MinBrightness);
+        }
+
+        private static bool ArePixtxColorPrimariesEqual(ctl_pixtx_color_primaries_t left, ctl_pixtx_color_primaries_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.xR.Equals(right.xR) &&
+                   left.yR.Equals(right.yR) &&
+                   left.xG.Equals(right.xG) &&
+                   left.yG.Equals(right.yG) &&
+                   left.xB.Equals(right.xB) &&
+                   left.yB.Equals(right.yB) &&
+                   left.xW.Equals(right.xW) &&
+                   left.yW.Equals(right.yW);
+        }
+
+        private static bool ArePixtxConfigEqual(ctl_pixtx_block_type_t blockType, ctl_pixtx_config_t left, ctl_pixtx_config_t right)
+        {
+            return blockType switch
+            {
+                ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_1D_LUT =>
+                    ArePixtx1dLutConfigEqual(left.OneDLutConfig, right.OneDLutConfig),
+                ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3D_LUT =>
+                    ArePixtx3dLutConfigEqual(left.ThreeDLutConfig, right.ThreeDLutConfig),
+                ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX =>
+                    ArePixtxMatrixConfigEqual(left.MatrixConfig, right.MatrixConfig),
+                ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX_AND_OFFSETS =>
+                    ArePixtxMatrixConfigEqual(left.MatrixConfig, right.MatrixConfig),
+                _ => ArePixtx1dLutConfigEqual(left.OneDLutConfig, right.OneDLutConfig) &&
+                     ArePixtx3dLutConfigEqual(left.ThreeDLutConfig, right.ThreeDLutConfig) &&
+                     ArePixtxMatrixConfigEqual(left.MatrixConfig, right.MatrixConfig)
+            };
+        }
+
+        private static bool ArePixtx1dLutConfigEqual(ctl_pixtx_1dlut_config_t left, ctl_pixtx_1dlut_config_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.SamplingType == right.SamplingType &&
+                   left.NumSamplesPerChannel == right.NumSamplesPerChannel &&
+                   left.NumChannels == right.NumChannels;
+        }
+
+        private static bool ArePixtx3dLutConfigEqual(ctl_pixtx_3dlut_config_t left, ctl_pixtx_3dlut_config_t right)
+        {
+            return left.Size == right.Size &&
+                   left.Version == right.Version &&
+                   left.NumSamplesPerChannel == right.NumSamplesPerChannel;
+        }
+
+        private static bool ArePixtxMatrixConfigEqual(ctl_pixtx_matrix_config_t left, ctl_pixtx_matrix_config_t right)
+        {
+            if (left.Size != right.Size || left.Version != right.Version)
+                return false;
+
+            var leftPre = MemoryMarshal.CreateReadOnlySpan(ref left.PreOffsets.e0, 3);
+            var rightPre = MemoryMarshal.CreateReadOnlySpan(ref right.PreOffsets.e0, 3);
+            if (!leftPre.SequenceEqual(rightPre))
+                return false;
+
+            var leftPost = MemoryMarshal.CreateReadOnlySpan(ref left.PostOffsets.e0, 3);
+            var rightPost = MemoryMarshal.CreateReadOnlySpan(ref right.PostOffsets.e0, 3);
+            if (!leftPost.SequenceEqual(rightPost))
+                return false;
+
+            var leftMatrix = MemoryMarshal.CreateReadOnlySpan(ref left.Matrix.e0_0, 9);
+            var rightMatrix = MemoryMarshal.CreateReadOnlySpan(ref right.Matrix.e0_0, 9);
+            return leftMatrix.SequenceEqual(rightMatrix);
+        }
+
+        private static bool AreLaceAggrConfigEqual(ctl_lace_aggr_config_t left, ctl_lace_aggr_config_t right)
+        {
+            return left.FixedAggressivenessLevelPercent == right.FixedAggressivenessLevelPercent &&
+                   AreLaceLuxAggrMapEqual(left.AggrLevelMap, right.AggrLevelMap);
+        }
+
+        private static bool AreLaceLuxAggrMapEqual(ctl_lace_lux_aggr_map_t left, ctl_lace_lux_aggr_map_t right)
+        {
+            return left.MaxNumEntries == right.MaxNumEntries &&
+                   left.NumEntries == right.NumEntries;
+        }
 
 
         /// <summary>
@@ -2250,7 +2984,7 @@ namespace IGCLWrapper
                    OpTypeGet == other.OpTypeGet &&
                    OpTypeSet == other.OpTypeSet &&
                    Trigger == other.Trigger &&
-                   LaceConfig.Equals(other.LaceConfig);
+                   AreLaceAggrConfigsEqual(LaceConfig, other.LaceConfig);
         }
 
         /// <summary>
@@ -2273,8 +3007,17 @@ namespace IGCLWrapper
             hash.Add(OpTypeGet);
             hash.Add(OpTypeSet);
             hash.Add(Trigger);
-            hash.Add(LaceConfig);
+            hash.Add(LaceConfig.FixedAggressivenessLevelPercent);
+            hash.Add(LaceConfig.AggrLevelMap.MaxNumEntries);
+            hash.Add(LaceConfig.AggrLevelMap.NumEntries);
             return hash.ToHashCode();
+        }
+
+        private static bool AreLaceAggrConfigsEqual(ctl_lace_aggr_config_t left, ctl_lace_aggr_config_t right)
+        {
+            return left.FixedAggressivenessLevelPercent == right.FixedAggressivenessLevelPercent &&
+                   left.AggrLevelMap.MaxNumEntries == right.AggrLevelMap.MaxNumEntries &&
+                   left.AggrLevelMap.NumEntries == right.AggrLevelMap.NumEntries;
         }
 
         /// <summary>
@@ -2859,3 +3602,4 @@ namespace IGCLWrapper
         }
     }
 }
+
