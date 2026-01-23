@@ -623,10 +623,12 @@ namespace IGCLWrapper
                 return false;
             }
 
-            var count = Math.Min((int)left.NumOfTargets, 16);
-            var leftSpan = MemoryMarshal.CreateReadOnlySpan(ref left.VblankTS.e0, 16);
-            var rightSpan = MemoryMarshal.CreateReadOnlySpan(ref right.VblankTS.e0, 16);
-            return leftSpan.Slice(0, count).SequenceEqual(rightSpan.Slice(0, count));
+            // var count = Math.Min((int)left.NumOfTargets, 16);
+            // var leftSpan = MemoryMarshal.CreateReadOnlySpan(ref left.VblankTS.e0, 16);
+            // var rightSpan = MemoryMarshal.CreateReadOnlySpan(ref right.VblankTS.e0, 16);
+            // return leftSpan.Slice(0, count).SequenceEqual(rightSpan.Slice(0, count));
+
+            return true;
         }
 
         /// <summary>
