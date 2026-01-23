@@ -5,9 +5,12 @@ items:
   id: FirmwarePropertiesDto
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.FirmwarePropertiesDto.Equals(IGCLWrapper.FirmwarePropertiesDto)
+  - IGCLWrapper.FirmwarePropertiesDto.Equals(System.Object)
   - IGCLWrapper.FirmwarePropertiesDto.FirmwareConfig
   - IGCLWrapper.FirmwarePropertiesDto.FirmwareVersion
   - IGCLWrapper.FirmwarePropertiesDto.FromNative(IGCLWrapper.ctl_firmware_properties_t)
+  - IGCLWrapper.FirmwarePropertiesDto.GetHashCode
   - IGCLWrapper.FirmwarePropertiesDto.Name
   - IGCLWrapper.FirmwarePropertiesDto.Reserved
   - IGCLWrapper.FirmwarePropertiesDto.Size
@@ -34,11 +37,11 @@ items:
   summary: DTO for firmware properties.
   example: []
   syntax:
-    content: public struct FirmwarePropertiesDto
-    content.vb: Public Structure FirmwarePropertiesDto
+    content: 'public struct FirmwarePropertiesDto : IEquatable<FirmwarePropertiesDto>'
+    content.vb: Public Structure FirmwarePropertiesDto Implements IEquatable(Of FirmwarePropertiesDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.FirmwarePropertiesDto}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -217,6 +220,114 @@ items:
     return:
       type: System.Byte[]
     content.vb: Public Reserved As Byte()
+- uid: IGCLWrapper.FirmwarePropertiesDto.Equals(IGCLWrapper.FirmwarePropertiesDto)
+  commentId: M:IGCLWrapper.FirmwarePropertiesDto.Equals(IGCLWrapper.FirmwarePropertiesDto)
+  id: Equals(IGCLWrapper.FirmwarePropertiesDto)
+  parent: IGCLWrapper.FirmwarePropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(FirmwarePropertiesDto)
+  nameWithType: FirmwarePropertiesDto.Equals(FirmwarePropertiesDto)
+  fullName: IGCLWrapper.FirmwarePropertiesDto.Equals(IGCLWrapper.FirmwarePropertiesDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFirmwareHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLFirmwareHelper.cs
+    startLine: 176
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare firmware properties while ignoring reserved fields.
+  example: []
+  syntax:
+    content: public bool Equals(FirmwarePropertiesDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.FirmwarePropertiesDto
+      description: Other properties instance.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Function Equals(other As FirmwarePropertiesDto) As Boolean
+  overload: IGCLWrapper.FirmwarePropertiesDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.FirmwarePropertiesDto}.Equals(IGCLWrapper.FirmwarePropertiesDto)
+- uid: IGCLWrapper.FirmwarePropertiesDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.FirmwarePropertiesDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.FirmwarePropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: FirmwarePropertiesDto.Equals(object?)
+  fullName: IGCLWrapper.FirmwarePropertiesDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFirmwareHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLFirmwareHelper.cs
+    startLine: 191
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare to another object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: Object to compare.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.FirmwarePropertiesDto.Equals*
+  nameWithType.vb: FirmwarePropertiesDto.Equals(Object)
+  fullName.vb: IGCLWrapper.FirmwarePropertiesDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.FirmwarePropertiesDto.GetHashCode
+  commentId: M:IGCLWrapper.FirmwarePropertiesDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.FirmwarePropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: FirmwarePropertiesDto.GetHashCode()
+  fullName: IGCLWrapper.FirmwarePropertiesDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFirmwareHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLFirmwareHelper.cs
+    startLine: 197
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get a hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: Hash code value.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.FirmwarePropertiesDto.GetHashCode*
 - uid: IGCLWrapper.FirmwarePropertiesDto.FromNative(IGCLWrapper.ctl_firmware_properties_t)
   commentId: M:IGCLWrapper.FirmwarePropertiesDto.FromNative(IGCLWrapper.ctl_firmware_properties_t)
   id: FromNative(IGCLWrapper.ctl_firmware_properties_t)
@@ -235,7 +346,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLFirmwareHelper.cs
-    startLine: 176
+    startLine: 213
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -270,7 +381,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLFirmwareHelper.cs
-    startLine: 193
+    startLine: 230
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -290,60 +401,38 @@ references:
   name: IGCLWrapper
   nameWithType: IGCLWrapper
   fullName: IGCLWrapper
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{IGCLWrapper.FirmwarePropertiesDto}
+  commentId: T:System.IEquatable{IGCLWrapper.FirmwarePropertiesDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<FirmwarePropertiesDto>
+  nameWithType: IEquatable<FirmwarePropertiesDto>
+  fullName: System.IEquatable<IGCLWrapper.FirmwarePropertiesDto>
+  nameWithType.vb: IEquatable(Of FirmwarePropertiesDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.FirmwarePropertiesDto)
+  name.vb: IEquatable(Of FirmwarePropertiesDto)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.FirmwarePropertiesDto
+    name: FirmwarePropertiesDto
+    href: IGCLWrapper.FirmwarePropertiesDto.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.FirmwarePropertiesDto
+    name: FirmwarePropertiesDto
+    href: IGCLWrapper.FirmwarePropertiesDto.html
   - name: )
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
@@ -481,6 +570,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.ValueType
   commentId: T:System.ValueType
   parent: System
@@ -500,13 +624,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System
@@ -563,6 +680,157 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.byte
   - name: (
   - name: )
+- uid: IGCLWrapper.FirmwarePropertiesDto.Equals*
+  commentId: Overload:IGCLWrapper.FirmwarePropertiesDto.Equals
+  href: IGCLWrapper.FirmwarePropertiesDto.html#IGCLWrapper_FirmwarePropertiesDto_Equals_IGCLWrapper_FirmwarePropertiesDto_
+  name: Equals
+  nameWithType: FirmwarePropertiesDto.Equals
+  fullName: IGCLWrapper.FirmwarePropertiesDto.Equals
+- uid: System.IEquatable{IGCLWrapper.FirmwarePropertiesDto}.Equals(IGCLWrapper.FirmwarePropertiesDto)
+  commentId: M:System.IEquatable{IGCLWrapper.FirmwarePropertiesDto}.Equals(IGCLWrapper.FirmwarePropertiesDto)
+  parent: System.IEquatable{IGCLWrapper.FirmwarePropertiesDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(FirmwarePropertiesDto)
+  nameWithType: IEquatable<FirmwarePropertiesDto>.Equals(FirmwarePropertiesDto)
+  fullName: System.IEquatable<IGCLWrapper.FirmwarePropertiesDto>.Equals(IGCLWrapper.FirmwarePropertiesDto)
+  nameWithType.vb: IEquatable(Of FirmwarePropertiesDto).Equals(FirmwarePropertiesDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.FirmwarePropertiesDto).Equals(IGCLWrapper.FirmwarePropertiesDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.FirmwarePropertiesDto}.Equals(IGCLWrapper.FirmwarePropertiesDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.FirmwarePropertiesDto
+    name: FirmwarePropertiesDto
+    href: IGCLWrapper.FirmwarePropertiesDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.FirmwarePropertiesDto}.Equals(IGCLWrapper.FirmwarePropertiesDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.FirmwarePropertiesDto
+    name: FirmwarePropertiesDto
+    href: IGCLWrapper.FirmwarePropertiesDto.html
+  - name: )
+- uid: IGCLWrapper.FirmwarePropertiesDto
+  commentId: T:IGCLWrapper.FirmwarePropertiesDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.FirmwarePropertiesDto.html
+  name: FirmwarePropertiesDto
+  nameWithType: FirmwarePropertiesDto
+  fullName: IGCLWrapper.FirmwarePropertiesDto
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.FirmwarePropertiesDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.FirmwarePropertiesDto.GetHashCode
+  href: IGCLWrapper.FirmwarePropertiesDto.html#IGCLWrapper_FirmwarePropertiesDto_GetHashCode
+  name: GetHashCode
+  nameWithType: FirmwarePropertiesDto.GetHashCode
+  fullName: IGCLWrapper.FirmwarePropertiesDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: IGCLWrapper.FirmwarePropertiesDto.FromNative*
   commentId: Overload:IGCLWrapper.FirmwarePropertiesDto.FromNative
   href: IGCLWrapper.FirmwarePropertiesDto.html#IGCLWrapper_FirmwarePropertiesDto_FromNative_IGCLWrapper_ctl_firmware_properties_t_
@@ -576,13 +844,6 @@ references:
   name: ctl_firmware_properties_t
   nameWithType: ctl_firmware_properties_t
   fullName: IGCLWrapper.ctl_firmware_properties_t
-- uid: IGCLWrapper.FirmwarePropertiesDto
-  commentId: T:IGCLWrapper.FirmwarePropertiesDto
-  parent: IGCLWrapper
-  href: IGCLWrapper.FirmwarePropertiesDto.html
-  name: FirmwarePropertiesDto
-  nameWithType: FirmwarePropertiesDto
-  fullName: IGCLWrapper.FirmwarePropertiesDto
 - uid: IGCLWrapper.FirmwarePropertiesDto.ToNative*
   commentId: Overload:IGCLWrapper.FirmwarePropertiesDto.ToNative
   href: IGCLWrapper.FirmwarePropertiesDto.html#IGCLWrapper_FirmwarePropertiesDto_ToNative

@@ -153,7 +153,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for LED properties.
     /// </summary>
-    public struct LedPropertiesDto
+    public struct LedPropertiesDto : IEquatable<LedPropertiesDto>
     {
         /// <summary>
         /// Size of the native struct.
@@ -179,6 +179,44 @@ namespace IGCLWrapper
         /// Indicates whether RGB is supported.
         /// </summary>
         public bool HaveRgb;
+
+        /// <summary>
+        /// Compare LED properties.
+        /// </summary>
+        /// <param name="other">Other properties instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(LedPropertiesDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   CanControl == other.CanControl &&
+                   IsI2C == other.IsI2C &&
+                   IsPwm == other.IsPwm &&
+                   HaveRgb == other.HaveRgb;
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is LedPropertiesDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(CanControl);
+            hash.Add(IsI2C);
+            hash.Add(IsPwm);
+            hash.Add(HaveRgb);
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.
@@ -219,7 +257,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for LED state.
     /// </summary>
-    public struct LedStateDto
+    public struct LedStateDto : IEquatable<LedStateDto>
     {
         /// <summary>
         /// Size of the native struct.
@@ -241,6 +279,42 @@ namespace IGCLWrapper
         /// LED color struct.
         /// </summary>
         public ctl_led_color_t Color;
+
+        /// <summary>
+        /// Compare LED state.
+        /// </summary>
+        /// <param name="other">Other state instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(LedStateDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   IsOn == other.IsOn &&
+                   Pwm.Equals(other.Pwm) &&
+                   Color.Equals(other.Color);
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is LedStateDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(IsOn);
+            hash.Add(Pwm);
+            hash.Add(Color);
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.

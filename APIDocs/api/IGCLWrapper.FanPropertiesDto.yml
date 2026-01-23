@@ -6,7 +6,10 @@ items:
   parent: IGCLWrapper
   children:
   - IGCLWrapper.FanPropertiesDto.CanControl
+  - IGCLWrapper.FanPropertiesDto.Equals(IGCLWrapper.FanPropertiesDto)
+  - IGCLWrapper.FanPropertiesDto.Equals(System.Object)
   - IGCLWrapper.FanPropertiesDto.FromNative(IGCLWrapper.ctl_fan_properties_t)
+  - IGCLWrapper.FanPropertiesDto.GetHashCode
   - IGCLWrapper.FanPropertiesDto.MaxPoints
   - IGCLWrapper.FanPropertiesDto.MaxRpm
   - IGCLWrapper.FanPropertiesDto.Size
@@ -35,11 +38,11 @@ items:
   summary: DTO for fan properties.
   example: []
   syntax:
-    content: public struct FanPropertiesDto
-    content.vb: Public Structure FanPropertiesDto
+    content: 'public struct FanPropertiesDto : IEquatable<FanPropertiesDto>'
+    content.vb: Public Structure FanPropertiesDto Implements IEquatable(Of FanPropertiesDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.FanPropertiesDto}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -247,6 +250,114 @@ items:
     return:
       type: System.Int32
     content.vb: Public MaxPoints As Integer
+- uid: IGCLWrapper.FanPropertiesDto.Equals(IGCLWrapper.FanPropertiesDto)
+  commentId: M:IGCLWrapper.FanPropertiesDto.Equals(IGCLWrapper.FanPropertiesDto)
+  id: Equals(IGCLWrapper.FanPropertiesDto)
+  parent: IGCLWrapper.FanPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(FanPropertiesDto)
+  nameWithType: FanPropertiesDto.Equals(FanPropertiesDto)
+  fullName: IGCLWrapper.FanPropertiesDto.Equals(IGCLWrapper.FanPropertiesDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFanHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLFanHelper.cs
+    startLine: 216
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare fan properties.
+  example: []
+  syntax:
+    content: public bool Equals(FanPropertiesDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.FanPropertiesDto
+      description: Other properties instance.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Function Equals(other As FanPropertiesDto) As Boolean
+  overload: IGCLWrapper.FanPropertiesDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.FanPropertiesDto}.Equals(IGCLWrapper.FanPropertiesDto)
+- uid: IGCLWrapper.FanPropertiesDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.FanPropertiesDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.FanPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: FanPropertiesDto.Equals(object?)
+  fullName: IGCLWrapper.FanPropertiesDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFanHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLFanHelper.cs
+    startLine: 232
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare to another object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: Object to compare.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.FanPropertiesDto.Equals*
+  nameWithType.vb: FanPropertiesDto.Equals(Object)
+  fullName.vb: IGCLWrapper.FanPropertiesDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.FanPropertiesDto.GetHashCode
+  commentId: M:IGCLWrapper.FanPropertiesDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.FanPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: FanPropertiesDto.GetHashCode()
+  fullName: IGCLWrapper.FanPropertiesDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFanHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLFanHelper.cs
+    startLine: 238
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get a hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: Hash code value.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.FanPropertiesDto.GetHashCode*
 - uid: IGCLWrapper.FanPropertiesDto.FromNative(IGCLWrapper.ctl_fan_properties_t)
   commentId: M:IGCLWrapper.FanPropertiesDto.FromNative(IGCLWrapper.ctl_fan_properties_t)
   id: FromNative(IGCLWrapper.ctl_fan_properties_t)
@@ -265,7 +376,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 216
+    startLine: 256
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -300,7 +411,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 234
+    startLine: 274
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -320,60 +431,38 @@ references:
   name: IGCLWrapper
   nameWithType: IGCLWrapper
   fullName: IGCLWrapper
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{IGCLWrapper.FanPropertiesDto}
+  commentId: T:System.IEquatable{IGCLWrapper.FanPropertiesDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<FanPropertiesDto>
+  nameWithType: IEquatable<FanPropertiesDto>
+  fullName: System.IEquatable<IGCLWrapper.FanPropertiesDto>
+  nameWithType.vb: IEquatable(Of FanPropertiesDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.FanPropertiesDto)
+  name.vb: IEquatable(Of FanPropertiesDto)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.FanPropertiesDto
+    name: FanPropertiesDto
+    href: IGCLWrapper.FanPropertiesDto.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.FanPropertiesDto
+    name: FanPropertiesDto
+    href: IGCLWrapper.FanPropertiesDto.html
   - name: )
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
@@ -511,6 +600,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.ValueType
   commentId: T:System.ValueType
   parent: System
@@ -530,13 +654,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System
@@ -581,6 +698,135 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: IGCLWrapper.FanPropertiesDto.Equals*
+  commentId: Overload:IGCLWrapper.FanPropertiesDto.Equals
+  href: IGCLWrapper.FanPropertiesDto.html#IGCLWrapper_FanPropertiesDto_Equals_IGCLWrapper_FanPropertiesDto_
+  name: Equals
+  nameWithType: FanPropertiesDto.Equals
+  fullName: IGCLWrapper.FanPropertiesDto.Equals
+- uid: System.IEquatable{IGCLWrapper.FanPropertiesDto}.Equals(IGCLWrapper.FanPropertiesDto)
+  commentId: M:System.IEquatable{IGCLWrapper.FanPropertiesDto}.Equals(IGCLWrapper.FanPropertiesDto)
+  parent: System.IEquatable{IGCLWrapper.FanPropertiesDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(FanPropertiesDto)
+  nameWithType: IEquatable<FanPropertiesDto>.Equals(FanPropertiesDto)
+  fullName: System.IEquatable<IGCLWrapper.FanPropertiesDto>.Equals(IGCLWrapper.FanPropertiesDto)
+  nameWithType.vb: IEquatable(Of FanPropertiesDto).Equals(FanPropertiesDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.FanPropertiesDto).Equals(IGCLWrapper.FanPropertiesDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.FanPropertiesDto}.Equals(IGCLWrapper.FanPropertiesDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.FanPropertiesDto
+    name: FanPropertiesDto
+    href: IGCLWrapper.FanPropertiesDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.FanPropertiesDto}.Equals(IGCLWrapper.FanPropertiesDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.FanPropertiesDto
+    name: FanPropertiesDto
+    href: IGCLWrapper.FanPropertiesDto.html
+  - name: )
+- uid: IGCLWrapper.FanPropertiesDto
+  commentId: T:IGCLWrapper.FanPropertiesDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.FanPropertiesDto.html
+  name: FanPropertiesDto
+  nameWithType: FanPropertiesDto
+  fullName: IGCLWrapper.FanPropertiesDto
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.FanPropertiesDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.FanPropertiesDto.GetHashCode
+  href: IGCLWrapper.FanPropertiesDto.html#IGCLWrapper_FanPropertiesDto_GetHashCode
+  name: GetHashCode
+  nameWithType: FanPropertiesDto.GetHashCode
+  fullName: IGCLWrapper.FanPropertiesDto.GetHashCode
 - uid: IGCLWrapper.FanPropertiesDto.FromNative*
   commentId: Overload:IGCLWrapper.FanPropertiesDto.FromNative
   href: IGCLWrapper.FanPropertiesDto.html#IGCLWrapper_FanPropertiesDto_FromNative_IGCLWrapper_ctl_fan_properties_t_
@@ -594,13 +840,6 @@ references:
   name: ctl_fan_properties_t
   nameWithType: ctl_fan_properties_t
   fullName: IGCLWrapper.ctl_fan_properties_t
-- uid: IGCLWrapper.FanPropertiesDto
-  commentId: T:IGCLWrapper.FanPropertiesDto
-  parent: IGCLWrapper
-  href: IGCLWrapper.FanPropertiesDto.html
-  name: FanPropertiesDto
-  nameWithType: FanPropertiesDto
-  fullName: IGCLWrapper.FanPropertiesDto
 - uid: IGCLWrapper.FanPropertiesDto.ToNative*
   commentId: Overload:IGCLWrapper.FanPropertiesDto.ToNative
   href: IGCLWrapper.FanPropertiesDto.html#IGCLWrapper_FanPropertiesDto_ToNative

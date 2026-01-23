@@ -6,7 +6,10 @@ items:
   parent: IGCLWrapper
   children:
   - IGCLWrapper.FrequencyPropertiesDto.CanControl
+  - IGCLWrapper.FrequencyPropertiesDto.Equals(IGCLWrapper.FrequencyPropertiesDto)
+  - IGCLWrapper.FrequencyPropertiesDto.Equals(System.Object)
   - IGCLWrapper.FrequencyPropertiesDto.FromNative(IGCLWrapper.ctl_freq_properties_t)
+  - IGCLWrapper.FrequencyPropertiesDto.GetHashCode
   - IGCLWrapper.FrequencyPropertiesDto.Max
   - IGCLWrapper.FrequencyPropertiesDto.Min
   - IGCLWrapper.FrequencyPropertiesDto.Size
@@ -34,11 +37,11 @@ items:
   summary: DTO for frequency domain properties.
   example: []
   syntax:
-    content: public struct FrequencyPropertiesDto
-    content.vb: Public Structure FrequencyPropertiesDto
+    content: 'public struct FrequencyPropertiesDto : IEquatable<FrequencyPropertiesDto>'
+    content.vb: Public Structure FrequencyPropertiesDto Implements IEquatable(Of FrequencyPropertiesDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.FrequencyPropertiesDto}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -217,6 +220,114 @@ items:
     return:
       type: System.Double
     content.vb: Public Max As Double
+- uid: IGCLWrapper.FrequencyPropertiesDto.Equals(IGCLWrapper.FrequencyPropertiesDto)
+  commentId: M:IGCLWrapper.FrequencyPropertiesDto.Equals(IGCLWrapper.FrequencyPropertiesDto)
+  id: Equals(IGCLWrapper.FrequencyPropertiesDto)
+  parent: IGCLWrapper.FrequencyPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(FrequencyPropertiesDto)
+  nameWithType: FrequencyPropertiesDto.Equals(FrequencyPropertiesDto)
+  fullName: IGCLWrapper.FrequencyPropertiesDto.Equals(IGCLWrapper.FrequencyPropertiesDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFrequencyHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLFrequencyHelper.cs
+    startLine: 222
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare frequency properties.
+  example: []
+  syntax:
+    content: public bool Equals(FrequencyPropertiesDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.FrequencyPropertiesDto
+      description: Other properties instance.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Function Equals(other As FrequencyPropertiesDto) As Boolean
+  overload: IGCLWrapper.FrequencyPropertiesDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.FrequencyPropertiesDto}.Equals(IGCLWrapper.FrequencyPropertiesDto)
+- uid: IGCLWrapper.FrequencyPropertiesDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.FrequencyPropertiesDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.FrequencyPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: FrequencyPropertiesDto.Equals(object?)
+  fullName: IGCLWrapper.FrequencyPropertiesDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFrequencyHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLFrequencyHelper.cs
+    startLine: 237
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare to another object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: Object to compare.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.FrequencyPropertiesDto.Equals*
+  nameWithType.vb: FrequencyPropertiesDto.Equals(Object)
+  fullName.vb: IGCLWrapper.FrequencyPropertiesDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.FrequencyPropertiesDto.GetHashCode
+  commentId: M:IGCLWrapper.FrequencyPropertiesDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.FrequencyPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: FrequencyPropertiesDto.GetHashCode()
+  fullName: IGCLWrapper.FrequencyPropertiesDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFrequencyHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLFrequencyHelper.cs
+    startLine: 243
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get a hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: Hash code value.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.FrequencyPropertiesDto.GetHashCode*
 - uid: IGCLWrapper.FrequencyPropertiesDto.FromNative(IGCLWrapper.ctl_freq_properties_t)
   commentId: M:IGCLWrapper.FrequencyPropertiesDto.FromNative(IGCLWrapper.ctl_freq_properties_t)
   id: FromNative(IGCLWrapper.ctl_freq_properties_t)
@@ -235,7 +346,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 222
+    startLine: 260
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -270,7 +381,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 239
+    startLine: 277
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -290,60 +401,38 @@ references:
   name: IGCLWrapper
   nameWithType: IGCLWrapper
   fullName: IGCLWrapper
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{IGCLWrapper.FrequencyPropertiesDto}
+  commentId: T:System.IEquatable{IGCLWrapper.FrequencyPropertiesDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<FrequencyPropertiesDto>
+  nameWithType: IEquatable<FrequencyPropertiesDto>
+  fullName: System.IEquatable<IGCLWrapper.FrequencyPropertiesDto>
+  nameWithType.vb: IEquatable(Of FrequencyPropertiesDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.FrequencyPropertiesDto)
+  name.vb: IEquatable(Of FrequencyPropertiesDto)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.FrequencyPropertiesDto
+    name: FrequencyPropertiesDto
+    href: IGCLWrapper.FrequencyPropertiesDto.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.FrequencyPropertiesDto
+    name: FrequencyPropertiesDto
+    href: IGCLWrapper.FrequencyPropertiesDto.html
   - name: )
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
@@ -481,6 +570,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.ValueType
   commentId: T:System.ValueType
   parent: System
@@ -500,13 +624,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System
@@ -558,6 +675,146 @@ references:
   nameWithType.vb: Double
   fullName.vb: Double
   name.vb: Double
+- uid: IGCLWrapper.FrequencyPropertiesDto.Equals*
+  commentId: Overload:IGCLWrapper.FrequencyPropertiesDto.Equals
+  href: IGCLWrapper.FrequencyPropertiesDto.html#IGCLWrapper_FrequencyPropertiesDto_Equals_IGCLWrapper_FrequencyPropertiesDto_
+  name: Equals
+  nameWithType: FrequencyPropertiesDto.Equals
+  fullName: IGCLWrapper.FrequencyPropertiesDto.Equals
+- uid: System.IEquatable{IGCLWrapper.FrequencyPropertiesDto}.Equals(IGCLWrapper.FrequencyPropertiesDto)
+  commentId: M:System.IEquatable{IGCLWrapper.FrequencyPropertiesDto}.Equals(IGCLWrapper.FrequencyPropertiesDto)
+  parent: System.IEquatable{IGCLWrapper.FrequencyPropertiesDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(FrequencyPropertiesDto)
+  nameWithType: IEquatable<FrequencyPropertiesDto>.Equals(FrequencyPropertiesDto)
+  fullName: System.IEquatable<IGCLWrapper.FrequencyPropertiesDto>.Equals(IGCLWrapper.FrequencyPropertiesDto)
+  nameWithType.vb: IEquatable(Of FrequencyPropertiesDto).Equals(FrequencyPropertiesDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.FrequencyPropertiesDto).Equals(IGCLWrapper.FrequencyPropertiesDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.FrequencyPropertiesDto}.Equals(IGCLWrapper.FrequencyPropertiesDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.FrequencyPropertiesDto
+    name: FrequencyPropertiesDto
+    href: IGCLWrapper.FrequencyPropertiesDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.FrequencyPropertiesDto}.Equals(IGCLWrapper.FrequencyPropertiesDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.FrequencyPropertiesDto
+    name: FrequencyPropertiesDto
+    href: IGCLWrapper.FrequencyPropertiesDto.html
+  - name: )
+- uid: IGCLWrapper.FrequencyPropertiesDto
+  commentId: T:IGCLWrapper.FrequencyPropertiesDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.FrequencyPropertiesDto.html
+  name: FrequencyPropertiesDto
+  nameWithType: FrequencyPropertiesDto
+  fullName: IGCLWrapper.FrequencyPropertiesDto
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.FrequencyPropertiesDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.FrequencyPropertiesDto.GetHashCode
+  href: IGCLWrapper.FrequencyPropertiesDto.html#IGCLWrapper_FrequencyPropertiesDto_GetHashCode
+  name: GetHashCode
+  nameWithType: FrequencyPropertiesDto.GetHashCode
+  fullName: IGCLWrapper.FrequencyPropertiesDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: IGCLWrapper.FrequencyPropertiesDto.FromNative*
   commentId: Overload:IGCLWrapper.FrequencyPropertiesDto.FromNative
   href: IGCLWrapper.FrequencyPropertiesDto.html#IGCLWrapper_FrequencyPropertiesDto_FromNative_IGCLWrapper_ctl_freq_properties_t_
@@ -571,13 +828,6 @@ references:
   name: ctl_freq_properties_t
   nameWithType: ctl_freq_properties_t
   fullName: IGCLWrapper.ctl_freq_properties_t
-- uid: IGCLWrapper.FrequencyPropertiesDto
-  commentId: T:IGCLWrapper.FrequencyPropertiesDto
-  parent: IGCLWrapper
-  href: IGCLWrapper.FrequencyPropertiesDto.html
-  name: FrequencyPropertiesDto
-  nameWithType: FrequencyPropertiesDto
-  fullName: IGCLWrapper.FrequencyPropertiesDto
 - uid: IGCLWrapper.FrequencyPropertiesDto.ToNative*
   commentId: Overload:IGCLWrapper.FrequencyPropertiesDto.ToNative
   href: IGCLWrapper.FrequencyPropertiesDto.html#IGCLWrapper_FrequencyPropertiesDto_ToNative

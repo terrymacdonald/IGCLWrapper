@@ -139,7 +139,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for firmware properties.
     /// </summary>
-    public struct FirmwarePropertiesDto
+    public struct FirmwarePropertiesDto : IEquatable<FirmwarePropertiesDto>
     {
         private const int NameLength = 64;
         private const int VersionLength = 64;
@@ -168,6 +168,43 @@ namespace IGCLWrapper
         /// Reserved native fields.
         /// </summary>
         public byte[]? Reserved;
+
+        /// <summary>
+        /// Compare firmware properties while ignoring reserved fields.
+        /// </summary>
+        /// <param name="other">Other properties instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(FirmwarePropertiesDto other)
+        {
+            // Reserved is native-only.
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   string.Equals(Name, other.Name, StringComparison.Ordinal) &&
+                   string.Equals(FirmwareVersion, other.FirmwareVersion, StringComparison.Ordinal) &&
+                   FirmwareConfig == other.FirmwareConfig;
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is FirmwarePropertiesDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(Name, StringComparer.Ordinal);
+            hash.Add(FirmwareVersion, StringComparer.Ordinal);
+            hash.Add(FirmwareConfig);
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.
@@ -301,7 +338,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for firmware component properties.
     /// </summary>
-    public struct FirmwareComponentPropertiesDto
+    public struct FirmwareComponentPropertiesDto : IEquatable<FirmwareComponentPropertiesDto>
     {
         private const int NameLength = 64;
         private const int VersionLength = 64;
@@ -326,6 +363,41 @@ namespace IGCLWrapper
         /// Reserved native fields.
         /// </summary>
         public byte[]? Reserved;
+
+        /// <summary>
+        /// Compare firmware component properties while ignoring reserved fields.
+        /// </summary>
+        /// <param name="other">Other properties instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(FirmwareComponentPropertiesDto other)
+        {
+            // Reserved is native-only.
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   string.Equals(Name, other.Name, StringComparison.Ordinal) &&
+                   string.Equals(ComponentVersion, other.ComponentVersion, StringComparison.Ordinal);
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is FirmwareComponentPropertiesDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(Name, StringComparer.Ordinal);
+            hash.Add(ComponentVersion, StringComparer.Ordinal);
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.

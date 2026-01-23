@@ -7,7 +7,10 @@ items:
   children:
   - IGCLWrapper.PowerPropertiesDto.CanControl
   - IGCLWrapper.PowerPropertiesDto.DefaultLimit
+  - IGCLWrapper.PowerPropertiesDto.Equals(IGCLWrapper.PowerPropertiesDto)
+  - IGCLWrapper.PowerPropertiesDto.Equals(System.Object)
   - IGCLWrapper.PowerPropertiesDto.FromNative(IGCLWrapper.ctl_power_properties_t)
+  - IGCLWrapper.PowerPropertiesDto.GetHashCode
   - IGCLWrapper.PowerPropertiesDto.MaxLimit
   - IGCLWrapper.PowerPropertiesDto.MinLimit
   - IGCLWrapper.PowerPropertiesDto.Size
@@ -34,11 +37,11 @@ items:
   summary: DTO for power properties.
   example: []
   syntax:
-    content: public struct PowerPropertiesDto
-    content.vb: Public Structure PowerPropertiesDto
+    content: 'public struct PowerPropertiesDto : IEquatable<PowerPropertiesDto>'
+    content.vb: Public Structure PowerPropertiesDto Implements IEquatable(Of PowerPropertiesDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.PowerPropertiesDto}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -217,6 +220,114 @@ items:
     return:
       type: System.Int32
     content.vb: Public MaxLimit As Integer
+- uid: IGCLWrapper.PowerPropertiesDto.Equals(IGCLWrapper.PowerPropertiesDto)
+  commentId: M:IGCLWrapper.PowerPropertiesDto.Equals(IGCLWrapper.PowerPropertiesDto)
+  id: Equals(IGCLWrapper.PowerPropertiesDto)
+  parent: IGCLWrapper.PowerPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(PowerPropertiesDto)
+  nameWithType: PowerPropertiesDto.Equals(PowerPropertiesDto)
+  fullName: IGCLWrapper.PowerPropertiesDto.Equals(IGCLWrapper.PowerPropertiesDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLPowerHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLPowerHelper.cs
+    startLine: 203
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare power properties.
+  example: []
+  syntax:
+    content: public bool Equals(PowerPropertiesDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.PowerPropertiesDto
+      description: Other properties instance.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Function Equals(other As PowerPropertiesDto) As Boolean
+  overload: IGCLWrapper.PowerPropertiesDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.PowerPropertiesDto}.Equals(IGCLWrapper.PowerPropertiesDto)
+- uid: IGCLWrapper.PowerPropertiesDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.PowerPropertiesDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.PowerPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: PowerPropertiesDto.Equals(object?)
+  fullName: IGCLWrapper.PowerPropertiesDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLPowerHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLPowerHelper.cs
+    startLine: 218
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare to another object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: Object to compare.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.PowerPropertiesDto.Equals*
+  nameWithType.vb: PowerPropertiesDto.Equals(Object)
+  fullName.vb: IGCLWrapper.PowerPropertiesDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.PowerPropertiesDto.GetHashCode
+  commentId: M:IGCLWrapper.PowerPropertiesDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.PowerPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: PowerPropertiesDto.GetHashCode()
+  fullName: IGCLWrapper.PowerPropertiesDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLPowerHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLPowerHelper.cs
+    startLine: 224
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get a hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: Hash code value.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.PowerPropertiesDto.GetHashCode*
 - uid: IGCLWrapper.PowerPropertiesDto.FromNative(IGCLWrapper.ctl_power_properties_t)
   commentId: M:IGCLWrapper.PowerPropertiesDto.FromNative(IGCLWrapper.ctl_power_properties_t)
   id: FromNative(IGCLWrapper.ctl_power_properties_t)
@@ -235,7 +346,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 203
+    startLine: 241
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -270,7 +381,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 220
+    startLine: 258
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -290,60 +401,38 @@ references:
   name: IGCLWrapper
   nameWithType: IGCLWrapper
   fullName: IGCLWrapper
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{IGCLWrapper.PowerPropertiesDto}
+  commentId: T:System.IEquatable{IGCLWrapper.PowerPropertiesDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<PowerPropertiesDto>
+  nameWithType: IEquatable<PowerPropertiesDto>
+  fullName: System.IEquatable<IGCLWrapper.PowerPropertiesDto>
+  nameWithType.vb: IEquatable(Of PowerPropertiesDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.PowerPropertiesDto)
+  name.vb: IEquatable(Of PowerPropertiesDto)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.PowerPropertiesDto
+    name: PowerPropertiesDto
+    href: IGCLWrapper.PowerPropertiesDto.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.PowerPropertiesDto
+    name: PowerPropertiesDto
+    href: IGCLWrapper.PowerPropertiesDto.html
   - name: )
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
@@ -481,6 +570,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.ValueType
   commentId: T:System.ValueType
   parent: System
@@ -500,13 +624,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System
@@ -551,6 +668,135 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: IGCLWrapper.PowerPropertiesDto.Equals*
+  commentId: Overload:IGCLWrapper.PowerPropertiesDto.Equals
+  href: IGCLWrapper.PowerPropertiesDto.html#IGCLWrapper_PowerPropertiesDto_Equals_IGCLWrapper_PowerPropertiesDto_
+  name: Equals
+  nameWithType: PowerPropertiesDto.Equals
+  fullName: IGCLWrapper.PowerPropertiesDto.Equals
+- uid: System.IEquatable{IGCLWrapper.PowerPropertiesDto}.Equals(IGCLWrapper.PowerPropertiesDto)
+  commentId: M:System.IEquatable{IGCLWrapper.PowerPropertiesDto}.Equals(IGCLWrapper.PowerPropertiesDto)
+  parent: System.IEquatable{IGCLWrapper.PowerPropertiesDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(PowerPropertiesDto)
+  nameWithType: IEquatable<PowerPropertiesDto>.Equals(PowerPropertiesDto)
+  fullName: System.IEquatable<IGCLWrapper.PowerPropertiesDto>.Equals(IGCLWrapper.PowerPropertiesDto)
+  nameWithType.vb: IEquatable(Of PowerPropertiesDto).Equals(PowerPropertiesDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.PowerPropertiesDto).Equals(IGCLWrapper.PowerPropertiesDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.PowerPropertiesDto}.Equals(IGCLWrapper.PowerPropertiesDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.PowerPropertiesDto
+    name: PowerPropertiesDto
+    href: IGCLWrapper.PowerPropertiesDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.PowerPropertiesDto}.Equals(IGCLWrapper.PowerPropertiesDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.PowerPropertiesDto
+    name: PowerPropertiesDto
+    href: IGCLWrapper.PowerPropertiesDto.html
+  - name: )
+- uid: IGCLWrapper.PowerPropertiesDto
+  commentId: T:IGCLWrapper.PowerPropertiesDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.PowerPropertiesDto.html
+  name: PowerPropertiesDto
+  nameWithType: PowerPropertiesDto
+  fullName: IGCLWrapper.PowerPropertiesDto
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.PowerPropertiesDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.PowerPropertiesDto.GetHashCode
+  href: IGCLWrapper.PowerPropertiesDto.html#IGCLWrapper_PowerPropertiesDto_GetHashCode
+  name: GetHashCode
+  nameWithType: PowerPropertiesDto.GetHashCode
+  fullName: IGCLWrapper.PowerPropertiesDto.GetHashCode
 - uid: IGCLWrapper.PowerPropertiesDto.FromNative*
   commentId: Overload:IGCLWrapper.PowerPropertiesDto.FromNative
   href: IGCLWrapper.PowerPropertiesDto.html#IGCLWrapper_PowerPropertiesDto_FromNative_IGCLWrapper_ctl_power_properties_t_
@@ -564,13 +810,6 @@ references:
   name: ctl_power_properties_t
   nameWithType: ctl_power_properties_t
   fullName: IGCLWrapper.ctl_power_properties_t
-- uid: IGCLWrapper.PowerPropertiesDto
-  commentId: T:IGCLWrapper.PowerPropertiesDto
-  parent: IGCLWrapper
-  href: IGCLWrapper.PowerPropertiesDto.html
-  name: PowerPropertiesDto
-  nameWithType: PowerPropertiesDto
-  fullName: IGCLWrapper.PowerPropertiesDto
 - uid: IGCLWrapper.PowerPropertiesDto.ToNative*
   commentId: Overload:IGCLWrapper.PowerPropertiesDto.ToNative
   href: IGCLWrapper.PowerPropertiesDto.html#IGCLWrapper_PowerPropertiesDto_ToNative

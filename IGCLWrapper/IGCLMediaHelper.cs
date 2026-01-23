@@ -101,7 +101,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for video processing feature get/set operations.
     /// </summary>
-    public unsafe struct VideoProcessingFeatureGetSetDto
+    public unsafe struct VideoProcessingFeatureGetSetDto : IEquatable<VideoProcessingFeatureGetSetDto>
     {
         private const int ReservedFieldCount = 16;
         /// <summary>
@@ -148,6 +148,49 @@ namespace IGCLWrapper
         /// Reserved fields from the native struct.
         /// </summary>
         public uint[]? ReservedFields;
+
+        /// <summary>
+        /// Compare video processing feature get/set args while ignoring pointer and reserved fields.
+        /// </summary>
+        /// <param name="other">Other args instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(VideoProcessingFeatureGetSetDto other)
+        {
+            // ApplicationName and CustomValue are pointers; ReservedFields are native-only.
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   FeatureType == other.FeatureType &&
+                   ApplicationNameLength == other.ApplicationNameLength &&
+                   Set == other.Set &&
+                   ValueType == other.ValueType &&
+                   Value.Equals(other.Value) &&
+                   CustomValueSize == other.CustomValueSize;
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is VideoProcessingFeatureGetSetDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(FeatureType);
+            hash.Add(ApplicationNameLength);
+            hash.Add(Set);
+            hash.Add(ValueType);
+            hash.Add(Value);
+            hash.Add(CustomValueSize);
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.

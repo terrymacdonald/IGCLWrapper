@@ -188,7 +188,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for frequency domain properties.
     /// </summary>
-    public struct FrequencyPropertiesDto
+    public struct FrequencyPropertiesDto : IEquatable<FrequencyPropertiesDto>
     {
         /// <summary>
         /// Size of the native struct.
@@ -214,6 +214,44 @@ namespace IGCLWrapper
         /// Maximum frequency.
         /// </summary>
         public double Max;
+
+        /// <summary>
+        /// Compare frequency properties.
+        /// </summary>
+        /// <param name="other">Other properties instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(FrequencyPropertiesDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   Type == other.Type &&
+                   CanControl == other.CanControl &&
+                   Min.Equals(other.Min) &&
+                   Max.Equals(other.Max);
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is FrequencyPropertiesDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(Type);
+            hash.Add(CanControl);
+            hash.Add(Min);
+            hash.Add(Max);
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.

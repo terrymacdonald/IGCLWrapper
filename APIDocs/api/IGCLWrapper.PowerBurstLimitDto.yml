@@ -6,7 +6,10 @@ items:
   parent: IGCLWrapper
   children:
   - IGCLWrapper.PowerBurstLimitDto.Enabled
+  - IGCLWrapper.PowerBurstLimitDto.Equals(IGCLWrapper.PowerBurstLimitDto)
+  - IGCLWrapper.PowerBurstLimitDto.Equals(System.Object)
   - IGCLWrapper.PowerBurstLimitDto.FromNative(IGCLWrapper.ctl_power_burst_limit_t)
+  - IGCLWrapper.PowerBurstLimitDto.GetHashCode
   - IGCLWrapper.PowerBurstLimitDto.Power
   - IGCLWrapper.PowerBurstLimitDto.ToNative
   langs:
@@ -23,18 +26,18 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PowerBurstLimitDto
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 285
+    startLine: 355
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: DTO for burst power limit settings.
   example: []
   syntax:
-    content: public struct PowerBurstLimitDto
-    content.vb: Public Structure PowerBurstLimitDto
+    content: 'public struct PowerBurstLimitDto : IEquatable<PowerBurstLimitDto>'
+    content.vb: Public Structure PowerBurstLimitDto Implements IEquatable(Of PowerBurstLimitDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.PowerBurstLimitDto}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -57,7 +60,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Enabled
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 290
+    startLine: 360
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -86,7 +89,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Power
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 294
+    startLine: 364
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -97,6 +100,114 @@ items:
     return:
       type: System.Int32
     content.vb: Public Power As Integer
+- uid: IGCLWrapper.PowerBurstLimitDto.Equals(IGCLWrapper.PowerBurstLimitDto)
+  commentId: M:IGCLWrapper.PowerBurstLimitDto.Equals(IGCLWrapper.PowerBurstLimitDto)
+  id: Equals(IGCLWrapper.PowerBurstLimitDto)
+  parent: IGCLWrapper.PowerBurstLimitDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(PowerBurstLimitDto)
+  nameWithType: PowerBurstLimitDto.Equals(PowerBurstLimitDto)
+  fullName: IGCLWrapper.PowerBurstLimitDto.Equals(IGCLWrapper.PowerBurstLimitDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLPowerHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLPowerHelper.cs
+    startLine: 371
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare burst power limit settings.
+  example: []
+  syntax:
+    content: public bool Equals(PowerBurstLimitDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.PowerBurstLimitDto
+      description: Other settings instance.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Function Equals(other As PowerBurstLimitDto) As Boolean
+  overload: IGCLWrapper.PowerBurstLimitDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.PowerBurstLimitDto}.Equals(IGCLWrapper.PowerBurstLimitDto)
+- uid: IGCLWrapper.PowerBurstLimitDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.PowerBurstLimitDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.PowerBurstLimitDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: PowerBurstLimitDto.Equals(object?)
+  fullName: IGCLWrapper.PowerBurstLimitDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLPowerHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLPowerHelper.cs
+    startLine: 382
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare to another object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: Object to compare.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.PowerBurstLimitDto.Equals*
+  nameWithType.vb: PowerBurstLimitDto.Equals(Object)
+  fullName.vb: IGCLWrapper.PowerBurstLimitDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.PowerBurstLimitDto.GetHashCode
+  commentId: M:IGCLWrapper.PowerBurstLimitDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.PowerBurstLimitDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: PowerBurstLimitDto.GetHashCode()
+  fullName: IGCLWrapper.PowerBurstLimitDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLPowerHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLPowerHelper.cs
+    startLine: 388
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get a hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: Hash code value.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.PowerBurstLimitDto.GetHashCode*
 - uid: IGCLWrapper.PowerBurstLimitDto.FromNative(IGCLWrapper.ctl_power_burst_limit_t)
   commentId: M:IGCLWrapper.PowerBurstLimitDto.FromNative(IGCLWrapper.ctl_power_burst_limit_t)
   id: FromNative(IGCLWrapper.ctl_power_burst_limit_t)
@@ -115,7 +226,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 301
+    startLine: 401
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -150,7 +261,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 314
+    startLine: 414
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -170,60 +281,38 @@ references:
   name: IGCLWrapper
   nameWithType: IGCLWrapper
   fullName: IGCLWrapper
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{IGCLWrapper.PowerBurstLimitDto}
+  commentId: T:System.IEquatable{IGCLWrapper.PowerBurstLimitDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<PowerBurstLimitDto>
+  nameWithType: IEquatable<PowerBurstLimitDto>
+  fullName: System.IEquatable<IGCLWrapper.PowerBurstLimitDto>
+  nameWithType.vb: IEquatable(Of PowerBurstLimitDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.PowerBurstLimitDto)
+  name.vb: IEquatable(Of PowerBurstLimitDto)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.PowerBurstLimitDto
+    name: PowerBurstLimitDto
+    href: IGCLWrapper.PowerBurstLimitDto.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.PowerBurstLimitDto
+    name: PowerBurstLimitDto
+    href: IGCLWrapper.PowerBurstLimitDto.html
   - name: )
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
@@ -361,6 +450,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.ValueType
   commentId: T:System.ValueType
   parent: System
@@ -380,13 +504,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System
@@ -409,6 +526,135 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: IGCLWrapper.PowerBurstLimitDto.Equals*
+  commentId: Overload:IGCLWrapper.PowerBurstLimitDto.Equals
+  href: IGCLWrapper.PowerBurstLimitDto.html#IGCLWrapper_PowerBurstLimitDto_Equals_IGCLWrapper_PowerBurstLimitDto_
+  name: Equals
+  nameWithType: PowerBurstLimitDto.Equals
+  fullName: IGCLWrapper.PowerBurstLimitDto.Equals
+- uid: System.IEquatable{IGCLWrapper.PowerBurstLimitDto}.Equals(IGCLWrapper.PowerBurstLimitDto)
+  commentId: M:System.IEquatable{IGCLWrapper.PowerBurstLimitDto}.Equals(IGCLWrapper.PowerBurstLimitDto)
+  parent: System.IEquatable{IGCLWrapper.PowerBurstLimitDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(PowerBurstLimitDto)
+  nameWithType: IEquatable<PowerBurstLimitDto>.Equals(PowerBurstLimitDto)
+  fullName: System.IEquatable<IGCLWrapper.PowerBurstLimitDto>.Equals(IGCLWrapper.PowerBurstLimitDto)
+  nameWithType.vb: IEquatable(Of PowerBurstLimitDto).Equals(PowerBurstLimitDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.PowerBurstLimitDto).Equals(IGCLWrapper.PowerBurstLimitDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.PowerBurstLimitDto}.Equals(IGCLWrapper.PowerBurstLimitDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.PowerBurstLimitDto
+    name: PowerBurstLimitDto
+    href: IGCLWrapper.PowerBurstLimitDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.PowerBurstLimitDto}.Equals(IGCLWrapper.PowerBurstLimitDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.PowerBurstLimitDto
+    name: PowerBurstLimitDto
+    href: IGCLWrapper.PowerBurstLimitDto.html
+  - name: )
+- uid: IGCLWrapper.PowerBurstLimitDto
+  commentId: T:IGCLWrapper.PowerBurstLimitDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.PowerBurstLimitDto.html
+  name: PowerBurstLimitDto
+  nameWithType: PowerBurstLimitDto
+  fullName: IGCLWrapper.PowerBurstLimitDto
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.PowerBurstLimitDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.PowerBurstLimitDto.GetHashCode
+  href: IGCLWrapper.PowerBurstLimitDto.html#IGCLWrapper_PowerBurstLimitDto_GetHashCode
+  name: GetHashCode
+  nameWithType: PowerBurstLimitDto.GetHashCode
+  fullName: IGCLWrapper.PowerBurstLimitDto.GetHashCode
 - uid: IGCLWrapper.PowerBurstLimitDto.FromNative*
   commentId: Overload:IGCLWrapper.PowerBurstLimitDto.FromNative
   href: IGCLWrapper.PowerBurstLimitDto.html#IGCLWrapper_PowerBurstLimitDto_FromNative_IGCLWrapper_ctl_power_burst_limit_t_
@@ -422,13 +668,6 @@ references:
   name: ctl_power_burst_limit_t
   nameWithType: ctl_power_burst_limit_t
   fullName: IGCLWrapper.ctl_power_burst_limit_t
-- uid: IGCLWrapper.PowerBurstLimitDto
-  commentId: T:IGCLWrapper.PowerBurstLimitDto
-  parent: IGCLWrapper
-  href: IGCLWrapper.PowerBurstLimitDto.html
-  name: PowerBurstLimitDto
-  nameWithType: PowerBurstLimitDto
-  fullName: IGCLWrapper.PowerBurstLimitDto
 - uid: IGCLWrapper.PowerBurstLimitDto.ToNative*
   commentId: Overload:IGCLWrapper.PowerBurstLimitDto.ToNative
   href: IGCLWrapper.PowerBurstLimitDto.html#IGCLWrapper_PowerBurstLimitDto_ToNative

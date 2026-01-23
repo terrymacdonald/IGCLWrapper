@@ -178,7 +178,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for fan properties.
     /// </summary>
-    public struct FanPropertiesDto
+    public struct FanPropertiesDto : IEquatable<FanPropertiesDto>
     {
         /// <summary>
         /// Size of the native struct.
@@ -208,6 +208,46 @@ namespace IGCLWrapper
         /// Maximum points in the speed table.
         /// </summary>
         public int MaxPoints;
+
+        /// <summary>
+        /// Compare fan properties.
+        /// </summary>
+        /// <param name="other">Other properties instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(FanPropertiesDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   CanControl == other.CanControl &&
+                   SupportedModes == other.SupportedModes &&
+                   SupportedUnits == other.SupportedUnits &&
+                   MaxRpm == other.MaxRpm &&
+                   MaxPoints == other.MaxPoints;
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is FanPropertiesDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(CanControl);
+            hash.Add(SupportedModes);
+            hash.Add(SupportedUnits);
+            hash.Add(MaxRpm);
+            hash.Add(MaxPoints);
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.

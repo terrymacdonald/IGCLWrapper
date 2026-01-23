@@ -6,7 +6,10 @@ items:
   parent: IGCLWrapper
   children:
   - IGCLWrapper.PsuInfoDto.EnergyCounter
+  - IGCLWrapper.PsuInfoDto.Equals(IGCLWrapper.PsuInfoDto)
+  - IGCLWrapper.PsuInfoDto.Equals(System.Object)
   - IGCLWrapper.PsuInfoDto.FromNative(IGCLWrapper.ctl_psu_info_t)
+  - IGCLWrapper.PsuInfoDto.GetHashCode
   - IGCLWrapper.PsuInfoDto.IsSupported
   - IGCLWrapper.PsuInfoDto.PsuType
   - IGCLWrapper.PsuInfoDto.ToNative
@@ -25,18 +28,18 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PsuInfoDto
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 795
+    startLine: 923
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: DTO for PSU information.
   example: []
   syntax:
-    content: public struct PsuInfoDto
-    content.vb: Public Structure PsuInfoDto
+    content: 'public struct PsuInfoDto : IEquatable<PsuInfoDto>'
+    content.vb: Public Structure PsuInfoDto Implements IEquatable(Of PsuInfoDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.PsuInfoDto}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -59,7 +62,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsSupported
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 800
+    startLine: 928
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -88,7 +91,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PsuType
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 804
+    startLine: 932
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -117,7 +120,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnergyCounter
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 808
+    startLine: 936
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -146,7 +149,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Voltage
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 812
+    startLine: 940
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -157,6 +160,114 @@ items:
     return:
       type: IGCLWrapper.OcTelemetryItemDto
     content.vb: Public Voltage As OcTelemetryItemDto
+- uid: IGCLWrapper.PsuInfoDto.Equals(IGCLWrapper.PsuInfoDto)
+  commentId: M:IGCLWrapper.PsuInfoDto.Equals(IGCLWrapper.PsuInfoDto)
+  id: Equals(IGCLWrapper.PsuInfoDto)
+  parent: IGCLWrapper.PsuInfoDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(PsuInfoDto)
+  nameWithType: PsuInfoDto.Equals(PsuInfoDto)
+  fullName: IGCLWrapper.PsuInfoDto.Equals(IGCLWrapper.PsuInfoDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 947
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare PSU info.
+  example: []
+  syntax:
+    content: public bool Equals(PsuInfoDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.PsuInfoDto
+      description: Other PSU info instance.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Function Equals(other As PsuInfoDto) As Boolean
+  overload: IGCLWrapper.PsuInfoDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.PsuInfoDto}.Equals(IGCLWrapper.PsuInfoDto)
+- uid: IGCLWrapper.PsuInfoDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.PsuInfoDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.PsuInfoDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: PsuInfoDto.Equals(object?)
+  fullName: IGCLWrapper.PsuInfoDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 960
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare to another object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: Object to compare.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.PsuInfoDto.Equals*
+  nameWithType.vb: PsuInfoDto.Equals(Object)
+  fullName.vb: IGCLWrapper.PsuInfoDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.PsuInfoDto.GetHashCode
+  commentId: M:IGCLWrapper.PsuInfoDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.PsuInfoDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: PsuInfoDto.GetHashCode()
+  fullName: IGCLWrapper.PsuInfoDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 966
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get a hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: Hash code value.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.PsuInfoDto.GetHashCode*
 - uid: IGCLWrapper.PsuInfoDto.FromNative(IGCLWrapper.ctl_psu_info_t)
   commentId: M:IGCLWrapper.PsuInfoDto.FromNative(IGCLWrapper.ctl_psu_info_t)
   id: FromNative(IGCLWrapper.ctl_psu_info_t)
@@ -175,7 +286,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 819
+    startLine: 981
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -210,7 +321,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 834
+    startLine: 996
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -230,60 +341,38 @@ references:
   name: IGCLWrapper
   nameWithType: IGCLWrapper
   fullName: IGCLWrapper
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{IGCLWrapper.PsuInfoDto}
+  commentId: T:System.IEquatable{IGCLWrapper.PsuInfoDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<PsuInfoDto>
+  nameWithType: IEquatable<PsuInfoDto>
+  fullName: System.IEquatable<IGCLWrapper.PsuInfoDto>
+  nameWithType.vb: IEquatable(Of PsuInfoDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.PsuInfoDto)
+  name.vb: IEquatable(Of PsuInfoDto)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.PsuInfoDto
+    name: PsuInfoDto
+    href: IGCLWrapper.PsuInfoDto.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.PsuInfoDto
+    name: PsuInfoDto
+    href: IGCLWrapper.PsuInfoDto.html
   - name: )
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
@@ -421,6 +510,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.ValueType
   commentId: T:System.ValueType
   parent: System
@@ -440,13 +564,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System
@@ -472,6 +589,146 @@ references:
   name: OcTelemetryItemDto
   nameWithType: OcTelemetryItemDto
   fullName: IGCLWrapper.OcTelemetryItemDto
+- uid: IGCLWrapper.PsuInfoDto.Equals*
+  commentId: Overload:IGCLWrapper.PsuInfoDto.Equals
+  href: IGCLWrapper.PsuInfoDto.html#IGCLWrapper_PsuInfoDto_Equals_IGCLWrapper_PsuInfoDto_
+  name: Equals
+  nameWithType: PsuInfoDto.Equals
+  fullName: IGCLWrapper.PsuInfoDto.Equals
+- uid: System.IEquatable{IGCLWrapper.PsuInfoDto}.Equals(IGCLWrapper.PsuInfoDto)
+  commentId: M:System.IEquatable{IGCLWrapper.PsuInfoDto}.Equals(IGCLWrapper.PsuInfoDto)
+  parent: System.IEquatable{IGCLWrapper.PsuInfoDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(PsuInfoDto)
+  nameWithType: IEquatable<PsuInfoDto>.Equals(PsuInfoDto)
+  fullName: System.IEquatable<IGCLWrapper.PsuInfoDto>.Equals(IGCLWrapper.PsuInfoDto)
+  nameWithType.vb: IEquatable(Of PsuInfoDto).Equals(PsuInfoDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.PsuInfoDto).Equals(IGCLWrapper.PsuInfoDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.PsuInfoDto}.Equals(IGCLWrapper.PsuInfoDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.PsuInfoDto
+    name: PsuInfoDto
+    href: IGCLWrapper.PsuInfoDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.PsuInfoDto}.Equals(IGCLWrapper.PsuInfoDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.PsuInfoDto
+    name: PsuInfoDto
+    href: IGCLWrapper.PsuInfoDto.html
+  - name: )
+- uid: IGCLWrapper.PsuInfoDto
+  commentId: T:IGCLWrapper.PsuInfoDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.PsuInfoDto.html
+  name: PsuInfoDto
+  nameWithType: PsuInfoDto
+  fullName: IGCLWrapper.PsuInfoDto
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.PsuInfoDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.PsuInfoDto.GetHashCode
+  href: IGCLWrapper.PsuInfoDto.html#IGCLWrapper_PsuInfoDto_GetHashCode
+  name: GetHashCode
+  nameWithType: PsuInfoDto.GetHashCode
+  fullName: IGCLWrapper.PsuInfoDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: IGCLWrapper.PsuInfoDto.FromNative*
   commentId: Overload:IGCLWrapper.PsuInfoDto.FromNative
   href: IGCLWrapper.PsuInfoDto.html#IGCLWrapper_PsuInfoDto_FromNative_IGCLWrapper_ctl_psu_info_t_
@@ -485,13 +742,6 @@ references:
   name: ctl_psu_info_t
   nameWithType: ctl_psu_info_t
   fullName: IGCLWrapper.ctl_psu_info_t
-- uid: IGCLWrapper.PsuInfoDto
-  commentId: T:IGCLWrapper.PsuInfoDto
-  parent: IGCLWrapper
-  href: IGCLWrapper.PsuInfoDto.html
-  name: PsuInfoDto
-  nameWithType: PsuInfoDto
-  fullName: IGCLWrapper.PsuInfoDto
 - uid: IGCLWrapper.PsuInfoDto.ToNative*
   commentId: Overload:IGCLWrapper.PsuInfoDto.ToNative
   href: IGCLWrapper.PsuInfoDto.html#IGCLWrapper_PsuInfoDto_ToNative

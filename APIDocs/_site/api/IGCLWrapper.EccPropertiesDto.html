@@ -102,24 +102,24 @@ Struct EccPropertiesDto  <a class="header-action link-secondary" title="View sou
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public struct EccPropertiesDto</code></pre>
+    <pre><code class="lang-csharp hljs">public struct EccPropertiesDto : IEquatable&lt;EccPropertiesDto&gt;</code></pre>
   </div>
 
 
 
 
 
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="IGCLWrapper.EccPropertiesDto.html">EccPropertiesDto</a>&gt;</div>
+    </dd>
+  </dl>
 
 
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.equals">ValueType.Equals(object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode">ValueType.GetHashCode()</a>
-    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.tostring">ValueType.ToString()</a>
     </div>
@@ -271,11 +271,89 @@ Struct EccPropertiesDto  <a class="header-action link-secondary" title="View sou
 </h2>
 
 
+  <a id="IGCLWrapper_EccPropertiesDto_Equals_" data-uid="IGCLWrapper.EccPropertiesDto.Equals*"></a>
+
+  <h3 id="IGCLWrapper_EccPropertiesDto_Equals_IGCLWrapper_EccPropertiesDto_" data-uid="IGCLWrapper.EccPropertiesDto.Equals(IGCLWrapper.EccPropertiesDto)">
+  Equals(EccPropertiesDto)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLEccHelper.cs/#L123"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compare ECC properties.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(EccPropertiesDto other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="IGCLWrapper.EccPropertiesDto.html">EccPropertiesDto</a></dt>
+    <dd><p>Other properties instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_EccPropertiesDto_Equals_" data-uid="IGCLWrapper.EccPropertiesDto.Equals*"></a>
+
+  <h3 id="IGCLWrapper_EccPropertiesDto_Equals_System_Object_" data-uid="IGCLWrapper.EccPropertiesDto.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLEccHelper.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compare to another object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Object to compare.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="IGCLWrapper_EccPropertiesDto_FromNative_" data-uid="IGCLWrapper.EccPropertiesDto.FromNative*"></a>
 
   <h3 id="IGCLWrapper_EccPropertiesDto_FromNative_IGCLWrapper_ctl_ecc_properties_t_" data-uid="IGCLWrapper.EccPropertiesDto.FromNative(IGCLWrapper.ctl_ecc_properties_t)">
   FromNative(ctl_ecc_properties_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLEccHelper.cs/#L123"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLEccHelper.cs/#L157"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a DTO from a native struct.</p>
@@ -310,11 +388,44 @@ Struct EccPropertiesDto  <a class="header-action link-secondary" title="View sou
 
 
 
+  <a id="IGCLWrapper_EccPropertiesDto_GetHashCode_" data-uid="IGCLWrapper.EccPropertiesDto.GetHashCode*"></a>
+
+  <h3 id="IGCLWrapper_EccPropertiesDto_GetHashCode" data-uid="IGCLWrapper.EccPropertiesDto.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLEccHelper.cs/#L142"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get a hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Hash code value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="IGCLWrapper_EccPropertiesDto_ToNative_" data-uid="IGCLWrapper.EccPropertiesDto.ToNative*"></a>
 
   <h3 id="IGCLWrapper_EccPropertiesDto_ToNative" data-uid="IGCLWrapper.EccPropertiesDto.ToNative">
   ToNative()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLEccHelper.cs/#L138"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLEccHelper.cs/#L172"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Convert this DTO to a native struct.</p>

@@ -6,7 +6,10 @@ items:
   parent: IGCLWrapper
   children:
   - IGCLWrapper.DceArgsDto.Enable
+  - IGCLWrapper.DceArgsDto.Equals(IGCLWrapper.DceArgsDto)
+  - IGCLWrapper.DceArgsDto.Equals(System.Object)
   - IGCLWrapper.DceArgsDto.FromNative(IGCLWrapper.ctl_dce_args_t)
+  - IGCLWrapper.DceArgsDto.GetHashCode
   - IGCLWrapper.DceArgsDto.Histogram
   - IGCLWrapper.DceArgsDto.IsSupported
   - IGCLWrapper.DceArgsDto.NumBins
@@ -30,18 +33,18 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: DceArgsDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1680
+    startLine: 1790
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: DTO for dynamic contrast enhancement arguments.
   example: []
   syntax:
-    content: public struct DceArgsDto
-    content.vb: Public Structure DceArgsDto
+    content: 'public struct DceArgsDto : IEquatable<DceArgsDto>'
+    content.vb: Public Structure DceArgsDto Implements IEquatable(Of DceArgsDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.DceArgsDto}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -64,7 +67,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1685
+    startLine: 1795
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -93,7 +96,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1689
+    startLine: 1799
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -122,7 +125,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Set
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1693
+    startLine: 1803
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -151,7 +154,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: TargetBrightnessPercent
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1697
+    startLine: 1807
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -180,7 +183,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PhaseinSpeedMultiplier
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1701
+    startLine: 1811
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -209,7 +212,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: NumBins
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1705
+    startLine: 1815
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -238,7 +241,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Enable
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1709
+    startLine: 1819
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -267,7 +270,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsSupported
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1713
+    startLine: 1823
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -296,7 +299,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Histogram
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1717
+    startLine: 1827
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -307,6 +310,114 @@ items:
     return:
       type: System.IntPtr
     content.vb: Public Histogram As IntPtr
+- uid: IGCLWrapper.DceArgsDto.Equals(IGCLWrapper.DceArgsDto)
+  commentId: M:IGCLWrapper.DceArgsDto.Equals(IGCLWrapper.DceArgsDto)
+  id: Equals(IGCLWrapper.DceArgsDto)
+  parent: IGCLWrapper.DceArgsDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(DceArgsDto)
+  nameWithType: DceArgsDto.Equals(DceArgsDto)
+  fullName: IGCLWrapper.DceArgsDto.Equals(IGCLWrapper.DceArgsDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 1834
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare DCE args while ignoring pointer fields.
+  example: []
+  syntax:
+    content: public bool Equals(DceArgsDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.DceArgsDto
+      description: Other args instance.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Function Equals(other As DceArgsDto) As Boolean
+  overload: IGCLWrapper.DceArgsDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.DceArgsDto}.Equals(IGCLWrapper.DceArgsDto)
+- uid: IGCLWrapper.DceArgsDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.DceArgsDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.DceArgsDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: DceArgsDto.Equals(object?)
+  fullName: IGCLWrapper.DceArgsDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 1852
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare to another object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: Object to compare.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.DceArgsDto.Equals*
+  nameWithType.vb: DceArgsDto.Equals(Object)
+  fullName.vb: IGCLWrapper.DceArgsDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.DceArgsDto.GetHashCode
+  commentId: M:IGCLWrapper.DceArgsDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.DceArgsDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: DceArgsDto.GetHashCode()
+  fullName: IGCLWrapper.DceArgsDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 1858
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get a hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: Hash code value.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.DceArgsDto.GetHashCode*
 - uid: IGCLWrapper.DceArgsDto.FromNative(IGCLWrapper.ctl_dce_args_t)
   commentId: M:IGCLWrapper.DceArgsDto.FromNative(IGCLWrapper.ctl_dce_args_t)
   id: FromNative(IGCLWrapper.ctl_dce_args_t)
@@ -325,7 +436,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1724
+    startLine: 1877
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -360,7 +471,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1744
+    startLine: 1897
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -380,60 +491,38 @@ references:
   name: IGCLWrapper
   nameWithType: IGCLWrapper
   fullName: IGCLWrapper
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{IGCLWrapper.DceArgsDto}
+  commentId: T:System.IEquatable{IGCLWrapper.DceArgsDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<DceArgsDto>
+  nameWithType: IEquatable<DceArgsDto>
+  fullName: System.IEquatable<IGCLWrapper.DceArgsDto>
+  nameWithType.vb: IEquatable(Of DceArgsDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.DceArgsDto)
+  name.vb: IEquatable(Of DceArgsDto)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.DceArgsDto
+    name: DceArgsDto
+    href: IGCLWrapper.DceArgsDto.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.DceArgsDto
+    name: DceArgsDto
+    href: IGCLWrapper.DceArgsDto.html
   - name: )
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
@@ -571,6 +660,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.ValueType
   commentId: T:System.ValueType
   parent: System
@@ -590,13 +714,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System
@@ -652,6 +769,146 @@ references:
   nameWithType.vb: IntPtr
   fullName.vb: System.IntPtr
   name.vb: IntPtr
+- uid: IGCLWrapper.DceArgsDto.Equals*
+  commentId: Overload:IGCLWrapper.DceArgsDto.Equals
+  href: IGCLWrapper.DceArgsDto.html#IGCLWrapper_DceArgsDto_Equals_IGCLWrapper_DceArgsDto_
+  name: Equals
+  nameWithType: DceArgsDto.Equals
+  fullName: IGCLWrapper.DceArgsDto.Equals
+- uid: System.IEquatable{IGCLWrapper.DceArgsDto}.Equals(IGCLWrapper.DceArgsDto)
+  commentId: M:System.IEquatable{IGCLWrapper.DceArgsDto}.Equals(IGCLWrapper.DceArgsDto)
+  parent: System.IEquatable{IGCLWrapper.DceArgsDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(DceArgsDto)
+  nameWithType: IEquatable<DceArgsDto>.Equals(DceArgsDto)
+  fullName: System.IEquatable<IGCLWrapper.DceArgsDto>.Equals(IGCLWrapper.DceArgsDto)
+  nameWithType.vb: IEquatable(Of DceArgsDto).Equals(DceArgsDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.DceArgsDto).Equals(IGCLWrapper.DceArgsDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.DceArgsDto}.Equals(IGCLWrapper.DceArgsDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.DceArgsDto
+    name: DceArgsDto
+    href: IGCLWrapper.DceArgsDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.DceArgsDto}.Equals(IGCLWrapper.DceArgsDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.DceArgsDto
+    name: DceArgsDto
+    href: IGCLWrapper.DceArgsDto.html
+  - name: )
+- uid: IGCLWrapper.DceArgsDto
+  commentId: T:IGCLWrapper.DceArgsDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.DceArgsDto.html
+  name: DceArgsDto
+  nameWithType: DceArgsDto
+  fullName: IGCLWrapper.DceArgsDto
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.DceArgsDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.DceArgsDto.GetHashCode
+  href: IGCLWrapper.DceArgsDto.html#IGCLWrapper_DceArgsDto_GetHashCode
+  name: GetHashCode
+  nameWithType: DceArgsDto.GetHashCode
+  fullName: IGCLWrapper.DceArgsDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: IGCLWrapper.DceArgsDto.FromNative*
   commentId: Overload:IGCLWrapper.DceArgsDto.FromNative
   href: IGCLWrapper.DceArgsDto.html#IGCLWrapper_DceArgsDto_FromNative_IGCLWrapper_ctl_dce_args_t_
@@ -665,13 +922,6 @@ references:
   name: ctl_dce_args_t
   nameWithType: ctl_dce_args_t
   fullName: IGCLWrapper.ctl_dce_args_t
-- uid: IGCLWrapper.DceArgsDto
-  commentId: T:IGCLWrapper.DceArgsDto
-  parent: IGCLWrapper
-  href: IGCLWrapper.DceArgsDto.html
-  name: DceArgsDto
-  nameWithType: DceArgsDto
-  fullName: IGCLWrapper.DceArgsDto
 - uid: IGCLWrapper.DceArgsDto.ToNative*
   commentId: Overload:IGCLWrapper.DceArgsDto.ToNative
   href: IGCLWrapper.DceArgsDto.html#IGCLWrapper_DceArgsDto_ToNative

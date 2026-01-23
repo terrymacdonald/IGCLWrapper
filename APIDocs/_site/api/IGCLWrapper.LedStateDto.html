@@ -89,7 +89,7 @@
 
 
   <h1 id="IGCLWrapper_LedStateDto" data-uid="IGCLWrapper.LedStateDto" class="text-break">
-Struct LedStateDto  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L222"><i class="bi bi-code-slash"></i></a>
+Struct LedStateDto  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L260"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -102,24 +102,24 @@ Struct LedStateDto  <a class="header-action link-secondary" title="View source" 
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public struct LedStateDto</code></pre>
+    <pre><code class="lang-csharp hljs">public struct LedStateDto : IEquatable&lt;LedStateDto&gt;</code></pre>
   </div>
 
 
 
 
 
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="IGCLWrapper.LedStateDto.html">LedStateDto</a>&gt;</div>
+    </dd>
+  </dl>
 
 
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.equals">ValueType.Equals(object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode">ValueType.GetHashCode()</a>
-    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.tostring">ValueType.ToString()</a>
     </div>
@@ -146,7 +146,7 @@ Struct LedStateDto  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="IGCLWrapper_LedStateDto_Color" data-uid="IGCLWrapper.LedStateDto.Color">
   Color
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L243"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L281"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>LED color struct.</p>
@@ -177,7 +177,7 @@ Struct LedStateDto  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="IGCLWrapper_LedStateDto_IsOn" data-uid="IGCLWrapper.LedStateDto.IsOn">
   IsOn
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L235"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L273"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Indicates whether the LED is on.</p>
@@ -208,7 +208,7 @@ Struct LedStateDto  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="IGCLWrapper_LedStateDto_Pwm" data-uid="IGCLWrapper.LedStateDto.Pwm">
   Pwm
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L239"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L277"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>PWM value.</p>
@@ -239,7 +239,7 @@ Struct LedStateDto  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="IGCLWrapper_LedStateDto_Size" data-uid="IGCLWrapper.LedStateDto.Size">
   Size
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L227"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L265"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Size of the native struct.</p>
@@ -270,7 +270,7 @@ Struct LedStateDto  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="IGCLWrapper_LedStateDto_Version" data-uid="IGCLWrapper.LedStateDto.Version">
   Version
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L231"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L269"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Version of the native struct.</p>
@@ -302,11 +302,89 @@ Struct LedStateDto  <a class="header-action link-secondary" title="View source" 
 </h2>
 
 
+  <a id="IGCLWrapper_LedStateDto_Equals_" data-uid="IGCLWrapper.LedStateDto.Equals*"></a>
+
+  <h3 id="IGCLWrapper_LedStateDto_Equals_IGCLWrapper_LedStateDto_" data-uid="IGCLWrapper.LedStateDto.Equals(IGCLWrapper.LedStateDto)">
+  Equals(LedStateDto)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L288"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compare LED state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(LedStateDto other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="IGCLWrapper.LedStateDto.html">LedStateDto</a></dt>
+    <dd><p>Other state instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_LedStateDto_Equals_" data-uid="IGCLWrapper.LedStateDto.Equals*"></a>
+
+  <h3 id="IGCLWrapper_LedStateDto_Equals_System_Object_" data-uid="IGCLWrapper.LedStateDto.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L302"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compare to another object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Object to compare.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="IGCLWrapper_LedStateDto_FromNative_" data-uid="IGCLWrapper.LedStateDto.FromNative*"></a>
 
   <h3 id="IGCLWrapper_LedStateDto_FromNative_IGCLWrapper_ctl_led_state_t_" data-uid="IGCLWrapper.LedStateDto.FromNative(IGCLWrapper.ctl_led_state_t)">
   FromNative(ctl_led_state_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L250"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L324"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a DTO from a native struct.</p>
@@ -341,11 +419,44 @@ Struct LedStateDto  <a class="header-action link-secondary" title="View source" 
 
 
 
+  <a id="IGCLWrapper_LedStateDto_GetHashCode_" data-uid="IGCLWrapper.LedStateDto.GetHashCode*"></a>
+
+  <h3 id="IGCLWrapper_LedStateDto_GetHashCode" data-uid="IGCLWrapper.LedStateDto.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L308"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get a hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Hash code value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="IGCLWrapper_LedStateDto_ToNative_" data-uid="IGCLWrapper.LedStateDto.ToNative*"></a>
 
   <h3 id="IGCLWrapper_LedStateDto_ToNative" data-uid="IGCLWrapper.LedStateDto.ToNative">
   ToNative()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L266"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L340"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Convert this DTO to a native struct.</p>
@@ -378,7 +489,7 @@ Struct LedStateDto  <a class="header-action link-secondary" title="View source" 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L222" class="edit-link">Edit this page</a>
+          <a href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L260" class="edit-link">Edit this page</a>
         </div>
 
 

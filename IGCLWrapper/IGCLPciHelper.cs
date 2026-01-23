@@ -79,7 +79,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for PCI properties.
     /// </summary>
-    public struct PciPropertiesDto
+    public struct PciPropertiesDto : IEquatable<PciPropertiesDto>
     {
         /// <summary>
         /// Size of the native struct.
@@ -105,6 +105,44 @@ namespace IGCLWrapper
         /// Indicates whether resizable BAR is enabled.
         /// </summary>
         public bool ResizableBarEnabled;
+
+        /// <summary>
+        /// Compare PCI properties.
+        /// </summary>
+        /// <param name="other">Other properties instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(PciPropertiesDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   Address.Equals(other.Address) &&
+                   MaxSpeed.Equals(other.MaxSpeed) &&
+                   ResizableBarSupported == other.ResizableBarSupported &&
+                   ResizableBarEnabled == other.ResizableBarEnabled;
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is PciPropertiesDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(Address);
+            hash.Add(MaxSpeed);
+            hash.Add(ResizableBarSupported);
+            hash.Add(ResizableBarEnabled);
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.

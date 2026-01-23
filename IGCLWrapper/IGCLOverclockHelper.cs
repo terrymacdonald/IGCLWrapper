@@ -553,7 +553,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for overclock control information.
     /// </summary>
-    public struct OcControlInfoDto
+    public struct OcControlInfoDto : IEquatable<OcControlInfoDto>
     {
         /// <summary>
         /// Indicates whether the control is supported.
@@ -591,6 +591,50 @@ namespace IGCLWrapper
         /// Reference value.
         /// </summary>
         public double Reference;
+
+        /// <summary>
+        /// Compare overclock control info.
+        /// </summary>
+        /// <param name="other">Other control info instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(OcControlInfoDto other)
+        {
+            return IsSupported == other.IsSupported &&
+                   IsRelative == other.IsRelative &&
+                   IsReference == other.IsReference &&
+                   Units == other.Units &&
+                   Min.Equals(other.Min) &&
+                   Max.Equals(other.Max) &&
+                   Step.Equals(other.Step) &&
+                   Default.Equals(other.Default) &&
+                   Reference.Equals(other.Reference);
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is OcControlInfoDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(IsSupported);
+            hash.Add(IsRelative);
+            hash.Add(IsReference);
+            hash.Add(Units);
+            hash.Add(Min);
+            hash.Add(Max);
+            hash.Add(Step);
+            hash.Add(Default);
+            hash.Add(Reference);
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.
@@ -637,7 +681,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for overclock properties.
     /// </summary>
-    public struct OverclockPropertiesDto
+    public struct OverclockPropertiesDto : IEquatable<OverclockPropertiesDto>
     {
         /// <summary>
         /// Size of the native struct.
@@ -687,6 +731,56 @@ namespace IGCLWrapper
         /// GPU VF curve frequency limit control info.
         /// </summary>
         public OcControlInfoDto GpuVfCurveFrequencyLimit;
+
+        /// <summary>
+        /// Compare overclock properties.
+        /// </summary>
+        /// <param name="other">Other properties instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(OverclockPropertiesDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   IsSupported == other.IsSupported &&
+                   GpuFrequencyOffset.Equals(other.GpuFrequencyOffset) &&
+                   GpuVoltageOffset.Equals(other.GpuVoltageOffset) &&
+                   VramFrequencyOffset.Equals(other.VramFrequencyOffset) &&
+                   VramVoltageOffset.Equals(other.VramVoltageOffset) &&
+                   PowerLimit.Equals(other.PowerLimit) &&
+                   TemperatureLimit.Equals(other.TemperatureLimit) &&
+                   VramMemSpeedLimit.Equals(other.VramMemSpeedLimit) &&
+                   GpuVfCurveVoltageLimit.Equals(other.GpuVfCurveVoltageLimit) &&
+                   GpuVfCurveFrequencyLimit.Equals(other.GpuVfCurveFrequencyLimit);
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is OverclockPropertiesDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(IsSupported);
+            hash.Add(GpuFrequencyOffset);
+            hash.Add(GpuVoltageOffset);
+            hash.Add(VramFrequencyOffset);
+            hash.Add(VramVoltageOffset);
+            hash.Add(PowerLimit);
+            hash.Add(TemperatureLimit);
+            hash.Add(VramMemSpeedLimit);
+            hash.Add(GpuVfCurveVoltageLimit);
+            hash.Add(GpuVfCurveFrequencyLimit);
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.
@@ -739,7 +833,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for overclock telemetry item.
     /// </summary>
-    public struct OcTelemetryItemDto
+    public struct OcTelemetryItemDto : IEquatable<OcTelemetryItemDto>
     {
         /// <summary>
         /// Indicates whether this item is supported.
@@ -757,6 +851,40 @@ namespace IGCLWrapper
         /// Telemetry value.
         /// </summary>
         public ctl_data_value_t Value;
+
+        /// <summary>
+        /// Compare telemetry items.
+        /// </summary>
+        /// <param name="other">Other telemetry item.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(OcTelemetryItemDto other)
+        {
+            return IsSupported == other.IsSupported &&
+                   Units == other.Units &&
+                   Type == other.Type &&
+                   Value.Equals(other.Value);
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is OcTelemetryItemDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(IsSupported);
+            hash.Add(Units);
+            hash.Add(Type);
+            hash.Add(Value);
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.
@@ -793,7 +921,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for PSU information.
     /// </summary>
-    public struct PsuInfoDto
+    public struct PsuInfoDto : IEquatable<PsuInfoDto>
     {
         /// <summary>
         /// Indicates whether PSU info is supported.
@@ -811,6 +939,40 @@ namespace IGCLWrapper
         /// Voltage telemetry item.
         /// </summary>
         public OcTelemetryItemDto Voltage;
+
+        /// <summary>
+        /// Compare PSU info.
+        /// </summary>
+        /// <param name="other">Other PSU info instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(PsuInfoDto other)
+        {
+            return IsSupported == other.IsSupported &&
+                   PsuType == other.PsuType &&
+                   EnergyCounter.Equals(other.EnergyCounter) &&
+                   Voltage.Equals(other.Voltage);
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is PsuInfoDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(IsSupported);
+            hash.Add(PsuType);
+            hash.Add(EnergyCounter);
+            hash.Add(Voltage);
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.
@@ -847,7 +1009,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for power telemetry.
     /// </summary>
-    public struct PowerTelemetryDto
+    public struct PowerTelemetryDto : IEquatable<PowerTelemetryDto>
     {
         /// <summary>
         /// Size of the native struct.
@@ -1007,6 +1169,120 @@ namespace IGCLWrapper
         public OcTelemetryItemDto VramWriteBandwidth;
 
         /// <summary>
+        /// Compare power telemetry values.
+        /// </summary>
+        /// <param name="other">Other telemetry instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(PowerTelemetryDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   TimeStamp.Equals(other.TimeStamp) &&
+                   GpuEnergyCounter.Equals(other.GpuEnergyCounter) &&
+                   GpuVoltage.Equals(other.GpuVoltage) &&
+                   GpuCurrentClockFrequency.Equals(other.GpuCurrentClockFrequency) &&
+                   GpuCurrentTemperature.Equals(other.GpuCurrentTemperature) &&
+                   GlobalActivityCounter.Equals(other.GlobalActivityCounter) &&
+                   RenderComputeActivityCounter.Equals(other.RenderComputeActivityCounter) &&
+                   MediaActivityCounter.Equals(other.MediaActivityCounter) &&
+                   GpuPowerLimited == other.GpuPowerLimited &&
+                   GpuTemperatureLimited == other.GpuTemperatureLimited &&
+                   GpuCurrentLimited == other.GpuCurrentLimited &&
+                   GpuVoltageLimited == other.GpuVoltageLimited &&
+                   GpuUtilizationLimited == other.GpuUtilizationLimited &&
+                   VramEnergyCounter.Equals(other.VramEnergyCounter) &&
+                   VramVoltage.Equals(other.VramVoltage) &&
+                   VramCurrentClockFrequency.Equals(other.VramCurrentClockFrequency) &&
+                   VramCurrentEffectiveFrequency.Equals(other.VramCurrentEffectiveFrequency) &&
+                   VramReadBandwidthCounter.Equals(other.VramReadBandwidthCounter) &&
+                   VramWriteBandwidthCounter.Equals(other.VramWriteBandwidthCounter) &&
+                   VramCurrentTemperature.Equals(other.VramCurrentTemperature) &&
+                   VramPowerLimited == other.VramPowerLimited &&
+                   VramTemperatureLimited == other.VramTemperatureLimited &&
+                   VramCurrentLimited == other.VramCurrentLimited &&
+                   VramVoltageLimited == other.VramVoltageLimited &&
+                   VramUtilizationLimited == other.VramUtilizationLimited &&
+                   TotalCardEnergyCounter.Equals(other.TotalCardEnergyCounter) &&
+                   ArePsuEqual(Psu, other.Psu) &&
+                   AreTelemetryEqual(FanSpeed, other.FanSpeed) &&
+                   GpuVrTemp.Equals(other.GpuVrTemp) &&
+                   VramVrTemp.Equals(other.VramVrTemp) &&
+                   SaVrTemp.Equals(other.SaVrTemp) &&
+                   GpuEffectiveClock.Equals(other.GpuEffectiveClock) &&
+                   GpuOverVoltagePercent.Equals(other.GpuOverVoltagePercent) &&
+                   GpuPowerPercent.Equals(other.GpuPowerPercent) &&
+                   GpuTemperaturePercent.Equals(other.GpuTemperaturePercent) &&
+                   VramReadBandwidth.Equals(other.VramReadBandwidth) &&
+                   VramWriteBandwidth.Equals(other.VramWriteBandwidth);
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is PowerTelemetryDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(TimeStamp);
+            hash.Add(GpuEnergyCounter);
+            hash.Add(GpuVoltage);
+            hash.Add(GpuCurrentClockFrequency);
+            hash.Add(GpuCurrentTemperature);
+            hash.Add(GlobalActivityCounter);
+            hash.Add(RenderComputeActivityCounter);
+            hash.Add(MediaActivityCounter);
+            hash.Add(GpuPowerLimited);
+            hash.Add(GpuTemperatureLimited);
+            hash.Add(GpuCurrentLimited);
+            hash.Add(GpuVoltageLimited);
+            hash.Add(GpuUtilizationLimited);
+            hash.Add(VramEnergyCounter);
+            hash.Add(VramVoltage);
+            hash.Add(VramCurrentClockFrequency);
+            hash.Add(VramCurrentEffectiveFrequency);
+            hash.Add(VramReadBandwidthCounter);
+            hash.Add(VramWriteBandwidthCounter);
+            hash.Add(VramCurrentTemperature);
+            hash.Add(VramPowerLimited);
+            hash.Add(VramTemperatureLimited);
+            hash.Add(VramCurrentLimited);
+            hash.Add(VramVoltageLimited);
+            hash.Add(VramUtilizationLimited);
+            hash.Add(TotalCardEnergyCounter);
+            if (Psu != null)
+            {
+                hash.Add(Psu.Length);
+                for (var i = 0; i < Psu.Length; i++)
+                    hash.Add(Psu[i]);
+            }
+            if (FanSpeed != null)
+            {
+                hash.Add(FanSpeed.Length);
+                for (var i = 0; i < FanSpeed.Length; i++)
+                    hash.Add(FanSpeed[i]);
+            }
+            hash.Add(GpuVrTemp);
+            hash.Add(VramVrTemp);
+            hash.Add(SaVrTemp);
+            hash.Add(GpuEffectiveClock);
+            hash.Add(GpuOverVoltagePercent);
+            hash.Add(GpuPowerPercent);
+            hash.Add(GpuTemperaturePercent);
+            hash.Add(VramReadBandwidth);
+            hash.Add(VramWriteBandwidth);
+            return hash.ToHashCode();
+        }
+
+        /// <summary>
         /// Create a DTO from a native struct.
         /// </summary>
         /// <param name="native">Native struct.</param>
@@ -1129,6 +1405,38 @@ namespace IGCLWrapper
             }
 
             return native;
+        }
+
+        private static bool ArePsuEqual(PsuInfoDto[]? left, PsuInfoDto[]? right)
+        {
+            if (ReferenceEquals(left, right))
+                return true;
+            if (left == null || right == null)
+                return false;
+            if (left.Length != right.Length)
+                return false;
+            for (var i = 0; i < left.Length; i++)
+            {
+                if (!left[i].Equals(right[i]))
+                    return false;
+            }
+            return true;
+        }
+
+        private static bool AreTelemetryEqual(OcTelemetryItemDto[]? left, OcTelemetryItemDto[]? right)
+        {
+            if (ReferenceEquals(left, right))
+                return true;
+            if (left == null || right == null)
+                return false;
+            if (left.Length != right.Length)
+                return false;
+            for (var i = 0; i < left.Length; i++)
+            {
+                if (!left[i].Equals(right[i]))
+                    return false;
+            }
+            return true;
         }
     }
 }

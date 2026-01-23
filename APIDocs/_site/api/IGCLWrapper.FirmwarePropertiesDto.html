@@ -102,24 +102,24 @@ Struct FirmwarePropertiesDto  <a class="header-action link-secondary" title="Vie
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public struct FirmwarePropertiesDto</code></pre>
+    <pre><code class="lang-csharp hljs">public struct FirmwarePropertiesDto : IEquatable&lt;FirmwarePropertiesDto&gt;</code></pre>
   </div>
 
 
 
 
 
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="IGCLWrapper.FirmwarePropertiesDto.html">FirmwarePropertiesDto</a>&gt;</div>
+    </dd>
+  </dl>
 
 
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.equals">ValueType.Equals(object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode">ValueType.GetHashCode()</a>
-    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.tostring">ValueType.ToString()</a>
     </div>
@@ -333,11 +333,89 @@ Struct FirmwarePropertiesDto  <a class="header-action link-secondary" title="Vie
 </h2>
 
 
+  <a id="IGCLWrapper_FirmwarePropertiesDto_Equals_" data-uid="IGCLWrapper.FirmwarePropertiesDto.Equals*"></a>
+
+  <h3 id="IGCLWrapper_FirmwarePropertiesDto_Equals_IGCLWrapper_FirmwarePropertiesDto_" data-uid="IGCLWrapper.FirmwarePropertiesDto.Equals(IGCLWrapper.FirmwarePropertiesDto)">
+  Equals(FirmwarePropertiesDto)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFirmwareHelper.cs/#L177"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compare firmware properties while ignoring reserved fields.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(FirmwarePropertiesDto other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="IGCLWrapper.FirmwarePropertiesDto.html">FirmwarePropertiesDto</a></dt>
+    <dd><p>Other properties instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_FirmwarePropertiesDto_Equals_" data-uid="IGCLWrapper.FirmwarePropertiesDto.Equals*"></a>
+
+  <h3 id="IGCLWrapper_FirmwarePropertiesDto_Equals_System_Object_" data-uid="IGCLWrapper.FirmwarePropertiesDto.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFirmwareHelper.cs/#L192"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compare to another object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Object to compare.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="IGCLWrapper_FirmwarePropertiesDto_FromNative_" data-uid="IGCLWrapper.FirmwarePropertiesDto.FromNative*"></a>
 
   <h3 id="IGCLWrapper_FirmwarePropertiesDto_FromNative_IGCLWrapper_ctl_firmware_properties_t_" data-uid="IGCLWrapper.FirmwarePropertiesDto.FromNative(IGCLWrapper.ctl_firmware_properties_t)">
   FromNative(ctl_firmware_properties_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFirmwareHelper.cs/#L177"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFirmwareHelper.cs/#L214"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a DTO from a native struct.</p>
@@ -372,11 +450,44 @@ Struct FirmwarePropertiesDto  <a class="header-action link-secondary" title="Vie
 
 
 
+  <a id="IGCLWrapper_FirmwarePropertiesDto_GetHashCode_" data-uid="IGCLWrapper.FirmwarePropertiesDto.GetHashCode*"></a>
+
+  <h3 id="IGCLWrapper_FirmwarePropertiesDto_GetHashCode" data-uid="IGCLWrapper.FirmwarePropertiesDto.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFirmwareHelper.cs/#L198"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get a hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Hash code value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="IGCLWrapper_FirmwarePropertiesDto_ToNative_" data-uid="IGCLWrapper.FirmwarePropertiesDto.ToNative*"></a>
 
   <h3 id="IGCLWrapper_FirmwarePropertiesDto_ToNative" data-uid="IGCLWrapper.FirmwarePropertiesDto.ToNative">
   ToNative()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFirmwareHelper.cs/#L194"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLFirmwareHelper.cs/#L231"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Convert this DTO to a native struct.</p>

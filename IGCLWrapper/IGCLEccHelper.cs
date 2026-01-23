@@ -96,7 +96,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for ECC properties.
     /// </summary>
-    public struct EccPropertiesDto
+    public struct EccPropertiesDto : IEquatable<EccPropertiesDto>
     {
         /// <summary>
         /// Size of the native struct.
@@ -114,6 +114,40 @@ namespace IGCLWrapper
         /// Indicates whether ECC can be controlled.
         /// </summary>
         public bool CanControl;
+
+        /// <summary>
+        /// Compare ECC properties.
+        /// </summary>
+        /// <param name="other">Other properties instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(EccPropertiesDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   IsSupported == other.IsSupported &&
+                   CanControl == other.CanControl;
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is EccPropertiesDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(IsSupported);
+            hash.Add(CanControl);
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.

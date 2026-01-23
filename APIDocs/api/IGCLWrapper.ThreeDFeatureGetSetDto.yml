@@ -9,8 +9,11 @@ items:
   - IGCLWrapper.ThreeDFeatureGetSetDto.ApplicationNameLength
   - IGCLWrapper.ThreeDFeatureGetSetDto.CustomValue
   - IGCLWrapper.ThreeDFeatureGetSetDto.CustomValueSize
+  - IGCLWrapper.ThreeDFeatureGetSetDto.Equals(IGCLWrapper.ThreeDFeatureGetSetDto)
+  - IGCLWrapper.ThreeDFeatureGetSetDto.Equals(System.Object)
   - IGCLWrapper.ThreeDFeatureGetSetDto.FeatureType
   - IGCLWrapper.ThreeDFeatureGetSetDto.FromNative(IGCLWrapper.ctl_3d_feature_getset_t)
+  - IGCLWrapper.ThreeDFeatureGetSetDto.GetHashCode
   - IGCLWrapper.ThreeDFeatureGetSetDto.Set
   - IGCLWrapper.ThreeDFeatureGetSetDto.Size
   - IGCLWrapper.ThreeDFeatureGetSetDto.ToNative
@@ -38,11 +41,11 @@ items:
   summary: DTO for 3D feature get/set operations.
   example: []
   syntax:
-    content: public struct ThreeDFeatureGetSetDto
-    content.vb: Public Structure ThreeDFeatureGetSetDto
+    content: 'public struct ThreeDFeatureGetSetDto : IEquatable<ThreeDFeatureGetSetDto>'
+    content.vb: Public Structure ThreeDFeatureGetSetDto Implements IEquatable(Of ThreeDFeatureGetSetDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.ThreeDFeatureGetSetDto}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -337,6 +340,114 @@ items:
     return:
       type: System.IntPtr
     content.vb: Public CustomValue As IntPtr
+- uid: IGCLWrapper.ThreeDFeatureGetSetDto.Equals(IGCLWrapper.ThreeDFeatureGetSetDto)
+  commentId: M:IGCLWrapper.ThreeDFeatureGetSetDto.Equals(IGCLWrapper.ThreeDFeatureGetSetDto)
+  id: Equals(IGCLWrapper.ThreeDFeatureGetSetDto)
+  parent: IGCLWrapper.ThreeDFeatureGetSetDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(ThreeDFeatureGetSetDto)
+  nameWithType: ThreeDFeatureGetSetDto.Equals(ThreeDFeatureGetSetDto)
+  fullName: IGCLWrapper.ThreeDFeatureGetSetDto.Equals(IGCLWrapper.ThreeDFeatureGetSetDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCL3DHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCL3DHelper.cs
+    startLine: 150
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare 3D feature get/set args while ignoring pointer fields.
+  example: []
+  syntax:
+    content: public bool Equals(ThreeDFeatureGetSetDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.ThreeDFeatureGetSetDto
+      description: Other args instance.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Function Equals(other As ThreeDFeatureGetSetDto) As Boolean
+  overload: IGCLWrapper.ThreeDFeatureGetSetDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.ThreeDFeatureGetSetDto}.Equals(IGCLWrapper.ThreeDFeatureGetSetDto)
+- uid: IGCLWrapper.ThreeDFeatureGetSetDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.ThreeDFeatureGetSetDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.ThreeDFeatureGetSetDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: ThreeDFeatureGetSetDto.Equals(object?)
+  fullName: IGCLWrapper.ThreeDFeatureGetSetDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCL3DHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCL3DHelper.cs
+    startLine: 168
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare to another object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: Object to compare.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.ThreeDFeatureGetSetDto.Equals*
+  nameWithType.vb: ThreeDFeatureGetSetDto.Equals(Object)
+  fullName.vb: IGCLWrapper.ThreeDFeatureGetSetDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.ThreeDFeatureGetSetDto.GetHashCode
+  commentId: M:IGCLWrapper.ThreeDFeatureGetSetDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.ThreeDFeatureGetSetDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: ThreeDFeatureGetSetDto.GetHashCode()
+  fullName: IGCLWrapper.ThreeDFeatureGetSetDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCL3DHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCL3DHelper.cs
+    startLine: 174
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get a hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: Hash code value.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.ThreeDFeatureGetSetDto.GetHashCode*
 - uid: IGCLWrapper.ThreeDFeatureGetSetDto.FromNative(IGCLWrapper.ctl_3d_feature_getset_t)
   commentId: M:IGCLWrapper.ThreeDFeatureGetSetDto.FromNative(IGCLWrapper.ctl_3d_feature_getset_t)
   id: FromNative(IGCLWrapper.ctl_3d_feature_getset_t)
@@ -355,7 +466,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 150
+    startLine: 193
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -390,7 +501,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 171
+    startLine: 214
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -410,60 +521,38 @@ references:
   name: IGCLWrapper
   nameWithType: IGCLWrapper
   fullName: IGCLWrapper
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{IGCLWrapper.ThreeDFeatureGetSetDto}
+  commentId: T:System.IEquatable{IGCLWrapper.ThreeDFeatureGetSetDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<ThreeDFeatureGetSetDto>
+  nameWithType: IEquatable<ThreeDFeatureGetSetDto>
+  fullName: System.IEquatable<IGCLWrapper.ThreeDFeatureGetSetDto>
+  nameWithType.vb: IEquatable(Of ThreeDFeatureGetSetDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.ThreeDFeatureGetSetDto)
+  name.vb: IEquatable(Of ThreeDFeatureGetSetDto)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.ThreeDFeatureGetSetDto
+    name: ThreeDFeatureGetSetDto
+    href: IGCLWrapper.ThreeDFeatureGetSetDto.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.ThreeDFeatureGetSetDto
+    name: ThreeDFeatureGetSetDto
+    href: IGCLWrapper.ThreeDFeatureGetSetDto.html
   - name: )
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
@@ -601,6 +690,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.ValueType
   commentId: T:System.ValueType
   parent: System
@@ -620,13 +744,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System
@@ -714,6 +831,135 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: IGCLWrapper.ThreeDFeatureGetSetDto.Equals*
+  commentId: Overload:IGCLWrapper.ThreeDFeatureGetSetDto.Equals
+  href: IGCLWrapper.ThreeDFeatureGetSetDto.html#IGCLWrapper_ThreeDFeatureGetSetDto_Equals_IGCLWrapper_ThreeDFeatureGetSetDto_
+  name: Equals
+  nameWithType: ThreeDFeatureGetSetDto.Equals
+  fullName: IGCLWrapper.ThreeDFeatureGetSetDto.Equals
+- uid: System.IEquatable{IGCLWrapper.ThreeDFeatureGetSetDto}.Equals(IGCLWrapper.ThreeDFeatureGetSetDto)
+  commentId: M:System.IEquatable{IGCLWrapper.ThreeDFeatureGetSetDto}.Equals(IGCLWrapper.ThreeDFeatureGetSetDto)
+  parent: System.IEquatable{IGCLWrapper.ThreeDFeatureGetSetDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(ThreeDFeatureGetSetDto)
+  nameWithType: IEquatable<ThreeDFeatureGetSetDto>.Equals(ThreeDFeatureGetSetDto)
+  fullName: System.IEquatable<IGCLWrapper.ThreeDFeatureGetSetDto>.Equals(IGCLWrapper.ThreeDFeatureGetSetDto)
+  nameWithType.vb: IEquatable(Of ThreeDFeatureGetSetDto).Equals(ThreeDFeatureGetSetDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.ThreeDFeatureGetSetDto).Equals(IGCLWrapper.ThreeDFeatureGetSetDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.ThreeDFeatureGetSetDto}.Equals(IGCLWrapper.ThreeDFeatureGetSetDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.ThreeDFeatureGetSetDto
+    name: ThreeDFeatureGetSetDto
+    href: IGCLWrapper.ThreeDFeatureGetSetDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.ThreeDFeatureGetSetDto}.Equals(IGCLWrapper.ThreeDFeatureGetSetDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.ThreeDFeatureGetSetDto
+    name: ThreeDFeatureGetSetDto
+    href: IGCLWrapper.ThreeDFeatureGetSetDto.html
+  - name: )
+- uid: IGCLWrapper.ThreeDFeatureGetSetDto
+  commentId: T:IGCLWrapper.ThreeDFeatureGetSetDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.ThreeDFeatureGetSetDto.html
+  name: ThreeDFeatureGetSetDto
+  nameWithType: ThreeDFeatureGetSetDto
+  fullName: IGCLWrapper.ThreeDFeatureGetSetDto
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.ThreeDFeatureGetSetDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.ThreeDFeatureGetSetDto.GetHashCode
+  href: IGCLWrapper.ThreeDFeatureGetSetDto.html#IGCLWrapper_ThreeDFeatureGetSetDto_GetHashCode
+  name: GetHashCode
+  nameWithType: ThreeDFeatureGetSetDto.GetHashCode
+  fullName: IGCLWrapper.ThreeDFeatureGetSetDto.GetHashCode
 - uid: IGCLWrapper.ThreeDFeatureGetSetDto.FromNative*
   commentId: Overload:IGCLWrapper.ThreeDFeatureGetSetDto.FromNative
   href: IGCLWrapper.ThreeDFeatureGetSetDto.html#IGCLWrapper_ThreeDFeatureGetSetDto_FromNative_IGCLWrapper_ctl_3d_feature_getset_t_
@@ -727,13 +973,6 @@ references:
   name: ctl_3d_feature_getset_t
   nameWithType: ctl_3d_feature_getset_t
   fullName: IGCLWrapper.ctl_3d_feature_getset_t
-- uid: IGCLWrapper.ThreeDFeatureGetSetDto
-  commentId: T:IGCLWrapper.ThreeDFeatureGetSetDto
-  parent: IGCLWrapper
-  href: IGCLWrapper.ThreeDFeatureGetSetDto.html
-  name: ThreeDFeatureGetSetDto
-  nameWithType: ThreeDFeatureGetSetDto
-  fullName: IGCLWrapper.ThreeDFeatureGetSetDto
 - uid: IGCLWrapper.ThreeDFeatureGetSetDto.ToNative*
   commentId: Overload:IGCLWrapper.ThreeDFeatureGetSetDto.ToNative
   href: IGCLWrapper.ThreeDFeatureGetSetDto.html#IGCLWrapper_ThreeDFeatureGetSetDto_ToNative

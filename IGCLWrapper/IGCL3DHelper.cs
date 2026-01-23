@@ -100,7 +100,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for 3D feature get/set operations.
     /// </summary>
-    public unsafe struct ThreeDFeatureGetSetDto
+    public unsafe struct ThreeDFeatureGetSetDto : IEquatable<ThreeDFeatureGetSetDto>
     {
         /// <summary>
         /// Size of the native struct.
@@ -142,6 +142,49 @@ namespace IGCLWrapper
         /// Pointer to custom value buffer.
         /// </summary>
         public IntPtr CustomValue;
+
+        /// <summary>
+        /// Compare 3D feature get/set args while ignoring pointer fields.
+        /// </summary>
+        /// <param name="other">Other args instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(ThreeDFeatureGetSetDto other)
+        {
+            // ApplicationName and CustomValue are pointers and are intentionally excluded.
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   FeatureType == other.FeatureType &&
+                   ApplicationNameLength == other.ApplicationNameLength &&
+                   Set == other.Set &&
+                   ValueType == other.ValueType &&
+                   Value.Equals(other.Value) &&
+                   CustomValueSize == other.CustomValueSize;
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is ThreeDFeatureGetSetDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(FeatureType);
+            hash.Add(ApplicationNameLength);
+            hash.Add(Set);
+            hash.Add(ValueType);
+            hash.Add(Value);
+            hash.Add(CustomValueSize);
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.

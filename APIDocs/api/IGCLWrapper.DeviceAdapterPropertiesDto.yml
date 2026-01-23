@@ -9,9 +9,12 @@ items:
   - IGCLWrapper.DeviceAdapterPropertiesDto.DeviceIdSize
   - IGCLWrapper.DeviceAdapterPropertiesDto.DeviceType
   - IGCLWrapper.DeviceAdapterPropertiesDto.DriverVersion
+  - IGCLWrapper.DeviceAdapterPropertiesDto.Equals(IGCLWrapper.DeviceAdapterPropertiesDto)
+  - IGCLWrapper.DeviceAdapterPropertiesDto.Equals(System.Object)
   - IGCLWrapper.DeviceAdapterPropertiesDto.FirmwareVersion
   - IGCLWrapper.DeviceAdapterPropertiesDto.Frequency
   - IGCLWrapper.DeviceAdapterPropertiesDto.FromNative(IGCLWrapper.ctl_device_adapter_properties_t)
+  - IGCLWrapper.DeviceAdapterPropertiesDto.GetHashCode
   - IGCLWrapper.DeviceAdapterPropertiesDto.GraphicsAdapterProperties
   - IGCLWrapper.DeviceAdapterPropertiesDto.Name
   - IGCLWrapper.DeviceAdapterPropertiesDto.NumEusPerSubSlice
@@ -49,11 +52,11 @@ items:
   summary: DTO for adapter properties.
   example: []
   syntax:
-    content: public struct DeviceAdapterPropertiesDto
-    content.vb: Public Structure DeviceAdapterPropertiesDto
+    content: 'public struct DeviceAdapterPropertiesDto : IEquatable<DeviceAdapterPropertiesDto>'
+    content.vb: Public Structure DeviceAdapterPropertiesDto Implements IEquatable(Of DeviceAdapterPropertiesDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.DeviceAdapterPropertiesDto}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -667,6 +670,114 @@ items:
     return:
       type: System.Byte[]
     content.vb: Public Reserved As Byte()
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.Equals(IGCLWrapper.DeviceAdapterPropertiesDto)
+  commentId: M:IGCLWrapper.DeviceAdapterPropertiesDto.Equals(IGCLWrapper.DeviceAdapterPropertiesDto)
+  id: Equals(IGCLWrapper.DeviceAdapterPropertiesDto)
+  parent: IGCLWrapper.DeviceAdapterPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(DeviceAdapterPropertiesDto)
+  nameWithType: DeviceAdapterPropertiesDto.Equals(DeviceAdapterPropertiesDto)
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.Equals(IGCLWrapper.DeviceAdapterPropertiesDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1182
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare adapter properties while ignoring reserved native fields.
+  example: []
+  syntax:
+    content: public bool Equals(DeviceAdapterPropertiesDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.DeviceAdapterPropertiesDto
+      description: Other properties instance.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Function Equals(other As DeviceAdapterPropertiesDto) As Boolean
+  overload: IGCLWrapper.DeviceAdapterPropertiesDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.DeviceAdapterPropertiesDto}.Equals(IGCLWrapper.DeviceAdapterPropertiesDto)
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.DeviceAdapterPropertiesDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.DeviceAdapterPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: DeviceAdapterPropertiesDto.Equals(object?)
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1212
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare to another object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: Object to compare.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.DeviceAdapterPropertiesDto.Equals*
+  nameWithType.vb: DeviceAdapterPropertiesDto.Equals(Object)
+  fullName.vb: IGCLWrapper.DeviceAdapterPropertiesDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.GetHashCode
+  commentId: M:IGCLWrapper.DeviceAdapterPropertiesDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.DeviceAdapterPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: DeviceAdapterPropertiesDto.GetHashCode()
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1218
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get a hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: Hash code value.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.DeviceAdapterPropertiesDto.GetHashCode*
 - uid: IGCLWrapper.DeviceAdapterPropertiesDto.FromNative(IGCLWrapper.ctl_device_adapter_properties_t)
   commentId: M:IGCLWrapper.DeviceAdapterPropertiesDto.FromNative(IGCLWrapper.ctl_device_adapter_properties_t)
   id: FromNative(IGCLWrapper.ctl_device_adapter_properties_t)
@@ -685,7 +796,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1182
+    startLine: 1249
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -720,7 +831,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1214
+    startLine: 1281
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -740,60 +851,38 @@ references:
   name: IGCLWrapper
   nameWithType: IGCLWrapper
   fullName: IGCLWrapper
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{IGCLWrapper.DeviceAdapterPropertiesDto}
+  commentId: T:System.IEquatable{IGCLWrapper.DeviceAdapterPropertiesDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<DeviceAdapterPropertiesDto>
+  nameWithType: IEquatable<DeviceAdapterPropertiesDto>
+  fullName: System.IEquatable<IGCLWrapper.DeviceAdapterPropertiesDto>
+  nameWithType.vb: IEquatable(Of DeviceAdapterPropertiesDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.DeviceAdapterPropertiesDto)
+  name.vb: IEquatable(Of DeviceAdapterPropertiesDto)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.DeviceAdapterPropertiesDto
+    name: DeviceAdapterPropertiesDto
+    href: IGCLWrapper.DeviceAdapterPropertiesDto.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.DeviceAdapterPropertiesDto
+    name: DeviceAdapterPropertiesDto
+    href: IGCLWrapper.DeviceAdapterPropertiesDto.html
   - name: )
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
@@ -931,6 +1020,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.ValueType
   commentId: T:System.ValueType
   parent: System
@@ -950,13 +1074,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System
@@ -1056,6 +1173,157 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.byte
   - name: (
   - name: )
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.Equals*
+  commentId: Overload:IGCLWrapper.DeviceAdapterPropertiesDto.Equals
+  href: IGCLWrapper.DeviceAdapterPropertiesDto.html#IGCLWrapper_DeviceAdapterPropertiesDto_Equals_IGCLWrapper_DeviceAdapterPropertiesDto_
+  name: Equals
+  nameWithType: DeviceAdapterPropertiesDto.Equals
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.Equals
+- uid: System.IEquatable{IGCLWrapper.DeviceAdapterPropertiesDto}.Equals(IGCLWrapper.DeviceAdapterPropertiesDto)
+  commentId: M:System.IEquatable{IGCLWrapper.DeviceAdapterPropertiesDto}.Equals(IGCLWrapper.DeviceAdapterPropertiesDto)
+  parent: System.IEquatable{IGCLWrapper.DeviceAdapterPropertiesDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(DeviceAdapterPropertiesDto)
+  nameWithType: IEquatable<DeviceAdapterPropertiesDto>.Equals(DeviceAdapterPropertiesDto)
+  fullName: System.IEquatable<IGCLWrapper.DeviceAdapterPropertiesDto>.Equals(IGCLWrapper.DeviceAdapterPropertiesDto)
+  nameWithType.vb: IEquatable(Of DeviceAdapterPropertiesDto).Equals(DeviceAdapterPropertiesDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.DeviceAdapterPropertiesDto).Equals(IGCLWrapper.DeviceAdapterPropertiesDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.DeviceAdapterPropertiesDto}.Equals(IGCLWrapper.DeviceAdapterPropertiesDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.DeviceAdapterPropertiesDto
+    name: DeviceAdapterPropertiesDto
+    href: IGCLWrapper.DeviceAdapterPropertiesDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.DeviceAdapterPropertiesDto}.Equals(IGCLWrapper.DeviceAdapterPropertiesDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.DeviceAdapterPropertiesDto
+    name: DeviceAdapterPropertiesDto
+    href: IGCLWrapper.DeviceAdapterPropertiesDto.html
+  - name: )
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto
+  commentId: T:IGCLWrapper.DeviceAdapterPropertiesDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.DeviceAdapterPropertiesDto.html
+  name: DeviceAdapterPropertiesDto
+  nameWithType: DeviceAdapterPropertiesDto
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.DeviceAdapterPropertiesDto.GetHashCode
+  href: IGCLWrapper.DeviceAdapterPropertiesDto.html#IGCLWrapper_DeviceAdapterPropertiesDto_GetHashCode
+  name: GetHashCode
+  nameWithType: DeviceAdapterPropertiesDto.GetHashCode
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: IGCLWrapper.DeviceAdapterPropertiesDto.FromNative*
   commentId: Overload:IGCLWrapper.DeviceAdapterPropertiesDto.FromNative
   href: IGCLWrapper.DeviceAdapterPropertiesDto.html#IGCLWrapper_DeviceAdapterPropertiesDto_FromNative_IGCLWrapper_ctl_device_adapter_properties_t_
@@ -1069,13 +1337,6 @@ references:
   name: ctl_device_adapter_properties_t
   nameWithType: ctl_device_adapter_properties_t
   fullName: IGCLWrapper.ctl_device_adapter_properties_t
-- uid: IGCLWrapper.DeviceAdapterPropertiesDto
-  commentId: T:IGCLWrapper.DeviceAdapterPropertiesDto
-  parent: IGCLWrapper
-  href: IGCLWrapper.DeviceAdapterPropertiesDto.html
-  name: DeviceAdapterPropertiesDto
-  nameWithType: DeviceAdapterPropertiesDto
-  fullName: IGCLWrapper.DeviceAdapterPropertiesDto
 - uid: IGCLWrapper.DeviceAdapterPropertiesDto.ToNative*
   commentId: Overload:IGCLWrapper.DeviceAdapterPropertiesDto.ToNative
   href: IGCLWrapper.DeviceAdapterPropertiesDto.html#IGCLWrapper_DeviceAdapterPropertiesDto_ToNative

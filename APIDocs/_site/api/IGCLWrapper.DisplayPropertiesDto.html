@@ -102,24 +102,24 @@ Struct DisplayPropertiesDto  <a class="header-action link-secondary" title="View
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public struct DisplayPropertiesDto</code></pre>
+    <pre><code class="lang-csharp hljs">public struct DisplayPropertiesDto : IEquatable&lt;DisplayPropertiesDto&gt;</code></pre>
   </div>
 
 
 
 
 
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="IGCLWrapper.DisplayPropertiesDto.html">DisplayPropertiesDto</a>&gt;</div>
+    </dd>
+  </dl>
 
 
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.equals">ValueType.Equals(object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode">ValueType.GetHashCode()</a>
-    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.tostring">ValueType.ToString()</a>
     </div>
@@ -643,11 +643,89 @@ Struct DisplayPropertiesDto  <a class="header-action link-secondary" title="View
 </h2>
 
 
+  <a id="IGCLWrapper_DisplayPropertiesDto_Equals_" data-uid="IGCLWrapper.DisplayPropertiesDto.Equals*"></a>
+
+  <h3 id="IGCLWrapper_DisplayPropertiesDto_Equals_IGCLWrapper_DisplayPropertiesDto_" data-uid="IGCLWrapper.DisplayPropertiesDto.Equals(IGCLWrapper.DisplayPropertiesDto)">
+  Equals(DisplayPropertiesDto)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1365"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compare display properties while ignoring pointer-backed and reserved fields.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(DisplayPropertiesDto other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="IGCLWrapper.DisplayPropertiesDto.html">DisplayPropertiesDto</a></dt>
+    <dd><p>Other properties instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_DisplayPropertiesDto_Equals_" data-uid="IGCLWrapper.DisplayPropertiesDto.Equals*"></a>
+
+  <h3 id="IGCLWrapper_DisplayPropertiesDto_Equals_System_Object_" data-uid="IGCLWrapper.DisplayPropertiesDto.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1389"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compare to another object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Object to compare.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="IGCLWrapper_DisplayPropertiesDto_FromNative_" data-uid="IGCLWrapper.DisplayPropertiesDto.FromNative*"></a>
 
   <h3 id="IGCLWrapper_DisplayPropertiesDto_FromNative_IGCLWrapper_ctl_display_properties_t_" data-uid="IGCLWrapper.DisplayPropertiesDto.FromNative(IGCLWrapper.ctl_display_properties_t)">
   FromNative(ctl_display_properties_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1365"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1420"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a DTO from a native struct.</p>
@@ -682,11 +760,44 @@ Struct DisplayPropertiesDto  <a class="header-action link-secondary" title="View
 
 
 
+  <a id="IGCLWrapper_DisplayPropertiesDto_GetHashCode_" data-uid="IGCLWrapper.DisplayPropertiesDto.GetHashCode*"></a>
+
+  <h3 id="IGCLWrapper_DisplayPropertiesDto_GetHashCode" data-uid="IGCLWrapper.DisplayPropertiesDto.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1395"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get a hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Hash code value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="IGCLWrapper_DisplayPropertiesDto_ToNative_" data-uid="IGCLWrapper.DisplayPropertiesDto.ToNative*"></a>
 
   <h3 id="IGCLWrapper_DisplayPropertiesDto_ToNative" data-uid="IGCLWrapper.DisplayPropertiesDto.ToNative">
   ToNative()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1392"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1447"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Convert this DTO to a native struct.</p>

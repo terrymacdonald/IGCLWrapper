@@ -89,7 +89,7 @@
 
 
   <h1 id="IGCLWrapper_PowerPeakLimitDto" data-uid="IGCLWrapper.PowerPeakLimitDto" class="text-break">
-Struct PowerPeakLimitDto  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLPowerHelper.cs/#L328"><i class="bi bi-code-slash"></i></a>
+Struct PowerPeakLimitDto  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLPowerHelper.cs/#L428"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -102,24 +102,24 @@ Struct PowerPeakLimitDto  <a class="header-action link-secondary" title="View so
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public struct PowerPeakLimitDto</code></pre>
+    <pre><code class="lang-csharp hljs">public struct PowerPeakLimitDto : IEquatable&lt;PowerPeakLimitDto&gt;</code></pre>
   </div>
 
 
 
 
 
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="IGCLWrapper.PowerPeakLimitDto.html">PowerPeakLimitDto</a>&gt;</div>
+    </dd>
+  </dl>
 
 
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.equals">ValueType.Equals(object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode">ValueType.GetHashCode()</a>
-    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.tostring">ValueType.ToString()</a>
     </div>
@@ -146,7 +146,7 @@ Struct PowerPeakLimitDto  <a class="header-action link-secondary" title="View so
 
   <h3 id="IGCLWrapper_PowerPeakLimitDto_PowerAc" data-uid="IGCLWrapper.PowerPeakLimitDto.PowerAc">
   PowerAc
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLPowerHelper.cs/#L333"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLPowerHelper.cs/#L433"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>AC power value.</p>
@@ -177,7 +177,7 @@ Struct PowerPeakLimitDto  <a class="header-action link-secondary" title="View so
 
   <h3 id="IGCLWrapper_PowerPeakLimitDto_PowerDc" data-uid="IGCLWrapper.PowerPeakLimitDto.PowerDc">
   PowerDc
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLPowerHelper.cs/#L337"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLPowerHelper.cs/#L437"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>DC power value.</p>
@@ -209,11 +209,89 @@ Struct PowerPeakLimitDto  <a class="header-action link-secondary" title="View so
 </h2>
 
 
+  <a id="IGCLWrapper_PowerPeakLimitDto_Equals_" data-uid="IGCLWrapper.PowerPeakLimitDto.Equals*"></a>
+
+  <h3 id="IGCLWrapper_PowerPeakLimitDto_Equals_IGCLWrapper_PowerPeakLimitDto_" data-uid="IGCLWrapper.PowerPeakLimitDto.Equals(IGCLWrapper.PowerPeakLimitDto)">
+  Equals(PowerPeakLimitDto)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLPowerHelper.cs/#L444"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compare peak power limit settings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(PowerPeakLimitDto other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="IGCLWrapper.PowerPeakLimitDto.html">PowerPeakLimitDto</a></dt>
+    <dd><p>Other settings instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_PowerPeakLimitDto_Equals_" data-uid="IGCLWrapper.PowerPeakLimitDto.Equals*"></a>
+
+  <h3 id="IGCLWrapper_PowerPeakLimitDto_Equals_System_Object_" data-uid="IGCLWrapper.PowerPeakLimitDto.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLPowerHelper.cs/#L455"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compare to another object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Object to compare.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="IGCLWrapper_PowerPeakLimitDto_FromNative_" data-uid="IGCLWrapper.PowerPeakLimitDto.FromNative*"></a>
 
   <h3 id="IGCLWrapper_PowerPeakLimitDto_FromNative_IGCLWrapper_ctl_power_peak_limit_t_" data-uid="IGCLWrapper.PowerPeakLimitDto.FromNative(IGCLWrapper.ctl_power_peak_limit_t)">
   FromNative(ctl_power_peak_limit_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLPowerHelper.cs/#L344"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLPowerHelper.cs/#L474"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a DTO from a native struct.</p>
@@ -248,11 +326,44 @@ Struct PowerPeakLimitDto  <a class="header-action link-secondary" title="View so
 
 
 
+  <a id="IGCLWrapper_PowerPeakLimitDto_GetHashCode_" data-uid="IGCLWrapper.PowerPeakLimitDto.GetHashCode*"></a>
+
+  <h3 id="IGCLWrapper_PowerPeakLimitDto_GetHashCode" data-uid="IGCLWrapper.PowerPeakLimitDto.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLPowerHelper.cs/#L461"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get a hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Hash code value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="IGCLWrapper_PowerPeakLimitDto_ToNative_" data-uid="IGCLWrapper.PowerPeakLimitDto.ToNative*"></a>
 
   <h3 id="IGCLWrapper_PowerPeakLimitDto_ToNative" data-uid="IGCLWrapper.PowerPeakLimitDto.ToNative">
   ToNative()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLPowerHelper.cs/#L357"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLPowerHelper.cs/#L487"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Convert this DTO to a native struct.</p>
@@ -285,7 +396,7 @@ Struct PowerPeakLimitDto  <a class="header-action link-secondary" title="View so
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLPowerHelper.cs/#L328" class="edit-link">Edit this page</a>
+          <a href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLPowerHelper.cs/#L428" class="edit-link">Edit this page</a>
         </div>
 
 

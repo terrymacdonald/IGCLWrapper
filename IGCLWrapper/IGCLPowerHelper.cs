@@ -169,7 +169,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for power properties.
     /// </summary>
-    public struct PowerPropertiesDto
+    public struct PowerPropertiesDto : IEquatable<PowerPropertiesDto>
     {
         /// <summary>
         /// Size of the native struct.
@@ -195,6 +195,44 @@ namespace IGCLWrapper
         /// Maximum power limit.
         /// </summary>
         public int MaxLimit;
+
+        /// <summary>
+        /// Compare power properties.
+        /// </summary>
+        /// <param name="other">Other properties instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(PowerPropertiesDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   CanControl == other.CanControl &&
+                   DefaultLimit == other.DefaultLimit &&
+                   MinLimit == other.MinLimit &&
+                   MaxLimit == other.MaxLimit;
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is PowerPropertiesDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(CanControl);
+            hash.Add(DefaultLimit);
+            hash.Add(MinLimit);
+            hash.Add(MaxLimit);
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.
@@ -235,7 +273,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for sustained power limit settings.
     /// </summary>
-    public struct PowerSustainedLimitDto
+    public struct PowerSustainedLimitDto : IEquatable<PowerSustainedLimitDto>
     {
         /// <summary>
         /// Enable flag.
@@ -249,6 +287,38 @@ namespace IGCLWrapper
         /// Time interval.
         /// </summary>
         public int Interval;
+
+        /// <summary>
+        /// Compare sustained power limit settings.
+        /// </summary>
+        /// <param name="other">Other settings instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(PowerSustainedLimitDto other)
+        {
+            return Enabled == other.Enabled &&
+                   Power == other.Power &&
+                   Interval == other.Interval;
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is PowerSustainedLimitDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Enabled);
+            hash.Add(Power);
+            hash.Add(Interval);
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.
@@ -283,7 +353,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for burst power limit settings.
     /// </summary>
-    public struct PowerBurstLimitDto
+    public struct PowerBurstLimitDto : IEquatable<PowerBurstLimitDto>
     {
         /// <summary>
         /// Enable flag.
@@ -293,6 +363,36 @@ namespace IGCLWrapper
         /// Power value.
         /// </summary>
         public int Power;
+
+        /// <summary>
+        /// Compare burst power limit settings.
+        /// </summary>
+        /// <param name="other">Other settings instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(PowerBurstLimitDto other)
+        {
+            return Enabled == other.Enabled &&
+                   Power == other.Power;
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is PowerBurstLimitDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Enabled);
+            hash.Add(Power);
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.
@@ -325,7 +425,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for peak power limit settings.
     /// </summary>
-    public struct PowerPeakLimitDto
+    public struct PowerPeakLimitDto : IEquatable<PowerPeakLimitDto>
     {
         /// <summary>
         /// AC power value.
@@ -335,6 +435,36 @@ namespace IGCLWrapper
         /// DC power value.
         /// </summary>
         public int PowerDc;
+
+        /// <summary>
+        /// Compare peak power limit settings.
+        /// </summary>
+        /// <param name="other">Other settings instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(PowerPeakLimitDto other)
+        {
+            return PowerAc == other.PowerAc &&
+                   PowerDc == other.PowerDc;
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is PowerPeakLimitDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(PowerAc);
+            hash.Add(PowerDc);
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.
@@ -367,7 +497,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for power limit settings.
     /// </summary>
-    public struct PowerLimitsDto
+    public struct PowerLimitsDto : IEquatable<PowerLimitsDto>
     {
         /// <summary>
         /// Size of the native struct.
@@ -389,6 +519,42 @@ namespace IGCLWrapper
         /// Peak power limit settings.
         /// </summary>
         public PowerPeakLimitDto PeakPowerLimits;
+
+        /// <summary>
+        /// Compare power limit settings.
+        /// </summary>
+        /// <param name="other">Other settings instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(PowerLimitsDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   SustainedPowerLimit.Equals(other.SustainedPowerLimit) &&
+                   BurstPowerLimit.Equals(other.BurstPowerLimit) &&
+                   PeakPowerLimits.Equals(other.PeakPowerLimits);
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is PowerLimitsDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(SustainedPowerLimit);
+            hash.Add(BurstPowerLimit);
+            hash.Add(PeakPowerLimits);
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.

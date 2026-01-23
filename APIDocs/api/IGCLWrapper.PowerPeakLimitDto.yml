@@ -5,7 +5,10 @@ items:
   id: PowerPeakLimitDto
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.PowerPeakLimitDto.Equals(IGCLWrapper.PowerPeakLimitDto)
+  - IGCLWrapper.PowerPeakLimitDto.Equals(System.Object)
   - IGCLWrapper.PowerPeakLimitDto.FromNative(IGCLWrapper.ctl_power_peak_limit_t)
+  - IGCLWrapper.PowerPeakLimitDto.GetHashCode
   - IGCLWrapper.PowerPeakLimitDto.PowerAc
   - IGCLWrapper.PowerPeakLimitDto.PowerDc
   - IGCLWrapper.PowerPeakLimitDto.ToNative
@@ -23,18 +26,18 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PowerPeakLimitDto
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 327
+    startLine: 427
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: DTO for peak power limit settings.
   example: []
   syntax:
-    content: public struct PowerPeakLimitDto
-    content.vb: Public Structure PowerPeakLimitDto
+    content: 'public struct PowerPeakLimitDto : IEquatable<PowerPeakLimitDto>'
+    content.vb: Public Structure PowerPeakLimitDto Implements IEquatable(Of PowerPeakLimitDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.PowerPeakLimitDto}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -57,7 +60,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PowerAc
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 332
+    startLine: 432
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -86,7 +89,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PowerDc
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 336
+    startLine: 436
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -97,6 +100,114 @@ items:
     return:
       type: System.Int32
     content.vb: Public PowerDc As Integer
+- uid: IGCLWrapper.PowerPeakLimitDto.Equals(IGCLWrapper.PowerPeakLimitDto)
+  commentId: M:IGCLWrapper.PowerPeakLimitDto.Equals(IGCLWrapper.PowerPeakLimitDto)
+  id: Equals(IGCLWrapper.PowerPeakLimitDto)
+  parent: IGCLWrapper.PowerPeakLimitDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(PowerPeakLimitDto)
+  nameWithType: PowerPeakLimitDto.Equals(PowerPeakLimitDto)
+  fullName: IGCLWrapper.PowerPeakLimitDto.Equals(IGCLWrapper.PowerPeakLimitDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLPowerHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLPowerHelper.cs
+    startLine: 443
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare peak power limit settings.
+  example: []
+  syntax:
+    content: public bool Equals(PowerPeakLimitDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.PowerPeakLimitDto
+      description: Other settings instance.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Function Equals(other As PowerPeakLimitDto) As Boolean
+  overload: IGCLWrapper.PowerPeakLimitDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.PowerPeakLimitDto}.Equals(IGCLWrapper.PowerPeakLimitDto)
+- uid: IGCLWrapper.PowerPeakLimitDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.PowerPeakLimitDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.PowerPeakLimitDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: PowerPeakLimitDto.Equals(object?)
+  fullName: IGCLWrapper.PowerPeakLimitDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLPowerHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLPowerHelper.cs
+    startLine: 454
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare to another object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: Object to compare.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.PowerPeakLimitDto.Equals*
+  nameWithType.vb: PowerPeakLimitDto.Equals(Object)
+  fullName.vb: IGCLWrapper.PowerPeakLimitDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.PowerPeakLimitDto.GetHashCode
+  commentId: M:IGCLWrapper.PowerPeakLimitDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.PowerPeakLimitDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: PowerPeakLimitDto.GetHashCode()
+  fullName: IGCLWrapper.PowerPeakLimitDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLPowerHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLPowerHelper.cs
+    startLine: 460
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get a hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: Hash code value.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.PowerPeakLimitDto.GetHashCode*
 - uid: IGCLWrapper.PowerPeakLimitDto.FromNative(IGCLWrapper.ctl_power_peak_limit_t)
   commentId: M:IGCLWrapper.PowerPeakLimitDto.FromNative(IGCLWrapper.ctl_power_peak_limit_t)
   id: FromNative(IGCLWrapper.ctl_power_peak_limit_t)
@@ -115,7 +226,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 343
+    startLine: 473
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -150,7 +261,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 356
+    startLine: 486
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -170,60 +281,38 @@ references:
   name: IGCLWrapper
   nameWithType: IGCLWrapper
   fullName: IGCLWrapper
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{IGCLWrapper.PowerPeakLimitDto}
+  commentId: T:System.IEquatable{IGCLWrapper.PowerPeakLimitDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<PowerPeakLimitDto>
+  nameWithType: IEquatable<PowerPeakLimitDto>
+  fullName: System.IEquatable<IGCLWrapper.PowerPeakLimitDto>
+  nameWithType.vb: IEquatable(Of PowerPeakLimitDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.PowerPeakLimitDto)
+  name.vb: IEquatable(Of PowerPeakLimitDto)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.PowerPeakLimitDto
+    name: PowerPeakLimitDto
+    href: IGCLWrapper.PowerPeakLimitDto.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.PowerPeakLimitDto
+    name: PowerPeakLimitDto
+    href: IGCLWrapper.PowerPeakLimitDto.html
   - name: )
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
@@ -361,6 +450,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.ValueType
   commentId: T:System.ValueType
   parent: System
@@ -380,13 +504,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System
@@ -398,6 +515,146 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: IGCLWrapper.PowerPeakLimitDto.Equals*
+  commentId: Overload:IGCLWrapper.PowerPeakLimitDto.Equals
+  href: IGCLWrapper.PowerPeakLimitDto.html#IGCLWrapper_PowerPeakLimitDto_Equals_IGCLWrapper_PowerPeakLimitDto_
+  name: Equals
+  nameWithType: PowerPeakLimitDto.Equals
+  fullName: IGCLWrapper.PowerPeakLimitDto.Equals
+- uid: System.IEquatable{IGCLWrapper.PowerPeakLimitDto}.Equals(IGCLWrapper.PowerPeakLimitDto)
+  commentId: M:System.IEquatable{IGCLWrapper.PowerPeakLimitDto}.Equals(IGCLWrapper.PowerPeakLimitDto)
+  parent: System.IEquatable{IGCLWrapper.PowerPeakLimitDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(PowerPeakLimitDto)
+  nameWithType: IEquatable<PowerPeakLimitDto>.Equals(PowerPeakLimitDto)
+  fullName: System.IEquatable<IGCLWrapper.PowerPeakLimitDto>.Equals(IGCLWrapper.PowerPeakLimitDto)
+  nameWithType.vb: IEquatable(Of PowerPeakLimitDto).Equals(PowerPeakLimitDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.PowerPeakLimitDto).Equals(IGCLWrapper.PowerPeakLimitDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.PowerPeakLimitDto}.Equals(IGCLWrapper.PowerPeakLimitDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.PowerPeakLimitDto
+    name: PowerPeakLimitDto
+    href: IGCLWrapper.PowerPeakLimitDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.PowerPeakLimitDto}.Equals(IGCLWrapper.PowerPeakLimitDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.PowerPeakLimitDto
+    name: PowerPeakLimitDto
+    href: IGCLWrapper.PowerPeakLimitDto.html
+  - name: )
+- uid: IGCLWrapper.PowerPeakLimitDto
+  commentId: T:IGCLWrapper.PowerPeakLimitDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.PowerPeakLimitDto.html
+  name: PowerPeakLimitDto
+  nameWithType: PowerPeakLimitDto
+  fullName: IGCLWrapper.PowerPeakLimitDto
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.PowerPeakLimitDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.PowerPeakLimitDto.GetHashCode
+  href: IGCLWrapper.PowerPeakLimitDto.html#IGCLWrapper_PowerPeakLimitDto_GetHashCode
+  name: GetHashCode
+  nameWithType: PowerPeakLimitDto.GetHashCode
+  fullName: IGCLWrapper.PowerPeakLimitDto.GetHashCode
 - uid: IGCLWrapper.PowerPeakLimitDto.FromNative*
   commentId: Overload:IGCLWrapper.PowerPeakLimitDto.FromNative
   href: IGCLWrapper.PowerPeakLimitDto.html#IGCLWrapper_PowerPeakLimitDto_FromNative_IGCLWrapper_ctl_power_peak_limit_t_
@@ -411,13 +668,6 @@ references:
   name: ctl_power_peak_limit_t
   nameWithType: ctl_power_peak_limit_t
   fullName: IGCLWrapper.ctl_power_peak_limit_t
-- uid: IGCLWrapper.PowerPeakLimitDto
-  commentId: T:IGCLWrapper.PowerPeakLimitDto
-  parent: IGCLWrapper
-  href: IGCLWrapper.PowerPeakLimitDto.html
-  name: PowerPeakLimitDto
-  nameWithType: PowerPeakLimitDto
-  fullName: IGCLWrapper.PowerPeakLimitDto
 - uid: IGCLWrapper.PowerPeakLimitDto.ToNative*
   commentId: Overload:IGCLWrapper.PowerPeakLimitDto.ToNative
   href: IGCLWrapper.PowerPeakLimitDto.html#IGCLWrapper_PowerPeakLimitDto_ToNative

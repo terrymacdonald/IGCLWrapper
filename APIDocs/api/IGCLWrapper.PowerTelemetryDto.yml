@@ -5,8 +5,11 @@ items:
   id: PowerTelemetryDto
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.PowerTelemetryDto.Equals(IGCLWrapper.PowerTelemetryDto)
+  - IGCLWrapper.PowerTelemetryDto.Equals(System.Object)
   - IGCLWrapper.PowerTelemetryDto.FanSpeed
   - IGCLWrapper.PowerTelemetryDto.FromNative(IGCLWrapper.ctl_power_telemetry_t)
+  - IGCLWrapper.PowerTelemetryDto.GetHashCode
   - IGCLWrapper.PowerTelemetryDto.GlobalActivityCounter
   - IGCLWrapper.PowerTelemetryDto.GpuCurrentClockFrequency
   - IGCLWrapper.PowerTelemetryDto.GpuCurrentLimited
@@ -60,18 +63,18 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PowerTelemetryDto
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 849
+    startLine: 1011
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: DTO for power telemetry.
   example: []
   syntax:
-    content: public struct PowerTelemetryDto
-    content.vb: Public Structure PowerTelemetryDto
+    content: 'public struct PowerTelemetryDto : IEquatable<PowerTelemetryDto>'
+    content.vb: Public Structure PowerTelemetryDto Implements IEquatable(Of PowerTelemetryDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.PowerTelemetryDto}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -94,7 +97,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 854
+    startLine: 1016
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -123,7 +126,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 858
+    startLine: 1020
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -152,7 +155,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: TimeStamp
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 862
+    startLine: 1024
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -181,7 +184,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuEnergyCounter
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 866
+    startLine: 1028
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -210,7 +213,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuVoltage
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 870
+    startLine: 1032
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -239,7 +242,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuCurrentClockFrequency
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 874
+    startLine: 1036
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -268,7 +271,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuCurrentTemperature
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 878
+    startLine: 1040
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -297,7 +300,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GlobalActivityCounter
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 882
+    startLine: 1044
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -326,7 +329,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: RenderComputeActivityCounter
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 886
+    startLine: 1048
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -355,7 +358,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: MediaActivityCounter
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 890
+    startLine: 1052
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -384,7 +387,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuPowerLimited
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 894
+    startLine: 1056
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -413,7 +416,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuTemperatureLimited
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 898
+    startLine: 1060
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -442,7 +445,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuCurrentLimited
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 902
+    startLine: 1064
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -471,7 +474,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuVoltageLimited
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 906
+    startLine: 1068
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -500,7 +503,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuUtilizationLimited
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 910
+    startLine: 1072
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -529,7 +532,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramEnergyCounter
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 914
+    startLine: 1076
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -558,7 +561,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramVoltage
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 918
+    startLine: 1080
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -587,7 +590,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramCurrentClockFrequency
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 922
+    startLine: 1084
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -616,7 +619,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramCurrentEffectiveFrequency
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 926
+    startLine: 1088
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -645,7 +648,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramReadBandwidthCounter
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 930
+    startLine: 1092
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -674,7 +677,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramWriteBandwidthCounter
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 934
+    startLine: 1096
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -703,7 +706,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramCurrentTemperature
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 938
+    startLine: 1100
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -732,7 +735,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramPowerLimited
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 942
+    startLine: 1104
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -761,7 +764,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramTemperatureLimited
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 946
+    startLine: 1108
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -790,7 +793,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramCurrentLimited
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 950
+    startLine: 1112
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -819,7 +822,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramVoltageLimited
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 954
+    startLine: 1116
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -848,7 +851,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramUtilizationLimited
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 958
+    startLine: 1120
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -877,7 +880,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: TotalCardEnergyCounter
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 962
+    startLine: 1124
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -906,7 +909,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Psu
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 966
+    startLine: 1128
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -935,7 +938,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FanSpeed
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 970
+    startLine: 1132
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -964,7 +967,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuVrTemp
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 974
+    startLine: 1136
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -993,7 +996,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramVrTemp
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 978
+    startLine: 1140
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1022,7 +1025,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SaVrTemp
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 982
+    startLine: 1144
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1051,7 +1054,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuEffectiveClock
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 986
+    startLine: 1148
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1080,7 +1083,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuOverVoltagePercent
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 990
+    startLine: 1152
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1109,7 +1112,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuPowerPercent
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 994
+    startLine: 1156
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1138,7 +1141,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuTemperaturePercent
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 998
+    startLine: 1160
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1167,7 +1170,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramReadBandwidth
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1002
+    startLine: 1164
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1196,7 +1199,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramWriteBandwidth
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1006
+    startLine: 1168
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1207,6 +1210,114 @@ items:
     return:
       type: IGCLWrapper.OcTelemetryItemDto
     content.vb: Public VramWriteBandwidth As OcTelemetryItemDto
+- uid: IGCLWrapper.PowerTelemetryDto.Equals(IGCLWrapper.PowerTelemetryDto)
+  commentId: M:IGCLWrapper.PowerTelemetryDto.Equals(IGCLWrapper.PowerTelemetryDto)
+  id: Equals(IGCLWrapper.PowerTelemetryDto)
+  parent: IGCLWrapper.PowerTelemetryDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(PowerTelemetryDto)
+  nameWithType: PowerTelemetryDto.Equals(PowerTelemetryDto)
+  fullName: IGCLWrapper.PowerTelemetryDto.Equals(IGCLWrapper.PowerTelemetryDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 1175
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare power telemetry values.
+  example: []
+  syntax:
+    content: public bool Equals(PowerTelemetryDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.PowerTelemetryDto
+      description: Other telemetry instance.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Function Equals(other As PowerTelemetryDto) As Boolean
+  overload: IGCLWrapper.PowerTelemetryDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.PowerTelemetryDto}.Equals(IGCLWrapper.PowerTelemetryDto)
+- uid: IGCLWrapper.PowerTelemetryDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.PowerTelemetryDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.PowerTelemetryDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: PowerTelemetryDto.Equals(object?)
+  fullName: IGCLWrapper.PowerTelemetryDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 1223
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare to another object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: Object to compare.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.PowerTelemetryDto.Equals*
+  nameWithType.vb: PowerTelemetryDto.Equals(Object)
+  fullName.vb: IGCLWrapper.PowerTelemetryDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.PowerTelemetryDto.GetHashCode
+  commentId: M:IGCLWrapper.PowerTelemetryDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.PowerTelemetryDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: PowerTelemetryDto.GetHashCode()
+  fullName: IGCLWrapper.PowerTelemetryDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 1229
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get a hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: Hash code value.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.PowerTelemetryDto.GetHashCode*
 - uid: IGCLWrapper.PowerTelemetryDto.FromNative(IGCLWrapper.ctl_power_telemetry_t)
   commentId: M:IGCLWrapper.PowerTelemetryDto.FromNative(IGCLWrapper.ctl_power_telemetry_t)
   id: FromNative(IGCLWrapper.ctl_power_telemetry_t)
@@ -1225,7 +1336,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1013
+    startLine: 1289
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1260,7 +1371,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1073
+    startLine: 1349
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1280,60 +1391,38 @@ references:
   name: IGCLWrapper
   nameWithType: IGCLWrapper
   fullName: IGCLWrapper
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{IGCLWrapper.PowerTelemetryDto}
+  commentId: T:System.IEquatable{IGCLWrapper.PowerTelemetryDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<PowerTelemetryDto>
+  nameWithType: IEquatable<PowerTelemetryDto>
+  fullName: System.IEquatable<IGCLWrapper.PowerTelemetryDto>
+  nameWithType.vb: IEquatable(Of PowerTelemetryDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.PowerTelemetryDto)
+  name.vb: IEquatable(Of PowerTelemetryDto)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.PowerTelemetryDto
+    name: PowerTelemetryDto
+    href: IGCLWrapper.PowerTelemetryDto.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.PowerTelemetryDto
+    name: PowerTelemetryDto
+    href: IGCLWrapper.PowerTelemetryDto.html
   - name: )
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
@@ -1471,6 +1560,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.ValueType
   commentId: T:System.ValueType
   parent: System
@@ -1490,13 +1614,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System
@@ -1579,6 +1696,146 @@ references:
     href: IGCLWrapper.OcTelemetryItemDto.html
   - name: (
   - name: )
+- uid: IGCLWrapper.PowerTelemetryDto.Equals*
+  commentId: Overload:IGCLWrapper.PowerTelemetryDto.Equals
+  href: IGCLWrapper.PowerTelemetryDto.html#IGCLWrapper_PowerTelemetryDto_Equals_IGCLWrapper_PowerTelemetryDto_
+  name: Equals
+  nameWithType: PowerTelemetryDto.Equals
+  fullName: IGCLWrapper.PowerTelemetryDto.Equals
+- uid: System.IEquatable{IGCLWrapper.PowerTelemetryDto}.Equals(IGCLWrapper.PowerTelemetryDto)
+  commentId: M:System.IEquatable{IGCLWrapper.PowerTelemetryDto}.Equals(IGCLWrapper.PowerTelemetryDto)
+  parent: System.IEquatable{IGCLWrapper.PowerTelemetryDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(PowerTelemetryDto)
+  nameWithType: IEquatable<PowerTelemetryDto>.Equals(PowerTelemetryDto)
+  fullName: System.IEquatable<IGCLWrapper.PowerTelemetryDto>.Equals(IGCLWrapper.PowerTelemetryDto)
+  nameWithType.vb: IEquatable(Of PowerTelemetryDto).Equals(PowerTelemetryDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.PowerTelemetryDto).Equals(IGCLWrapper.PowerTelemetryDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.PowerTelemetryDto}.Equals(IGCLWrapper.PowerTelemetryDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.PowerTelemetryDto
+    name: PowerTelemetryDto
+    href: IGCLWrapper.PowerTelemetryDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.PowerTelemetryDto}.Equals(IGCLWrapper.PowerTelemetryDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.PowerTelemetryDto
+    name: PowerTelemetryDto
+    href: IGCLWrapper.PowerTelemetryDto.html
+  - name: )
+- uid: IGCLWrapper.PowerTelemetryDto
+  commentId: T:IGCLWrapper.PowerTelemetryDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.PowerTelemetryDto.html
+  name: PowerTelemetryDto
+  nameWithType: PowerTelemetryDto
+  fullName: IGCLWrapper.PowerTelemetryDto
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.PowerTelemetryDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.PowerTelemetryDto.GetHashCode
+  href: IGCLWrapper.PowerTelemetryDto.html#IGCLWrapper_PowerTelemetryDto_GetHashCode
+  name: GetHashCode
+  nameWithType: PowerTelemetryDto.GetHashCode
+  fullName: IGCLWrapper.PowerTelemetryDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: IGCLWrapper.PowerTelemetryDto.FromNative*
   commentId: Overload:IGCLWrapper.PowerTelemetryDto.FromNative
   href: IGCLWrapper.PowerTelemetryDto.html#IGCLWrapper_PowerTelemetryDto_FromNative_IGCLWrapper_ctl_power_telemetry_t_
@@ -1592,13 +1849,6 @@ references:
   name: ctl_power_telemetry_t
   nameWithType: ctl_power_telemetry_t
   fullName: IGCLWrapper.ctl_power_telemetry_t
-- uid: IGCLWrapper.PowerTelemetryDto
-  commentId: T:IGCLWrapper.PowerTelemetryDto
-  parent: IGCLWrapper
-  href: IGCLWrapper.PowerTelemetryDto.html
-  name: PowerTelemetryDto
-  nameWithType: PowerTelemetryDto
-  fullName: IGCLWrapper.PowerTelemetryDto
 - uid: IGCLWrapper.PowerTelemetryDto.ToNative*
   commentId: Overload:IGCLWrapper.PowerTelemetryDto.ToNative
   href: IGCLWrapper.PowerTelemetryDto.html#IGCLWrapper_PowerTelemetryDto_ToNative

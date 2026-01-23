@@ -6,7 +6,10 @@ items:
   parent: IGCLWrapper
   children:
   - IGCLWrapper.LedPropertiesDto.CanControl
+  - IGCLWrapper.LedPropertiesDto.Equals(IGCLWrapper.LedPropertiesDto)
+  - IGCLWrapper.LedPropertiesDto.Equals(System.Object)
   - IGCLWrapper.LedPropertiesDto.FromNative(IGCLWrapper.ctl_led_properties_t)
+  - IGCLWrapper.LedPropertiesDto.GetHashCode
   - IGCLWrapper.LedPropertiesDto.HaveRgb
   - IGCLWrapper.LedPropertiesDto.IsI2C
   - IGCLWrapper.LedPropertiesDto.IsPwm
@@ -34,11 +37,11 @@ items:
   summary: DTO for LED properties.
   example: []
   syntax:
-    content: public struct LedPropertiesDto
-    content.vb: Public Structure LedPropertiesDto
+    content: 'public struct LedPropertiesDto : IEquatable<LedPropertiesDto>'
+    content.vb: Public Structure LedPropertiesDto Implements IEquatable(Of LedPropertiesDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.LedPropertiesDto}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -217,6 +220,114 @@ items:
     return:
       type: System.Boolean
     content.vb: Public HaveRgb As Boolean
+- uid: IGCLWrapper.LedPropertiesDto.Equals(IGCLWrapper.LedPropertiesDto)
+  commentId: M:IGCLWrapper.LedPropertiesDto.Equals(IGCLWrapper.LedPropertiesDto)
+  id: Equals(IGCLWrapper.LedPropertiesDto)
+  parent: IGCLWrapper.LedPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(LedPropertiesDto)
+  nameWithType: LedPropertiesDto.Equals(LedPropertiesDto)
+  fullName: IGCLWrapper.LedPropertiesDto.Equals(IGCLWrapper.LedPropertiesDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLLedHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLLedHelper.cs
+    startLine: 187
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare LED properties.
+  example: []
+  syntax:
+    content: public bool Equals(LedPropertiesDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.LedPropertiesDto
+      description: Other properties instance.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Function Equals(other As LedPropertiesDto) As Boolean
+  overload: IGCLWrapper.LedPropertiesDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.LedPropertiesDto}.Equals(IGCLWrapper.LedPropertiesDto)
+- uid: IGCLWrapper.LedPropertiesDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.LedPropertiesDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.LedPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: LedPropertiesDto.Equals(object?)
+  fullName: IGCLWrapper.LedPropertiesDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLLedHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLLedHelper.cs
+    startLine: 202
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare to another object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: Object to compare.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.LedPropertiesDto.Equals*
+  nameWithType.vb: LedPropertiesDto.Equals(Object)
+  fullName.vb: IGCLWrapper.LedPropertiesDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.LedPropertiesDto.GetHashCode
+  commentId: M:IGCLWrapper.LedPropertiesDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.LedPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: LedPropertiesDto.GetHashCode()
+  fullName: IGCLWrapper.LedPropertiesDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLLedHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLLedHelper.cs
+    startLine: 208
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get a hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: Hash code value.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.LedPropertiesDto.GetHashCode*
 - uid: IGCLWrapper.LedPropertiesDto.FromNative(IGCLWrapper.ctl_led_properties_t)
   commentId: M:IGCLWrapper.LedPropertiesDto.FromNative(IGCLWrapper.ctl_led_properties_t)
   id: FromNative(IGCLWrapper.ctl_led_properties_t)
@@ -235,7 +346,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 187
+    startLine: 225
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -270,7 +381,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 204
+    startLine: 242
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -290,60 +401,38 @@ references:
   name: IGCLWrapper
   nameWithType: IGCLWrapper
   fullName: IGCLWrapper
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{IGCLWrapper.LedPropertiesDto}
+  commentId: T:System.IEquatable{IGCLWrapper.LedPropertiesDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<LedPropertiesDto>
+  nameWithType: IEquatable<LedPropertiesDto>
+  fullName: System.IEquatable<IGCLWrapper.LedPropertiesDto>
+  nameWithType.vb: IEquatable(Of LedPropertiesDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.LedPropertiesDto)
+  name.vb: IEquatable(Of LedPropertiesDto)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.LedPropertiesDto
+    name: LedPropertiesDto
+    href: IGCLWrapper.LedPropertiesDto.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.LedPropertiesDto
+    name: LedPropertiesDto
+    href: IGCLWrapper.LedPropertiesDto.html
   - name: )
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
@@ -481,6 +570,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.ValueType
   commentId: T:System.ValueType
   parent: System
@@ -500,13 +624,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System
@@ -540,6 +657,146 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: IGCLWrapper.LedPropertiesDto.Equals*
+  commentId: Overload:IGCLWrapper.LedPropertiesDto.Equals
+  href: IGCLWrapper.LedPropertiesDto.html#IGCLWrapper_LedPropertiesDto_Equals_IGCLWrapper_LedPropertiesDto_
+  name: Equals
+  nameWithType: LedPropertiesDto.Equals
+  fullName: IGCLWrapper.LedPropertiesDto.Equals
+- uid: System.IEquatable{IGCLWrapper.LedPropertiesDto}.Equals(IGCLWrapper.LedPropertiesDto)
+  commentId: M:System.IEquatable{IGCLWrapper.LedPropertiesDto}.Equals(IGCLWrapper.LedPropertiesDto)
+  parent: System.IEquatable{IGCLWrapper.LedPropertiesDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(LedPropertiesDto)
+  nameWithType: IEquatable<LedPropertiesDto>.Equals(LedPropertiesDto)
+  fullName: System.IEquatable<IGCLWrapper.LedPropertiesDto>.Equals(IGCLWrapper.LedPropertiesDto)
+  nameWithType.vb: IEquatable(Of LedPropertiesDto).Equals(LedPropertiesDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.LedPropertiesDto).Equals(IGCLWrapper.LedPropertiesDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.LedPropertiesDto}.Equals(IGCLWrapper.LedPropertiesDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.LedPropertiesDto
+    name: LedPropertiesDto
+    href: IGCLWrapper.LedPropertiesDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.LedPropertiesDto}.Equals(IGCLWrapper.LedPropertiesDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.LedPropertiesDto
+    name: LedPropertiesDto
+    href: IGCLWrapper.LedPropertiesDto.html
+  - name: )
+- uid: IGCLWrapper.LedPropertiesDto
+  commentId: T:IGCLWrapper.LedPropertiesDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.LedPropertiesDto.html
+  name: LedPropertiesDto
+  nameWithType: LedPropertiesDto
+  fullName: IGCLWrapper.LedPropertiesDto
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.LedPropertiesDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.LedPropertiesDto.GetHashCode
+  href: IGCLWrapper.LedPropertiesDto.html#IGCLWrapper_LedPropertiesDto_GetHashCode
+  name: GetHashCode
+  nameWithType: LedPropertiesDto.GetHashCode
+  fullName: IGCLWrapper.LedPropertiesDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: IGCLWrapper.LedPropertiesDto.FromNative*
   commentId: Overload:IGCLWrapper.LedPropertiesDto.FromNative
   href: IGCLWrapper.LedPropertiesDto.html#IGCLWrapper_LedPropertiesDto_FromNative_IGCLWrapper_ctl_led_properties_t_
@@ -553,13 +810,6 @@ references:
   name: ctl_led_properties_t
   nameWithType: ctl_led_properties_t
   fullName: IGCLWrapper.ctl_led_properties_t
-- uid: IGCLWrapper.LedPropertiesDto
-  commentId: T:IGCLWrapper.LedPropertiesDto
-  parent: IGCLWrapper
-  href: IGCLWrapper.LedPropertiesDto.html
-  name: LedPropertiesDto
-  nameWithType: LedPropertiesDto
-  fullName: IGCLWrapper.LedPropertiesDto
 - uid: IGCLWrapper.LedPropertiesDto.ToNative*
   commentId: Overload:IGCLWrapper.LedPropertiesDto.ToNative
   href: IGCLWrapper.LedPropertiesDto.html#IGCLWrapper_LedPropertiesDto_ToNative

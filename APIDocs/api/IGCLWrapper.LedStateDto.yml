@@ -6,7 +6,10 @@ items:
   parent: IGCLWrapper
   children:
   - IGCLWrapper.LedStateDto.Color
+  - IGCLWrapper.LedStateDto.Equals(IGCLWrapper.LedStateDto)
+  - IGCLWrapper.LedStateDto.Equals(System.Object)
   - IGCLWrapper.LedStateDto.FromNative(IGCLWrapper.ctl_led_state_t)
+  - IGCLWrapper.LedStateDto.GetHashCode
   - IGCLWrapper.LedStateDto.IsOn
   - IGCLWrapper.LedStateDto.Pwm
   - IGCLWrapper.LedStateDto.Size
@@ -26,18 +29,18 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LedStateDto
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 221
+    startLine: 259
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: DTO for LED state.
   example: []
   syntax:
-    content: public struct LedStateDto
-    content.vb: Public Structure LedStateDto
+    content: 'public struct LedStateDto : IEquatable<LedStateDto>'
+    content.vb: Public Structure LedStateDto Implements IEquatable(Of LedStateDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.LedStateDto}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -60,7 +63,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 226
+    startLine: 264
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -89,7 +92,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 230
+    startLine: 268
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -118,7 +121,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsOn
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 234
+    startLine: 272
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -147,7 +150,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Pwm
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 238
+    startLine: 276
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -176,7 +179,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Color
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 242
+    startLine: 280
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -187,6 +190,114 @@ items:
     return:
       type: IGCLWrapper.ctl_led_color_t
     content.vb: Public Color As ctl_led_color_t
+- uid: IGCLWrapper.LedStateDto.Equals(IGCLWrapper.LedStateDto)
+  commentId: M:IGCLWrapper.LedStateDto.Equals(IGCLWrapper.LedStateDto)
+  id: Equals(IGCLWrapper.LedStateDto)
+  parent: IGCLWrapper.LedStateDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(LedStateDto)
+  nameWithType: LedStateDto.Equals(LedStateDto)
+  fullName: IGCLWrapper.LedStateDto.Equals(IGCLWrapper.LedStateDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLLedHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLLedHelper.cs
+    startLine: 287
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare LED state.
+  example: []
+  syntax:
+    content: public bool Equals(LedStateDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.LedStateDto
+      description: Other state instance.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Function Equals(other As LedStateDto) As Boolean
+  overload: IGCLWrapper.LedStateDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.LedStateDto}.Equals(IGCLWrapper.LedStateDto)
+- uid: IGCLWrapper.LedStateDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.LedStateDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.LedStateDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: LedStateDto.Equals(object?)
+  fullName: IGCLWrapper.LedStateDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLLedHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLLedHelper.cs
+    startLine: 301
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare to another object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: Object to compare.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.LedStateDto.Equals*
+  nameWithType.vb: LedStateDto.Equals(Object)
+  fullName.vb: IGCLWrapper.LedStateDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.LedStateDto.GetHashCode
+  commentId: M:IGCLWrapper.LedStateDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.LedStateDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: LedStateDto.GetHashCode()
+  fullName: IGCLWrapper.LedStateDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLLedHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLLedHelper.cs
+    startLine: 307
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get a hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: Hash code value.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.LedStateDto.GetHashCode*
 - uid: IGCLWrapper.LedStateDto.FromNative(IGCLWrapper.ctl_led_state_t)
   commentId: M:IGCLWrapper.LedStateDto.FromNative(IGCLWrapper.ctl_led_state_t)
   id: FromNative(IGCLWrapper.ctl_led_state_t)
@@ -205,7 +316,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 249
+    startLine: 323
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -240,7 +351,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 265
+    startLine: 339
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -260,60 +371,38 @@ references:
   name: IGCLWrapper
   nameWithType: IGCLWrapper
   fullName: IGCLWrapper
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{IGCLWrapper.LedStateDto}
+  commentId: T:System.IEquatable{IGCLWrapper.LedStateDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<LedStateDto>
+  nameWithType: IEquatable<LedStateDto>
+  fullName: System.IEquatable<IGCLWrapper.LedStateDto>
+  nameWithType.vb: IEquatable(Of LedStateDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.LedStateDto)
+  name.vb: IEquatable(Of LedStateDto)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.LedStateDto
+    name: LedStateDto
+    href: IGCLWrapper.LedStateDto.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.LedStateDto
+    name: LedStateDto
+    href: IGCLWrapper.LedStateDto.html
   - name: )
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
@@ -451,6 +540,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.ValueType
   commentId: T:System.ValueType
   parent: System
@@ -470,13 +594,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System
@@ -528,6 +645,146 @@ references:
   name: ctl_led_color_t
   nameWithType: ctl_led_color_t
   fullName: IGCLWrapper.ctl_led_color_t
+- uid: IGCLWrapper.LedStateDto.Equals*
+  commentId: Overload:IGCLWrapper.LedStateDto.Equals
+  href: IGCLWrapper.LedStateDto.html#IGCLWrapper_LedStateDto_Equals_IGCLWrapper_LedStateDto_
+  name: Equals
+  nameWithType: LedStateDto.Equals
+  fullName: IGCLWrapper.LedStateDto.Equals
+- uid: System.IEquatable{IGCLWrapper.LedStateDto}.Equals(IGCLWrapper.LedStateDto)
+  commentId: M:System.IEquatable{IGCLWrapper.LedStateDto}.Equals(IGCLWrapper.LedStateDto)
+  parent: System.IEquatable{IGCLWrapper.LedStateDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(LedStateDto)
+  nameWithType: IEquatable<LedStateDto>.Equals(LedStateDto)
+  fullName: System.IEquatable<IGCLWrapper.LedStateDto>.Equals(IGCLWrapper.LedStateDto)
+  nameWithType.vb: IEquatable(Of LedStateDto).Equals(LedStateDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.LedStateDto).Equals(IGCLWrapper.LedStateDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.LedStateDto}.Equals(IGCLWrapper.LedStateDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.LedStateDto
+    name: LedStateDto
+    href: IGCLWrapper.LedStateDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.LedStateDto}.Equals(IGCLWrapper.LedStateDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.LedStateDto
+    name: LedStateDto
+    href: IGCLWrapper.LedStateDto.html
+  - name: )
+- uid: IGCLWrapper.LedStateDto
+  commentId: T:IGCLWrapper.LedStateDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.LedStateDto.html
+  name: LedStateDto
+  nameWithType: LedStateDto
+  fullName: IGCLWrapper.LedStateDto
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.LedStateDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.LedStateDto.GetHashCode
+  href: IGCLWrapper.LedStateDto.html#IGCLWrapper_LedStateDto_GetHashCode
+  name: GetHashCode
+  nameWithType: LedStateDto.GetHashCode
+  fullName: IGCLWrapper.LedStateDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: IGCLWrapper.LedStateDto.FromNative*
   commentId: Overload:IGCLWrapper.LedStateDto.FromNative
   href: IGCLWrapper.LedStateDto.html#IGCLWrapper_LedStateDto_FromNative_IGCLWrapper_ctl_led_state_t_
@@ -541,13 +798,6 @@ references:
   name: ctl_led_state_t
   nameWithType: ctl_led_state_t
   fullName: IGCLWrapper.ctl_led_state_t
-- uid: IGCLWrapper.LedStateDto
-  commentId: T:IGCLWrapper.LedStateDto
-  parent: IGCLWrapper
-  href: IGCLWrapper.LedStateDto.html
-  name: LedStateDto
-  nameWithType: LedStateDto
-  fullName: IGCLWrapper.LedStateDto
 - uid: IGCLWrapper.LedStateDto.ToNative*
   commentId: Overload:IGCLWrapper.LedStateDto.ToNative
   href: IGCLWrapper.LedStateDto.html#IGCLWrapper_LedStateDto_ToNative

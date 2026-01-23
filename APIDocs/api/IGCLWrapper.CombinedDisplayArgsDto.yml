@@ -10,7 +10,10 @@ items:
   - IGCLWrapper.CombinedDisplayArgsDto.CombinedDesktopHeight
   - IGCLWrapper.CombinedDisplayArgsDto.CombinedDesktopWidth
   - IGCLWrapper.CombinedDisplayArgsDto.CombinedDisplayOutput
+  - IGCLWrapper.CombinedDisplayArgsDto.Equals(IGCLWrapper.CombinedDisplayArgsDto)
+  - IGCLWrapper.CombinedDisplayArgsDto.Equals(System.Object)
   - IGCLWrapper.CombinedDisplayArgsDto.FromNative(IGCLWrapper.ctl_combined_display_args_t)
+  - IGCLWrapper.CombinedDisplayArgsDto.GetHashCode
   - IGCLWrapper.CombinedDisplayArgsDto.IsSupported
   - IGCLWrapper.CombinedDisplayArgsDto.NumOutputs
   - IGCLWrapper.CombinedDisplayArgsDto.OpType
@@ -31,18 +34,18 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CombinedDisplayArgsDto
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1309
+    startLine: 1376
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: DTO for combined display arguments.
   example: []
   syntax:
-    content: public struct CombinedDisplayArgsDto
-    content.vb: Public Structure CombinedDisplayArgsDto
+    content: 'public struct CombinedDisplayArgsDto : IEquatable<CombinedDisplayArgsDto>'
+    content.vb: Public Structure CombinedDisplayArgsDto Implements IEquatable(Of CombinedDisplayArgsDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.CombinedDisplayArgsDto}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -65,7 +68,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1314
+    startLine: 1381
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -94,7 +97,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1318
+    startLine: 1385
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -123,7 +126,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OpType
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1322
+    startLine: 1389
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -152,7 +155,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsSupported
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1326
+    startLine: 1393
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -181,7 +184,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: NumOutputs
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1330
+    startLine: 1397
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -210,7 +213,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CombinedDesktopWidth
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1334
+    startLine: 1401
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -239,7 +242,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CombinedDesktopHeight
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1338
+    startLine: 1405
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -268,7 +271,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ChildInfo
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1342
+    startLine: 1409
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -297,7 +300,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ChildInfos
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1346
+    startLine: 1413
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -326,7 +329,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CombinedDisplayOutput
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1350
+    startLine: 1417
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -337,6 +340,114 @@ items:
     return:
       type: System.IntPtr
     content.vb: Public CombinedDisplayOutput As IntPtr
+- uid: IGCLWrapper.CombinedDisplayArgsDto.Equals(IGCLWrapper.CombinedDisplayArgsDto)
+  commentId: M:IGCLWrapper.CombinedDisplayArgsDto.Equals(IGCLWrapper.CombinedDisplayArgsDto)
+  id: Equals(IGCLWrapper.CombinedDisplayArgsDto)
+  parent: IGCLWrapper.CombinedDisplayArgsDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(CombinedDisplayArgsDto)
+  nameWithType: CombinedDisplayArgsDto.Equals(CombinedDisplayArgsDto)
+  fullName: IGCLWrapper.CombinedDisplayArgsDto.Equals(IGCLWrapper.CombinedDisplayArgsDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1424
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare combined display args while ignoring pointer fields.
+  example: []
+  syntax:
+    content: public bool Equals(CombinedDisplayArgsDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.CombinedDisplayArgsDto
+      description: Other args instance.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Function Equals(other As CombinedDisplayArgsDto) As Boolean
+  overload: IGCLWrapper.CombinedDisplayArgsDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.CombinedDisplayArgsDto}.Equals(IGCLWrapper.CombinedDisplayArgsDto)
+- uid: IGCLWrapper.CombinedDisplayArgsDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.CombinedDisplayArgsDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.CombinedDisplayArgsDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: CombinedDisplayArgsDto.Equals(object?)
+  fullName: IGCLWrapper.CombinedDisplayArgsDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1442
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare to another object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: Object to compare.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.CombinedDisplayArgsDto.Equals*
+  nameWithType.vb: CombinedDisplayArgsDto.Equals(Object)
+  fullName.vb: IGCLWrapper.CombinedDisplayArgsDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.CombinedDisplayArgsDto.GetHashCode
+  commentId: M:IGCLWrapper.CombinedDisplayArgsDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.CombinedDisplayArgsDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: CombinedDisplayArgsDto.GetHashCode()
+  fullName: IGCLWrapper.CombinedDisplayArgsDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1448
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get a hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: Hash code value.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.CombinedDisplayArgsDto.GetHashCode*
 - uid: IGCLWrapper.CombinedDisplayArgsDto.FromNative(IGCLWrapper.ctl_combined_display_args_t)
   commentId: M:IGCLWrapper.CombinedDisplayArgsDto.FromNative(IGCLWrapper.ctl_combined_display_args_t)
   id: FromNative(IGCLWrapper.ctl_combined_display_args_t)
@@ -355,7 +466,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1357
+    startLine: 1472
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -390,7 +501,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1377
+    startLine: 1492
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -410,60 +521,38 @@ references:
   name: IGCLWrapper
   nameWithType: IGCLWrapper
   fullName: IGCLWrapper
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{IGCLWrapper.CombinedDisplayArgsDto}
+  commentId: T:System.IEquatable{IGCLWrapper.CombinedDisplayArgsDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<CombinedDisplayArgsDto>
+  nameWithType: IEquatable<CombinedDisplayArgsDto>
+  fullName: System.IEquatable<IGCLWrapper.CombinedDisplayArgsDto>
+  nameWithType.vb: IEquatable(Of CombinedDisplayArgsDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.CombinedDisplayArgsDto)
+  name.vb: IEquatable(Of CombinedDisplayArgsDto)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.CombinedDisplayArgsDto
+    name: CombinedDisplayArgsDto
+    href: IGCLWrapper.CombinedDisplayArgsDto.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.CombinedDisplayArgsDto
+    name: CombinedDisplayArgsDto
+    href: IGCLWrapper.CombinedDisplayArgsDto.html
   - name: )
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
@@ -601,6 +690,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.ValueType
   commentId: T:System.ValueType
   parent: System
@@ -620,13 +744,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System
@@ -699,6 +816,146 @@ references:
     href: IGCLWrapper.CombinedDisplayChildInfoDto.html
   - name: (
   - name: )
+- uid: IGCLWrapper.CombinedDisplayArgsDto.Equals*
+  commentId: Overload:IGCLWrapper.CombinedDisplayArgsDto.Equals
+  href: IGCLWrapper.CombinedDisplayArgsDto.html#IGCLWrapper_CombinedDisplayArgsDto_Equals_IGCLWrapper_CombinedDisplayArgsDto_
+  name: Equals
+  nameWithType: CombinedDisplayArgsDto.Equals
+  fullName: IGCLWrapper.CombinedDisplayArgsDto.Equals
+- uid: System.IEquatable{IGCLWrapper.CombinedDisplayArgsDto}.Equals(IGCLWrapper.CombinedDisplayArgsDto)
+  commentId: M:System.IEquatable{IGCLWrapper.CombinedDisplayArgsDto}.Equals(IGCLWrapper.CombinedDisplayArgsDto)
+  parent: System.IEquatable{IGCLWrapper.CombinedDisplayArgsDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(CombinedDisplayArgsDto)
+  nameWithType: IEquatable<CombinedDisplayArgsDto>.Equals(CombinedDisplayArgsDto)
+  fullName: System.IEquatable<IGCLWrapper.CombinedDisplayArgsDto>.Equals(IGCLWrapper.CombinedDisplayArgsDto)
+  nameWithType.vb: IEquatable(Of CombinedDisplayArgsDto).Equals(CombinedDisplayArgsDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.CombinedDisplayArgsDto).Equals(IGCLWrapper.CombinedDisplayArgsDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.CombinedDisplayArgsDto}.Equals(IGCLWrapper.CombinedDisplayArgsDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.CombinedDisplayArgsDto
+    name: CombinedDisplayArgsDto
+    href: IGCLWrapper.CombinedDisplayArgsDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.CombinedDisplayArgsDto}.Equals(IGCLWrapper.CombinedDisplayArgsDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.CombinedDisplayArgsDto
+    name: CombinedDisplayArgsDto
+    href: IGCLWrapper.CombinedDisplayArgsDto.html
+  - name: )
+- uid: IGCLWrapper.CombinedDisplayArgsDto
+  commentId: T:IGCLWrapper.CombinedDisplayArgsDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.CombinedDisplayArgsDto.html
+  name: CombinedDisplayArgsDto
+  nameWithType: CombinedDisplayArgsDto
+  fullName: IGCLWrapper.CombinedDisplayArgsDto
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.CombinedDisplayArgsDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.CombinedDisplayArgsDto.GetHashCode
+  href: IGCLWrapper.CombinedDisplayArgsDto.html#IGCLWrapper_CombinedDisplayArgsDto_GetHashCode
+  name: GetHashCode
+  nameWithType: CombinedDisplayArgsDto.GetHashCode
+  fullName: IGCLWrapper.CombinedDisplayArgsDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: IGCLWrapper.CombinedDisplayArgsDto.FromNative*
   commentId: Overload:IGCLWrapper.CombinedDisplayArgsDto.FromNative
   href: IGCLWrapper.CombinedDisplayArgsDto.html#IGCLWrapper_CombinedDisplayArgsDto_FromNative_IGCLWrapper_ctl_combined_display_args_t_
@@ -712,13 +969,6 @@ references:
   name: ctl_combined_display_args_t
   nameWithType: ctl_combined_display_args_t
   fullName: IGCLWrapper.ctl_combined_display_args_t
-- uid: IGCLWrapper.CombinedDisplayArgsDto
-  commentId: T:IGCLWrapper.CombinedDisplayArgsDto
-  parent: IGCLWrapper
-  href: IGCLWrapper.CombinedDisplayArgsDto.html
-  name: CombinedDisplayArgsDto
-  nameWithType: CombinedDisplayArgsDto
-  fullName: IGCLWrapper.CombinedDisplayArgsDto
 - uid: IGCLWrapper.CombinedDisplayArgsDto.ToNative*
   commentId: Overload:IGCLWrapper.CombinedDisplayArgsDto.ToNative
   href: IGCLWrapper.CombinedDisplayArgsDto.html#IGCLWrapper_CombinedDisplayArgsDto_ToNative

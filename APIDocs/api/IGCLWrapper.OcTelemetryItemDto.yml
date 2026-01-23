@@ -5,7 +5,10 @@ items:
   id: OcTelemetryItemDto
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.OcTelemetryItemDto.Equals(IGCLWrapper.OcTelemetryItemDto)
+  - IGCLWrapper.OcTelemetryItemDto.Equals(System.Object)
   - IGCLWrapper.OcTelemetryItemDto.FromNative(IGCLWrapper.ctl_oc_telemetry_item_t)
+  - IGCLWrapper.OcTelemetryItemDto.GetHashCode
   - IGCLWrapper.OcTelemetryItemDto.IsSupported
   - IGCLWrapper.OcTelemetryItemDto.ToNative
   - IGCLWrapper.OcTelemetryItemDto.Type
@@ -25,18 +28,18 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OcTelemetryItemDto
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 741
+    startLine: 835
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: DTO for overclock telemetry item.
   example: []
   syntax:
-    content: public struct OcTelemetryItemDto
-    content.vb: Public Structure OcTelemetryItemDto
+    content: 'public struct OcTelemetryItemDto : IEquatable<OcTelemetryItemDto>'
+    content.vb: Public Structure OcTelemetryItemDto Implements IEquatable(Of OcTelemetryItemDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.OcTelemetryItemDto}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -59,7 +62,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsSupported
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 746
+    startLine: 840
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -88,7 +91,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Units
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 750
+    startLine: 844
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -117,7 +120,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Type
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 754
+    startLine: 848
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -146,7 +149,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Value
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 758
+    startLine: 852
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -157,6 +160,114 @@ items:
     return:
       type: IGCLWrapper.ctl_data_value_t
     content.vb: Public Value As ctl_data_value_t
+- uid: IGCLWrapper.OcTelemetryItemDto.Equals(IGCLWrapper.OcTelemetryItemDto)
+  commentId: M:IGCLWrapper.OcTelemetryItemDto.Equals(IGCLWrapper.OcTelemetryItemDto)
+  id: Equals(IGCLWrapper.OcTelemetryItemDto)
+  parent: IGCLWrapper.OcTelemetryItemDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(OcTelemetryItemDto)
+  nameWithType: OcTelemetryItemDto.Equals(OcTelemetryItemDto)
+  fullName: IGCLWrapper.OcTelemetryItemDto.Equals(IGCLWrapper.OcTelemetryItemDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 859
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare telemetry items.
+  example: []
+  syntax:
+    content: public bool Equals(OcTelemetryItemDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.OcTelemetryItemDto
+      description: Other telemetry item.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Function Equals(other As OcTelemetryItemDto) As Boolean
+  overload: IGCLWrapper.OcTelemetryItemDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.OcTelemetryItemDto}.Equals(IGCLWrapper.OcTelemetryItemDto)
+- uid: IGCLWrapper.OcTelemetryItemDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.OcTelemetryItemDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.OcTelemetryItemDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: OcTelemetryItemDto.Equals(object?)
+  fullName: IGCLWrapper.OcTelemetryItemDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 872
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare to another object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: Object to compare.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.OcTelemetryItemDto.Equals*
+  nameWithType.vb: OcTelemetryItemDto.Equals(Object)
+  fullName.vb: IGCLWrapper.OcTelemetryItemDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.OcTelemetryItemDto.GetHashCode
+  commentId: M:IGCLWrapper.OcTelemetryItemDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.OcTelemetryItemDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: OcTelemetryItemDto.GetHashCode()
+  fullName: IGCLWrapper.OcTelemetryItemDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 878
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get a hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: Hash code value.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.OcTelemetryItemDto.GetHashCode*
 - uid: IGCLWrapper.OcTelemetryItemDto.FromNative(IGCLWrapper.ctl_oc_telemetry_item_t)
   commentId: M:IGCLWrapper.OcTelemetryItemDto.FromNative(IGCLWrapper.ctl_oc_telemetry_item_t)
   id: FromNative(IGCLWrapper.ctl_oc_telemetry_item_t)
@@ -175,7 +286,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 765
+    startLine: 893
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -210,7 +321,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 780
+    startLine: 908
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -230,60 +341,38 @@ references:
   name: IGCLWrapper
   nameWithType: IGCLWrapper
   fullName: IGCLWrapper
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{IGCLWrapper.OcTelemetryItemDto}
+  commentId: T:System.IEquatable{IGCLWrapper.OcTelemetryItemDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<OcTelemetryItemDto>
+  nameWithType: IEquatable<OcTelemetryItemDto>
+  fullName: System.IEquatable<IGCLWrapper.OcTelemetryItemDto>
+  nameWithType.vb: IEquatable(Of OcTelemetryItemDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.OcTelemetryItemDto)
+  name.vb: IEquatable(Of OcTelemetryItemDto)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.OcTelemetryItemDto
+    name: OcTelemetryItemDto
+    href: IGCLWrapper.OcTelemetryItemDto.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.OcTelemetryItemDto
+    name: OcTelemetryItemDto
+    href: IGCLWrapper.OcTelemetryItemDto.html
   - name: )
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
@@ -421,6 +510,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.ValueType
   commentId: T:System.ValueType
   parent: System
@@ -440,13 +564,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System
@@ -479,6 +596,146 @@ references:
   name: ctl_data_value_t
   nameWithType: ctl_data_value_t
   fullName: IGCLWrapper.ctl_data_value_t
+- uid: IGCLWrapper.OcTelemetryItemDto.Equals*
+  commentId: Overload:IGCLWrapper.OcTelemetryItemDto.Equals
+  href: IGCLWrapper.OcTelemetryItemDto.html#IGCLWrapper_OcTelemetryItemDto_Equals_IGCLWrapper_OcTelemetryItemDto_
+  name: Equals
+  nameWithType: OcTelemetryItemDto.Equals
+  fullName: IGCLWrapper.OcTelemetryItemDto.Equals
+- uid: System.IEquatable{IGCLWrapper.OcTelemetryItemDto}.Equals(IGCLWrapper.OcTelemetryItemDto)
+  commentId: M:System.IEquatable{IGCLWrapper.OcTelemetryItemDto}.Equals(IGCLWrapper.OcTelemetryItemDto)
+  parent: System.IEquatable{IGCLWrapper.OcTelemetryItemDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(OcTelemetryItemDto)
+  nameWithType: IEquatable<OcTelemetryItemDto>.Equals(OcTelemetryItemDto)
+  fullName: System.IEquatable<IGCLWrapper.OcTelemetryItemDto>.Equals(IGCLWrapper.OcTelemetryItemDto)
+  nameWithType.vb: IEquatable(Of OcTelemetryItemDto).Equals(OcTelemetryItemDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.OcTelemetryItemDto).Equals(IGCLWrapper.OcTelemetryItemDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.OcTelemetryItemDto}.Equals(IGCLWrapper.OcTelemetryItemDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.OcTelemetryItemDto
+    name: OcTelemetryItemDto
+    href: IGCLWrapper.OcTelemetryItemDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.OcTelemetryItemDto}.Equals(IGCLWrapper.OcTelemetryItemDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.OcTelemetryItemDto
+    name: OcTelemetryItemDto
+    href: IGCLWrapper.OcTelemetryItemDto.html
+  - name: )
+- uid: IGCLWrapper.OcTelemetryItemDto
+  commentId: T:IGCLWrapper.OcTelemetryItemDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.OcTelemetryItemDto.html
+  name: OcTelemetryItemDto
+  nameWithType: OcTelemetryItemDto
+  fullName: IGCLWrapper.OcTelemetryItemDto
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.OcTelemetryItemDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.OcTelemetryItemDto.GetHashCode
+  href: IGCLWrapper.OcTelemetryItemDto.html#IGCLWrapper_OcTelemetryItemDto_GetHashCode
+  name: GetHashCode
+  nameWithType: OcTelemetryItemDto.GetHashCode
+  fullName: IGCLWrapper.OcTelemetryItemDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: IGCLWrapper.OcTelemetryItemDto.FromNative*
   commentId: Overload:IGCLWrapper.OcTelemetryItemDto.FromNative
   href: IGCLWrapper.OcTelemetryItemDto.html#IGCLWrapper_OcTelemetryItemDto_FromNative_IGCLWrapper_ctl_oc_telemetry_item_t_
@@ -492,13 +749,6 @@ references:
   name: ctl_oc_telemetry_item_t
   nameWithType: ctl_oc_telemetry_item_t
   fullName: IGCLWrapper.ctl_oc_telemetry_item_t
-- uid: IGCLWrapper.OcTelemetryItemDto
-  commentId: T:IGCLWrapper.OcTelemetryItemDto
-  parent: IGCLWrapper
-  href: IGCLWrapper.OcTelemetryItemDto.html
-  name: OcTelemetryItemDto
-  nameWithType: OcTelemetryItemDto
-  fullName: IGCLWrapper.OcTelemetryItemDto
 - uid: IGCLWrapper.OcTelemetryItemDto.ToNative*
   commentId: Overload:IGCLWrapper.OcTelemetryItemDto.ToNative
   href: IGCLWrapper.OcTelemetryItemDto.html#IGCLWrapper_OcTelemetryItemDto_ToNative

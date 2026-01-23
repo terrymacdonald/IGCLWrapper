@@ -5,7 +5,10 @@ items:
   id: OverclockPropertiesDto
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.OverclockPropertiesDto.Equals(IGCLWrapper.OverclockPropertiesDto)
+  - IGCLWrapper.OverclockPropertiesDto.Equals(System.Object)
   - IGCLWrapper.OverclockPropertiesDto.FromNative(IGCLWrapper.ctl_oc_properties_t)
+  - IGCLWrapper.OverclockPropertiesDto.GetHashCode
   - IGCLWrapper.OverclockPropertiesDto.GpuFrequencyOffset
   - IGCLWrapper.OverclockPropertiesDto.GpuVfCurveFrequencyLimit
   - IGCLWrapper.OverclockPropertiesDto.GpuVfCurveVoltageLimit
@@ -33,18 +36,18 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockPropertiesDto
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 639
+    startLine: 683
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: DTO for overclock properties.
   example: []
   syntax:
-    content: public struct OverclockPropertiesDto
-    content.vb: Public Structure OverclockPropertiesDto
+    content: 'public struct OverclockPropertiesDto : IEquatable<OverclockPropertiesDto>'
+    content.vb: Public Structure OverclockPropertiesDto Implements IEquatable(Of OverclockPropertiesDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.OverclockPropertiesDto}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -67,7 +70,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 644
+    startLine: 688
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -96,7 +99,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 648
+    startLine: 692
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -125,7 +128,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsSupported
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 652
+    startLine: 696
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -154,7 +157,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuFrequencyOffset
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 656
+    startLine: 700
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -183,7 +186,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuVoltageOffset
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 660
+    startLine: 704
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -212,7 +215,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramFrequencyOffset
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 664
+    startLine: 708
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -241,7 +244,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramVoltageOffset
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 668
+    startLine: 712
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -270,7 +273,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PowerLimit
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 672
+    startLine: 716
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -299,7 +302,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: TemperatureLimit
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 676
+    startLine: 720
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -328,7 +331,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramMemSpeedLimit
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 680
+    startLine: 724
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -357,7 +360,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuVfCurveVoltageLimit
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 684
+    startLine: 728
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -386,7 +389,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuVfCurveFrequencyLimit
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 688
+    startLine: 732
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -397,6 +400,114 @@ items:
     return:
       type: IGCLWrapper.OcControlInfoDto
     content.vb: Public GpuVfCurveFrequencyLimit As OcControlInfoDto
+- uid: IGCLWrapper.OverclockPropertiesDto.Equals(IGCLWrapper.OverclockPropertiesDto)
+  commentId: M:IGCLWrapper.OverclockPropertiesDto.Equals(IGCLWrapper.OverclockPropertiesDto)
+  id: Equals(IGCLWrapper.OverclockPropertiesDto)
+  parent: IGCLWrapper.OverclockPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(OverclockPropertiesDto)
+  nameWithType: OverclockPropertiesDto.Equals(OverclockPropertiesDto)
+  fullName: IGCLWrapper.OverclockPropertiesDto.Equals(IGCLWrapper.OverclockPropertiesDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 739
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare overclock properties.
+  example: []
+  syntax:
+    content: public bool Equals(OverclockPropertiesDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.OverclockPropertiesDto
+      description: Other properties instance.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Function Equals(other As OverclockPropertiesDto) As Boolean
+  overload: IGCLWrapper.OverclockPropertiesDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.OverclockPropertiesDto}.Equals(IGCLWrapper.OverclockPropertiesDto)
+- uid: IGCLWrapper.OverclockPropertiesDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.OverclockPropertiesDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.OverclockPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: OverclockPropertiesDto.Equals(object?)
+  fullName: IGCLWrapper.OverclockPropertiesDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 760
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare to another object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: Object to compare.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.OverclockPropertiesDto.Equals*
+  nameWithType.vb: OverclockPropertiesDto.Equals(Object)
+  fullName.vb: IGCLWrapper.OverclockPropertiesDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.OverclockPropertiesDto.GetHashCode
+  commentId: M:IGCLWrapper.OverclockPropertiesDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.OverclockPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: OverclockPropertiesDto.GetHashCode()
+  fullName: IGCLWrapper.OverclockPropertiesDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 766
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get a hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: Hash code value.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.OverclockPropertiesDto.GetHashCode*
 - uid: IGCLWrapper.OverclockPropertiesDto.FromNative(IGCLWrapper.ctl_oc_properties_t)
   commentId: M:IGCLWrapper.OverclockPropertiesDto.FromNative(IGCLWrapper.ctl_oc_properties_t)
   id: FromNative(IGCLWrapper.ctl_oc_properties_t)
@@ -415,7 +526,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 695
+    startLine: 789
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -450,7 +561,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 718
+    startLine: 812
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -470,60 +581,38 @@ references:
   name: IGCLWrapper
   nameWithType: IGCLWrapper
   fullName: IGCLWrapper
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{IGCLWrapper.OverclockPropertiesDto}
+  commentId: T:System.IEquatable{IGCLWrapper.OverclockPropertiesDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<OverclockPropertiesDto>
+  nameWithType: IEquatable<OverclockPropertiesDto>
+  fullName: System.IEquatable<IGCLWrapper.OverclockPropertiesDto>
+  nameWithType.vb: IEquatable(Of OverclockPropertiesDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.OverclockPropertiesDto)
+  name.vb: IEquatable(Of OverclockPropertiesDto)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.OverclockPropertiesDto
+    name: OverclockPropertiesDto
+    href: IGCLWrapper.OverclockPropertiesDto.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.OverclockPropertiesDto
+    name: OverclockPropertiesDto
+    href: IGCLWrapper.OverclockPropertiesDto.html
   - name: )
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
@@ -661,6 +750,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.ValueType
   commentId: T:System.ValueType
   parent: System
@@ -680,13 +804,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System
@@ -727,6 +844,146 @@ references:
   name: OcControlInfoDto
   nameWithType: OcControlInfoDto
   fullName: IGCLWrapper.OcControlInfoDto
+- uid: IGCLWrapper.OverclockPropertiesDto.Equals*
+  commentId: Overload:IGCLWrapper.OverclockPropertiesDto.Equals
+  href: IGCLWrapper.OverclockPropertiesDto.html#IGCLWrapper_OverclockPropertiesDto_Equals_IGCLWrapper_OverclockPropertiesDto_
+  name: Equals
+  nameWithType: OverclockPropertiesDto.Equals
+  fullName: IGCLWrapper.OverclockPropertiesDto.Equals
+- uid: System.IEquatable{IGCLWrapper.OverclockPropertiesDto}.Equals(IGCLWrapper.OverclockPropertiesDto)
+  commentId: M:System.IEquatable{IGCLWrapper.OverclockPropertiesDto}.Equals(IGCLWrapper.OverclockPropertiesDto)
+  parent: System.IEquatable{IGCLWrapper.OverclockPropertiesDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(OverclockPropertiesDto)
+  nameWithType: IEquatable<OverclockPropertiesDto>.Equals(OverclockPropertiesDto)
+  fullName: System.IEquatable<IGCLWrapper.OverclockPropertiesDto>.Equals(IGCLWrapper.OverclockPropertiesDto)
+  nameWithType.vb: IEquatable(Of OverclockPropertiesDto).Equals(OverclockPropertiesDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.OverclockPropertiesDto).Equals(IGCLWrapper.OverclockPropertiesDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.OverclockPropertiesDto}.Equals(IGCLWrapper.OverclockPropertiesDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.OverclockPropertiesDto
+    name: OverclockPropertiesDto
+    href: IGCLWrapper.OverclockPropertiesDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.OverclockPropertiesDto}.Equals(IGCLWrapper.OverclockPropertiesDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.OverclockPropertiesDto
+    name: OverclockPropertiesDto
+    href: IGCLWrapper.OverclockPropertiesDto.html
+  - name: )
+- uid: IGCLWrapper.OverclockPropertiesDto
+  commentId: T:IGCLWrapper.OverclockPropertiesDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.OverclockPropertiesDto.html
+  name: OverclockPropertiesDto
+  nameWithType: OverclockPropertiesDto
+  fullName: IGCLWrapper.OverclockPropertiesDto
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.OverclockPropertiesDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.OverclockPropertiesDto.GetHashCode
+  href: IGCLWrapper.OverclockPropertiesDto.html#IGCLWrapper_OverclockPropertiesDto_GetHashCode
+  name: GetHashCode
+  nameWithType: OverclockPropertiesDto.GetHashCode
+  fullName: IGCLWrapper.OverclockPropertiesDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: IGCLWrapper.OverclockPropertiesDto.FromNative*
   commentId: Overload:IGCLWrapper.OverclockPropertiesDto.FromNative
   href: IGCLWrapper.OverclockPropertiesDto.html#IGCLWrapper_OverclockPropertiesDto_FromNative_IGCLWrapper_ctl_oc_properties_t_
@@ -740,13 +997,6 @@ references:
   name: ctl_oc_properties_t
   nameWithType: ctl_oc_properties_t
   fullName: IGCLWrapper.ctl_oc_properties_t
-- uid: IGCLWrapper.OverclockPropertiesDto
-  commentId: T:IGCLWrapper.OverclockPropertiesDto
-  parent: IGCLWrapper
-  href: IGCLWrapper.OverclockPropertiesDto.html
-  name: OverclockPropertiesDto
-  nameWithType: OverclockPropertiesDto
-  fullName: IGCLWrapper.OverclockPropertiesDto
 - uid: IGCLWrapper.OverclockPropertiesDto.ToNative*
   commentId: Overload:IGCLWrapper.OverclockPropertiesDto.ToNative
   href: IGCLWrapper.OverclockPropertiesDto.html#IGCLWrapper_OverclockPropertiesDto_ToNative

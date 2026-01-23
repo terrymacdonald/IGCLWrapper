@@ -102,24 +102,24 @@ Struct OcControlInfoDto  <a class="header-action link-secondary" title="View sou
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public struct OcControlInfoDto</code></pre>
+    <pre><code class="lang-csharp hljs">public struct OcControlInfoDto : IEquatable&lt;OcControlInfoDto&gt;</code></pre>
   </div>
 
 
 
 
 
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="IGCLWrapper.OcControlInfoDto.html">OcControlInfoDto</a>&gt;</div>
+    </dd>
+  </dl>
 
 
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.equals">ValueType.Equals(object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode">ValueType.GetHashCode()</a>
-    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.tostring">ValueType.ToString()</a>
     </div>
@@ -426,11 +426,89 @@ Struct OcControlInfoDto  <a class="header-action link-secondary" title="View sou
 </h2>
 
 
+  <a id="IGCLWrapper_OcControlInfoDto_Equals_" data-uid="IGCLWrapper.OcControlInfoDto.Equals*"></a>
+
+  <h3 id="IGCLWrapper_OcControlInfoDto_Equals_IGCLWrapper_OcControlInfoDto_" data-uid="IGCLWrapper.OcControlInfoDto.Equals(IGCLWrapper.OcControlInfoDto)">
+  Equals(OcControlInfoDto)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLOverclockHelper.cs/#L600"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compare overclock control info.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(OcControlInfoDto other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="IGCLWrapper.OcControlInfoDto.html">OcControlInfoDto</a></dt>
+    <dd><p>Other control info instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_OcControlInfoDto_Equals_" data-uid="IGCLWrapper.OcControlInfoDto.Equals*"></a>
+
+  <h3 id="IGCLWrapper_OcControlInfoDto_Equals_System_Object_" data-uid="IGCLWrapper.OcControlInfoDto.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLOverclockHelper.cs/#L618"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compare to another object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Object to compare.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="IGCLWrapper_OcControlInfoDto_FromNative_" data-uid="IGCLWrapper.OcControlInfoDto.FromNative*"></a>
 
   <h3 id="IGCLWrapper_OcControlInfoDto_FromNative_IGCLWrapper_ctl_oc_control_info_t_" data-uid="IGCLWrapper.OcControlInfoDto.FromNative(IGCLWrapper.ctl_oc_control_info_t)">
   FromNative(ctl_oc_control_info_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLOverclockHelper.cs/#L600"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLOverclockHelper.cs/#L644"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a DTO from a native struct.</p>
@@ -465,11 +543,44 @@ Struct OcControlInfoDto  <a class="header-action link-secondary" title="View sou
 
 
 
+  <a id="IGCLWrapper_OcControlInfoDto_GetHashCode_" data-uid="IGCLWrapper.OcControlInfoDto.GetHashCode*"></a>
+
+  <h3 id="IGCLWrapper_OcControlInfoDto_GetHashCode" data-uid="IGCLWrapper.OcControlInfoDto.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLOverclockHelper.cs/#L624"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get a hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Hash code value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="IGCLWrapper_OcControlInfoDto_ToNative_" data-uid="IGCLWrapper.OcControlInfoDto.ToNative*"></a>
 
   <h3 id="IGCLWrapper_OcControlInfoDto_ToNative" data-uid="IGCLWrapper.OcControlInfoDto.ToNative">
   ToNative()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLOverclockHelper.cs/#L620"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLOverclockHelper.cs/#L664"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Convert this DTO to a native struct.</p>

@@ -5,7 +5,10 @@ items:
   id: WireFormatConfigDto
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.WireFormatConfigDto.Equals(IGCLWrapper.WireFormatConfigDto)
+  - IGCLWrapper.WireFormatConfigDto.Equals(System.Object)
   - IGCLWrapper.WireFormatConfigDto.FromNative(IGCLWrapper.ctl_get_set_wire_format_config_t)
+  - IGCLWrapper.WireFormatConfigDto.GetHashCode
   - IGCLWrapper.WireFormatConfigDto.Operation
   - IGCLWrapper.WireFormatConfigDto.Size
   - IGCLWrapper.WireFormatConfigDto.SupportedWireFormat
@@ -26,18 +29,18 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: WireFormatConfigDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1447
+    startLine: 1502
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: DTO for wire format settings.
   example: []
   syntax:
-    content: public struct WireFormatConfigDto
-    content.vb: Public Structure WireFormatConfigDto
+    content: 'public struct WireFormatConfigDto : IEquatable<WireFormatConfigDto>'
+    content.vb: Public Structure WireFormatConfigDto Implements IEquatable(Of WireFormatConfigDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.WireFormatConfigDto}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -60,7 +63,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1453
+    startLine: 1508
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -89,7 +92,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1457
+    startLine: 1512
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -118,7 +121,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Operation
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1461
+    startLine: 1516
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -147,7 +150,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SupportedWireFormat
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1465
+    startLine: 1520
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -176,7 +179,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: WireFormat
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1469
+    startLine: 1524
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -187,6 +190,114 @@ items:
     return:
       type: IGCLWrapper.ctl_wire_format_t
     content.vb: Public WireFormat As ctl_wire_format_t
+- uid: IGCLWrapper.WireFormatConfigDto.Equals(IGCLWrapper.WireFormatConfigDto)
+  commentId: M:IGCLWrapper.WireFormatConfigDto.Equals(IGCLWrapper.WireFormatConfigDto)
+  id: Equals(IGCLWrapper.WireFormatConfigDto)
+  parent: IGCLWrapper.WireFormatConfigDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(WireFormatConfigDto)
+  nameWithType: WireFormatConfigDto.Equals(WireFormatConfigDto)
+  fullName: IGCLWrapper.WireFormatConfigDto.Equals(IGCLWrapper.WireFormatConfigDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 1531
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare wire format settings.
+  example: []
+  syntax:
+    content: public bool Equals(WireFormatConfigDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.WireFormatConfigDto
+      description: Other settings instance.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Function Equals(other As WireFormatConfigDto) As Boolean
+  overload: IGCLWrapper.WireFormatConfigDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.WireFormatConfigDto}.Equals(IGCLWrapper.WireFormatConfigDto)
+- uid: IGCLWrapper.WireFormatConfigDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.WireFormatConfigDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.WireFormatConfigDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: WireFormatConfigDto.Equals(object?)
+  fullName: IGCLWrapper.WireFormatConfigDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 1545
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare to another object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: Object to compare.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.WireFormatConfigDto.Equals*
+  nameWithType.vb: WireFormatConfigDto.Equals(Object)
+  fullName.vb: IGCLWrapper.WireFormatConfigDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.WireFormatConfigDto.GetHashCode
+  commentId: M:IGCLWrapper.WireFormatConfigDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.WireFormatConfigDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: WireFormatConfigDto.GetHashCode()
+  fullName: IGCLWrapper.WireFormatConfigDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 1551
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get a hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: Hash code value.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.WireFormatConfigDto.GetHashCode*
 - uid: IGCLWrapper.WireFormatConfigDto.FromNative(IGCLWrapper.ctl_get_set_wire_format_config_t)
   commentId: M:IGCLWrapper.WireFormatConfigDto.FromNative(IGCLWrapper.ctl_get_set_wire_format_config_t)
   id: FromNative(IGCLWrapper.ctl_get_set_wire_format_config_t)
@@ -205,7 +316,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1476
+    startLine: 1572
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -240,7 +351,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1492
+    startLine: 1588
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -260,60 +371,38 @@ references:
   name: IGCLWrapper
   nameWithType: IGCLWrapper
   fullName: IGCLWrapper
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{IGCLWrapper.WireFormatConfigDto}
+  commentId: T:System.IEquatable{IGCLWrapper.WireFormatConfigDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<WireFormatConfigDto>
+  nameWithType: IEquatable<WireFormatConfigDto>
+  fullName: System.IEquatable<IGCLWrapper.WireFormatConfigDto>
+  nameWithType.vb: IEquatable(Of WireFormatConfigDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.WireFormatConfigDto)
+  name.vb: IEquatable(Of WireFormatConfigDto)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.WireFormatConfigDto
+    name: WireFormatConfigDto
+    href: IGCLWrapper.WireFormatConfigDto.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.WireFormatConfigDto
+    name: WireFormatConfigDto
+    href: IGCLWrapper.WireFormatConfigDto.html
   - name: )
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
@@ -451,6 +540,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.ValueType
   commentId: T:System.ValueType
   parent: System
@@ -470,13 +594,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System
@@ -534,6 +651,157 @@ references:
   name: ctl_wire_format_t
   nameWithType: ctl_wire_format_t
   fullName: IGCLWrapper.ctl_wire_format_t
+- uid: IGCLWrapper.WireFormatConfigDto.Equals*
+  commentId: Overload:IGCLWrapper.WireFormatConfigDto.Equals
+  href: IGCLWrapper.WireFormatConfigDto.html#IGCLWrapper_WireFormatConfigDto_Equals_IGCLWrapper_WireFormatConfigDto_
+  name: Equals
+  nameWithType: WireFormatConfigDto.Equals
+  fullName: IGCLWrapper.WireFormatConfigDto.Equals
+- uid: System.IEquatable{IGCLWrapper.WireFormatConfigDto}.Equals(IGCLWrapper.WireFormatConfigDto)
+  commentId: M:System.IEquatable{IGCLWrapper.WireFormatConfigDto}.Equals(IGCLWrapper.WireFormatConfigDto)
+  parent: System.IEquatable{IGCLWrapper.WireFormatConfigDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(WireFormatConfigDto)
+  nameWithType: IEquatable<WireFormatConfigDto>.Equals(WireFormatConfigDto)
+  fullName: System.IEquatable<IGCLWrapper.WireFormatConfigDto>.Equals(IGCLWrapper.WireFormatConfigDto)
+  nameWithType.vb: IEquatable(Of WireFormatConfigDto).Equals(WireFormatConfigDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.WireFormatConfigDto).Equals(IGCLWrapper.WireFormatConfigDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.WireFormatConfigDto}.Equals(IGCLWrapper.WireFormatConfigDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.WireFormatConfigDto
+    name: WireFormatConfigDto
+    href: IGCLWrapper.WireFormatConfigDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.WireFormatConfigDto}.Equals(IGCLWrapper.WireFormatConfigDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.WireFormatConfigDto
+    name: WireFormatConfigDto
+    href: IGCLWrapper.WireFormatConfigDto.html
+  - name: )
+- uid: IGCLWrapper.WireFormatConfigDto
+  commentId: T:IGCLWrapper.WireFormatConfigDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.WireFormatConfigDto.html
+  name: WireFormatConfigDto
+  nameWithType: WireFormatConfigDto
+  fullName: IGCLWrapper.WireFormatConfigDto
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.WireFormatConfigDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.WireFormatConfigDto.GetHashCode
+  href: IGCLWrapper.WireFormatConfigDto.html#IGCLWrapper_WireFormatConfigDto_GetHashCode
+  name: GetHashCode
+  nameWithType: WireFormatConfigDto.GetHashCode
+  fullName: IGCLWrapper.WireFormatConfigDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: IGCLWrapper.WireFormatConfigDto.FromNative*
   commentId: Overload:IGCLWrapper.WireFormatConfigDto.FromNative
   href: IGCLWrapper.WireFormatConfigDto.html#IGCLWrapper_WireFormatConfigDto_FromNative_IGCLWrapper_ctl_get_set_wire_format_config_t_
@@ -547,13 +815,6 @@ references:
   name: ctl_get_set_wire_format_config_t
   nameWithType: ctl_get_set_wire_format_config_t
   fullName: IGCLWrapper.ctl_get_set_wire_format_config_t
-- uid: IGCLWrapper.WireFormatConfigDto
-  commentId: T:IGCLWrapper.WireFormatConfigDto
-  parent: IGCLWrapper
-  href: IGCLWrapper.WireFormatConfigDto.html
-  name: WireFormatConfigDto
-  nameWithType: WireFormatConfigDto
-  fullName: IGCLWrapper.WireFormatConfigDto
 - uid: IGCLWrapper.WireFormatConfigDto.ToNative*
   commentId: Overload:IGCLWrapper.WireFormatConfigDto.ToNative
   href: IGCLWrapper.WireFormatConfigDto.html#IGCLWrapper_WireFormatConfigDto_ToNative

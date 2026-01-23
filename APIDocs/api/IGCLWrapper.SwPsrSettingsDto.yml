@@ -6,7 +6,10 @@ items:
   parent: IGCLWrapper
   children:
   - IGCLWrapper.SwPsrSettingsDto.Enable
+  - IGCLWrapper.SwPsrSettingsDto.Equals(IGCLWrapper.SwPsrSettingsDto)
+  - IGCLWrapper.SwPsrSettingsDto.Equals(System.Object)
   - IGCLWrapper.SwPsrSettingsDto.FromNative(IGCLWrapper.ctl_sw_psr_settings_t)
+  - IGCLWrapper.SwPsrSettingsDto.GetHashCode
   - IGCLWrapper.SwPsrSettingsDto.Set
   - IGCLWrapper.SwPsrSettingsDto.Size
   - IGCLWrapper.SwPsrSettingsDto.Supported
@@ -26,18 +29,18 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SwPsrSettingsDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2301
+    startLine: 2648
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: DTO for software PSR settings.
   example: []
   syntax:
-    content: public struct SwPsrSettingsDto
-    content.vb: Public Structure SwPsrSettingsDto
+    content: 'public struct SwPsrSettingsDto : IEquatable<SwPsrSettingsDto>'
+    content.vb: Public Structure SwPsrSettingsDto Implements IEquatable(Of SwPsrSettingsDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.SwPsrSettingsDto}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -60,7 +63,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2306
+    startLine: 2653
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -89,7 +92,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2310
+    startLine: 2657
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -118,7 +121,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Set
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2314
+    startLine: 2661
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -147,7 +150,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Supported
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2318
+    startLine: 2665
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -176,7 +179,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Enable
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2322
+    startLine: 2669
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -187,6 +190,114 @@ items:
     return:
       type: System.Boolean
     content.vb: Public Enable As Boolean
+- uid: IGCLWrapper.SwPsrSettingsDto.Equals(IGCLWrapper.SwPsrSettingsDto)
+  commentId: M:IGCLWrapper.SwPsrSettingsDto.Equals(IGCLWrapper.SwPsrSettingsDto)
+  id: Equals(IGCLWrapper.SwPsrSettingsDto)
+  parent: IGCLWrapper.SwPsrSettingsDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(SwPsrSettingsDto)
+  nameWithType: SwPsrSettingsDto.Equals(SwPsrSettingsDto)
+  fullName: IGCLWrapper.SwPsrSettingsDto.Equals(IGCLWrapper.SwPsrSettingsDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 2676
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare software PSR settings.
+  example: []
+  syntax:
+    content: public bool Equals(SwPsrSettingsDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.SwPsrSettingsDto
+      description: Other settings instance.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Function Equals(other As SwPsrSettingsDto) As Boolean
+  overload: IGCLWrapper.SwPsrSettingsDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.SwPsrSettingsDto}.Equals(IGCLWrapper.SwPsrSettingsDto)
+- uid: IGCLWrapper.SwPsrSettingsDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.SwPsrSettingsDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.SwPsrSettingsDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: SwPsrSettingsDto.Equals(object?)
+  fullName: IGCLWrapper.SwPsrSettingsDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 2690
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare to another object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: Object to compare.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.SwPsrSettingsDto.Equals*
+  nameWithType.vb: SwPsrSettingsDto.Equals(Object)
+  fullName.vb: IGCLWrapper.SwPsrSettingsDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.SwPsrSettingsDto.GetHashCode
+  commentId: M:IGCLWrapper.SwPsrSettingsDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.SwPsrSettingsDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: SwPsrSettingsDto.GetHashCode()
+  fullName: IGCLWrapper.SwPsrSettingsDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 2696
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get a hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: Hash code value.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.SwPsrSettingsDto.GetHashCode*
 - uid: IGCLWrapper.SwPsrSettingsDto.FromNative(IGCLWrapper.ctl_sw_psr_settings_t)
   commentId: M:IGCLWrapper.SwPsrSettingsDto.FromNative(IGCLWrapper.ctl_sw_psr_settings_t)
   id: FromNative(IGCLWrapper.ctl_sw_psr_settings_t)
@@ -205,7 +316,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2329
+    startLine: 2712
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -240,7 +351,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2345
+    startLine: 2728
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -260,60 +371,38 @@ references:
   name: IGCLWrapper
   nameWithType: IGCLWrapper
   fullName: IGCLWrapper
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{IGCLWrapper.SwPsrSettingsDto}
+  commentId: T:System.IEquatable{IGCLWrapper.SwPsrSettingsDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<SwPsrSettingsDto>
+  nameWithType: IEquatable<SwPsrSettingsDto>
+  fullName: System.IEquatable<IGCLWrapper.SwPsrSettingsDto>
+  nameWithType.vb: IEquatable(Of SwPsrSettingsDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.SwPsrSettingsDto)
+  name.vb: IEquatable(Of SwPsrSettingsDto)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.SwPsrSettingsDto
+    name: SwPsrSettingsDto
+    href: IGCLWrapper.SwPsrSettingsDto.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.SwPsrSettingsDto
+    name: SwPsrSettingsDto
+    href: IGCLWrapper.SwPsrSettingsDto.html
   - name: )
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
@@ -451,6 +540,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.ValueType
   commentId: T:System.ValueType
   parent: System
@@ -470,13 +594,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System
@@ -510,6 +627,146 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: IGCLWrapper.SwPsrSettingsDto.Equals*
+  commentId: Overload:IGCLWrapper.SwPsrSettingsDto.Equals
+  href: IGCLWrapper.SwPsrSettingsDto.html#IGCLWrapper_SwPsrSettingsDto_Equals_IGCLWrapper_SwPsrSettingsDto_
+  name: Equals
+  nameWithType: SwPsrSettingsDto.Equals
+  fullName: IGCLWrapper.SwPsrSettingsDto.Equals
+- uid: System.IEquatable{IGCLWrapper.SwPsrSettingsDto}.Equals(IGCLWrapper.SwPsrSettingsDto)
+  commentId: M:System.IEquatable{IGCLWrapper.SwPsrSettingsDto}.Equals(IGCLWrapper.SwPsrSettingsDto)
+  parent: System.IEquatable{IGCLWrapper.SwPsrSettingsDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(SwPsrSettingsDto)
+  nameWithType: IEquatable<SwPsrSettingsDto>.Equals(SwPsrSettingsDto)
+  fullName: System.IEquatable<IGCLWrapper.SwPsrSettingsDto>.Equals(IGCLWrapper.SwPsrSettingsDto)
+  nameWithType.vb: IEquatable(Of SwPsrSettingsDto).Equals(SwPsrSettingsDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.SwPsrSettingsDto).Equals(IGCLWrapper.SwPsrSettingsDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.SwPsrSettingsDto}.Equals(IGCLWrapper.SwPsrSettingsDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.SwPsrSettingsDto
+    name: SwPsrSettingsDto
+    href: IGCLWrapper.SwPsrSettingsDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.SwPsrSettingsDto}.Equals(IGCLWrapper.SwPsrSettingsDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.SwPsrSettingsDto
+    name: SwPsrSettingsDto
+    href: IGCLWrapper.SwPsrSettingsDto.html
+  - name: )
+- uid: IGCLWrapper.SwPsrSettingsDto
+  commentId: T:IGCLWrapper.SwPsrSettingsDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.SwPsrSettingsDto.html
+  name: SwPsrSettingsDto
+  nameWithType: SwPsrSettingsDto
+  fullName: IGCLWrapper.SwPsrSettingsDto
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.SwPsrSettingsDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.SwPsrSettingsDto.GetHashCode
+  href: IGCLWrapper.SwPsrSettingsDto.html#IGCLWrapper_SwPsrSettingsDto_GetHashCode
+  name: GetHashCode
+  nameWithType: SwPsrSettingsDto.GetHashCode
+  fullName: IGCLWrapper.SwPsrSettingsDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: IGCLWrapper.SwPsrSettingsDto.FromNative*
   commentId: Overload:IGCLWrapper.SwPsrSettingsDto.FromNative
   href: IGCLWrapper.SwPsrSettingsDto.html#IGCLWrapper_SwPsrSettingsDto_FromNative_IGCLWrapper_ctl_sw_psr_settings_t_
@@ -523,13 +780,6 @@ references:
   name: ctl_sw_psr_settings_t
   nameWithType: ctl_sw_psr_settings_t
   fullName: IGCLWrapper.ctl_sw_psr_settings_t
-- uid: IGCLWrapper.SwPsrSettingsDto
-  commentId: T:IGCLWrapper.SwPsrSettingsDto
-  parent: IGCLWrapper
-  href: IGCLWrapper.SwPsrSettingsDto.html
-  name: SwPsrSettingsDto
-  nameWithType: SwPsrSettingsDto
-  fullName: IGCLWrapper.SwPsrSettingsDto
 - uid: IGCLWrapper.SwPsrSettingsDto.ToNative*
   commentId: Overload:IGCLWrapper.SwPsrSettingsDto.ToNative
   href: IGCLWrapper.SwPsrSettingsDto.html#IGCLWrapper_SwPsrSettingsDto_ToNative

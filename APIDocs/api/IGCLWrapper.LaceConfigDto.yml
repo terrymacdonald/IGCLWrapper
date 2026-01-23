@@ -6,7 +6,10 @@ items:
   parent: IGCLWrapper
   children:
   - IGCLWrapper.LaceConfigDto.Enabled
+  - IGCLWrapper.LaceConfigDto.Equals(IGCLWrapper.LaceConfigDto)
+  - IGCLWrapper.LaceConfigDto.Equals(System.Object)
   - IGCLWrapper.LaceConfigDto.FromNative(IGCLWrapper.ctl_lace_config_t)
+  - IGCLWrapper.LaceConfigDto.GetHashCode
   - IGCLWrapper.LaceConfigDto.LaceConfig
   - IGCLWrapper.LaceConfigDto.OpTypeGet
   - IGCLWrapper.LaceConfigDto.OpTypeSet
@@ -28,18 +31,18 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LaceConfigDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2015
+    startLine: 2208
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: DTO for LACE configuration.
   example: []
   syntax:
-    content: public struct LaceConfigDto
-    content.vb: Public Structure LaceConfigDto
+    content: 'public struct LaceConfigDto : IEquatable<LaceConfigDto>'
+    content.vb: Public Structure LaceConfigDto Implements IEquatable(Of LaceConfigDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.LaceConfigDto}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -62,7 +65,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2020
+    startLine: 2213
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -91,7 +94,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2024
+    startLine: 2217
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -120,7 +123,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Enabled
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2028
+    startLine: 2221
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -149,7 +152,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OpTypeGet
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2032
+    startLine: 2225
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -178,7 +181,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OpTypeSet
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2036
+    startLine: 2229
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -207,7 +210,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Trigger
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2040
+    startLine: 2233
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -236,7 +239,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LaceConfig
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2044
+    startLine: 2237
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -247,6 +250,114 @@ items:
     return:
       type: IGCLWrapper.ctl_lace_aggr_config_t
     content.vb: Public LaceConfig As ctl_lace_aggr_config_t
+- uid: IGCLWrapper.LaceConfigDto.Equals(IGCLWrapper.LaceConfigDto)
+  commentId: M:IGCLWrapper.LaceConfigDto.Equals(IGCLWrapper.LaceConfigDto)
+  id: Equals(IGCLWrapper.LaceConfigDto)
+  parent: IGCLWrapper.LaceConfigDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(LaceConfigDto)
+  nameWithType: LaceConfigDto.Equals(LaceConfigDto)
+  fullName: IGCLWrapper.LaceConfigDto.Equals(IGCLWrapper.LaceConfigDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 2244
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare LACE configuration.
+  example: []
+  syntax:
+    content: public bool Equals(LaceConfigDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.LaceConfigDto
+      description: Other config instance.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Function Equals(other As LaceConfigDto) As Boolean
+  overload: IGCLWrapper.LaceConfigDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.LaceConfigDto}.Equals(IGCLWrapper.LaceConfigDto)
+- uid: IGCLWrapper.LaceConfigDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.LaceConfigDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.LaceConfigDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: LaceConfigDto.Equals(object?)
+  fullName: IGCLWrapper.LaceConfigDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 2260
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare to another object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: Object to compare.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.LaceConfigDto.Equals*
+  nameWithType.vb: LaceConfigDto.Equals(Object)
+  fullName.vb: IGCLWrapper.LaceConfigDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.LaceConfigDto.GetHashCode
+  commentId: M:IGCLWrapper.LaceConfigDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.LaceConfigDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: LaceConfigDto.GetHashCode()
+  fullName: IGCLWrapper.LaceConfigDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 2266
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get a hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: Hash code value.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.LaceConfigDto.GetHashCode*
 - uid: IGCLWrapper.LaceConfigDto.FromNative(IGCLWrapper.ctl_lace_config_t)
   commentId: M:IGCLWrapper.LaceConfigDto.FromNative(IGCLWrapper.ctl_lace_config_t)
   id: FromNative(IGCLWrapper.ctl_lace_config_t)
@@ -265,7 +376,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2051
+    startLine: 2284
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -300,7 +411,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2069
+    startLine: 2302
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -320,60 +431,38 @@ references:
   name: IGCLWrapper
   nameWithType: IGCLWrapper
   fullName: IGCLWrapper
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{IGCLWrapper.LaceConfigDto}
+  commentId: T:System.IEquatable{IGCLWrapper.LaceConfigDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<LaceConfigDto>
+  nameWithType: IEquatable<LaceConfigDto>
+  fullName: System.IEquatable<IGCLWrapper.LaceConfigDto>
+  nameWithType.vb: IEquatable(Of LaceConfigDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.LaceConfigDto)
+  name.vb: IEquatable(Of LaceConfigDto)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.LaceConfigDto
+    name: LaceConfigDto
+    href: IGCLWrapper.LaceConfigDto.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.LaceConfigDto
+    name: LaceConfigDto
+    href: IGCLWrapper.LaceConfigDto.html
   - name: )
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
@@ -511,6 +600,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.ValueType
   commentId: T:System.ValueType
   parent: System
@@ -530,13 +654,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System
@@ -584,6 +701,146 @@ references:
   name: ctl_lace_aggr_config_t
   nameWithType: ctl_lace_aggr_config_t
   fullName: IGCLWrapper.ctl_lace_aggr_config_t
+- uid: IGCLWrapper.LaceConfigDto.Equals*
+  commentId: Overload:IGCLWrapper.LaceConfigDto.Equals
+  href: IGCLWrapper.LaceConfigDto.html#IGCLWrapper_LaceConfigDto_Equals_IGCLWrapper_LaceConfigDto_
+  name: Equals
+  nameWithType: LaceConfigDto.Equals
+  fullName: IGCLWrapper.LaceConfigDto.Equals
+- uid: System.IEquatable{IGCLWrapper.LaceConfigDto}.Equals(IGCLWrapper.LaceConfigDto)
+  commentId: M:System.IEquatable{IGCLWrapper.LaceConfigDto}.Equals(IGCLWrapper.LaceConfigDto)
+  parent: System.IEquatable{IGCLWrapper.LaceConfigDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(LaceConfigDto)
+  nameWithType: IEquatable<LaceConfigDto>.Equals(LaceConfigDto)
+  fullName: System.IEquatable<IGCLWrapper.LaceConfigDto>.Equals(IGCLWrapper.LaceConfigDto)
+  nameWithType.vb: IEquatable(Of LaceConfigDto).Equals(LaceConfigDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.LaceConfigDto).Equals(IGCLWrapper.LaceConfigDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.LaceConfigDto}.Equals(IGCLWrapper.LaceConfigDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.LaceConfigDto
+    name: LaceConfigDto
+    href: IGCLWrapper.LaceConfigDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.LaceConfigDto}.Equals(IGCLWrapper.LaceConfigDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.LaceConfigDto
+    name: LaceConfigDto
+    href: IGCLWrapper.LaceConfigDto.html
+  - name: )
+- uid: IGCLWrapper.LaceConfigDto
+  commentId: T:IGCLWrapper.LaceConfigDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.LaceConfigDto.html
+  name: LaceConfigDto
+  nameWithType: LaceConfigDto
+  fullName: IGCLWrapper.LaceConfigDto
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.LaceConfigDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.LaceConfigDto.GetHashCode
+  href: IGCLWrapper.LaceConfigDto.html#IGCLWrapper_LaceConfigDto_GetHashCode
+  name: GetHashCode
+  nameWithType: LaceConfigDto.GetHashCode
+  fullName: IGCLWrapper.LaceConfigDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: IGCLWrapper.LaceConfigDto.FromNative*
   commentId: Overload:IGCLWrapper.LaceConfigDto.FromNative
   href: IGCLWrapper.LaceConfigDto.html#IGCLWrapper_LaceConfigDto_FromNative_IGCLWrapper_ctl_lace_config_t_
@@ -597,13 +854,6 @@ references:
   name: ctl_lace_config_t
   nameWithType: ctl_lace_config_t
   fullName: IGCLWrapper.ctl_lace_config_t
-- uid: IGCLWrapper.LaceConfigDto
-  commentId: T:IGCLWrapper.LaceConfigDto
-  parent: IGCLWrapper
-  href: IGCLWrapper.LaceConfigDto.html
-  name: LaceConfigDto
-  nameWithType: LaceConfigDto
-  fullName: IGCLWrapper.LaceConfigDto
 - uid: IGCLWrapper.LaceConfigDto.ToNative*
   commentId: Overload:IGCLWrapper.LaceConfigDto.ToNative
   href: IGCLWrapper.LaceConfigDto.html#IGCLWrapper_LaceConfigDto_ToNative

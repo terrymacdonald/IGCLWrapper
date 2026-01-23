@@ -102,24 +102,24 @@ Struct ThreeDFeatureGetSetDto  <a class="header-action link-secondary" title="Vi
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public struct ThreeDFeatureGetSetDto</code></pre>
+    <pre><code class="lang-csharp hljs">public struct ThreeDFeatureGetSetDto : IEquatable&lt;ThreeDFeatureGetSetDto&gt;</code></pre>
   </div>
 
 
 
 
 
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="IGCLWrapper.ThreeDFeatureGetSetDto.html">ThreeDFeatureGetSetDto</a>&gt;</div>
+    </dd>
+  </dl>
 
 
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.equals">ValueType.Equals(object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode">ValueType.GetHashCode()</a>
-    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.tostring">ValueType.ToString()</a>
     </div>
@@ -457,11 +457,89 @@ Struct ThreeDFeatureGetSetDto  <a class="header-action link-secondary" title="Vi
 </h2>
 
 
+  <a id="IGCLWrapper_ThreeDFeatureGetSetDto_Equals_" data-uid="IGCLWrapper.ThreeDFeatureGetSetDto.Equals*"></a>
+
+  <h3 id="IGCLWrapper_ThreeDFeatureGetSetDto_Equals_IGCLWrapper_ThreeDFeatureGetSetDto_" data-uid="IGCLWrapper.ThreeDFeatureGetSetDto.Equals(IGCLWrapper.ThreeDFeatureGetSetDto)">
+  Equals(ThreeDFeatureGetSetDto)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCL3DHelper.cs/#L151"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compare 3D feature get/set args while ignoring pointer fields.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(ThreeDFeatureGetSetDto other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="IGCLWrapper.ThreeDFeatureGetSetDto.html">ThreeDFeatureGetSetDto</a></dt>
+    <dd><p>Other args instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_ThreeDFeatureGetSetDto_Equals_" data-uid="IGCLWrapper.ThreeDFeatureGetSetDto.Equals*"></a>
+
+  <h3 id="IGCLWrapper_ThreeDFeatureGetSetDto_Equals_System_Object_" data-uid="IGCLWrapper.ThreeDFeatureGetSetDto.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCL3DHelper.cs/#L169"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compare to another object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Object to compare.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="IGCLWrapper_ThreeDFeatureGetSetDto_FromNative_" data-uid="IGCLWrapper.ThreeDFeatureGetSetDto.FromNative*"></a>
 
   <h3 id="IGCLWrapper_ThreeDFeatureGetSetDto_FromNative_IGCLWrapper_ctl_3d_feature_getset_t_" data-uid="IGCLWrapper.ThreeDFeatureGetSetDto.FromNative(IGCLWrapper.ctl_3d_feature_getset_t)">
   FromNative(ctl_3d_feature_getset_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCL3DHelper.cs/#L151"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCL3DHelper.cs/#L194"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a DTO from a native struct.</p>
@@ -496,11 +574,44 @@ Struct ThreeDFeatureGetSetDto  <a class="header-action link-secondary" title="Vi
 
 
 
+  <a id="IGCLWrapper_ThreeDFeatureGetSetDto_GetHashCode_" data-uid="IGCLWrapper.ThreeDFeatureGetSetDto.GetHashCode*"></a>
+
+  <h3 id="IGCLWrapper_ThreeDFeatureGetSetDto_GetHashCode" data-uid="IGCLWrapper.ThreeDFeatureGetSetDto.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCL3DHelper.cs/#L175"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get a hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Hash code value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="IGCLWrapper_ThreeDFeatureGetSetDto_ToNative_" data-uid="IGCLWrapper.ThreeDFeatureGetSetDto.ToNative*"></a>
 
   <h3 id="IGCLWrapper_ThreeDFeatureGetSetDto_ToNative" data-uid="IGCLWrapper.ThreeDFeatureGetSetDto.ToNative">
   ToNative()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCL3DHelper.cs/#L172"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCL3DHelper.cs/#L215"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Convert this DTO to a native struct.</p>

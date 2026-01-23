@@ -1289,7 +1289,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for display properties.
     /// </summary>
-    public struct DisplayPropertiesDto
+    public struct DisplayPropertiesDto : IEquatable<DisplayPropertiesDto>
     {
         private const int ReservedFieldCount = 16;
         /// <summary>
@@ -1356,6 +1356,61 @@ namespace IGCLWrapper
         /// Reserved native fields.
         /// </summary>
         public uint[]? ReservedFields;
+
+        /// <summary>
+        /// Compare display properties while ignoring pointer-backed and reserved fields.
+        /// </summary>
+        /// <param name="other">Other properties instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(DisplayPropertiesDto other)
+        {
+            // OsDisplayEncoderHandle contains pointer data; ReservedFields are native-only.
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   Type == other.Type &&
+                   AttachedDisplayMuxType == other.AttachedDisplayMuxType &&
+                   ProtocolConverterOutput == other.ProtocolConverterOutput &&
+                   SupportedSpec.Equals(other.SupportedSpec) &&
+                   SupportedOutputBpcFlags == other.SupportedOutputBpcFlags &&
+                   ProtocolConverterType == other.ProtocolConverterType &&
+                   DisplayConfigFlags == other.DisplayConfigFlags &&
+                   FeatureEnabledFlags == other.FeatureEnabledFlags &&
+                   FeatureSupportedFlags == other.FeatureSupportedFlags &&
+                   AdvancedFeatureEnabledFlags == other.AdvancedFeatureEnabledFlags &&
+                   AdvancedFeatureSupportedFlags == other.AdvancedFeatureSupportedFlags &&
+                   DisplayTimingInfo.Equals(other.DisplayTimingInfo);
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is DisplayPropertiesDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(Type);
+            hash.Add(AttachedDisplayMuxType);
+            hash.Add(ProtocolConverterOutput);
+            hash.Add(SupportedSpec);
+            hash.Add(SupportedOutputBpcFlags);
+            hash.Add(ProtocolConverterType);
+            hash.Add(DisplayConfigFlags);
+            hash.Add(FeatureEnabledFlags);
+            hash.Add(FeatureSupportedFlags);
+            hash.Add(AdvancedFeatureEnabledFlags);
+            hash.Add(AdvancedFeatureSupportedFlags);
+            hash.Add(DisplayTimingInfo);
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.
@@ -1445,7 +1500,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for wire format settings.
     /// </summary>
-    public struct WireFormatConfigDto
+    public struct WireFormatConfigDto : IEquatable<WireFormatConfigDto>
     {
         private const int SupportedWireFormatCount = 4;
         /// <summary>
@@ -1468,6 +1523,47 @@ namespace IGCLWrapper
         /// Selected wire format.
         /// </summary>
         public ctl_wire_format_t WireFormat;
+
+        /// <summary>
+        /// Compare wire format settings.
+        /// </summary>
+        /// <param name="other">Other settings instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(WireFormatConfigDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   Operation == other.Operation &&
+                   WireFormat.Equals(other.WireFormat) &&
+                   AreSupportedWireFormatsEqual(SupportedWireFormat, other.SupportedWireFormat);
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is WireFormatConfigDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(Operation);
+            hash.Add(WireFormat);
+            if (SupportedWireFormat != null)
+            {
+                hash.Add(SupportedWireFormat.Length);
+                for (var i = 0; i < SupportedWireFormat.Length; i++)
+                    hash.Add(SupportedWireFormat[i]);
+            }
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.
@@ -1530,6 +1626,22 @@ namespace IGCLWrapper
             for (var i = 0; i < count; i++)
                 pValues[i] = values[i];
         }
+
+        private static bool AreSupportedWireFormatsEqual(ctl_wire_format_t[]? left, ctl_wire_format_t[]? right)
+        {
+            if (ReferenceEquals(left, right))
+                return true;
+            if (left == null || right == null)
+                return false;
+            if (left.Length != right.Length)
+                return false;
+            for (var i = 0; i < left.Length; i++)
+            {
+                if (!left[i].Equals(right[i]))
+                    return false;
+            }
+            return true;
+        }
     }
 
     /// <summary>
@@ -1589,10 +1701,9 @@ namespace IGCLWrapper
         /// <returns>True when equal; otherwise, false.</returns>
         public bool Equals(AdapterDisplayEncoderPropertiesDto other)
         {
-            // ReservedFields is an inline array in the native struct and is intentionally excluded.
+            // OsDisplayEncoderHandle contains pointer data; ReservedFields are native-only.
             return Size == other.Size &&
                    Version == other.Version &&
-                   OsDisplayEncoderHandle.Equals(other.OsDisplayEncoderHandle) &&
                    Type == other.Type &&
                    IsOnBoardProtocolConverterOutputPresent == other.IsOnBoardProtocolConverterOutputPresent &&
                    SupportedSpec.Equals(other.SupportedSpec) &&
@@ -1618,7 +1729,6 @@ namespace IGCLWrapper
             var hash = new HashCode();
             hash.Add(Size);
             hash.Add(Version);
-            hash.Add(OsDisplayEncoderHandle);
             hash.Add(Type);
             hash.Add(IsOnBoardProtocolConverterOutputPresent);
             hash.Add(SupportedSpec);
@@ -1678,7 +1788,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for dynamic contrast enhancement arguments.
     /// </summary>
-    public unsafe struct DceArgsDto
+    public unsafe struct DceArgsDto : IEquatable<DceArgsDto>
     {
         /// <summary>
         /// Size of the native struct.
@@ -1716,6 +1826,49 @@ namespace IGCLWrapper
         /// Pointer to histogram buffer.
         /// </summary>
         public IntPtr Histogram;
+
+        /// <summary>
+        /// Compare DCE args while ignoring pointer fields.
+        /// </summary>
+        /// <param name="other">Other args instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(DceArgsDto other)
+        {
+            // Histogram is a pointer to a buffer and is intentionally excluded.
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   Set == other.Set &&
+                   TargetBrightnessPercent == other.TargetBrightnessPercent &&
+                   PhaseinSpeedMultiplier.Equals(other.PhaseinSpeedMultiplier) &&
+                   NumBins == other.NumBins &&
+                   Enable == other.Enable &&
+                   IsSupported == other.IsSupported;
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is DceArgsDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(Set);
+            hash.Add(TargetBrightnessPercent);
+            hash.Add(PhaseinSpeedMultiplier);
+            hash.Add(NumBins);
+            hash.Add(Enable);
+            hash.Add(IsSupported);
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.
@@ -1937,7 +2090,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for Intel Arc Sync monitor parameters.
     /// </summary>
-    public struct IntelArcSyncMonitorParamsDto
+    public struct IntelArcSyncMonitorParamsDto : IEquatable<IntelArcSyncMonitorParamsDto>
     {
         /// <summary>
         /// Size of the native struct.
@@ -1967,6 +2120,46 @@ namespace IGCLWrapper
         /// Maximum frame time decrease in microseconds.
         /// </summary>
         public uint MaxFrameTimeDecreaseInUs;
+
+        /// <summary>
+        /// Compare Arc Sync monitor parameters.
+        /// </summary>
+        /// <param name="other">Other params instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(IntelArcSyncMonitorParamsDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   IsIntelArcSyncSupported == other.IsIntelArcSyncSupported &&
+                   MinimumRefreshRateInHz.Equals(other.MinimumRefreshRateInHz) &&
+                   MaximumRefreshRateInHz.Equals(other.MaximumRefreshRateInHz) &&
+                   MaxFrameTimeIncreaseInUs == other.MaxFrameTimeIncreaseInUs &&
+                   MaxFrameTimeDecreaseInUs == other.MaxFrameTimeDecreaseInUs;
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is IntelArcSyncMonitorParamsDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(IsIntelArcSyncSupported);
+            hash.Add(MinimumRefreshRateInHz);
+            hash.Add(MaximumRefreshRateInHz);
+            hash.Add(MaxFrameTimeIncreaseInUs);
+            hash.Add(MaxFrameTimeDecreaseInUs);
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.
@@ -2013,7 +2206,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for LACE configuration.
     /// </summary>
-    public struct LaceConfigDto
+    public struct LaceConfigDto : IEquatable<LaceConfigDto>
     {
         /// <summary>
         /// Size of the native struct.
@@ -2043,6 +2236,46 @@ namespace IGCLWrapper
         /// Aggregation configuration.
         /// </summary>
         public ctl_lace_aggr_config_t LaceConfig;
+
+        /// <summary>
+        /// Compare LACE configuration.
+        /// </summary>
+        /// <param name="other">Other config instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(LaceConfigDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   Enabled == other.Enabled &&
+                   OpTypeGet == other.OpTypeGet &&
+                   OpTypeSet == other.OpTypeSet &&
+                   Trigger == other.Trigger &&
+                   LaceConfig.Equals(other.LaceConfig);
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is LaceConfigDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(Enabled);
+            hash.Add(OpTypeGet);
+            hash.Add(OpTypeSet);
+            hash.Add(Trigger);
+            hash.Add(LaceConfig);
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.
@@ -2089,7 +2322,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for retro scaling settings.
     /// </summary>
-    public struct RetroScalingSettingsDto
+    public struct RetroScalingSettingsDto : IEquatable<RetroScalingSettingsDto>
     {
         /// <summary>
         /// Size of the native struct.
@@ -2111,6 +2344,42 @@ namespace IGCLWrapper
         /// Retro scaling type.
         /// </summary>
         public uint RetroScalingType;
+
+        /// <summary>
+        /// Compare retro scaling settings.
+        /// </summary>
+        /// <param name="other">Other settings instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(RetroScalingSettingsDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   Get == other.Get &&
+                   Enable == other.Enable &&
+                   RetroScalingType == other.RetroScalingType;
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is RetroScalingSettingsDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(Get);
+            hash.Add(Enable);
+            hash.Add(RetroScalingType);
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.
@@ -2153,7 +2422,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for scaling settings.
     /// </summary>
-    public struct ScalingSettingsDto
+    public struct ScalingSettingsDto : IEquatable<ScalingSettingsDto>
     {
         /// <summary>
         /// Size of the native struct.
@@ -2187,6 +2456,48 @@ namespace IGCLWrapper
         /// Preferred scaling type.
         /// </summary>
         public uint PreferredScalingType;
+
+        /// <summary>
+        /// Compare scaling settings.
+        /// </summary>
+        /// <param name="other">Other settings instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(ScalingSettingsDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   Enable == other.Enable &&
+                   ScalingType == other.ScalingType &&
+                   CustomScalingX == other.CustomScalingX &&
+                   CustomScalingY == other.CustomScalingY &&
+                   HardwareModeSet == other.HardwareModeSet &&
+                   PreferredScalingType == other.PreferredScalingType;
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is ScalingSettingsDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(Enable);
+            hash.Add(ScalingType);
+            hash.Add(CustomScalingX);
+            hash.Add(CustomScalingY);
+            hash.Add(HardwareModeSet);
+            hash.Add(PreferredScalingType);
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.
@@ -2235,7 +2546,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for sharpness settings.
     /// </summary>
-    public struct SharpnessSettingsDto
+    public struct SharpnessSettingsDto : IEquatable<SharpnessSettingsDto>
     {
         /// <summary>
         /// Size of the native struct.
@@ -2257,6 +2568,42 @@ namespace IGCLWrapper
         /// Intensity value.
         /// </summary>
         public float Intensity;
+
+        /// <summary>
+        /// Compare sharpness settings.
+        /// </summary>
+        /// <param name="other">Other settings instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(SharpnessSettingsDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   Enable == other.Enable &&
+                   FilterType == other.FilterType &&
+                   Intensity.Equals(other.Intensity);
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is SharpnessSettingsDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(Enable);
+            hash.Add(FilterType);
+            hash.Add(Intensity);
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.
@@ -2299,7 +2646,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for software PSR settings.
     /// </summary>
-    public struct SwPsrSettingsDto
+    public struct SwPsrSettingsDto : IEquatable<SwPsrSettingsDto>
     {
         /// <summary>
         /// Size of the native struct.
@@ -2321,6 +2668,42 @@ namespace IGCLWrapper
         /// Enable flag.
         /// </summary>
         public bool Enable;
+
+        /// <summary>
+        /// Compare software PSR settings.
+        /// </summary>
+        /// <param name="other">Other settings instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(SwPsrSettingsDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   Set == other.Set &&
+                   Supported == other.Supported &&
+                   Enable == other.Enable;
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is SwPsrSettingsDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(Set);
+            hash.Add(Supported);
+            hash.Add(Enable);
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.
@@ -2363,7 +2746,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for power optimization settings.
     /// </summary>
-    public struct PowerOptimizationSettingsDto
+    public struct PowerOptimizationSettingsDto : IEquatable<PowerOptimizationSettingsDto>
     {
         /// <summary>
         /// Size of the native struct.
@@ -2393,6 +2776,46 @@ namespace IGCLWrapper
         /// Power source.
         /// </summary>
         public ctl_power_source_t PowerSource;
+
+        /// <summary>
+        /// Compare power optimization settings.
+        /// </summary>
+        /// <param name="other">Other settings instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(PowerOptimizationSettingsDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   PowerOptimizationPlan == other.PowerOptimizationPlan &&
+                   PowerOptimizationFeature == other.PowerOptimizationFeature &&
+                   Enable == other.Enable &&
+                   FeatureSpecificData.Equals(other.FeatureSpecificData) &&
+                   PowerSource == other.PowerSource;
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is PowerOptimizationSettingsDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(PowerOptimizationPlan);
+            hash.Add(PowerOptimizationFeature);
+            hash.Add(Enable);
+            hash.Add(FeatureSpecificData);
+            hash.Add(PowerSource);
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.

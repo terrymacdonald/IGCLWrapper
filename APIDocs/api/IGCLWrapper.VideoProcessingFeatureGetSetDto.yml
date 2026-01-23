@@ -9,8 +9,11 @@ items:
   - IGCLWrapper.VideoProcessingFeatureGetSetDto.ApplicationNameLength
   - IGCLWrapper.VideoProcessingFeatureGetSetDto.CustomValue
   - IGCLWrapper.VideoProcessingFeatureGetSetDto.CustomValueSize
+  - IGCLWrapper.VideoProcessingFeatureGetSetDto.Equals(IGCLWrapper.VideoProcessingFeatureGetSetDto)
+  - IGCLWrapper.VideoProcessingFeatureGetSetDto.Equals(System.Object)
   - IGCLWrapper.VideoProcessingFeatureGetSetDto.FeatureType
   - IGCLWrapper.VideoProcessingFeatureGetSetDto.FromNative(IGCLWrapper.ctl_video_processing_feature_getset_t)
+  - IGCLWrapper.VideoProcessingFeatureGetSetDto.GetHashCode
   - IGCLWrapper.VideoProcessingFeatureGetSetDto.ReservedFields
   - IGCLWrapper.VideoProcessingFeatureGetSetDto.Set
   - IGCLWrapper.VideoProcessingFeatureGetSetDto.Size
@@ -39,11 +42,11 @@ items:
   summary: DTO for video processing feature get/set operations.
   example: []
   syntax:
-    content: public struct VideoProcessingFeatureGetSetDto
-    content.vb: Public Structure VideoProcessingFeatureGetSetDto
+    content: 'public struct VideoProcessingFeatureGetSetDto : IEquatable<VideoProcessingFeatureGetSetDto>'
+    content.vb: Public Structure VideoProcessingFeatureGetSetDto Implements IEquatable(Of VideoProcessingFeatureGetSetDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.VideoProcessingFeatureGetSetDto}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -367,6 +370,114 @@ items:
     return:
       type: System.UInt32[]
     content.vb: Public ReservedFields As UInteger()
+- uid: IGCLWrapper.VideoProcessingFeatureGetSetDto.Equals(IGCLWrapper.VideoProcessingFeatureGetSetDto)
+  commentId: M:IGCLWrapper.VideoProcessingFeatureGetSetDto.Equals(IGCLWrapper.VideoProcessingFeatureGetSetDto)
+  id: Equals(IGCLWrapper.VideoProcessingFeatureGetSetDto)
+  parent: IGCLWrapper.VideoProcessingFeatureGetSetDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(VideoProcessingFeatureGetSetDto)
+  nameWithType: VideoProcessingFeatureGetSetDto.Equals(VideoProcessingFeatureGetSetDto)
+  fullName: IGCLWrapper.VideoProcessingFeatureGetSetDto.Equals(IGCLWrapper.VideoProcessingFeatureGetSetDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLMediaHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLMediaHelper.cs
+    startLine: 156
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare video processing feature get/set args while ignoring pointer and reserved fields.
+  example: []
+  syntax:
+    content: public bool Equals(VideoProcessingFeatureGetSetDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.VideoProcessingFeatureGetSetDto
+      description: Other args instance.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Function Equals(other As VideoProcessingFeatureGetSetDto) As Boolean
+  overload: IGCLWrapper.VideoProcessingFeatureGetSetDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.VideoProcessingFeatureGetSetDto}.Equals(IGCLWrapper.VideoProcessingFeatureGetSetDto)
+- uid: IGCLWrapper.VideoProcessingFeatureGetSetDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.VideoProcessingFeatureGetSetDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.VideoProcessingFeatureGetSetDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: VideoProcessingFeatureGetSetDto.Equals(object?)
+  fullName: IGCLWrapper.VideoProcessingFeatureGetSetDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLMediaHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLMediaHelper.cs
+    startLine: 174
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare to another object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: Object to compare.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.VideoProcessingFeatureGetSetDto.Equals*
+  nameWithType.vb: VideoProcessingFeatureGetSetDto.Equals(Object)
+  fullName.vb: IGCLWrapper.VideoProcessingFeatureGetSetDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.VideoProcessingFeatureGetSetDto.GetHashCode
+  commentId: M:IGCLWrapper.VideoProcessingFeatureGetSetDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.VideoProcessingFeatureGetSetDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: VideoProcessingFeatureGetSetDto.GetHashCode()
+  fullName: IGCLWrapper.VideoProcessingFeatureGetSetDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLMediaHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLMediaHelper.cs
+    startLine: 180
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get a hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: Hash code value.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.VideoProcessingFeatureGetSetDto.GetHashCode*
 - uid: IGCLWrapper.VideoProcessingFeatureGetSetDto.FromNative(IGCLWrapper.ctl_video_processing_feature_getset_t)
   commentId: M:IGCLWrapper.VideoProcessingFeatureGetSetDto.FromNative(IGCLWrapper.ctl_video_processing_feature_getset_t)
   id: FromNative(IGCLWrapper.ctl_video_processing_feature_getset_t)
@@ -385,7 +496,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 156
+    startLine: 199
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -420,7 +531,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 178
+    startLine: 221
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -440,60 +551,38 @@ references:
   name: IGCLWrapper
   nameWithType: IGCLWrapper
   fullName: IGCLWrapper
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{IGCLWrapper.VideoProcessingFeatureGetSetDto}
+  commentId: T:System.IEquatable{IGCLWrapper.VideoProcessingFeatureGetSetDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<VideoProcessingFeatureGetSetDto>
+  nameWithType: IEquatable<VideoProcessingFeatureGetSetDto>
+  fullName: System.IEquatable<IGCLWrapper.VideoProcessingFeatureGetSetDto>
+  nameWithType.vb: IEquatable(Of VideoProcessingFeatureGetSetDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.VideoProcessingFeatureGetSetDto)
+  name.vb: IEquatable(Of VideoProcessingFeatureGetSetDto)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.VideoProcessingFeatureGetSetDto
+    name: VideoProcessingFeatureGetSetDto
+    href: IGCLWrapper.VideoProcessingFeatureGetSetDto.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.VideoProcessingFeatureGetSetDto
+    name: VideoProcessingFeatureGetSetDto
+    href: IGCLWrapper.VideoProcessingFeatureGetSetDto.html
   - name: )
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
@@ -631,6 +720,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.ValueType
   commentId: T:System.ValueType
   parent: System
@@ -650,13 +774,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System
@@ -767,6 +884,135 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.uint32
   - name: (
   - name: )
+- uid: IGCLWrapper.VideoProcessingFeatureGetSetDto.Equals*
+  commentId: Overload:IGCLWrapper.VideoProcessingFeatureGetSetDto.Equals
+  href: IGCLWrapper.VideoProcessingFeatureGetSetDto.html#IGCLWrapper_VideoProcessingFeatureGetSetDto_Equals_IGCLWrapper_VideoProcessingFeatureGetSetDto_
+  name: Equals
+  nameWithType: VideoProcessingFeatureGetSetDto.Equals
+  fullName: IGCLWrapper.VideoProcessingFeatureGetSetDto.Equals
+- uid: System.IEquatable{IGCLWrapper.VideoProcessingFeatureGetSetDto}.Equals(IGCLWrapper.VideoProcessingFeatureGetSetDto)
+  commentId: M:System.IEquatable{IGCLWrapper.VideoProcessingFeatureGetSetDto}.Equals(IGCLWrapper.VideoProcessingFeatureGetSetDto)
+  parent: System.IEquatable{IGCLWrapper.VideoProcessingFeatureGetSetDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(VideoProcessingFeatureGetSetDto)
+  nameWithType: IEquatable<VideoProcessingFeatureGetSetDto>.Equals(VideoProcessingFeatureGetSetDto)
+  fullName: System.IEquatable<IGCLWrapper.VideoProcessingFeatureGetSetDto>.Equals(IGCLWrapper.VideoProcessingFeatureGetSetDto)
+  nameWithType.vb: IEquatable(Of VideoProcessingFeatureGetSetDto).Equals(VideoProcessingFeatureGetSetDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.VideoProcessingFeatureGetSetDto).Equals(IGCLWrapper.VideoProcessingFeatureGetSetDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.VideoProcessingFeatureGetSetDto}.Equals(IGCLWrapper.VideoProcessingFeatureGetSetDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.VideoProcessingFeatureGetSetDto
+    name: VideoProcessingFeatureGetSetDto
+    href: IGCLWrapper.VideoProcessingFeatureGetSetDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.VideoProcessingFeatureGetSetDto}.Equals(IGCLWrapper.VideoProcessingFeatureGetSetDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.VideoProcessingFeatureGetSetDto
+    name: VideoProcessingFeatureGetSetDto
+    href: IGCLWrapper.VideoProcessingFeatureGetSetDto.html
+  - name: )
+- uid: IGCLWrapper.VideoProcessingFeatureGetSetDto
+  commentId: T:IGCLWrapper.VideoProcessingFeatureGetSetDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.VideoProcessingFeatureGetSetDto.html
+  name: VideoProcessingFeatureGetSetDto
+  nameWithType: VideoProcessingFeatureGetSetDto
+  fullName: IGCLWrapper.VideoProcessingFeatureGetSetDto
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.VideoProcessingFeatureGetSetDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.VideoProcessingFeatureGetSetDto.GetHashCode
+  href: IGCLWrapper.VideoProcessingFeatureGetSetDto.html#IGCLWrapper_VideoProcessingFeatureGetSetDto_GetHashCode
+  name: GetHashCode
+  nameWithType: VideoProcessingFeatureGetSetDto.GetHashCode
+  fullName: IGCLWrapper.VideoProcessingFeatureGetSetDto.GetHashCode
 - uid: IGCLWrapper.VideoProcessingFeatureGetSetDto.FromNative*
   commentId: Overload:IGCLWrapper.VideoProcessingFeatureGetSetDto.FromNative
   href: IGCLWrapper.VideoProcessingFeatureGetSetDto.html#IGCLWrapper_VideoProcessingFeatureGetSetDto_FromNative_IGCLWrapper_ctl_video_processing_feature_getset_t_
@@ -780,13 +1026,6 @@ references:
   name: ctl_video_processing_feature_getset_t
   nameWithType: ctl_video_processing_feature_getset_t
   fullName: IGCLWrapper.ctl_video_processing_feature_getset_t
-- uid: IGCLWrapper.VideoProcessingFeatureGetSetDto
-  commentId: T:IGCLWrapper.VideoProcessingFeatureGetSetDto
-  parent: IGCLWrapper
-  href: IGCLWrapper.VideoProcessingFeatureGetSetDto.html
-  name: VideoProcessingFeatureGetSetDto
-  nameWithType: VideoProcessingFeatureGetSetDto
-  fullName: IGCLWrapper.VideoProcessingFeatureGetSetDto
 - uid: IGCLWrapper.VideoProcessingFeatureGetSetDto.ToNative*
   commentId: Overload:IGCLWrapper.VideoProcessingFeatureGetSetDto.ToNative
   href: IGCLWrapper.VideoProcessingFeatureGetSetDto.html#IGCLWrapper_VideoProcessingFeatureGetSetDto_ToNative

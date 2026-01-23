@@ -6,8 +6,11 @@ items:
   parent: IGCLWrapper
   children:
   - IGCLWrapper.SharpnessSettingsDto.Enable
+  - IGCLWrapper.SharpnessSettingsDto.Equals(IGCLWrapper.SharpnessSettingsDto)
+  - IGCLWrapper.SharpnessSettingsDto.Equals(System.Object)
   - IGCLWrapper.SharpnessSettingsDto.FilterType
   - IGCLWrapper.SharpnessSettingsDto.FromNative(IGCLWrapper.ctl_sharpness_settings_t)
+  - IGCLWrapper.SharpnessSettingsDto.GetHashCode
   - IGCLWrapper.SharpnessSettingsDto.Intensity
   - IGCLWrapper.SharpnessSettingsDto.Size
   - IGCLWrapper.SharpnessSettingsDto.ToNative
@@ -26,18 +29,18 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SharpnessSettingsDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2237
+    startLine: 2548
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: DTO for sharpness settings.
   example: []
   syntax:
-    content: public struct SharpnessSettingsDto
-    content.vb: Public Structure SharpnessSettingsDto
+    content: 'public struct SharpnessSettingsDto : IEquatable<SharpnessSettingsDto>'
+    content.vb: Public Structure SharpnessSettingsDto Implements IEquatable(Of SharpnessSettingsDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.SharpnessSettingsDto}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -60,7 +63,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2242
+    startLine: 2553
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -89,7 +92,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2246
+    startLine: 2557
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -118,7 +121,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Enable
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2250
+    startLine: 2561
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -147,7 +150,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FilterType
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2254
+    startLine: 2565
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -176,7 +179,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Intensity
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2258
+    startLine: 2569
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -187,6 +190,114 @@ items:
     return:
       type: System.Single
     content.vb: Public Intensity As Single
+- uid: IGCLWrapper.SharpnessSettingsDto.Equals(IGCLWrapper.SharpnessSettingsDto)
+  commentId: M:IGCLWrapper.SharpnessSettingsDto.Equals(IGCLWrapper.SharpnessSettingsDto)
+  id: Equals(IGCLWrapper.SharpnessSettingsDto)
+  parent: IGCLWrapper.SharpnessSettingsDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(SharpnessSettingsDto)
+  nameWithType: SharpnessSettingsDto.Equals(SharpnessSettingsDto)
+  fullName: IGCLWrapper.SharpnessSettingsDto.Equals(IGCLWrapper.SharpnessSettingsDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 2576
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare sharpness settings.
+  example: []
+  syntax:
+    content: public bool Equals(SharpnessSettingsDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.SharpnessSettingsDto
+      description: Other settings instance.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Function Equals(other As SharpnessSettingsDto) As Boolean
+  overload: IGCLWrapper.SharpnessSettingsDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.SharpnessSettingsDto}.Equals(IGCLWrapper.SharpnessSettingsDto)
+- uid: IGCLWrapper.SharpnessSettingsDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.SharpnessSettingsDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.SharpnessSettingsDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: SharpnessSettingsDto.Equals(object?)
+  fullName: IGCLWrapper.SharpnessSettingsDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 2590
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare to another object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: Object to compare.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.SharpnessSettingsDto.Equals*
+  nameWithType.vb: SharpnessSettingsDto.Equals(Object)
+  fullName.vb: IGCLWrapper.SharpnessSettingsDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.SharpnessSettingsDto.GetHashCode
+  commentId: M:IGCLWrapper.SharpnessSettingsDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.SharpnessSettingsDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: SharpnessSettingsDto.GetHashCode()
+  fullName: IGCLWrapper.SharpnessSettingsDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 2596
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get a hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: Hash code value.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.SharpnessSettingsDto.GetHashCode*
 - uid: IGCLWrapper.SharpnessSettingsDto.FromNative(IGCLWrapper.ctl_sharpness_settings_t)
   commentId: M:IGCLWrapper.SharpnessSettingsDto.FromNative(IGCLWrapper.ctl_sharpness_settings_t)
   id: FromNative(IGCLWrapper.ctl_sharpness_settings_t)
@@ -205,7 +316,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2265
+    startLine: 2612
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -240,7 +351,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2281
+    startLine: 2628
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -260,60 +371,38 @@ references:
   name: IGCLWrapper
   nameWithType: IGCLWrapper
   fullName: IGCLWrapper
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{IGCLWrapper.SharpnessSettingsDto}
+  commentId: T:System.IEquatable{IGCLWrapper.SharpnessSettingsDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<SharpnessSettingsDto>
+  nameWithType: IEquatable<SharpnessSettingsDto>
+  fullName: System.IEquatable<IGCLWrapper.SharpnessSettingsDto>
+  nameWithType.vb: IEquatable(Of SharpnessSettingsDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.SharpnessSettingsDto)
+  name.vb: IEquatable(Of SharpnessSettingsDto)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.SharpnessSettingsDto
+    name: SharpnessSettingsDto
+    href: IGCLWrapper.SharpnessSettingsDto.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.SharpnessSettingsDto
+    name: SharpnessSettingsDto
+    href: IGCLWrapper.SharpnessSettingsDto.html
   - name: )
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
@@ -451,6 +540,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.ValueType
   commentId: T:System.ValueType
   parent: System
@@ -470,13 +594,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System
@@ -521,6 +638,146 @@ references:
   nameWithType.vb: Single
   fullName.vb: Single
   name.vb: Single
+- uid: IGCLWrapper.SharpnessSettingsDto.Equals*
+  commentId: Overload:IGCLWrapper.SharpnessSettingsDto.Equals
+  href: IGCLWrapper.SharpnessSettingsDto.html#IGCLWrapper_SharpnessSettingsDto_Equals_IGCLWrapper_SharpnessSettingsDto_
+  name: Equals
+  nameWithType: SharpnessSettingsDto.Equals
+  fullName: IGCLWrapper.SharpnessSettingsDto.Equals
+- uid: System.IEquatable{IGCLWrapper.SharpnessSettingsDto}.Equals(IGCLWrapper.SharpnessSettingsDto)
+  commentId: M:System.IEquatable{IGCLWrapper.SharpnessSettingsDto}.Equals(IGCLWrapper.SharpnessSettingsDto)
+  parent: System.IEquatable{IGCLWrapper.SharpnessSettingsDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(SharpnessSettingsDto)
+  nameWithType: IEquatable<SharpnessSettingsDto>.Equals(SharpnessSettingsDto)
+  fullName: System.IEquatable<IGCLWrapper.SharpnessSettingsDto>.Equals(IGCLWrapper.SharpnessSettingsDto)
+  nameWithType.vb: IEquatable(Of SharpnessSettingsDto).Equals(SharpnessSettingsDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.SharpnessSettingsDto).Equals(IGCLWrapper.SharpnessSettingsDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.SharpnessSettingsDto}.Equals(IGCLWrapper.SharpnessSettingsDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.SharpnessSettingsDto
+    name: SharpnessSettingsDto
+    href: IGCLWrapper.SharpnessSettingsDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.SharpnessSettingsDto}.Equals(IGCLWrapper.SharpnessSettingsDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.SharpnessSettingsDto
+    name: SharpnessSettingsDto
+    href: IGCLWrapper.SharpnessSettingsDto.html
+  - name: )
+- uid: IGCLWrapper.SharpnessSettingsDto
+  commentId: T:IGCLWrapper.SharpnessSettingsDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.SharpnessSettingsDto.html
+  name: SharpnessSettingsDto
+  nameWithType: SharpnessSettingsDto
+  fullName: IGCLWrapper.SharpnessSettingsDto
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.SharpnessSettingsDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.SharpnessSettingsDto.GetHashCode
+  href: IGCLWrapper.SharpnessSettingsDto.html#IGCLWrapper_SharpnessSettingsDto_GetHashCode
+  name: GetHashCode
+  nameWithType: SharpnessSettingsDto.GetHashCode
+  fullName: IGCLWrapper.SharpnessSettingsDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: IGCLWrapper.SharpnessSettingsDto.FromNative*
   commentId: Overload:IGCLWrapper.SharpnessSettingsDto.FromNative
   href: IGCLWrapper.SharpnessSettingsDto.html#IGCLWrapper_SharpnessSettingsDto_FromNative_IGCLWrapper_ctl_sharpness_settings_t_
@@ -534,13 +791,6 @@ references:
   name: ctl_sharpness_settings_t
   nameWithType: ctl_sharpness_settings_t
   fullName: IGCLWrapper.ctl_sharpness_settings_t
-- uid: IGCLWrapper.SharpnessSettingsDto
-  commentId: T:IGCLWrapper.SharpnessSettingsDto
-  parent: IGCLWrapper
-  href: IGCLWrapper.SharpnessSettingsDto.html
-  name: SharpnessSettingsDto
-  nameWithType: SharpnessSettingsDto
-  fullName: IGCLWrapper.SharpnessSettingsDto
 - uid: IGCLWrapper.SharpnessSettingsDto.ToNative*
   commentId: Overload:IGCLWrapper.SharpnessSettingsDto.ToNative
   href: IGCLWrapper.SharpnessSettingsDto.html#IGCLWrapper_SharpnessSettingsDto_ToNative

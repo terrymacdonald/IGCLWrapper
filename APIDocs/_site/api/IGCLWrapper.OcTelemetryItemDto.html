@@ -89,7 +89,7 @@
 
 
   <h1 id="IGCLWrapper_OcTelemetryItemDto" data-uid="IGCLWrapper.OcTelemetryItemDto" class="text-break">
-Struct OcTelemetryItemDto  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLOverclockHelper.cs/#L742"><i class="bi bi-code-slash"></i></a>
+Struct OcTelemetryItemDto  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLOverclockHelper.cs/#L836"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -102,24 +102,24 @@ Struct OcTelemetryItemDto  <a class="header-action link-secondary" title="View s
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public struct OcTelemetryItemDto</code></pre>
+    <pre><code class="lang-csharp hljs">public struct OcTelemetryItemDto : IEquatable&lt;OcTelemetryItemDto&gt;</code></pre>
   </div>
 
 
 
 
 
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="IGCLWrapper.OcTelemetryItemDto.html">OcTelemetryItemDto</a>&gt;</div>
+    </dd>
+  </dl>
 
 
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.equals">ValueType.Equals(object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode">ValueType.GetHashCode()</a>
-    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.tostring">ValueType.ToString()</a>
     </div>
@@ -146,7 +146,7 @@ Struct OcTelemetryItemDto  <a class="header-action link-secondary" title="View s
 
   <h3 id="IGCLWrapper_OcTelemetryItemDto_IsSupported" data-uid="IGCLWrapper.OcTelemetryItemDto.IsSupported">
   IsSupported
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLOverclockHelper.cs/#L747"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLOverclockHelper.cs/#L841"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Indicates whether this item is supported.</p>
@@ -177,7 +177,7 @@ Struct OcTelemetryItemDto  <a class="header-action link-secondary" title="View s
 
   <h3 id="IGCLWrapper_OcTelemetryItemDto_Type" data-uid="IGCLWrapper.OcTelemetryItemDto.Type">
   Type
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLOverclockHelper.cs/#L755"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLOverclockHelper.cs/#L849"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Data type for the value.</p>
@@ -208,7 +208,7 @@ Struct OcTelemetryItemDto  <a class="header-action link-secondary" title="View s
 
   <h3 id="IGCLWrapper_OcTelemetryItemDto_Units" data-uid="IGCLWrapper.OcTelemetryItemDto.Units">
   Units
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLOverclockHelper.cs/#L751"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLOverclockHelper.cs/#L845"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Units for the value.</p>
@@ -239,7 +239,7 @@ Struct OcTelemetryItemDto  <a class="header-action link-secondary" title="View s
 
   <h3 id="IGCLWrapper_OcTelemetryItemDto_Value" data-uid="IGCLWrapper.OcTelemetryItemDto.Value">
   Value
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLOverclockHelper.cs/#L759"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLOverclockHelper.cs/#L853"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Telemetry value.</p>
@@ -271,11 +271,89 @@ Struct OcTelemetryItemDto  <a class="header-action link-secondary" title="View s
 </h2>
 
 
+  <a id="IGCLWrapper_OcTelemetryItemDto_Equals_" data-uid="IGCLWrapper.OcTelemetryItemDto.Equals*"></a>
+
+  <h3 id="IGCLWrapper_OcTelemetryItemDto_Equals_IGCLWrapper_OcTelemetryItemDto_" data-uid="IGCLWrapper.OcTelemetryItemDto.Equals(IGCLWrapper.OcTelemetryItemDto)">
+  Equals(OcTelemetryItemDto)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLOverclockHelper.cs/#L860"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compare telemetry items.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(OcTelemetryItemDto other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="IGCLWrapper.OcTelemetryItemDto.html">OcTelemetryItemDto</a></dt>
+    <dd><p>Other telemetry item.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_OcTelemetryItemDto_Equals_" data-uid="IGCLWrapper.OcTelemetryItemDto.Equals*"></a>
+
+  <h3 id="IGCLWrapper_OcTelemetryItemDto_Equals_System_Object_" data-uid="IGCLWrapper.OcTelemetryItemDto.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLOverclockHelper.cs/#L873"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compare to another object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Object to compare.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="IGCLWrapper_OcTelemetryItemDto_FromNative_" data-uid="IGCLWrapper.OcTelemetryItemDto.FromNative*"></a>
 
   <h3 id="IGCLWrapper_OcTelemetryItemDto_FromNative_IGCLWrapper_ctl_oc_telemetry_item_t_" data-uid="IGCLWrapper.OcTelemetryItemDto.FromNative(IGCLWrapper.ctl_oc_telemetry_item_t)">
   FromNative(ctl_oc_telemetry_item_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLOverclockHelper.cs/#L766"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLOverclockHelper.cs/#L894"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a DTO from a native struct.</p>
@@ -310,11 +388,44 @@ Struct OcTelemetryItemDto  <a class="header-action link-secondary" title="View s
 
 
 
+  <a id="IGCLWrapper_OcTelemetryItemDto_GetHashCode_" data-uid="IGCLWrapper.OcTelemetryItemDto.GetHashCode*"></a>
+
+  <h3 id="IGCLWrapper_OcTelemetryItemDto_GetHashCode" data-uid="IGCLWrapper.OcTelemetryItemDto.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLOverclockHelper.cs/#L879"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get a hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Hash code value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="IGCLWrapper_OcTelemetryItemDto_ToNative_" data-uid="IGCLWrapper.OcTelemetryItemDto.ToNative*"></a>
 
   <h3 id="IGCLWrapper_OcTelemetryItemDto_ToNative" data-uid="IGCLWrapper.OcTelemetryItemDto.ToNative">
   ToNative()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLOverclockHelper.cs/#L781"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLOverclockHelper.cs/#L909"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Convert this DTO to a native struct.</p>
@@ -347,7 +458,7 @@ Struct OcTelemetryItemDto  <a class="header-action link-secondary" title="View s
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLOverclockHelper.cs/#L742" class="edit-link">Edit this page</a>
+          <a href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLOverclockHelper.cs/#L836" class="edit-link">Edit this page</a>
         </div>
 
 

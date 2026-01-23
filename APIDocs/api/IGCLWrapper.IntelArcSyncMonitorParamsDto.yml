@@ -5,7 +5,10 @@ items:
   id: IntelArcSyncMonitorParamsDto
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.IntelArcSyncMonitorParamsDto.Equals(IGCLWrapper.IntelArcSyncMonitorParamsDto)
+  - IGCLWrapper.IntelArcSyncMonitorParamsDto.Equals(System.Object)
   - IGCLWrapper.IntelArcSyncMonitorParamsDto.FromNative(IGCLWrapper.ctl_intel_arc_sync_monitor_params_t)
+  - IGCLWrapper.IntelArcSyncMonitorParamsDto.GetHashCode
   - IGCLWrapper.IntelArcSyncMonitorParamsDto.IsIntelArcSyncSupported
   - IGCLWrapper.IntelArcSyncMonitorParamsDto.MaxFrameTimeDecreaseInUs
   - IGCLWrapper.IntelArcSyncMonitorParamsDto.MaxFrameTimeIncreaseInUs
@@ -28,18 +31,18 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IntelArcSyncMonitorParamsDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1939
+    startLine: 2092
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: DTO for Intel Arc Sync monitor parameters.
   example: []
   syntax:
-    content: public struct IntelArcSyncMonitorParamsDto
-    content.vb: Public Structure IntelArcSyncMonitorParamsDto
+    content: 'public struct IntelArcSyncMonitorParamsDto : IEquatable<IntelArcSyncMonitorParamsDto>'
+    content.vb: Public Structure IntelArcSyncMonitorParamsDto Implements IEquatable(Of IntelArcSyncMonitorParamsDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.IntelArcSyncMonitorParamsDto}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -62,7 +65,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1944
+    startLine: 2097
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -91,7 +94,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1948
+    startLine: 2101
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -120,7 +123,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsIntelArcSyncSupported
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1952
+    startLine: 2105
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -149,7 +152,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: MinimumRefreshRateInHz
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1956
+    startLine: 2109
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -178,7 +181,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: MaximumRefreshRateInHz
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1960
+    startLine: 2113
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -207,7 +210,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: MaxFrameTimeIncreaseInUs
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1964
+    startLine: 2117
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -236,7 +239,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: MaxFrameTimeDecreaseInUs
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1968
+    startLine: 2121
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -247,6 +250,114 @@ items:
     return:
       type: System.UInt32
     content.vb: Public MaxFrameTimeDecreaseInUs As UInteger
+- uid: IGCLWrapper.IntelArcSyncMonitorParamsDto.Equals(IGCLWrapper.IntelArcSyncMonitorParamsDto)
+  commentId: M:IGCLWrapper.IntelArcSyncMonitorParamsDto.Equals(IGCLWrapper.IntelArcSyncMonitorParamsDto)
+  id: Equals(IGCLWrapper.IntelArcSyncMonitorParamsDto)
+  parent: IGCLWrapper.IntelArcSyncMonitorParamsDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(IntelArcSyncMonitorParamsDto)
+  nameWithType: IntelArcSyncMonitorParamsDto.Equals(IntelArcSyncMonitorParamsDto)
+  fullName: IGCLWrapper.IntelArcSyncMonitorParamsDto.Equals(IGCLWrapper.IntelArcSyncMonitorParamsDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 2128
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare Arc Sync monitor parameters.
+  example: []
+  syntax:
+    content: public bool Equals(IntelArcSyncMonitorParamsDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.IntelArcSyncMonitorParamsDto
+      description: Other params instance.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Function Equals(other As IntelArcSyncMonitorParamsDto) As Boolean
+  overload: IGCLWrapper.IntelArcSyncMonitorParamsDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.IntelArcSyncMonitorParamsDto}.Equals(IGCLWrapper.IntelArcSyncMonitorParamsDto)
+- uid: IGCLWrapper.IntelArcSyncMonitorParamsDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.IntelArcSyncMonitorParamsDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.IntelArcSyncMonitorParamsDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: IntelArcSyncMonitorParamsDto.Equals(object?)
+  fullName: IGCLWrapper.IntelArcSyncMonitorParamsDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 2144
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare to another object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: Object to compare.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.IntelArcSyncMonitorParamsDto.Equals*
+  nameWithType.vb: IntelArcSyncMonitorParamsDto.Equals(Object)
+  fullName.vb: IGCLWrapper.IntelArcSyncMonitorParamsDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.IntelArcSyncMonitorParamsDto.GetHashCode
+  commentId: M:IGCLWrapper.IntelArcSyncMonitorParamsDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.IntelArcSyncMonitorParamsDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: IntelArcSyncMonitorParamsDto.GetHashCode()
+  fullName: IGCLWrapper.IntelArcSyncMonitorParamsDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 2150
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get a hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: Hash code value.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.IntelArcSyncMonitorParamsDto.GetHashCode*
 - uid: IGCLWrapper.IntelArcSyncMonitorParamsDto.FromNative(IGCLWrapper.ctl_intel_arc_sync_monitor_params_t)
   commentId: M:IGCLWrapper.IntelArcSyncMonitorParamsDto.FromNative(IGCLWrapper.ctl_intel_arc_sync_monitor_params_t)
   id: FromNative(IGCLWrapper.ctl_intel_arc_sync_monitor_params_t)
@@ -265,7 +376,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1975
+    startLine: 2168
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -300,7 +411,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1993
+    startLine: 2186
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -320,60 +431,38 @@ references:
   name: IGCLWrapper
   nameWithType: IGCLWrapper
   fullName: IGCLWrapper
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{IGCLWrapper.IntelArcSyncMonitorParamsDto}
+  commentId: T:System.IEquatable{IGCLWrapper.IntelArcSyncMonitorParamsDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<IntelArcSyncMonitorParamsDto>
+  nameWithType: IEquatable<IntelArcSyncMonitorParamsDto>
+  fullName: System.IEquatable<IGCLWrapper.IntelArcSyncMonitorParamsDto>
+  nameWithType.vb: IEquatable(Of IntelArcSyncMonitorParamsDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.IntelArcSyncMonitorParamsDto)
+  name.vb: IEquatable(Of IntelArcSyncMonitorParamsDto)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.IntelArcSyncMonitorParamsDto
+    name: IntelArcSyncMonitorParamsDto
+    href: IGCLWrapper.IntelArcSyncMonitorParamsDto.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.IntelArcSyncMonitorParamsDto
+    name: IntelArcSyncMonitorParamsDto
+    href: IGCLWrapper.IntelArcSyncMonitorParamsDto.html
   - name: )
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
@@ -511,6 +600,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.ValueType
   commentId: T:System.ValueType
   parent: System
@@ -530,13 +654,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System
@@ -581,6 +698,146 @@ references:
   nameWithType.vb: Single
   fullName.vb: Single
   name.vb: Single
+- uid: IGCLWrapper.IntelArcSyncMonitorParamsDto.Equals*
+  commentId: Overload:IGCLWrapper.IntelArcSyncMonitorParamsDto.Equals
+  href: IGCLWrapper.IntelArcSyncMonitorParamsDto.html#IGCLWrapper_IntelArcSyncMonitorParamsDto_Equals_IGCLWrapper_IntelArcSyncMonitorParamsDto_
+  name: Equals
+  nameWithType: IntelArcSyncMonitorParamsDto.Equals
+  fullName: IGCLWrapper.IntelArcSyncMonitorParamsDto.Equals
+- uid: System.IEquatable{IGCLWrapper.IntelArcSyncMonitorParamsDto}.Equals(IGCLWrapper.IntelArcSyncMonitorParamsDto)
+  commentId: M:System.IEquatable{IGCLWrapper.IntelArcSyncMonitorParamsDto}.Equals(IGCLWrapper.IntelArcSyncMonitorParamsDto)
+  parent: System.IEquatable{IGCLWrapper.IntelArcSyncMonitorParamsDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(IntelArcSyncMonitorParamsDto)
+  nameWithType: IEquatable<IntelArcSyncMonitorParamsDto>.Equals(IntelArcSyncMonitorParamsDto)
+  fullName: System.IEquatable<IGCLWrapper.IntelArcSyncMonitorParamsDto>.Equals(IGCLWrapper.IntelArcSyncMonitorParamsDto)
+  nameWithType.vb: IEquatable(Of IntelArcSyncMonitorParamsDto).Equals(IntelArcSyncMonitorParamsDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.IntelArcSyncMonitorParamsDto).Equals(IGCLWrapper.IntelArcSyncMonitorParamsDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.IntelArcSyncMonitorParamsDto}.Equals(IGCLWrapper.IntelArcSyncMonitorParamsDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.IntelArcSyncMonitorParamsDto
+    name: IntelArcSyncMonitorParamsDto
+    href: IGCLWrapper.IntelArcSyncMonitorParamsDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.IntelArcSyncMonitorParamsDto}.Equals(IGCLWrapper.IntelArcSyncMonitorParamsDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.IntelArcSyncMonitorParamsDto
+    name: IntelArcSyncMonitorParamsDto
+    href: IGCLWrapper.IntelArcSyncMonitorParamsDto.html
+  - name: )
+- uid: IGCLWrapper.IntelArcSyncMonitorParamsDto
+  commentId: T:IGCLWrapper.IntelArcSyncMonitorParamsDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.IntelArcSyncMonitorParamsDto.html
+  name: IntelArcSyncMonitorParamsDto
+  nameWithType: IntelArcSyncMonitorParamsDto
+  fullName: IGCLWrapper.IntelArcSyncMonitorParamsDto
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.IntelArcSyncMonitorParamsDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.IntelArcSyncMonitorParamsDto.GetHashCode
+  href: IGCLWrapper.IntelArcSyncMonitorParamsDto.html#IGCLWrapper_IntelArcSyncMonitorParamsDto_GetHashCode
+  name: GetHashCode
+  nameWithType: IntelArcSyncMonitorParamsDto.GetHashCode
+  fullName: IGCLWrapper.IntelArcSyncMonitorParamsDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: IGCLWrapper.IntelArcSyncMonitorParamsDto.FromNative*
   commentId: Overload:IGCLWrapper.IntelArcSyncMonitorParamsDto.FromNative
   href: IGCLWrapper.IntelArcSyncMonitorParamsDto.html#IGCLWrapper_IntelArcSyncMonitorParamsDto_FromNative_IGCLWrapper_ctl_intel_arc_sync_monitor_params_t_
@@ -594,13 +851,6 @@ references:
   name: ctl_intel_arc_sync_monitor_params_t
   nameWithType: ctl_intel_arc_sync_monitor_params_t
   fullName: IGCLWrapper.ctl_intel_arc_sync_monitor_params_t
-- uid: IGCLWrapper.IntelArcSyncMonitorParamsDto
-  commentId: T:IGCLWrapper.IntelArcSyncMonitorParamsDto
-  parent: IGCLWrapper
-  href: IGCLWrapper.IntelArcSyncMonitorParamsDto.html
-  name: IntelArcSyncMonitorParamsDto
-  nameWithType: IntelArcSyncMonitorParamsDto
-  fullName: IGCLWrapper.IntelArcSyncMonitorParamsDto
 - uid: IGCLWrapper.IntelArcSyncMonitorParamsDto.ToNative*
   commentId: Overload:IGCLWrapper.IntelArcSyncMonitorParamsDto.ToNative
   href: IGCLWrapper.IntelArcSyncMonitorParamsDto.html#IGCLWrapper_IntelArcSyncMonitorParamsDto_ToNative

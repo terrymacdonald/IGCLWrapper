@@ -5,8 +5,11 @@ items:
   id: GenlockArgsDto
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.GenlockArgsDto.Equals(IGCLWrapper.GenlockArgsDto)
+  - IGCLWrapper.GenlockArgsDto.Equals(System.Object)
   - IGCLWrapper.GenlockArgsDto.FromNative(IGCLWrapper.ctl_genlock_args_t)
   - IGCLWrapper.GenlockArgsDto.GenlockTopology
+  - IGCLWrapper.GenlockArgsDto.GetHashCode
   - IGCLWrapper.GenlockArgsDto.IsGenlockEnabled
   - IGCLWrapper.GenlockArgsDto.IsGenlockPossible
   - IGCLWrapper.GenlockArgsDto.Operation
@@ -27,18 +30,18 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GenlockArgsDto
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1462
+    startLine: 1632
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: DTO for genlock arguments.
   example: []
   syntax:
-    content: public struct GenlockArgsDto
-    content.vb: Public Structure GenlockArgsDto
+    content: 'public struct GenlockArgsDto : IEquatable<GenlockArgsDto>'
+    content.vb: Public Structure GenlockArgsDto Implements IEquatable(Of GenlockArgsDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.GenlockArgsDto}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -61,7 +64,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1467
+    startLine: 1637
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -90,7 +93,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1471
+    startLine: 1641
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -119,7 +122,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Operation
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1475
+    startLine: 1645
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -148,7 +151,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GenlockTopology
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1479
+    startLine: 1649
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -177,7 +180,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsGenlockEnabled
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1483
+    startLine: 1653
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -206,7 +209,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsGenlockPossible
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1487
+    startLine: 1657
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -217,6 +220,114 @@ items:
     return:
       type: System.Boolean
     content.vb: Public IsGenlockPossible As Boolean
+- uid: IGCLWrapper.GenlockArgsDto.Equals(IGCLWrapper.GenlockArgsDto)
+  commentId: M:IGCLWrapper.GenlockArgsDto.Equals(IGCLWrapper.GenlockArgsDto)
+  id: Equals(IGCLWrapper.GenlockArgsDto)
+  parent: IGCLWrapper.GenlockArgsDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(GenlockArgsDto)
+  nameWithType: GenlockArgsDto.Equals(GenlockArgsDto)
+  fullName: IGCLWrapper.GenlockArgsDto.Equals(IGCLWrapper.GenlockArgsDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1664
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare genlock args.
+  example: []
+  syntax:
+    content: public bool Equals(GenlockArgsDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.GenlockArgsDto
+      description: Other args instance.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Function Equals(other As GenlockArgsDto) As Boolean
+  overload: IGCLWrapper.GenlockArgsDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.GenlockArgsDto}.Equals(IGCLWrapper.GenlockArgsDto)
+- uid: IGCLWrapper.GenlockArgsDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.GenlockArgsDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.GenlockArgsDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: GenlockArgsDto.Equals(object?)
+  fullName: IGCLWrapper.GenlockArgsDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1679
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare to another object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: Object to compare.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.GenlockArgsDto.Equals*
+  nameWithType.vb: GenlockArgsDto.Equals(Object)
+  fullName.vb: IGCLWrapper.GenlockArgsDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.GenlockArgsDto.GetHashCode
+  commentId: M:IGCLWrapper.GenlockArgsDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.GenlockArgsDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: GenlockArgsDto.GetHashCode()
+  fullName: IGCLWrapper.GenlockArgsDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1685
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get a hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: Hash code value.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.GenlockArgsDto.GetHashCode*
 - uid: IGCLWrapper.GenlockArgsDto.FromNative(IGCLWrapper.ctl_genlock_args_t)
   commentId: M:IGCLWrapper.GenlockArgsDto.FromNative(IGCLWrapper.ctl_genlock_args_t)
   id: FromNative(IGCLWrapper.ctl_genlock_args_t)
@@ -235,7 +346,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1494
+    startLine: 1704
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -270,7 +381,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1511
+    startLine: 1721
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -290,60 +401,38 @@ references:
   name: IGCLWrapper
   nameWithType: IGCLWrapper
   fullName: IGCLWrapper
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{IGCLWrapper.GenlockArgsDto}
+  commentId: T:System.IEquatable{IGCLWrapper.GenlockArgsDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<GenlockArgsDto>
+  nameWithType: IEquatable<GenlockArgsDto>
+  fullName: System.IEquatable<IGCLWrapper.GenlockArgsDto>
+  nameWithType.vb: IEquatable(Of GenlockArgsDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.GenlockArgsDto)
+  name.vb: IEquatable(Of GenlockArgsDto)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.GenlockArgsDto
+    name: GenlockArgsDto
+    href: IGCLWrapper.GenlockArgsDto.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.GenlockArgsDto
+    name: GenlockArgsDto
+    href: IGCLWrapper.GenlockArgsDto.html
   - name: )
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
@@ -481,6 +570,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.ValueType
   commentId: T:System.ValueType
   parent: System
@@ -500,13 +624,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System
@@ -554,6 +671,146 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: IGCLWrapper.GenlockArgsDto.Equals*
+  commentId: Overload:IGCLWrapper.GenlockArgsDto.Equals
+  href: IGCLWrapper.GenlockArgsDto.html#IGCLWrapper_GenlockArgsDto_Equals_IGCLWrapper_GenlockArgsDto_
+  name: Equals
+  nameWithType: GenlockArgsDto.Equals
+  fullName: IGCLWrapper.GenlockArgsDto.Equals
+- uid: System.IEquatable{IGCLWrapper.GenlockArgsDto}.Equals(IGCLWrapper.GenlockArgsDto)
+  commentId: M:System.IEquatable{IGCLWrapper.GenlockArgsDto}.Equals(IGCLWrapper.GenlockArgsDto)
+  parent: System.IEquatable{IGCLWrapper.GenlockArgsDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(GenlockArgsDto)
+  nameWithType: IEquatable<GenlockArgsDto>.Equals(GenlockArgsDto)
+  fullName: System.IEquatable<IGCLWrapper.GenlockArgsDto>.Equals(IGCLWrapper.GenlockArgsDto)
+  nameWithType.vb: IEquatable(Of GenlockArgsDto).Equals(GenlockArgsDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.GenlockArgsDto).Equals(IGCLWrapper.GenlockArgsDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.GenlockArgsDto}.Equals(IGCLWrapper.GenlockArgsDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.GenlockArgsDto
+    name: GenlockArgsDto
+    href: IGCLWrapper.GenlockArgsDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.GenlockArgsDto}.Equals(IGCLWrapper.GenlockArgsDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.GenlockArgsDto
+    name: GenlockArgsDto
+    href: IGCLWrapper.GenlockArgsDto.html
+  - name: )
+- uid: IGCLWrapper.GenlockArgsDto
+  commentId: T:IGCLWrapper.GenlockArgsDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.GenlockArgsDto.html
+  name: GenlockArgsDto
+  nameWithType: GenlockArgsDto
+  fullName: IGCLWrapper.GenlockArgsDto
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.GenlockArgsDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.GenlockArgsDto.GetHashCode
+  href: IGCLWrapper.GenlockArgsDto.html#IGCLWrapper_GenlockArgsDto_GetHashCode
+  name: GetHashCode
+  nameWithType: GenlockArgsDto.GetHashCode
+  fullName: IGCLWrapper.GenlockArgsDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: IGCLWrapper.GenlockArgsDto.FromNative*
   commentId: Overload:IGCLWrapper.GenlockArgsDto.FromNative
   href: IGCLWrapper.GenlockArgsDto.html#IGCLWrapper_GenlockArgsDto_FromNative_IGCLWrapper_ctl_genlock_args_t_
@@ -567,13 +824,6 @@ references:
   name: ctl_genlock_args_t
   nameWithType: ctl_genlock_args_t
   fullName: IGCLWrapper.ctl_genlock_args_t
-- uid: IGCLWrapper.GenlockArgsDto
-  commentId: T:IGCLWrapper.GenlockArgsDto
-  parent: IGCLWrapper
-  href: IGCLWrapper.GenlockArgsDto.html
-  name: GenlockArgsDto
-  nameWithType: GenlockArgsDto
-  fullName: IGCLWrapper.GenlockArgsDto
 - uid: IGCLWrapper.GenlockArgsDto.ToNative*
   commentId: Overload:IGCLWrapper.GenlockArgsDto.ToNative
   href: IGCLWrapper.GenlockArgsDto.html#IGCLWrapper_GenlockArgsDto_ToNative

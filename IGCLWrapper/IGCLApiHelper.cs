@@ -1086,7 +1086,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for adapter properties.
     /// </summary>
-    public struct DeviceAdapterPropertiesDto
+    public struct DeviceAdapterPropertiesDto : IEquatable<DeviceAdapterPropertiesDto>
     {
         private const int NameLength = 100;
         private const int ReservedLength = 108;
@@ -1174,6 +1174,73 @@ namespace IGCLWrapper
         /// Reserved native fields.
         /// </summary>
         public byte[]? Reserved;
+
+        /// <summary>
+        /// Compare adapter properties while ignoring reserved native fields.
+        /// </summary>
+        /// <param name="other">Other properties instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(DeviceAdapterPropertiesDto other)
+        {
+            // Reserved is intentionally excluded from comparisons.
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   DeviceIdSize == other.DeviceIdSize &&
+                   DeviceType == other.DeviceType &&
+                   SupportedSubfunctionFlags == other.SupportedSubfunctionFlags &&
+                   DriverVersion == other.DriverVersion &&
+                   FirmwareVersion.Equals(other.FirmwareVersion) &&
+                   PciVendorId == other.PciVendorId &&
+                   PciDeviceId == other.PciDeviceId &&
+                   RevId == other.RevId &&
+                   NumEusPerSubSlice == other.NumEusPerSubSlice &&
+                   NumSubSlicesPerSlice == other.NumSubSlicesPerSlice &&
+                   NumSlices == other.NumSlices &&
+                   string.Equals(Name, other.Name, StringComparison.Ordinal) &&
+                   GraphicsAdapterProperties == other.GraphicsAdapterProperties &&
+                   Frequency == other.Frequency &&
+                   PciSubsysId == other.PciSubsysId &&
+                   PciSubsysVendorId == other.PciSubsysVendorId &&
+                   AdapterBdf.Equals(other.AdapterBdf) &&
+                   NumXeCores == other.NumXeCores;
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is DeviceAdapterPropertiesDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(DeviceIdSize);
+            hash.Add(DeviceType);
+            hash.Add(SupportedSubfunctionFlags);
+            hash.Add(DriverVersion);
+            hash.Add(FirmwareVersion);
+            hash.Add(PciVendorId);
+            hash.Add(PciDeviceId);
+            hash.Add(RevId);
+            hash.Add(NumEusPerSubSlice);
+            hash.Add(NumSubSlicesPerSlice);
+            hash.Add(NumSlices);
+            hash.Add(Name, StringComparer.Ordinal);
+            hash.Add(GraphicsAdapterProperties);
+            hash.Add(Frequency);
+            hash.Add(PciSubsysId);
+            hash.Add(PciSubsysVendorId);
+            hash.Add(AdapterBdf);
+            hash.Add(NumXeCores);
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.
@@ -1307,7 +1374,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for combined display arguments.
     /// </summary>
-    public unsafe struct CombinedDisplayArgsDto
+    public unsafe struct CombinedDisplayArgsDto : IEquatable<CombinedDisplayArgsDto>
     {
         /// <summary>
         /// Size of the native struct.
@@ -1349,6 +1416,54 @@ namespace IGCLWrapper
         /// Combined display output handle.
         /// </summary>
         public IntPtr CombinedDisplayOutput;
+
+        /// <summary>
+        /// Compare combined display args while ignoring pointer fields.
+        /// </summary>
+        /// <param name="other">Other args instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(CombinedDisplayArgsDto other)
+        {
+            // ChildInfo and CombinedDisplayOutput are pointers and are intentionally excluded.
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   OpType == other.OpType &&
+                   IsSupported == other.IsSupported &&
+                   NumOutputs == other.NumOutputs &&
+                   CombinedDesktopWidth == other.CombinedDesktopWidth &&
+                   CombinedDesktopHeight == other.CombinedDesktopHeight &&
+                   AreChildInfosEqual(ChildInfos, other.ChildInfos);
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is CombinedDisplayArgsDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(OpType);
+            hash.Add(IsSupported);
+            hash.Add(NumOutputs);
+            hash.Add(CombinedDesktopWidth);
+            hash.Add(CombinedDesktopHeight);
+            if (ChildInfos != null)
+            {
+                hash.Add(ChildInfos.Length);
+                for (var i = 0; i < ChildInfos.Length; i++)
+                    hash.Add(ChildInfos[i]);
+            }
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.
@@ -1395,12 +1510,28 @@ namespace IGCLWrapper
                 hCombinedDisplayOutput = (_ctl_display_output_handle_t*)CombinedDisplayOutput
             };
         }
+
+        private static bool AreChildInfosEqual(CombinedDisplayChildInfoDto[]? left, CombinedDisplayChildInfoDto[]? right)
+        {
+            if (ReferenceEquals(left, right))
+                return true;
+            if (left == null || right == null)
+                return false;
+            if (left.Length != right.Length)
+                return false;
+            for (var i = 0; i < left.Length; i++)
+            {
+                if (!left[i].Equals(right[i]))
+                    return false;
+            }
+            return true;
+        }
     }
 
     /// <summary>
     /// DTO for combined display child information.
     /// </summary>
-    public unsafe struct CombinedDisplayChildInfoDto
+    public unsafe struct CombinedDisplayChildInfoDto : IEquatable<CombinedDisplayChildInfoDto>
     {
         /// <summary>
         /// Display output handle.
@@ -1422,6 +1553,45 @@ namespace IGCLWrapper
         /// Target mode info.
         /// </summary>
         public ctl_child_display_target_mode_t TargetMode;
+
+        /// <summary>
+        /// Compare child display info while ignoring pointer and reserved fields.
+        /// </summary>
+        /// <param name="other">Other child info instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(CombinedDisplayChildInfoDto other)
+        {
+            // DisplayOutput is a pointer and TargetMode.ReservedFields are ignored.
+            return FbSrc.Equals(other.FbSrc) &&
+                   FbPos.Equals(other.FbPos) &&
+                   DisplayOrientation == other.DisplayOrientation &&
+                   TargetMode.Width == other.TargetMode.Width &&
+                   TargetMode.Height == other.TargetMode.Height &&
+                   TargetMode.RefreshRate.Equals(other.TargetMode.RefreshRate);
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is CombinedDisplayChildInfoDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(FbSrc);
+            hash.Add(FbPos);
+            hash.Add(DisplayOrientation);
+            hash.Add(TargetMode.Width);
+            hash.Add(TargetMode.Height);
+            hash.Add(TargetMode.RefreshRate);
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.
@@ -1460,7 +1630,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for genlock arguments.
     /// </summary>
-    public struct GenlockArgsDto
+    public struct GenlockArgsDto : IEquatable<GenlockArgsDto>
     {
         /// <summary>
         /// Size of the native struct.
@@ -1486,6 +1656,46 @@ namespace IGCLWrapper
         /// Indicates whether genlock is possible.
         /// </summary>
         public bool IsGenlockPossible;
+
+        /// <summary>
+        /// Compare genlock args.
+        /// </summary>
+        /// <param name="other">Other args instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(GenlockArgsDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   Operation == other.Operation &&
+                   AreGenlockTopologiesEqual(GenlockTopology, other.GenlockTopology) &&
+                   IsGenlockEnabled == other.IsGenlockEnabled &&
+                   IsGenlockPossible == other.IsGenlockPossible;
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is GenlockArgsDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(Operation);
+            hash.Add(GenlockTopology.NumGenlockDisplays);
+            hash.Add(GenlockTopology.IsPrimaryGenlockSystem);
+            hash.Add(GenlockTopology.CommonTargetMode);
+            hash.Add(IsGenlockEnabled);
+            hash.Add(IsGenlockPossible);
+            return hash.ToHashCode();
+        }
 
         /// <summary>
         /// Create a DTO from a native struct.
@@ -1524,6 +1734,14 @@ namespace IGCLWrapper
                 IsGenlockEnabled = IGCLDisplayDtoBool.ToByte(IsGenlockEnabled),
                 IsGenlockPossible = IGCLDisplayDtoBool.ToByte(IsGenlockPossible)
             };
+        }
+
+        private static bool AreGenlockTopologiesEqual(ctl_genlock_topology_t left, ctl_genlock_topology_t right)
+        {
+            // Genlock topology includes pointer fields; compare only value fields.
+            return left.NumGenlockDisplays == right.NumGenlockDisplays &&
+                   left.IsPrimaryGenlockSystem == right.IsPrimaryGenlockSystem &&
+                   left.CommonTargetMode.Equals(right.CommonTargetMode);
         }
     }
 

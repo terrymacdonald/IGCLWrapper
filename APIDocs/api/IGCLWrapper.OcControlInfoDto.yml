@@ -6,7 +6,10 @@ items:
   parent: IGCLWrapper
   children:
   - IGCLWrapper.OcControlInfoDto.Default
+  - IGCLWrapper.OcControlInfoDto.Equals(IGCLWrapper.OcControlInfoDto)
+  - IGCLWrapper.OcControlInfoDto.Equals(System.Object)
   - IGCLWrapper.OcControlInfoDto.FromNative(IGCLWrapper.ctl_oc_control_info_t)
+  - IGCLWrapper.OcControlInfoDto.GetHashCode
   - IGCLWrapper.OcControlInfoDto.IsReference
   - IGCLWrapper.OcControlInfoDto.IsRelative
   - IGCLWrapper.OcControlInfoDto.IsSupported
@@ -37,11 +40,11 @@ items:
   summary: DTO for overclock control information.
   example: []
   syntax:
-    content: public struct OcControlInfoDto
-    content.vb: Public Structure OcControlInfoDto
+    content: 'public struct OcControlInfoDto : IEquatable<OcControlInfoDto>'
+    content.vb: Public Structure OcControlInfoDto Implements IEquatable(Of OcControlInfoDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.OcControlInfoDto}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -307,6 +310,114 @@ items:
     return:
       type: System.Double
     content.vb: Public Reference As Double
+- uid: IGCLWrapper.OcControlInfoDto.Equals(IGCLWrapper.OcControlInfoDto)
+  commentId: M:IGCLWrapper.OcControlInfoDto.Equals(IGCLWrapper.OcControlInfoDto)
+  id: Equals(IGCLWrapper.OcControlInfoDto)
+  parent: IGCLWrapper.OcControlInfoDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(OcControlInfoDto)
+  nameWithType: OcControlInfoDto.Equals(OcControlInfoDto)
+  fullName: IGCLWrapper.OcControlInfoDto.Equals(IGCLWrapper.OcControlInfoDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 599
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare overclock control info.
+  example: []
+  syntax:
+    content: public bool Equals(OcControlInfoDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.OcControlInfoDto
+      description: Other control info instance.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Function Equals(other As OcControlInfoDto) As Boolean
+  overload: IGCLWrapper.OcControlInfoDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.OcControlInfoDto}.Equals(IGCLWrapper.OcControlInfoDto)
+- uid: IGCLWrapper.OcControlInfoDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.OcControlInfoDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.OcControlInfoDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: OcControlInfoDto.Equals(object?)
+  fullName: IGCLWrapper.OcControlInfoDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 617
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare to another object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: Object to compare.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.OcControlInfoDto.Equals*
+  nameWithType.vb: OcControlInfoDto.Equals(Object)
+  fullName.vb: IGCLWrapper.OcControlInfoDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.OcControlInfoDto.GetHashCode
+  commentId: M:IGCLWrapper.OcControlInfoDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.OcControlInfoDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: OcControlInfoDto.GetHashCode()
+  fullName: IGCLWrapper.OcControlInfoDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 623
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get a hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: Hash code value.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.OcControlInfoDto.GetHashCode*
 - uid: IGCLWrapper.OcControlInfoDto.FromNative(IGCLWrapper.ctl_oc_control_info_t)
   commentId: M:IGCLWrapper.OcControlInfoDto.FromNative(IGCLWrapper.ctl_oc_control_info_t)
   id: FromNative(IGCLWrapper.ctl_oc_control_info_t)
@@ -325,7 +436,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 599
+    startLine: 643
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -360,7 +471,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 619
+    startLine: 663
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -380,60 +491,38 @@ references:
   name: IGCLWrapper
   nameWithType: IGCLWrapper
   fullName: IGCLWrapper
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{IGCLWrapper.OcControlInfoDto}
+  commentId: T:System.IEquatable{IGCLWrapper.OcControlInfoDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<OcControlInfoDto>
+  nameWithType: IEquatable<OcControlInfoDto>
+  fullName: System.IEquatable<IGCLWrapper.OcControlInfoDto>
+  nameWithType.vb: IEquatable(Of OcControlInfoDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.OcControlInfoDto)
+  name.vb: IEquatable(Of OcControlInfoDto)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.OcControlInfoDto
+    name: OcControlInfoDto
+    href: IGCLWrapper.OcControlInfoDto.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.OcControlInfoDto
+    name: OcControlInfoDto
+    href: IGCLWrapper.OcControlInfoDto.html
   - name: )
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
@@ -571,6 +660,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.ValueType
   commentId: T:System.ValueType
   parent: System
@@ -590,13 +714,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System
@@ -626,6 +743,146 @@ references:
   nameWithType.vb: Double
   fullName.vb: Double
   name.vb: Double
+- uid: IGCLWrapper.OcControlInfoDto.Equals*
+  commentId: Overload:IGCLWrapper.OcControlInfoDto.Equals
+  href: IGCLWrapper.OcControlInfoDto.html#IGCLWrapper_OcControlInfoDto_Equals_IGCLWrapper_OcControlInfoDto_
+  name: Equals
+  nameWithType: OcControlInfoDto.Equals
+  fullName: IGCLWrapper.OcControlInfoDto.Equals
+- uid: System.IEquatable{IGCLWrapper.OcControlInfoDto}.Equals(IGCLWrapper.OcControlInfoDto)
+  commentId: M:System.IEquatable{IGCLWrapper.OcControlInfoDto}.Equals(IGCLWrapper.OcControlInfoDto)
+  parent: System.IEquatable{IGCLWrapper.OcControlInfoDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(OcControlInfoDto)
+  nameWithType: IEquatable<OcControlInfoDto>.Equals(OcControlInfoDto)
+  fullName: System.IEquatable<IGCLWrapper.OcControlInfoDto>.Equals(IGCLWrapper.OcControlInfoDto)
+  nameWithType.vb: IEquatable(Of OcControlInfoDto).Equals(OcControlInfoDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.OcControlInfoDto).Equals(IGCLWrapper.OcControlInfoDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.OcControlInfoDto}.Equals(IGCLWrapper.OcControlInfoDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.OcControlInfoDto
+    name: OcControlInfoDto
+    href: IGCLWrapper.OcControlInfoDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.OcControlInfoDto}.Equals(IGCLWrapper.OcControlInfoDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.OcControlInfoDto
+    name: OcControlInfoDto
+    href: IGCLWrapper.OcControlInfoDto.html
+  - name: )
+- uid: IGCLWrapper.OcControlInfoDto
+  commentId: T:IGCLWrapper.OcControlInfoDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.OcControlInfoDto.html
+  name: OcControlInfoDto
+  nameWithType: OcControlInfoDto
+  fullName: IGCLWrapper.OcControlInfoDto
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.OcControlInfoDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.OcControlInfoDto.GetHashCode
+  href: IGCLWrapper.OcControlInfoDto.html#IGCLWrapper_OcControlInfoDto_GetHashCode
+  name: GetHashCode
+  nameWithType: OcControlInfoDto.GetHashCode
+  fullName: IGCLWrapper.OcControlInfoDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: IGCLWrapper.OcControlInfoDto.FromNative*
   commentId: Overload:IGCLWrapper.OcControlInfoDto.FromNative
   href: IGCLWrapper.OcControlInfoDto.html#IGCLWrapper_OcControlInfoDto_FromNative_IGCLWrapper_ctl_oc_control_info_t_
@@ -639,13 +896,6 @@ references:
   name: ctl_oc_control_info_t
   nameWithType: ctl_oc_control_info_t
   fullName: IGCLWrapper.ctl_oc_control_info_t
-- uid: IGCLWrapper.OcControlInfoDto
-  commentId: T:IGCLWrapper.OcControlInfoDto
-  parent: IGCLWrapper
-  href: IGCLWrapper.OcControlInfoDto.html
-  name: OcControlInfoDto
-  nameWithType: OcControlInfoDto
-  fullName: IGCLWrapper.OcControlInfoDto
 - uid: IGCLWrapper.OcControlInfoDto.ToNative*
   commentId: Overload:IGCLWrapper.OcControlInfoDto.ToNative
   href: IGCLWrapper.OcControlInfoDto.html#IGCLWrapper_OcControlInfoDto_ToNative

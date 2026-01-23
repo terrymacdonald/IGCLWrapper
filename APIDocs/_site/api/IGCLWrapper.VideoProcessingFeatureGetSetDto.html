@@ -102,24 +102,24 @@ Struct VideoProcessingFeatureGetSetDto  <a class="header-action link-secondary" 
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public struct VideoProcessingFeatureGetSetDto</code></pre>
+    <pre><code class="lang-csharp hljs">public struct VideoProcessingFeatureGetSetDto : IEquatable&lt;VideoProcessingFeatureGetSetDto&gt;</code></pre>
   </div>
 
 
 
 
 
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="IGCLWrapper.VideoProcessingFeatureGetSetDto.html">VideoProcessingFeatureGetSetDto</a>&gt;</div>
+    </dd>
+  </dl>
 
 
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.equals">ValueType.Equals(object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode">ValueType.GetHashCode()</a>
-    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.tostring">ValueType.ToString()</a>
     </div>
@@ -488,11 +488,89 @@ Struct VideoProcessingFeatureGetSetDto  <a class="header-action link-secondary" 
 </h2>
 
 
+  <a id="IGCLWrapper_VideoProcessingFeatureGetSetDto_Equals_" data-uid="IGCLWrapper.VideoProcessingFeatureGetSetDto.Equals*"></a>
+
+  <h3 id="IGCLWrapper_VideoProcessingFeatureGetSetDto_Equals_IGCLWrapper_VideoProcessingFeatureGetSetDto_" data-uid="IGCLWrapper.VideoProcessingFeatureGetSetDto.Equals(IGCLWrapper.VideoProcessingFeatureGetSetDto)">
+  Equals(VideoProcessingFeatureGetSetDto)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L157"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compare video processing feature get/set args while ignoring pointer and reserved fields.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(VideoProcessingFeatureGetSetDto other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="IGCLWrapper.VideoProcessingFeatureGetSetDto.html">VideoProcessingFeatureGetSetDto</a></dt>
+    <dd><p>Other args instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_VideoProcessingFeatureGetSetDto_Equals_" data-uid="IGCLWrapper.VideoProcessingFeatureGetSetDto.Equals*"></a>
+
+  <h3 id="IGCLWrapper_VideoProcessingFeatureGetSetDto_Equals_System_Object_" data-uid="IGCLWrapper.VideoProcessingFeatureGetSetDto.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L175"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compare to another object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Object to compare.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="IGCLWrapper_VideoProcessingFeatureGetSetDto_FromNative_" data-uid="IGCLWrapper.VideoProcessingFeatureGetSetDto.FromNative*"></a>
 
   <h3 id="IGCLWrapper_VideoProcessingFeatureGetSetDto_FromNative_IGCLWrapper_ctl_video_processing_feature_getset_t_" data-uid="IGCLWrapper.VideoProcessingFeatureGetSetDto.FromNative(IGCLWrapper.ctl_video_processing_feature_getset_t)">
   FromNative(ctl_video_processing_feature_getset_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L157"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L200"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a DTO from a native struct.</p>
@@ -527,11 +605,44 @@ Struct VideoProcessingFeatureGetSetDto  <a class="header-action link-secondary" 
 
 
 
+  <a id="IGCLWrapper_VideoProcessingFeatureGetSetDto_GetHashCode_" data-uid="IGCLWrapper.VideoProcessingFeatureGetSetDto.GetHashCode*"></a>
+
+  <h3 id="IGCLWrapper_VideoProcessingFeatureGetSetDto_GetHashCode" data-uid="IGCLWrapper.VideoProcessingFeatureGetSetDto.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L181"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get a hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Hash code value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="IGCLWrapper_VideoProcessingFeatureGetSetDto_ToNative_" data-uid="IGCLWrapper.VideoProcessingFeatureGetSetDto.ToNative*"></a>
 
   <h3 id="IGCLWrapper_VideoProcessingFeatureGetSetDto_ToNative" data-uid="IGCLWrapper.VideoProcessingFeatureGetSetDto.ToNative">
   ToNative()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L179"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L222"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Convert this DTO to a native struct.</p>

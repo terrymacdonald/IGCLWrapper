@@ -6,7 +6,10 @@ items:
   parent: IGCLWrapper
   children:
   - IGCLWrapper.EccPropertiesDto.CanControl
+  - IGCLWrapper.EccPropertiesDto.Equals(IGCLWrapper.EccPropertiesDto)
+  - IGCLWrapper.EccPropertiesDto.Equals(System.Object)
   - IGCLWrapper.EccPropertiesDto.FromNative(IGCLWrapper.ctl_ecc_properties_t)
+  - IGCLWrapper.EccPropertiesDto.GetHashCode
   - IGCLWrapper.EccPropertiesDto.IsSupported
   - IGCLWrapper.EccPropertiesDto.Size
   - IGCLWrapper.EccPropertiesDto.ToNative
@@ -32,11 +35,11 @@ items:
   summary: DTO for ECC properties.
   example: []
   syntax:
-    content: public struct EccPropertiesDto
-    content.vb: Public Structure EccPropertiesDto
+    content: 'public struct EccPropertiesDto : IEquatable<EccPropertiesDto>'
+    content.vb: Public Structure EccPropertiesDto Implements IEquatable(Of EccPropertiesDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.EccPropertiesDto}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -157,6 +160,114 @@ items:
     return:
       type: System.Boolean
     content.vb: Public CanControl As Boolean
+- uid: IGCLWrapper.EccPropertiesDto.Equals(IGCLWrapper.EccPropertiesDto)
+  commentId: M:IGCLWrapper.EccPropertiesDto.Equals(IGCLWrapper.EccPropertiesDto)
+  id: Equals(IGCLWrapper.EccPropertiesDto)
+  parent: IGCLWrapper.EccPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(EccPropertiesDto)
+  nameWithType: EccPropertiesDto.Equals(EccPropertiesDto)
+  fullName: IGCLWrapper.EccPropertiesDto.Equals(IGCLWrapper.EccPropertiesDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLEccHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLEccHelper.cs
+    startLine: 122
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare ECC properties.
+  example: []
+  syntax:
+    content: public bool Equals(EccPropertiesDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.EccPropertiesDto
+      description: Other properties instance.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Function Equals(other As EccPropertiesDto) As Boolean
+  overload: IGCLWrapper.EccPropertiesDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.EccPropertiesDto}.Equals(IGCLWrapper.EccPropertiesDto)
+- uid: IGCLWrapper.EccPropertiesDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.EccPropertiesDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.EccPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: EccPropertiesDto.Equals(object?)
+  fullName: IGCLWrapper.EccPropertiesDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLEccHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLEccHelper.cs
+    startLine: 135
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare to another object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: Object to compare.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.EccPropertiesDto.Equals*
+  nameWithType.vb: EccPropertiesDto.Equals(Object)
+  fullName.vb: IGCLWrapper.EccPropertiesDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.EccPropertiesDto.GetHashCode
+  commentId: M:IGCLWrapper.EccPropertiesDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.EccPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: EccPropertiesDto.GetHashCode()
+  fullName: IGCLWrapper.EccPropertiesDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLEccHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLEccHelper.cs
+    startLine: 141
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get a hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: Hash code value.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.EccPropertiesDto.GetHashCode*
 - uid: IGCLWrapper.EccPropertiesDto.FromNative(IGCLWrapper.ctl_ecc_properties_t)
   commentId: M:IGCLWrapper.EccPropertiesDto.FromNative(IGCLWrapper.ctl_ecc_properties_t)
   id: FromNative(IGCLWrapper.ctl_ecc_properties_t)
@@ -175,7 +286,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLEccHelper.cs
-    startLine: 122
+    startLine: 156
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -210,7 +321,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLEccHelper.cs
-    startLine: 137
+    startLine: 171
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -230,60 +341,38 @@ references:
   name: IGCLWrapper
   nameWithType: IGCLWrapper
   fullName: IGCLWrapper
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{IGCLWrapper.EccPropertiesDto}
+  commentId: T:System.IEquatable{IGCLWrapper.EccPropertiesDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<EccPropertiesDto>
+  nameWithType: IEquatable<EccPropertiesDto>
+  fullName: System.IEquatable<IGCLWrapper.EccPropertiesDto>
+  nameWithType.vb: IEquatable(Of EccPropertiesDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.EccPropertiesDto)
+  name.vb: IEquatable(Of EccPropertiesDto)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.EccPropertiesDto
+    name: EccPropertiesDto
+    href: IGCLWrapper.EccPropertiesDto.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.EccPropertiesDto
+    name: EccPropertiesDto
+    href: IGCLWrapper.EccPropertiesDto.html
   - name: )
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
@@ -421,6 +510,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.ValueType
   commentId: T:System.ValueType
   parent: System
@@ -440,13 +564,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System
@@ -480,6 +597,146 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: IGCLWrapper.EccPropertiesDto.Equals*
+  commentId: Overload:IGCLWrapper.EccPropertiesDto.Equals
+  href: IGCLWrapper.EccPropertiesDto.html#IGCLWrapper_EccPropertiesDto_Equals_IGCLWrapper_EccPropertiesDto_
+  name: Equals
+  nameWithType: EccPropertiesDto.Equals
+  fullName: IGCLWrapper.EccPropertiesDto.Equals
+- uid: System.IEquatable{IGCLWrapper.EccPropertiesDto}.Equals(IGCLWrapper.EccPropertiesDto)
+  commentId: M:System.IEquatable{IGCLWrapper.EccPropertiesDto}.Equals(IGCLWrapper.EccPropertiesDto)
+  parent: System.IEquatable{IGCLWrapper.EccPropertiesDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(EccPropertiesDto)
+  nameWithType: IEquatable<EccPropertiesDto>.Equals(EccPropertiesDto)
+  fullName: System.IEquatable<IGCLWrapper.EccPropertiesDto>.Equals(IGCLWrapper.EccPropertiesDto)
+  nameWithType.vb: IEquatable(Of EccPropertiesDto).Equals(EccPropertiesDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.EccPropertiesDto).Equals(IGCLWrapper.EccPropertiesDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.EccPropertiesDto}.Equals(IGCLWrapper.EccPropertiesDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.EccPropertiesDto
+    name: EccPropertiesDto
+    href: IGCLWrapper.EccPropertiesDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.EccPropertiesDto}.Equals(IGCLWrapper.EccPropertiesDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.EccPropertiesDto
+    name: EccPropertiesDto
+    href: IGCLWrapper.EccPropertiesDto.html
+  - name: )
+- uid: IGCLWrapper.EccPropertiesDto
+  commentId: T:IGCLWrapper.EccPropertiesDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.EccPropertiesDto.html
+  name: EccPropertiesDto
+  nameWithType: EccPropertiesDto
+  fullName: IGCLWrapper.EccPropertiesDto
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.EccPropertiesDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.EccPropertiesDto.GetHashCode
+  href: IGCLWrapper.EccPropertiesDto.html#IGCLWrapper_EccPropertiesDto_GetHashCode
+  name: GetHashCode
+  nameWithType: EccPropertiesDto.GetHashCode
+  fullName: IGCLWrapper.EccPropertiesDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: IGCLWrapper.EccPropertiesDto.FromNative*
   commentId: Overload:IGCLWrapper.EccPropertiesDto.FromNative
   href: IGCLWrapper.EccPropertiesDto.html#IGCLWrapper_EccPropertiesDto_FromNative_IGCLWrapper_ctl_ecc_properties_t_
@@ -493,13 +750,6 @@ references:
   name: ctl_ecc_properties_t
   nameWithType: ctl_ecc_properties_t
   fullName: IGCLWrapper.ctl_ecc_properties_t
-- uid: IGCLWrapper.EccPropertiesDto
-  commentId: T:IGCLWrapper.EccPropertiesDto
-  parent: IGCLWrapper
-  href: IGCLWrapper.EccPropertiesDto.html
-  name: EccPropertiesDto
-  nameWithType: EccPropertiesDto
-  fullName: IGCLWrapper.EccPropertiesDto
 - uid: IGCLWrapper.EccPropertiesDto.ToNative*
   commentId: Overload:IGCLWrapper.EccPropertiesDto.ToNative
   href: IGCLWrapper.EccPropertiesDto.html#IGCLWrapper_EccPropertiesDto_ToNative

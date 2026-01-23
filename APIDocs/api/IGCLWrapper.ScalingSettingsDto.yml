@@ -8,7 +8,10 @@ items:
   - IGCLWrapper.ScalingSettingsDto.CustomScalingX
   - IGCLWrapper.ScalingSettingsDto.CustomScalingY
   - IGCLWrapper.ScalingSettingsDto.Enable
+  - IGCLWrapper.ScalingSettingsDto.Equals(IGCLWrapper.ScalingSettingsDto)
+  - IGCLWrapper.ScalingSettingsDto.Equals(System.Object)
   - IGCLWrapper.ScalingSettingsDto.FromNative(IGCLWrapper.ctl_scaling_settings_t)
+  - IGCLWrapper.ScalingSettingsDto.GetHashCode
   - IGCLWrapper.ScalingSettingsDto.HardwareModeSet
   - IGCLWrapper.ScalingSettingsDto.PreferredScalingType
   - IGCLWrapper.ScalingSettingsDto.ScalingType
@@ -29,18 +32,18 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ScalingSettingsDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2155
+    startLine: 2424
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: DTO for scaling settings.
   example: []
   syntax:
-    content: public struct ScalingSettingsDto
-    content.vb: Public Structure ScalingSettingsDto
+    content: 'public struct ScalingSettingsDto : IEquatable<ScalingSettingsDto>'
+    content.vb: Public Structure ScalingSettingsDto Implements IEquatable(Of ScalingSettingsDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.ScalingSettingsDto}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -63,7 +66,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2160
+    startLine: 2429
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -92,7 +95,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2164
+    startLine: 2433
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -121,7 +124,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Enable
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2168
+    startLine: 2437
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -150,7 +153,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ScalingType
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2172
+    startLine: 2441
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -179,7 +182,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CustomScalingX
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2176
+    startLine: 2445
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -208,7 +211,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CustomScalingY
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2180
+    startLine: 2449
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -237,7 +240,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: HardwareModeSet
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2184
+    startLine: 2453
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -266,7 +269,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PreferredScalingType
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2188
+    startLine: 2457
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -277,6 +280,114 @@ items:
     return:
       type: System.UInt32
     content.vb: Public PreferredScalingType As UInteger
+- uid: IGCLWrapper.ScalingSettingsDto.Equals(IGCLWrapper.ScalingSettingsDto)
+  commentId: M:IGCLWrapper.ScalingSettingsDto.Equals(IGCLWrapper.ScalingSettingsDto)
+  id: Equals(IGCLWrapper.ScalingSettingsDto)
+  parent: IGCLWrapper.ScalingSettingsDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(ScalingSettingsDto)
+  nameWithType: ScalingSettingsDto.Equals(ScalingSettingsDto)
+  fullName: IGCLWrapper.ScalingSettingsDto.Equals(IGCLWrapper.ScalingSettingsDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 2464
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare scaling settings.
+  example: []
+  syntax:
+    content: public bool Equals(ScalingSettingsDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.ScalingSettingsDto
+      description: Other settings instance.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Function Equals(other As ScalingSettingsDto) As Boolean
+  overload: IGCLWrapper.ScalingSettingsDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.ScalingSettingsDto}.Equals(IGCLWrapper.ScalingSettingsDto)
+- uid: IGCLWrapper.ScalingSettingsDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.ScalingSettingsDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.ScalingSettingsDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: ScalingSettingsDto.Equals(object?)
+  fullName: IGCLWrapper.ScalingSettingsDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 2481
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare to another object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: Object to compare.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.ScalingSettingsDto.Equals*
+  nameWithType.vb: ScalingSettingsDto.Equals(Object)
+  fullName.vb: IGCLWrapper.ScalingSettingsDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.ScalingSettingsDto.GetHashCode
+  commentId: M:IGCLWrapper.ScalingSettingsDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.ScalingSettingsDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: ScalingSettingsDto.GetHashCode()
+  fullName: IGCLWrapper.ScalingSettingsDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 2487
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get a hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: Hash code value.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.ScalingSettingsDto.GetHashCode*
 - uid: IGCLWrapper.ScalingSettingsDto.FromNative(IGCLWrapper.ctl_scaling_settings_t)
   commentId: M:IGCLWrapper.ScalingSettingsDto.FromNative(IGCLWrapper.ctl_scaling_settings_t)
   id: FromNative(IGCLWrapper.ctl_scaling_settings_t)
@@ -295,7 +406,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2195
+    startLine: 2506
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -330,7 +441,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2214
+    startLine: 2525
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -350,60 +461,38 @@ references:
   name: IGCLWrapper
   nameWithType: IGCLWrapper
   fullName: IGCLWrapper
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{IGCLWrapper.ScalingSettingsDto}
+  commentId: T:System.IEquatable{IGCLWrapper.ScalingSettingsDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<ScalingSettingsDto>
+  nameWithType: IEquatable<ScalingSettingsDto>
+  fullName: System.IEquatable<IGCLWrapper.ScalingSettingsDto>
+  nameWithType.vb: IEquatable(Of ScalingSettingsDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.ScalingSettingsDto)
+  name.vb: IEquatable(Of ScalingSettingsDto)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.ScalingSettingsDto
+    name: ScalingSettingsDto
+    href: IGCLWrapper.ScalingSettingsDto.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.ScalingSettingsDto
+    name: ScalingSettingsDto
+    href: IGCLWrapper.ScalingSettingsDto.html
   - name: )
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
@@ -541,6 +630,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.ValueType
   commentId: T:System.ValueType
   parent: System
@@ -560,13 +684,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System
@@ -600,6 +717,146 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: IGCLWrapper.ScalingSettingsDto.Equals*
+  commentId: Overload:IGCLWrapper.ScalingSettingsDto.Equals
+  href: IGCLWrapper.ScalingSettingsDto.html#IGCLWrapper_ScalingSettingsDto_Equals_IGCLWrapper_ScalingSettingsDto_
+  name: Equals
+  nameWithType: ScalingSettingsDto.Equals
+  fullName: IGCLWrapper.ScalingSettingsDto.Equals
+- uid: System.IEquatable{IGCLWrapper.ScalingSettingsDto}.Equals(IGCLWrapper.ScalingSettingsDto)
+  commentId: M:System.IEquatable{IGCLWrapper.ScalingSettingsDto}.Equals(IGCLWrapper.ScalingSettingsDto)
+  parent: System.IEquatable{IGCLWrapper.ScalingSettingsDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(ScalingSettingsDto)
+  nameWithType: IEquatable<ScalingSettingsDto>.Equals(ScalingSettingsDto)
+  fullName: System.IEquatable<IGCLWrapper.ScalingSettingsDto>.Equals(IGCLWrapper.ScalingSettingsDto)
+  nameWithType.vb: IEquatable(Of ScalingSettingsDto).Equals(ScalingSettingsDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.ScalingSettingsDto).Equals(IGCLWrapper.ScalingSettingsDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.ScalingSettingsDto}.Equals(IGCLWrapper.ScalingSettingsDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.ScalingSettingsDto
+    name: ScalingSettingsDto
+    href: IGCLWrapper.ScalingSettingsDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.ScalingSettingsDto}.Equals(IGCLWrapper.ScalingSettingsDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.ScalingSettingsDto
+    name: ScalingSettingsDto
+    href: IGCLWrapper.ScalingSettingsDto.html
+  - name: )
+- uid: IGCLWrapper.ScalingSettingsDto
+  commentId: T:IGCLWrapper.ScalingSettingsDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.ScalingSettingsDto.html
+  name: ScalingSettingsDto
+  nameWithType: ScalingSettingsDto
+  fullName: IGCLWrapper.ScalingSettingsDto
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.ScalingSettingsDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.ScalingSettingsDto.GetHashCode
+  href: IGCLWrapper.ScalingSettingsDto.html#IGCLWrapper_ScalingSettingsDto_GetHashCode
+  name: GetHashCode
+  nameWithType: ScalingSettingsDto.GetHashCode
+  fullName: IGCLWrapper.ScalingSettingsDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: IGCLWrapper.ScalingSettingsDto.FromNative*
   commentId: Overload:IGCLWrapper.ScalingSettingsDto.FromNative
   href: IGCLWrapper.ScalingSettingsDto.html#IGCLWrapper_ScalingSettingsDto_FromNative_IGCLWrapper_ctl_scaling_settings_t_
@@ -613,13 +870,6 @@ references:
   name: ctl_scaling_settings_t
   nameWithType: ctl_scaling_settings_t
   fullName: IGCLWrapper.ctl_scaling_settings_t
-- uid: IGCLWrapper.ScalingSettingsDto
-  commentId: T:IGCLWrapper.ScalingSettingsDto
-  parent: IGCLWrapper
-  href: IGCLWrapper.ScalingSettingsDto.html
-  name: ScalingSettingsDto
-  nameWithType: ScalingSettingsDto
-  fullName: IGCLWrapper.ScalingSettingsDto
 - uid: IGCLWrapper.ScalingSettingsDto.ToNative*
   commentId: Overload:IGCLWrapper.ScalingSettingsDto.ToNative
   href: IGCLWrapper.ScalingSettingsDto.html#IGCLWrapper_ScalingSettingsDto_ToNative
