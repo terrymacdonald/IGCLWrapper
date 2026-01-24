@@ -105,6 +105,7 @@ items:
   - IGCLWrapper.IGCLDisplayHelper.Name
   - IGCLWrapper.IGCLDisplayHelper.PanelDescriptorAccess(IGCLWrapper.ctl_panel_descriptor_access_args_t)
   - IGCLWrapper.IGCLDisplayHelper.PixelTransformationGetConfig(IGCLWrapper.ctl_pixtx_pipe_get_config_t)
+  - IGCLWrapper.IGCLDisplayHelper.PixelTransformationGetConfig(IGCLWrapper.ctl_pixtx_pipe_get_config_t,IGCLWrapper.ctl_pixtx_block_config_t[])
   - IGCLWrapper.IGCLDisplayHelper.PixelTransformationSetConfig(IGCLWrapper.ctl_pixtx_pipe_set_config_t)
   - IGCLWrapper.IGCLDisplayHelper.SetBrightnessSetting(IGCLWrapper.ctl_set_brightness_t)
   - IGCLWrapper.IGCLDisplayHelper.SetCurrentScaling(IGCLWrapper.ScalingSettingsDto)
@@ -2785,6 +2786,47 @@ items:
       description: Tuple containing config and block array.
     content.vb: Public Function PixelTransformationGetConfig(args As ctl_pixtx_pipe_get_config_t) As (config As ctl_pixtx_pipe_get_config_t, blocks As ctl_pixtx_block_config_t())
   overload: IGCLWrapper.IGCLDisplayHelper.PixelTransformationGetConfig*
+- uid: IGCLWrapper.IGCLDisplayHelper.PixelTransformationGetConfig(IGCLWrapper.ctl_pixtx_pipe_get_config_t,IGCLWrapper.ctl_pixtx_block_config_t[])
+  commentId: M:IGCLWrapper.IGCLDisplayHelper.PixelTransformationGetConfig(IGCLWrapper.ctl_pixtx_pipe_get_config_t,IGCLWrapper.ctl_pixtx_block_config_t[])
+  id: PixelTransformationGetConfig(IGCLWrapper.ctl_pixtx_pipe_get_config_t,IGCLWrapper.ctl_pixtx_block_config_t[])
+  parent: IGCLWrapper.IGCLDisplayHelper
+  langs:
+  - csharp
+  - vb
+  name: PixelTransformationGetConfig(ctl_pixtx_pipe_get_config_t, ctl_pixtx_block_config_t[])
+  nameWithType: IGCLDisplayHelper.PixelTransformationGetConfig(ctl_pixtx_pipe_get_config_t, ctl_pixtx_block_config_t[])
+  fullName: IGCLWrapper.IGCLDisplayHelper.PixelTransformationGetConfig(IGCLWrapper.ctl_pixtx_pipe_get_config_t, IGCLWrapper.ctl_pixtx_block_config_t[])
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: PixelTransformationGetConfig
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 1237
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get pixel transformation configuration using the provided blocks.
+  example: []
+  syntax:
+    content: public (ctl_pixtx_pipe_get_config_t config, ctl_pixtx_block_config_t[] blocks) PixelTransformationGetConfig(ctl_pixtx_pipe_get_config_t args, ctl_pixtx_block_config_t[] blocks)
+    parameters:
+    - id: args
+      type: IGCLWrapper.ctl_pixtx_pipe_get_config_t
+      description: Pipe get config arguments.
+    - id: blocks
+      type: IGCLWrapper.ctl_pixtx_block_config_t[]
+      description: Block configs to query.
+    return:
+      type: System.ValueTuple{IGCLWrapper.ctl_pixtx_pipe_get_config_t,IGCLWrapper.ctl_pixtx_block_config_t[]}
+      description: Tuple containing config and block array.
+    content.vb: Public Function PixelTransformationGetConfig(args As ctl_pixtx_pipe_get_config_t, blocks As ctl_pixtx_block_config_t()) As (config As ctl_pixtx_pipe_get_config_t, blocks As ctl_pixtx_block_config_t())
+  overload: IGCLWrapper.IGCLDisplayHelper.PixelTransformationGetConfig*
+  nameWithType.vb: IGCLDisplayHelper.PixelTransformationGetConfig(ctl_pixtx_pipe_get_config_t, ctl_pixtx_block_config_t())
+  fullName.vb: IGCLWrapper.IGCLDisplayHelper.PixelTransformationGetConfig(IGCLWrapper.ctl_pixtx_pipe_get_config_t, IGCLWrapper.ctl_pixtx_block_config_t())
+  name.vb: PixelTransformationGetConfig(ctl_pixtx_pipe_get_config_t, ctl_pixtx_block_config_t())
 - uid: IGCLWrapper.IGCLDisplayHelper.PixelTransformationSetConfig(IGCLWrapper.ctl_pixtx_pipe_set_config_t)
   commentId: M:IGCLWrapper.IGCLDisplayHelper.PixelTransformationSetConfig(IGCLWrapper.ctl_pixtx_pipe_set_config_t)
   id: PixelTransformationSetConfig(IGCLWrapper.ctl_pixtx_pipe_set_config_t)
@@ -2803,7 +2845,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PixelTransformationSetConfig
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1235
+    startLine: 1268
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2835,7 +2877,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PanelDescriptorAccess
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1249
+    startLine: 1282
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2870,7 +2912,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetPanelEdidData
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1263
+    startLine: 1296
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2901,7 +2943,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSupportedRetroScalingCapability
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1343
+    startLine: 1376
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2932,7 +2974,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSetRetroScalingNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1358
+    startLine: 1391
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2967,7 +3009,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetRetroScalingSettings
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1376
+    startLine: 1409
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2998,7 +3040,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetRetroScalingSettings
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1387
+    startLine: 1420
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3030,7 +3072,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSupportedScalingCapability
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1398
+    startLine: 1431
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3061,7 +3103,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetCurrentScalingNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1412
+    startLine: 1445
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3092,7 +3134,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetCurrentScaling
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1426
+    startLine: 1459
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3123,7 +3165,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetCurrentScalingNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1436
+    startLine: 1469
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3155,7 +3197,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetCurrentScaling
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1449
+    startLine: 1482
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3187,7 +3229,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetLACEConfigNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1458
+    startLine: 1491
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3218,7 +3260,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetLACEConfig
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1472
+    startLine: 1506
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3249,7 +3291,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetLACEConfigNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1482
+    startLine: 1516
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3281,7 +3323,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetLACEConfig
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1495
+    startLine: 1529
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3313,7 +3355,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SoftwarePSRNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1505
+    startLine: 1539
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3348,7 +3390,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SoftwarePSR
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1520
+    startLine: 1554
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3383,7 +3425,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetIntelArcSyncInfoForMonitorNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1530
+    startLine: 1564
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3414,7 +3456,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetIntelArcSyncInfoForMonitor
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1544
+    startLine: 1578
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3445,7 +3487,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumerateMuxDevices
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1554
+    startLine: 1588
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3476,7 +3518,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetMuxProperties
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1579
+    startLine: 1613
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3514,7 +3556,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SwitchMux
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1609
+    startLine: 1643
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3552,7 +3594,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetIntelArcSyncProfile
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1621
+    startLine: 1655
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3583,7 +3625,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetIntelArcSyncProfile
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1635
+    startLine: 1669
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3615,7 +3657,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EdidManagement
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1649
+    startLine: 1683
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3650,7 +3692,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetEdidManagement
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1664
+    startLine: 1698
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3685,7 +3727,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetEdidManagementWithFlags
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1675
+    startLine: 1709
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3720,7 +3762,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetCustomModesNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1725
+    startLine: 1759
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3755,7 +3797,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetCustomModes
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1759
+    startLine: 1793
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3786,7 +3828,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetCustomModes
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1771
+    startLine: 1805
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3824,7 +3866,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetVblankTimestamp
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1798
+    startLine: 1832
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3855,7 +3897,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSetDynamicContrastEnhancementNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1816
+    startLine: 1850
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3896,7 +3938,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetDynamicContrastEnhancement
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1861
+    startLine: 1905
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3927,7 +3969,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetDynamicContrastEnhancement
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1873
+    startLine: 1917
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3965,7 +4007,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSetWireFormatNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1885
+    startLine: 1929
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -4000,7 +4042,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetWireFormatNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1899
+    startLine: 1943
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -4031,7 +4073,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetWireFormat
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1914
+    startLine: 1958
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -4062,7 +4104,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetWireFormatNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1935
+    startLine: 1979
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -4094,7 +4136,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetWireFormat
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1950
+    startLine: 1994
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -4126,7 +4168,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSetDisplaySettingsNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1970
+    startLine: 2014
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -4161,7 +4203,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetDisplaySettings
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1984
+    startLine: 2028
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -4192,7 +4234,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetDisplaySettings
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1995
+    startLine: 2039
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -4224,7 +4266,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2012
+    startLine: 2056
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -5430,6 +5472,27 @@ references:
     href: IGCLWrapper.ctl_pixtx_block_config_t.html
   - name: (
   - name: )
+  - name: )
+- uid: IGCLWrapper.ctl_pixtx_block_config_t[]
+  isExternal: true
+  href: IGCLWrapper.ctl_pixtx_block_config_t.html
+  name: ctl_pixtx_block_config_t[]
+  nameWithType: ctl_pixtx_block_config_t[]
+  fullName: IGCLWrapper.ctl_pixtx_block_config_t[]
+  nameWithType.vb: ctl_pixtx_block_config_t()
+  fullName.vb: IGCLWrapper.ctl_pixtx_block_config_t()
+  name.vb: ctl_pixtx_block_config_t()
+  spec.csharp:
+  - uid: IGCLWrapper.ctl_pixtx_block_config_t
+    name: ctl_pixtx_block_config_t
+    href: IGCLWrapper.ctl_pixtx_block_config_t.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: IGCLWrapper.ctl_pixtx_block_config_t
+    name: ctl_pixtx_block_config_t
+    href: IGCLWrapper.ctl_pixtx_block_config_t.html
+  - name: (
   - name: )
 - uid: IGCLWrapper.IGCLDisplayHelper.PixelTransformationSetConfig*
   commentId: Overload:IGCLWrapper.IGCLDisplayHelper.PixelTransformationSetConfig
