@@ -7,6 +7,8 @@ using Xunit;
 namespace IGCLWrapper.FacadeTests
 {
     [SupportedOSPlatform("windows")]
+    [Collection("Passive")]
+    [Trait("Category", "Passive")]
     public class IGCLDisplayHelperTests
     {
         [SkippableFact]

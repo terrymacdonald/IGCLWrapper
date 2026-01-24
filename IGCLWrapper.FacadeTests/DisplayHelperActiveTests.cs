@@ -11,6 +11,7 @@ using SkipException = Xunit.SkipException;
 namespace IGCLWrapper.FacadeTests
 {
     [SupportedOSPlatform("windows")]
+    [Collection("ActiveDisplay")]
     public class IGCLDisplayHelperActiveTests
     {
         private const int SettlingDelayMs = 2000;
@@ -142,12 +143,11 @@ namespace IGCLWrapper.FacadeTests
                     return false;
 
                 var current = FacadeTestUtils.InvokeOrSkip(() => display.GetLACEConfig(), "LACE config unsupported");
-                if ((current.Trigger & (uint)ctl_lace_trigger_flag_t.CTL_LACE_TRIGGER_FLAG_FIXED_AGGRESSIVENESS) == 0)
-                    return false;
 
                 var updated = current;
                 updated.OpTypeSet = ctl_set_operation_t.CTL_SET_OPERATION_CUSTOM;
                 updated.Enabled = true;
+                updated.Trigger = (uint)ctl_lace_trigger_flag_t.CTL_LACE_TRIGGER_FLAG_FIXED_AGGRESSIVENESS;
 
                 var newAggressiveness = PickDifferentAggressiveness(current.LaceConfig.FixedAggressivenessLevelPercent);
                 if (newAggressiveness == current.LaceConfig.FixedAggressivenessLevelPercent)
@@ -198,16 +198,17 @@ namespace IGCLWrapper.FacadeTests
         {
             RunActiveDisplayTest(nameof(SetDynamicContrastEnhancement_ShouldApplyAndRevert_WhenSupported), display =>
             {
+                var encoder = FacadeTestUtils.InvokeOrSkip(() => display.GetAdapterDisplayEncoderProperties(), "Encoder properties unsupported");
+                var isInternal = (encoder.EncoderConfigFlags & (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_INTERNAL_DISPLAY) != 0;
+                if (!isInternal)
+                    return false;
+
                 var currentResult = FacadeTestUtils.InvokeOrSkip(() => display.GetDynamicContrastEnhancement(), "DCE unsupported");
                 var current = currentResult.args;
                 if (!current.IsSupported)
                     return false;
 
                 var histogram = currentResult.histogram;
-                if (histogram.Length == 0 && current.NumBins > 0)
-                    histogram = new uint[current.NumBins];
-                if (histogram.Length == 0)
-                    return false;
 
                 if (!TryBuildDceUpdate(current, out var updated))
                     return false;
@@ -259,11 +260,18 @@ namespace IGCLWrapper.FacadeTests
         {
             RunActiveDisplayTest(nameof(PixelTransformationSetConfig_ShouldApplyAndRevert_WhenSupported), display =>
             {
-                var query = IGCLDisplayHelper.CreatePixtxPipeGetConfig();
-                query.QueryType = ctl_pixtx_config_query_type_t.CTL_PIXTX_CONFIG_QUERY_TYPE_CURRENT;
+                var capabilityQuery = IGCLDisplayHelper.CreatePixtxPipeGetConfig();
+                capabilityQuery.QueryType = ctl_pixtx_config_query_type_t.CTL_PIXTX_CONFIG_QUERY_TYPE_CAPABILITY;
 
-                var result = FacadeTestUtils.InvokeOrSkip(() => display.PixelTransformationGetConfig(query), "Pixel transformation unsupported");
-                if (!TryBuildPixTxMatrixUpdate(result.blocks, out var original, out var updated))
+                var capability = FacadeTestUtils.InvokeOrSkip(() => display.PixelTransformationGetConfig(capabilityQuery), "Pixel transformation unsupported");
+                if (!TryPickPixTxMatrixBlock(capability.blocks, out var block))
+                    return false;
+
+                PrepareMatrixBlock(ref block);
+                var currentQuery = IGCLDisplayHelper.CreatePixtxPipeGetConfig();
+                currentQuery.QueryType = ctl_pixtx_config_query_type_t.CTL_PIXTX_CONFIG_QUERY_TYPE_CURRENT;
+                var current = FacadeTestUtils.InvokeOrSkip(() => display.PixelTransformationGetConfig(currentQuery, new[] { block }), "Pixel transformation unsupported");
+                if (!TryBuildPixTxMatrixUpdate(current.blocks, out var original, out var updated))
                     return false;
 
                 ApplyAndRevert(() => SetPixTxConfig(display, updated), () => SetPixTxConfig(display, original));
@@ -408,6 +416,7 @@ namespace IGCLWrapper.FacadeTests
             {
                 apply();
                 applied = true;
+                Thread.Sleep(500);
                 WaitForSettle();
             }
             finally
@@ -661,25 +670,13 @@ namespace IGCLWrapper.FacadeTests
                 (uint)ctl_retro_scaling_type_flag_t.CTL_RETRO_SCALING_TYPE_FLAG_NEAREST_NEIGHBOUR
             });
 
-            if (current.Enable)
-            {
-                if (newType != 0 && newType != current.RetroScalingType)
-                {
-                    updated.RetroScalingType = newType;
-                }
-                else
-                {
-                    updated.Enable = false;
-                }
-            }
-            else
-            {
-                updated.Enable = true;
-                if (newType != 0)
-                    updated.RetroScalingType = newType;
-            }
+            if (newType == 0)
+                return false;
 
-            return updated.Enable != current.Enable || updated.RetroScalingType != current.RetroScalingType;
+            updated.RetroScalingType = newType;
+            updated.Enable = true;
+
+            return updated.RetroScalingType != current.RetroScalingType || updated.Enable != current.Enable;
         }
 
         private static bool TryBuildScalingUpdate(ctl_scaling_caps_t caps, ScalingSettingsDto current, out ScalingSettingsDto updated)
@@ -880,6 +877,26 @@ namespace IGCLWrapper.FacadeTests
                     return false;
 
                 matrixValues[0] = newValue;
+                return true;
+            }
+
+            return false;
+        }
+
+        private static bool TryPickPixTxMatrixBlock(ctl_pixtx_block_config_t[] blocks, out ctl_pixtx_block_config_t matrixBlock)
+        {
+            matrixBlock = default;
+
+            for (var i = 0; i < blocks.Length; i++)
+            {
+                var block = blocks[i];
+                if (block.BlockType != ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX &&
+                    block.BlockType != ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX_AND_OFFSETS)
+                {
+                    continue;
+                }
+
+                matrixBlock = block;
                 return true;
             }
 

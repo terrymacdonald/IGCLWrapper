@@ -1230,6 +1230,39 @@ namespace IGCLWrapper
         }
 
         /// <summary>
+        /// Get pixel transformation configuration using the provided blocks.
+        /// </summary>
+        /// <param name="args">Pipe get config arguments.</param>
+        /// <param name="blocks">Block configs to query.</param>
+        /// <returns>Tuple containing config and block array.</returns>
+        public unsafe (ctl_pixtx_pipe_get_config_t config, ctl_pixtx_block_config_t[] blocks) PixelTransformationGetConfig(ctl_pixtx_pipe_get_config_t args, ctl_pixtx_block_config_t[] blocks)
+        {
+            ThrowIfDisposed();
+
+            if (blocks == null || blocks.Length == 0)
+                return PixelTransformationGetConfig(args);
+
+            var config = args;
+            for (var i = 0; i < blocks.Length; i++)
+            {
+                blocks[i].Size = (uint)sizeof(ctl_pixtx_block_config_t);
+                blocks[i].Version = 0;
+            }
+
+            fixed (ctl_pixtx_block_config_t* pBlocks = blocks)
+            {
+                config.NumBlocks = (uint)blocks.Length;
+                config.pBlockConfigs = pBlocks;
+                var result = IGCL.ctlPixelTransformationGetConfig((_ctl_display_output_handle_t*)DisplayHandle, &config);
+                config.pBlockConfigs = null;
+                if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                    throw new IGCLException(result, "Failed to get pixel transformation config");
+            }
+
+            return (config, blocks);
+        }
+
+        /// <summary>
         /// Set pixel transformation configuration.
         /// </summary>
         /// <param name="args">Pipe set config arguments.</param>
@@ -1460,6 +1493,7 @@ namespace IGCLWrapper
         {
             ThrowIfDisposed();
             var config = CreateLaceConfig();
+            config.OpTypeGet = (uint)ctl_get_operation_flag_t.CTL_GET_OPERATION_FLAG_CURRENT;
             var result = IGCL.ctlGetLACEConfig((_ctl_display_output_handle_t*)DisplayHandle, &config);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get LACE config");
@@ -1819,19 +1853,29 @@ namespace IGCLWrapper
             ThrowIfDisposed();
             var request = args;
 
-            // Set path: caller provided histogram to write
-            if (histogram != null && histogram.Length > 0)
+            if (request.Set != 0)
             {
-                request.NumBins = (uint)histogram.Length;
-                fixed (uint* pHist = histogram)
+                // Set path: caller provided histogram to write
+                if (histogram != null && histogram.Length > 0)
                 {
-                    request.pHistogram = pHist;
-                    var setResult = IGCL.ctlGetSetDynamicContrastEnhancement((_ctl_display_output_handle_t*)DisplayHandle, &request);
-                    request.pHistogram = null;
-                    if (setResult != ctl_result_t.CTL_RESULT_SUCCESS)
-                        throw new IGCLException(setResult, "Failed to set dynamic contrast enhancement");
+                    request.NumBins = (uint)histogram.Length;
+                    fixed (uint* pHist = histogram)
+                    {
+                        request.pHistogram = pHist;
+                        var setResult = IGCL.ctlGetSetDynamicContrastEnhancement((_ctl_display_output_handle_t*)DisplayHandle, &request);
+                        request.pHistogram = null;
+                        if (setResult != ctl_result_t.CTL_RESULT_SUCCESS)
+                            throw new IGCLException(setResult, "Failed to set dynamic contrast enhancement");
+                    }
+                    return (request, histogram);
                 }
-                return (request, histogram);
+
+                request.NumBins = 0;
+                request.pHistogram = null;
+                var setResultNoHistogram = IGCL.ctlGetSetDynamicContrastEnhancement((_ctl_display_output_handle_t*)DisplayHandle, &request);
+                if (setResultNoHistogram != ctl_result_t.CTL_RESULT_SUCCESS)
+                    throw new IGCLException(setResultNoHistogram, "Failed to set dynamic contrast enhancement");
+                return (request, Array.Empty<uint>());
             }
 
             // Get path: first call to discover NumBins

@@ -149,7 +149,7 @@ foreach ($path in @($nativeProjectPath, $facadeProjectPath)) {
     Write-Host ""
     Write-Host "Running tests in $path" -ForegroundColor Yellow
     try {
-        & dotnet test $path --configuration Debug --verbosity normal --filter "Category!=Active"
+        & dotnet test $path --configuration Debug --verbosity normal --filter "Category=Passive"
         if ($LASTEXITCODE -ne 0) {
             Write-Host ""
             Write-Host "*** TESTS FAILED OR SKIPPED IN $path ***" -ForegroundColor Yellow

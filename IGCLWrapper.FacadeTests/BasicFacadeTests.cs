@@ -7,6 +7,8 @@ using System.Runtime.Versioning;
 namespace IGCLWrapper.FacadeTests
 {
     [SupportedOSPlatform("windows")]
+    [Collection("Passive")]
+    [Trait("Category", "Passive")]
     public class BasicFacadeTests
     {
         private static void SkipIfNoHardwareOrDll()
