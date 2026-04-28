@@ -717,8 +717,9 @@ namespace IGCLWrapper
             }
 
             var childCapacity = maxOutputs > 0 ? maxOutputs : IGCL.CTL_MAX_DISPLAYS_FOR_MGPU_COLLAGE;
-            var children = new ctl_combined_display_child_info_t[childCapacity];
-            fixed (ctl_combined_display_child_info_t* pChildren = children)
+            var pChildren = stackalloc ctl_combined_display_child_info_t[childCapacity];
+            for (var i = 0; i < childCapacity; i++)
+                pChildren[i] = default;
             {
                 var query = new ctl_combined_display_args_t
                 {
@@ -759,7 +760,7 @@ namespace IGCLWrapper
                         NumOutputs = 0,
                         CombinedDesktopWidth = query.CombinedDesktopWidth,
                         CombinedDesktopHeight = query.CombinedDesktopHeight,
-                        CombinedDisplayOutput = (IntPtr)query.hCombinedDisplayOutput,
+                        CombinedDisplayOutputWindowsDisplayEncoderId = 0,
                         ChildInfos = new List<CombinedDisplayChildInfoDto>()
                     };
                 }
@@ -783,16 +784,14 @@ namespace IGCLWrapper
 
             if (args.OpType == ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_DISABLE)
             {
-                var combinedOutput = args.CombinedDisplayOutput;
-                if (combinedOutput == IntPtr.Zero)
-                    combinedOutput = FindCombinedDisplayOutputHandle();
+                var combinedOutput = FindCombinedDisplayOutputHandle();
                 if (combinedOutput == IntPtr.Zero)
                     throw new InvalidOperationException("Combined display output handle not found for disable.");
 
-                var disableChildren = new ctl_combined_display_child_info_t[1];
                 unsafe
                 {
-                    fixed (ctl_combined_display_child_info_t* pDisableChildren = disableChildren)
+                    var pDisableChildren = stackalloc ctl_combined_display_child_info_t[1];
+                    pDisableChildren[0] = default;
                     {
                         var disableArgs = new ctl_combined_display_args_t
                         {
@@ -831,11 +830,11 @@ namespace IGCLWrapper
             if (childInfos.Count < numOutputs)
                 throw new ArgumentException("ChildInfos length does not match NumOutputs.", nameof(args));
 
-            var desiredChildren = new CombinedDisplayChildInfoDto[numOutputs];
+            var desiredChildren = new List<CombinedDisplayChildInfoDto>(numOutputs);
             for (var i = 0; i < numOutputs; i++)
-                desiredChildren[i] = childInfos[i];
+                desiredChildren.Add(childInfos[i]);
 
-            for (var i = 0; i < desiredChildren.Length; i++)
+            for (var i = 0; i < desiredChildren.Count; i++)
             {
                 var orientation = desiredChildren[i].DisplayOrientation;
                 if (orientation != ctl_display_orientation_t.CTL_DISPLAY_ORIENTATION_0 &&
@@ -902,15 +901,15 @@ namespace IGCLWrapper
                 throw new InvalidOperationException($"Combined display requires {numOutputs} active outputs but only {activeOutputs.Count} are available.");
             }
 
-            var activeOutputHandles = new HashSet<IntPtr>();
+            var activeEncoderIds = new HashSet<uint>();
             for (var i = 0; i < activeOutputs.Count; i++)
-                activeOutputHandles.Add(activeOutputs[i].Handle);
+                activeEncoderIds.Add(activeOutputs[i].EncoderId);
 
             var allConnected = true;
-            for (var i = 0; i < desiredChildren.Length; i++)
+            for (var i = 0; i < desiredChildren.Count; i++)
             {
-                var handle = desiredChildren[i].DisplayOutput;
-                if (handle == IntPtr.Zero || !activeOutputHandles.Contains(handle))
+                var encoderId = desiredChildren[i].DisplayOutputWindowsDisplayEncoderId;
+                if (encoderId == 0 || !activeEncoderIds.Contains(encoderId))
                 {
                     allConnected = false;
                     break;
@@ -921,8 +920,8 @@ namespace IGCLWrapper
             {
                 var remainingOutputs = new List<(IntPtr Handle, int Width, int Height, uint EncoderId)>(activeOutputs);
 
-                var childIndexes = new List<int>(desiredChildren.Length);
-                for (var i = 0; i < desiredChildren.Length; i++)
+                var childIndexes = new List<int>(desiredChildren.Count);
+                for (var i = 0; i < desiredChildren.Count; i++)
                     childIndexes.Add(i);
 
                 // Order children by intended src layout (bottom-to-top, left-to-right).
@@ -966,7 +965,9 @@ namespace IGCLWrapper
                     if (matchIndex < 0)
                         matchIndex = 0;
 
-                    desiredChildren[childIndex].DisplayOutput = remainingOutputs[matchIndex].Handle;
+                    var child = desiredChildren[childIndex];
+                    child.DisplayOutputWindowsDisplayEncoderId = remainingOutputs[matchIndex].EncoderId;
+                    desiredChildren[childIndex] = child;
                     remainingOutputs.RemoveAt(matchIndex);
                 }
             }
@@ -977,7 +978,7 @@ namespace IGCLWrapper
             {
                 var maxRight = 0;
                 var maxBottom = 0;
-                for (var i = 0; i < desiredChildren.Length; i++)
+                for (var i = 0; i < desiredChildren.Count; i++)
                 {
                     var rect = desiredChildren[i].FbSrc;
                     if (rect.Right > maxRight)
@@ -992,15 +993,23 @@ namespace IGCLWrapper
                     combinedHeight = (uint)maxBottom;
             }
 
-            var nativeChildren = new ctl_combined_display_child_info_t[numOutputs];
-            for (var i = 0; i < nativeChildren.Length; i++)
-            {
-                nativeChildren[i] = desiredChildren[i].ToNative();
-            }
-
             unsafe
             {
-                fixed (ctl_combined_display_child_info_t* pChildInfo = nativeChildren)
+                var pChildInfo = stackalloc ctl_combined_display_child_info_t[numOutputs];
+                for (var i = 0; i < numOutputs; i++)
+                {
+                    pChildInfo[i] = desiredChildren[i].ToNative();
+                    // Resolve native handle from encoder ID
+                    var encoderId = desiredChildren[i].DisplayOutputWindowsDisplayEncoderId;
+                    for (var j = 0; j < activeOutputs.Count; j++)
+                    {
+                        if (activeOutputs[j].EncoderId == encoderId)
+                        {
+                            pChildInfo[i].hDisplayOutput = (_ctl_display_output_handle_t*)activeOutputs[j].Handle;
+                            break;
+                        }
+                    }
+                }
                 {
                     var supportArgs = new ctl_combined_display_args_t
                     {
@@ -1445,6 +1454,73 @@ namespace IGCLWrapper
     }
 
     /// <summary>
+    /// DTO for a single genlock display info entry.
+    /// </summary>
+    public struct GenlockDisplayInfoDto : IEquatable<GenlockDisplayInfoDto>
+    {
+        /// <summary>
+        /// Indicates whether this display is the primary genlock display.
+        /// </summary>
+        public bool IsPrimary;
+
+        public bool Equals(GenlockDisplayInfoDto other) => IsPrimary == other.IsPrimary;
+        public override bool Equals(object? obj) => obj is GenlockDisplayInfoDto other && Equals(other);
+        public override int GetHashCode() => IsPrimary.GetHashCode();
+
+        public static GenlockDisplayInfoDto FromNative(ctl_genlock_display_info_t native)
+        {
+            return new GenlockDisplayInfoDto
+            {
+                IsPrimary = native.IsPrimary != 0
+            };
+        }
+    }
+
+    /// <summary>
+    /// DTO for a single genlock target mode list entry.
+    /// </summary>
+    public struct GenlockTargetModeListDto : IEquatable<GenlockTargetModeListDto>
+    {
+        /// <summary>
+        /// Target modes available for this display.
+        /// </summary>
+        public List<DisplayTimingDto>? TargetModes;
+
+        public bool Equals(GenlockTargetModeListDto other)
+        {
+            if (TargetModes == null && other.TargetModes == null) return true;
+            if (TargetModes == null || other.TargetModes == null) return false;
+            if (TargetModes.Count != other.TargetModes.Count) return false;
+            for (var i = 0; i < TargetModes.Count; i++)
+                if (!TargetModes[i].Equals(other.TargetModes[i])) return false;
+            return true;
+        }
+
+        public override bool Equals(object? obj) => obj is GenlockTargetModeListDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            if (TargetModes != null)
+                for (var i = 0; i < TargetModes.Count; i++)
+                    hash.Add(TargetModes[i]);
+            return hash.ToHashCode();
+        }
+
+        public static unsafe GenlockTargetModeListDto FromNative(ctl_genlock_target_mode_list_t native)
+        {
+            List<DisplayTimingDto>? modes = null;
+            if (native.pTargetModes != null && native.NumModes > 0)
+            {
+                modes = new List<DisplayTimingDto>((int)native.NumModes);
+                for (var i = 0; i < (int)native.NumModes; i++)
+                    modes.Add(DisplayTimingDto.FromNative(native.pTargetModes[i]));
+            }
+            return new GenlockTargetModeListDto { TargetModes = modes };
+        }
+    }
+
+    /// <summary>
     /// DTO for genlock topology.
     /// </summary>
     public struct GenlockTopologyDto : IEquatable<GenlockTopologyDto>
@@ -1462,13 +1538,13 @@ namespace IGCLWrapper
         /// </summary>
         public DisplayTimingDto CommonTargetMode;
         /// <summary>
-        /// Pointer to native genlock display info.
+        /// Managed genlock display info list.
         /// </summary>
-        public IntPtr GenlockDisplayInfo;
+        public List<GenlockDisplayInfoDto>? GenlockDisplayInfos;
         /// <summary>
-        /// Pointer to native genlock mode list.
+        /// Managed genlock mode lists.
         /// </summary>
-        public IntPtr GenlockModeList;
+        public List<GenlockTargetModeListDto>? GenlockModeLists;
 
         public bool Equals(GenlockTopologyDto other)
         {
@@ -1495,8 +1571,8 @@ namespace IGCLWrapper
                 NumGenlockDisplays = native.NumGenlockDisplays,
                 IsPrimaryGenlockSystem = IGCLDisplayDtoBool.ToBool(native.IsPrimaryGenlockSystem),
                 CommonTargetMode = DisplayTimingDto.FromNative(native.CommonTargetMode),
-                GenlockDisplayInfo = (IntPtr)native.pGenlockDisplayInfo,
-                GenlockModeList = (IntPtr)native.pGenlockModeList
+                GenlockDisplayInfos = null,
+                GenlockModeLists = null
             };
         }
 
@@ -1504,11 +1580,11 @@ namespace IGCLWrapper
         {
             return new ctl_genlock_topology_t
             {
-                NumGenlockDisplays = NumGenlockDisplays,
+                NumGenlockDisplays = NumGenlockDisplays == 0 && GenlockDisplayInfos != null ? (byte)GenlockDisplayInfos.Count : NumGenlockDisplays,
                 IsPrimaryGenlockSystem = IGCLDisplayDtoBool.ToByte(IsPrimaryGenlockSystem),
                 CommonTargetMode = CommonTargetMode.ToNative(),
-                pGenlockDisplayInfo = (ctl_genlock_display_info_t*)GenlockDisplayInfo,
-                pGenlockModeList = (ctl_genlock_target_mode_list_t*)GenlockModeList
+                pGenlockDisplayInfo = null,
+                pGenlockModeList = null
             };
         }
     }
@@ -1831,17 +1907,13 @@ namespace IGCLWrapper
         /// </summary>
         public uint CombinedDesktopHeight;
         /// <summary>
-        /// Pointer to child info.
-        /// </summary>
-        public IntPtr ChildInfo;
-        /// <summary>
         /// Managed child display info list.
         /// </summary>
         public List<CombinedDisplayChildInfoDto>? ChildInfos;
         /// <summary>
-        /// Combined display output handle.
+        /// Combined display output Windows display encoder identifier.
         /// </summary>
-        public IntPtr CombinedDisplayOutput;
+        public uint CombinedDisplayOutputWindowsDisplayEncoderId;
 
         /// <summary>
         /// Compare combined display args while ignoring pointer fields.
@@ -1850,7 +1922,7 @@ namespace IGCLWrapper
         /// <returns>True when equal; otherwise, false.</returns>
         public bool Equals(CombinedDisplayArgsDto other)
         {
-            // ChildInfo and CombinedDisplayOutput are pointers and are intentionally excluded.
+              // CombinedDisplayOutput is a pointer and is intentionally excluded.
                  return OpType == other.OpType &&
                    IsSupported == other.IsSupported &&
                    NumOutputs == other.NumOutputs &&
@@ -1903,8 +1975,7 @@ namespace IGCLWrapper
                 NumOutputs = native.NumOutputs,
                 CombinedDesktopWidth = native.CombinedDesktopWidth,
                 CombinedDesktopHeight = native.CombinedDesktopHeight,
-                ChildInfo = (IntPtr)native.pChildInfo,
-                CombinedDisplayOutput = (IntPtr)native.hCombinedDisplayOutput
+                CombinedDisplayOutputWindowsDisplayEncoderId = 0
             };
         }
 
@@ -1925,11 +1996,11 @@ namespace IGCLWrapper
                 Version = version,
                 OpType = OpType,
                 IsSupported = IGCLDisplayDtoBool.ToByte(IsSupported),
-                NumOutputs = NumOutputs,
+                NumOutputs = NumOutputs == 0 && ChildInfos != null ? (byte)ChildInfos.Count : NumOutputs,
                 CombinedDesktopWidth = CombinedDesktopWidth,
                 CombinedDesktopHeight = CombinedDesktopHeight,
-                pChildInfo = (ctl_combined_display_child_info_t*)ChildInfo,
-                hCombinedDisplayOutput = (_ctl_display_output_handle_t*)CombinedDisplayOutput
+                pChildInfo = null,
+                hCombinedDisplayOutput = null
             };
         }
 
@@ -1956,9 +2027,9 @@ namespace IGCLWrapper
     public unsafe struct CombinedDisplayChildInfoDto : IEquatable<CombinedDisplayChildInfoDto>
     {
         /// <summary>
-        /// Display output handle.
+        /// Windows display encoder identifier for the display output.
         /// </summary>
-        public IntPtr DisplayOutput;
+        public uint DisplayOutputWindowsDisplayEncoderId;
         /// <summary>
         /// Framebuffer source rect.
         /// </summary>
@@ -1983,7 +2054,6 @@ namespace IGCLWrapper
         /// <returns>True when equal; otherwise, false.</returns>
         public bool Equals(CombinedDisplayChildInfoDto other)
         {
-            // DisplayOutput is a pointer and TargetMode.ReservedFields are ignored.
             return FbSrc.Equals(other.FbSrc) &&
                    FbPos.Equals(other.FbPos) &&
                    DisplayOrientation == other.DisplayOrientation &&
@@ -2024,7 +2094,7 @@ namespace IGCLWrapper
         {
             return new CombinedDisplayChildInfoDto
             {
-                DisplayOutput = (IntPtr)native.hDisplayOutput,
+                DisplayOutputWindowsDisplayEncoderId = 0,
                 FbSrc = RectDto.FromNative(native.FbSrc),
                 FbPos = RectDto.FromNative(native.FbPos),
                 DisplayOrientation = native.DisplayOrientation,
@@ -2033,14 +2103,14 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Convert this DTO to a native struct.
+        /// Convert this DTO to a native struct (hDisplayOutput is null; caller must set it).
         /// </summary>
         /// <returns>Child info struct.</returns>
         public ctl_combined_display_child_info_t ToNative()
         {
             return new ctl_combined_display_child_info_t
             {
-                hDisplayOutput = (_ctl_display_output_handle_t*)DisplayOutput,
+                hDisplayOutput = null,
                 FbSrc = FbSrc.ToNative(),
                 FbPos = FbPos.ToNative(),
                 DisplayOrientation = DisplayOrientation,

@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace IGCLWrapper
 {
@@ -52,10 +54,10 @@ namespace IGCLWrapper
         /// <returns>Updated 3D feature DTO.</returns>
         public ThreeDFeatureGetSetDto Get3DFeature(ThreeDFeatureGetSetDto feature)
         {
+            ThrowIfDisposed();
             var request = feature;
             request.Set = false;
-            var native = GetSet3DFeatureNative(request.ToNative());
-            return ThreeDFeatureGetSetDto.FromNative(native);
+            return ExecuteGetSet3DFeature(request);
         }
 
         /// <summary>
@@ -64,9 +66,49 @@ namespace IGCLWrapper
         /// <param name="feature">3D feature DTO.</param>
         public void Set3DFeature(ThreeDFeatureGetSetDto feature)
         {
+            ThrowIfDisposed();
             var request = feature;
             request.Set = true;
-            GetSet3DFeatureNative(request.ToNative());
+            _ = ExecuteGetSet3DFeature(request);
+        }
+
+        private unsafe ThreeDFeatureGetSetDto ExecuteGetSet3DFeature(ThreeDFeatureGetSetDto request)
+        {
+            var native = request.ToNative();
+
+            var appName = request.ApplicationName;
+            if (!string.IsNullOrEmpty(appName))
+            {
+                var maxLen = Math.Min(appName.Length, sbyte.MaxValue);
+                unsafe
+                {
+                    sbyte* pApplicationName = stackalloc sbyte[maxLen + 1];
+                    for (var i = 0; i < maxLen; i++)
+                    {
+                        var c = appName[i];
+                        pApplicationName[i] = c <= sbyte.MaxValue ? unchecked((sbyte)c) : (sbyte)'?';
+                    }
+                    pApplicationName[maxLen] = 0;
+                    native.ApplicationName = pApplicationName;
+                    native.ApplicationNameLength = (sbyte)maxLen;
+                }
+            }
+
+            var customValue = request.CustomValue;
+            if (customValue != null && customValue.Count > 0)
+            {
+                unsafe
+                {
+                    byte* pCustomValue = stackalloc byte[customValue.Count];
+                    for (var i = 0; i < customValue.Count; i++)
+                        pCustomValue[i] = customValue[i];
+                    native.pCustomValue = pCustomValue;
+                    native.CustomValueSize = customValue.Count;
+                }
+            }
+
+            var updated = GetSet3DFeatureNative(native);
+            return ThreeDFeatureGetSetDto.FromNative(updated);
         }
 
         private void ThrowIfDisposed()
@@ -353,13 +395,9 @@ namespace IGCLWrapper
         /// </summary>
         public ctl_3d_feature_t FeatureType;
         /// <summary>
-        /// Pointer to application name (optional).
+        /// Optional application name.
         /// </summary>
-        public IntPtr ApplicationName;
-        /// <summary>
-        /// Length of the application name.
-        /// </summary>
-        public sbyte ApplicationNameLength;
+        public string? ApplicationName;
         /// <summary>
         /// True to set the feature, false to get.
         /// </summary>
@@ -373,28 +411,23 @@ namespace IGCLWrapper
         /// </summary>
         public PropertyDto Value;
         /// <summary>
-        /// Size of the custom value buffer.
+        /// Custom value bytes.
         /// </summary>
-        public int CustomValueSize;
-        /// <summary>
-        /// Pointer to custom value buffer.
-        /// </summary>
-        public IntPtr CustomValue;
+        public List<byte>? CustomValue;
 
         /// <summary>
-        /// Compare 3D feature get/set args while ignoring pointer fields.
+        /// Compare 3D feature get/set data while ignoring pointer fields.
         /// </summary>
         /// <param name="other">Other args instance.</param>
         /// <returns>True when equal; otherwise, false.</returns>
         public bool Equals(ThreeDFeatureGetSetDto other)
         {
-            // ApplicationName and CustomValue are pointers and are intentionally excluded.
-                 return FeatureType == other.FeatureType &&
-                   ApplicationNameLength == other.ApplicationNameLength &&
+            return FeatureType == other.FeatureType &&
                    Set == other.Set &&
                    ValueType == other.ValueType &&
                    Value.Equals(other.Value) &&
-                   CustomValueSize == other.CustomValueSize;
+                   string.Equals(ApplicationName, other.ApplicationName, StringComparison.Ordinal) &&
+                   AreByteListsEqual(CustomValue, other.CustomValue);
         }
 
         /// <summary>
@@ -412,11 +445,16 @@ namespace IGCLWrapper
         {
             var hash = new HashCode();
             hash.Add(FeatureType);
-            hash.Add(ApplicationNameLength);
+            hash.Add(ApplicationName, StringComparer.Ordinal);
             hash.Add(Set);
             hash.Add(ValueType);
             hash.Add(Value);
-            hash.Add(CustomValueSize);
+            if (CustomValue != null)
+            {
+                hash.Add(CustomValue.Count);
+                for (var i = 0; i < CustomValue.Count; i++)
+                    hash.Add(CustomValue[i]);
+            }
             return hash.ToHashCode();
         }
 
@@ -432,18 +470,16 @@ namespace IGCLWrapper
                 Size = native.Size,
                 Version = native.Version,
                 FeatureType = native.FeatureType,
-                ApplicationName = (IntPtr)native.ApplicationName,
-                ApplicationNameLength = native.ApplicationNameLength,
+                ApplicationName = ReadAsciiString(native.ApplicationName, native.ApplicationNameLength),
                 Set = IGCL3DDtoBool.ToBool(native.bSet),
                 ValueType = native.ValueType,
                 Value = PropertyDto.FromNative(native.Value),
-                CustomValueSize = native.CustomValueSize,
-                CustomValue = (IntPtr)native.pCustomValue
+                CustomValue = ReadCustomValue(native.pCustomValue, native.CustomValueSize)
             };
         }
 
         /// <summary>
-        /// Convert this DTO to a native struct.
+        /// Convert this DTO to a native struct (pointers are null; pin at call site).
         /// </summary>
         /// <returns>3D feature get/set struct.</returns>
         public ctl_3d_feature_getset_t ToNative()
@@ -457,14 +493,51 @@ namespace IGCLWrapper
                 Size = size,
                 Version = Version,
                 FeatureType = FeatureType,
-                ApplicationName = (sbyte*)ApplicationName,
-                ApplicationNameLength = ApplicationNameLength,
+                ApplicationName = null,
+                ApplicationNameLength = string.IsNullOrEmpty(ApplicationName) ? (sbyte)0 : (sbyte)Math.Min(ApplicationName.Length, sbyte.MaxValue),
                 bSet = IGCL3DDtoBool.ToByte(Set),
                 ValueType = ValueType,
                 Value = Value.ToNative(),
-                CustomValueSize = CustomValueSize,
-                pCustomValue = (void*)CustomValue
+                CustomValueSize = CustomValue == null ? 0 : CustomValue.Count,
+                pCustomValue = null
             };
+        }
+
+        private static unsafe string ReadAsciiString(sbyte* pValue, sbyte length)
+        {
+            if (pValue == null || length <= 0)
+                return string.Empty;
+
+            return new string(pValue, 0, length, Encoding.ASCII);
+        }
+
+        private static unsafe List<byte>? ReadCustomValue(void* pValue, int size)
+        {
+            if (pValue == null || size <= 0)
+                return null;
+
+            var values = new List<byte>(size);
+            var pBytes = (byte*)pValue;
+            for (var i = 0; i < size; i++)
+                values.Add(pBytes[i]);
+
+            return values;
+        }
+
+        private static bool AreByteListsEqual(List<byte>? left, List<byte>? right)
+        {
+            if (ReferenceEquals(left, right))
+                return true;
+            if (left == null || right == null)
+                return false;
+            if (left.Count != right.Count)
+                return false;
+            for (var i = 0; i < left.Count; i++)
+            {
+                if (left[i] != right[i])
+                    return false;
+            }
+            return true;
         }
     }
 }

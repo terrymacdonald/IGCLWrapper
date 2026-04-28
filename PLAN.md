@@ -98,3 +98,15 @@ Convert DTOs in IGCLWrapper/IGCLDisplayHelper.cs so DTO object graphs contain on
 - 2026-04-28: Wave 3 Phase E completed in IGCLApiHelper.cs, IGCLDisplayHelper.cs, IGCLMediaHelper.cs, IGCLOverclockHelper.cs, and IGCLFirmwareHelper.cs (converted DTO collection fields from managed arrays to `List<T>` and updated conversion/equality/hash helpers accordingly).
 - 2026-04-28: Wave 3 Phase F completed in IGCLDisplayHelper.cs and IGCLLedHelper.cs (`DisplaySettingsDto.Reserved` moved to managed `List<uint>` and `LedStateDto.Color` moved to managed `LedColorDto`).
 - 2026-04-28: Wave 3 Phase G completed (`dotnet build IGCLWrapper/IGCLWrapper.csproj -v minimal` succeeded).
+
+## Facade Helper DTO Conversion (Wave 4 - ChildInfo List-Only Marshalling)
+
+### Phase Status
+- [x] Phase H: Remove `CombinedDisplayArgsDto.ChildInfo` pointer field and use `ChildInfos` as the managed source of truth
+- [x] Phase I: Replace managed-array combined-display marshalling paths with `List<T>` + `stackalloc`
+- [x] Phase J: Build validation
+
+### Progress Log (Wave 4)
+- 2026-04-28: Wave 4 Phase H completed in IGCLApiHelper.cs (`CombinedDisplayArgsDto.ChildInfo` removed; `ToNative()` now derives `NumOutputs` from `ChildInfos` when needed and leaves native `pChildInfo` null for call-site marshalling).
+- 2026-04-28: Wave 4 Phase I completed in IGCLApiHelper.cs (combined display get/set marshalling paths changed from managed arrays to `List<CombinedDisplayChildInfoDto>` and `stackalloc ctl_combined_display_child_info_t[...]`).
+- 2026-04-28: Wave 4 Phase J completed (`dotnet build IGCLWrapper/IGCLWrapper.csproj -v minimal` succeeded).

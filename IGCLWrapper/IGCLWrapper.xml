@@ -179,12 +179,7 @@
         </member>
         <member name="F:IGCLWrapper.ThreeDFeatureGetSetDto.ApplicationName">
             <summary>
-            Pointer to application name (optional).
-            </summary>
-        </member>
-        <member name="F:IGCLWrapper.ThreeDFeatureGetSetDto.ApplicationNameLength">
-            <summary>
-            Length of the application name.
+            Optional application name.
             </summary>
         </member>
         <member name="F:IGCLWrapper.ThreeDFeatureGetSetDto.Set">
@@ -202,19 +197,14 @@
             Feature value.
             </summary>
         </member>
-        <member name="F:IGCLWrapper.ThreeDFeatureGetSetDto.CustomValueSize">
-            <summary>
-            Size of the custom value buffer.
-            </summary>
-        </member>
         <member name="F:IGCLWrapper.ThreeDFeatureGetSetDto.CustomValue">
             <summary>
-            Pointer to custom value buffer.
+            Custom value bytes.
             </summary>
         </member>
         <member name="M:IGCLWrapper.ThreeDFeatureGetSetDto.Equals(IGCLWrapper.ThreeDFeatureGetSetDto)">
             <summary>
-            Compare 3D feature get/set args while ignoring pointer fields.
+            Compare 3D feature get/set data while ignoring pointer fields.
             </summary>
             <param name="other">Other args instance.</param>
             <returns>True when equal; otherwise, false.</returns>
@@ -241,7 +231,7 @@
         </member>
         <member name="M:IGCLWrapper.ThreeDFeatureGetSetDto.ToNative">
             <summary>
-            Convert this DTO to a native struct.
+            Convert this DTO to a native struct (pointers are null; pin at call site).
             </summary>
             <returns>3D feature get/set struct.</returns>
         </member>
@@ -845,6 +835,26 @@
             Reserved mode fields.
             </summary>
         </member>
+        <member name="T:IGCLWrapper.GenlockDisplayInfoDto">
+            <summary>
+            DTO for a single genlock display info entry.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.GenlockDisplayInfoDto.IsPrimary">
+            <summary>
+            Indicates whether this display is the primary genlock display.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.GenlockTargetModeListDto">
+            <summary>
+            DTO for a single genlock target mode list entry.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.GenlockTargetModeListDto.TargetModes">
+            <summary>
+            Target modes available for this display.
+            </summary>
+        </member>
         <member name="T:IGCLWrapper.GenlockTopologyDto">
             <summary>
             DTO for genlock topology.
@@ -865,14 +875,14 @@
             Common target mode for genlock displays.
             </summary>
         </member>
-        <member name="F:IGCLWrapper.GenlockTopologyDto.GenlockDisplayInfo">
+        <member name="F:IGCLWrapper.GenlockTopologyDto.GenlockDisplayInfos">
             <summary>
-            Pointer to native genlock display info.
+            Managed genlock display info list.
             </summary>
         </member>
-        <member name="F:IGCLWrapper.GenlockTopologyDto.GenlockModeList">
+        <member name="F:IGCLWrapper.GenlockTopologyDto.GenlockModeLists">
             <summary>
-            Pointer to native genlock mode list.
+            Managed genlock mode lists.
             </summary>
         </member>
         <member name="T:IGCLWrapper.DeviceAdapterPropertiesDto">
@@ -1058,19 +1068,14 @@
             Combined desktop height.
             </summary>
         </member>
-        <member name="F:IGCLWrapper.CombinedDisplayArgsDto.ChildInfo">
-            <summary>
-            Pointer to child info.
-            </summary>
-        </member>
         <member name="F:IGCLWrapper.CombinedDisplayArgsDto.ChildInfos">
             <summary>
             Managed child display info list.
             </summary>
         </member>
-        <member name="F:IGCLWrapper.CombinedDisplayArgsDto.CombinedDisplayOutput">
+        <member name="F:IGCLWrapper.CombinedDisplayArgsDto.CombinedDisplayOutputWindowsDisplayEncoderId">
             <summary>
-            Combined display output handle.
+            Combined display output Windows display encoder identifier.
             </summary>
         </member>
         <member name="M:IGCLWrapper.CombinedDisplayArgsDto.Equals(IGCLWrapper.CombinedDisplayArgsDto)">
@@ -1111,9 +1116,9 @@
             DTO for combined display child information.
             </summary>
         </member>
-        <member name="F:IGCLWrapper.CombinedDisplayChildInfoDto.DisplayOutput">
+        <member name="F:IGCLWrapper.CombinedDisplayChildInfoDto.DisplayOutputWindowsDisplayEncoderId">
             <summary>
-            Display output handle.
+            Windows display encoder identifier for the display output.
             </summary>
         </member>
         <member name="F:IGCLWrapper.CombinedDisplayChildInfoDto.FbSrc">
@@ -1165,7 +1170,7 @@
         </member>
         <member name="M:IGCLWrapper.CombinedDisplayChildInfoDto.ToNative">
             <summary>
-            Convert this DTO to a native struct.
+            Convert this DTO to a native struct (hDisplayOutput is null; caller must set it).
             </summary>
             <returns>Child info struct.</returns>
         </member>
@@ -2062,7 +2067,7 @@
         </member>
         <member name="F:IGCLWrapper.GenericVoidDatatypeDto.Data">
             <summary>
-            Pointer to native data.
+            Native data bytes.
             </summary>
         </member>
         <member name="F:IGCLWrapper.GenericVoidDatatypeDto.DataSize">
@@ -4367,12 +4372,7 @@
         </member>
         <member name="F:IGCLWrapper.VideoProcessingFeatureGetSetDto.ApplicationName">
             <summary>
-            Pointer to application name (optional).
-            </summary>
-        </member>
-        <member name="F:IGCLWrapper.VideoProcessingFeatureGetSetDto.ApplicationNameLength">
-            <summary>
-            Length of the application name.
+            Optional application name.
             </summary>
         </member>
         <member name="F:IGCLWrapper.VideoProcessingFeatureGetSetDto.Set">
@@ -4390,19 +4390,14 @@
             Feature value.
             </summary>
         </member>
-        <member name="F:IGCLWrapper.VideoProcessingFeatureGetSetDto.CustomValueSize">
-            <summary>
-            Size of the custom value buffer.
-            </summary>
-        </member>
         <member name="F:IGCLWrapper.VideoProcessingFeatureGetSetDto.CustomValue">
             <summary>
-            Pointer to custom value buffer.
+            Custom value bytes.
             </summary>
         </member>
         <member name="F:IGCLWrapper.VideoProcessingFeatureGetSetDto.ReservedFields">
             <summary>
-            Reserved fields from the native struct.
+            Reserved fields.
             </summary>
         </member>
         <member name="M:IGCLWrapper.VideoProcessingFeatureGetSetDto.Equals(IGCLWrapper.VideoProcessingFeatureGetSetDto)">
@@ -4434,7 +4429,7 @@
         </member>
         <member name="M:IGCLWrapper.VideoProcessingFeatureGetSetDto.ToNative">
             <summary>
-            Convert this DTO to a native struct.
+            Convert this DTO to a native struct (pointers are null; pin at call site).
             </summary>
             <returns>Video processing feature get/set struct.</returns>
         </member>

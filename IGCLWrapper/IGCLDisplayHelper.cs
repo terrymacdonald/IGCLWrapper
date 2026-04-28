@@ -2072,9 +2072,9 @@ namespace IGCLWrapper
     public struct GenericVoidDatatypeDto : IEquatable<GenericVoidDatatypeDto>
     {
         /// <summary>
-        /// Pointer to native data.
+        /// Native data bytes.
         /// </summary>
-        public IntPtr Data;
+        public List<byte>? Data;
         /// <summary>
         /// Size of native data in bytes.
         /// </summary>
@@ -2082,8 +2082,8 @@ namespace IGCLWrapper
 
         public bool Equals(GenericVoidDatatypeDto other)
         {
-            return Data == other.Data &&
-                   DataSize == other.DataSize;
+            return DataSize == other.DataSize &&
+                   AreByteListsEqual(Data, other.Data);
         }
 
         public override bool Equals(object? obj) => obj is GenericVoidDatatypeDto other && Equals(other);
@@ -2091,16 +2091,30 @@ namespace IGCLWrapper
         public override int GetHashCode()
         {
             var hash = new HashCode();
-            hash.Add(Data);
             hash.Add(DataSize);
+            if (Data != null)
+            {
+                hash.Add(Data.Count);
+                for (var i = 0; i < Data.Count; i++)
+                    hash.Add(Data[i]);
+            }
             return hash.ToHashCode();
         }
 
         public static unsafe GenericVoidDatatypeDto FromNative(ctl_generic_void_datatype_t native)
         {
+            var values = default(List<byte>);
+            if (native.pData != null && native.size > 0)
+            {
+                values = new List<byte>((int)native.size);
+                var pData = (byte*)native.pData;
+                for (var i = 0; i < native.size; i++)
+                    values.Add(pData[i]);
+            }
+
             return new GenericVoidDatatypeDto
             {
-                Data = (IntPtr)native.pData,
+                Data = values,
                 DataSize = native.size
             };
         }
@@ -2109,9 +2123,25 @@ namespace IGCLWrapper
         {
             return new ctl_generic_void_datatype_t
             {
-                pData = (void*)Data,
-                size = DataSize
+                pData = null,
+                size = Data == null ? DataSize : (uint)Data.Count
             };
+        }
+
+        private static bool AreByteListsEqual(List<byte>? left, List<byte>? right)
+        {
+            if (ReferenceEquals(left, right))
+                return true;
+            if (left == null || right == null)
+                return false;
+            if (left.Count != right.Count)
+                return false;
+            for (var i = 0; i < left.Count; i++)
+            {
+                if (left[i] != right[i])
+                    return false;
+            }
+            return true;
         }
     }
 
@@ -2156,11 +2186,14 @@ namespace IGCLWrapper
 
         public ctl_os_display_encoder_identifier_t ToNative()
         {
-            var native = new ctl_os_display_encoder_identifier_t();
-            if (DisplayEncoderId.Data != IntPtr.Zero || DisplayEncoderId.DataSize != 0)
+            var native = new ctl_os_display_encoder_identifier_t
+            {
+                WindowsDisplayEncoderID = WindowsDisplayEncoderId
+            };
+
+            if (DisplayEncoderId.Data != null && DisplayEncoderId.Data.Count > 0)
                 native.DisplayEncoderID = DisplayEncoderId.ToNative();
-            else
-                native.WindowsDisplayEncoderID = WindowsDisplayEncoderId;
+
             return native;
         }
     }
