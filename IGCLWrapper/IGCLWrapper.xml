@@ -1840,6 +1840,131 @@
             Mark the helper as disposed.
             </summary>
         </member>
+        <member name="T:IGCLWrapper.GenericVoidDatatypeDto">
+            <summary>
+            DTO for generic native void data.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.GenericVoidDatatypeDto.Data">
+            <summary>
+            Pointer to native data.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.GenericVoidDatatypeDto.DataSize">
+            <summary>
+            Size of native data in bytes.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.OsDisplayEncoderIdentifierDto">
+            <summary>
+            DTO for OS display encoder identifier data.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.OsDisplayEncoderIdentifierDto.WindowsDisplayEncoderId">
+            <summary>
+            Windows display encoder identifier.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.OsDisplayEncoderIdentifierDto.DisplayEncoderId">
+            <summary>
+            Generic encoder identifier data.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.RevisionDatatypeDto">
+            <summary>
+            DTO for revision data.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.RevisionDatatypeDto.MajorVersion">
+            <summary>
+            Major version value.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.RevisionDatatypeDto.MinorVersion">
+            <summary>
+            Minor version value.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.RevisionDatatypeDto.RevisionVersion">
+            <summary>
+            Revision version value.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.DisplayTimingDto">
+            <summary>
+            DTO for display timing information.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DisplayTimingDto.Size">
+            <summary>
+            Size of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DisplayTimingDto.Version">
+            <summary>
+            Version of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DisplayTimingDto.PixelClock">
+            <summary>
+            Pixel clock in Hz.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DisplayTimingDto.HActive">
+            <summary>
+            Horizontal active pixels.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DisplayTimingDto.VActive">
+            <summary>
+            Vertical active pixels.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DisplayTimingDto.HTotal">
+            <summary>
+            Horizontal total pixels.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DisplayTimingDto.VTotal">
+            <summary>
+            Vertical total pixels.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DisplayTimingDto.HBlank">
+            <summary>
+            Horizontal blanking pixels.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DisplayTimingDto.VBlank">
+            <summary>
+            Vertical blanking lines.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DisplayTimingDto.HSync">
+            <summary>
+            Horizontal sync width.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DisplayTimingDto.VSync">
+            <summary>
+            Vertical sync width.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DisplayTimingDto.RefreshRate">
+            <summary>
+            Refresh rate in Hz.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DisplayTimingDto.SignalStandard">
+            <summary>
+            Signal standard type.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DisplayTimingDto.VicId">
+            <summary>
+            VIC identifier.
+            </summary>
+        </member>
         <member name="T:IGCLWrapper.DisplayPropertiesDto">
             <summary>
             DTO for display properties.
@@ -1957,6 +2082,31 @@
             Convert this DTO to a native struct.
             </summary>
             <returns>Display properties struct.</returns>
+        </member>
+        <member name="T:IGCLWrapper.WireFormatDto">
+            <summary>
+            DTO for wire format data.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.WireFormatDto.Size">
+            <summary>
+            Size of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.WireFormatDto.Version">
+            <summary>
+            Version of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.WireFormatDto.ColorModel">
+            <summary>
+            Wire color model.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.WireFormatDto.ColorDepth">
+            <summary>
+            Wire color depth flags.
+            </summary>
         </member>
         <member name="T:IGCLWrapper.WireFormatConfigDto">
             <summary>
@@ -2161,7 +2311,7 @@
         </member>
         <member name="F:IGCLWrapper.DceArgsDto.Histogram">
             <summary>
-            Pointer to histogram buffer.
+            Histogram bins.
             </summary>
         </member>
         <member name="M:IGCLWrapper.DceArgsDto.Equals(IGCLWrapper.DceArgsDto)">
@@ -2377,6 +2527,56 @@
             Convert this DTO to a native struct.
             </summary>
             <returns>Intel Arc Sync monitor params struct.</returns>
+        </member>
+        <member name="T:IGCLWrapper.LaceLuxAggrMapEntryDto">
+            <summary>
+            DTO for a single LACE lux-to-aggressiveness mapping entry.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.LaceLuxAggrMapEntryDto.Lux">
+            <summary>
+            Ambient lux value.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.LaceLuxAggrMapEntryDto.AggressivenessPercent">
+            <summary>
+            Aggressiveness value in percent.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.LaceLuxAggrMapDto">
+            <summary>
+            DTO for LACE lux aggressiveness map.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.LaceLuxAggrMapDto.MaxNumEntries">
+            <summary>
+            Maximum supported entries.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.LaceLuxAggrMapDto.NumEntries">
+            <summary>
+            Number of active entries.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.LaceLuxAggrMapDto.LuxToAggrMappingTable">
+            <summary>
+            Managed lux/aggressiveness mapping table.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.LaceAggrConfigDto">
+            <summary>
+            DTO for LACE aggregation configuration.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.LaceAggrConfigDto.FixedAggressivenessLevelPercent">
+            <summary>
+            Fixed aggressiveness level percentage.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.LaceAggrConfigDto.AggrLevelMap">
+            <summary>
+            Lux-to-aggressiveness map configuration.
+            </summary>
         </member>
         <member name="T:IGCLWrapper.LaceConfigDto">
             <summary>
@@ -2717,6 +2917,126 @@
             Convert this DTO to a native struct.
             </summary>
             <returns>Software PSR settings struct.</returns>
+        </member>
+        <member name="T:IGCLWrapper.PowerOptimizationDpstDto">
+            <summary>
+            DTO for DPST power optimization data.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PowerOptimizationDpstDto.Size">
+            <summary>
+            Size of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PowerOptimizationDpstDto.Version">
+            <summary>
+            Version of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PowerOptimizationDpstDto.MinLevel">
+            <summary>
+            Minimum DPST level.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PowerOptimizationDpstDto.MaxLevel">
+            <summary>
+            Maximum DPST level.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PowerOptimizationDpstDto.Level">
+            <summary>
+            Current DPST level.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PowerOptimizationDpstDto.SupportedFeatures">
+            <summary>
+            Supported DPST feature flags.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PowerOptimizationDpstDto.EnabledFeatures">
+            <summary>
+            Enabled DPST feature flags.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.PowerOptimizationPsrDto">
+            <summary>
+            DTO for PSR power optimization data.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PowerOptimizationPsrDto.Size">
+            <summary>
+            Size of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PowerOptimizationPsrDto.Version">
+            <summary>
+            Version of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PowerOptimizationPsrDto.PSRVersion">
+            <summary>
+            PSR version.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PowerOptimizationPsrDto.FullFetchUpdate">
+            <summary>
+            Full fetch update flag.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.PowerOptimizationLrrDto">
+            <summary>
+            DTO for LRR power optimization data.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PowerOptimizationLrrDto.Size">
+            <summary>
+            Size of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PowerOptimizationLrrDto.Version">
+            <summary>
+            Version of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PowerOptimizationLrrDto.SupportedLrrTypes">
+            <summary>
+            Supported LRR flags.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PowerOptimizationLrrDto.CurrentLrrTypes">
+            <summary>
+            Current LRR flags.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PowerOptimizationLrrDto.RequirePsrDisable">
+            <summary>
+            Whether PSR must be disabled.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PowerOptimizationLrrDto.LowRr">
+            <summary>
+            Low refresh rate.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.PowerOptimizationFeatureSpecificInfoDto">
+            <summary>
+            DTO for power optimization feature-specific data.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PowerOptimizationFeatureSpecificInfoDto.LrrInfo">
+            <summary>
+            LRR configuration data.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PowerOptimizationFeatureSpecificInfoDto.PsrInfo">
+            <summary>
+            PSR configuration data.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PowerOptimizationFeatureSpecificInfoDto.DpstInfo">
+            <summary>
+            DPST configuration data.
+            </summary>
         </member>
         <member name="T:IGCLWrapper.PowerOptimizationSettingsDto">
             <summary>

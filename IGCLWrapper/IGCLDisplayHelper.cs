@@ -2067,6 +2067,307 @@ namespace IGCLWrapper
     }
 
     /// <summary>
+    /// DTO for generic native void data.
+    /// </summary>
+    public struct GenericVoidDatatypeDto : IEquatable<GenericVoidDatatypeDto>
+    {
+        /// <summary>
+        /// Pointer to native data.
+        /// </summary>
+        public IntPtr Data;
+        /// <summary>
+        /// Size of native data in bytes.
+        /// </summary>
+        public uint DataSize;
+
+        public bool Equals(GenericVoidDatatypeDto other)
+        {
+            return Data == other.Data &&
+                   DataSize == other.DataSize;
+        }
+
+        public override bool Equals(object? obj) => obj is GenericVoidDatatypeDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Data);
+            hash.Add(DataSize);
+            return hash.ToHashCode();
+        }
+
+        public static unsafe GenericVoidDatatypeDto FromNative(ctl_generic_void_datatype_t native)
+        {
+            return new GenericVoidDatatypeDto
+            {
+                Data = (IntPtr)native.pData,
+                DataSize = native.size
+            };
+        }
+
+        public unsafe ctl_generic_void_datatype_t ToNative()
+        {
+            return new ctl_generic_void_datatype_t
+            {
+                pData = (void*)Data,
+                size = DataSize
+            };
+        }
+    }
+
+    /// <summary>
+    /// DTO for OS display encoder identifier data.
+    /// </summary>
+    public struct OsDisplayEncoderIdentifierDto : IEquatable<OsDisplayEncoderIdentifierDto>
+    {
+        /// <summary>
+        /// Windows display encoder identifier.
+        /// </summary>
+        public uint WindowsDisplayEncoderId;
+        /// <summary>
+        /// Generic encoder identifier data.
+        /// </summary>
+        public GenericVoidDatatypeDto DisplayEncoderId;
+
+        public bool Equals(OsDisplayEncoderIdentifierDto other)
+        {
+            return WindowsDisplayEncoderId == other.WindowsDisplayEncoderId &&
+                   DisplayEncoderId.Equals(other.DisplayEncoderId);
+        }
+
+        public override bool Equals(object? obj) => obj is OsDisplayEncoderIdentifierDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(WindowsDisplayEncoderId);
+            hash.Add(DisplayEncoderId);
+            return hash.ToHashCode();
+        }
+
+        public static OsDisplayEncoderIdentifierDto FromNative(ctl_os_display_encoder_identifier_t native)
+        {
+            return new OsDisplayEncoderIdentifierDto
+            {
+                WindowsDisplayEncoderId = native.WindowsDisplayEncoderID,
+                DisplayEncoderId = GenericVoidDatatypeDto.FromNative(native.DisplayEncoderID)
+            };
+        }
+
+        public ctl_os_display_encoder_identifier_t ToNative()
+        {
+            var native = new ctl_os_display_encoder_identifier_t();
+            if (DisplayEncoderId.Data != IntPtr.Zero || DisplayEncoderId.DataSize != 0)
+                native.DisplayEncoderID = DisplayEncoderId.ToNative();
+            else
+                native.WindowsDisplayEncoderID = WindowsDisplayEncoderId;
+            return native;
+        }
+    }
+
+    /// <summary>
+    /// DTO for revision data.
+    /// </summary>
+    public struct RevisionDatatypeDto : IEquatable<RevisionDatatypeDto>
+    {
+        /// <summary>
+        /// Major version value.
+        /// </summary>
+        public byte MajorVersion;
+        /// <summary>
+        /// Minor version value.
+        /// </summary>
+        public byte MinorVersion;
+        /// <summary>
+        /// Revision version value.
+        /// </summary>
+        public byte RevisionVersion;
+
+        public bool Equals(RevisionDatatypeDto other)
+        {
+            return MajorVersion == other.MajorVersion &&
+                   MinorVersion == other.MinorVersion &&
+                   RevisionVersion == other.RevisionVersion;
+        }
+
+        public override bool Equals(object? obj) => obj is RevisionDatatypeDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(MajorVersion);
+            hash.Add(MinorVersion);
+            hash.Add(RevisionVersion);
+            return hash.ToHashCode();
+        }
+
+        public static RevisionDatatypeDto FromNative(ctl_revision_datatype_t native)
+        {
+            return new RevisionDatatypeDto
+            {
+                MajorVersion = native.major_version,
+                MinorVersion = native.minor_version,
+                RevisionVersion = native.revision_version
+            };
+        }
+
+        public ctl_revision_datatype_t ToNative()
+        {
+            return new ctl_revision_datatype_t
+            {
+                major_version = MajorVersion,
+                minor_version = MinorVersion,
+                revision_version = RevisionVersion
+            };
+        }
+    }
+
+    /// <summary>
+    /// DTO for display timing information.
+    /// </summary>
+    public struct DisplayTimingDto : IEquatable<DisplayTimingDto>
+    {
+        /// <summary>
+        /// Size of the native struct.
+        /// </summary>
+        public uint Size;
+        /// <summary>
+        /// Version of the native struct.
+        /// </summary>
+        public byte Version;
+        /// <summary>
+        /// Pixel clock in Hz.
+        /// </summary>
+        public ulong PixelClock;
+        /// <summary>
+        /// Horizontal active pixels.
+        /// </summary>
+        public uint HActive;
+        /// <summary>
+        /// Vertical active pixels.
+        /// </summary>
+        public uint VActive;
+        /// <summary>
+        /// Horizontal total pixels.
+        /// </summary>
+        public uint HTotal;
+        /// <summary>
+        /// Vertical total pixels.
+        /// </summary>
+        public uint VTotal;
+        /// <summary>
+        /// Horizontal blanking pixels.
+        /// </summary>
+        public uint HBlank;
+        /// <summary>
+        /// Vertical blanking lines.
+        /// </summary>
+        public uint VBlank;
+        /// <summary>
+        /// Horizontal sync width.
+        /// </summary>
+        public uint HSync;
+        /// <summary>
+        /// Vertical sync width.
+        /// </summary>
+        public uint VSync;
+        /// <summary>
+        /// Refresh rate in Hz.
+        /// </summary>
+        public float RefreshRate;
+        /// <summary>
+        /// Signal standard type.
+        /// </summary>
+        public ctl_signal_standard_type_t SignalStandard;
+        /// <summary>
+        /// VIC identifier.
+        /// </summary>
+        public byte VicId;
+
+        public bool Equals(DisplayTimingDto other)
+        {
+            return PixelClock == other.PixelClock &&
+                   HActive == other.HActive &&
+                   VActive == other.VActive &&
+                   HTotal == other.HTotal &&
+                   VTotal == other.VTotal &&
+                   HBlank == other.HBlank &&
+                   VBlank == other.VBlank &&
+                   HSync == other.HSync &&
+                   VSync == other.VSync &&
+                   RefreshRate.Equals(other.RefreshRate) &&
+                   SignalStandard == other.SignalStandard &&
+                   VicId == other.VicId;
+        }
+
+        public override bool Equals(object? obj) => obj is DisplayTimingDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(PixelClock);
+            hash.Add(HActive);
+            hash.Add(VActive);
+            hash.Add(HTotal);
+            hash.Add(VTotal);
+            hash.Add(HBlank);
+            hash.Add(VBlank);
+            hash.Add(HSync);
+            hash.Add(VSync);
+            hash.Add(RefreshRate);
+            hash.Add(SignalStandard);
+            hash.Add(VicId);
+            return hash.ToHashCode();
+        }
+
+        public static DisplayTimingDto FromNative(ctl_display_timing_t native)
+        {
+            return new DisplayTimingDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                PixelClock = native.PixelClock,
+                HActive = native.HActive,
+                VActive = native.VActive,
+                HTotal = native.HTotal,
+                VTotal = native.VTotal,
+                HBlank = native.HBlank,
+                VBlank = native.VBlank,
+                HSync = native.HSync,
+                VSync = native.VSync,
+                RefreshRate = native.RefreshRate,
+                SignalStandard = native.SignalStandard,
+                VicId = native.VicId
+            };
+        }
+
+        public unsafe ctl_display_timing_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_display_timing_t);
+
+            return new ctl_display_timing_t
+            {
+                Size = size,
+                Version = Version,
+                PixelClock = PixelClock,
+                HActive = HActive,
+                VActive = VActive,
+                HTotal = HTotal,
+                VTotal = VTotal,
+                HBlank = HBlank,
+                VBlank = VBlank,
+                HSync = HSync,
+                VSync = VSync,
+                RefreshRate = RefreshRate,
+                SignalStandard = SignalStandard,
+                VicId = VicId
+            };
+        }
+    }
+
+    /// <summary>
     /// DTO for display properties.
     /// </summary>
     public struct DisplayPropertiesDto : IEquatable<DisplayPropertiesDto>
@@ -2083,7 +2384,7 @@ namespace IGCLWrapper
         /// <summary>
         /// OS display encoder handle.
         /// </summary>
-        public ctl_os_display_encoder_identifier_t OsDisplayEncoderHandle;
+        public OsDisplayEncoderIdentifierDto OsDisplayEncoderHandle;
         /// <summary>
         /// Display output type.
         /// </summary>
@@ -2099,7 +2400,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Supported specification version.
         /// </summary>
-        public ctl_revision_datatype_t SupportedSpec;
+        public RevisionDatatypeDto SupportedSpec;
         /// <summary>
         /// Supported output BPC flags.
         /// </summary>
@@ -2131,7 +2432,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Display timing info.
         /// </summary>
-        public ctl_display_timing_t DisplayTimingInfo;
+        public DisplayTimingDto DisplayTimingInfo;
         /// <summary>
         /// Reserved native fields.
         /// </summary>
@@ -2145,12 +2446,10 @@ namespace IGCLWrapper
         public bool Equals(DisplayPropertiesDto other)
         {
             // OsDisplayEncoderHandle contains pointer data; ReservedFields are native-only.
-            return Size == other.Size &&
-                   Version == other.Version &&
-                   Type == other.Type &&
+                 return Type == other.Type &&
                    AttachedDisplayMuxType == other.AttachedDisplayMuxType &&
                    ProtocolConverterOutput == other.ProtocolConverterOutput &&
-                   SupportedSpec.Equals(other.SupportedSpec) &&
+                     SupportedSpec.Equals(other.SupportedSpec) &&
                    SupportedOutputBpcFlags == other.SupportedOutputBpcFlags &&
                    ProtocolConverterType == other.ProtocolConverterType &&
                    DisplayConfigFlags == other.DisplayConfigFlags &&
@@ -2175,8 +2474,6 @@ namespace IGCLWrapper
         public override int GetHashCode()
         {
             var hash = new HashCode();
-            hash.Add(Size);
-            hash.Add(Version);
             hash.Add(Type);
             hash.Add(AttachedDisplayMuxType);
             hash.Add(ProtocolConverterOutput);
@@ -2203,11 +2500,11 @@ namespace IGCLWrapper
             {
                 Size = native.Size,
                 Version = native.Version,
-                OsDisplayEncoderHandle = native.Os_display_encoder_handle,
+                OsDisplayEncoderHandle = OsDisplayEncoderIdentifierDto.FromNative(native.Os_display_encoder_handle),
                 Type = native.Type,
                 AttachedDisplayMuxType = native.AttachedDisplayMuxType,
                 ProtocolConverterOutput = native.ProtocolConverterOutput,
-                SupportedSpec = native.SupportedSpec,
+                SupportedSpec = RevisionDatatypeDto.FromNative(native.SupportedSpec),
                 SupportedOutputBpcFlags = native.SupportedOutputBPCFlags,
                 ProtocolConverterType = native.ProtocolConverterType,
                 DisplayConfigFlags = native.DisplayConfigFlags,
@@ -2215,7 +2512,7 @@ namespace IGCLWrapper
                 FeatureSupportedFlags = native.FeatureSupportedFlags,
                 AdvancedFeatureEnabledFlags = native.AdvancedFeatureEnabledFlags,
                 AdvancedFeatureSupportedFlags = native.AdvancedFeatureSupportedFlags,
-                DisplayTimingInfo = native.Display_Timing_Info,
+                DisplayTimingInfo = DisplayTimingDto.FromNative(native.Display_Timing_Info),
                 ReservedFields = ReadReservedFields(native.ReservedFields)
             };
         }
@@ -2234,11 +2531,11 @@ namespace IGCLWrapper
             {
                 Size = size,
                 Version = Version,
-                Os_display_encoder_handle = OsDisplayEncoderHandle,
+                Os_display_encoder_handle = OsDisplayEncoderHandle.ToNative(),
                 Type = Type,
                 AttachedDisplayMuxType = AttachedDisplayMuxType,
                 ProtocolConverterOutput = ProtocolConverterOutput,
-                SupportedSpec = SupportedSpec,
+                SupportedSpec = SupportedSpec.ToNative(),
                 SupportedOutputBPCFlags = SupportedOutputBpcFlags,
                 ProtocolConverterType = ProtocolConverterType,
                 DisplayConfigFlags = DisplayConfigFlags,
@@ -2246,7 +2543,7 @@ namespace IGCLWrapper
                 FeatureSupportedFlags = FeatureSupportedFlags,
                 AdvancedFeatureEnabledFlags = AdvancedFeatureEnabledFlags,
                 AdvancedFeatureSupportedFlags = AdvancedFeatureSupportedFlags,
-                Display_Timing_Info = DisplayTimingInfo
+                Display_Timing_Info = DisplayTimingInfo.ToNative()
             };
 
             WriteReservedFields(ReservedFields, ref native.ReservedFields);
@@ -2278,6 +2575,71 @@ namespace IGCLWrapper
     }
 
     /// <summary>
+    /// DTO for wire format data.
+    /// </summary>
+    public struct WireFormatDto : IEquatable<WireFormatDto>
+    {
+        /// <summary>
+        /// Size of the native struct.
+        /// </summary>
+        public uint Size;
+        /// <summary>
+        /// Version of the native struct.
+        /// </summary>
+        public byte Version;
+        /// <summary>
+        /// Wire color model.
+        /// </summary>
+        public ctl_wire_format_color_model_t ColorModel;
+        /// <summary>
+        /// Wire color depth flags.
+        /// </summary>
+        public uint ColorDepth;
+
+        public bool Equals(WireFormatDto other)
+        {
+            return ColorModel == other.ColorModel &&
+                   ColorDepth == other.ColorDepth;
+        }
+
+        public override bool Equals(object? obj) => obj is WireFormatDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(ColorModel);
+            hash.Add(ColorDepth);
+            return hash.ToHashCode();
+        }
+
+        public static WireFormatDto FromNative(ctl_wire_format_t native)
+        {
+            return new WireFormatDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                ColorModel = native.ColorModel,
+                ColorDepth = native.ColorDepth
+            };
+        }
+
+        public unsafe ctl_wire_format_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_wire_format_t);
+
+            return new ctl_wire_format_t
+            {
+                Size = size,
+                Version = Version,
+                ColorModel = ColorModel,
+                ColorDepth = ColorDepth
+            };
+        }
+    }
+
+    /// <summary>
     /// DTO for wire format settings.
     /// </summary>
     public struct WireFormatConfigDto : IEquatable<WireFormatConfigDto>
@@ -2298,11 +2660,11 @@ namespace IGCLWrapper
         /// <summary>
         /// Supported wire format values.
         /// </summary>
-        public ctl_wire_format_t[]? SupportedWireFormat;
+        public WireFormatDto[]? SupportedWireFormat;
         /// <summary>
         /// Selected wire format.
         /// </summary>
-        public ctl_wire_format_t WireFormat;
+        public WireFormatDto WireFormat;
 
         /// <summary>
         /// Compare wire format settings.
@@ -2311,9 +2673,7 @@ namespace IGCLWrapper
         /// <returns>True when equal; otherwise, false.</returns>
         public bool Equals(WireFormatConfigDto other)
         {
-            return Size == other.Size &&
-                   Version == other.Version &&
-                   Operation == other.Operation &&
+            return Operation == other.Operation &&
                    WireFormat.Equals(other.WireFormat) &&
                    AreSupportedWireFormatsEqual(SupportedWireFormat, other.SupportedWireFormat);
         }
@@ -2332,8 +2692,6 @@ namespace IGCLWrapper
         public override int GetHashCode()
         {
             var hash = new HashCode();
-            hash.Add(Size);
-            hash.Add(Version);
             hash.Add(Operation);
             hash.Add(WireFormat);
             if (SupportedWireFormat != null)
@@ -2358,7 +2716,7 @@ namespace IGCLWrapper
                 Version = native.Version,
                 Operation = native.Operation,
                 SupportedWireFormat = ReadSupportedWireFormat(native.SupportedWireFormat),
-                WireFormat = native.WireFormat
+                WireFormat = WireFormatDto.FromNative(native.WireFormat)
             };
         }
 
@@ -2377,23 +2735,23 @@ namespace IGCLWrapper
                 Size = size,
                 Version = Version,
                 Operation = Operation,
-                WireFormat = WireFormat
+                WireFormat = WireFormat.ToNative()
             };
 
             WriteSupportedWireFormat(SupportedWireFormat, ref native.SupportedWireFormat);
             return native;
         }
 
-        private static unsafe ctl_wire_format_t[] ReadSupportedWireFormat(ctl_get_set_wire_format_config_t._SupportedWireFormat_e__FixedBuffer buffer)
+        private static unsafe WireFormatDto[] ReadSupportedWireFormat(ctl_get_set_wire_format_config_t._SupportedWireFormat_e__FixedBuffer buffer)
         {
-            var values = new ctl_wire_format_t[SupportedWireFormatCount];
+            var values = new WireFormatDto[SupportedWireFormatCount];
             var pValues = (ctl_wire_format_t*)Unsafe.AsPointer(ref buffer.e0);
             for (var i = 0; i < SupportedWireFormatCount; i++)
-                values[i] = pValues[i];
+                values[i] = WireFormatDto.FromNative(pValues[i]);
             return values;
         }
 
-        private static unsafe void WriteSupportedWireFormat(ctl_wire_format_t[]? values, ref ctl_get_set_wire_format_config_t._SupportedWireFormat_e__FixedBuffer buffer)
+        private static unsafe void WriteSupportedWireFormat(WireFormatDto[]? values, ref ctl_get_set_wire_format_config_t._SupportedWireFormat_e__FixedBuffer buffer)
         {
             var pValues = (ctl_wire_format_t*)Unsafe.AsPointer(ref buffer.e0);
             for (var i = 0; i < SupportedWireFormatCount; i++)
@@ -2404,10 +2762,10 @@ namespace IGCLWrapper
 
             var count = Math.Min(values.Length, SupportedWireFormatCount);
             for (var i = 0; i < count; i++)
-                pValues[i] = values[i];
+                pValues[i] = values[i].ToNative();
         }
 
-        private static bool AreSupportedWireFormatsEqual(ctl_wire_format_t[]? left, ctl_wire_format_t[]? right)
+        private static bool AreSupportedWireFormatsEqual(WireFormatDto[]? left, WireFormatDto[]? right)
         {
             if (ReferenceEquals(left, right))
                 return true;
@@ -2440,7 +2798,7 @@ namespace IGCLWrapper
         /// <summary>
         /// OS display encoder handle.
         /// </summary>
-        public ctl_os_display_encoder_identifier_t OsDisplayEncoderHandle;
+        public OsDisplayEncoderIdentifierDto OsDisplayEncoderHandle;
         /// <summary>
         /// Display output type.
         /// </summary>
@@ -2452,7 +2810,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Supported specification revision.
         /// </summary>
-        public ctl_revision_datatype_t SupportedSpec;
+        public RevisionDatatypeDto SupportedSpec;
         /// <summary>
         /// Supported output bits-per-component flags.
         /// </summary>
@@ -2472,7 +2830,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Reserved native fields.
         /// </summary>
-        public ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer ReservedFields;
+        public uint[]? ReservedFields;
 
         /// <summary>
         /// Compare adapter display encoder properties while ignoring reserved native fields.
@@ -2482,9 +2840,7 @@ namespace IGCLWrapper
         public bool Equals(AdapterDisplayEncoderPropertiesDto other)
         {
             // OsDisplayEncoderHandle contains pointer data; ReservedFields are native-only.
-            return Size == other.Size &&
-                   Version == other.Version &&
-                   Type == other.Type &&
+                 return Type == other.Type &&
                    IsOnBoardProtocolConverterOutputPresent == other.IsOnBoardProtocolConverterOutputPresent &&
                    SupportedSpec.Equals(other.SupportedSpec) &&
                    SupportedOutputBpcFlags == other.SupportedOutputBpcFlags &&
@@ -2507,8 +2863,6 @@ namespace IGCLWrapper
         public override int GetHashCode()
         {
             var hash = new HashCode();
-            hash.Add(Size);
-            hash.Add(Version);
             hash.Add(Type);
             hash.Add(IsOnBoardProtocolConverterOutputPresent);
             hash.Add(SupportedSpec);
@@ -2530,15 +2884,15 @@ namespace IGCLWrapper
             {
                 Size = native.Size,
                 Version = native.Version,
-                OsDisplayEncoderHandle = native.Os_display_encoder_handle,
+                OsDisplayEncoderHandle = OsDisplayEncoderIdentifierDto.FromNative(native.Os_display_encoder_handle),
                 Type = native.Type,
                 IsOnBoardProtocolConverterOutputPresent = IGCLDisplayDtoBool.ToBool(native.IsOnBoardProtocolConverterOutputPresent),
-                SupportedSpec = native.SupportedSpec,
+                SupportedSpec = RevisionDatatypeDto.FromNative(native.SupportedSpec),
                 SupportedOutputBpcFlags = native.SupportedOutputBPCFlags,
                 EncoderConfigFlags = native.EncoderConfigFlags,
                 FeatureSupportedFlags = native.FeatureSupportedFlags,
                 AdvancedFeatureSupportedFlags = native.AdvancedFeatureSupportedFlags,
-                ReservedFields = native.ReservedFields
+                ReservedFields = ReadReservedFields(native.ReservedFields)
             };
         }
 
@@ -2546,29 +2900,60 @@ namespace IGCLWrapper
         /// Convert this DTO to a native struct.
         /// </summary>
         /// <returns>Adapter display encoder properties struct.</returns>
-        public ctl_adapter_display_encoder_properties_t ToNative()
+        public unsafe ctl_adapter_display_encoder_properties_t ToNative()
         {
-            return new ctl_adapter_display_encoder_properties_t
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_adapter_display_encoder_properties_t);
+
+            var native = new ctl_adapter_display_encoder_properties_t
             {
-                Size = Size,
+                Size = size,
                 Version = Version,
-                Os_display_encoder_handle = OsDisplayEncoderHandle,
+                Os_display_encoder_handle = OsDisplayEncoderHandle.ToNative(),
                 Type = Type,
                 IsOnBoardProtocolConverterOutputPresent = IGCLDisplayDtoBool.ToByte(IsOnBoardProtocolConverterOutputPresent),
-                SupportedSpec = SupportedSpec,
+                SupportedSpec = SupportedSpec.ToNative(),
                 SupportedOutputBPCFlags = SupportedOutputBpcFlags,
                 EncoderConfigFlags = EncoderConfigFlags,
                 FeatureSupportedFlags = FeatureSupportedFlags,
-                AdvancedFeatureSupportedFlags = AdvancedFeatureSupportedFlags,
-                ReservedFields = ReservedFields
+                AdvancedFeatureSupportedFlags = AdvancedFeatureSupportedFlags
             };
+
+            WriteReservedFields(ReservedFields, ref native.ReservedFields);
+            return native;
+        }
+
+        private static unsafe uint[] ReadReservedFields(ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer buffer)
+        {
+            const int reservedFieldCount = 16;
+            var values = new uint[reservedFieldCount];
+            var pValues = (uint*)Unsafe.AsPointer(ref buffer.e0);
+            for (var i = 0; i < reservedFieldCount; i++)
+                values[i] = pValues[i];
+            return values;
+        }
+
+        private static unsafe void WriteReservedFields(uint[]? values, ref ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer buffer)
+        {
+            const int reservedFieldCount = 16;
+            var pValues = (uint*)Unsafe.AsPointer(ref buffer.e0);
+            for (var i = 0; i < reservedFieldCount; i++)
+                pValues[i] = 0;
+
+            if (values == null || values.Length == 0)
+                return;
+
+            var count = Math.Min(values.Length, reservedFieldCount);
+            for (var i = 0; i < count; i++)
+                pValues[i] = values[i];
         }
     }
 
     /// <summary>
     /// DTO for dynamic contrast enhancement arguments.
     /// </summary>
-    public unsafe struct DceArgsDto : IEquatable<DceArgsDto>
+    public struct DceArgsDto : IEquatable<DceArgsDto>
     {
         /// <summary>
         /// Size of the native struct.
@@ -2603,9 +2988,9 @@ namespace IGCLWrapper
         /// </summary>
         public bool IsSupported;
         /// <summary>
-        /// Pointer to histogram buffer.
+        /// Histogram bins.
         /// </summary>
-        public IntPtr Histogram;
+        public List<uint>? Histogram;
 
         /// <summary>
         /// Compare DCE args while ignoring pointer fields.
@@ -2614,10 +2999,7 @@ namespace IGCLWrapper
         /// <returns>True when equal; otherwise, false.</returns>
         public bool Equals(DceArgsDto other)
         {
-            // Histogram is a pointer to a buffer and is intentionally excluded.
-            return Size == other.Size &&
-                   Version == other.Version &&
-                   Set == other.Set &&
+                 return Set == other.Set &&
                    TargetBrightnessPercent == other.TargetBrightnessPercent &&
                    PhaseinSpeedMultiplier.Equals(other.PhaseinSpeedMultiplier) &&
                    NumBins == other.NumBins &&
@@ -2639,8 +3021,6 @@ namespace IGCLWrapper
         public override int GetHashCode()
         {
             var hash = new HashCode();
-            hash.Add(Size);
-            hash.Add(Version);
             hash.Add(Set);
             hash.Add(TargetBrightnessPercent);
             hash.Add(PhaseinSpeedMultiplier);
@@ -2655,8 +3035,16 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="native">Native struct.</param>
         /// <returns>DCE args DTO.</returns>
-        public static DceArgsDto FromNative(ctl_dce_args_t native)
+        public static unsafe DceArgsDto FromNative(ctl_dce_args_t native)
         {
+            List<uint>? histogram = null;
+            if (native.pHistogram != null && native.NumBins > 0)
+            {
+                histogram = new List<uint>((int)native.NumBins);
+                for (var i = 0; i < native.NumBins; i++)
+                    histogram.Add(native.pHistogram[i]);
+            }
+
             return new DceArgsDto
             {
                 Size = native.Size,
@@ -2667,7 +3055,7 @@ namespace IGCLWrapper
                 NumBins = native.NumBins,
                 Enable = IGCLDisplayDtoBool.ToBool(native.Enable),
                 IsSupported = IGCLDisplayDtoBool.ToBool(native.IsSupported),
-                Histogram = (IntPtr)native.pHistogram
+                Histogram = histogram
             };
         }
 
@@ -2681,6 +3069,10 @@ namespace IGCLWrapper
             if (size == 0)
                 size = (uint)sizeof(ctl_dce_args_t);
 
+            var numBins = NumBins;
+            if (Histogram != null)
+                numBins = (uint)Histogram.Count;
+
             return new ctl_dce_args_t
             {
                 Size = size,
@@ -2688,10 +3080,11 @@ namespace IGCLWrapper
                 Set = IGCLDisplayDtoBool.ToByte(Set),
                 TargetBrightnessPercent = TargetBrightnessPercent,
                 PhaseinSpeedMultiplier = PhaseinSpeedMultiplier,
-                NumBins = NumBins,
+                NumBins = numBins,
                 Enable = IGCLDisplayDtoBool.ToByte(Enable),
                 IsSupported = IGCLDisplayDtoBool.ToByte(IsSupported),
-                pHistogram = (uint*)Histogram
+                // Pointer population is handled by call sites that pin managed arrays.
+                pHistogram = null
             };
         }
     }
@@ -2984,6 +3377,173 @@ namespace IGCLWrapper
     }
 
     /// <summary>
+    /// DTO for a single LACE lux-to-aggressiveness mapping entry.
+    /// </summary>
+    public struct LaceLuxAggrMapEntryDto : IEquatable<LaceLuxAggrMapEntryDto>
+    {
+        /// <summary>
+        /// Ambient lux value.
+        /// </summary>
+        public uint Lux;
+        /// <summary>
+        /// Aggressiveness value in percent.
+        /// </summary>
+        public byte AggressivenessPercent;
+
+        public bool Equals(LaceLuxAggrMapEntryDto other)
+        {
+            return Lux == other.Lux &&
+                   AggressivenessPercent == other.AggressivenessPercent;
+        }
+
+        public override bool Equals(object? obj) => obj is LaceLuxAggrMapEntryDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Lux);
+            hash.Add(AggressivenessPercent);
+            return hash.ToHashCode();
+        }
+
+        public static LaceLuxAggrMapEntryDto FromNative(ctl_lace_lux_aggr_map_entry_t native)
+        {
+            return new LaceLuxAggrMapEntryDto
+            {
+                Lux = native.Lux,
+                AggressivenessPercent = native.AggressivenessPercent
+            };
+        }
+
+        public ctl_lace_lux_aggr_map_entry_t ToNative()
+        {
+            return new ctl_lace_lux_aggr_map_entry_t
+            {
+                Lux = Lux,
+                AggressivenessPercent = AggressivenessPercent
+            };
+        }
+    }
+
+    /// <summary>
+    /// DTO for LACE lux aggressiveness map.
+    /// </summary>
+    public struct LaceLuxAggrMapDto : IEquatable<LaceLuxAggrMapDto>
+    {
+        /// <summary>
+        /// Maximum supported entries.
+        /// </summary>
+        public uint MaxNumEntries;
+        /// <summary>
+        /// Number of active entries.
+        /// </summary>
+        public uint NumEntries;
+        /// <summary>
+        /// Managed lux/aggressiveness mapping table.
+        /// </summary>
+        public List<LaceLuxAggrMapEntryDto>? LuxToAggrMappingTable;
+
+        public bool Equals(LaceLuxAggrMapDto other)
+        {
+            return MaxNumEntries == other.MaxNumEntries &&
+                   NumEntries == other.NumEntries;
+        }
+
+        public override bool Equals(object? obj) => obj is LaceLuxAggrMapDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(MaxNumEntries);
+            hash.Add(NumEntries);
+            return hash.ToHashCode();
+        }
+
+        public static unsafe LaceLuxAggrMapDto FromNative(ctl_lace_lux_aggr_map_t native)
+        {
+            List<LaceLuxAggrMapEntryDto>? entries = null;
+            if (native.pLuxToAggrMappingTable != null && native.NumEntries > 0)
+            {
+                entries = new List<LaceLuxAggrMapEntryDto>((int)native.NumEntries);
+                for (var i = 0; i < native.NumEntries; i++)
+                    entries.Add(LaceLuxAggrMapEntryDto.FromNative(native.pLuxToAggrMappingTable[i]));
+            }
+
+            return new LaceLuxAggrMapDto
+            {
+                MaxNumEntries = native.MaxNumEntries,
+                NumEntries = native.NumEntries,
+                LuxToAggrMappingTable = entries
+            };
+        }
+
+        public ctl_lace_lux_aggr_map_t ToNative()
+        {
+            var numEntries = NumEntries;
+            if (LuxToAggrMappingTable != null)
+                numEntries = (uint)LuxToAggrMappingTable.Count;
+
+            return new ctl_lace_lux_aggr_map_t
+            {
+                MaxNumEntries = MaxNumEntries,
+                NumEntries = numEntries,
+                // Pointer population is handled by native call paths when pinning buffers.
+                pLuxToAggrMappingTable = null
+            };
+        }
+    }
+
+    /// <summary>
+    /// DTO for LACE aggregation configuration.
+    /// </summary>
+    public struct LaceAggrConfigDto : IEquatable<LaceAggrConfigDto>
+    {
+        /// <summary>
+        /// Fixed aggressiveness level percentage.
+        /// </summary>
+        public byte FixedAggressivenessLevelPercent;
+        /// <summary>
+        /// Lux-to-aggressiveness map configuration.
+        /// </summary>
+        public LaceLuxAggrMapDto AggrLevelMap;
+
+        public bool Equals(LaceAggrConfigDto other)
+        {
+            return FixedAggressivenessLevelPercent == other.FixedAggressivenessLevelPercent &&
+                   AggrLevelMap.Equals(other.AggrLevelMap);
+        }
+
+        public override bool Equals(object? obj) => obj is LaceAggrConfigDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(FixedAggressivenessLevelPercent);
+            hash.Add(AggrLevelMap);
+            return hash.ToHashCode();
+        }
+
+        public static LaceAggrConfigDto FromNative(ctl_lace_aggr_config_t native)
+        {
+            return new LaceAggrConfigDto
+            {
+                FixedAggressivenessLevelPercent = native.FixedAggressivenessLevelPercent,
+                AggrLevelMap = LaceLuxAggrMapDto.FromNative(native.AggrLevelMap)
+            };
+        }
+
+        public ctl_lace_aggr_config_t ToNative()
+        {
+            var native = new ctl_lace_aggr_config_t();
+            if (AggrLevelMap.NumEntries > 0 || (AggrLevelMap.LuxToAggrMappingTable?.Count ?? 0) > 0)
+                native.AggrLevelMap = AggrLevelMap.ToNative();
+            else
+                native.FixedAggressivenessLevelPercent = FixedAggressivenessLevelPercent;
+            return native;
+        }
+    }
+
+    /// <summary>
     /// DTO for LACE configuration.
     /// </summary>
     public struct LaceConfigDto : IEquatable<LaceConfigDto>
@@ -3015,7 +3575,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Aggregation configuration.
         /// </summary>
-        public ctl_lace_aggr_config_t LaceConfig;
+        public LaceAggrConfigDto LaceConfig;
 
         /// <summary>
         /// Compare LACE configuration.
@@ -3024,13 +3584,11 @@ namespace IGCLWrapper
         /// <returns>True when equal; otherwise, false.</returns>
         public bool Equals(LaceConfigDto other)
         {
-            return Size == other.Size &&
-                   Version == other.Version &&
-                   Enabled == other.Enabled &&
+             return Enabled == other.Enabled &&
                    OpTypeGet == other.OpTypeGet &&
                    OpTypeSet == other.OpTypeSet &&
                    Trigger == other.Trigger &&
-                   AreLaceAggrConfigsEqual(LaceConfig, other.LaceConfig);
+                 LaceConfig.Equals(other.LaceConfig);
         }
 
         /// <summary>
@@ -3047,23 +3605,12 @@ namespace IGCLWrapper
         public override int GetHashCode()
         {
             var hash = new HashCode();
-            hash.Add(Size);
-            hash.Add(Version);
             hash.Add(Enabled);
             hash.Add(OpTypeGet);
             hash.Add(OpTypeSet);
             hash.Add(Trigger);
-            hash.Add(LaceConfig.FixedAggressivenessLevelPercent);
-            hash.Add(LaceConfig.AggrLevelMap.MaxNumEntries);
-            hash.Add(LaceConfig.AggrLevelMap.NumEntries);
+            hash.Add(LaceConfig);
             return hash.ToHashCode();
-        }
-
-        private static bool AreLaceAggrConfigsEqual(ctl_lace_aggr_config_t left, ctl_lace_aggr_config_t right)
-        {
-            return left.FixedAggressivenessLevelPercent == right.FixedAggressivenessLevelPercent &&
-                   left.AggrLevelMap.MaxNumEntries == right.AggrLevelMap.MaxNumEntries &&
-                   left.AggrLevelMap.NumEntries == right.AggrLevelMap.NumEntries;
         }
 
         /// <summary>
@@ -3081,7 +3628,7 @@ namespace IGCLWrapper
                 OpTypeGet = native.OpTypeGet,
                 OpTypeSet = native.OpTypeSet,
                 Trigger = native.Trigger,
-                LaceConfig = native.LaceConfig
+                LaceConfig = LaceAggrConfigDto.FromNative(native.LaceConfig)
             };
         }
 
@@ -3103,7 +3650,7 @@ namespace IGCLWrapper
                 OpTypeGet = OpTypeGet,
                 OpTypeSet = OpTypeSet,
                 Trigger = Trigger,
-                LaceConfig = LaceConfig
+                LaceConfig = LaceConfig.ToNative()
             };
         }
     }
@@ -3533,6 +4080,303 @@ namespace IGCLWrapper
     }
 
     /// <summary>
+    /// DTO for DPST power optimization data.
+    /// </summary>
+    public struct PowerOptimizationDpstDto : IEquatable<PowerOptimizationDpstDto>
+    {
+        /// <summary>
+        /// Size of the native struct.
+        /// </summary>
+        public uint Size;
+        /// <summary>
+        /// Version of the native struct.
+        /// </summary>
+        public byte Version;
+        /// <summary>
+        /// Minimum DPST level.
+        /// </summary>
+        public byte MinLevel;
+        /// <summary>
+        /// Maximum DPST level.
+        /// </summary>
+        public byte MaxLevel;
+        /// <summary>
+        /// Current DPST level.
+        /// </summary>
+        public byte Level;
+        /// <summary>
+        /// Supported DPST feature flags.
+        /// </summary>
+        public uint SupportedFeatures;
+        /// <summary>
+        /// Enabled DPST feature flags.
+        /// </summary>
+        public uint EnabledFeatures;
+
+        public bool Equals(PowerOptimizationDpstDto other)
+        {
+            return MinLevel == other.MinLevel &&
+                   MaxLevel == other.MaxLevel &&
+                   Level == other.Level &&
+                   SupportedFeatures == other.SupportedFeatures &&
+                   EnabledFeatures == other.EnabledFeatures;
+        }
+
+        public override bool Equals(object? obj) => obj is PowerOptimizationDpstDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(MinLevel);
+            hash.Add(MaxLevel);
+            hash.Add(Level);
+            hash.Add(SupportedFeatures);
+            hash.Add(EnabledFeatures);
+            return hash.ToHashCode();
+        }
+
+        public static PowerOptimizationDpstDto FromNative(ctl_power_optimization_dpst_t native)
+        {
+            return new PowerOptimizationDpstDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                MinLevel = native.MinLevel,
+                MaxLevel = native.MaxLevel,
+                Level = native.Level,
+                SupportedFeatures = native.SupportedFeatures,
+                EnabledFeatures = native.EnabledFeatures
+            };
+        }
+
+        public unsafe ctl_power_optimization_dpst_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_power_optimization_dpst_t);
+
+            return new ctl_power_optimization_dpst_t
+            {
+                Size = size,
+                Version = Version,
+                MinLevel = MinLevel,
+                MaxLevel = MaxLevel,
+                Level = Level,
+                SupportedFeatures = SupportedFeatures,
+                EnabledFeatures = EnabledFeatures
+            };
+        }
+    }
+
+    /// <summary>
+    /// DTO for PSR power optimization data.
+    /// </summary>
+    public struct PowerOptimizationPsrDto : IEquatable<PowerOptimizationPsrDto>
+    {
+        /// <summary>
+        /// Size of the native struct.
+        /// </summary>
+        public uint Size;
+        /// <summary>
+        /// Version of the native struct.
+        /// </summary>
+        public byte Version;
+        /// <summary>
+        /// PSR version.
+        /// </summary>
+        public byte PSRVersion;
+        /// <summary>
+        /// Full fetch update flag.
+        /// </summary>
+        public bool FullFetchUpdate;
+
+        public bool Equals(PowerOptimizationPsrDto other)
+        {
+            return PSRVersion == other.PSRVersion &&
+                   FullFetchUpdate == other.FullFetchUpdate;
+        }
+
+        public override bool Equals(object? obj) => obj is PowerOptimizationPsrDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(PSRVersion);
+            hash.Add(FullFetchUpdate);
+            return hash.ToHashCode();
+        }
+
+        public static PowerOptimizationPsrDto FromNative(ctl_power_optimization_psr_t native)
+        {
+            return new PowerOptimizationPsrDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                PSRVersion = native.PSRVersion,
+                FullFetchUpdate = IGCLDisplayDtoBool.ToBool(native.FullFetchUpdate)
+            };
+        }
+
+        public unsafe ctl_power_optimization_psr_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_power_optimization_psr_t);
+
+            return new ctl_power_optimization_psr_t
+            {
+                Size = size,
+                Version = Version,
+                PSRVersion = PSRVersion,
+                FullFetchUpdate = IGCLDisplayDtoBool.ToByte(FullFetchUpdate)
+            };
+        }
+    }
+
+    /// <summary>
+    /// DTO for LRR power optimization data.
+    /// </summary>
+    public struct PowerOptimizationLrrDto : IEquatable<PowerOptimizationLrrDto>
+    {
+        /// <summary>
+        /// Size of the native struct.
+        /// </summary>
+        public uint Size;
+        /// <summary>
+        /// Version of the native struct.
+        /// </summary>
+        public byte Version;
+        /// <summary>
+        /// Supported LRR flags.
+        /// </summary>
+        public uint SupportedLrrTypes;
+        /// <summary>
+        /// Current LRR flags.
+        /// </summary>
+        public uint CurrentLrrTypes;
+        /// <summary>
+        /// Whether PSR must be disabled.
+        /// </summary>
+        public bool RequirePsrDisable;
+        /// <summary>
+        /// Low refresh rate.
+        /// </summary>
+        public ushort LowRr;
+
+        public bool Equals(PowerOptimizationLrrDto other)
+        {
+            return SupportedLrrTypes == other.SupportedLrrTypes &&
+                   CurrentLrrTypes == other.CurrentLrrTypes &&
+                   RequirePsrDisable == other.RequirePsrDisable &&
+                   LowRr == other.LowRr;
+        }
+
+        public override bool Equals(object? obj) => obj is PowerOptimizationLrrDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(SupportedLrrTypes);
+            hash.Add(CurrentLrrTypes);
+            hash.Add(RequirePsrDisable);
+            hash.Add(LowRr);
+            return hash.ToHashCode();
+        }
+
+        public static PowerOptimizationLrrDto FromNative(ctl_power_optimization_lrr_t native)
+        {
+            return new PowerOptimizationLrrDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                SupportedLrrTypes = native.SupportedLRRTypes,
+                CurrentLrrTypes = native.CurrentLRRTypes,
+                RequirePsrDisable = IGCLDisplayDtoBool.ToBool(native.bRequirePSRDisable),
+                LowRr = native.LowRR
+            };
+        }
+
+        public unsafe ctl_power_optimization_lrr_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_power_optimization_lrr_t);
+
+            return new ctl_power_optimization_lrr_t
+            {
+                Size = size,
+                Version = Version,
+                SupportedLRRTypes = SupportedLrrTypes,
+                CurrentLRRTypes = CurrentLrrTypes,
+                bRequirePSRDisable = IGCLDisplayDtoBool.ToByte(RequirePsrDisable),
+                LowRR = LowRr
+            };
+        }
+    }
+
+    /// <summary>
+    /// DTO for power optimization feature-specific data.
+    /// </summary>
+    public struct PowerOptimizationFeatureSpecificInfoDto : IEquatable<PowerOptimizationFeatureSpecificInfoDto>
+    {
+        /// <summary>
+        /// LRR configuration data.
+        /// </summary>
+        public PowerOptimizationLrrDto LrrInfo;
+        /// <summary>
+        /// PSR configuration data.
+        /// </summary>
+        public PowerOptimizationPsrDto PsrInfo;
+        /// <summary>
+        /// DPST configuration data.
+        /// </summary>
+        public PowerOptimizationDpstDto DpstInfo;
+
+        public bool Equals(PowerOptimizationFeatureSpecificInfoDto other)
+        {
+            return LrrInfo.Equals(other.LrrInfo) &&
+                   PsrInfo.Equals(other.PsrInfo) &&
+                   DpstInfo.Equals(other.DpstInfo);
+        }
+
+        public override bool Equals(object? obj) => obj is PowerOptimizationFeatureSpecificInfoDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(LrrInfo);
+            hash.Add(PsrInfo);
+            hash.Add(DpstInfo);
+            return hash.ToHashCode();
+        }
+
+        public static PowerOptimizationFeatureSpecificInfoDto FromNative(ctl_power_optimization_feature_specific_info_t native)
+        {
+            return new PowerOptimizationFeatureSpecificInfoDto
+            {
+                LrrInfo = PowerOptimizationLrrDto.FromNative(native.LRRInfo),
+                PsrInfo = PowerOptimizationPsrDto.FromNative(native.PSRInfo),
+                DpstInfo = PowerOptimizationDpstDto.FromNative(native.DPSTInfo)
+            };
+        }
+
+        public ctl_power_optimization_feature_specific_info_t ToNative()
+        {
+            var native = new ctl_power_optimization_feature_specific_info_t();
+
+            // This native type is a union. Prefer a populated member in deterministic order.
+            if (DpstInfo.Size != 0 || DpstInfo.SupportedFeatures != 0 || DpstInfo.EnabledFeatures != 0 || DpstInfo.Level != 0 || DpstInfo.MinLevel != 0 || DpstInfo.MaxLevel != 0)
+                native.DPSTInfo = DpstInfo.ToNative();
+            else if (PsrInfo.Size != 0 || PsrInfo.PSRVersion != 0 || PsrInfo.FullFetchUpdate)
+                native.PSRInfo = PsrInfo.ToNative();
+            else
+                native.LRRInfo = LrrInfo.ToNative();
+
+            return native;
+        }
+    }
+
+    /// <summary>
     /// DTO for power optimization settings.
     /// </summary>
     public struct PowerOptimizationSettingsDto : IEquatable<PowerOptimizationSettingsDto>
@@ -3560,7 +4404,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Feature-specific data.
         /// </summary>
-        public ctl_power_optimization_feature_specific_info_t FeatureSpecificData;
+        public PowerOptimizationFeatureSpecificInfoDto FeatureSpecificData;
         /// <summary>
         /// Power source.
         /// </summary>
@@ -3573,9 +4417,7 @@ namespace IGCLWrapper
         /// <returns>True when equal; otherwise, false.</returns>
         public bool Equals(PowerOptimizationSettingsDto other)
         {
-            return Size == other.Size &&
-                   Version == other.Version &&
-                   PowerOptimizationPlan == other.PowerOptimizationPlan &&
+            return PowerOptimizationPlan == other.PowerOptimizationPlan &&
                    PowerOptimizationFeature == other.PowerOptimizationFeature &&
                    Enable == other.Enable &&
                    FeatureSpecificData.Equals(other.FeatureSpecificData) &&
@@ -3596,8 +4438,6 @@ namespace IGCLWrapper
         public override int GetHashCode()
         {
             var hash = new HashCode();
-            hash.Add(Size);
-            hash.Add(Version);
             hash.Add(PowerOptimizationPlan);
             hash.Add(PowerOptimizationFeature);
             hash.Add(Enable);
@@ -3620,7 +4460,7 @@ namespace IGCLWrapper
                 PowerOptimizationPlan = native.PowerOptimizationPlan,
                 PowerOptimizationFeature = native.PowerOptimizationFeature,
                 Enable = IGCLDisplayDtoBool.ToBool(native.Enable),
-                FeatureSpecificData = native.FeatureSpecificData,
+                FeatureSpecificData = PowerOptimizationFeatureSpecificInfoDto.FromNative(native.FeatureSpecificData),
                 PowerSource = native.PowerSource
             };
         }
@@ -3642,7 +4482,7 @@ namespace IGCLWrapper
                 PowerOptimizationPlan = PowerOptimizationPlan,
                 PowerOptimizationFeature = PowerOptimizationFeature,
                 Enable = IGCLDisplayDtoBool.ToByte(Enable),
-                FeatureSpecificData = FeatureSpecificData,
+                FeatureSpecificData = FeatureSpecificData.ToNative(),
                 PowerSource = PowerSource
             };
         }
