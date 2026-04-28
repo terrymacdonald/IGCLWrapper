@@ -89,7 +89,7 @@
 
 
   <h1 id="IGCLWrapper_WireFormatConfigDto" data-uid="IGCLWrapper.WireFormatConfigDto" class="text-break">
-Struct WireFormatConfigDto  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2283"><i class="bi bi-code-slash"></i></a>
+Struct WireFormatConfigDto  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2678"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -146,7 +146,7 @@ Struct WireFormatConfigDto  <a class="header-action link-secondary" title="View 
 
   <h3 id="IGCLWrapper_WireFormatConfigDto_Operation" data-uid="IGCLWrapper.WireFormatConfigDto.Operation">
   Operation
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2297"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2692"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Wire format operation type.</p>
@@ -177,7 +177,7 @@ Struct WireFormatConfigDto  <a class="header-action link-secondary" title="View 
 
   <h3 id="IGCLWrapper_WireFormatConfigDto_Size" data-uid="IGCLWrapper.WireFormatConfigDto.Size">
   Size
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2289"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2684"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Size of the native struct.</p>
@@ -208,7 +208,7 @@ Struct WireFormatConfigDto  <a class="header-action link-secondary" title="View 
 
   <h3 id="IGCLWrapper_WireFormatConfigDto_SupportedWireFormat" data-uid="IGCLWrapper.WireFormatConfigDto.SupportedWireFormat">
   SupportedWireFormat
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2301"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2696"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Supported wire format values.</p>
@@ -216,7 +216,7 @@ Struct WireFormatConfigDto  <a class="header-action link-secondary" title="View 
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_wire_format_t[]? SupportedWireFormat</code></pre>
+    <pre><code class="lang-csharp hljs">public List&lt;WireFormatDto&gt;? SupportedWireFormat</code></pre>
   </div>
 
 
@@ -224,7 +224,7 @@ Struct WireFormatConfigDto  <a class="header-action link-secondary" title="View 
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_wire_format_t.html">ctl_wire_format_t</a>[]</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="IGCLWrapper.WireFormatDto.html">WireFormatDto</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -239,7 +239,7 @@ Struct WireFormatConfigDto  <a class="header-action link-secondary" title="View 
 
   <h3 id="IGCLWrapper_WireFormatConfigDto_Version" data-uid="IGCLWrapper.WireFormatConfigDto.Version">
   Version
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2293"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2688"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Version of the native struct.</p>
@@ -270,7 +270,7 @@ Struct WireFormatConfigDto  <a class="header-action link-secondary" title="View 
 
   <h3 id="IGCLWrapper_WireFormatConfigDto_WireFormat" data-uid="IGCLWrapper.WireFormatConfigDto.WireFormat">
   WireFormat
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2305"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2700"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Selected wire format.</p>
@@ -278,7 +278,7 @@ Struct WireFormatConfigDto  <a class="header-action link-secondary" title="View 
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_wire_format_t WireFormat</code></pre>
+    <pre><code class="lang-csharp hljs">public WireFormatDto WireFormat</code></pre>
   </div>
 
 
@@ -286,7 +286,7 @@ Struct WireFormatConfigDto  <a class="header-action link-secondary" title="View 
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_wire_format_t.html">ctl_wire_format_t</a></dt>
+    <dt><a class="xref" href="IGCLWrapper.WireFormatDto.html">WireFormatDto</a></dt>
     <dd></dd>
   </dl>
 
@@ -306,7 +306,7 @@ Struct WireFormatConfigDto  <a class="header-action link-secondary" title="View 
 
   <h3 id="IGCLWrapper_WireFormatConfigDto_Equals_IGCLWrapper_WireFormatConfigDto_" data-uid="IGCLWrapper.WireFormatConfigDto.Equals(IGCLWrapper.WireFormatConfigDto)">
   Equals(WireFormatConfigDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2312"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2707"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare wire format settings.</p>
@@ -345,7 +345,7 @@ Struct WireFormatConfigDto  <a class="header-action link-secondary" title="View 
 
   <h3 id="IGCLWrapper_WireFormatConfigDto_Equals_System_Object_" data-uid="IGCLWrapper.WireFormatConfigDto.Equals(System.Object)">
   Equals(object?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2326"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2719"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare to another object.</p>
@@ -384,7 +384,7 @@ Struct WireFormatConfigDto  <a class="header-action link-secondary" title="View 
 
   <h3 id="IGCLWrapper_WireFormatConfigDto_FromNative_IGCLWrapper_ctl_get_set_wire_format_config_t_" data-uid="IGCLWrapper.WireFormatConfigDto.FromNative(IGCLWrapper.ctl_get_set_wire_format_config_t)">
   FromNative(ctl_get_set_wire_format_config_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2353"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2744"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a DTO from a native struct.</p>
@@ -423,7 +423,7 @@ Struct WireFormatConfigDto  <a class="header-action link-secondary" title="View 
 
   <h3 id="IGCLWrapper_WireFormatConfigDto_GetHashCode" data-uid="IGCLWrapper.WireFormatConfigDto.GetHashCode">
   GetHashCode()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2332"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2725"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get a hash code for this instance.</p>
@@ -456,7 +456,7 @@ Struct WireFormatConfigDto  <a class="header-action link-secondary" title="View 
 
   <h3 id="IGCLWrapper_WireFormatConfigDto_ToNative" data-uid="IGCLWrapper.WireFormatConfigDto.ToNative">
   ToNative()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2369"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2760"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Convert this DTO to a native struct.</p>
@@ -489,7 +489,7 @@ Struct WireFormatConfigDto  <a class="header-action link-secondary" title="View 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2283" class="edit-link">Edit this page</a>
+          <a href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2678" class="edit-link">Edit this page</a>
         </div>
 
 

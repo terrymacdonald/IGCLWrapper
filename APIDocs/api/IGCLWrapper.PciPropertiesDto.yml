@@ -30,7 +30,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PciPropertiesDto
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 129
+    startLine: 283
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -64,7 +64,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 134
+    startLine: 288
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -93,7 +93,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 138
+    startLine: 292
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -122,17 +122,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Address
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 142
+    startLine: 296
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: PCI address.
   example: []
   syntax:
-    content: public ctl_pci_address_t Address
+    content: public PciAddressDto Address
     return:
-      type: IGCLWrapper.ctl_pci_address_t
-    content.vb: Public Address As ctl_pci_address_t
+      type: IGCLWrapper.PciAddressDto
+    content.vb: Public Address As PciAddressDto
 - uid: IGCLWrapper.PciPropertiesDto.MaxSpeed
   commentId: F:IGCLWrapper.PciPropertiesDto.MaxSpeed
   id: MaxSpeed
@@ -151,17 +151,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: MaxSpeed
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 146
+    startLine: 300
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Maximum PCIe speed.
   example: []
   syntax:
-    content: public ctl_pci_speed_t MaxSpeed
+    content: public PciSpeedDto MaxSpeed
     return:
-      type: IGCLWrapper.ctl_pci_speed_t
-    content.vb: Public MaxSpeed As ctl_pci_speed_t
+      type: IGCLWrapper.PciSpeedDto
+    content.vb: Public MaxSpeed As PciSpeedDto
 - uid: IGCLWrapper.PciPropertiesDto.ResizableBarSupported
   commentId: F:IGCLWrapper.PciPropertiesDto.ResizableBarSupported
   id: ResizableBarSupported
@@ -180,7 +180,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ResizableBarSupported
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 150
+    startLine: 304
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -209,7 +209,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ResizableBarEnabled
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 154
+    startLine: 308
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -238,7 +238,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 161
+    startLine: 315
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -275,7 +275,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 176
+    startLine: 328
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -314,7 +314,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetHashCode
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 182
+    startLine: 334
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -346,7 +346,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 199
+    startLine: 349
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -381,7 +381,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 216
+    startLine: 366
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -646,20 +646,20 @@ references:
   nameWithType.vb: Byte
   fullName.vb: Byte
   name.vb: Byte
-- uid: IGCLWrapper.ctl_pci_address_t
-  commentId: T:IGCLWrapper.ctl_pci_address_t
+- uid: IGCLWrapper.PciAddressDto
+  commentId: T:IGCLWrapper.PciAddressDto
   parent: IGCLWrapper
-  href: IGCLWrapper.ctl_pci_address_t.html
-  name: ctl_pci_address_t
-  nameWithType: ctl_pci_address_t
-  fullName: IGCLWrapper.ctl_pci_address_t
-- uid: IGCLWrapper.ctl_pci_speed_t
-  commentId: T:IGCLWrapper.ctl_pci_speed_t
+  href: IGCLWrapper.PciAddressDto.html
+  name: PciAddressDto
+  nameWithType: PciAddressDto
+  fullName: IGCLWrapper.PciAddressDto
+- uid: IGCLWrapper.PciSpeedDto
+  commentId: T:IGCLWrapper.PciSpeedDto
   parent: IGCLWrapper
-  href: IGCLWrapper.ctl_pci_speed_t.html
-  name: ctl_pci_speed_t
-  nameWithType: ctl_pci_speed_t
-  fullName: IGCLWrapper.ctl_pci_speed_t
+  href: IGCLWrapper.PciSpeedDto.html
+  name: PciSpeedDto
+  nameWithType: PciSpeedDto
+  fullName: IGCLWrapper.PciSpeedDto
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System

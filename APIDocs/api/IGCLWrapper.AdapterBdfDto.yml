@@ -1,0 +1,710 @@
+### YamlMime:ManagedReference
+items:
+- uid: IGCLWrapper.AdapterBdfDto
+  commentId: T:IGCLWrapper.AdapterBdfDto
+  id: AdapterBdfDto
+  parent: IGCLWrapper
+  children:
+  - IGCLWrapper.AdapterBdfDto.Bus
+  - IGCLWrapper.AdapterBdfDto.Device
+  - IGCLWrapper.AdapterBdfDto.Equals(IGCLWrapper.AdapterBdfDto)
+  - IGCLWrapper.AdapterBdfDto.Equals(System.Object)
+  - IGCLWrapper.AdapterBdfDto.FromNative(IGCLWrapper.ctl_adapter_bdf_t)
+  - IGCLWrapper.AdapterBdfDto.Function
+  - IGCLWrapper.AdapterBdfDto.GetHashCode
+  - IGCLWrapper.AdapterBdfDto.ToNative
+  langs:
+  - csharp
+  - vb
+  name: AdapterBdfDto
+  nameWithType: AdapterBdfDto
+  fullName: IGCLWrapper.AdapterBdfDto
+  type: Struct
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: AdapterBdfDto
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1247
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: DTO for adapter bus-device-function identifier.
+  example: []
+  syntax:
+    content: 'public struct AdapterBdfDto : IEquatable<AdapterBdfDto>'
+    content.vb: Public Structure AdapterBdfDto Implements IEquatable(Of AdapterBdfDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.AdapterBdfDto}
+  inheritedMembers:
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.AdapterBdfDto.Bus
+  commentId: F:IGCLWrapper.AdapterBdfDto.Bus
+  id: Bus
+  parent: IGCLWrapper.AdapterBdfDto
+  langs:
+  - csharp
+  - vb
+  name: Bus
+  nameWithType: AdapterBdfDto.Bus
+  fullName: IGCLWrapper.AdapterBdfDto.Bus
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Bus
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1252
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: PCI bus identifier.
+  example: []
+  syntax:
+    content: public byte Bus
+    return:
+      type: System.Byte
+    content.vb: Public Bus As Byte
+- uid: IGCLWrapper.AdapterBdfDto.Device
+  commentId: F:IGCLWrapper.AdapterBdfDto.Device
+  id: Device
+  parent: IGCLWrapper.AdapterBdfDto
+  langs:
+  - csharp
+  - vb
+  name: Device
+  nameWithType: AdapterBdfDto.Device
+  fullName: IGCLWrapper.AdapterBdfDto.Device
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Device
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1256
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: PCI device identifier.
+  example: []
+  syntax:
+    content: public byte Device
+    return:
+      type: System.Byte
+    content.vb: Public Device As Byte
+- uid: IGCLWrapper.AdapterBdfDto.Function
+  commentId: F:IGCLWrapper.AdapterBdfDto.Function
+  id: Function
+  parent: IGCLWrapper.AdapterBdfDto
+  langs:
+  - csharp
+  - vb
+  name: Function
+  nameWithType: AdapterBdfDto.Function
+  fullName: IGCLWrapper.AdapterBdfDto.Function
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Function
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1260
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: PCI function identifier.
+  example: []
+  syntax:
+    content: public byte Function
+    return:
+      type: System.Byte
+    content.vb: Public [Function] As Byte
+- uid: IGCLWrapper.AdapterBdfDto.Equals(IGCLWrapper.AdapterBdfDto)
+  commentId: M:IGCLWrapper.AdapterBdfDto.Equals(IGCLWrapper.AdapterBdfDto)
+  id: Equals(IGCLWrapper.AdapterBdfDto)
+  parent: IGCLWrapper.AdapterBdfDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(AdapterBdfDto)
+  nameWithType: AdapterBdfDto.Equals(AdapterBdfDto)
+  fullName: IGCLWrapper.AdapterBdfDto.Equals(IGCLWrapper.AdapterBdfDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1262
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(AdapterBdfDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.AdapterBdfDto
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As AdapterBdfDto) As Boolean
+  overload: IGCLWrapper.AdapterBdfDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.AdapterBdfDto}.Equals(IGCLWrapper.AdapterBdfDto)
+- uid: IGCLWrapper.AdapterBdfDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.AdapterBdfDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.AdapterBdfDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: AdapterBdfDto.Equals(object?)
+  fullName: IGCLWrapper.AdapterBdfDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1269
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Indicates whether this instance and a specified object are equal.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.AdapterBdfDto.Equals*
+  nameWithType.vb: AdapterBdfDto.Equals(Object)
+  fullName.vb: IGCLWrapper.AdapterBdfDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.AdapterBdfDto.GetHashCode
+  commentId: M:IGCLWrapper.AdapterBdfDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.AdapterBdfDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: AdapterBdfDto.GetHashCode()
+  fullName: IGCLWrapper.AdapterBdfDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1271
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Returns the hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A 32-bit signed integer that is the hash code for this instance.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.AdapterBdfDto.GetHashCode*
+- uid: IGCLWrapper.AdapterBdfDto.FromNative(IGCLWrapper.ctl_adapter_bdf_t)
+  commentId: M:IGCLWrapper.AdapterBdfDto.FromNative(IGCLWrapper.ctl_adapter_bdf_t)
+  id: FromNative(IGCLWrapper.ctl_adapter_bdf_t)
+  parent: IGCLWrapper.AdapterBdfDto
+  langs:
+  - csharp
+  - vb
+  name: FromNative(ctl_adapter_bdf_t)
+  nameWithType: AdapterBdfDto.FromNative(ctl_adapter_bdf_t)
+  fullName: IGCLWrapper.AdapterBdfDto.FromNative(IGCLWrapper.ctl_adapter_bdf_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: FromNative
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1280
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public static AdapterBdfDto FromNative(ctl_adapter_bdf_t native)
+    parameters:
+    - id: native
+      type: IGCLWrapper.ctl_adapter_bdf_t
+    return:
+      type: IGCLWrapper.AdapterBdfDto
+    content.vb: Public Shared Function FromNative(native As ctl_adapter_bdf_t) As AdapterBdfDto
+  overload: IGCLWrapper.AdapterBdfDto.FromNative*
+- uid: IGCLWrapper.AdapterBdfDto.ToNative
+  commentId: M:IGCLWrapper.AdapterBdfDto.ToNative
+  id: ToNative
+  parent: IGCLWrapper.AdapterBdfDto
+  langs:
+  - csharp
+  - vb
+  name: ToNative()
+  nameWithType: AdapterBdfDto.ToNative()
+  fullName: IGCLWrapper.AdapterBdfDto.ToNative()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: ToNative
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1290
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_adapter_bdf_t ToNative()
+    return:
+      type: IGCLWrapper.ctl_adapter_bdf_t
+    content.vb: Public Function ToNative() As ctl_adapter_bdf_t
+  overload: IGCLWrapper.AdapterBdfDto.ToNative*
+references:
+- uid: IGCLWrapper
+  commentId: N:IGCLWrapper
+  href: IGCLWrapper.html
+  name: IGCLWrapper
+  nameWithType: IGCLWrapper
+  fullName: IGCLWrapper
+- uid: System.IEquatable{IGCLWrapper.AdapterBdfDto}
+  commentId: T:System.IEquatable{IGCLWrapper.AdapterBdfDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<AdapterBdfDto>
+  nameWithType: IEquatable<AdapterBdfDto>
+  fullName: System.IEquatable<IGCLWrapper.AdapterBdfDto>
+  nameWithType.vb: IEquatable(Of AdapterBdfDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.AdapterBdfDto)
+  name.vb: IEquatable(Of AdapterBdfDto)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.AdapterBdfDto
+    name: AdapterBdfDto
+    href: IGCLWrapper.AdapterBdfDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.AdapterBdfDto
+    name: AdapterBdfDto
+    href: IGCLWrapper.AdapterBdfDto.html
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: IGCLWrapper.AdapterBdfDto.Equals*
+  commentId: Overload:IGCLWrapper.AdapterBdfDto.Equals
+  href: IGCLWrapper.AdapterBdfDto.html#IGCLWrapper_AdapterBdfDto_Equals_IGCLWrapper_AdapterBdfDto_
+  name: Equals
+  nameWithType: AdapterBdfDto.Equals
+  fullName: IGCLWrapper.AdapterBdfDto.Equals
+- uid: System.IEquatable{IGCLWrapper.AdapterBdfDto}.Equals(IGCLWrapper.AdapterBdfDto)
+  commentId: M:System.IEquatable{IGCLWrapper.AdapterBdfDto}.Equals(IGCLWrapper.AdapterBdfDto)
+  parent: System.IEquatable{IGCLWrapper.AdapterBdfDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(AdapterBdfDto)
+  nameWithType: IEquatable<AdapterBdfDto>.Equals(AdapterBdfDto)
+  fullName: System.IEquatable<IGCLWrapper.AdapterBdfDto>.Equals(IGCLWrapper.AdapterBdfDto)
+  nameWithType.vb: IEquatable(Of AdapterBdfDto).Equals(AdapterBdfDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.AdapterBdfDto).Equals(IGCLWrapper.AdapterBdfDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.AdapterBdfDto}.Equals(IGCLWrapper.AdapterBdfDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.AdapterBdfDto
+    name: AdapterBdfDto
+    href: IGCLWrapper.AdapterBdfDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.AdapterBdfDto}.Equals(IGCLWrapper.AdapterBdfDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.AdapterBdfDto
+    name: AdapterBdfDto
+    href: IGCLWrapper.AdapterBdfDto.html
+  - name: )
+- uid: IGCLWrapper.AdapterBdfDto
+  commentId: T:IGCLWrapper.AdapterBdfDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.AdapterBdfDto.html
+  name: AdapterBdfDto
+  nameWithType: AdapterBdfDto
+  fullName: IGCLWrapper.AdapterBdfDto
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.AdapterBdfDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.AdapterBdfDto.GetHashCode
+  href: IGCLWrapper.AdapterBdfDto.html#IGCLWrapper_AdapterBdfDto_GetHashCode
+  name: GetHashCode
+  nameWithType: AdapterBdfDto.GetHashCode
+  fullName: IGCLWrapper.AdapterBdfDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: IGCLWrapper.AdapterBdfDto.FromNative*
+  commentId: Overload:IGCLWrapper.AdapterBdfDto.FromNative
+  href: IGCLWrapper.AdapterBdfDto.html#IGCLWrapper_AdapterBdfDto_FromNative_IGCLWrapper_ctl_adapter_bdf_t_
+  name: FromNative
+  nameWithType: AdapterBdfDto.FromNative
+  fullName: IGCLWrapper.AdapterBdfDto.FromNative
+- uid: IGCLWrapper.ctl_adapter_bdf_t
+  commentId: T:IGCLWrapper.ctl_adapter_bdf_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_adapter_bdf_t.html
+  name: ctl_adapter_bdf_t
+  nameWithType: ctl_adapter_bdf_t
+  fullName: IGCLWrapper.ctl_adapter_bdf_t
+- uid: IGCLWrapper.AdapterBdfDto.ToNative*
+  commentId: Overload:IGCLWrapper.AdapterBdfDto.ToNative
+  href: IGCLWrapper.AdapterBdfDto.html#IGCLWrapper_AdapterBdfDto_ToNative
+  name: ToNative
+  nameWithType: AdapterBdfDto.ToNative
+  fullName: IGCLWrapper.AdapterBdfDto.ToNative

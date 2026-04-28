@@ -35,7 +35,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AdapterDisplayEncoderPropertiesDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2429
+    startLine: 2820
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -69,7 +69,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2434
+    startLine: 2825
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -98,7 +98,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2438
+    startLine: 2829
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -127,17 +127,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OsDisplayEncoderHandle
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2442
+    startLine: 2833
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: OS display encoder handle.
   example: []
   syntax:
-    content: public ctl_os_display_encoder_identifier_t OsDisplayEncoderHandle
+    content: public OsDisplayEncoderIdentifierDto OsDisplayEncoderHandle
     return:
-      type: IGCLWrapper.ctl_os_display_encoder_identifier_t
-    content.vb: Public OsDisplayEncoderHandle As ctl_os_display_encoder_identifier_t
+      type: IGCLWrapper.OsDisplayEncoderIdentifierDto
+    content.vb: Public OsDisplayEncoderHandle As OsDisplayEncoderIdentifierDto
 - uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Type
   commentId: F:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Type
   id: Type
@@ -156,7 +156,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Type
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2446
+    startLine: 2837
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -185,7 +185,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsOnBoardProtocolConverterOutputPresent
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2450
+    startLine: 2841
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -214,17 +214,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SupportedSpec
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2454
+    startLine: 2845
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Supported specification revision.
   example: []
   syntax:
-    content: public ctl_revision_datatype_t SupportedSpec
+    content: public RevisionDatatypeDto SupportedSpec
     return:
-      type: IGCLWrapper.ctl_revision_datatype_t
-    content.vb: Public SupportedSpec As ctl_revision_datatype_t
+      type: IGCLWrapper.RevisionDatatypeDto
+    content.vb: Public SupportedSpec As RevisionDatatypeDto
 - uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportedOutputBpcFlags
   commentId: F:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportedOutputBpcFlags
   id: SupportedOutputBpcFlags
@@ -243,7 +243,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SupportedOutputBpcFlags
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2458
+    startLine: 2849
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -272,7 +272,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EncoderConfigFlags
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2462
+    startLine: 2853
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -301,7 +301,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FeatureSupportedFlags
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2466
+    startLine: 2857
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -330,7 +330,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AdvancedFeatureSupportedFlags
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2470
+    startLine: 2861
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -359,17 +359,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ReservedFields
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2474
+    startLine: 2865
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Reserved native fields.
   example: []
   syntax:
-    content: public ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer ReservedFields
+    content: public List<uint>? ReservedFields
     return:
-      type: IGCLWrapper.ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer
-    content.vb: Public ReservedFields As ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer
+      type: System.Collections.Generic.List{System.UInt32}
+    content.vb: Public ReservedFields As List(Of UInteger)
 - uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Equals(IGCLWrapper.AdapterDisplayEncoderPropertiesDto)
   commentId: M:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Equals(IGCLWrapper.AdapterDisplayEncoderPropertiesDto)
   id: Equals(IGCLWrapper.AdapterDisplayEncoderPropertiesDto)
@@ -388,7 +388,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2481
+    startLine: 2872
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -425,7 +425,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2500
+    startLine: 2889
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -464,7 +464,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetHashCode
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2506
+    startLine: 2895
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -496,7 +496,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2526
+    startLine: 2913
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -531,7 +531,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2548
+    startLine: 2935
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -796,13 +796,13 @@ references:
   nameWithType.vb: Byte
   fullName.vb: Byte
   name.vb: Byte
-- uid: IGCLWrapper.ctl_os_display_encoder_identifier_t
-  commentId: T:IGCLWrapper.ctl_os_display_encoder_identifier_t
+- uid: IGCLWrapper.OsDisplayEncoderIdentifierDto
+  commentId: T:IGCLWrapper.OsDisplayEncoderIdentifierDto
   parent: IGCLWrapper
-  href: IGCLWrapper.ctl_os_display_encoder_identifier_t.html
-  name: ctl_os_display_encoder_identifier_t
-  nameWithType: ctl_os_display_encoder_identifier_t
-  fullName: IGCLWrapper.ctl_os_display_encoder_identifier_t
+  href: IGCLWrapper.OsDisplayEncoderIdentifierDto.html
+  name: OsDisplayEncoderIdentifierDto
+  nameWithType: OsDisplayEncoderIdentifierDto
+  fullName: IGCLWrapper.OsDisplayEncoderIdentifierDto
 - uid: IGCLWrapper.ctl_display_output_types_t
   commentId: T:IGCLWrapper.ctl_display_output_types_t
   parent: IGCLWrapper
@@ -821,36 +821,113 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
-- uid: IGCLWrapper.ctl_revision_datatype_t
-  commentId: T:IGCLWrapper.ctl_revision_datatype_t
+- uid: IGCLWrapper.RevisionDatatypeDto
+  commentId: T:IGCLWrapper.RevisionDatatypeDto
   parent: IGCLWrapper
-  href: IGCLWrapper.ctl_revision_datatype_t.html
-  name: ctl_revision_datatype_t
-  nameWithType: ctl_revision_datatype_t
-  fullName: IGCLWrapper.ctl_revision_datatype_t
-- uid: IGCLWrapper.ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer
-  commentId: T:IGCLWrapper.ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_adapter_display_encoder_properties_t.html
-  name: ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer
-  nameWithType: ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer
-  fullName: IGCLWrapper.ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer
+  href: IGCLWrapper.RevisionDatatypeDto.html
+  name: RevisionDatatypeDto
+  nameWithType: RevisionDatatypeDto
+  fullName: IGCLWrapper.RevisionDatatypeDto
+- uid: System.Collections.Generic.List{System.UInt32}
+  commentId: T:System.Collections.Generic.List{System.UInt32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<uint>
+  nameWithType: List<uint>
+  fullName: System.Collections.Generic.List<uint>
+  nameWithType.vb: List(Of UInteger)
+  fullName.vb: System.Collections.Generic.List(Of UInteger)
+  name.vb: List(Of UInteger)
   spec.csharp:
-  - uid: IGCLWrapper.ctl_adapter_display_encoder_properties_t
-    name: ctl_adapter_display_encoder_properties_t
-    href: IGCLWrapper.ctl_adapter_display_encoder_properties_t.html
-  - name: .
-  - uid: IGCLWrapper.ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer
-    name: _ReservedFields_e__FixedBuffer
-    href: IGCLWrapper.ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer.html
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.UInt32
+    name: uint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: '>'
   spec.vb:
-  - uid: IGCLWrapper.ctl_adapter_display_encoder_properties_t
-    name: ctl_adapter_display_encoder_properties_t
-    href: IGCLWrapper.ctl_adapter_display_encoder_properties_t.html
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.UInt32
+    name: UInteger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
   - name: .
-  - uid: IGCLWrapper.ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer
-    name: _ReservedFields_e__FixedBuffer
-    href: IGCLWrapper.ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer.html
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Equals*
   commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Equals
   href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_Equals_IGCLWrapper_AdapterDisplayEncoderPropertiesDto_

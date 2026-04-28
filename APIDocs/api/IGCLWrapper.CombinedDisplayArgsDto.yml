@@ -5,11 +5,10 @@ items:
   id: CombinedDisplayArgsDto
   parent: IGCLWrapper
   children:
-  - IGCLWrapper.CombinedDisplayArgsDto.ChildInfo
   - IGCLWrapper.CombinedDisplayArgsDto.ChildInfos
   - IGCLWrapper.CombinedDisplayArgsDto.CombinedDesktopHeight
   - IGCLWrapper.CombinedDisplayArgsDto.CombinedDesktopWidth
-  - IGCLWrapper.CombinedDisplayArgsDto.CombinedDisplayOutput
+  - IGCLWrapper.CombinedDisplayArgsDto.CombinedDisplayOutputWindowsDisplayEncoderId
   - IGCLWrapper.CombinedDisplayArgsDto.Equals(IGCLWrapper.CombinedDisplayArgsDto)
   - IGCLWrapper.CombinedDisplayArgsDto.Equals(System.Object)
   - IGCLWrapper.CombinedDisplayArgsDto.FromNative(IGCLWrapper.ctl_combined_display_args_t)
@@ -34,7 +33,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CombinedDisplayArgsDto
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1468
+    startLine: 1878
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -68,7 +67,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1473
+    startLine: 1883
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -97,7 +96,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1477
+    startLine: 1887
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -126,7 +125,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OpType
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1481
+    startLine: 1891
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -155,7 +154,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsSupported
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1485
+    startLine: 1895
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -184,7 +183,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: NumOutputs
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1489
+    startLine: 1899
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -213,7 +212,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CombinedDesktopWidth
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1493
+    startLine: 1903
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -242,7 +241,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CombinedDesktopHeight
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1497
+    startLine: 1907
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -253,35 +252,6 @@ items:
     return:
       type: System.UInt32
     content.vb: Public CombinedDesktopHeight As UInteger
-- uid: IGCLWrapper.CombinedDisplayArgsDto.ChildInfo
-  commentId: F:IGCLWrapper.CombinedDisplayArgsDto.ChildInfo
-  id: ChildInfo
-  parent: IGCLWrapper.CombinedDisplayArgsDto
-  langs:
-  - csharp
-  - vb
-  name: ChildInfo
-  nameWithType: CombinedDisplayArgsDto.ChildInfo
-  fullName: IGCLWrapper.CombinedDisplayArgsDto.ChildInfo
-  type: Field
-  source:
-    remote:
-      path: IGCLWrapper/IGCLApiHelper.cs
-      branch: develop
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: ChildInfo
-    path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1501
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  summary: Pointer to child info.
-  example: []
-  syntax:
-    content: public nint ChildInfo
-    return:
-      type: System.IntPtr
-    content.vb: Public ChildInfo As IntPtr
 - uid: IGCLWrapper.CombinedDisplayArgsDto.ChildInfos
   commentId: F:IGCLWrapper.CombinedDisplayArgsDto.ChildInfos
   id: ChildInfos
@@ -300,46 +270,46 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ChildInfos
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1505
+    startLine: 1911
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Managed child display info list.
   example: []
   syntax:
-    content: public CombinedDisplayChildInfoDto[]? ChildInfos
+    content: public List<CombinedDisplayChildInfoDto>? ChildInfos
     return:
-      type: IGCLWrapper.CombinedDisplayChildInfoDto[]
-    content.vb: Public ChildInfos As CombinedDisplayChildInfoDto()
-- uid: IGCLWrapper.CombinedDisplayArgsDto.CombinedDisplayOutput
-  commentId: F:IGCLWrapper.CombinedDisplayArgsDto.CombinedDisplayOutput
-  id: CombinedDisplayOutput
+      type: System.Collections.Generic.List{IGCLWrapper.CombinedDisplayChildInfoDto}
+    content.vb: Public ChildInfos As List(Of CombinedDisplayChildInfoDto)
+- uid: IGCLWrapper.CombinedDisplayArgsDto.CombinedDisplayOutputWindowsDisplayEncoderId
+  commentId: F:IGCLWrapper.CombinedDisplayArgsDto.CombinedDisplayOutputWindowsDisplayEncoderId
+  id: CombinedDisplayOutputWindowsDisplayEncoderId
   parent: IGCLWrapper.CombinedDisplayArgsDto
   langs:
   - csharp
   - vb
-  name: CombinedDisplayOutput
-  nameWithType: CombinedDisplayArgsDto.CombinedDisplayOutput
-  fullName: IGCLWrapper.CombinedDisplayArgsDto.CombinedDisplayOutput
+  name: CombinedDisplayOutputWindowsDisplayEncoderId
+  nameWithType: CombinedDisplayArgsDto.CombinedDisplayOutputWindowsDisplayEncoderId
+  fullName: IGCLWrapper.CombinedDisplayArgsDto.CombinedDisplayOutputWindowsDisplayEncoderId
   type: Field
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
       branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: CombinedDisplayOutput
+    id: CombinedDisplayOutputWindowsDisplayEncoderId
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1509
+    startLine: 1915
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Combined display output handle.
+  summary: Combined display output Windows display encoder identifier.
   example: []
   syntax:
-    content: public nint CombinedDisplayOutput
+    content: public uint CombinedDisplayOutputWindowsDisplayEncoderId
     return:
-      type: System.IntPtr
-    content.vb: Public CombinedDisplayOutput As IntPtr
+      type: System.UInt32
+    content.vb: Public CombinedDisplayOutputWindowsDisplayEncoderId As UInteger
 - uid: IGCLWrapper.CombinedDisplayArgsDto.Equals(IGCLWrapper.CombinedDisplayArgsDto)
   commentId: M:IGCLWrapper.CombinedDisplayArgsDto.Equals(IGCLWrapper.CombinedDisplayArgsDto)
   id: Equals(IGCLWrapper.CombinedDisplayArgsDto)
@@ -358,7 +328,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1516
+    startLine: 1922
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -395,7 +365,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1534
+    startLine: 1938
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -434,7 +404,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetHashCode
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1540
+    startLine: 1944
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -466,7 +436,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1564
+    startLine: 1966
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -501,7 +471,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1584
+    startLine: 1985
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -784,38 +754,104 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
-- uid: System.IntPtr
-  commentId: T:System.IntPtr
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.intptr
-  name: nint
-  nameWithType: nint
-  fullName: nint
-  nameWithType.vb: IntPtr
-  fullName.vb: System.IntPtr
-  name.vb: IntPtr
-- uid: IGCLWrapper.CombinedDisplayChildInfoDto[]
-  isExternal: true
-  href: IGCLWrapper.CombinedDisplayChildInfoDto.html
-  name: CombinedDisplayChildInfoDto[]
-  nameWithType: CombinedDisplayChildInfoDto[]
-  fullName: IGCLWrapper.CombinedDisplayChildInfoDto[]
-  nameWithType.vb: CombinedDisplayChildInfoDto()
-  fullName.vb: IGCLWrapper.CombinedDisplayChildInfoDto()
-  name.vb: CombinedDisplayChildInfoDto()
+- uid: System.Collections.Generic.List{IGCLWrapper.CombinedDisplayChildInfoDto}
+  commentId: T:System.Collections.Generic.List{IGCLWrapper.CombinedDisplayChildInfoDto}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<CombinedDisplayChildInfoDto>
+  nameWithType: List<CombinedDisplayChildInfoDto>
+  fullName: System.Collections.Generic.List<IGCLWrapper.CombinedDisplayChildInfoDto>
+  nameWithType.vb: List(Of CombinedDisplayChildInfoDto)
+  fullName.vb: System.Collections.Generic.List(Of IGCLWrapper.CombinedDisplayChildInfoDto)
+  name.vb: List(Of CombinedDisplayChildInfoDto)
   spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
   - uid: IGCLWrapper.CombinedDisplayChildInfoDto
     name: CombinedDisplayChildInfoDto
     href: IGCLWrapper.CombinedDisplayChildInfoDto.html
-  - name: '['
-  - name: ']'
+  - name: '>'
   spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
   - uid: IGCLWrapper.CombinedDisplayChildInfoDto
     name: CombinedDisplayChildInfoDto
     href: IGCLWrapper.CombinedDisplayChildInfoDto.html
-  - name: (
   - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: IGCLWrapper.CombinedDisplayArgsDto.Equals*
   commentId: Overload:IGCLWrapper.CombinedDisplayArgsDto.Equals
   href: IGCLWrapper.CombinedDisplayArgsDto.html#IGCLWrapper_CombinedDisplayArgsDto_Equals_IGCLWrapper_CombinedDisplayArgsDto_

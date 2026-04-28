@@ -4,19 +4,28 @@ items:
   commentId: N:IGCLWrapper
   id: IGCLWrapper
   children:
+  - IGCLWrapper.AdapterBdfDto
   - IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  - IGCLWrapper.ChildDisplayTargetModeDto
   - IGCLWrapper.CombinedDisplayArgsDto
   - IGCLWrapper.CombinedDisplayChildInfoDto
+  - IGCLWrapper.DataValueDto
   - IGCLWrapper.DceArgsDto
   - IGCLWrapper.DeviceAdapterPropertiesDto
   - IGCLWrapper.DisplayPropertiesDto
   - IGCLWrapper.DisplaySettingsDto
+  - IGCLWrapper.DisplayTimingDto
   - IGCLWrapper.EccPropertiesDto
   - IGCLWrapper.FanPropertiesDto
   - IGCLWrapper.FirmwareComponentPropertiesDto
   - IGCLWrapper.FirmwarePropertiesDto
+  - IGCLWrapper.FirmwareVersionDto
   - IGCLWrapper.FrequencyPropertiesDto
+  - IGCLWrapper.GenericVoidDatatypeDto
   - IGCLWrapper.GenlockArgsDto
+  - IGCLWrapper.GenlockDisplayInfoDto
+  - IGCLWrapper.GenlockTargetModeListDto
+  - IGCLWrapper.GenlockTopologyDto
   - IGCLWrapper.IGCL
   - IGCLWrapper.IGCL3DHelper
   - IGCLWrapper.IGCLAdapterHelper
@@ -38,28 +47,48 @@ items:
   - IGCLWrapper.IGCLPowerHelper
   - IGCLWrapper.IGCLTemperatureHelper
   - IGCLWrapper.IntelArcSyncMonitorParamsDto
+  - IGCLWrapper.LaceAggrConfigDto
   - IGCLWrapper.LaceConfigDto
+  - IGCLWrapper.LaceLuxAggrMapDto
+  - IGCLWrapper.LaceLuxAggrMapEntryDto
+  - IGCLWrapper.LedColorDto
   - IGCLWrapper.LedPropertiesDto
   - IGCLWrapper.LedStateDto
   - IGCLWrapper.OcControlInfoDto
   - IGCLWrapper.OcTelemetryItemDto
+  - IGCLWrapper.OsDisplayEncoderIdentifierDto
   - IGCLWrapper.OverclockPropertiesDto
+  - IGCLWrapper.PciAddressDto
   - IGCLWrapper.PciPropertiesDto
+  - IGCLWrapper.PciSpeedDto
   - IGCLWrapper.PowerBurstLimitDto
   - IGCLWrapper.PowerLimitsDto
+  - IGCLWrapper.PowerOptimizationDpstDto
+  - IGCLWrapper.PowerOptimizationFeatureSpecificInfoDto
+  - IGCLWrapper.PowerOptimizationLrrDto
+  - IGCLWrapper.PowerOptimizationPsrDto
   - IGCLWrapper.PowerOptimizationSettingsDto
   - IGCLWrapper.PowerPeakLimitDto
   - IGCLWrapper.PowerPropertiesDto
   - IGCLWrapper.PowerSustainedLimitDto
   - IGCLWrapper.PowerTelemetryDto
+  - IGCLWrapper.PropertyBooleanDto
+  - IGCLWrapper.PropertyDto
+  - IGCLWrapper.PropertyEnumDto
+  - IGCLWrapper.PropertyFloatDto
+  - IGCLWrapper.PropertyIntDto
+  - IGCLWrapper.PropertyUIntDto
   - IGCLWrapper.PsuInfoDto
+  - IGCLWrapper.RectDto
   - IGCLWrapper.RetroScalingSettingsDto
+  - IGCLWrapper.RevisionDatatypeDto
   - IGCLWrapper.ScalingSettingsDto
   - IGCLWrapper.SharpnessSettingsDto
   - IGCLWrapper.SwPsrSettingsDto
   - IGCLWrapper.ThreeDFeatureGetSetDto
   - IGCLWrapper.VideoProcessingFeatureGetSetDto
   - IGCLWrapper.WireFormatConfigDto
+  - IGCLWrapper.WireFormatDto
   - IGCLWrapper._ctl_api_handle_t
   - IGCLWrapper._ctl_device_adapter_handle_t
   - IGCLWrapper._ctl_display_output_handle_t
@@ -379,6 +408,48 @@ references:
   name: IGCL3DHelper
   nameWithType: IGCL3DHelper
   fullName: IGCLWrapper.IGCL3DHelper
+- uid: IGCLWrapper.PropertyBooleanDto
+  commentId: T:IGCLWrapper.PropertyBooleanDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.PropertyBooleanDto.html
+  name: PropertyBooleanDto
+  nameWithType: PropertyBooleanDto
+  fullName: IGCLWrapper.PropertyBooleanDto
+- uid: IGCLWrapper.PropertyFloatDto
+  commentId: T:IGCLWrapper.PropertyFloatDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.PropertyFloatDto.html
+  name: PropertyFloatDto
+  nameWithType: PropertyFloatDto
+  fullName: IGCLWrapper.PropertyFloatDto
+- uid: IGCLWrapper.PropertyIntDto
+  commentId: T:IGCLWrapper.PropertyIntDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.PropertyIntDto.html
+  name: PropertyIntDto
+  nameWithType: PropertyIntDto
+  fullName: IGCLWrapper.PropertyIntDto
+- uid: IGCLWrapper.PropertyEnumDto
+  commentId: T:IGCLWrapper.PropertyEnumDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.PropertyEnumDto.html
+  name: PropertyEnumDto
+  nameWithType: PropertyEnumDto
+  fullName: IGCLWrapper.PropertyEnumDto
+- uid: IGCLWrapper.PropertyUIntDto
+  commentId: T:IGCLWrapper.PropertyUIntDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.PropertyUIntDto.html
+  name: PropertyUIntDto
+  nameWithType: PropertyUIntDto
+  fullName: IGCLWrapper.PropertyUIntDto
+- uid: IGCLWrapper.PropertyDto
+  commentId: T:IGCLWrapper.PropertyDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.PropertyDto.html
+  name: PropertyDto
+  nameWithType: PropertyDto
+  fullName: IGCLWrapper.PropertyDto
 - uid: IGCLWrapper.ThreeDFeatureGetSetDto
   commentId: T:IGCLWrapper.ThreeDFeatureGetSetDto
   parent: IGCLWrapper
@@ -413,6 +484,55 @@ references:
   name: IGCLAdapterHelper
   nameWithType: IGCLAdapterHelper
   fullName: IGCLWrapper.IGCLAdapterHelper
+- uid: IGCLWrapper.FirmwareVersionDto
+  commentId: T:IGCLWrapper.FirmwareVersionDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.FirmwareVersionDto.html
+  name: FirmwareVersionDto
+  nameWithType: FirmwareVersionDto
+  fullName: IGCLWrapper.FirmwareVersionDto
+- uid: IGCLWrapper.AdapterBdfDto
+  commentId: T:IGCLWrapper.AdapterBdfDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.AdapterBdfDto.html
+  name: AdapterBdfDto
+  nameWithType: AdapterBdfDto
+  fullName: IGCLWrapper.AdapterBdfDto
+- uid: IGCLWrapper.RectDto
+  commentId: T:IGCLWrapper.RectDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.RectDto.html
+  name: RectDto
+  nameWithType: RectDto
+  fullName: IGCLWrapper.RectDto
+- uid: IGCLWrapper.ChildDisplayTargetModeDto
+  commentId: T:IGCLWrapper.ChildDisplayTargetModeDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.ChildDisplayTargetModeDto.html
+  name: ChildDisplayTargetModeDto
+  nameWithType: ChildDisplayTargetModeDto
+  fullName: IGCLWrapper.ChildDisplayTargetModeDto
+- uid: IGCLWrapper.GenlockDisplayInfoDto
+  commentId: T:IGCLWrapper.GenlockDisplayInfoDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.GenlockDisplayInfoDto.html
+  name: GenlockDisplayInfoDto
+  nameWithType: GenlockDisplayInfoDto
+  fullName: IGCLWrapper.GenlockDisplayInfoDto
+- uid: IGCLWrapper.GenlockTargetModeListDto
+  commentId: T:IGCLWrapper.GenlockTargetModeListDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.GenlockTargetModeListDto.html
+  name: GenlockTargetModeListDto
+  nameWithType: GenlockTargetModeListDto
+  fullName: IGCLWrapper.GenlockTargetModeListDto
+- uid: IGCLWrapper.GenlockTopologyDto
+  commentId: T:IGCLWrapper.GenlockTopologyDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.GenlockTopologyDto.html
+  name: GenlockTopologyDto
+  nameWithType: GenlockTopologyDto
+  fullName: IGCLWrapper.GenlockTopologyDto
 - uid: IGCLWrapper.DeviceAdapterPropertiesDto
   commentId: T:IGCLWrapper.DeviceAdapterPropertiesDto
   parent: IGCLWrapper
@@ -447,6 +567,34 @@ references:
   name: IGCLDisplayHelper
   nameWithType: IGCLDisplayHelper
   fullName: IGCLWrapper.IGCLDisplayHelper
+- uid: IGCLWrapper.GenericVoidDatatypeDto
+  commentId: T:IGCLWrapper.GenericVoidDatatypeDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.GenericVoidDatatypeDto.html
+  name: GenericVoidDatatypeDto
+  nameWithType: GenericVoidDatatypeDto
+  fullName: IGCLWrapper.GenericVoidDatatypeDto
+- uid: IGCLWrapper.OsDisplayEncoderIdentifierDto
+  commentId: T:IGCLWrapper.OsDisplayEncoderIdentifierDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.OsDisplayEncoderIdentifierDto.html
+  name: OsDisplayEncoderIdentifierDto
+  nameWithType: OsDisplayEncoderIdentifierDto
+  fullName: IGCLWrapper.OsDisplayEncoderIdentifierDto
+- uid: IGCLWrapper.RevisionDatatypeDto
+  commentId: T:IGCLWrapper.RevisionDatatypeDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.RevisionDatatypeDto.html
+  name: RevisionDatatypeDto
+  nameWithType: RevisionDatatypeDto
+  fullName: IGCLWrapper.RevisionDatatypeDto
+- uid: IGCLWrapper.DisplayTimingDto
+  commentId: T:IGCLWrapper.DisplayTimingDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.DisplayTimingDto.html
+  name: DisplayTimingDto
+  nameWithType: DisplayTimingDto
+  fullName: IGCLWrapper.DisplayTimingDto
 - uid: IGCLWrapper.DisplayPropertiesDto
   commentId: T:IGCLWrapper.DisplayPropertiesDto
   parent: IGCLWrapper
@@ -454,6 +602,13 @@ references:
   name: DisplayPropertiesDto
   nameWithType: DisplayPropertiesDto
   fullName: IGCLWrapper.DisplayPropertiesDto
+- uid: IGCLWrapper.WireFormatDto
+  commentId: T:IGCLWrapper.WireFormatDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.WireFormatDto.html
+  name: WireFormatDto
+  nameWithType: WireFormatDto
+  fullName: IGCLWrapper.WireFormatDto
 - uid: IGCLWrapper.WireFormatConfigDto
   commentId: T:IGCLWrapper.WireFormatConfigDto
   parent: IGCLWrapper
@@ -489,6 +644,27 @@ references:
   name: IntelArcSyncMonitorParamsDto
   nameWithType: IntelArcSyncMonitorParamsDto
   fullName: IGCLWrapper.IntelArcSyncMonitorParamsDto
+- uid: IGCLWrapper.LaceLuxAggrMapEntryDto
+  commentId: T:IGCLWrapper.LaceLuxAggrMapEntryDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.LaceLuxAggrMapEntryDto.html
+  name: LaceLuxAggrMapEntryDto
+  nameWithType: LaceLuxAggrMapEntryDto
+  fullName: IGCLWrapper.LaceLuxAggrMapEntryDto
+- uid: IGCLWrapper.LaceLuxAggrMapDto
+  commentId: T:IGCLWrapper.LaceLuxAggrMapDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.LaceLuxAggrMapDto.html
+  name: LaceLuxAggrMapDto
+  nameWithType: LaceLuxAggrMapDto
+  fullName: IGCLWrapper.LaceLuxAggrMapDto
+- uid: IGCLWrapper.LaceAggrConfigDto
+  commentId: T:IGCLWrapper.LaceAggrConfigDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.LaceAggrConfigDto.html
+  name: LaceAggrConfigDto
+  nameWithType: LaceAggrConfigDto
+  fullName: IGCLWrapper.LaceAggrConfigDto
 - uid: IGCLWrapper.LaceConfigDto
   commentId: T:IGCLWrapper.LaceConfigDto
   parent: IGCLWrapper
@@ -524,6 +700,34 @@ references:
   name: SwPsrSettingsDto
   nameWithType: SwPsrSettingsDto
   fullName: IGCLWrapper.SwPsrSettingsDto
+- uid: IGCLWrapper.PowerOptimizationDpstDto
+  commentId: T:IGCLWrapper.PowerOptimizationDpstDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.PowerOptimizationDpstDto.html
+  name: PowerOptimizationDpstDto
+  nameWithType: PowerOptimizationDpstDto
+  fullName: IGCLWrapper.PowerOptimizationDpstDto
+- uid: IGCLWrapper.PowerOptimizationPsrDto
+  commentId: T:IGCLWrapper.PowerOptimizationPsrDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.PowerOptimizationPsrDto.html
+  name: PowerOptimizationPsrDto
+  nameWithType: PowerOptimizationPsrDto
+  fullName: IGCLWrapper.PowerOptimizationPsrDto
+- uid: IGCLWrapper.PowerOptimizationLrrDto
+  commentId: T:IGCLWrapper.PowerOptimizationLrrDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.PowerOptimizationLrrDto.html
+  name: PowerOptimizationLrrDto
+  nameWithType: PowerOptimizationLrrDto
+  fullName: IGCLWrapper.PowerOptimizationLrrDto
+- uid: IGCLWrapper.PowerOptimizationFeatureSpecificInfoDto
+  commentId: T:IGCLWrapper.PowerOptimizationFeatureSpecificInfoDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.PowerOptimizationFeatureSpecificInfoDto.html
+  name: PowerOptimizationFeatureSpecificInfoDto
+  nameWithType: PowerOptimizationFeatureSpecificInfoDto
+  fullName: IGCLWrapper.PowerOptimizationFeatureSpecificInfoDto
 - uid: IGCLWrapper.PowerOptimizationSettingsDto
   commentId: T:IGCLWrapper.PowerOptimizationSettingsDto
   parent: IGCLWrapper
@@ -621,6 +825,13 @@ references:
   name: LedPropertiesDto
   nameWithType: LedPropertiesDto
   fullName: IGCLWrapper.LedPropertiesDto
+- uid: IGCLWrapper.LedColorDto
+  commentId: T:IGCLWrapper.LedColorDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.LedColorDto.html
+  name: LedColorDto
+  nameWithType: LedColorDto
+  fullName: IGCLWrapper.LedColorDto
 - uid: IGCLWrapper.LedStateDto
   commentId: T:IGCLWrapper.LedStateDto
   parent: IGCLWrapper
@@ -656,6 +867,13 @@ references:
   name: IGCLOverclockHelper
   nameWithType: IGCLOverclockHelper
   fullName: IGCLWrapper.IGCLOverclockHelper
+- uid: IGCLWrapper.DataValueDto
+  commentId: T:IGCLWrapper.DataValueDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.DataValueDto.html
+  name: DataValueDto
+  nameWithType: DataValueDto
+  fullName: IGCLWrapper.DataValueDto
 - uid: IGCLWrapper.OcControlInfoDto
   commentId: T:IGCLWrapper.OcControlInfoDto
   parent: IGCLWrapper
@@ -698,6 +916,20 @@ references:
   name: IGCLPciHelper
   nameWithType: IGCLPciHelper
   fullName: IGCLWrapper.IGCLPciHelper
+- uid: IGCLWrapper.PciAddressDto
+  commentId: T:IGCLWrapper.PciAddressDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.PciAddressDto.html
+  name: PciAddressDto
+  nameWithType: PciAddressDto
+  fullName: IGCLWrapper.PciAddressDto
+- uid: IGCLWrapper.PciSpeedDto
+  commentId: T:IGCLWrapper.PciSpeedDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.PciSpeedDto.html
+  name: PciSpeedDto
+  nameWithType: PciSpeedDto
+  fullName: IGCLWrapper.PciSpeedDto
 - uid: IGCLWrapper.PciPropertiesDto
   commentId: T:IGCLWrapper.PciPropertiesDto
   parent: IGCLWrapper
@@ -1786,6 +2018,7 @@ references:
   fullName: IGCLWrapper.ctl_genlock_args_t
 - uid: IGCLWrapper.ctl_genlock_display_info_t
   commentId: T:IGCLWrapper.ctl_genlock_display_info_t
+  parent: IGCLWrapper
   href: IGCLWrapper.ctl_genlock_display_info_t.html
   name: ctl_genlock_display_info_t
   nameWithType: ctl_genlock_display_info_t
@@ -1799,6 +2032,7 @@ references:
   fullName: IGCLWrapper.ctl_genlock_operation_t
 - uid: IGCLWrapper.ctl_genlock_target_mode_list_t
   commentId: T:IGCLWrapper.ctl_genlock_target_mode_list_t
+  parent: IGCLWrapper
   href: IGCLWrapper.ctl_genlock_target_mode_list_t.html
   name: ctl_genlock_target_mode_list_t
   nameWithType: ctl_genlock_target_mode_list_t
@@ -2067,6 +2301,7 @@ references:
   fullName: IGCLWrapper.ctl_lace_config_t
 - uid: IGCLWrapper.ctl_lace_lux_aggr_map_entry_t
   commentId: T:IGCLWrapper.ctl_lace_lux_aggr_map_entry_t
+  parent: IGCLWrapper
   href: IGCLWrapper.ctl_lace_lux_aggr_map_entry_t.html
   name: ctl_lace_lux_aggr_map_entry_t
   nameWithType: ctl_lace_lux_aggr_map_entry_t

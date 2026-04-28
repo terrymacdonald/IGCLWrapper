@@ -1,0 +1,639 @@
+### YamlMime:ManagedReference
+items:
+- uid: IGCLWrapper.PropertyBooleanDto
+  commentId: T:IGCLWrapper.PropertyBooleanDto
+  id: PropertyBooleanDto
+  parent: IGCLWrapper
+  children:
+  - IGCLWrapper.PropertyBooleanDto.Enable
+  - IGCLWrapper.PropertyBooleanDto.Equals(IGCLWrapper.PropertyBooleanDto)
+  - IGCLWrapper.PropertyBooleanDto.Equals(System.Object)
+  - IGCLWrapper.PropertyBooleanDto.FromNative(IGCLWrapper.ctl_property_boolean_t)
+  - IGCLWrapper.PropertyBooleanDto.GetHashCode
+  - IGCLWrapper.PropertyBooleanDto.ToNative
+  langs:
+  - csharp
+  - vb
+  name: PropertyBooleanDto
+  nameWithType: PropertyBooleanDto
+  fullName: IGCLWrapper.PropertyBooleanDto
+  type: Struct
+  source:
+    remote:
+      path: IGCLWrapper/IGCL3DHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: PropertyBooleanDto
+    path: ../IGCLWrapper/IGCL3DHelper.cs
+    startLine: 168
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: DTO for boolean property values.
+  example: []
+  syntax:
+    content: 'public struct PropertyBooleanDto : IEquatable<PropertyBooleanDto>'
+    content.vb: Public Structure PropertyBooleanDto Implements IEquatable(Of PropertyBooleanDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.PropertyBooleanDto}
+  inheritedMembers:
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.PropertyBooleanDto.Enable
+  commentId: F:IGCLWrapper.PropertyBooleanDto.Enable
+  id: Enable
+  parent: IGCLWrapper.PropertyBooleanDto
+  langs:
+  - csharp
+  - vb
+  name: Enable
+  nameWithType: PropertyBooleanDto.Enable
+  fullName: IGCLWrapper.PropertyBooleanDto.Enable
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCL3DHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Enable
+    path: ../IGCLWrapper/IGCL3DHelper.cs
+    startLine: 173
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Enable value.
+  example: []
+  syntax:
+    content: public bool Enable
+    return:
+      type: System.Boolean
+    content.vb: Public Enable As Boolean
+- uid: IGCLWrapper.PropertyBooleanDto.Equals(IGCLWrapper.PropertyBooleanDto)
+  commentId: M:IGCLWrapper.PropertyBooleanDto.Equals(IGCLWrapper.PropertyBooleanDto)
+  id: Equals(IGCLWrapper.PropertyBooleanDto)
+  parent: IGCLWrapper.PropertyBooleanDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(PropertyBooleanDto)
+  nameWithType: PropertyBooleanDto.Equals(PropertyBooleanDto)
+  fullName: IGCLWrapper.PropertyBooleanDto.Equals(IGCLWrapper.PropertyBooleanDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCL3DHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCL3DHelper.cs
+    startLine: 175
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(PropertyBooleanDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.PropertyBooleanDto
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As PropertyBooleanDto) As Boolean
+  overload: IGCLWrapper.PropertyBooleanDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.PropertyBooleanDto}.Equals(IGCLWrapper.PropertyBooleanDto)
+- uid: IGCLWrapper.PropertyBooleanDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.PropertyBooleanDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.PropertyBooleanDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: PropertyBooleanDto.Equals(object?)
+  fullName: IGCLWrapper.PropertyBooleanDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCL3DHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCL3DHelper.cs
+    startLine: 176
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Indicates whether this instance and a specified object are equal.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.PropertyBooleanDto.Equals*
+  nameWithType.vb: PropertyBooleanDto.Equals(Object)
+  fullName.vb: IGCLWrapper.PropertyBooleanDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.PropertyBooleanDto.GetHashCode
+  commentId: M:IGCLWrapper.PropertyBooleanDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.PropertyBooleanDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: PropertyBooleanDto.GetHashCode()
+  fullName: IGCLWrapper.PropertyBooleanDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCL3DHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCL3DHelper.cs
+    startLine: 177
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Returns the hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A 32-bit signed integer that is the hash code for this instance.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.PropertyBooleanDto.GetHashCode*
+- uid: IGCLWrapper.PropertyBooleanDto.FromNative(IGCLWrapper.ctl_property_boolean_t)
+  commentId: M:IGCLWrapper.PropertyBooleanDto.FromNative(IGCLWrapper.ctl_property_boolean_t)
+  id: FromNative(IGCLWrapper.ctl_property_boolean_t)
+  parent: IGCLWrapper.PropertyBooleanDto
+  langs:
+  - csharp
+  - vb
+  name: FromNative(ctl_property_boolean_t)
+  nameWithType: PropertyBooleanDto.FromNative(ctl_property_boolean_t)
+  fullName: IGCLWrapper.PropertyBooleanDto.FromNative(IGCLWrapper.ctl_property_boolean_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCL3DHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: FromNative
+    path: ../IGCLWrapper/IGCL3DHelper.cs
+    startLine: 179
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public static PropertyBooleanDto FromNative(ctl_property_boolean_t native)
+    parameters:
+    - id: native
+      type: IGCLWrapper.ctl_property_boolean_t
+    return:
+      type: IGCLWrapper.PropertyBooleanDto
+    content.vb: Public Shared Function FromNative(native As ctl_property_boolean_t) As PropertyBooleanDto
+  overload: IGCLWrapper.PropertyBooleanDto.FromNative*
+- uid: IGCLWrapper.PropertyBooleanDto.ToNative
+  commentId: M:IGCLWrapper.PropertyBooleanDto.ToNative
+  id: ToNative
+  parent: IGCLWrapper.PropertyBooleanDto
+  langs:
+  - csharp
+  - vb
+  name: ToNative()
+  nameWithType: PropertyBooleanDto.ToNative()
+  fullName: IGCLWrapper.PropertyBooleanDto.ToNative()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCL3DHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: ToNative
+    path: ../IGCLWrapper/IGCL3DHelper.cs
+    startLine: 184
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_property_boolean_t ToNative()
+    return:
+      type: IGCLWrapper.ctl_property_boolean_t
+    content.vb: Public Function ToNative() As ctl_property_boolean_t
+  overload: IGCLWrapper.PropertyBooleanDto.ToNative*
+references:
+- uid: IGCLWrapper
+  commentId: N:IGCLWrapper
+  href: IGCLWrapper.html
+  name: IGCLWrapper
+  nameWithType: IGCLWrapper
+  fullName: IGCLWrapper
+- uid: System.IEquatable{IGCLWrapper.PropertyBooleanDto}
+  commentId: T:System.IEquatable{IGCLWrapper.PropertyBooleanDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<PropertyBooleanDto>
+  nameWithType: IEquatable<PropertyBooleanDto>
+  fullName: System.IEquatable<IGCLWrapper.PropertyBooleanDto>
+  nameWithType.vb: IEquatable(Of PropertyBooleanDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.PropertyBooleanDto)
+  name.vb: IEquatable(Of PropertyBooleanDto)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.PropertyBooleanDto
+    name: PropertyBooleanDto
+    href: IGCLWrapper.PropertyBooleanDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.PropertyBooleanDto
+    name: PropertyBooleanDto
+    href: IGCLWrapper.PropertyBooleanDto.html
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: IGCLWrapper.PropertyBooleanDto.Equals*
+  commentId: Overload:IGCLWrapper.PropertyBooleanDto.Equals
+  href: IGCLWrapper.PropertyBooleanDto.html#IGCLWrapper_PropertyBooleanDto_Equals_IGCLWrapper_PropertyBooleanDto_
+  name: Equals
+  nameWithType: PropertyBooleanDto.Equals
+  fullName: IGCLWrapper.PropertyBooleanDto.Equals
+- uid: System.IEquatable{IGCLWrapper.PropertyBooleanDto}.Equals(IGCLWrapper.PropertyBooleanDto)
+  commentId: M:System.IEquatable{IGCLWrapper.PropertyBooleanDto}.Equals(IGCLWrapper.PropertyBooleanDto)
+  parent: System.IEquatable{IGCLWrapper.PropertyBooleanDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(PropertyBooleanDto)
+  nameWithType: IEquatable<PropertyBooleanDto>.Equals(PropertyBooleanDto)
+  fullName: System.IEquatable<IGCLWrapper.PropertyBooleanDto>.Equals(IGCLWrapper.PropertyBooleanDto)
+  nameWithType.vb: IEquatable(Of PropertyBooleanDto).Equals(PropertyBooleanDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.PropertyBooleanDto).Equals(IGCLWrapper.PropertyBooleanDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.PropertyBooleanDto}.Equals(IGCLWrapper.PropertyBooleanDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.PropertyBooleanDto
+    name: PropertyBooleanDto
+    href: IGCLWrapper.PropertyBooleanDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.PropertyBooleanDto}.Equals(IGCLWrapper.PropertyBooleanDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.PropertyBooleanDto
+    name: PropertyBooleanDto
+    href: IGCLWrapper.PropertyBooleanDto.html
+  - name: )
+- uid: IGCLWrapper.PropertyBooleanDto
+  commentId: T:IGCLWrapper.PropertyBooleanDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.PropertyBooleanDto.html
+  name: PropertyBooleanDto
+  nameWithType: PropertyBooleanDto
+  fullName: IGCLWrapper.PropertyBooleanDto
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.PropertyBooleanDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.PropertyBooleanDto.GetHashCode
+  href: IGCLWrapper.PropertyBooleanDto.html#IGCLWrapper_PropertyBooleanDto_GetHashCode
+  name: GetHashCode
+  nameWithType: PropertyBooleanDto.GetHashCode
+  fullName: IGCLWrapper.PropertyBooleanDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: IGCLWrapper.PropertyBooleanDto.FromNative*
+  commentId: Overload:IGCLWrapper.PropertyBooleanDto.FromNative
+  href: IGCLWrapper.PropertyBooleanDto.html#IGCLWrapper_PropertyBooleanDto_FromNative_IGCLWrapper_ctl_property_boolean_t_
+  name: FromNative
+  nameWithType: PropertyBooleanDto.FromNative
+  fullName: IGCLWrapper.PropertyBooleanDto.FromNative
+- uid: IGCLWrapper.ctl_property_boolean_t
+  commentId: T:IGCLWrapper.ctl_property_boolean_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_property_boolean_t.html
+  name: ctl_property_boolean_t
+  nameWithType: ctl_property_boolean_t
+  fullName: IGCLWrapper.ctl_property_boolean_t
+- uid: IGCLWrapper.PropertyBooleanDto.ToNative*
+  commentId: Overload:IGCLWrapper.PropertyBooleanDto.ToNative
+  href: IGCLWrapper.PropertyBooleanDto.html#IGCLWrapper_PropertyBooleanDto_ToNative
+  name: ToNative
+  nameWithType: PropertyBooleanDto.ToNative
+  fullName: IGCLWrapper.PropertyBooleanDto.ToNative

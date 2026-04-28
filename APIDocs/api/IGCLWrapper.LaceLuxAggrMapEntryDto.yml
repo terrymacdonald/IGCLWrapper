@@ -1,0 +1,691 @@
+### YamlMime:ManagedReference
+items:
+- uid: IGCLWrapper.LaceLuxAggrMapEntryDto
+  commentId: T:IGCLWrapper.LaceLuxAggrMapEntryDto
+  id: LaceLuxAggrMapEntryDto
+  parent: IGCLWrapper
+  children:
+  - IGCLWrapper.LaceLuxAggrMapEntryDto.AggressivenessPercent
+  - IGCLWrapper.LaceLuxAggrMapEntryDto.Equals(IGCLWrapper.LaceLuxAggrMapEntryDto)
+  - IGCLWrapper.LaceLuxAggrMapEntryDto.Equals(System.Object)
+  - IGCLWrapper.LaceLuxAggrMapEntryDto.FromNative(IGCLWrapper.ctl_lace_lux_aggr_map_entry_t)
+  - IGCLWrapper.LaceLuxAggrMapEntryDto.GetHashCode
+  - IGCLWrapper.LaceLuxAggrMapEntryDto.Lux
+  - IGCLWrapper.LaceLuxAggrMapEntryDto.ToNative
+  langs:
+  - csharp
+  - vb
+  name: LaceLuxAggrMapEntryDto
+  nameWithType: LaceLuxAggrMapEntryDto
+  fullName: IGCLWrapper.LaceLuxAggrMapEntryDto
+  type: Struct
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: LaceLuxAggrMapEntryDto
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3441
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: DTO for a single LACE lux-to-aggressiveness mapping entry.
+  example: []
+  syntax:
+    content: 'public struct LaceLuxAggrMapEntryDto : IEquatable<LaceLuxAggrMapEntryDto>'
+    content.vb: Public Structure LaceLuxAggrMapEntryDto Implements IEquatable(Of LaceLuxAggrMapEntryDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.LaceLuxAggrMapEntryDto}
+  inheritedMembers:
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.LaceLuxAggrMapEntryDto.Lux
+  commentId: F:IGCLWrapper.LaceLuxAggrMapEntryDto.Lux
+  id: Lux
+  parent: IGCLWrapper.LaceLuxAggrMapEntryDto
+  langs:
+  - csharp
+  - vb
+  name: Lux
+  nameWithType: LaceLuxAggrMapEntryDto.Lux
+  fullName: IGCLWrapper.LaceLuxAggrMapEntryDto.Lux
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Lux
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3446
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Ambient lux value.
+  example: []
+  syntax:
+    content: public uint Lux
+    return:
+      type: System.UInt32
+    content.vb: Public Lux As UInteger
+- uid: IGCLWrapper.LaceLuxAggrMapEntryDto.AggressivenessPercent
+  commentId: F:IGCLWrapper.LaceLuxAggrMapEntryDto.AggressivenessPercent
+  id: AggressivenessPercent
+  parent: IGCLWrapper.LaceLuxAggrMapEntryDto
+  langs:
+  - csharp
+  - vb
+  name: AggressivenessPercent
+  nameWithType: LaceLuxAggrMapEntryDto.AggressivenessPercent
+  fullName: IGCLWrapper.LaceLuxAggrMapEntryDto.AggressivenessPercent
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: AggressivenessPercent
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3450
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Aggressiveness value in percent.
+  example: []
+  syntax:
+    content: public byte AggressivenessPercent
+    return:
+      type: System.Byte
+    content.vb: Public AggressivenessPercent As Byte
+- uid: IGCLWrapper.LaceLuxAggrMapEntryDto.Equals(IGCLWrapper.LaceLuxAggrMapEntryDto)
+  commentId: M:IGCLWrapper.LaceLuxAggrMapEntryDto.Equals(IGCLWrapper.LaceLuxAggrMapEntryDto)
+  id: Equals(IGCLWrapper.LaceLuxAggrMapEntryDto)
+  parent: IGCLWrapper.LaceLuxAggrMapEntryDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(LaceLuxAggrMapEntryDto)
+  nameWithType: LaceLuxAggrMapEntryDto.Equals(LaceLuxAggrMapEntryDto)
+  fullName: IGCLWrapper.LaceLuxAggrMapEntryDto.Equals(IGCLWrapper.LaceLuxAggrMapEntryDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3452
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(LaceLuxAggrMapEntryDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.LaceLuxAggrMapEntryDto
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As LaceLuxAggrMapEntryDto) As Boolean
+  overload: IGCLWrapper.LaceLuxAggrMapEntryDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.LaceLuxAggrMapEntryDto}.Equals(IGCLWrapper.LaceLuxAggrMapEntryDto)
+- uid: IGCLWrapper.LaceLuxAggrMapEntryDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.LaceLuxAggrMapEntryDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.LaceLuxAggrMapEntryDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: LaceLuxAggrMapEntryDto.Equals(object?)
+  fullName: IGCLWrapper.LaceLuxAggrMapEntryDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3458
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Indicates whether this instance and a specified object are equal.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.LaceLuxAggrMapEntryDto.Equals*
+  nameWithType.vb: LaceLuxAggrMapEntryDto.Equals(Object)
+  fullName.vb: IGCLWrapper.LaceLuxAggrMapEntryDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.LaceLuxAggrMapEntryDto.GetHashCode
+  commentId: M:IGCLWrapper.LaceLuxAggrMapEntryDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.LaceLuxAggrMapEntryDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: LaceLuxAggrMapEntryDto.GetHashCode()
+  fullName: IGCLWrapper.LaceLuxAggrMapEntryDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3460
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Returns the hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A 32-bit signed integer that is the hash code for this instance.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.LaceLuxAggrMapEntryDto.GetHashCode*
+- uid: IGCLWrapper.LaceLuxAggrMapEntryDto.FromNative(IGCLWrapper.ctl_lace_lux_aggr_map_entry_t)
+  commentId: M:IGCLWrapper.LaceLuxAggrMapEntryDto.FromNative(IGCLWrapper.ctl_lace_lux_aggr_map_entry_t)
+  id: FromNative(IGCLWrapper.ctl_lace_lux_aggr_map_entry_t)
+  parent: IGCLWrapper.LaceLuxAggrMapEntryDto
+  langs:
+  - csharp
+  - vb
+  name: FromNative(ctl_lace_lux_aggr_map_entry_t)
+  nameWithType: LaceLuxAggrMapEntryDto.FromNative(ctl_lace_lux_aggr_map_entry_t)
+  fullName: IGCLWrapper.LaceLuxAggrMapEntryDto.FromNative(IGCLWrapper.ctl_lace_lux_aggr_map_entry_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: FromNative
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3468
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public static LaceLuxAggrMapEntryDto FromNative(ctl_lace_lux_aggr_map_entry_t native)
+    parameters:
+    - id: native
+      type: IGCLWrapper.ctl_lace_lux_aggr_map_entry_t
+    return:
+      type: IGCLWrapper.LaceLuxAggrMapEntryDto
+    content.vb: Public Shared Function FromNative(native As ctl_lace_lux_aggr_map_entry_t) As LaceLuxAggrMapEntryDto
+  overload: IGCLWrapper.LaceLuxAggrMapEntryDto.FromNative*
+- uid: IGCLWrapper.LaceLuxAggrMapEntryDto.ToNative
+  commentId: M:IGCLWrapper.LaceLuxAggrMapEntryDto.ToNative
+  id: ToNative
+  parent: IGCLWrapper.LaceLuxAggrMapEntryDto
+  langs:
+  - csharp
+  - vb
+  name: ToNative()
+  nameWithType: LaceLuxAggrMapEntryDto.ToNative()
+  fullName: IGCLWrapper.LaceLuxAggrMapEntryDto.ToNative()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: ToNative
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3477
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_lace_lux_aggr_map_entry_t ToNative()
+    return:
+      type: IGCLWrapper.ctl_lace_lux_aggr_map_entry_t
+    content.vb: Public Function ToNative() As ctl_lace_lux_aggr_map_entry_t
+  overload: IGCLWrapper.LaceLuxAggrMapEntryDto.ToNative*
+references:
+- uid: IGCLWrapper
+  commentId: N:IGCLWrapper
+  href: IGCLWrapper.html
+  name: IGCLWrapper
+  nameWithType: IGCLWrapper
+  fullName: IGCLWrapper
+- uid: System.IEquatable{IGCLWrapper.LaceLuxAggrMapEntryDto}
+  commentId: T:System.IEquatable{IGCLWrapper.LaceLuxAggrMapEntryDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<LaceLuxAggrMapEntryDto>
+  nameWithType: IEquatable<LaceLuxAggrMapEntryDto>
+  fullName: System.IEquatable<IGCLWrapper.LaceLuxAggrMapEntryDto>
+  nameWithType.vb: IEquatable(Of LaceLuxAggrMapEntryDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.LaceLuxAggrMapEntryDto)
+  name.vb: IEquatable(Of LaceLuxAggrMapEntryDto)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.LaceLuxAggrMapEntryDto
+    name: LaceLuxAggrMapEntryDto
+    href: IGCLWrapper.LaceLuxAggrMapEntryDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.LaceLuxAggrMapEntryDto
+    name: LaceLuxAggrMapEntryDto
+    href: IGCLWrapper.LaceLuxAggrMapEntryDto.html
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: IGCLWrapper.LaceLuxAggrMapEntryDto.Equals*
+  commentId: Overload:IGCLWrapper.LaceLuxAggrMapEntryDto.Equals
+  href: IGCLWrapper.LaceLuxAggrMapEntryDto.html#IGCLWrapper_LaceLuxAggrMapEntryDto_Equals_IGCLWrapper_LaceLuxAggrMapEntryDto_
+  name: Equals
+  nameWithType: LaceLuxAggrMapEntryDto.Equals
+  fullName: IGCLWrapper.LaceLuxAggrMapEntryDto.Equals
+- uid: System.IEquatable{IGCLWrapper.LaceLuxAggrMapEntryDto}.Equals(IGCLWrapper.LaceLuxAggrMapEntryDto)
+  commentId: M:System.IEquatable{IGCLWrapper.LaceLuxAggrMapEntryDto}.Equals(IGCLWrapper.LaceLuxAggrMapEntryDto)
+  parent: System.IEquatable{IGCLWrapper.LaceLuxAggrMapEntryDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(LaceLuxAggrMapEntryDto)
+  nameWithType: IEquatable<LaceLuxAggrMapEntryDto>.Equals(LaceLuxAggrMapEntryDto)
+  fullName: System.IEquatable<IGCLWrapper.LaceLuxAggrMapEntryDto>.Equals(IGCLWrapper.LaceLuxAggrMapEntryDto)
+  nameWithType.vb: IEquatable(Of LaceLuxAggrMapEntryDto).Equals(LaceLuxAggrMapEntryDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.LaceLuxAggrMapEntryDto).Equals(IGCLWrapper.LaceLuxAggrMapEntryDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.LaceLuxAggrMapEntryDto}.Equals(IGCLWrapper.LaceLuxAggrMapEntryDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.LaceLuxAggrMapEntryDto
+    name: LaceLuxAggrMapEntryDto
+    href: IGCLWrapper.LaceLuxAggrMapEntryDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.LaceLuxAggrMapEntryDto}.Equals(IGCLWrapper.LaceLuxAggrMapEntryDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.LaceLuxAggrMapEntryDto
+    name: LaceLuxAggrMapEntryDto
+    href: IGCLWrapper.LaceLuxAggrMapEntryDto.html
+  - name: )
+- uid: IGCLWrapper.LaceLuxAggrMapEntryDto
+  commentId: T:IGCLWrapper.LaceLuxAggrMapEntryDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.LaceLuxAggrMapEntryDto.html
+  name: LaceLuxAggrMapEntryDto
+  nameWithType: LaceLuxAggrMapEntryDto
+  fullName: IGCLWrapper.LaceLuxAggrMapEntryDto
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.LaceLuxAggrMapEntryDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.LaceLuxAggrMapEntryDto.GetHashCode
+  href: IGCLWrapper.LaceLuxAggrMapEntryDto.html#IGCLWrapper_LaceLuxAggrMapEntryDto_GetHashCode
+  name: GetHashCode
+  nameWithType: LaceLuxAggrMapEntryDto.GetHashCode
+  fullName: IGCLWrapper.LaceLuxAggrMapEntryDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: IGCLWrapper.LaceLuxAggrMapEntryDto.FromNative*
+  commentId: Overload:IGCLWrapper.LaceLuxAggrMapEntryDto.FromNative
+  href: IGCLWrapper.LaceLuxAggrMapEntryDto.html#IGCLWrapper_LaceLuxAggrMapEntryDto_FromNative_IGCLWrapper_ctl_lace_lux_aggr_map_entry_t_
+  name: FromNative
+  nameWithType: LaceLuxAggrMapEntryDto.FromNative
+  fullName: IGCLWrapper.LaceLuxAggrMapEntryDto.FromNative
+- uid: IGCLWrapper.ctl_lace_lux_aggr_map_entry_t
+  commentId: T:IGCLWrapper.ctl_lace_lux_aggr_map_entry_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_lace_lux_aggr_map_entry_t.html
+  name: ctl_lace_lux_aggr_map_entry_t
+  nameWithType: ctl_lace_lux_aggr_map_entry_t
+  fullName: IGCLWrapper.ctl_lace_lux_aggr_map_entry_t
+- uid: IGCLWrapper.LaceLuxAggrMapEntryDto.ToNative*
+  commentId: Overload:IGCLWrapper.LaceLuxAggrMapEntryDto.ToNative
+  href: IGCLWrapper.LaceLuxAggrMapEntryDto.html#IGCLWrapper_LaceLuxAggrMapEntryDto_ToNative
+  name: ToNative
+  nameWithType: LaceLuxAggrMapEntryDto.ToNative
+  fullName: IGCLWrapper.LaceLuxAggrMapEntryDto.ToNative

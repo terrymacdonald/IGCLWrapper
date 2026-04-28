@@ -89,7 +89,7 @@
 
 
   <h1 id="IGCLWrapper_VideoProcessingFeatureGetSetDto" data-uid="IGCLWrapper.VideoProcessingFeatureGetSetDto" class="text-break">
-Struct VideoProcessingFeatureGetSetDto  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L128"><i class="bi bi-code-slash"></i></a>
+Struct VideoProcessingFeatureGetSetDto  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L169"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -146,15 +146,15 @@ Struct VideoProcessingFeatureGetSetDto  <a class="header-action link-secondary" 
 
   <h3 id="IGCLWrapper_VideoProcessingFeatureGetSetDto_ApplicationName" data-uid="IGCLWrapper.VideoProcessingFeatureGetSetDto.ApplicationName">
   ApplicationName
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L146"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L187"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Pointer to application name (optional).</p>
+  <div class="markdown level1 summary"><p>Optional application name.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public nint ApplicationName</code></pre>
+    <pre><code class="lang-csharp hljs">public string? ApplicationName</code></pre>
   </div>
 
 
@@ -162,38 +162,7 @@ Struct VideoProcessingFeatureGetSetDto  <a class="header-action link-secondary" 
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="IGCLWrapper_VideoProcessingFeatureGetSetDto_ApplicationNameLength" data-uid="IGCLWrapper.VideoProcessingFeatureGetSetDto.ApplicationNameLength">
-  ApplicationNameLength
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L150"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Length of the application name.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sbyte ApplicationNameLength</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.sbyte">sbyte</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
   </dl>
 
@@ -208,15 +177,15 @@ Struct VideoProcessingFeatureGetSetDto  <a class="header-action link-secondary" 
 
   <h3 id="IGCLWrapper_VideoProcessingFeatureGetSetDto_CustomValue" data-uid="IGCLWrapper.VideoProcessingFeatureGetSetDto.CustomValue">
   CustomValue
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L170"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L203"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Pointer to custom value buffer.</p>
+  <div class="markdown level1 summary"><p>Custom value bytes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public nint CustomValue</code></pre>
+    <pre><code class="lang-csharp hljs">public List&lt;byte&gt;? CustomValue</code></pre>
   </div>
 
 
@@ -224,38 +193,7 @@ Struct VideoProcessingFeatureGetSetDto  <a class="header-action link-secondary" 
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="IGCLWrapper_VideoProcessingFeatureGetSetDto_CustomValueSize" data-uid="IGCLWrapper.VideoProcessingFeatureGetSetDto.CustomValueSize">
-  CustomValueSize
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L166"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Size of the custom value buffer.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int CustomValueSize</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -270,7 +208,7 @@ Struct VideoProcessingFeatureGetSetDto  <a class="header-action link-secondary" 
 
   <h3 id="IGCLWrapper_VideoProcessingFeatureGetSetDto_FeatureType" data-uid="IGCLWrapper.VideoProcessingFeatureGetSetDto.FeatureType">
   FeatureType
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L142"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L183"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Feature type identifier.</p>
@@ -301,15 +239,15 @@ Struct VideoProcessingFeatureGetSetDto  <a class="header-action link-secondary" 
 
   <h3 id="IGCLWrapper_VideoProcessingFeatureGetSetDto_ReservedFields" data-uid="IGCLWrapper.VideoProcessingFeatureGetSetDto.ReservedFields">
   ReservedFields
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L174"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L207"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Reserved fields from the native struct.</p>
+  <div class="markdown level1 summary"><p>Reserved fields.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public uint[]? ReservedFields</code></pre>
+    <pre><code class="lang-csharp hljs">public List&lt;uint&gt;? ReservedFields</code></pre>
   </div>
 
 
@@ -317,7 +255,7 @@ Struct VideoProcessingFeatureGetSetDto  <a class="header-action link-secondary" 
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>[]</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -332,7 +270,7 @@ Struct VideoProcessingFeatureGetSetDto  <a class="header-action link-secondary" 
 
   <h3 id="IGCLWrapper_VideoProcessingFeatureGetSetDto_Set" data-uid="IGCLWrapper.VideoProcessingFeatureGetSetDto.Set">
   Set
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L154"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L191"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>True to set the feature, false to get.</p>
@@ -363,7 +301,7 @@ Struct VideoProcessingFeatureGetSetDto  <a class="header-action link-secondary" 
 
   <h3 id="IGCLWrapper_VideoProcessingFeatureGetSetDto_Size" data-uid="IGCLWrapper.VideoProcessingFeatureGetSetDto.Size">
   Size
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L175"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Size of the native struct.</p>
@@ -394,7 +332,7 @@ Struct VideoProcessingFeatureGetSetDto  <a class="header-action link-secondary" 
 
   <h3 id="IGCLWrapper_VideoProcessingFeatureGetSetDto_Value" data-uid="IGCLWrapper.VideoProcessingFeatureGetSetDto.Value">
   Value
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L162"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L199"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Feature value.</p>
@@ -402,7 +340,7 @@ Struct VideoProcessingFeatureGetSetDto  <a class="header-action link-secondary" 
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_property_t Value</code></pre>
+    <pre><code class="lang-csharp hljs">public PropertyDto Value</code></pre>
   </div>
 
 
@@ -410,7 +348,7 @@ Struct VideoProcessingFeatureGetSetDto  <a class="header-action link-secondary" 
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_property_t.html">ctl_property_t</a></dt>
+    <dt><a class="xref" href="IGCLWrapper.PropertyDto.html">PropertyDto</a></dt>
     <dd></dd>
   </dl>
 
@@ -425,7 +363,7 @@ Struct VideoProcessingFeatureGetSetDto  <a class="header-action link-secondary" 
 
   <h3 id="IGCLWrapper_VideoProcessingFeatureGetSetDto_ValueType" data-uid="IGCLWrapper.VideoProcessingFeatureGetSetDto.ValueType">
   ValueType
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L158"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L195"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Value type for the feature.</p>
@@ -456,7 +394,7 @@ Struct VideoProcessingFeatureGetSetDto  <a class="header-action link-secondary" 
 
   <h3 id="IGCLWrapper_VideoProcessingFeatureGetSetDto_Version" data-uid="IGCLWrapper.VideoProcessingFeatureGetSetDto.Version">
   Version
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L138"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L179"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Version of the native struct.</p>
@@ -492,7 +430,7 @@ Struct VideoProcessingFeatureGetSetDto  <a class="header-action link-secondary" 
 
   <h3 id="IGCLWrapper_VideoProcessingFeatureGetSetDto_Equals_IGCLWrapper_VideoProcessingFeatureGetSetDto_" data-uid="IGCLWrapper.VideoProcessingFeatureGetSetDto.Equals(IGCLWrapper.VideoProcessingFeatureGetSetDto)">
   Equals(VideoProcessingFeatureGetSetDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L181"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L214"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare video processing feature get/set args while ignoring pointer and reserved fields.</p>
@@ -531,7 +469,7 @@ Struct VideoProcessingFeatureGetSetDto  <a class="header-action link-secondary" 
 
   <h3 id="IGCLWrapper_VideoProcessingFeatureGetSetDto_Equals_System_Object_" data-uid="IGCLWrapper.VideoProcessingFeatureGetSetDto.Equals(System.Object)">
   Equals(object?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L199"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L229"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare to another object.</p>
@@ -570,7 +508,7 @@ Struct VideoProcessingFeatureGetSetDto  <a class="header-action link-secondary" 
 
   <h3 id="IGCLWrapper_VideoProcessingFeatureGetSetDto_FromNative_IGCLWrapper_ctl_video_processing_feature_getset_t_" data-uid="IGCLWrapper.VideoProcessingFeatureGetSetDto.FromNative(IGCLWrapper.ctl_video_processing_feature_getset_t)">
   FromNative(ctl_video_processing_feature_getset_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L224"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L257"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a DTO from a native struct.</p>
@@ -609,7 +547,7 @@ Struct VideoProcessingFeatureGetSetDto  <a class="header-action link-secondary" 
 
   <h3 id="IGCLWrapper_VideoProcessingFeatureGetSetDto_GetHashCode" data-uid="IGCLWrapper.VideoProcessingFeatureGetSetDto.GetHashCode">
   GetHashCode()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L205"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L235"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get a hash code for this instance.</p>
@@ -642,10 +580,10 @@ Struct VideoProcessingFeatureGetSetDto  <a class="header-action link-secondary" 
 
   <h3 id="IGCLWrapper_VideoProcessingFeatureGetSetDto_ToNative" data-uid="IGCLWrapper.VideoProcessingFeatureGetSetDto.ToNative">
   ToNative()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L246"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L277"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Convert this DTO to a native struct.</p>
+  <div class="markdown level1 summary"><p>Convert this DTO to a native struct (pointers are null; pin at call site).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -675,7 +613,7 @@ Struct VideoProcessingFeatureGetSetDto  <a class="header-action link-secondary" 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L128" class="edit-link">Edit this page</a>
+          <a href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L169" class="edit-link">Edit this page</a>
         </div>
 
 

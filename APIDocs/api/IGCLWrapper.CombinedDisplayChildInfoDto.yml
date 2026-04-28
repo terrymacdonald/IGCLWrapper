@@ -6,7 +6,7 @@ items:
   parent: IGCLWrapper
   children:
   - IGCLWrapper.CombinedDisplayChildInfoDto.DisplayOrientation
-  - IGCLWrapper.CombinedDisplayChildInfoDto.DisplayOutput
+  - IGCLWrapper.CombinedDisplayChildInfoDto.DisplayOutputWindowsDisplayEncoderId
   - IGCLWrapper.CombinedDisplayChildInfoDto.Equals(IGCLWrapper.CombinedDisplayChildInfoDto)
   - IGCLWrapper.CombinedDisplayChildInfoDto.Equals(System.Object)
   - IGCLWrapper.CombinedDisplayChildInfoDto.FbPos
@@ -29,7 +29,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CombinedDisplayChildInfoDto
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1625
+    startLine: 2026
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -45,35 +45,35 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
-- uid: IGCLWrapper.CombinedDisplayChildInfoDto.DisplayOutput
-  commentId: F:IGCLWrapper.CombinedDisplayChildInfoDto.DisplayOutput
-  id: DisplayOutput
+- uid: IGCLWrapper.CombinedDisplayChildInfoDto.DisplayOutputWindowsDisplayEncoderId
+  commentId: F:IGCLWrapper.CombinedDisplayChildInfoDto.DisplayOutputWindowsDisplayEncoderId
+  id: DisplayOutputWindowsDisplayEncoderId
   parent: IGCLWrapper.CombinedDisplayChildInfoDto
   langs:
   - csharp
   - vb
-  name: DisplayOutput
-  nameWithType: CombinedDisplayChildInfoDto.DisplayOutput
-  fullName: IGCLWrapper.CombinedDisplayChildInfoDto.DisplayOutput
+  name: DisplayOutputWindowsDisplayEncoderId
+  nameWithType: CombinedDisplayChildInfoDto.DisplayOutputWindowsDisplayEncoderId
+  fullName: IGCLWrapper.CombinedDisplayChildInfoDto.DisplayOutputWindowsDisplayEncoderId
   type: Field
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
       branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: DisplayOutput
+    id: DisplayOutputWindowsDisplayEncoderId
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1630
+    startLine: 2031
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Display output handle.
+  summary: Windows display encoder identifier for the display output.
   example: []
   syntax:
-    content: public nint DisplayOutput
+    content: public uint DisplayOutputWindowsDisplayEncoderId
     return:
-      type: System.IntPtr
-    content.vb: Public DisplayOutput As IntPtr
+      type: System.UInt32
+    content.vb: Public DisplayOutputWindowsDisplayEncoderId As UInteger
 - uid: IGCLWrapper.CombinedDisplayChildInfoDto.FbSrc
   commentId: F:IGCLWrapper.CombinedDisplayChildInfoDto.FbSrc
   id: FbSrc
@@ -92,17 +92,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FbSrc
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1634
+    startLine: 2035
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Framebuffer source rect.
   example: []
   syntax:
-    content: public ctl_rect_t FbSrc
+    content: public RectDto FbSrc
     return:
-      type: IGCLWrapper.ctl_rect_t
-    content.vb: Public FbSrc As ctl_rect_t
+      type: IGCLWrapper.RectDto
+    content.vb: Public FbSrc As RectDto
 - uid: IGCLWrapper.CombinedDisplayChildInfoDto.FbPos
   commentId: F:IGCLWrapper.CombinedDisplayChildInfoDto.FbPos
   id: FbPos
@@ -121,17 +121,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FbPos
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1638
+    startLine: 2039
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Framebuffer target rect.
   example: []
   syntax:
-    content: public ctl_rect_t FbPos
+    content: public RectDto FbPos
     return:
-      type: IGCLWrapper.ctl_rect_t
-    content.vb: Public FbPos As ctl_rect_t
+      type: IGCLWrapper.RectDto
+    content.vb: Public FbPos As RectDto
 - uid: IGCLWrapper.CombinedDisplayChildInfoDto.DisplayOrientation
   commentId: F:IGCLWrapper.CombinedDisplayChildInfoDto.DisplayOrientation
   id: DisplayOrientation
@@ -150,7 +150,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: DisplayOrientation
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1642
+    startLine: 2043
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -179,17 +179,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: TargetMode
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1646
+    startLine: 2047
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Target mode info.
   example: []
   syntax:
-    content: public ctl_child_display_target_mode_t TargetMode
+    content: public ChildDisplayTargetModeDto TargetMode
     return:
-      type: IGCLWrapper.ctl_child_display_target_mode_t
-    content.vb: Public TargetMode As ctl_child_display_target_mode_t
+      type: IGCLWrapper.ChildDisplayTargetModeDto
+    content.vb: Public TargetMode As ChildDisplayTargetModeDto
 - uid: IGCLWrapper.CombinedDisplayChildInfoDto.Equals(IGCLWrapper.CombinedDisplayChildInfoDto)
   commentId: M:IGCLWrapper.CombinedDisplayChildInfoDto.Equals(IGCLWrapper.CombinedDisplayChildInfoDto)
   id: Equals(IGCLWrapper.CombinedDisplayChildInfoDto)
@@ -208,7 +208,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1653
+    startLine: 2054
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -245,7 +245,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1669
+    startLine: 2069
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -284,7 +284,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetHashCode
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1675
+    startLine: 2075
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -316,7 +316,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1692
+    startLine: 2092
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -351,11 +351,11 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1708
+    startLine: 2108
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Convert this DTO to a native struct.
+  summary: Convert this DTO to a native struct (hDisplayOutput is null; caller must set it).
   example: []
   syntax:
     content: public ctl_combined_display_child_info_t ToNative()
@@ -594,24 +594,24 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System.IntPtr
-  commentId: T:System.IntPtr
+- uid: System.UInt32
+  commentId: T:System.UInt32
   parent: System
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.intptr
-  name: nint
-  nameWithType: nint
-  fullName: nint
-  nameWithType.vb: IntPtr
-  fullName.vb: System.IntPtr
-  name.vb: IntPtr
-- uid: IGCLWrapper.ctl_rect_t
-  commentId: T:IGCLWrapper.ctl_rect_t
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: IGCLWrapper.RectDto
+  commentId: T:IGCLWrapper.RectDto
   parent: IGCLWrapper
-  href: IGCLWrapper.ctl_rect_t.html
-  name: ctl_rect_t
-  nameWithType: ctl_rect_t
-  fullName: IGCLWrapper.ctl_rect_t
+  href: IGCLWrapper.RectDto.html
+  name: RectDto
+  nameWithType: RectDto
+  fullName: IGCLWrapper.RectDto
 - uid: IGCLWrapper.ctl_display_orientation_t
   commentId: T:IGCLWrapper.ctl_display_orientation_t
   parent: IGCLWrapper
@@ -619,13 +619,13 @@ references:
   name: ctl_display_orientation_t
   nameWithType: ctl_display_orientation_t
   fullName: IGCLWrapper.ctl_display_orientation_t
-- uid: IGCLWrapper.ctl_child_display_target_mode_t
-  commentId: T:IGCLWrapper.ctl_child_display_target_mode_t
+- uid: IGCLWrapper.ChildDisplayTargetModeDto
+  commentId: T:IGCLWrapper.ChildDisplayTargetModeDto
   parent: IGCLWrapper
-  href: IGCLWrapper.ctl_child_display_target_mode_t.html
-  name: ctl_child_display_target_mode_t
-  nameWithType: ctl_child_display_target_mode_t
-  fullName: IGCLWrapper.ctl_child_display_target_mode_t
+  href: IGCLWrapper.ChildDisplayTargetModeDto.html
+  name: ChildDisplayTargetModeDto
+  nameWithType: ChildDisplayTargetModeDto
+  fullName: IGCLWrapper.ChildDisplayTargetModeDto
 - uid: IGCLWrapper.CombinedDisplayChildInfoDto.Equals*
   commentId: Overload:IGCLWrapper.CombinedDisplayChildInfoDto.Equals
   href: IGCLWrapper.CombinedDisplayChildInfoDto.html#IGCLWrapper_CombinedDisplayChildInfoDto_Equals_IGCLWrapper_CombinedDisplayChildInfoDto_

@@ -29,7 +29,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: WireFormatConfigDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2282
+    startLine: 2677
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -63,7 +63,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2288
+    startLine: 2683
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -92,7 +92,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2292
+    startLine: 2687
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -121,7 +121,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Operation
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2296
+    startLine: 2691
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -150,17 +150,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SupportedWireFormat
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2300
+    startLine: 2695
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Supported wire format values.
   example: []
   syntax:
-    content: public ctl_wire_format_t[]? SupportedWireFormat
+    content: public List<WireFormatDto>? SupportedWireFormat
     return:
-      type: IGCLWrapper.ctl_wire_format_t[]
-    content.vb: Public SupportedWireFormat As ctl_wire_format_t()
+      type: System.Collections.Generic.List{IGCLWrapper.WireFormatDto}
+    content.vb: Public SupportedWireFormat As List(Of WireFormatDto)
 - uid: IGCLWrapper.WireFormatConfigDto.WireFormat
   commentId: F:IGCLWrapper.WireFormatConfigDto.WireFormat
   id: WireFormat
@@ -179,17 +179,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: WireFormat
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2304
+    startLine: 2699
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Selected wire format.
   example: []
   syntax:
-    content: public ctl_wire_format_t WireFormat
+    content: public WireFormatDto WireFormat
     return:
-      type: IGCLWrapper.ctl_wire_format_t
-    content.vb: Public WireFormat As ctl_wire_format_t
+      type: IGCLWrapper.WireFormatDto
+    content.vb: Public WireFormat As WireFormatDto
 - uid: IGCLWrapper.WireFormatConfigDto.Equals(IGCLWrapper.WireFormatConfigDto)
   commentId: M:IGCLWrapper.WireFormatConfigDto.Equals(IGCLWrapper.WireFormatConfigDto)
   id: Equals(IGCLWrapper.WireFormatConfigDto)
@@ -208,7 +208,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2311
+    startLine: 2706
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -245,7 +245,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2325
+    startLine: 2718
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -284,7 +284,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetHashCode
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2331
+    startLine: 2724
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -316,7 +316,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2352
+    startLine: 2743
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -351,7 +351,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2368
+    startLine: 2759
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -623,34 +623,111 @@ references:
   name: ctl_wire_format_operation_type_t
   nameWithType: ctl_wire_format_operation_type_t
   fullName: IGCLWrapper.ctl_wire_format_operation_type_t
-- uid: IGCLWrapper.ctl_wire_format_t[]
-  isExternal: true
-  href: IGCLWrapper.ctl_wire_format_t.html
-  name: ctl_wire_format_t[]
-  nameWithType: ctl_wire_format_t[]
-  fullName: IGCLWrapper.ctl_wire_format_t[]
-  nameWithType.vb: ctl_wire_format_t()
-  fullName.vb: IGCLWrapper.ctl_wire_format_t()
-  name.vb: ctl_wire_format_t()
+- uid: System.Collections.Generic.List{IGCLWrapper.WireFormatDto}
+  commentId: T:System.Collections.Generic.List{IGCLWrapper.WireFormatDto}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<WireFormatDto>
+  nameWithType: List<WireFormatDto>
+  fullName: System.Collections.Generic.List<IGCLWrapper.WireFormatDto>
+  nameWithType.vb: List(Of WireFormatDto)
+  fullName.vb: System.Collections.Generic.List(Of IGCLWrapper.WireFormatDto)
+  name.vb: List(Of WireFormatDto)
   spec.csharp:
-  - uid: IGCLWrapper.ctl_wire_format_t
-    name: ctl_wire_format_t
-    href: IGCLWrapper.ctl_wire_format_t.html
-  - name: '['
-  - name: ']'
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: IGCLWrapper.WireFormatDto
+    name: WireFormatDto
+    href: IGCLWrapper.WireFormatDto.html
+  - name: '>'
   spec.vb:
-  - uid: IGCLWrapper.ctl_wire_format_t
-    name: ctl_wire_format_t
-    href: IGCLWrapper.ctl_wire_format_t.html
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
   - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.WireFormatDto
+    name: WireFormatDto
+    href: IGCLWrapper.WireFormatDto.html
   - name: )
-- uid: IGCLWrapper.ctl_wire_format_t
-  commentId: T:IGCLWrapper.ctl_wire_format_t
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: IGCLWrapper.WireFormatDto
+  commentId: T:IGCLWrapper.WireFormatDto
   parent: IGCLWrapper
-  href: IGCLWrapper.ctl_wire_format_t.html
-  name: ctl_wire_format_t
-  nameWithType: ctl_wire_format_t
-  fullName: IGCLWrapper.ctl_wire_format_t
+  href: IGCLWrapper.WireFormatDto.html
+  name: WireFormatDto
+  nameWithType: WireFormatDto
+  fullName: IGCLWrapper.WireFormatDto
 - uid: IGCLWrapper.WireFormatConfigDto.Equals*
   commentId: Overload:IGCLWrapper.WireFormatConfigDto.Equals
   href: IGCLWrapper.WireFormatConfigDto.html#IGCLWrapper_WireFormatConfigDto_Equals_IGCLWrapper_WireFormatConfigDto_

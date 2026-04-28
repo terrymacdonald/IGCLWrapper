@@ -33,7 +33,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: DceArgsDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2570
+    startLine: 2988
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -67,7 +67,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2575
+    startLine: 2993
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -96,7 +96,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2579
+    startLine: 2997
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -125,7 +125,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Set
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2583
+    startLine: 3001
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -154,7 +154,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: TargetBrightnessPercent
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2587
+    startLine: 3005
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -183,7 +183,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PhaseinSpeedMultiplier
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2591
+    startLine: 3009
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -212,7 +212,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: NumBins
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2595
+    startLine: 3013
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -241,7 +241,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Enable
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2599
+    startLine: 3017
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -270,7 +270,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsSupported
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2603
+    startLine: 3021
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -299,17 +299,17 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Histogram
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2607
+    startLine: 3025
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Pointer to histogram buffer.
+  summary: Histogram bins.
   example: []
   syntax:
-    content: public nint Histogram
+    content: public List<uint>? Histogram
     return:
-      type: System.IntPtr
-    content.vb: Public Histogram As IntPtr
+      type: System.Collections.Generic.List{System.UInt32}
+    content.vb: Public Histogram As List(Of UInteger)
 - uid: IGCLWrapper.DceArgsDto.Equals(IGCLWrapper.DceArgsDto)
   commentId: M:IGCLWrapper.DceArgsDto.Equals(IGCLWrapper.DceArgsDto)
   id: Equals(IGCLWrapper.DceArgsDto)
@@ -328,7 +328,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2614
+    startLine: 3032
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -365,7 +365,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2632
+    startLine: 3047
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -404,7 +404,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetHashCode
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2638
+    startLine: 3053
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -436,7 +436,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2657
+    startLine: 3070
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -471,7 +471,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2677
+    startLine: 3098
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -758,17 +758,106 @@ references:
   nameWithType.vb: Double
   fullName.vb: Double
   name.vb: Double
-- uid: System.IntPtr
-  commentId: T:System.IntPtr
-  parent: System
+- uid: System.Collections.Generic.List{System.UInt32}
+  commentId: T:System.Collections.Generic.List{System.UInt32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<uint>
+  nameWithType: List<uint>
+  fullName: System.Collections.Generic.List<uint>
+  nameWithType.vb: List(Of UInteger)
+  fullName.vb: System.Collections.Generic.List(Of UInteger)
+  name.vb: List(Of UInteger)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.UInt32
+    name: uint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.UInt32
+    name: UInteger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.intptr
-  name: nint
-  nameWithType: nint
-  fullName: nint
-  nameWithType.vb: IntPtr
-  fullName.vb: System.IntPtr
-  name.vb: IntPtr
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: IGCLWrapper.DceArgsDto.Equals*
   commentId: Overload:IGCLWrapper.DceArgsDto.Equals
   href: IGCLWrapper.DceArgsDto.html#IGCLWrapper_DceArgsDto_Equals_IGCLWrapper_DceArgsDto_

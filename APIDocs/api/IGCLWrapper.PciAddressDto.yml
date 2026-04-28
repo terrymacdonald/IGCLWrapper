@@ -1,0 +1,811 @@
+### YamlMime:ManagedReference
+items:
+- uid: IGCLWrapper.PciAddressDto
+  commentId: T:IGCLWrapper.PciAddressDto
+  id: PciAddressDto
+  parent: IGCLWrapper
+  children:
+  - IGCLWrapper.PciAddressDto.Bus
+  - IGCLWrapper.PciAddressDto.Device
+  - IGCLWrapper.PciAddressDto.Domain
+  - IGCLWrapper.PciAddressDto.Equals(IGCLWrapper.PciAddressDto)
+  - IGCLWrapper.PciAddressDto.Equals(System.Object)
+  - IGCLWrapper.PciAddressDto.FromNative(IGCLWrapper.ctl_pci_address_t)
+  - IGCLWrapper.PciAddressDto.Function
+  - IGCLWrapper.PciAddressDto.GetHashCode
+  - IGCLWrapper.PciAddressDto.Size
+  - IGCLWrapper.PciAddressDto.ToNative
+  - IGCLWrapper.PciAddressDto.Version
+  langs:
+  - csharp
+  - vb
+  name: PciAddressDto
+  nameWithType: PciAddressDto
+  fullName: IGCLWrapper.PciAddressDto
+  type: Struct
+  source:
+    remote:
+      path: IGCLWrapper/IGCLPciHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: PciAddressDto
+    path: ../IGCLWrapper/IGCLPciHelper.cs
+    startLine: 129
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: DTO for PCI address values.
+  example: []
+  syntax:
+    content: 'public struct PciAddressDto : IEquatable<PciAddressDto>'
+    content.vb: Public Structure PciAddressDto Implements IEquatable(Of PciAddressDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.PciAddressDto}
+  inheritedMembers:
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.PciAddressDto.Size
+  commentId: F:IGCLWrapper.PciAddressDto.Size
+  id: Size
+  parent: IGCLWrapper.PciAddressDto
+  langs:
+  - csharp
+  - vb
+  name: Size
+  nameWithType: PciAddressDto.Size
+  fullName: IGCLWrapper.PciAddressDto.Size
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLPciHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Size
+    path: ../IGCLWrapper/IGCLPciHelper.cs
+    startLine: 134
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Size of the native struct.
+  example: []
+  syntax:
+    content: public uint Size
+    return:
+      type: System.UInt32
+    content.vb: Public Size As UInteger
+- uid: IGCLWrapper.PciAddressDto.Version
+  commentId: F:IGCLWrapper.PciAddressDto.Version
+  id: Version
+  parent: IGCLWrapper.PciAddressDto
+  langs:
+  - csharp
+  - vb
+  name: Version
+  nameWithType: PciAddressDto.Version
+  fullName: IGCLWrapper.PciAddressDto.Version
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLPciHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Version
+    path: ../IGCLWrapper/IGCLPciHelper.cs
+    startLine: 138
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Version of the native struct.
+  example: []
+  syntax:
+    content: public byte Version
+    return:
+      type: System.Byte
+    content.vb: Public Version As Byte
+- uid: IGCLWrapper.PciAddressDto.Domain
+  commentId: F:IGCLWrapper.PciAddressDto.Domain
+  id: Domain
+  parent: IGCLWrapper.PciAddressDto
+  langs:
+  - csharp
+  - vb
+  name: Domain
+  nameWithType: PciAddressDto.Domain
+  fullName: IGCLWrapper.PciAddressDto.Domain
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLPciHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Domain
+    path: ../IGCLWrapper/IGCLPciHelper.cs
+    startLine: 142
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: PCI domain.
+  example: []
+  syntax:
+    content: public uint Domain
+    return:
+      type: System.UInt32
+    content.vb: Public Domain As UInteger
+- uid: IGCLWrapper.PciAddressDto.Bus
+  commentId: F:IGCLWrapper.PciAddressDto.Bus
+  id: Bus
+  parent: IGCLWrapper.PciAddressDto
+  langs:
+  - csharp
+  - vb
+  name: Bus
+  nameWithType: PciAddressDto.Bus
+  fullName: IGCLWrapper.PciAddressDto.Bus
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLPciHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Bus
+    path: ../IGCLWrapper/IGCLPciHelper.cs
+    startLine: 146
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: PCI bus.
+  example: []
+  syntax:
+    content: public uint Bus
+    return:
+      type: System.UInt32
+    content.vb: Public Bus As UInteger
+- uid: IGCLWrapper.PciAddressDto.Device
+  commentId: F:IGCLWrapper.PciAddressDto.Device
+  id: Device
+  parent: IGCLWrapper.PciAddressDto
+  langs:
+  - csharp
+  - vb
+  name: Device
+  nameWithType: PciAddressDto.Device
+  fullName: IGCLWrapper.PciAddressDto.Device
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLPciHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Device
+    path: ../IGCLWrapper/IGCLPciHelper.cs
+    startLine: 150
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: PCI device.
+  example: []
+  syntax:
+    content: public uint Device
+    return:
+      type: System.UInt32
+    content.vb: Public Device As UInteger
+- uid: IGCLWrapper.PciAddressDto.Function
+  commentId: F:IGCLWrapper.PciAddressDto.Function
+  id: Function
+  parent: IGCLWrapper.PciAddressDto
+  langs:
+  - csharp
+  - vb
+  name: Function
+  nameWithType: PciAddressDto.Function
+  fullName: IGCLWrapper.PciAddressDto.Function
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLPciHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Function
+    path: ../IGCLWrapper/IGCLPciHelper.cs
+    startLine: 154
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: PCI function.
+  example: []
+  syntax:
+    content: public uint Function
+    return:
+      type: System.UInt32
+    content.vb: Public [Function] As UInteger
+- uid: IGCLWrapper.PciAddressDto.Equals(IGCLWrapper.PciAddressDto)
+  commentId: M:IGCLWrapper.PciAddressDto.Equals(IGCLWrapper.PciAddressDto)
+  id: Equals(IGCLWrapper.PciAddressDto)
+  parent: IGCLWrapper.PciAddressDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(PciAddressDto)
+  nameWithType: PciAddressDto.Equals(PciAddressDto)
+  fullName: IGCLWrapper.PciAddressDto.Equals(IGCLWrapper.PciAddressDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLPciHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLPciHelper.cs
+    startLine: 156
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(PciAddressDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.PciAddressDto
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As PciAddressDto) As Boolean
+  overload: IGCLWrapper.PciAddressDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.PciAddressDto}.Equals(IGCLWrapper.PciAddressDto)
+- uid: IGCLWrapper.PciAddressDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.PciAddressDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.PciAddressDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: PciAddressDto.Equals(object?)
+  fullName: IGCLWrapper.PciAddressDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLPciHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLPciHelper.cs
+    startLine: 164
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Indicates whether this instance and a specified object are equal.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.PciAddressDto.Equals*
+  nameWithType.vb: PciAddressDto.Equals(Object)
+  fullName.vb: IGCLWrapper.PciAddressDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.PciAddressDto.GetHashCode
+  commentId: M:IGCLWrapper.PciAddressDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.PciAddressDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: PciAddressDto.GetHashCode()
+  fullName: IGCLWrapper.PciAddressDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLPciHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLPciHelper.cs
+    startLine: 166
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Returns the hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A 32-bit signed integer that is the hash code for this instance.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.PciAddressDto.GetHashCode*
+- uid: IGCLWrapper.PciAddressDto.FromNative(IGCLWrapper.ctl_pci_address_t)
+  commentId: M:IGCLWrapper.PciAddressDto.FromNative(IGCLWrapper.ctl_pci_address_t)
+  id: FromNative(IGCLWrapper.ctl_pci_address_t)
+  parent: IGCLWrapper.PciAddressDto
+  langs:
+  - csharp
+  - vb
+  name: FromNative(ctl_pci_address_t)
+  nameWithType: PciAddressDto.FromNative(ctl_pci_address_t)
+  fullName: IGCLWrapper.PciAddressDto.FromNative(IGCLWrapper.ctl_pci_address_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLPciHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: FromNative
+    path: ../IGCLWrapper/IGCLPciHelper.cs
+    startLine: 176
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public static PciAddressDto FromNative(ctl_pci_address_t native)
+    parameters:
+    - id: native
+      type: IGCLWrapper.ctl_pci_address_t
+    return:
+      type: IGCLWrapper.PciAddressDto
+    content.vb: Public Shared Function FromNative(native As ctl_pci_address_t) As PciAddressDto
+  overload: IGCLWrapper.PciAddressDto.FromNative*
+- uid: IGCLWrapper.PciAddressDto.ToNative
+  commentId: M:IGCLWrapper.PciAddressDto.ToNative
+  id: ToNative
+  parent: IGCLWrapper.PciAddressDto
+  langs:
+  - csharp
+  - vb
+  name: ToNative()
+  nameWithType: PciAddressDto.ToNative()
+  fullName: IGCLWrapper.PciAddressDto.ToNative()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLPciHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: ToNative
+    path: ../IGCLWrapper/IGCLPciHelper.cs
+    startLine: 189
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_pci_address_t ToNative()
+    return:
+      type: IGCLWrapper.ctl_pci_address_t
+    content.vb: Public Function ToNative() As ctl_pci_address_t
+  overload: IGCLWrapper.PciAddressDto.ToNative*
+references:
+- uid: IGCLWrapper
+  commentId: N:IGCLWrapper
+  href: IGCLWrapper.html
+  name: IGCLWrapper
+  nameWithType: IGCLWrapper
+  fullName: IGCLWrapper
+- uid: System.IEquatable{IGCLWrapper.PciAddressDto}
+  commentId: T:System.IEquatable{IGCLWrapper.PciAddressDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<PciAddressDto>
+  nameWithType: IEquatable<PciAddressDto>
+  fullName: System.IEquatable<IGCLWrapper.PciAddressDto>
+  nameWithType.vb: IEquatable(Of PciAddressDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.PciAddressDto)
+  name.vb: IEquatable(Of PciAddressDto)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.PciAddressDto
+    name: PciAddressDto
+    href: IGCLWrapper.PciAddressDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.PciAddressDto
+    name: PciAddressDto
+    href: IGCLWrapper.PciAddressDto.html
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: IGCLWrapper.PciAddressDto.Equals*
+  commentId: Overload:IGCLWrapper.PciAddressDto.Equals
+  href: IGCLWrapper.PciAddressDto.html#IGCLWrapper_PciAddressDto_Equals_IGCLWrapper_PciAddressDto_
+  name: Equals
+  nameWithType: PciAddressDto.Equals
+  fullName: IGCLWrapper.PciAddressDto.Equals
+- uid: System.IEquatable{IGCLWrapper.PciAddressDto}.Equals(IGCLWrapper.PciAddressDto)
+  commentId: M:System.IEquatable{IGCLWrapper.PciAddressDto}.Equals(IGCLWrapper.PciAddressDto)
+  parent: System.IEquatable{IGCLWrapper.PciAddressDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(PciAddressDto)
+  nameWithType: IEquatable<PciAddressDto>.Equals(PciAddressDto)
+  fullName: System.IEquatable<IGCLWrapper.PciAddressDto>.Equals(IGCLWrapper.PciAddressDto)
+  nameWithType.vb: IEquatable(Of PciAddressDto).Equals(PciAddressDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.PciAddressDto).Equals(IGCLWrapper.PciAddressDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.PciAddressDto}.Equals(IGCLWrapper.PciAddressDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.PciAddressDto
+    name: PciAddressDto
+    href: IGCLWrapper.PciAddressDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.PciAddressDto}.Equals(IGCLWrapper.PciAddressDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.PciAddressDto
+    name: PciAddressDto
+    href: IGCLWrapper.PciAddressDto.html
+  - name: )
+- uid: IGCLWrapper.PciAddressDto
+  commentId: T:IGCLWrapper.PciAddressDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.PciAddressDto.html
+  name: PciAddressDto
+  nameWithType: PciAddressDto
+  fullName: IGCLWrapper.PciAddressDto
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.PciAddressDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.PciAddressDto.GetHashCode
+  href: IGCLWrapper.PciAddressDto.html#IGCLWrapper_PciAddressDto_GetHashCode
+  name: GetHashCode
+  nameWithType: PciAddressDto.GetHashCode
+  fullName: IGCLWrapper.PciAddressDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: IGCLWrapper.PciAddressDto.FromNative*
+  commentId: Overload:IGCLWrapper.PciAddressDto.FromNative
+  href: IGCLWrapper.PciAddressDto.html#IGCLWrapper_PciAddressDto_FromNative_IGCLWrapper_ctl_pci_address_t_
+  name: FromNative
+  nameWithType: PciAddressDto.FromNative
+  fullName: IGCLWrapper.PciAddressDto.FromNative
+- uid: IGCLWrapper.ctl_pci_address_t
+  commentId: T:IGCLWrapper.ctl_pci_address_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_pci_address_t.html
+  name: ctl_pci_address_t
+  nameWithType: ctl_pci_address_t
+  fullName: IGCLWrapper.ctl_pci_address_t
+- uid: IGCLWrapper.PciAddressDto.ToNative*
+  commentId: Overload:IGCLWrapper.PciAddressDto.ToNative
+  href: IGCLWrapper.PciAddressDto.html#IGCLWrapper_PciAddressDto_ToNative
+  name: ToNative
+  nameWithType: PciAddressDto.ToNative
+  fullName: IGCLWrapper.PciAddressDto.ToNative
