@@ -62,6 +62,101 @@
             Mark the helper as disposed.
             </summary>
         </member>
+        <member name="T:IGCLWrapper.PropertyBooleanDto">
+            <summary>
+            DTO for boolean property values.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PropertyBooleanDto.Enable">
+            <summary>
+            Enable value.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.PropertyFloatDto">
+            <summary>
+            DTO for float property values.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PropertyFloatDto.Enable">
+            <summary>
+            Enable value.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PropertyFloatDto.Value">
+            <summary>
+            Float value.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.PropertyIntDto">
+            <summary>
+            DTO for int property values.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PropertyIntDto.Enable">
+            <summary>
+            Enable value.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PropertyIntDto.Value">
+            <summary>
+            Int value.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.PropertyEnumDto">
+            <summary>
+            DTO for enum property values.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PropertyEnumDto.EnableType">
+            <summary>
+            Enum enable type value.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.PropertyUIntDto">
+            <summary>
+            DTO for uint property values.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PropertyUIntDto.Enable">
+            <summary>
+            Enable value.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PropertyUIntDto.Value">
+            <summary>
+            UInt value.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.PropertyDto">
+            <summary>
+            DTO for property union values.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PropertyDto.BoolType">
+            <summary>
+            Boolean property value.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PropertyDto.FloatType">
+            <summary>
+            Float property value.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PropertyDto.IntType">
+            <summary>
+            Int property value.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PropertyDto.EnumType">
+            <summary>
+            Enum property value.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PropertyDto.UIntType">
+            <summary>
+            UInt property value.
+            </summary>
+        </member>
         <member name="T:IGCLWrapper.ThreeDFeatureGetSetDto">
             <summary>
             DTO for 3D feature get/set operations.
@@ -658,6 +753,126 @@
         <member name="M:IGCLWrapper.IGCLAdapterHelper.Dispose">
             <summary>
             Mark the helper as disposed.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.FirmwareVersionDto">
+            <summary>
+            DTO for firmware version information.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FirmwareVersionDto.MajorVersion">
+            <summary>
+            Major firmware version.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FirmwareVersionDto.MinorVersion">
+            <summary>
+            Minor firmware version.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FirmwareVersionDto.BuildNumber">
+            <summary>
+            Firmware build number.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.AdapterBdfDto">
+            <summary>
+            DTO for adapter bus-device-function identifier.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.AdapterBdfDto.Bus">
+            <summary>
+            PCI bus identifier.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.AdapterBdfDto.Device">
+            <summary>
+            PCI device identifier.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.AdapterBdfDto.Function">
+            <summary>
+            PCI function identifier.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.RectDto">
+            <summary>
+            DTO for rectangle coordinates.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.RectDto.Left">
+            <summary>
+            Left coordinate.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.RectDto.Top">
+            <summary>
+            Top coordinate.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.RectDto.Right">
+            <summary>
+            Right coordinate.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.RectDto.Bottom">
+            <summary>
+            Bottom coordinate.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.ChildDisplayTargetModeDto">
+            <summary>
+            DTO for child display target mode.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.ChildDisplayTargetModeDto.Width">
+            <summary>
+            Target width.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.ChildDisplayTargetModeDto.Height">
+            <summary>
+            Target height.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.ChildDisplayTargetModeDto.RefreshRate">
+            <summary>
+            Target refresh rate.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.ChildDisplayTargetModeDto.ReservedFields">
+            <summary>
+            Reserved mode fields.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.GenlockTopologyDto">
+            <summary>
+            DTO for genlock topology.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.GenlockTopologyDto.NumGenlockDisplays">
+            <summary>
+            Number of displays in the genlock topology.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.GenlockTopologyDto.IsPrimaryGenlockSystem">
+            <summary>
+            Indicates whether this is the primary genlock system.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.GenlockTopologyDto.CommonTargetMode">
+            <summary>
+            Common target mode for genlock displays.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.GenlockTopologyDto.GenlockDisplayInfo">
+            <summary>
+            Pointer to native genlock display info.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.GenlockTopologyDto.GenlockModeList">
+            <summary>
+            Pointer to native genlock mode list.
             </summary>
         </member>
         <member name="T:IGCLWrapper.DeviceAdapterPropertiesDto">
@@ -3979,6 +4194,36 @@
             </summary>
             <returns>LED properties struct.</returns>
         </member>
+        <member name="T:IGCLWrapper.LedColorDto">
+            <summary>
+            DTO for LED color.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.LedColorDto.Size">
+            <summary>
+            Size of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.LedColorDto.Version">
+            <summary>
+            Version of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.LedColorDto.Red">
+            <summary>
+            Red component.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.LedColorDto.Green">
+            <summary>
+            Green component.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.LedColorDto.Blue">
+            <summary>
+            Blue component.
+            </summary>
+        </member>
         <member name="T:IGCLWrapper.LedStateDto">
             <summary>
             DTO for LED state.
@@ -4006,7 +4251,7 @@
         </member>
         <member name="F:IGCLWrapper.LedStateDto.Color">
             <summary>
-            LED color struct.
+            LED color values.
             </summary>
         </member>
         <member name="M:IGCLWrapper.LedStateDto.Equals(IGCLWrapper.LedStateDto)">
@@ -4558,6 +4803,61 @@
         <member name="M:IGCLWrapper.IGCLOverclockHelper.Dispose">
             <summary>
             Mark the helper as disposed.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.DataValueDto">
+            <summary>
+            DTO for telemetry data value union.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DataValueDto.Data8">
+            <summary>
+            Signed 8-bit value.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DataValueDto.DataU8">
+            <summary>
+            Unsigned 8-bit value.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DataValueDto.Data16">
+            <summary>
+            Signed 16-bit value.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DataValueDto.DataU16">
+            <summary>
+            Unsigned 16-bit value.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DataValueDto.Data32">
+            <summary>
+            Signed 32-bit value.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DataValueDto.DataU32">
+            <summary>
+            Unsigned 32-bit value.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DataValueDto.Data64">
+            <summary>
+            Signed 64-bit value.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DataValueDto.DataU64">
+            <summary>
+            Unsigned 64-bit value.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DataValueDto.DataFloat">
+            <summary>
+            Float value.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.DataValueDto.DataDouble">
+            <summary>
+            Double value.
             </summary>
         </member>
         <member name="T:IGCLWrapper.OcControlInfoDto">
@@ -5132,6 +5432,71 @@
         <member name="M:IGCLWrapper.IGCLPciHelper.Dispose">
             <summary>
             Mark the helper as disposed.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.PciAddressDto">
+            <summary>
+            DTO for PCI address values.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PciAddressDto.Size">
+            <summary>
+            Size of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PciAddressDto.Version">
+            <summary>
+            Version of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PciAddressDto.Domain">
+            <summary>
+            PCI domain.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PciAddressDto.Bus">
+            <summary>
+            PCI bus.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PciAddressDto.Device">
+            <summary>
+            PCI device.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PciAddressDto.Function">
+            <summary>
+            PCI function.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.PciSpeedDto">
+            <summary>
+            DTO for PCI link speed values.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PciSpeedDto.Size">
+            <summary>
+            Size of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PciSpeedDto.Version">
+            <summary>
+            Version of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PciSpeedDto.Generation">
+            <summary>
+            PCIe generation.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PciSpeedDto.Width">
+            <summary>
+            PCIe lane width.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PciSpeedDto.MaxBandwidth">
+            <summary>
+            Maximum bandwidth.
             </summary>
         </member>
         <member name="T:IGCLWrapper.PciPropertiesDto">

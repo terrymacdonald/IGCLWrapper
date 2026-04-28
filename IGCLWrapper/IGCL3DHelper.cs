@@ -122,6 +122,220 @@ namespace IGCLWrapper
     }
 
     /// <summary>
+    /// DTO for boolean property values.
+    /// </summary>
+    public struct PropertyBooleanDto : IEquatable<PropertyBooleanDto>
+    {
+        /// <summary>
+        /// Enable value.
+        /// </summary>
+        public bool Enable;
+
+        public bool Equals(PropertyBooleanDto other) => Enable == other.Enable;
+        public override bool Equals(object? obj) => obj is PropertyBooleanDto other && Equals(other);
+        public override int GetHashCode() => Enable.GetHashCode();
+
+        public static PropertyBooleanDto FromNative(ctl_property_boolean_t native)
+        {
+            return new PropertyBooleanDto { Enable = IGCL3DDtoBool.ToBool(native.Enable) };
+        }
+
+        public ctl_property_boolean_t ToNative()
+        {
+            return new ctl_property_boolean_t { Enable = IGCL3DDtoBool.ToByte(Enable) };
+        }
+    }
+
+    /// <summary>
+    /// DTO for float property values.
+    /// </summary>
+    public struct PropertyFloatDto : IEquatable<PropertyFloatDto>
+    {
+        /// <summary>
+        /// Enable value.
+        /// </summary>
+        public bool Enable;
+        /// <summary>
+        /// Float value.
+        /// </summary>
+        public float Value;
+
+        public bool Equals(PropertyFloatDto other) => Enable == other.Enable && Value.Equals(other.Value);
+        public override bool Equals(object? obj) => obj is PropertyFloatDto other && Equals(other);
+        public override int GetHashCode() => HashCode.Combine(Enable, Value);
+
+        public static PropertyFloatDto FromNative(ctl_property_float_t native)
+        {
+            return new PropertyFloatDto { Enable = IGCL3DDtoBool.ToBool(native.Enable), Value = native.Value };
+        }
+
+        public ctl_property_float_t ToNative()
+        {
+            return new ctl_property_float_t { Enable = IGCL3DDtoBool.ToByte(Enable), Value = Value };
+        }
+    }
+
+    /// <summary>
+    /// DTO for int property values.
+    /// </summary>
+    public struct PropertyIntDto : IEquatable<PropertyIntDto>
+    {
+        /// <summary>
+        /// Enable value.
+        /// </summary>
+        public bool Enable;
+        /// <summary>
+        /// Int value.
+        /// </summary>
+        public int Value;
+
+        public bool Equals(PropertyIntDto other) => Enable == other.Enable && Value == other.Value;
+        public override bool Equals(object? obj) => obj is PropertyIntDto other && Equals(other);
+        public override int GetHashCode() => HashCode.Combine(Enable, Value);
+
+        public static PropertyIntDto FromNative(ctl_property_int_t native)
+        {
+            return new PropertyIntDto { Enable = IGCL3DDtoBool.ToBool(native.Enable), Value = native.Value };
+        }
+
+        public ctl_property_int_t ToNative()
+        {
+            return new ctl_property_int_t { Enable = IGCL3DDtoBool.ToByte(Enable), Value = Value };
+        }
+    }
+
+    /// <summary>
+    /// DTO for enum property values.
+    /// </summary>
+    public struct PropertyEnumDto : IEquatable<PropertyEnumDto>
+    {
+        /// <summary>
+        /// Enum enable type value.
+        /// </summary>
+        public uint EnableType;
+
+        public bool Equals(PropertyEnumDto other) => EnableType == other.EnableType;
+        public override bool Equals(object? obj) => obj is PropertyEnumDto other && Equals(other);
+        public override int GetHashCode() => EnableType.GetHashCode();
+
+        public static PropertyEnumDto FromNative(ctl_property_enum_t native)
+        {
+            return new PropertyEnumDto { EnableType = native.EnableType };
+        }
+
+        public ctl_property_enum_t ToNative()
+        {
+            return new ctl_property_enum_t { EnableType = EnableType };
+        }
+    }
+
+    /// <summary>
+    /// DTO for uint property values.
+    /// </summary>
+    public struct PropertyUIntDto : IEquatable<PropertyUIntDto>
+    {
+        /// <summary>
+        /// Enable value.
+        /// </summary>
+        public bool Enable;
+        /// <summary>
+        /// UInt value.
+        /// </summary>
+        public uint Value;
+
+        public bool Equals(PropertyUIntDto other) => Enable == other.Enable && Value == other.Value;
+        public override bool Equals(object? obj) => obj is PropertyUIntDto other && Equals(other);
+        public override int GetHashCode() => HashCode.Combine(Enable, Value);
+
+        public static PropertyUIntDto FromNative(ctl_property_uint_t native)
+        {
+            return new PropertyUIntDto { Enable = IGCL3DDtoBool.ToBool(native.Enable), Value = native.Value };
+        }
+
+        public ctl_property_uint_t ToNative()
+        {
+            return new ctl_property_uint_t { Enable = IGCL3DDtoBool.ToByte(Enable), Value = Value };
+        }
+    }
+
+    /// <summary>
+    /// DTO for property union values.
+    /// </summary>
+    public struct PropertyDto : IEquatable<PropertyDto>
+    {
+        /// <summary>
+        /// Boolean property value.
+        /// </summary>
+        public PropertyBooleanDto BoolType;
+        /// <summary>
+        /// Float property value.
+        /// </summary>
+        public PropertyFloatDto FloatType;
+        /// <summary>
+        /// Int property value.
+        /// </summary>
+        public PropertyIntDto IntType;
+        /// <summary>
+        /// Enum property value.
+        /// </summary>
+        public PropertyEnumDto EnumType;
+        /// <summary>
+        /// UInt property value.
+        /// </summary>
+        public PropertyUIntDto UIntType;
+
+        public bool Equals(PropertyDto other)
+        {
+            return BoolType.Equals(other.BoolType) &&
+                   FloatType.Equals(other.FloatType) &&
+                   IntType.Equals(other.IntType) &&
+                   EnumType.Equals(other.EnumType) &&
+                   UIntType.Equals(other.UIntType);
+        }
+
+        public override bool Equals(object? obj) => obj is PropertyDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(BoolType);
+            hash.Add(FloatType);
+            hash.Add(IntType);
+            hash.Add(EnumType);
+            hash.Add(UIntType);
+            return hash.ToHashCode();
+        }
+
+        public static PropertyDto FromNative(ctl_property_t native)
+        {
+            return new PropertyDto
+            {
+                BoolType = PropertyBooleanDto.FromNative(native.BoolType),
+                FloatType = PropertyFloatDto.FromNative(native.FloatType),
+                IntType = PropertyIntDto.FromNative(native.IntType),
+                EnumType = PropertyEnumDto.FromNative(native.EnumType),
+                UIntType = PropertyUIntDto.FromNative(native.UIntType)
+            };
+        }
+
+        public ctl_property_t ToNative()
+        {
+            var native = new ctl_property_t();
+            if (FloatType.Enable)
+                native.FloatType = FloatType.ToNative();
+            else if (IntType.Enable)
+                native.IntType = IntType.ToNative();
+            else if (UIntType.Enable)
+                native.UIntType = UIntType.ToNative();
+            else if (BoolType.Enable)
+                native.BoolType = BoolType.ToNative();
+            else
+                native.EnumType = EnumType.ToNative();
+            return native;
+        }
+    }
+
+    /// <summary>
     /// DTO for 3D feature get/set operations.
     /// </summary>
     public unsafe struct ThreeDFeatureGetSetDto : IEquatable<ThreeDFeatureGetSetDto>
@@ -157,7 +371,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Feature value.
         /// </summary>
-        public ctl_property_t Value;
+        public PropertyDto Value;
         /// <summary>
         /// Size of the custom value buffer.
         /// </summary>
@@ -175,9 +389,7 @@ namespace IGCLWrapper
         public bool Equals(ThreeDFeatureGetSetDto other)
         {
             // ApplicationName and CustomValue are pointers and are intentionally excluded.
-            return Size == other.Size &&
-                   Version == other.Version &&
-                   FeatureType == other.FeatureType &&
+                 return FeatureType == other.FeatureType &&
                    ApplicationNameLength == other.ApplicationNameLength &&
                    Set == other.Set &&
                    ValueType == other.ValueType &&
@@ -199,8 +411,6 @@ namespace IGCLWrapper
         public override int GetHashCode()
         {
             var hash = new HashCode();
-            hash.Add(Size);
-            hash.Add(Version);
             hash.Add(FeatureType);
             hash.Add(ApplicationNameLength);
             hash.Add(Set);
@@ -226,7 +436,7 @@ namespace IGCLWrapper
                 ApplicationNameLength = native.ApplicationNameLength,
                 Set = IGCL3DDtoBool.ToBool(native.bSet),
                 ValueType = native.ValueType,
-                Value = native.Value,
+                Value = PropertyDto.FromNative(native.Value),
                 CustomValueSize = native.CustomValueSize,
                 CustomValue = (IntPtr)native.pCustomValue
             };
@@ -238,16 +448,20 @@ namespace IGCLWrapper
         /// <returns>3D feature get/set struct.</returns>
         public ctl_3d_feature_getset_t ToNative()
         {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_3d_feature_getset_t);
+
             return new ctl_3d_feature_getset_t
             {
-                Size = Size,
+                Size = size,
                 Version = Version,
                 FeatureType = FeatureType,
                 ApplicationName = (sbyte*)ApplicationName,
                 ApplicationNameLength = ApplicationNameLength,
                 bSet = IGCL3DDtoBool.ToByte(Set),
                 ValueType = ValueType,
-                Value = Value,
+                Value = Value.ToNative(),
                 CustomValueSize = CustomValueSize,
                 pCustomValue = (void*)CustomValue
             };

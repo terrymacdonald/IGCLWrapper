@@ -125,6 +125,160 @@ namespace IGCLWrapper
     }
 
     /// <summary>
+    /// DTO for PCI address values.
+    /// </summary>
+    public struct PciAddressDto : IEquatable<PciAddressDto>
+    {
+        /// <summary>
+        /// Size of the native struct.
+        /// </summary>
+        public uint Size;
+        /// <summary>
+        /// Version of the native struct.
+        /// </summary>
+        public byte Version;
+        /// <summary>
+        /// PCI domain.
+        /// </summary>
+        public uint Domain;
+        /// <summary>
+        /// PCI bus.
+        /// </summary>
+        public uint Bus;
+        /// <summary>
+        /// PCI device.
+        /// </summary>
+        public uint Device;
+        /// <summary>
+        /// PCI function.
+        /// </summary>
+        public uint Function;
+
+        public bool Equals(PciAddressDto other)
+        {
+            return Domain == other.Domain &&
+                   Bus == other.Bus &&
+                   Device == other.Device &&
+                   Function == other.Function;
+        }
+
+        public override bool Equals(object? obj) => obj is PciAddressDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Domain);
+            hash.Add(Bus);
+            hash.Add(Device);
+            hash.Add(Function);
+            return hash.ToHashCode();
+        }
+
+        public static PciAddressDto FromNative(ctl_pci_address_t native)
+        {
+            return new PciAddressDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                Domain = native.domain,
+                Bus = native.bus,
+                Device = native.device,
+                Function = native.function
+            };
+        }
+
+        public unsafe ctl_pci_address_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_pci_address_t);
+
+            return new ctl_pci_address_t
+            {
+                Size = size,
+                Version = Version,
+                domain = Domain,
+                bus = Bus,
+                device = Device,
+                function = Function
+            };
+        }
+    }
+
+    /// <summary>
+    /// DTO for PCI link speed values.
+    /// </summary>
+    public struct PciSpeedDto : IEquatable<PciSpeedDto>
+    {
+        /// <summary>
+        /// Size of the native struct.
+        /// </summary>
+        public uint Size;
+        /// <summary>
+        /// Version of the native struct.
+        /// </summary>
+        public byte Version;
+        /// <summary>
+        /// PCIe generation.
+        /// </summary>
+        public int Generation;
+        /// <summary>
+        /// PCIe lane width.
+        /// </summary>
+        public int Width;
+        /// <summary>
+        /// Maximum bandwidth.
+        /// </summary>
+        public long MaxBandwidth;
+
+        public bool Equals(PciSpeedDto other)
+        {
+            return Generation == other.Generation &&
+                   Width == other.Width &&
+                   MaxBandwidth == other.MaxBandwidth;
+        }
+
+        public override bool Equals(object? obj) => obj is PciSpeedDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Generation);
+            hash.Add(Width);
+            hash.Add(MaxBandwidth);
+            return hash.ToHashCode();
+        }
+
+        public static PciSpeedDto FromNative(ctl_pci_speed_t native)
+        {
+            return new PciSpeedDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                Generation = native.gen,
+                Width = native.width,
+                MaxBandwidth = native.maxBandwidth
+            };
+        }
+
+        public unsafe ctl_pci_speed_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_pci_speed_t);
+
+            return new ctl_pci_speed_t
+            {
+                Size = size,
+                Version = Version,
+                gen = Generation,
+                width = Width,
+                maxBandwidth = MaxBandwidth
+            };
+        }
+    }
+
+    /// <summary>
     /// DTO for PCI properties.
     /// </summary>
     public struct PciPropertiesDto : IEquatable<PciPropertiesDto>
@@ -140,11 +294,11 @@ namespace IGCLWrapper
         /// <summary>
         /// PCI address.
         /// </summary>
-        public ctl_pci_address_t Address;
+        public PciAddressDto Address;
         /// <summary>
         /// Maximum PCIe speed.
         /// </summary>
-        public ctl_pci_speed_t MaxSpeed;
+        public PciSpeedDto MaxSpeed;
         /// <summary>
         /// Indicates whether resizable BAR is supported.
         /// </summary>
@@ -161,9 +315,7 @@ namespace IGCLWrapper
         /// <returns>True when equal; otherwise, false.</returns>
         public bool Equals(PciPropertiesDto other)
         {
-            return Size == other.Size &&
-                   Version == other.Version &&
-                   Address.Equals(other.Address) &&
+                 return Address.Equals(other.Address) &&
                    MaxSpeed.Equals(other.MaxSpeed) &&
                    ResizableBarSupported == other.ResizableBarSupported &&
                    ResizableBarEnabled == other.ResizableBarEnabled;
@@ -183,8 +335,6 @@ namespace IGCLWrapper
         public override int GetHashCode()
         {
             var hash = new HashCode();
-            hash.Add(Size);
-            hash.Add(Version);
             hash.Add(Address);
             hash.Add(MaxSpeed);
             hash.Add(ResizableBarSupported);
@@ -203,8 +353,8 @@ namespace IGCLWrapper
             {
                 Size = native.Size,
                 Version = native.Version,
-                Address = native.address,
-                MaxSpeed = native.maxSpeed,
+                Address = PciAddressDto.FromNative(native.address),
+                MaxSpeed = PciSpeedDto.FromNative(native.maxSpeed),
                 ResizableBarSupported = IGCLPciDtoBool.ToBool(native.resizable_bar_supported),
                 ResizableBarEnabled = IGCLPciDtoBool.ToBool(native.resizable_bar_enabled)
             };
@@ -214,14 +364,18 @@ namespace IGCLWrapper
         /// Convert this DTO to a native struct.
         /// </summary>
         /// <returns>PCI properties struct.</returns>
-        public ctl_pci_properties_t ToNative()
+        public unsafe ctl_pci_properties_t ToNative()
         {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_pci_properties_t);
+
             return new ctl_pci_properties_t
             {
-                Size = Size,
+                Size = size,
                 Version = Version,
-                address = Address,
-                maxSpeed = MaxSpeed,
+                address = Address.ToNative(),
+                maxSpeed = MaxSpeed.ToNative(),
                 resizable_bar_supported = IGCLPciDtoBool.ToByte(ResizableBarSupported),
                 resizable_bar_enabled = IGCLPciDtoBool.ToByte(ResizableBarEnabled)
             };

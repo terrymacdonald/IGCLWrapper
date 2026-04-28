@@ -277,6 +277,83 @@ namespace IGCLWrapper
     }
 
     /// <summary>
+    /// DTO for LED color.
+    /// </summary>
+    public struct LedColorDto : IEquatable<LedColorDto>
+    {
+        /// <summary>
+        /// Size of the native struct.
+        /// </summary>
+        public uint Size;
+        /// <summary>
+        /// Version of the native struct.
+        /// </summary>
+        public byte Version;
+        /// <summary>
+        /// Red component.
+        /// </summary>
+        public double Red;
+        /// <summary>
+        /// Green component.
+        /// </summary>
+        public double Green;
+        /// <summary>
+        /// Blue component.
+        /// </summary>
+        public double Blue;
+
+        public bool Equals(LedColorDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   Red.Equals(other.Red) &&
+                   Green.Equals(other.Green) &&
+                   Blue.Equals(other.Blue);
+        }
+
+        public override bool Equals(object? obj) => obj is LedColorDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(Red);
+            hash.Add(Green);
+            hash.Add(Blue);
+            return hash.ToHashCode();
+        }
+
+        public static LedColorDto FromNative(ctl_led_color_t native)
+        {
+            return new LedColorDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                Red = native.red,
+                Green = native.green,
+                Blue = native.blue
+            };
+        }
+
+        public unsafe ctl_led_color_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_led_color_t);
+
+            return new ctl_led_color_t
+            {
+                Size = size,
+                Version = Version,
+                red = Red,
+                green = Green,
+                blue = Blue
+            };
+        }
+    }
+
+    /// <summary>
     /// DTO for LED state.
     /// </summary>
     public struct LedStateDto : IEquatable<LedStateDto>
@@ -298,9 +375,9 @@ namespace IGCLWrapper
         /// </summary>
         public double Pwm;
         /// <summary>
-        /// LED color struct.
+        /// LED color values.
         /// </summary>
-        public ctl_led_color_t Color;
+        public LedColorDto Color;
 
         /// <summary>
         /// Compare LED state.
@@ -351,7 +428,7 @@ namespace IGCLWrapper
                 Version = native.Version,
                 IsOn = IGCLLedDtoBool.ToBool(native.isOn),
                 Pwm = native.pwm,
-                Color = native.color
+                Color = LedColorDto.FromNative(native.color)
             };
         }
 
@@ -361,10 +438,6 @@ namespace IGCLWrapper
         /// <returns>LED state struct.</returns>
         public unsafe ctl_led_state_t ToNative()
         {
-            var color = Color;
-            if (color.Size == 0)
-                color.Size = (uint)sizeof(ctl_led_color_t);
-
             var size = Size;
             if (size == 0)
                 size = (uint)sizeof(ctl_led_state_t);
@@ -375,7 +448,7 @@ namespace IGCLWrapper
                 Version = Version,
                 isOn = IGCLLedDtoBool.ToByte(IsOn),
                 pwm = Pwm,
-                color = color
+                color = Color.ToNative()
             };
         }
     }

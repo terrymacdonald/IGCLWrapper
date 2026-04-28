@@ -60,3 +60,41 @@ Convert DTOs in IGCLWrapper/IGCLDisplayHelper.cs so DTO object graphs contain on
 - 2026-04-28: Phase 2 completed in IGCLDisplayHelper.cs (added GenericVoidDatatypeDto/OsDisplayEncoderIdentifierDto/RevisionDatatypeDto/DisplayTimingDto and converted DisplayPropertiesDto + AdapterDisplayEncoderPropertiesDto with managed reserved fields).
 - 2026-04-28: Phase 3 completed in IGCLDisplayHelper.cs (added WireFormatDto and Lace* DTO graph; converted WireFormatConfigDto, LaceConfigDto, and DceArgsDto histogram pointer to managed list representation).
 - 2026-04-28: Phase 4 completed (IGCLWrapper.csproj builds successfully after DTO conversion changes).
+
+## Facade Helper DTO Conversion (Wave 2)
+
+### Phase Status
+- [x] Phase A: Convert DTOs in IGCLApiHelper.cs
+- [x] Phase B: Convert pointer/native DTOs in IGCL3DHelper.cs and IGCLMediaHelper.cs
+- [x] Phase C: Convert struct-heavy DTOs in IGCLPciHelper.cs, IGCLOverclockHelper.cs, and IGCLPowerHelper.cs
+- [x] Phase D: Build validation and cleanup
+
+### Scope Notes
+- Keep enums as native enums.
+- Replace nested native structs with managed `*Dto` wrappers.
+- Convert pointer-backed DTO fields to managed values/collections where feasible.
+- Exclude `Size`/`Version` from `Equals`/`GetHashCode` for converted DTOs.
+
+### Progress Log (Wave 2)
+- 2026-04-28: Wave 2 plan started.
+- 2026-04-28: Wave 2 Phase A completed in IGCLApiHelper.cs (added managed FirmwareVersion/AdapterBdf/Rect/ChildDisplayTargetMode/GenlockTopology DTOs and updated DeviceAdapterPropertiesDto, CombinedDisplayChildInfoDto, and GenlockArgsDto).
+- 2026-04-28: Wave 2 Phase B completed in IGCL3DHelper.cs and IGCLMediaHelper.cs (added managed Property* DTO graph and replaced native ctl_property_t fields in 3D/media DTOs).
+- 2026-04-28: Wave 2 Phase C completed in IGCLPciHelper.cs, IGCLOverclockHelper.cs, and IGCLPowerHelper.cs (added managed PciAddress/PciSpeed/DataValue DTOs and removed remaining nested native structs in these files).
+- 2026-04-28: Wave 2 Phase D completed (IGCLWrapper.csproj builds successfully after all wave 2 DTO conversions).
+
+## Facade Helper DTO Conversion (Wave 3 - List<T> Preference)
+
+### Phase Status
+- [x] Phase E: Convert remaining DTO managed arrays to `List<T>` across facade helpers
+- [x] Phase F: Convert residual native DTO fields (`DisplaySettingsDto.Reserved`, `LedStateDto.Color`)
+- [x] Phase G: Build validation and cleanup
+
+### Scope Notes
+- Apply user preference for `List<T>` over managed arrays in DTO fields.
+- Keep native interop behavior intact through `FromNative`/`ToNative` marshaling helpers.
+- Preserve existing helper naming and facade patterns.
+
+### Progress Log (Wave 3)
+- 2026-04-28: Wave 3 Phase E completed in IGCLApiHelper.cs, IGCLDisplayHelper.cs, IGCLMediaHelper.cs, IGCLOverclockHelper.cs, and IGCLFirmwareHelper.cs (converted DTO collection fields from managed arrays to `List<T>` and updated conversion/equality/hash helpers accordingly).
+- 2026-04-28: Wave 3 Phase F completed in IGCLDisplayHelper.cs and IGCLLedHelper.cs (`DisplaySettingsDto.Reserved` moved to managed `List<uint>` and `LedStateDto.Color` moved to managed `LedColorDto`).
+- 2026-04-28: Wave 3 Phase G completed (`dotnet build IGCLWrapper/IGCLWrapper.csproj -v minimal` succeeded).

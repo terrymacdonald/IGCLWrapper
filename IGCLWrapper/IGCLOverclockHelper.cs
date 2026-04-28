@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
 namespace IGCLWrapper
@@ -599,6 +600,128 @@ namespace IGCLWrapper
     }
 
     /// <summary>
+    /// DTO for telemetry data value union.
+    /// </summary>
+    public struct DataValueDto : IEquatable<DataValueDto>
+    {
+        /// <summary>
+        /// Signed 8-bit value.
+        /// </summary>
+        public sbyte Data8;
+        /// <summary>
+        /// Unsigned 8-bit value.
+        /// </summary>
+        public byte DataU8;
+        /// <summary>
+        /// Signed 16-bit value.
+        /// </summary>
+        public short Data16;
+        /// <summary>
+        /// Unsigned 16-bit value.
+        /// </summary>
+        public ushort DataU16;
+        /// <summary>
+        /// Signed 32-bit value.
+        /// </summary>
+        public int Data32;
+        /// <summary>
+        /// Unsigned 32-bit value.
+        /// </summary>
+        public uint DataU32;
+        /// <summary>
+        /// Signed 64-bit value.
+        /// </summary>
+        public long Data64;
+        /// <summary>
+        /// Unsigned 64-bit value.
+        /// </summary>
+        public ulong DataU64;
+        /// <summary>
+        /// Float value.
+        /// </summary>
+        public float DataFloat;
+        /// <summary>
+        /// Double value.
+        /// </summary>
+        public double DataDouble;
+
+        public bool Equals(DataValueDto other)
+        {
+            return Data8 == other.Data8 &&
+                   DataU8 == other.DataU8 &&
+                   Data16 == other.Data16 &&
+                   DataU16 == other.DataU16 &&
+                   Data32 == other.Data32 &&
+                   DataU32 == other.DataU32 &&
+                   Data64 == other.Data64 &&
+                   DataU64 == other.DataU64 &&
+                   DataFloat.Equals(other.DataFloat) &&
+                   DataDouble.Equals(other.DataDouble);
+        }
+
+        public override bool Equals(object? obj) => obj is DataValueDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Data8);
+            hash.Add(DataU8);
+            hash.Add(Data16);
+            hash.Add(DataU16);
+            hash.Add(Data32);
+            hash.Add(DataU32);
+            hash.Add(Data64);
+            hash.Add(DataU64);
+            hash.Add(DataFloat);
+            hash.Add(DataDouble);
+            return hash.ToHashCode();
+        }
+
+        public static DataValueDto FromNative(ctl_data_value_t native)
+        {
+            return new DataValueDto
+            {
+                Data8 = native.data8,
+                DataU8 = native.datau8,
+                Data16 = native.data16,
+                DataU16 = native.datau16,
+                Data32 = native.data32,
+                DataU32 = native.datau32,
+                Data64 = native.data64,
+                DataU64 = native.datau64,
+                DataFloat = native.datafloat,
+                DataDouble = native.datadouble
+            };
+        }
+
+        public ctl_data_value_t ToNative()
+        {
+            var native = new ctl_data_value_t();
+            if (!double.IsNaN(DataDouble) && DataDouble != 0d)
+                native.datadouble = DataDouble;
+            else if (!float.IsNaN(DataFloat) && DataFloat != 0f)
+                native.datafloat = DataFloat;
+            else if (DataU64 != 0)
+                native.datau64 = DataU64;
+            else if (Data64 != 0)
+                native.data64 = Data64;
+            else if (DataU32 != 0)
+                native.datau32 = DataU32;
+            else if (Data32 != 0)
+                native.data32 = Data32;
+            else if (DataU16 != 0)
+                native.datau16 = DataU16;
+            else if (Data16 != 0)
+                native.data16 = Data16;
+            else if (DataU8 != 0)
+                native.datau8 = DataU8;
+            else
+                native.data8 = Data8;
+            return native;
+        }
+    }
+
+    /// <summary>
     /// DTO for overclock control information.
     /// </summary>
     public struct OcControlInfoDto : IEquatable<OcControlInfoDto>
@@ -787,9 +910,7 @@ namespace IGCLWrapper
         /// <returns>True when equal; otherwise, false.</returns>
         public bool Equals(OverclockPropertiesDto other)
         {
-            return Size == other.Size &&
-                   Version == other.Version &&
-                   IsSupported == other.IsSupported &&
+            return IsSupported == other.IsSupported &&
                    GpuFrequencyOffset.Equals(other.GpuFrequencyOffset) &&
                    GpuVoltageOffset.Equals(other.GpuVoltageOffset) &&
                    VramFrequencyOffset.Equals(other.VramFrequencyOffset) &&
@@ -815,8 +936,6 @@ namespace IGCLWrapper
         public override int GetHashCode()
         {
             var hash = new HashCode();
-            hash.Add(Size);
-            hash.Add(Version);
             hash.Add(IsSupported);
             hash.Add(GpuFrequencyOffset);
             hash.Add(GpuVoltageOffset);
@@ -858,11 +977,15 @@ namespace IGCLWrapper
         /// Convert this DTO to a native struct.
         /// </summary>
         /// <returns>Overclock properties struct.</returns>
-        public ctl_oc_properties_t ToNative()
+        public unsafe ctl_oc_properties_t ToNative()
         {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_oc_properties_t);
+
             return new ctl_oc_properties_t
             {
-                Size = Size,
+                Size = size,
                 Version = Version,
                 bSupported = IGCLOverclockDtoBool.ToByte(IsSupported),
                 gpuFrequencyOffset = GpuFrequencyOffset.ToNative(),
@@ -898,7 +1021,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Telemetry value.
         /// </summary>
-        public ctl_data_value_t Value;
+        public DataValueDto Value;
 
         /// <summary>
         /// Compare telemetry items.
@@ -946,7 +1069,7 @@ namespace IGCLWrapper
                 IsSupported = IGCLOverclockDtoBool.ToBool(native.bSupported),
                 Units = native.units,
                 Type = native.type,
-                Value = native.value
+                Value = DataValueDto.FromNative(native.value)
             };
         }
 
@@ -961,7 +1084,7 @@ namespace IGCLWrapper
                 bSupported = IGCLOverclockDtoBool.ToByte(IsSupported),
                 units = Units,
                 type = Type,
-                value = Value
+                value = Value.ToNative()
             };
         }
     }
@@ -1174,11 +1297,11 @@ namespace IGCLWrapper
         /// <summary>
         /// PSU telemetry items.
         /// </summary>
-        public PsuInfoDto[] Psu;
+        public List<PsuInfoDto>? Psu;
         /// <summary>
         /// Fan speed telemetry items.
         /// </summary>
-        public OcTelemetryItemDto[] FanSpeed;
+        public List<OcTelemetryItemDto>? FanSpeed;
         /// <summary>
         /// GPU VR temperature telemetry item.
         /// </summary>
@@ -1223,9 +1346,7 @@ namespace IGCLWrapper
         /// <returns>True when equal; otherwise, false.</returns>
         public bool Equals(PowerTelemetryDto other)
         {
-            return Size == other.Size &&
-                   Version == other.Version &&
-                   TimeStamp.Equals(other.TimeStamp) &&
+            return TimeStamp.Equals(other.TimeStamp) &&
                    GpuEnergyCounter.Equals(other.GpuEnergyCounter) &&
                    GpuVoltage.Equals(other.GpuVoltage) &&
                    GpuCurrentClockFrequency.Equals(other.GpuCurrentClockFrequency) &&
@@ -1278,8 +1399,6 @@ namespace IGCLWrapper
         public override int GetHashCode()
         {
             var hash = new HashCode();
-            hash.Add(Size);
-            hash.Add(Version);
             hash.Add(TimeStamp);
             hash.Add(GpuEnergyCounter);
             hash.Add(GpuVoltage);
@@ -1308,14 +1427,14 @@ namespace IGCLWrapper
             hash.Add(TotalCardEnergyCounter);
             if (Psu != null)
             {
-                hash.Add(Psu.Length);
-                for (var i = 0; i < Psu.Length; i++)
+                hash.Add(Psu.Count);
+                for (var i = 0; i < Psu.Count; i++)
                     hash.Add(Psu[i]);
             }
             if (FanSpeed != null)
             {
-                hash.Add(FanSpeed.Length);
-                for (var i = 0; i < FanSpeed.Length; i++)
+                hash.Add(FanSpeed.Count);
+                for (var i = 0; i < FanSpeed.Count; i++)
                     hash.Add(FanSpeed[i]);
             }
             hash.Add(GpuVrTemp);
@@ -1337,15 +1456,15 @@ namespace IGCLWrapper
         /// <returns>Power telemetry DTO.</returns>
         public static unsafe PowerTelemetryDto FromNative(ctl_power_telemetry_t native)
         {
-            var psu = new PsuInfoDto[5];
+            var psu = new List<PsuInfoDto>(5);
             var pPsu = (ctl_psu_info_t*)Unsafe.AsPointer(ref native.psu.e0);
-            for (int i = 0; i < psu.Length; i++)
-                psu[i] = PsuInfoDto.FromNative(pPsu[i]);
+            for (int i = 0; i < 5; i++)
+                psu.Add(PsuInfoDto.FromNative(pPsu[i]));
 
-            var fan = new OcTelemetryItemDto[5];
+            var fan = new List<OcTelemetryItemDto>(5);
             var pFan = (ctl_oc_telemetry_item_t*)Unsafe.AsPointer(ref native.fanSpeed.e0);
-            for (int i = 0; i < fan.Length; i++)
-                fan[i] = OcTelemetryItemDto.FromNative(pFan[i]);
+            for (int i = 0; i < 5; i++)
+                fan.Add(OcTelemetryItemDto.FromNative(pFan[i]));
 
             return new PowerTelemetryDto
             {
@@ -1397,9 +1516,13 @@ namespace IGCLWrapper
         /// <returns>Power telemetry struct.</returns>
         public unsafe ctl_power_telemetry_t ToNative()
         {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_power_telemetry_t);
+
             var native = new ctl_power_telemetry_t
             {
-                Size = Size,
+                Size = size,
                 Version = Version,
                 timeStamp = TimeStamp.ToNative(),
                 gpuEnergyCounter = GpuEnergyCounter.ToNative(),
@@ -1438,32 +1561,32 @@ namespace IGCLWrapper
                 vramWriteBandwidth = VramWriteBandwidth.ToNative()
             };
 
-            var psu = Psu ?? Array.Empty<PsuInfoDto>();
+            var psu = Psu;
             var pPsu = (ctl_psu_info_t*)Unsafe.AsPointer(ref native.psu.e0);
             for (int i = 0; i < 5; i++)
             {
-                pPsu[i] = i < psu.Length ? psu[i].ToNative() : default;
+                pPsu[i] = psu != null && i < psu.Count ? psu[i].ToNative() : default;
             }
 
-            var fan = FanSpeed ?? Array.Empty<OcTelemetryItemDto>();
+            var fan = FanSpeed;
             var pFan = (ctl_oc_telemetry_item_t*)Unsafe.AsPointer(ref native.fanSpeed.e0);
             for (int i = 0; i < 5; i++)
             {
-                pFan[i] = i < fan.Length ? fan[i].ToNative() : default;
+                pFan[i] = fan != null && i < fan.Count ? fan[i].ToNative() : default;
             }
 
             return native;
         }
 
-        private static bool ArePsuEqual(PsuInfoDto[]? left, PsuInfoDto[]? right)
+        private static bool ArePsuEqual(List<PsuInfoDto>? left, List<PsuInfoDto>? right)
         {
             if (ReferenceEquals(left, right))
                 return true;
             if (left == null || right == null)
                 return false;
-            if (left.Length != right.Length)
+            if (left.Count != right.Count)
                 return false;
-            for (var i = 0; i < left.Length; i++)
+            for (var i = 0; i < left.Count; i++)
             {
                 if (!left[i].Equals(right[i]))
                     return false;
@@ -1471,15 +1594,15 @@ namespace IGCLWrapper
             return true;
         }
 
-        private static bool AreTelemetryEqual(OcTelemetryItemDto[]? left, OcTelemetryItemDto[]? right)
+        private static bool AreTelemetryEqual(List<OcTelemetryItemDto>? left, List<OcTelemetryItemDto>? right)
         {
             if (ReferenceEquals(left, right))
                 return true;
             if (left == null || right == null)
                 return false;
-            if (left.Length != right.Length)
+            if (left.Count != right.Count)
                 return false;
-            for (var i = 0; i < left.Length; i++)
+            for (var i = 0; i < left.Count; i++)
             {
                 if (!left[i].Equals(right[i]))
                     return false;

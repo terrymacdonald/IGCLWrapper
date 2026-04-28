@@ -267,9 +267,7 @@ namespace IGCLWrapper
         /// <returns>True when equal; otherwise, false.</returns>
         public bool Equals(PowerPropertiesDto other)
         {
-            return Size == other.Size &&
-                   Version == other.Version &&
-                   CanControl == other.CanControl &&
+            return CanControl == other.CanControl &&
                    DefaultLimit == other.DefaultLimit &&
                    MinLimit == other.MinLimit &&
                    MaxLimit == other.MaxLimit;
@@ -289,8 +287,6 @@ namespace IGCLWrapper
         public override int GetHashCode()
         {
             var hash = new HashCode();
-            hash.Add(Size);
-            hash.Add(Version);
             hash.Add(CanControl);
             hash.Add(DefaultLimit);
             hash.Add(MinLimit);
@@ -320,11 +316,15 @@ namespace IGCLWrapper
         /// Convert this DTO to a native struct.
         /// </summary>
         /// <returns>Power properties struct.</returns>
-        public ctl_power_properties_t ToNative()
+        public unsafe ctl_power_properties_t ToNative()
         {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_power_properties_t);
+
             return new ctl_power_properties_t
             {
-                Size = Size,
+                Size = size,
                 Version = Version,
                 canControl = IGCLPowerDtoBool.ToByte(CanControl),
                 defaultLimit = DefaultLimit,
@@ -591,9 +591,7 @@ namespace IGCLWrapper
         /// <returns>True when equal; otherwise, false.</returns>
         public bool Equals(PowerLimitsDto other)
         {
-            return Size == other.Size &&
-                   Version == other.Version &&
-                   SustainedPowerLimit.Equals(other.SustainedPowerLimit) &&
+            return SustainedPowerLimit.Equals(other.SustainedPowerLimit) &&
                    BurstPowerLimit.Equals(other.BurstPowerLimit) &&
                    PeakPowerLimits.Equals(other.PeakPowerLimits);
         }
@@ -612,8 +610,6 @@ namespace IGCLWrapper
         public override int GetHashCode()
         {
             var hash = new HashCode();
-            hash.Add(Size);
-            hash.Add(Version);
             hash.Add(SustainedPowerLimit);
             hash.Add(BurstPowerLimit);
             hash.Add(PeakPowerLimits);

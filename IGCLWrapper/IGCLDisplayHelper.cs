@@ -2436,7 +2436,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Reserved native fields.
         /// </summary>
-        public uint[]? ReservedFields;
+        public List<uint>? ReservedFields;
 
         /// <summary>
         /// Compare display properties while ignoring pointer-backed and reserved fields.
@@ -2550,25 +2550,25 @@ namespace IGCLWrapper
             return native;
         }
 
-        private static unsafe uint[] ReadReservedFields(ctl_display_properties_t._ReservedFields_e__FixedBuffer buffer)
+        private static unsafe List<uint> ReadReservedFields(ctl_display_properties_t._ReservedFields_e__FixedBuffer buffer)
         {
-            var values = new uint[ReservedFieldCount];
+            var values = new List<uint>(ReservedFieldCount);
             var pValues = (uint*)Unsafe.AsPointer(ref buffer.e0);
             for (var i = 0; i < ReservedFieldCount; i++)
-                values[i] = pValues[i];
+                values.Add(pValues[i]);
             return values;
         }
 
-        private static unsafe void WriteReservedFields(uint[]? values, ref ctl_display_properties_t._ReservedFields_e__FixedBuffer buffer)
+        private static unsafe void WriteReservedFields(List<uint>? values, ref ctl_display_properties_t._ReservedFields_e__FixedBuffer buffer)
         {
             var pValues = (uint*)Unsafe.AsPointer(ref buffer.e0);
             for (var i = 0; i < ReservedFieldCount; i++)
                 pValues[i] = 0;
 
-            if (values == null || values.Length == 0)
+            if (values == null || values.Count == 0)
                 return;
 
-            var count = Math.Min(values.Length, ReservedFieldCount);
+            var count = Math.Min(values.Count, ReservedFieldCount);
             for (var i = 0; i < count; i++)
                 pValues[i] = values[i];
         }
@@ -2660,7 +2660,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Supported wire format values.
         /// </summary>
-        public WireFormatDto[]? SupportedWireFormat;
+        public List<WireFormatDto>? SupportedWireFormat;
         /// <summary>
         /// Selected wire format.
         /// </summary>
@@ -2696,8 +2696,8 @@ namespace IGCLWrapper
             hash.Add(WireFormat);
             if (SupportedWireFormat != null)
             {
-                hash.Add(SupportedWireFormat.Length);
-                for (var i = 0; i < SupportedWireFormat.Length; i++)
+                hash.Add(SupportedWireFormat.Count);
+                for (var i = 0; i < SupportedWireFormat.Count; i++)
                     hash.Add(SupportedWireFormat[i]);
             }
             return hash.ToHashCode();
@@ -2742,38 +2742,38 @@ namespace IGCLWrapper
             return native;
         }
 
-        private static unsafe WireFormatDto[] ReadSupportedWireFormat(ctl_get_set_wire_format_config_t._SupportedWireFormat_e__FixedBuffer buffer)
+        private static unsafe List<WireFormatDto> ReadSupportedWireFormat(ctl_get_set_wire_format_config_t._SupportedWireFormat_e__FixedBuffer buffer)
         {
-            var values = new WireFormatDto[SupportedWireFormatCount];
+            var values = new List<WireFormatDto>(SupportedWireFormatCount);
             var pValues = (ctl_wire_format_t*)Unsafe.AsPointer(ref buffer.e0);
             for (var i = 0; i < SupportedWireFormatCount; i++)
-                values[i] = WireFormatDto.FromNative(pValues[i]);
+                values.Add(WireFormatDto.FromNative(pValues[i]));
             return values;
         }
 
-        private static unsafe void WriteSupportedWireFormat(WireFormatDto[]? values, ref ctl_get_set_wire_format_config_t._SupportedWireFormat_e__FixedBuffer buffer)
+        private static unsafe void WriteSupportedWireFormat(List<WireFormatDto>? values, ref ctl_get_set_wire_format_config_t._SupportedWireFormat_e__FixedBuffer buffer)
         {
             var pValues = (ctl_wire_format_t*)Unsafe.AsPointer(ref buffer.e0);
             for (var i = 0; i < SupportedWireFormatCount; i++)
                 pValues[i] = default;
 
-            if (values == null || values.Length == 0)
+            if (values == null || values.Count == 0)
                 return;
 
-            var count = Math.Min(values.Length, SupportedWireFormatCount);
+            var count = Math.Min(values.Count, SupportedWireFormatCount);
             for (var i = 0; i < count; i++)
                 pValues[i] = values[i].ToNative();
         }
 
-        private static bool AreSupportedWireFormatsEqual(WireFormatDto[]? left, WireFormatDto[]? right)
+        private static bool AreSupportedWireFormatsEqual(List<WireFormatDto>? left, List<WireFormatDto>? right)
         {
             if (ReferenceEquals(left, right))
                 return true;
             if (left == null || right == null)
                 return false;
-            if (left.Length != right.Length)
+            if (left.Count != right.Count)
                 return false;
-            for (var i = 0; i < left.Length; i++)
+            for (var i = 0; i < left.Count; i++)
             {
                 if (!left[i].Equals(right[i]))
                     return false;
@@ -2830,7 +2830,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Reserved native fields.
         /// </summary>
-        public uint[]? ReservedFields;
+        public List<uint>? ReservedFields;
 
         /// <summary>
         /// Compare adapter display encoder properties while ignoring reserved native fields.
@@ -2924,27 +2924,27 @@ namespace IGCLWrapper
             return native;
         }
 
-        private static unsafe uint[] ReadReservedFields(ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer buffer)
+        private static unsafe List<uint> ReadReservedFields(ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer buffer)
         {
             const int reservedFieldCount = 16;
-            var values = new uint[reservedFieldCount];
+            var values = new List<uint>(reservedFieldCount);
             var pValues = (uint*)Unsafe.AsPointer(ref buffer.e0);
             for (var i = 0; i < reservedFieldCount; i++)
-                values[i] = pValues[i];
+                values.Add(pValues[i]);
             return values;
         }
 
-        private static unsafe void WriteReservedFields(uint[]? values, ref ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer buffer)
+        private static unsafe void WriteReservedFields(List<uint>? values, ref ctl_adapter_display_encoder_properties_t._ReservedFields_e__FixedBuffer buffer)
         {
             const int reservedFieldCount = 16;
             var pValues = (uint*)Unsafe.AsPointer(ref buffer.e0);
             for (var i = 0; i < reservedFieldCount; i++)
                 pValues[i] = 0;
 
-            if (values == null || values.Length == 0)
+            if (values == null || values.Count == 0)
                 return;
 
-            var count = Math.Min(values.Length, reservedFieldCount);
+            var count = Math.Min(values.Count, reservedFieldCount);
             for (var i = 0; i < count; i++)
                 pValues[i] = values[i];
         }
@@ -3149,7 +3149,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Reserved native fields.
         /// </summary>
-        public ctl_display_settings_t._Reserved_e__FixedBuffer Reserved;
+        public List<uint>? Reserved;
 
         /// <summary>
         /// Compare display settings while ignoring reserved native fields.
@@ -3226,7 +3226,7 @@ namespace IGCLWrapper
                 SupportedPictureAr = native.SupportedPictureAR,
                 PictureAr = native.PictureAR,
                 AudioSettings = native.AudioSettings,
-                Reserved = native.Reserved
+                Reserved = ReadReserved(native.Reserved)
             };
         }
 
@@ -3240,7 +3240,7 @@ namespace IGCLWrapper
             if (size == 0)
                 size = (uint)sizeof(ctl_display_settings_t);
 
-            return new ctl_display_settings_t
+            var result = new ctl_display_settings_t
             {
                 Size = size,
                 Version = Version,
@@ -3254,9 +3254,36 @@ namespace IGCLWrapper
                 QuantizationRange = QuantizationRange,
                 SupportedPictureAR = SupportedPictureAr,
                 PictureAR = PictureAr,
-                AudioSettings = AudioSettings,
-                Reserved = Reserved
+                AudioSettings = AudioSettings
             };
+
+            WriteReserved(Reserved, ref result.Reserved);
+            return result;
+        }
+
+        private static unsafe List<uint> ReadReserved(ctl_display_settings_t._Reserved_e__FixedBuffer buffer)
+        {
+            const int reservedCount = 25;
+            var values = new List<uint>(reservedCount);
+            var pValues = (uint*)Unsafe.AsPointer(ref buffer.e0);
+            for (var i = 0; i < reservedCount; i++)
+                values.Add(pValues[i]);
+            return values;
+        }
+
+        private static unsafe void WriteReserved(List<uint>? values, ref ctl_display_settings_t._Reserved_e__FixedBuffer buffer)
+        {
+            const int reservedCount = 25;
+            var pValues = (uint*)Unsafe.AsPointer(ref buffer.e0);
+            for (var i = 0; i < reservedCount; i++)
+                pValues[i] = 0;
+
+            if (values == null || values.Count == 0)
+                return;
+
+            var count = Math.Min(values.Count, reservedCount);
+            for (var i = 0; i < count; i++)
+                pValues[i] = values[i];
         }
     }
 

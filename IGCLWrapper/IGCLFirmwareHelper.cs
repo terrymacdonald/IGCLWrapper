@@ -189,7 +189,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Reserved native fields.
         /// </summary>
-        public byte[]? Reserved;
+        public List<byte>? Reserved;
 
         /// <summary>
         /// Compare firmware properties while ignoring reserved fields.
@@ -303,12 +303,12 @@ namespace IGCLWrapper
             return length == 0 ? string.Empty : Encoding.ASCII.GetString(bytes, 0, length);
         }
 
-        private static unsafe byte[] ReadReserved(ctl_firmware_properties_t._reserved_e__FixedBuffer buffer, int length)
+        private static unsafe List<byte> ReadReserved(ctl_firmware_properties_t._reserved_e__FixedBuffer buffer, int length)
         {
-            var bytes = new byte[length];
+            var bytes = new List<byte>(length);
             var pBuffer = (sbyte*)Unsafe.AsPointer(ref buffer.e0);
             for (var i = 0; i < length; i++)
-                bytes[i] = (byte)pBuffer[i];
+                bytes.Add((byte)pBuffer[i]);
             return bytes;
         }
 
@@ -342,16 +342,16 @@ namespace IGCLWrapper
                 pBuffer[i] = unchecked((sbyte)bytes[i]);
         }
 
-        private static unsafe void WriteReserved(byte[]? value, int maxLength, ref ctl_firmware_properties_t._reserved_e__FixedBuffer buffer)
+        private static unsafe void WriteReserved(List<byte>? value, int maxLength, ref ctl_firmware_properties_t._reserved_e__FixedBuffer buffer)
         {
             var pBuffer = (sbyte*)Unsafe.AsPointer(ref buffer.e0);
             for (var i = 0; i < maxLength; i++)
                 pBuffer[i] = 0;
 
-            if (value == null || value.Length == 0)
+            if (value == null || value.Count == 0)
                 return;
 
-            var count = Math.Min(value.Length, maxLength);
+            var count = Math.Min(value.Count, maxLength);
             for (var i = 0; i < count; i++)
                 pBuffer[i] = unchecked((sbyte)value[i]);
         }
@@ -384,7 +384,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Reserved native fields.
         /// </summary>
-        public byte[]? Reserved;
+        public List<byte>? Reserved;
 
         /// <summary>
         /// Compare firmware component properties while ignoring reserved fields.
@@ -494,12 +494,12 @@ namespace IGCLWrapper
             return length == 0 ? string.Empty : Encoding.ASCII.GetString(bytes, 0, length);
         }
 
-        private static unsafe byte[] ReadReserved(ctl_firmware_component_properties_t._reserved_e__FixedBuffer buffer, int length)
+        private static unsafe List<byte> ReadReserved(ctl_firmware_component_properties_t._reserved_e__FixedBuffer buffer, int length)
         {
-            var bytes = new byte[length];
+            var bytes = new List<byte>(length);
             var pBuffer = (sbyte*)Unsafe.AsPointer(ref buffer.e0);
             for (var i = 0; i < length; i++)
-                bytes[i] = (byte)pBuffer[i];
+                bytes.Add((byte)pBuffer[i]);
             return bytes;
         }
 
@@ -533,16 +533,16 @@ namespace IGCLWrapper
                 pBuffer[i] = unchecked((sbyte)bytes[i]);
         }
 
-        private static unsafe void WriteReserved(byte[]? value, int maxLength, ref ctl_firmware_component_properties_t._reserved_e__FixedBuffer buffer)
+        private static unsafe void WriteReserved(List<byte>? value, int maxLength, ref ctl_firmware_component_properties_t._reserved_e__FixedBuffer buffer)
         {
             var pBuffer = (sbyte*)Unsafe.AsPointer(ref buffer.e0);
             for (var i = 0; i < maxLength; i++)
                 pBuffer[i] = 0;
 
-            if (value == null || value.Length == 0)
+            if (value == null || value.Count == 0)
                 return;
 
-            var count = Math.Min(value.Length, maxLength);
+            var count = Math.Min(value.Count, maxLength);
             for (var i = 0; i < count; i++)
                 pBuffer[i] = unchecked((sbyte)value[i]);
         }

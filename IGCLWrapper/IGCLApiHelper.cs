@@ -648,15 +648,15 @@ namespace IGCLWrapper
             return IntPtr.Zero;
         }
 
-        private static unsafe CombinedDisplayChildInfoDto[] CopyCombinedDisplayChildInfos(ctl_combined_display_child_info_t* childInfo, int count)
+        private static unsafe List<CombinedDisplayChildInfoDto> CopyCombinedDisplayChildInfos(ctl_combined_display_child_info_t* childInfo, int count)
         {
             if (childInfo == null || count <= 0)
-                return Array.Empty<CombinedDisplayChildInfoDto>();
+                return new List<CombinedDisplayChildInfoDto>();
 
-            var results = new CombinedDisplayChildInfoDto[count];
+            var results = new List<CombinedDisplayChildInfoDto>(count);
             for (var i = 0; i < count; i++)
             {
-                results[i] = CombinedDisplayChildInfoDto.FromNative(childInfo[i]);
+                results.Add(CombinedDisplayChildInfoDto.FromNative(childInfo[i]));
             }
             return results;
         }
@@ -760,7 +760,7 @@ namespace IGCLWrapper
                         CombinedDesktopWidth = query.CombinedDesktopWidth,
                         CombinedDesktopHeight = query.CombinedDesktopHeight,
                         CombinedDisplayOutput = (IntPtr)query.hCombinedDisplayOutput,
-                        ChildInfos = Array.Empty<CombinedDisplayChildInfoDto>()
+                        ChildInfos = new List<CombinedDisplayChildInfoDto>()
                     };
                 }
 
@@ -822,17 +822,18 @@ namespace IGCLWrapper
             }
 
             var childInfos = args.ChildInfos;
-            if (childInfos == null || childInfos.Length == 0)
+            if (childInfos == null || childInfos.Count == 0)
                 throw new ArgumentException("ChildInfos must be provided to enable combined display.", nameof(args));
 
-            var numOutputs = args.NumOutputs == 0 ? (byte)childInfos.Length : args.NumOutputs;
+            var numOutputs = args.NumOutputs == 0 ? (byte)childInfos.Count : args.NumOutputs;
             if (numOutputs < 2 || numOutputs > 4)
                 throw new ArgumentException("Combined display requires between 2 and 4 outputs.", nameof(args));
-            if (childInfos.Length < numOutputs)
+            if (childInfos.Count < numOutputs)
                 throw new ArgumentException("ChildInfos length does not match NumOutputs.", nameof(args));
 
             var desiredChildren = new CombinedDisplayChildInfoDto[numOutputs];
-            Array.Copy(childInfos, desiredChildren, numOutputs);
+            for (var i = 0; i < numOutputs; i++)
+                desiredChildren[i] = childInfos[i];
 
             for (var i = 0; i < desiredChildren.Length; i++)
             {
@@ -1176,6 +1177,343 @@ namespace IGCLWrapper
     }
 
     /// <summary>
+    /// DTO for firmware version information.
+    /// </summary>
+    public struct FirmwareVersionDto : IEquatable<FirmwareVersionDto>
+    {
+        /// <summary>
+        /// Major firmware version.
+        /// </summary>
+        public ulong MajorVersion;
+        /// <summary>
+        /// Minor firmware version.
+        /// </summary>
+        public ulong MinorVersion;
+        /// <summary>
+        /// Firmware build number.
+        /// </summary>
+        public ulong BuildNumber;
+
+        public bool Equals(FirmwareVersionDto other)
+        {
+            return MajorVersion == other.MajorVersion &&
+                   MinorVersion == other.MinorVersion &&
+                   BuildNumber == other.BuildNumber;
+        }
+
+        public override bool Equals(object? obj) => obj is FirmwareVersionDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(MajorVersion);
+            hash.Add(MinorVersion);
+            hash.Add(BuildNumber);
+            return hash.ToHashCode();
+        }
+
+        public static FirmwareVersionDto FromNative(ctl_firmware_version_t native)
+        {
+            return new FirmwareVersionDto
+            {
+                MajorVersion = native.major_version,
+                MinorVersion = native.minor_version,
+                BuildNumber = native.build_number
+            };
+        }
+
+        public ctl_firmware_version_t ToNative()
+        {
+            return new ctl_firmware_version_t
+            {
+                major_version = MajorVersion,
+                minor_version = MinorVersion,
+                build_number = BuildNumber
+            };
+        }
+    }
+
+    /// <summary>
+    /// DTO for adapter bus-device-function identifier.
+    /// </summary>
+    public struct AdapterBdfDto : IEquatable<AdapterBdfDto>
+    {
+        /// <summary>
+        /// PCI bus identifier.
+        /// </summary>
+        public byte Bus;
+        /// <summary>
+        /// PCI device identifier.
+        /// </summary>
+        public byte Device;
+        /// <summary>
+        /// PCI function identifier.
+        /// </summary>
+        public byte Function;
+
+        public bool Equals(AdapterBdfDto other)
+        {
+            return Bus == other.Bus &&
+                   Device == other.Device &&
+                   Function == other.Function;
+        }
+
+        public override bool Equals(object? obj) => obj is AdapterBdfDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Bus);
+            hash.Add(Device);
+            hash.Add(Function);
+            return hash.ToHashCode();
+        }
+
+        public static AdapterBdfDto FromNative(ctl_adapter_bdf_t native)
+        {
+            return new AdapterBdfDto
+            {
+                Bus = native.bus,
+                Device = native.device,
+                Function = native.function
+            };
+        }
+
+        public ctl_adapter_bdf_t ToNative()
+        {
+            return new ctl_adapter_bdf_t
+            {
+                bus = Bus,
+                device = Device,
+                function = Function
+            };
+        }
+    }
+
+    /// <summary>
+    /// DTO for rectangle coordinates.
+    /// </summary>
+    public struct RectDto : IEquatable<RectDto>
+    {
+        /// <summary>
+        /// Left coordinate.
+        /// </summary>
+        public int Left;
+        /// <summary>
+        /// Top coordinate.
+        /// </summary>
+        public int Top;
+        /// <summary>
+        /// Right coordinate.
+        /// </summary>
+        public int Right;
+        /// <summary>
+        /// Bottom coordinate.
+        /// </summary>
+        public int Bottom;
+
+        public bool Equals(RectDto other)
+        {
+            return Left == other.Left &&
+                   Top == other.Top &&
+                   Right == other.Right &&
+                   Bottom == other.Bottom;
+        }
+
+        public override bool Equals(object? obj) => obj is RectDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Left);
+            hash.Add(Top);
+            hash.Add(Right);
+            hash.Add(Bottom);
+            return hash.ToHashCode();
+        }
+
+        public static RectDto FromNative(ctl_rect_t native)
+        {
+            return new RectDto
+            {
+                Left = native.Left,
+                Top = native.Top,
+                Right = native.Right,
+                Bottom = native.Bottom
+            };
+        }
+
+        public ctl_rect_t ToNative()
+        {
+            return new ctl_rect_t
+            {
+                Left = Left,
+                Top = Top,
+                Right = Right,
+                Bottom = Bottom
+            };
+        }
+    }
+
+    /// <summary>
+    /// DTO for child display target mode.
+    /// </summary>
+    public struct ChildDisplayTargetModeDto : IEquatable<ChildDisplayTargetModeDto>
+    {
+        private const int ReservedFieldCount = 4;
+        /// <summary>
+        /// Target width.
+        /// </summary>
+        public uint Width;
+        /// <summary>
+        /// Target height.
+        /// </summary>
+        public uint Height;
+        /// <summary>
+        /// Target refresh rate.
+        /// </summary>
+        public float RefreshRate;
+        /// <summary>
+        /// Reserved mode fields.
+        /// </summary>
+        public List<uint>? ReservedFields;
+
+        public bool Equals(ChildDisplayTargetModeDto other)
+        {
+            return Width == other.Width &&
+                   Height == other.Height &&
+                   RefreshRate.Equals(other.RefreshRate);
+        }
+
+        public override bool Equals(object? obj) => obj is ChildDisplayTargetModeDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Width);
+            hash.Add(Height);
+            hash.Add(RefreshRate);
+            return hash.ToHashCode();
+        }
+
+        public static ChildDisplayTargetModeDto FromNative(ctl_child_display_target_mode_t native)
+        {
+            return new ChildDisplayTargetModeDto
+            {
+                Width = native.Width,
+                Height = native.Height,
+                RefreshRate = native.RefreshRate,
+                ReservedFields = ReadReservedFields(native.ReservedFields)
+            };
+        }
+
+        public ctl_child_display_target_mode_t ToNative()
+        {
+            var native = new ctl_child_display_target_mode_t
+            {
+                Width = Width,
+                Height = Height,
+                RefreshRate = RefreshRate
+            };
+
+            WriteReservedFields(ReservedFields, ref native.ReservedFields);
+            return native;
+        }
+
+        private static unsafe List<uint> ReadReservedFields(ctl_child_display_target_mode_t._ReservedFields_e__FixedBuffer buffer)
+        {
+            var values = new List<uint>(ReservedFieldCount);
+            var pValues = (uint*)Unsafe.AsPointer(ref buffer.e0);
+            for (var i = 0; i < ReservedFieldCount; i++)
+                values.Add(pValues[i]);
+            return values;
+        }
+
+        private static unsafe void WriteReservedFields(List<uint>? values, ref ctl_child_display_target_mode_t._ReservedFields_e__FixedBuffer buffer)
+        {
+            var pValues = (uint*)Unsafe.AsPointer(ref buffer.e0);
+            for (var i = 0; i < ReservedFieldCount; i++)
+                pValues[i] = 0;
+
+            if (values == null || values.Count == 0)
+                return;
+
+            var count = Math.Min(values.Count, ReservedFieldCount);
+            for (var i = 0; i < count; i++)
+                pValues[i] = values[i];
+        }
+    }
+
+    /// <summary>
+    /// DTO for genlock topology.
+    /// </summary>
+    public struct GenlockTopologyDto : IEquatable<GenlockTopologyDto>
+    {
+        /// <summary>
+        /// Number of displays in the genlock topology.
+        /// </summary>
+        public byte NumGenlockDisplays;
+        /// <summary>
+        /// Indicates whether this is the primary genlock system.
+        /// </summary>
+        public bool IsPrimaryGenlockSystem;
+        /// <summary>
+        /// Common target mode for genlock displays.
+        /// </summary>
+        public DisplayTimingDto CommonTargetMode;
+        /// <summary>
+        /// Pointer to native genlock display info.
+        /// </summary>
+        public IntPtr GenlockDisplayInfo;
+        /// <summary>
+        /// Pointer to native genlock mode list.
+        /// </summary>
+        public IntPtr GenlockModeList;
+
+        public bool Equals(GenlockTopologyDto other)
+        {
+            return NumGenlockDisplays == other.NumGenlockDisplays &&
+                   IsPrimaryGenlockSystem == other.IsPrimaryGenlockSystem &&
+                   CommonTargetMode.Equals(other.CommonTargetMode);
+        }
+
+        public override bool Equals(object? obj) => obj is GenlockTopologyDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(NumGenlockDisplays);
+            hash.Add(IsPrimaryGenlockSystem);
+            hash.Add(CommonTargetMode);
+            return hash.ToHashCode();
+        }
+
+        public static unsafe GenlockTopologyDto FromNative(ctl_genlock_topology_t native)
+        {
+            return new GenlockTopologyDto
+            {
+                NumGenlockDisplays = native.NumGenlockDisplays,
+                IsPrimaryGenlockSystem = IGCLDisplayDtoBool.ToBool(native.IsPrimaryGenlockSystem),
+                CommonTargetMode = DisplayTimingDto.FromNative(native.CommonTargetMode),
+                GenlockDisplayInfo = (IntPtr)native.pGenlockDisplayInfo,
+                GenlockModeList = (IntPtr)native.pGenlockModeList
+            };
+        }
+
+        public unsafe ctl_genlock_topology_t ToNative()
+        {
+            return new ctl_genlock_topology_t
+            {
+                NumGenlockDisplays = NumGenlockDisplays,
+                IsPrimaryGenlockSystem = IGCLDisplayDtoBool.ToByte(IsPrimaryGenlockSystem),
+                CommonTargetMode = CommonTargetMode.ToNative(),
+                pGenlockDisplayInfo = (ctl_genlock_display_info_t*)GenlockDisplayInfo,
+                pGenlockModeList = (ctl_genlock_target_mode_list_t*)GenlockModeList
+            };
+        }
+    }
+
+    /// <summary>
     /// DTO for adapter properties.
     /// </summary>
     public struct DeviceAdapterPropertiesDto : IEquatable<DeviceAdapterPropertiesDto>
@@ -1209,7 +1547,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Firmware version info.
         /// </summary>
-        public ctl_firmware_version_t FirmwareVersion;
+        public FirmwareVersionDto FirmwareVersion;
         /// <summary>
         /// PCI vendor ID.
         /// </summary>
@@ -1257,7 +1595,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Adapter BDF.
         /// </summary>
-        public ctl_adapter_bdf_t AdapterBdf;
+        public AdapterBdfDto AdapterBdf;
         /// <summary>
         /// Number of Xe cores.
         /// </summary>
@@ -1265,7 +1603,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Reserved native fields.
         /// </summary>
-        public byte[]? Reserved;
+        public List<byte>? Reserved;
 
         /// <summary>
         /// Compare adapter properties while ignoring reserved native fields.
@@ -1275,9 +1613,7 @@ namespace IGCLWrapper
         public bool Equals(DeviceAdapterPropertiesDto other)
         {
             // Reserved is intentionally excluded from comparisons.
-            return Size == other.Size &&
-                   Version == other.Version &&
-                   DeviceIdSize == other.DeviceIdSize &&
+                 return DeviceIdSize == other.DeviceIdSize &&
                    DeviceType == other.DeviceType &&
                    SupportedSubfunctionFlags == other.SupportedSubfunctionFlags &&
                    DriverVersion == other.DriverVersion &&
@@ -1311,8 +1647,6 @@ namespace IGCLWrapper
         public override int GetHashCode()
         {
             var hash = new HashCode();
-            hash.Add(Size);
-            hash.Add(Version);
             hash.Add(DeviceIdSize);
             hash.Add(DeviceType);
             hash.Add(SupportedSubfunctionFlags);
@@ -1349,7 +1683,7 @@ namespace IGCLWrapper
                 DeviceType = native.device_type,
                 SupportedSubfunctionFlags = native.supported_subfunction_flags,
                 DriverVersion = native.driver_version,
-                FirmwareVersion = native.firmware_version,
+                FirmwareVersion = FirmwareVersionDto.FromNative(native.firmware_version),
                 PciVendorId = native.pci_vendor_id,
                 PciDeviceId = native.pci_device_id,
                 RevId = native.rev_id,
@@ -1361,7 +1695,7 @@ namespace IGCLWrapper
                 Frequency = native.Frequency,
                 PciSubsysId = native.pci_subsys_id,
                 PciSubsysVendorId = native.pci_subsys_vendor_id,
-                AdapterBdf = native.adapter_bdf,
+                AdapterBdf = AdapterBdfDto.FromNative(native.adapter_bdf),
                 NumXeCores = native.num_xe_cores,
                 Reserved = ReadReserved(native.reserved)
             };
@@ -1387,7 +1721,7 @@ namespace IGCLWrapper
                 device_type = DeviceType,
                 supported_subfunction_flags = SupportedSubfunctionFlags,
                 driver_version = DriverVersion,
-                firmware_version = FirmwareVersion,
+                firmware_version = FirmwareVersion.ToNative(),
                 pci_vendor_id = PciVendorId,
                 pci_device_id = PciDeviceId,
                 rev_id = RevId,
@@ -1398,7 +1732,7 @@ namespace IGCLWrapper
                 Frequency = Frequency,
                 pci_subsys_id = PciSubsysId,
                 pci_subsys_vendor_id = PciSubsysVendorId,
-                adapter_bdf = AdapterBdf,
+                adapter_bdf = AdapterBdf.ToNative(),
                 num_xe_cores = NumXeCores
             };
 
@@ -1424,12 +1758,12 @@ namespace IGCLWrapper
             return length == 0 ? string.Empty : Encoding.ASCII.GetString(bytes, 0, length);
         }
 
-        private static unsafe byte[] ReadReserved(ctl_device_adapter_properties_t._reserved_e__FixedBuffer buffer)
+        private static unsafe List<byte> ReadReserved(ctl_device_adapter_properties_t._reserved_e__FixedBuffer buffer)
         {
-            var bytes = new byte[ReservedLength];
+            var bytes = new List<byte>(ReservedLength);
             var pReserved = (sbyte*)Unsafe.AsPointer(ref buffer.e0);
             for (var i = 0; i < ReservedLength; i++)
-                bytes[i] = (byte)pReserved[i];
+                bytes.Add((byte)pReserved[i]);
             return bytes;
         }
 
@@ -1448,16 +1782,16 @@ namespace IGCLWrapper
                 pName[i] = unchecked((sbyte)bytes[i]);
         }
 
-        private static unsafe void WriteReserved(byte[]? value, ref ctl_device_adapter_properties_t._reserved_e__FixedBuffer buffer)
+        private static unsafe void WriteReserved(List<byte>? value, ref ctl_device_adapter_properties_t._reserved_e__FixedBuffer buffer)
         {
             var pReserved = (sbyte*)Unsafe.AsPointer(ref buffer.e0);
             for (var i = 0; i < ReservedLength; i++)
                 pReserved[i] = 0;
 
-            if (value == null || value.Length == 0)
+            if (value == null || value.Count == 0)
                 return;
 
-            var count = Math.Min(value.Length, ReservedLength);
+            var count = Math.Min(value.Count, ReservedLength);
             for (var i = 0; i < count; i++)
                 pReserved[i] = unchecked((sbyte)value[i]);
         }
@@ -1503,7 +1837,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Managed child display info list.
         /// </summary>
-        public CombinedDisplayChildInfoDto[]? ChildInfos;
+        public List<CombinedDisplayChildInfoDto>? ChildInfos;
         /// <summary>
         /// Combined display output handle.
         /// </summary>
@@ -1517,9 +1851,7 @@ namespace IGCLWrapper
         public bool Equals(CombinedDisplayArgsDto other)
         {
             // ChildInfo and CombinedDisplayOutput are pointers and are intentionally excluded.
-            return Size == other.Size &&
-                   Version == other.Version &&
-                   OpType == other.OpType &&
+                 return OpType == other.OpType &&
                    IsSupported == other.IsSupported &&
                    NumOutputs == other.NumOutputs &&
                    CombinedDesktopWidth == other.CombinedDesktopWidth &&
@@ -1541,8 +1873,6 @@ namespace IGCLWrapper
         public override int GetHashCode()
         {
             var hash = new HashCode();
-            hash.Add(Size);
-            hash.Add(Version);
             hash.Add(OpType);
             hash.Add(IsSupported);
             hash.Add(NumOutputs);
@@ -1550,8 +1880,8 @@ namespace IGCLWrapper
             hash.Add(CombinedDesktopHeight);
             if (ChildInfos != null)
             {
-                hash.Add(ChildInfos.Length);
-                for (var i = 0; i < ChildInfos.Length; i++)
+                hash.Add(ChildInfos.Count);
+                for (var i = 0; i < ChildInfos.Count; i++)
                     hash.Add(ChildInfos[i]);
             }
             return hash.ToHashCode();
@@ -1603,15 +1933,15 @@ namespace IGCLWrapper
             };
         }
 
-        private static bool AreChildInfosEqual(CombinedDisplayChildInfoDto[]? left, CombinedDisplayChildInfoDto[]? right)
+        private static bool AreChildInfosEqual(List<CombinedDisplayChildInfoDto>? left, List<CombinedDisplayChildInfoDto>? right)
         {
             if (ReferenceEquals(left, right))
                 return true;
             if (left == null || right == null)
                 return false;
-            if (left.Length != right.Length)
+            if (left.Count != right.Count)
                 return false;
-            for (var i = 0; i < left.Length; i++)
+            for (var i = 0; i < left.Count; i++)
             {
                 if (!left[i].Equals(right[i]))
                     return false;
@@ -1632,11 +1962,11 @@ namespace IGCLWrapper
         /// <summary>
         /// Framebuffer source rect.
         /// </summary>
-        public ctl_rect_t FbSrc;
+        public RectDto FbSrc;
         /// <summary>
         /// Framebuffer target rect.
         /// </summary>
-        public ctl_rect_t FbPos;
+        public RectDto FbPos;
         /// <summary>
         /// Display orientation.
         /// </summary>
@@ -1644,7 +1974,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Target mode info.
         /// </summary>
-        public ctl_child_display_target_mode_t TargetMode;
+        public ChildDisplayTargetModeDto TargetMode;
 
         /// <summary>
         /// Compare child display info while ignoring pointer and reserved fields.
@@ -1695,10 +2025,10 @@ namespace IGCLWrapper
             return new CombinedDisplayChildInfoDto
             {
                 DisplayOutput = (IntPtr)native.hDisplayOutput,
-                FbSrc = native.FbSrc,
-                FbPos = native.FbPos,
+                FbSrc = RectDto.FromNative(native.FbSrc),
+                FbPos = RectDto.FromNative(native.FbPos),
                 DisplayOrientation = native.DisplayOrientation,
-                TargetMode = native.TargetMode
+                TargetMode = ChildDisplayTargetModeDto.FromNative(native.TargetMode)
             };
         }
 
@@ -1711,10 +2041,10 @@ namespace IGCLWrapper
             return new ctl_combined_display_child_info_t
             {
                 hDisplayOutput = (_ctl_display_output_handle_t*)DisplayOutput,
-                FbSrc = FbSrc,
-                FbPos = FbPos,
+                FbSrc = FbSrc.ToNative(),
+                FbPos = FbPos.ToNative(),
                 DisplayOrientation = DisplayOrientation,
-                TargetMode = TargetMode
+                TargetMode = TargetMode.ToNative()
             };
         }
     }
@@ -1739,7 +2069,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Genlock topology.
         /// </summary>
-        public ctl_genlock_topology_t GenlockTopology;
+        public GenlockTopologyDto GenlockTopology;
         /// <summary>
         /// Indicates whether genlock is enabled.
         /// </summary>
@@ -1756,10 +2086,8 @@ namespace IGCLWrapper
         /// <returns>True when equal; otherwise, false.</returns>
         public bool Equals(GenlockArgsDto other)
         {
-            return Size == other.Size &&
-                   Version == other.Version &&
-                   Operation == other.Operation &&
-                   AreGenlockTopologiesEqual(GenlockTopology, other.GenlockTopology) &&
+                 return Operation == other.Operation &&
+                     GenlockTopology.Equals(other.GenlockTopology) &&
                    IsGenlockEnabled == other.IsGenlockEnabled &&
                    IsGenlockPossible == other.IsGenlockPossible;
         }
@@ -1778,12 +2106,8 @@ namespace IGCLWrapper
         public override int GetHashCode()
         {
             var hash = new HashCode();
-            hash.Add(Size);
-            hash.Add(Version);
             hash.Add(Operation);
-            hash.Add(GenlockTopology.NumGenlockDisplays);
-            hash.Add(GenlockTopology.IsPrimaryGenlockSystem);
-            hash.Add(GenlockTopology.CommonTargetMode);
+            hash.Add(GenlockTopology);
             hash.Add(IsGenlockEnabled);
             hash.Add(IsGenlockPossible);
             return hash.ToHashCode();
@@ -1801,7 +2125,7 @@ namespace IGCLWrapper
                 Size = native.Size,
                 Version = native.Version,
                 Operation = native.Operation,
-                GenlockTopology = native.GenlockTopology,
+                GenlockTopology = GenlockTopologyDto.FromNative(native.GenlockTopology),
                 IsGenlockEnabled = IGCLDisplayDtoBool.ToBool(native.IsGenlockEnabled),
                 IsGenlockPossible = IGCLDisplayDtoBool.ToBool(native.IsGenlockPossible)
             };
@@ -1822,18 +2146,10 @@ namespace IGCLWrapper
                 Size = size,
                 Version = Version,
                 Operation = Operation,
-                GenlockTopology = GenlockTopology,
+                GenlockTopology = GenlockTopology.ToNative(),
                 IsGenlockEnabled = IGCLDisplayDtoBool.ToByte(IsGenlockEnabled),
                 IsGenlockPossible = IGCLDisplayDtoBool.ToByte(IsGenlockPossible)
             };
-        }
-
-        private static bool AreGenlockTopologiesEqual(ctl_genlock_topology_t left, ctl_genlock_topology_t right)
-        {
-            // Genlock topology includes pointer fields; compare only value fields.
-            return left.NumGenlockDisplays == right.NumGenlockDisplays &&
-                   left.IsPrimaryGenlockSystem == right.IsPrimaryGenlockSystem &&
-                   left.CommonTargetMode.Equals(right.CommonTargetMode);
         }
     }
 
