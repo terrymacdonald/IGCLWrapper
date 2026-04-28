@@ -38,7 +38,7 @@ namespace IGCLWrapper.FacadeTests
                 var props = display!.GetProperties();
                 Assert.True(props.Size > 0);
                 Assert.NotNull(props.ReservedFields);
-                Assert.Equal(16, props.ReservedFields!.Length);
+                Assert.Equal(16, props.ReservedFields!.Count);
                 Assert.True(props.Equals(props));
                 _ = props.GetHashCode();
             }
@@ -156,7 +156,7 @@ namespace IGCLWrapper.FacadeTests
                 var wireFormat = FacadeTestUtils.InvokeOrSkip(() => display!.GetWireFormat(), "Wire format unsupported");
                 Assert.True(wireFormat.Size > 0);
                 Assert.NotNull(wireFormat.SupportedWireFormat);
-                Assert.Equal(4, wireFormat.SupportedWireFormat!.Length);
+                Assert.Equal(4, wireFormat.SupportedWireFormat!.Count);
                 Assert.True(wireFormat.Equals(wireFormat));
                 _ = wireFormat.GetHashCode();
             }

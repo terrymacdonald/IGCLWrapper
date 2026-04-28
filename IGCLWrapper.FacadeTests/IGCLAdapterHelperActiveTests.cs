@@ -38,7 +38,7 @@ namespace IGCLWrapper.FacadeTests
                     throw new SkipException($"Combined display query unsupported: {ex.Result}");
                 }
 
-                if (existing.NumOutputs > 0 && existing.CombinedDisplayOutput != IntPtr.Zero)
+                if (existing.NumOutputs > 0)
                     throw new SkipException("Combined display already active; refusing to modify current layout.");
 
                 uint combinedAllowedEncoderTypes =
@@ -81,7 +81,7 @@ namespace IGCLWrapper.FacadeTests
                         continue;
 
                     var refreshRate = props.Display_Timing_Info.RefreshRate;
-                    var encoderId = encoderProps.OsDisplayEncoderHandle.WindowsDisplayEncoderID;
+                    var encoderId = encoderProps.OsDisplayEncoderHandle.WindowsDisplayEncoderId;
                     var entry = (handle, width, height, refreshRate, props.DisplayConfigFlags, encoderFlags, encoderId);
                     activeOutputs.Add(entry);
                     if (width == targetWidth && height == targetHeight)
@@ -121,23 +121,23 @@ namespace IGCLWrapper.FacadeTests
                 Console.WriteLine($"DisplayOrder: {string.Join(",", displayOrder)}");
                 Console.WriteLine("Placement: left=first, right=second");
 
-                var childInfos = new[]
+                var childInfos = new List<CombinedDisplayChildInfoDto>
                 {
                     new CombinedDisplayChildInfoDto
                     {
-                        DisplayOutput = firstOutput.Handle,
-                        FbSrc = new ctl_rect_t { Left = 0, Top = 0, Right = targetWidth, Bottom = targetHeight },
-                        FbPos = new ctl_rect_t { Left = 0, Top = 0, Right = targetWidth, Bottom = targetHeight },
+                        DisplayOutputWindowsDisplayEncoderId = firstOutput.EncoderId,
+                        FbSrc = new RectDto { Left = 0, Top = 0, Right = targetWidth, Bottom = targetHeight },
+                        FbPos = new RectDto { Left = 0, Top = 0, Right = targetWidth, Bottom = targetHeight },
                         DisplayOrientation = ctl_display_orientation_t.CTL_DISPLAY_ORIENTATION_0,
-                        TargetMode = new ctl_child_display_target_mode_t { Width = targetWidth, Height = targetHeight, RefreshRate = targetRefreshRate }
+                        TargetMode = new ChildDisplayTargetModeDto { Width = targetWidth, Height = targetHeight, RefreshRate = targetRefreshRate }
                     },
                     new CombinedDisplayChildInfoDto
                     {
-                        DisplayOutput = secondOutput.Handle,
-                        FbSrc = new ctl_rect_t { Left = targetWidth, Top = 0, Right = targetWidth * 2, Bottom = targetHeight },
-                        FbPos = new ctl_rect_t { Left = 0, Top = 0, Right = targetWidth, Bottom = targetHeight },
+                        DisplayOutputWindowsDisplayEncoderId = secondOutput.EncoderId,
+                        FbSrc = new RectDto { Left = targetWidth, Top = 0, Right = targetWidth * 2, Bottom = targetHeight },
+                        FbPos = new RectDto { Left = 0, Top = 0, Right = targetWidth, Bottom = targetHeight },
                         DisplayOrientation = ctl_display_orientation_t.CTL_DISPLAY_ORIENTATION_0,
-                        TargetMode = new ctl_child_display_target_mode_t { Width = targetWidth, Height = targetHeight, RefreshRate = targetRefreshRate }
+                        TargetMode = new ChildDisplayTargetModeDto { Width = targetWidth, Height = targetHeight, RefreshRate = targetRefreshRate }
                     }
                 };
 
@@ -151,7 +151,6 @@ namespace IGCLWrapper.FacadeTests
                 };
 
                 var combinedEnabled = false;
-                IntPtr combinedOutput = IntPtr.Zero;
                 try
                 {
                     FacadeTestUtils.InvokeOrSkip(() => adapter.SetCombinedDisplay(enableArgs), "Combined display enable unsupported");
@@ -161,8 +160,7 @@ namespace IGCLWrapper.FacadeTests
                     Assert.Equal(desiredOutputs, updated.NumOutputs);
                     Assert.Equal((uint)combinedWidth, updated.CombinedDesktopWidth);
                     Assert.Equal((uint)combinedHeight, updated.CombinedDesktopHeight);
-                    Assert.True(updated.CombinedDisplayOutput != IntPtr.Zero);
-                    combinedOutput = updated.CombinedDisplayOutput;
+                    Assert.NotNull(updated.ChildInfos);
 
                     Console.WriteLine("Combined display enabled; waiting 10 seconds before disable.");
                     System.Threading.Thread.Sleep(10000);
@@ -174,8 +172,7 @@ namespace IGCLWrapper.FacadeTests
                         Console.WriteLine("Disabling combined display.");
                         var disableArgs = new CombinedDisplayArgsDto
                         {
-                            OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_DISABLE,
-                            CombinedDisplayOutput = combinedOutput
+                            OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_DISABLE
                         };
 
                         FacadeTestUtils.InvokeOrSkip(() => adapter.SetCombinedDisplay(disableArgs), "Combined display disable unsupported");

@@ -50,7 +50,7 @@ namespace IGCLWrapper.FacadeTests
                 Assert.NotNull(props.Name);
                 Assert.NotNull(props.FirmwareVersion);
                 Assert.NotNull(props.Reserved);
-                Assert.Equal(16, props.Reserved!.Length);
+                Assert.Equal(16, props.Reserved!.Count);
                 Assert.True(props.Equals(props));
                 _ = props.GetHashCode();
             }
@@ -77,7 +77,7 @@ namespace IGCLWrapper.FacadeTests
                 Assert.NotNull(props.Name);
                 Assert.NotNull(props.ComponentVersion);
                 Assert.NotNull(props.Reserved);
-                Assert.Equal(20, props.Reserved!.Length);
+                Assert.Equal(20, props.Reserved!.Count);
                 Assert.True(props.Equals(props));
                 _ = props.GetHashCode();
             }

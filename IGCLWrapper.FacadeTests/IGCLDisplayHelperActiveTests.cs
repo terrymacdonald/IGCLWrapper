@@ -558,8 +558,8 @@ namespace IGCLWrapper.FacadeTests
             if (!TryGetPowerOptimizationSetting(display, request, out var current))
                 return false;
 
-            var lrr = current.FeatureSpecificData.LRRInfo;
-            if (lrr.SupportedLRRTypes == 0 || lrr.bRequirePSRDisable != 0)
+            var lrr = current.FeatureSpecificData.LrrInfo;
+            if (lrr.SupportedLrrTypes == 0 || lrr.RequirePsrDisable)
                 return false;
 
             var updated = current;
@@ -567,7 +567,7 @@ namespace IGCLWrapper.FacadeTests
             updated.PowerSource = request.PowerSource;
             updated.PowerOptimizationPlan = request.PowerOptimizationPlan;
 
-            var newType = PickDifferentFlag(lrr.SupportedLRRTypes, lrr.CurrentLRRTypes, new[]
+            var newType = PickDifferentFlag(lrr.SupportedLrrTypes, lrr.CurrentLrrTypes, new[]
             {
                 (uint)ctl_power_optimization_lrr_flag_t.CTL_POWER_OPTIMIZATION_LRR_FLAG_LRR10,
                 (uint)ctl_power_optimization_lrr_flag_t.CTL_POWER_OPTIMIZATION_LRR_FLAG_LRR20,
@@ -577,9 +577,9 @@ namespace IGCLWrapper.FacadeTests
                 (uint)ctl_power_optimization_lrr_flag_t.CTL_POWER_OPTIMIZATION_LRR_FLAG_UBZRR
             });
 
-            if (newType != 0 && newType != lrr.CurrentLRRTypes)
+            if (newType != 0 && newType != lrr.CurrentLrrTypes)
             {
-                updated.FeatureSpecificData.LRRInfo.CurrentLRRTypes = newType;
+                updated.FeatureSpecificData.LrrInfo.CurrentLrrTypes = newType;
                 updated.Enable = true;
             }
             else
@@ -588,7 +588,7 @@ namespace IGCLWrapper.FacadeTests
             }
 
             if (updated.Enable == current.Enable &&
-                updated.FeatureSpecificData.LRRInfo.CurrentLRRTypes == lrr.CurrentLRRTypes)
+                updated.FeatureSpecificData.LrrInfo.CurrentLrrTypes == lrr.CurrentLrrTypes)
                 return false;
 
             ApplyAndRevert(() => display.SetPowerOptimizationSetting(updated), () => display.SetPowerOptimizationSetting(current));
@@ -607,7 +607,7 @@ namespace IGCLWrapper.FacadeTests
             if (!TryGetPowerOptimizationSetting(display, request, out var current))
                 return false;
 
-            var dpst = current.FeatureSpecificData.DPSTInfo;
+            var dpst = current.FeatureSpecificData.DpstInfo;
             if (dpst.SupportedFeatures == 0)
                 return false;
 
@@ -622,12 +622,12 @@ namespace IGCLWrapper.FacadeTests
             updated.PowerOptimizationFeature = request.PowerOptimizationFeature;
             updated.PowerSource = request.PowerSource;
             updated.PowerOptimizationPlan = request.PowerOptimizationPlan;
-            updated.FeatureSpecificData.DPSTInfo.EnabledFeatures = enabledFeature;
+            updated.FeatureSpecificData.DpstInfo.EnabledFeatures = enabledFeature;
 
             if (dpst.MinLevel != dpst.MaxLevel)
             {
                 var newLevel = dpst.Level == dpst.MaxLevel ? dpst.MinLevel : dpst.MaxLevel;
-                updated.FeatureSpecificData.DPSTInfo.Level = newLevel;
+                updated.FeatureSpecificData.DpstInfo.Level = newLevel;
             }
             else
             {
@@ -635,8 +635,8 @@ namespace IGCLWrapper.FacadeTests
             }
 
             if (updated.Enable == current.Enable &&
-                updated.FeatureSpecificData.DPSTInfo.Level == dpst.Level &&
-                updated.FeatureSpecificData.DPSTInfo.EnabledFeatures == dpst.EnabledFeatures)
+                updated.FeatureSpecificData.DpstInfo.Level == dpst.Level &&
+                updated.FeatureSpecificData.DpstInfo.EnabledFeatures == dpst.EnabledFeatures)
                 return false;
 
             ApplyAndRevert(() => display.SetPowerOptimizationSetting(updated), () => display.SetPowerOptimizationSetting(current));
@@ -734,7 +734,7 @@ namespace IGCLWrapper.FacadeTests
         private static bool TryBuildWireFormatUpdate(WireFormatConfigDto current, out WireFormatConfigDto updated)
         {
             updated = current;
-            if (current.SupportedWireFormat == null || current.SupportedWireFormat.Length == 0)
+            if (current.SupportedWireFormat == null || current.SupportedWireFormat.Count == 0)
                 return false;
 
             foreach (var candidate in current.SupportedWireFormat)

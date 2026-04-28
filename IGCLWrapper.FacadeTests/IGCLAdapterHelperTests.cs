@@ -33,7 +33,7 @@ namespace IGCLWrapper.FacadeTests
                 Assert.True(props.Size > 0);
                 Assert.NotNull(props.Name);
                 Assert.NotNull(props.Reserved);
-                Assert.Equal(108, props.Reserved!.Length);
+                Assert.Equal(108, props.Reserved!.Count);
                 Assert.True(props.Equals(props));
                 _ = props.GetHashCode();
             }
@@ -49,7 +49,7 @@ namespace IGCLWrapper.FacadeTests
                 Assert.True(props.Size > 0);
                 Assert.NotNull(props.Name);
                 Assert.NotNull(props.Reserved);
-                Assert.Equal(108, props.Reserved!.Length);
+                Assert.Equal(108, props.Reserved!.Count);
                 Assert.True(props.Equals(props));
                 _ = props.GetHashCode();
             }
@@ -101,46 +101,67 @@ namespace IGCLWrapper.FacadeTests
                     throw new SkipException($"Combined display query unsupported: {ex.Result}");
                 }
 
-                if (combined.NumOutputs == 0 || combined.ChildInfos == null || combined.ChildInfos.Length == 0)
+                if (combined.NumOutputs == 0 || combined.ChildInfos == null || combined.ChildInfos.Count == 0)
                 {
                     throw new SkipException("Combined display not configured.");
-                }
-
-                var displayLookup = new System.Collections.Generic.Dictionary<string, IGCLDisplayHelper>(StringComparer.OrdinalIgnoreCase);
-                foreach (var display in adapter.EnumerateDisplayOutputs())
-                {
-                    displayLookup[display.Name] = display;
                 }
 
                 Console.WriteLine("Combined display detected.");
                 Console.WriteLine($" - NumOutputs={combined.NumOutputs} Width={combined.CombinedDesktopWidth} Height={combined.CombinedDesktopHeight}");
 
-                Assert.True(combined.ChildInfos.Length >= combined.NumOutputs);
-                Assert.True(combined.CombinedDisplayOutput != IntPtr.Zero);
+                Assert.True(combined.ChildInfos.Count >= combined.NumOutputs);
                 for (var i = 0; i < combined.NumOutputs; i++)
                 {
                     var child = combined.ChildInfos[i];
-                    Assert.True(child.DisplayOutput != IntPtr.Zero);
 
-                    var displayName = $"Display-{child.DisplayOutput.ToInt64():X}";
-                    if (displayLookup.TryGetValue(displayName, out var displayHelper))
-                    {
-                        try
-                        {
-                            var props = displayHelper.GetPropertiesNative();
-                            Console.WriteLine($" - Child {i}: name={displayHelper.Name} handle=0x{child.DisplayOutput.ToInt64():X} type={props.Type} flags=0x{props.DisplayConfigFlags:X}");
-                        }
-                        catch (IGCLException ex)
-                        {
-                            Console.WriteLine($" - Child {i}: name={displayHelper.Name} handle=0x{child.DisplayOutput.ToInt64():X} (properties unavailable: {ex.Result})");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine($" - Child {i}: handle=0x{child.DisplayOutput.ToInt64():X} (no matching display helper)");
-                    }
+                    Assert.True(child.TargetMode.Width >= 0);
+                    Assert.True(child.TargetMode.Height >= 0);
+                    Console.WriteLine($" - Child {i}: encoderId={child.DisplayOutputWindowsDisplayEncoderId} orientation={child.DisplayOrientation}");
                 }
             }
+        }
+
+        [Fact]
+        public unsafe void CombinedDisplayArgsDto_ToNative_ShouldUseManagedChildInfos()
+        {
+            var dto = new CombinedDisplayArgsDto
+            {
+                OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_ENABLE,
+                IsSupported = true,
+                CombinedDesktopWidth = 3840,
+                CombinedDesktopHeight = 1080,
+                ChildInfos = new List<CombinedDisplayChildInfoDto>
+                {
+                    new CombinedDisplayChildInfoDto
+                    {
+                        DisplayOutputWindowsDisplayEncoderId = 100,
+                        FbSrc = new RectDto { Left = 0, Top = 0, Right = 1919, Bottom = 1079 },
+                        FbPos = new RectDto { Left = 0, Top = 0, Right = 1919, Bottom = 1079 },
+                        DisplayOrientation = ctl_display_orientation_t.CTL_DISPLAY_ORIENTATION_0,
+                        TargetMode = new ChildDisplayTargetModeDto { Width = 1920, Height = 1080, RefreshRate = 60.0f }
+                    },
+                    new CombinedDisplayChildInfoDto
+                    {
+                        DisplayOutputWindowsDisplayEncoderId = 101,
+                        FbSrc = new RectDto { Left = 1920, Top = 0, Right = 3839, Bottom = 1079 },
+                        FbPos = new RectDto { Left = 1920, Top = 0, Right = 3839, Bottom = 1079 },
+                        DisplayOrientation = ctl_display_orientation_t.CTL_DISPLAY_ORIENTATION_0,
+                        TargetMode = new ChildDisplayTargetModeDto { Width = 1920, Height = 1080, RefreshRate = 60.0f }
+                    }
+                }
+            };
+
+            var native = dto.ToNative();
+
+            Assert.Equal((byte)2, native.NumOutputs);
+            Assert.True(native.pChildInfo == null);
+            Assert.True(native.hCombinedDisplayOutput == null);
+            Assert.Equal((byte)1, native.IsSupported);
+
+            var childNative = dto.ChildInfos![0].ToNative();
+            Assert.True(childNative.hDisplayOutput == null);
+            Assert.Equal(dto.ChildInfos[0].FbSrc.Left, childNative.FbSrc.Left);
+            Assert.Equal(dto.ChildInfos[0].TargetMode.Width, childNative.TargetMode.Width);
         }
 
     }
