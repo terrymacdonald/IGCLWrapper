@@ -754,6 +754,12 @@
             </summary>
             <returns>Tuple containing args and adapter handles.</returns>
         </member>
+        <member name="M:IGCLWrapper.IGCLAdapterHelper.GetLinkedDisplayAdaptersDto">
+            <summary>
+            Get linked display adapter information as a DTO.
+            </summary>
+            <returns>Linked display adapters result DTO.</returns>
+        </member>
         <member name="M:IGCLWrapper.IGCLAdapterHelper.WaitForPropertyChange(IGCLWrapper.ctl_wait_property_change_args_t)">
             <summary>
             Wait for a property change event.
@@ -1298,6 +1304,16 @@
             </summary>
             <returns>Genlock args struct.</returns>
         </member>
+        <member name="T:IGCLWrapper.LinkedDisplayAdaptersArgsDto">
+            <summary>
+            DTO for linked display adapters arguments.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.LinkedDisplayAdaptersResultDto">
+            <summary>
+            DTO for linked display adapters query result.
+            </summary>
+        </member>
         <member name="T:IGCLWrapper.IGCLDisplayHelper">
             <summary>
             Display helper facade for IGCL display handles.
@@ -1735,6 +1751,12 @@
             </summary>
             <returns>Tuple containing caps and filter properties array.</returns>
         </member>
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetSharpnessCapsDto">
+            <summary>
+            Get sharpness capabilities and filter properties as a DTO.
+            </summary>
+            <returns>Sharpness capabilities DTO.</returns>
+        </member>
         <member name="M:IGCLWrapper.IGCLDisplayHelper.GetCurrentSharpnessNative">
             <summary>
             Get current sharpness settings using the native struct.
@@ -1784,6 +1806,12 @@
             </summary>
             <returns>Power optimization capabilities struct.</returns>
         </member>
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetPowerOptimizationCapsDto">
+            <summary>
+            Get power optimization capabilities as a DTO.
+            </summary>
+            <returns>Power optimization capabilities DTO.</returns>
+        </member>
         <member name="M:IGCLWrapper.IGCLDisplayHelper.GetPowerOptimizationSettingNative(IGCLWrapper.ctl_power_optimization_settings_t)">
             <summary>
             Get power optimization settings using the native struct.
@@ -1816,11 +1844,23 @@
             </summary>
             <param name="brightness">Brightness settings struct.</param>
         </member>
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.SetBrightnessSetting(IGCLWrapper.BrightnessSetDto)">
+            <summary>
+            Set display brightness using a DTO.
+            </summary>
+            <param name="brightness">Brightness settings DTO.</param>
+        </member>
         <member name="M:IGCLWrapper.IGCLDisplayHelper.GetBrightnessSetting">
             <summary>
             Get display brightness.
             </summary>
             <returns>Brightness settings struct.</returns>
+        </member>
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetBrightnessSettingDto">
+            <summary>
+            Get display brightness as a DTO.
+            </summary>
+            <returns>Brightness settings DTO.</returns>
         </member>
         <member name="M:IGCLWrapper.IGCLDisplayHelper.PixelTransformationGetConfig(IGCLWrapper.ctl_pixtx_pipe_get_config_t)">
             <summary>
@@ -1862,6 +1902,12 @@
             </summary>
             <returns>Retro scaling capability struct.</returns>
         </member>
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetSupportedRetroScalingCapabilityDto">
+            <summary>
+            Get supported retro scaling capabilities as a DTO.
+            </summary>
+            <returns>Retro scaling capabilities DTO.</returns>
+        </member>
         <member name="M:IGCLWrapper.IGCLDisplayHelper.GetSetRetroScalingNative(IGCLWrapper.ctl_retro_scaling_settings_t)">
             <summary>
             Call the native get/set retro scaling API using the provided struct.
@@ -1886,6 +1932,12 @@
             Get supported scaling capabilities.
             </summary>
             <returns>Scaling capability struct.</returns>
+        </member>
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetSupportedScalingCapabilityDto">
+            <summary>
+            Get supported scaling capabilities as a DTO.
+            </summary>
+            <returns>Scaling capabilities DTO.</returns>
         </member>
         <member name="M:IGCLWrapper.IGCLDisplayHelper.GetCurrentScalingNative">
             <summary>
@@ -1974,6 +2026,13 @@
             <param name="muxHandle">Mux handle.</param>
             <returns>Tuple containing mux properties and display output handles.</returns>
         </member>
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetMuxPropertiesDto(System.IntPtr)">
+            <summary>
+            Get mux properties and display outputs as a DTO.
+            </summary>
+            <param name="muxHandle">Mux handle.</param>
+            <returns>Mux properties DTO.</returns>
+        </member>
         <member name="M:IGCLWrapper.IGCLDisplayHelper.SwitchMux(System.IntPtr,System.IntPtr)">
             <summary>
             Switch mux to the specified inactive display output.
@@ -1987,11 +2046,23 @@
             </summary>
             <returns>Arc Sync profile params struct.</returns>
         </member>
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetIntelArcSyncProfileDto">
+            <summary>
+            Get Intel Arc Sync profile parameters as a DTO.
+            </summary>
+            <returns>Arc Sync profile parameters DTO.</returns>
+        </member>
         <member name="M:IGCLWrapper.IGCLDisplayHelper.SetIntelArcSyncProfile(IGCLWrapper.ctl_intel_arc_sync_profile_params_t)">
             <summary>
             Set Intel Arc Sync profile parameters.
             </summary>
             <param name="parameters">Arc Sync profile params struct.</param>
+        </member>
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.SetIntelArcSyncProfile(IGCLWrapper.IntelArcSyncProfileParamsDto)">
+            <summary>
+            Set Intel Arc Sync profile parameters using a DTO.
+            </summary>
+            <param name="parameters">Arc Sync profile parameters DTO.</param>
         </member>
         <member name="M:IGCLWrapper.IGCLDisplayHelper.EdidManagement(IGCLWrapper.ctl_edid_management_args_t)">
             <summary>
@@ -2027,6 +2098,12 @@
             </summary>
             <returns>Tuple containing updated args and modes.</returns>
         </member>
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetCustomModesDto">
+            <summary>
+            Get custom display modes as DTOs.
+            </summary>
+            <returns>Custom mode result DTO.</returns>
+        </member>
         <member name="M:IGCLWrapper.IGCLDisplayHelper.SetCustomModes(IGCLWrapper.ctl_get_set_custom_mode_args_t,IGCLWrapper.ctl_custom_src_mode_t[])">
             <summary>
             Set custom display modes using the provided arguments and mode list.
@@ -2034,11 +2111,24 @@
             <param name="args">Custom mode args.</param>
             <param name="modes">Custom modes array.</param>
         </member>
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.SetCustomModes(IGCLWrapper.CustomModeArgsDto,System.Collections.Generic.IReadOnlyList{IGCLWrapper.CustomSourceModeDto})">
+            <summary>
+            Set custom display modes using DTOs.
+            </summary>
+            <param name="args">Custom mode args DTO.</param>
+            <param name="modes">Custom mode DTOs.</param>
+        </member>
         <member name="M:IGCLWrapper.IGCLDisplayHelper.GetVblankTimestamp">
             <summary>
             Get vblank timestamp information.
             </summary>
             <returns>Vblank timestamp args struct.</returns>
+        </member>
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetVblankTimestampDto">
+            <summary>
+            Get vblank timestamp information as a DTO.
+            </summary>
+            <returns>Vblank timestamp DTO.</returns>
         </member>
         <member name="M:IGCLWrapper.IGCLDisplayHelper.GetSetDynamicContrastEnhancementNative(IGCLWrapper.ctl_dce_args_t,System.UInt32[])">
             <summary>
@@ -3427,6 +3517,76 @@
             Convert this DTO to a native struct.
             </summary>
             <returns>Power optimization settings struct.</returns>
+        </member>
+        <member name="T:IGCLWrapper.BrightnessGetDto">
+            <summary>
+            DTO for brightness get arguments.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.BrightnessSetDto">
+            <summary>
+            DTO for brightness set arguments.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.ScalingCapsDto">
+            <summary>
+            DTO for scaling capabilities.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.RetroScalingCapsDto">
+            <summary>
+            DTO for retro scaling capabilities.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.PowerOptimizationCapsDto">
+            <summary>
+            DTO for power optimization capabilities.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.PropertyRangeInfoDto">
+            <summary>
+            DTO for property range information.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.SharpnessFilterPropertiesDto">
+            <summary>
+            DTO for sharpness filter properties.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.SharpnessCapsDto">
+            <summary>
+            DTO for sharpness capabilities and filter properties.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.IntelArcSyncProfileParamsDto">
+            <summary>
+            DTO for Intel Arc Sync profile params.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.CustomSourceModeDto">
+            <summary>
+            DTO for custom source mode.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.CustomModeArgsDto">
+            <summary>
+            DTO for custom mode args.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.CustomModesResultDto">
+            <summary>
+            DTO for custom mode get results.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.MuxPropertiesDto">
+            <summary>
+            DTO for mux properties and display outputs.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.VblankTimestampArgsDto">
+            <summary>
+            DTO for vblank timestamp args.
+            </summary>
         </member>
         <member name="T:IGCLWrapper.IGCLEccHelper">
             <summary>

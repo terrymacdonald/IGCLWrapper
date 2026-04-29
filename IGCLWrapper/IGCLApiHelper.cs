@@ -1146,6 +1146,16 @@ namespace IGCLWrapper
             return (args, handles);
         }
 
+        /// <summary>
+        /// Get linked display adapter information as a DTO.
+        /// </summary>
+        /// <returns>Linked display adapters result DTO.</returns>
+        public LinkedDisplayAdaptersResultDto GetLinkedDisplayAdaptersDto()
+        {
+            var native = GetLinkedDisplayAdapters();
+            return LinkedDisplayAdaptersResultDto.FromNative(native.args, native.adapters);
+        }
+
         private static unsafe ctl_wait_property_change_args_t CreateWaitPropertyChangeArgs() => new ctl_wait_property_change_args_t { Size = (uint)sizeof(ctl_wait_property_change_args_t), Version = 0 };
 
         /// <summary>
@@ -2274,6 +2284,90 @@ namespace IGCLWrapper
                 GenlockTopology = GenlockTopology.ToNative(),
                 IsGenlockEnabled = IGCLDisplayDtoBool.ToByte(IsGenlockEnabled),
                 IsGenlockPossible = IGCLDisplayDtoBool.ToByte(IsGenlockPossible)
+            };
+        }
+    }
+
+    /// <summary>
+    /// DTO for linked display adapters arguments.
+    /// </summary>
+    public struct LinkedDisplayAdaptersArgsDto
+    {
+        public uint Size;
+        public byte Version;
+        public byte NumAdapters;
+        public List<ulong>? Reserved;
+
+        public static unsafe LinkedDisplayAdaptersArgsDto FromNative(ctl_lda_args_t native)
+        {
+            return new LinkedDisplayAdaptersArgsDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                NumAdapters = native.NumAdapters,
+                Reserved = ReadReserved(native.Reserved)
+            };
+        }
+
+        public unsafe ctl_lda_args_t ToNative()
+        {
+            var size = Size == 0 ? (uint)sizeof(ctl_lda_args_t) : Size;
+            var native = new ctl_lda_args_t
+            {
+                Size = size,
+                Version = Version,
+                NumAdapters = NumAdapters,
+                hLinkedAdapters = null
+            };
+
+            WriteReserved(Reserved, ref native.Reserved);
+            return native;
+        }
+
+        private static unsafe List<ulong> ReadReserved(ctl_lda_args_t._Reserved_e__FixedBuffer buffer)
+        {
+            const int count = 4;
+            var values = new List<ulong>(count);
+            var pValues = (ulong*)Unsafe.AsPointer(ref buffer.e0);
+            for (var i = 0; i < count; i++)
+                values.Add(pValues[i]);
+            return values;
+        }
+
+        private static unsafe void WriteReserved(List<ulong>? values, ref ctl_lda_args_t._Reserved_e__FixedBuffer buffer)
+        {
+            const int count = 4;
+            var pValues = (ulong*)Unsafe.AsPointer(ref buffer.e0);
+            for (var i = 0; i < count; i++)
+                pValues[i] = 0;
+
+            if (values == null)
+                return;
+
+            var writeCount = Math.Min(values.Count, count);
+            for (var i = 0; i < writeCount; i++)
+                pValues[i] = values[i];
+        }
+    }
+
+    /// <summary>
+    /// DTO for linked display adapters query result.
+    /// </summary>
+    public struct LinkedDisplayAdaptersResultDto
+    {
+        public LinkedDisplayAdaptersArgsDto Args;
+        public List<nint>? LinkedAdapters;
+
+        public static LinkedDisplayAdaptersResultDto FromNative(ctl_lda_args_t args, IntPtr[] linkedAdapters)
+        {
+            var adapters = new List<nint>(linkedAdapters.Length);
+            for (var i = 0; i < linkedAdapters.Length; i++)
+                adapters.Add(linkedAdapters[i]);
+
+            return new LinkedDisplayAdaptersResultDto
+            {
+                Args = LinkedDisplayAdaptersArgsDto.FromNative(args),
+                LinkedAdapters = adapters
             };
         }
     }

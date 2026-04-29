@@ -672,6 +672,78 @@ namespace IGCLWrapper.FacadeTests
             var ex = Assert.Throws<ArgumentException>(() => IGCLDisplayHelper.ValidateSetPowerOptimizationSettingsRequest(default));
             Assert.Contains("PowerOptimizationFeature", ex.Message, StringComparison.OrdinalIgnoreCase);
         }
+
+        [Fact]
+        public void DisplayNativeDtoCoverage_NewDtoTypes_ShouldRoundTrip()
+        {
+            var getNative = new ctl_get_brightness_t
+            {
+                Size = 1,
+                Version = 2,
+                TargetBrightness = 55,
+                CurrentBrightness = 44
+            };
+            var getDto = BrightnessGetDto.FromNative(getNative);
+            var getRoundTrip = getDto.ToNative();
+            Assert.Equal(getNative.TargetBrightness, getRoundTrip.TargetBrightness);
+            Assert.Equal(getNative.CurrentBrightness, getRoundTrip.CurrentBrightness);
+
+            var setDto = new BrightnessSetDto
+            {
+                TargetBrightness = 60,
+                SmoothTransitionTimeInMs = 123
+            };
+            var setNative = setDto.ToNative();
+            Assert.Equal((uint)60, setNative.TargetBrightness);
+            Assert.Equal((uint)123, setNative.SmoothTransitionTimeInMs);
+
+            var scaling = ScalingCapsDto.FromNative(new ctl_scaling_caps_t { Size = 4, Version = 0, SupportedScaling = 7 });
+            Assert.Equal((uint)7, scaling.SupportedScaling);
+
+            var retro = RetroScalingCapsDto.FromNative(new ctl_retro_scaling_caps_t { Size = 4, Version = 0, SupportedRetroScaling = 3 });
+            Assert.Equal((uint)3, retro.SupportedRetroScaling);
+
+            var powerCaps = PowerOptimizationCapsDto.FromNative(new ctl_power_optimization_caps_t { Size = 4, Version = 0, SupportedFeatures = 9 });
+            Assert.Equal((uint)9, powerCaps.SupportedFeatures);
+
+            var profile = new IntelArcSyncProfileParamsDto
+            {
+                IntelArcSyncProfile = ctl_intel_arc_sync_profile_t.CTL_INTEL_ARC_SYNC_PROFILE_RECOMMENDED,
+                MaxRefreshRateInHz = 144,
+                MinRefreshRateInHz = 48,
+                MaxFrameTimeIncreaseInUs = 1000,
+                MaxFrameTimeDecreaseInUs = 500
+            };
+            var profileNative = profile.ToNative();
+            Assert.Equal(144, profileNative.MaxRefreshRateInHz);
+            Assert.Equal(48, profileNative.MinRefreshRateInHz);
+
+            var customResult = CustomModesResultDto.FromNative(
+                new ctl_get_set_custom_mode_args_t { Size = 4, Version = 0, NumOfModes = 2 },
+                new[]
+                {
+                    new ctl_custom_src_mode_t { SourceX = 1920, SourceY = 1080 },
+                    new ctl_custom_src_mode_t { SourceX = 2560, SourceY = 1440 }
+                });
+            Assert.NotNull(customResult.Modes);
+            Assert.Equal(2, customResult.Modes!.Count);
+
+            var muxDto = MuxPropertiesDto.FromNative(
+                new ctl_mux_properties_t { Size = 4, Version = 0, MuxId = 1, Count = 2, IndexOfDisplayOutputOwningMux = 1 },
+                new[] { (IntPtr)10, (IntPtr)20 });
+            Assert.NotNull(muxDto.DisplayOutputs);
+            Assert.Equal(2, muxDto.DisplayOutputs!.Count);
+
+            var vblank = new VblankTimestampArgsDto
+            {
+                NumOfTargets = 2,
+                VblankTimestamps = new System.Collections.Generic.List<ulong> { 111, 222 }
+            };
+            var vblankNative = vblank.ToNative();
+            Assert.Equal((byte)2, vblankNative.NumOfTargets);
+            Assert.Equal((ulong)111, vblankNative.VblankTS[0]);
+            Assert.Equal((ulong)222, vblankNative.VblankTS[1]);
+        }
         
     }
 }

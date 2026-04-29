@@ -215,5 +215,23 @@ namespace IGCLWrapper.FacadeTests
                 dto.GraphicsAdapterProperties);
         }
 
+        [Fact]
+        public void LinkedDisplayAdaptersDto_ShouldConvertFromNativeResult()
+        {
+            var nativeArgs = IGCLAdapterHelper.CreateLinkedDisplayAdaptersArgs();
+            nativeArgs.NumAdapters = 2;
+
+            var dto = LinkedDisplayAdaptersResultDto.FromNative(nativeArgs, new[] { (IntPtr)100, (IntPtr)200 });
+
+            Assert.Equal((byte)2, dto.Args.NumAdapters);
+            Assert.NotNull(dto.LinkedAdapters);
+            Assert.Equal(2, dto.LinkedAdapters!.Count);
+            Assert.Equal((nint)100, dto.LinkedAdapters[0]);
+            Assert.Equal((nint)200, dto.LinkedAdapters[1]);
+
+            var nativeRoundTrip = dto.Args.ToNative();
+            Assert.Equal((byte)2, nativeRoundTrip.NumAdapters);
+        }
+
     }
 }

@@ -1008,6 +1008,16 @@ namespace IGCLWrapper
         }
 
         /// <summary>
+        /// Get sharpness capabilities and filter properties as a DTO.
+        /// </summary>
+        /// <returns>Sharpness capabilities DTO.</returns>
+        public SharpnessCapsDto GetSharpnessCapsDto()
+        {
+            var native = GetSharpnessCaps();
+            return SharpnessCapsDto.FromNative(native.caps, native.filters);
+        }
+
+        /// <summary>
         /// Get current sharpness settings using the native struct.
         /// </summary>
         /// <returns>Sharpness settings struct.</returns>
@@ -1114,6 +1124,15 @@ namespace IGCLWrapper
         }
 
         /// <summary>
+        /// Get power optimization capabilities as a DTO.
+        /// </summary>
+        /// <returns>Power optimization capabilities DTO.</returns>
+        public PowerOptimizationCapsDto GetPowerOptimizationCapsDto()
+        {
+            return PowerOptimizationCapsDto.FromNative(GetPowerOptimizationCaps());
+        }
+
+        /// <summary>
         /// Get power optimization settings using the native struct.
         /// </summary>
         /// <param name="settings">Settings request struct.</param>
@@ -1180,6 +1199,15 @@ namespace IGCLWrapper
         }
 
         /// <summary>
+        /// Set display brightness using a DTO.
+        /// </summary>
+        /// <param name="brightness">Brightness settings DTO.</param>
+        public void SetBrightnessSetting(BrightnessSetDto brightness)
+        {
+            SetBrightnessSetting(brightness.ToNative());
+        }
+
+        /// <summary>
         /// Get display brightness.
         /// </summary>
         /// <returns>Brightness settings struct.</returns>
@@ -1191,6 +1219,15 @@ namespace IGCLWrapper
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, $"Failed to get brightness: {result}");
             return brightness;
+        }
+
+        /// <summary>
+        /// Get display brightness as a DTO.
+        /// </summary>
+        /// <returns>Brightness settings DTO.</returns>
+        public BrightnessGetDto GetBrightnessSettingDto()
+        {
+            return BrightnessGetDto.FromNative(GetBrightnessSetting());
         }
 
         /// <summary>
@@ -1386,6 +1423,15 @@ namespace IGCLWrapper
         }
 
         /// <summary>
+        /// Get supported retro scaling capabilities as a DTO.
+        /// </summary>
+        /// <returns>Retro scaling capabilities DTO.</returns>
+        public RetroScalingCapsDto GetSupportedRetroScalingCapabilityDto()
+        {
+            return RetroScalingCapsDto.FromNative(GetSupportedRetroScalingCapability());
+        }
+
+        /// <summary>
         /// Call the native get/set retro scaling API using the provided struct.
         /// </summary>
         /// <param name="settings">Retro scaling settings struct.</param>
@@ -1438,6 +1484,15 @@ namespace IGCLWrapper
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get scaling capability");
             return caps;
+        }
+
+        /// <summary>
+        /// Get supported scaling capabilities as a DTO.
+        /// </summary>
+        /// <returns>Scaling capabilities DTO.</returns>
+        public ScalingCapsDto GetSupportedScalingCapabilityDto()
+        {
+            return ScalingCapsDto.FromNative(GetSupportedScalingCapability());
         }
 
         /// <summary>
@@ -1638,6 +1693,17 @@ namespace IGCLWrapper
         }
 
         /// <summary>
+        /// Get mux properties and display outputs as a DTO.
+        /// </summary>
+        /// <param name="muxHandle">Mux handle.</param>
+        /// <returns>Mux properties DTO.</returns>
+        public MuxPropertiesDto GetMuxPropertiesDto(IntPtr muxHandle)
+        {
+            var native = GetMuxProperties(muxHandle);
+            return MuxPropertiesDto.FromNative(native.properties, native.displayOutputs);
+        }
+
+        /// <summary>
         /// Switch mux to the specified inactive display output.
         /// </summary>
         /// <param name="muxHandle">Mux handle.</param>
@@ -1665,6 +1731,15 @@ namespace IGCLWrapper
         }
 
         /// <summary>
+        /// Get Intel Arc Sync profile parameters as a DTO.
+        /// </summary>
+        /// <returns>Arc Sync profile parameters DTO.</returns>
+        public IntelArcSyncProfileParamsDto GetIntelArcSyncProfileDto()
+        {
+            return IntelArcSyncProfileParamsDto.FromNative(GetIntelArcSyncProfile());
+        }
+
+        /// <summary>
         /// Set Intel Arc Sync profile parameters.
         /// </summary>
         /// <param name="parameters">Arc Sync profile params struct.</param>
@@ -1675,6 +1750,15 @@ namespace IGCLWrapper
             var result = IGCL.ctlSetIntelArcSyncProfile((_ctl_display_output_handle_t*)DisplayHandle, &copy);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to set Intel Arc Sync profile");
+        }
+
+        /// <summary>
+        /// Set Intel Arc Sync profile parameters using a DTO.
+        /// </summary>
+        /// <param name="parameters">Arc Sync profile parameters DTO.</param>
+        public void SetIntelArcSyncProfile(IntelArcSyncProfileParamsDto parameters)
+        {
+            SetIntelArcSyncProfile(parameters.ToNative());
         }
 
         /// <summary>
@@ -1800,6 +1884,16 @@ namespace IGCLWrapper
         }
 
         /// <summary>
+        /// Get custom display modes as DTOs.
+        /// </summary>
+        /// <returns>Custom mode result DTO.</returns>
+        public CustomModesResultDto GetCustomModesDto()
+        {
+            var native = GetCustomModes();
+            return CustomModesResultDto.FromNative(native.args, native.modes);
+        }
+
+        /// <summary>
         /// Set custom display modes using the provided arguments and mode list.
         /// </summary>
         /// <param name="args">Custom mode args.</param>
@@ -1828,6 +1922,23 @@ namespace IGCLWrapper
         }
 
         /// <summary>
+        /// Set custom display modes using DTOs.
+        /// </summary>
+        /// <param name="args">Custom mode args DTO.</param>
+        /// <param name="modes">Custom mode DTOs.</param>
+        public void SetCustomModes(CustomModeArgsDto args, IReadOnlyList<CustomSourceModeDto> modes)
+        {
+            if (modes == null || modes.Count == 0)
+                throw new ArgumentException("At least one mode is required", nameof(modes));
+
+            var nativeModes = new ctl_custom_src_mode_t[modes.Count];
+            for (var i = 0; i < modes.Count; i++)
+                nativeModes[i] = modes[i].ToNative();
+
+            SetCustomModes(args.ToNative(), nativeModes);
+        }
+
+        /// <summary>
         /// Get vblank timestamp information.
         /// </summary>
         /// <returns>Vblank timestamp args struct.</returns>
@@ -1841,6 +1952,15 @@ namespace IGCLWrapper
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get vblank timestamp");
             return args;
+        }
+
+        /// <summary>
+        /// Get vblank timestamp information as a DTO.
+        /// </summary>
+        /// <returns>Vblank timestamp DTO.</returns>
+        public VblankTimestampArgsDto GetVblankTimestampDto()
+        {
+            return VblankTimestampArgsDto.FromNative(GetVblankTimestamp());
         }
 
         /// <summary>
@@ -5264,6 +5384,551 @@ namespace IGCLWrapper
         private static uint SetFlag(uint value, uint flag, bool enabled)
         {
             return enabled ? (value | flag) : (value & ~flag);
+        }
+    }
+
+    /// <summary>
+    /// DTO for brightness get arguments.
+    /// </summary>
+    public struct BrightnessGetDto
+    {
+        public uint Size;
+        public byte Version;
+        public uint TargetBrightness;
+        public uint CurrentBrightness;
+        public List<uint>? ReservedFields;
+
+        public static unsafe BrightnessGetDto FromNative(ctl_get_brightness_t native)
+        {
+            return new BrightnessGetDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                TargetBrightness = native.TargetBrightness,
+                CurrentBrightness = native.CurrentBrightness,
+                ReservedFields = ReadReserved(native.ReservedFields)
+            };
+        }
+
+        public unsafe ctl_get_brightness_t ToNative()
+        {
+            var size = Size == 0 ? (uint)sizeof(ctl_get_brightness_t) : Size;
+            var native = new ctl_get_brightness_t
+            {
+                Size = size,
+                Version = Version,
+                TargetBrightness = TargetBrightness,
+                CurrentBrightness = CurrentBrightness
+            };
+
+            WriteReserved(ReservedFields, ref native.ReservedFields);
+            return native;
+        }
+
+        private static unsafe List<uint> ReadReserved(ctl_get_brightness_t._ReservedFields_e__FixedBuffer buffer)
+        {
+            const int count = 4;
+            var values = new List<uint>(count);
+            var pValues = (uint*)Unsafe.AsPointer(ref buffer.e0);
+            for (var i = 0; i < count; i++)
+                values.Add(pValues[i]);
+            return values;
+        }
+
+        private static unsafe void WriteReserved(List<uint>? values, ref ctl_get_brightness_t._ReservedFields_e__FixedBuffer buffer)
+        {
+            const int count = 4;
+            var pValues = (uint*)Unsafe.AsPointer(ref buffer.e0);
+            for (var i = 0; i < count; i++)
+                pValues[i] = 0;
+
+            if (values == null)
+                return;
+
+            var writeCount = Math.Min(values.Count, count);
+            for (var i = 0; i < writeCount; i++)
+                pValues[i] = values[i];
+        }
+    }
+
+    /// <summary>
+    /// DTO for brightness set arguments.
+    /// </summary>
+    public struct BrightnessSetDto
+    {
+        public uint Size;
+        public byte Version;
+        public uint TargetBrightness;
+        public uint SmoothTransitionTimeInMs;
+        public List<uint>? ReservedFields;
+
+        public static unsafe BrightnessSetDto FromNative(ctl_set_brightness_t native)
+        {
+            return new BrightnessSetDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                TargetBrightness = native.TargetBrightness,
+                SmoothTransitionTimeInMs = native.SmoothTransitionTimeInMs,
+                ReservedFields = ReadReserved(native.ReservedFields)
+            };
+        }
+
+        public unsafe ctl_set_brightness_t ToNative()
+        {
+            var size = Size == 0 ? (uint)sizeof(ctl_set_brightness_t) : Size;
+            var native = new ctl_set_brightness_t
+            {
+                Size = size,
+                Version = Version,
+                TargetBrightness = TargetBrightness,
+                SmoothTransitionTimeInMs = SmoothTransitionTimeInMs
+            };
+
+            WriteReserved(ReservedFields, ref native.ReservedFields);
+            return native;
+        }
+
+        private static unsafe List<uint> ReadReserved(ctl_set_brightness_t._ReservedFields_e__FixedBuffer buffer)
+        {
+            const int count = 4;
+            var values = new List<uint>(count);
+            var pValues = (uint*)Unsafe.AsPointer(ref buffer.e0);
+            for (var i = 0; i < count; i++)
+                values.Add(pValues[i]);
+            return values;
+        }
+
+        private static unsafe void WriteReserved(List<uint>? values, ref ctl_set_brightness_t._ReservedFields_e__FixedBuffer buffer)
+        {
+            const int count = 4;
+            var pValues = (uint*)Unsafe.AsPointer(ref buffer.e0);
+            for (var i = 0; i < count; i++)
+                pValues[i] = 0;
+
+            if (values == null)
+                return;
+
+            var writeCount = Math.Min(values.Count, count);
+            for (var i = 0; i < writeCount; i++)
+                pValues[i] = values[i];
+        }
+    }
+
+    /// <summary>
+    /// DTO for scaling capabilities.
+    /// </summary>
+    public struct ScalingCapsDto
+    {
+        public uint Size;
+        public byte Version;
+        public uint SupportedScaling;
+
+        public static ScalingCapsDto FromNative(ctl_scaling_caps_t native)
+        {
+            return new ScalingCapsDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                SupportedScaling = native.SupportedScaling
+            };
+        }
+
+        public unsafe ctl_scaling_caps_t ToNative()
+        {
+            return new ctl_scaling_caps_t
+            {
+                Size = Size == 0 ? (uint)sizeof(ctl_scaling_caps_t) : Size,
+                Version = Version,
+                SupportedScaling = SupportedScaling
+            };
+        }
+    }
+
+    /// <summary>
+    /// DTO for retro scaling capabilities.
+    /// </summary>
+    public struct RetroScalingCapsDto
+    {
+        public uint Size;
+        public byte Version;
+        public uint SupportedRetroScaling;
+
+        public static RetroScalingCapsDto FromNative(ctl_retro_scaling_caps_t native)
+        {
+            return new RetroScalingCapsDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                SupportedRetroScaling = native.SupportedRetroScaling
+            };
+        }
+
+        public unsafe ctl_retro_scaling_caps_t ToNative()
+        {
+            return new ctl_retro_scaling_caps_t
+            {
+                Size = Size == 0 ? (uint)sizeof(ctl_retro_scaling_caps_t) : Size,
+                Version = Version,
+                SupportedRetroScaling = SupportedRetroScaling
+            };
+        }
+    }
+
+    /// <summary>
+    /// DTO for power optimization capabilities.
+    /// </summary>
+    public struct PowerOptimizationCapsDto
+    {
+        public uint Size;
+        public byte Version;
+        public uint SupportedFeatures;
+
+        public static PowerOptimizationCapsDto FromNative(ctl_power_optimization_caps_t native)
+        {
+            return new PowerOptimizationCapsDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                SupportedFeatures = native.SupportedFeatures
+            };
+        }
+
+        public unsafe ctl_power_optimization_caps_t ToNative()
+        {
+            return new ctl_power_optimization_caps_t
+            {
+                Size = Size == 0 ? (uint)sizeof(ctl_power_optimization_caps_t) : Size,
+                Version = Version,
+                SupportedFeatures = SupportedFeatures
+            };
+        }
+    }
+
+    /// <summary>
+    /// DTO for property range information.
+    /// </summary>
+    public struct PropertyRangeInfoDto
+    {
+        public float MinPossibleValue;
+        public float MaxPossibleValue;
+        public float StepSize;
+        public float DefaultValue;
+
+        public static PropertyRangeInfoDto FromNative(ctl_property_range_info_t native)
+        {
+            return new PropertyRangeInfoDto
+            {
+                MinPossibleValue = native.min_possible_value,
+                MaxPossibleValue = native.max_possible_value,
+                StepSize = native.step_size,
+                DefaultValue = native.default_value
+            };
+        }
+
+        public ctl_property_range_info_t ToNative()
+        {
+            return new ctl_property_range_info_t
+            {
+                min_possible_value = MinPossibleValue,
+                max_possible_value = MaxPossibleValue,
+                step_size = StepSize,
+                default_value = DefaultValue
+            };
+        }
+    }
+
+    /// <summary>
+    /// DTO for sharpness filter properties.
+    /// </summary>
+    public struct SharpnessFilterPropertiesDto
+    {
+        public uint FilterType;
+        public PropertyRangeInfoDto FilterDetails;
+
+        public static SharpnessFilterPropertiesDto FromNative(ctl_sharpness_filter_properties_t native)
+        {
+            return new SharpnessFilterPropertiesDto
+            {
+                FilterType = native.FilterType,
+                FilterDetails = PropertyRangeInfoDto.FromNative(native.FilterDetails)
+            };
+        }
+
+        public ctl_sharpness_filter_properties_t ToNative()
+        {
+            return new ctl_sharpness_filter_properties_t
+            {
+                FilterType = FilterType,
+                FilterDetails = FilterDetails.ToNative()
+            };
+        }
+    }
+
+    /// <summary>
+    /// DTO for sharpness capabilities and filter properties.
+    /// </summary>
+    public struct SharpnessCapsDto
+    {
+        public uint Size;
+        public byte Version;
+        public uint SupportedFilterFlags;
+        public byte NumFilterTypes;
+        public List<SharpnessFilterPropertiesDto>? FilterProperties;
+
+        public static SharpnessCapsDto FromNative(ctl_sharpness_caps_t caps, ctl_sharpness_filter_properties_t[] filters)
+        {
+            var list = new List<SharpnessFilterPropertiesDto>(filters.Length);
+            for (var i = 0; i < filters.Length; i++)
+                list.Add(SharpnessFilterPropertiesDto.FromNative(filters[i]));
+
+            return new SharpnessCapsDto
+            {
+                Size = caps.Size,
+                Version = caps.Version,
+                SupportedFilterFlags = caps.SupportedFilterFlags,
+                NumFilterTypes = caps.NumFilterTypes,
+                FilterProperties = list
+            };
+        }
+
+        public unsafe ctl_sharpness_caps_t ToNative()
+        {
+            return new ctl_sharpness_caps_t
+            {
+                Size = Size == 0 ? (uint)sizeof(ctl_sharpness_caps_t) : Size,
+                Version = Version,
+                SupportedFilterFlags = SupportedFilterFlags,
+                NumFilterTypes = NumFilterTypes == 0 && FilterProperties != null ? (byte)FilterProperties.Count : NumFilterTypes,
+                pFilterProperty = null
+            };
+        }
+    }
+
+    /// <summary>
+    /// DTO for Intel Arc Sync profile params.
+    /// </summary>
+    public struct IntelArcSyncProfileParamsDto
+    {
+        public uint Size;
+        public byte Version;
+        public ctl_intel_arc_sync_profile_t IntelArcSyncProfile;
+        public float MaxRefreshRateInHz;
+        public float MinRefreshRateInHz;
+        public uint MaxFrameTimeIncreaseInUs;
+        public uint MaxFrameTimeDecreaseInUs;
+
+        public static IntelArcSyncProfileParamsDto FromNative(ctl_intel_arc_sync_profile_params_t native)
+        {
+            return new IntelArcSyncProfileParamsDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                IntelArcSyncProfile = native.IntelArcSyncProfile,
+                MaxRefreshRateInHz = native.MaxRefreshRateInHz,
+                MinRefreshRateInHz = native.MinRefreshRateInHz,
+                MaxFrameTimeIncreaseInUs = native.MaxFrameTimeIncreaseInUs,
+                MaxFrameTimeDecreaseInUs = native.MaxFrameTimeDecreaseInUs
+            };
+        }
+
+        public unsafe ctl_intel_arc_sync_profile_params_t ToNative()
+        {
+            return new ctl_intel_arc_sync_profile_params_t
+            {
+                Size = Size == 0 ? (uint)sizeof(ctl_intel_arc_sync_profile_params_t) : Size,
+                Version = Version,
+                IntelArcSyncProfile = IntelArcSyncProfile,
+                MaxRefreshRateInHz = MaxRefreshRateInHz,
+                MinRefreshRateInHz = MinRefreshRateInHz,
+                MaxFrameTimeIncreaseInUs = MaxFrameTimeIncreaseInUs,
+                MaxFrameTimeDecreaseInUs = MaxFrameTimeDecreaseInUs
+            };
+        }
+    }
+
+    /// <summary>
+    /// DTO for custom source mode.
+    /// </summary>
+    public struct CustomSourceModeDto
+    {
+        public uint SourceX;
+        public uint SourceY;
+
+        public static CustomSourceModeDto FromNative(ctl_custom_src_mode_t native)
+        {
+            return new CustomSourceModeDto
+            {
+                SourceX = native.SourceX,
+                SourceY = native.SourceY
+            };
+        }
+
+        public ctl_custom_src_mode_t ToNative()
+        {
+            return new ctl_custom_src_mode_t
+            {
+                SourceX = SourceX,
+                SourceY = SourceY
+            };
+        }
+    }
+
+    /// <summary>
+    /// DTO for custom mode args.
+    /// </summary>
+    public struct CustomModeArgsDto
+    {
+        public uint Size;
+        public byte Version;
+        public ctl_custom_mode_operation_types_t CustomModeOpType;
+        public uint NumOfModes;
+        public List<CustomSourceModeDto>? Modes;
+
+        public static CustomModeArgsDto FromNative(ctl_get_set_custom_mode_args_t native)
+        {
+            return new CustomModeArgsDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                CustomModeOpType = native.CustomModeOpType,
+                NumOfModes = native.NumOfModes
+            };
+        }
+
+        public unsafe ctl_get_set_custom_mode_args_t ToNative()
+        {
+            return new ctl_get_set_custom_mode_args_t
+            {
+                Size = Size == 0 ? (uint)sizeof(ctl_get_set_custom_mode_args_t) : Size,
+                Version = Version,
+                CustomModeOpType = CustomModeOpType,
+                NumOfModes = NumOfModes == 0 && Modes != null ? (uint)Modes.Count : NumOfModes,
+                pCustomSrcModeList = null
+            };
+        }
+    }
+
+    /// <summary>
+    /// DTO for custom mode get results.
+    /// </summary>
+    public struct CustomModesResultDto
+    {
+        public CustomModeArgsDto Args;
+        public List<CustomSourceModeDto>? Modes;
+
+        public static CustomModesResultDto FromNative(ctl_get_set_custom_mode_args_t args, ctl_custom_src_mode_t[] modes)
+        {
+            var modeList = new List<CustomSourceModeDto>(modes.Length);
+            for (var i = 0; i < modes.Length; i++)
+                modeList.Add(CustomSourceModeDto.FromNative(modes[i]));
+
+            var dtoArgs = CustomModeArgsDto.FromNative(args);
+            dtoArgs.Modes = modeList;
+
+            return new CustomModesResultDto
+            {
+                Args = dtoArgs,
+                Modes = modeList
+            };
+        }
+    }
+
+    /// <summary>
+    /// DTO for mux properties and display outputs.
+    /// </summary>
+    public struct MuxPropertiesDto
+    {
+        public uint Size;
+        public byte Version;
+        public byte MuxId;
+        public uint Count;
+        public byte IndexOfDisplayOutputOwningMux;
+        public List<nint>? DisplayOutputs;
+
+        public static MuxPropertiesDto FromNative(ctl_mux_properties_t native, IntPtr[] outputs)
+        {
+            var list = new List<nint>(outputs.Length);
+            for (var i = 0; i < outputs.Length; i++)
+                list.Add(outputs[i]);
+
+            return new MuxPropertiesDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                MuxId = native.MuxId,
+                Count = native.Count,
+                IndexOfDisplayOutputOwningMux = native.IndexOfDisplayOutputOwningMux,
+                DisplayOutputs = list
+            };
+        }
+
+        public unsafe ctl_mux_properties_t ToNative()
+        {
+            return new ctl_mux_properties_t
+            {
+                Size = Size == 0 ? (uint)sizeof(ctl_mux_properties_t) : Size,
+                Version = Version,
+                MuxId = MuxId,
+                Count = Count == 0 && DisplayOutputs != null ? (uint)DisplayOutputs.Count : Count,
+                phDisplayOutputs = null,
+                IndexOfDisplayOutputOwningMux = IndexOfDisplayOutputOwningMux
+            };
+        }
+    }
+
+    /// <summary>
+    /// DTO for vblank timestamp args.
+    /// </summary>
+    public struct VblankTimestampArgsDto
+    {
+        public uint Size;
+        public byte Version;
+        public byte NumOfTargets;
+        public List<ulong>? VblankTimestamps;
+
+        public static unsafe VblankTimestampArgsDto FromNative(ctl_vblank_ts_args_t native)
+        {
+            const int maxTargets = 16;
+            var values = new List<ulong>(maxTargets);
+            var pValues = (ulong*)Unsafe.AsPointer(ref native.VblankTS.e0);
+            for (var i = 0; i < maxTargets; i++)
+                values.Add(pValues[i]);
+
+            return new VblankTimestampArgsDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                NumOfTargets = native.NumOfTargets,
+                VblankTimestamps = values
+            };
+        }
+
+        public unsafe ctl_vblank_ts_args_t ToNative()
+        {
+            var native = new ctl_vblank_ts_args_t
+            {
+                Size = Size == 0 ? (uint)sizeof(ctl_vblank_ts_args_t) : Size,
+                Version = Version,
+                NumOfTargets = NumOfTargets
+            };
+
+            const int maxTargets = 16;
+            var pValues = (ulong*)Unsafe.AsPointer(ref native.VblankTS.e0);
+            for (var i = 0; i < maxTargets; i++)
+                pValues[i] = 0;
+
+            if (VblankTimestamps != null)
+            {
+                var count = Math.Min(VblankTimestamps.Count, maxTargets);
+                for (var i = 0; i < count; i++)
+                    pValues[i] = VblankTimestamps[i];
+
+                if (native.NumOfTargets == 0)
+                    native.NumOfTargets = (byte)count;
+            }
+
+            return native;
         }
     }
 }
