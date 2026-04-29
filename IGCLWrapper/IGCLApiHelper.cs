@@ -220,6 +220,51 @@ namespace IGCLWrapper
         }
 
         /// <summary>
+        /// Create a DTO request for setting the IGCL runtime path.
+        /// </summary>
+        /// <param name="runtimePath">Runtime path to use.</param>
+        /// <returns>Initialized runtime path DTO.</returns>
+        public static unsafe RuntimePathArgsDto CreateRuntimePathRequest(string runtimePath)
+        {
+            return new RuntimePathArgsDto
+            {
+                Size = (uint)sizeof(ctl_runtime_path_args_t),
+                Version = 0,
+                RuntimePath = runtimePath
+            };
+        }
+
+        /// <summary>
+        /// Validate a runtime path DTO request before invoking the native API.
+        /// </summary>
+        /// <param name="args">Runtime path DTO.</param>
+        public static void ValidateSetRuntimePathRequest(RuntimePathArgsDto args)
+        {
+            if (string.IsNullOrWhiteSpace(args.RuntimePath))
+                throw new ArgumentException("Runtime path is required.", nameof(args));
+        }
+
+        /// <summary>
+        /// Set the IGCL runtime path using a DTO request.
+        /// </summary>
+        /// <param name="args">Runtime path DTO.</param>
+        public unsafe void SetRuntimePath(RuntimePathArgsDto args)
+        {
+            ThrowIfDisposed();
+            ValidateSetRuntimePathRequest(args);
+
+            var runtimePath = args.RuntimePath!;
+            var native = args.ToNative();
+            fixed (char* pRuntimePath = runtimePath)
+            {
+                native.pRuntimePath = (ushort*)pRuntimePath;
+                var result = IGCL.ctlSetRuntimePath(&native);
+                if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                    throw new IGCLException(result, "Failed to set runtime path");
+            }
+        }
+
+        /// <summary>
         /// Compare runtime path arguments while ignoring native-only fields.
         /// </summary>
         /// <param name="left">Left runtime path args struct.</param>
@@ -1087,11 +1132,23 @@ namespace IGCLWrapper
         /// <param name="operation">Genlock operation.</param>
         /// <param name="args">Genlock args DTO.</param>
         /// <param name="failureAdapter">Adapter handle that failed, if any.</param>
-        public void SetDisplayGenlockNative(IntPtr[] adapters, ctl_genlock_operation_t operation, GenlockArgsDto args, out IntPtr failureAdapter)
+        public void SetDisplayGenlock(IntPtr[] adapters, ctl_genlock_operation_t operation, GenlockArgsDto args, out IntPtr failureAdapter)
         {
             var request = args;
             request.Operation = operation;
             GetSetDisplayGenlockNative(adapters, request.ToNative(), out failureAdapter);
+        }
+
+        /// <summary>
+        /// Set display genlock settings using a DTO.
+        /// </summary>
+        /// <param name="adapters">Adapter handles.</param>
+        /// <param name="operation">Genlock operation.</param>
+        /// <param name="args">Genlock args DTO.</param>
+        /// <param name="failureAdapter">Adapter handle that failed, if any.</param>
+        public void SetDisplayGenlockNative(IntPtr[] adapters, ctl_genlock_operation_t operation, GenlockArgsDto args, out IntPtr failureAdapter)
+        {
+            SetDisplayGenlock(adapters, operation, args, out failureAdapter);
         }
 
         /// <summary>
@@ -1105,6 +1162,36 @@ namespace IGCLWrapper
             var result = IGCL.ctlLinkDisplayAdapters((_ctl_device_adapter_handle_t*)AdapterHandle, &copy);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to link display adapters");
+        }
+
+        /// <summary>
+        /// Link display adapters using a DTO request and managed adapter handle list.
+        /// </summary>
+        /// <param name="args">Linked display adapters args DTO.</param>
+        /// <param name="linkedAdapters">Linked adapter handles to submit.</param>
+        public unsafe void LinkDisplayAdapters(LinkedDisplayAdaptersArgsDto args, IReadOnlyList<nint> linkedAdapters)
+        {
+            ThrowIfDisposed();
+
+            if (linkedAdapters == null)
+                throw new ArgumentNullException(nameof(linkedAdapters));
+            if (linkedAdapters.Count == 0)
+                throw new ArgumentException("At least one linked adapter handle is required.", nameof(linkedAdapters));
+
+            var native = args.ToNative();
+            native.NumAdapters = (byte)linkedAdapters.Count;
+            var handles = new IntPtr[linkedAdapters.Count];
+            for (var i = 0; i < linkedAdapters.Count; i++)
+                handles[i] = (IntPtr)linkedAdapters[i];
+
+            fixed (IntPtr* pHandles = handles)
+            {
+                native.hLinkedAdapters = (_ctl_device_adapter_handle_t**)pHandles;
+                var result = IGCL.ctlLinkDisplayAdapters((_ctl_device_adapter_handle_t*)AdapterHandle, &native);
+                native.hLinkedAdapters = null;
+                if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                    throw new IGCLException(result, "Failed to link display adapters");
+            }
         }
 
         /// <summary>
@@ -1159,6 +1246,23 @@ namespace IGCLWrapper
         private static unsafe ctl_wait_property_change_args_t CreateWaitPropertyChangeArgs() => new ctl_wait_property_change_args_t { Size = (uint)sizeof(ctl_wait_property_change_args_t), Version = 0 };
 
         /// <summary>
+        /// Create a DTO request for waiting on a property change.
+        /// </summary>
+        /// <param name="propertyType">Property type flags to wait on.</param>
+        /// <param name="timeOutMilliSec">Timeout in milliseconds.</param>
+        /// <returns>Initialized wait request DTO.</returns>
+        public static unsafe WaitPropertyChangeArgsDto CreateWaitPropertyChangeRequest(uint propertyType, uint timeOutMilliSec)
+        {
+            return new WaitPropertyChangeArgsDto
+            {
+                Size = (uint)sizeof(ctl_wait_property_change_args_t),
+                Version = 0,
+                PropertyType = propertyType,
+                TimeOutMilliSec = timeOutMilliSec
+            };
+        }
+
+        /// <summary>
         /// Wait for a property change event.
         /// </summary>
         /// <param name="args">Wait arguments.</param>
@@ -1175,6 +1279,17 @@ namespace IGCLWrapper
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to wait for property change");
             return copy;
+        }
+
+        /// <summary>
+        /// Wait for a property change event using a DTO request.
+        /// </summary>
+        /// <param name="args">Wait request DTO.</param>
+        /// <returns>Updated wait request DTO.</returns>
+        public WaitPropertyChangeArgsDto WaitForPropertyChange(WaitPropertyChangeArgsDto args)
+        {
+            var native = WaitForPropertyChange(args.ToNative());
+            return WaitPropertyChangeArgsDto.FromNative(native);
         }
 
         /// <summary>
@@ -2368,6 +2483,206 @@ namespace IGCLWrapper
             {
                 Args = LinkedDisplayAdaptersArgsDto.FromNative(args),
                 LinkedAdapters = adapters
+            };
+        }
+    }
+
+    /// <summary>
+    /// DTO for application identifier data.
+    /// </summary>
+    public struct ApplicationIdDto : IEquatable<ApplicationIdDto>
+    {
+        public uint Data1;
+        public ushort Data2;
+        public ushort Data3;
+        public List<byte>? Data4;
+
+        public bool Equals(ApplicationIdDto other)
+        {
+            return Data1 == other.Data1 &&
+                   Data2 == other.Data2 &&
+                   Data3 == other.Data3 &&
+                   ByteListsEqual(Data4, other.Data4);
+        }
+
+        public override bool Equals(object? obj) => obj is ApplicationIdDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Data1);
+            hash.Add(Data2);
+            hash.Add(Data3);
+            if (Data4 != null)
+            {
+                for (var i = 0; i < Data4.Count; i++)
+                    hash.Add(Data4[i]);
+            }
+
+            return hash.ToHashCode();
+        }
+
+        public static ApplicationIdDto FromNative(ctl_application_id_t native)
+        {
+            var data4 = new List<byte>(8);
+            var span = MemoryMarshal.CreateReadOnlySpan(ref native.Data4.e0, 8);
+            for (var i = 0; i < span.Length; i++)
+                data4.Add(span[i]);
+
+            return new ApplicationIdDto
+            {
+                Data1 = native.Data1,
+                Data2 = native.Data2,
+                Data3 = native.Data3,
+                Data4 = data4
+            };
+        }
+
+        public ctl_application_id_t ToNative()
+        {
+            var native = new ctl_application_id_t
+            {
+                Data1 = Data1,
+                Data2 = Data2,
+                Data3 = Data3
+            };
+
+            var span = MemoryMarshal.CreateSpan(ref native.Data4.e0, 8);
+            span.Clear();
+            if (Data4 != null)
+            {
+                var writeCount = Math.Min(Data4.Count, span.Length);
+                for (var i = 0; i < writeCount; i++)
+                    span[i] = Data4[i];
+            }
+
+            return native;
+        }
+
+        private static bool ByteListsEqual(List<byte>? left, List<byte>? right)
+        {
+            if (ReferenceEquals(left, right))
+                return true;
+            if (left == null || right == null || left.Count != right.Count)
+                return false;
+
+            for (var i = 0; i < left.Count; i++)
+            {
+                if (left[i] != right[i])
+                    return false;
+            }
+
+            return true;
+        }
+    }
+
+    /// <summary>
+    /// DTO for runtime path arguments.
+    /// </summary>
+    public struct RuntimePathArgsDto : IEquatable<RuntimePathArgsDto>
+    {
+        public uint Size;
+        public byte Version;
+        public ApplicationIdDto UnlockID;
+        public string? RuntimePath;
+        public ushort DeviceID;
+        public byte RevID;
+
+        public bool Equals(RuntimePathArgsDto other)
+        {
+            return UnlockID.Equals(other.UnlockID) &&
+                   string.Equals(RuntimePath, other.RuntimePath, StringComparison.Ordinal) &&
+                   DeviceID == other.DeviceID &&
+                   RevID == other.RevID;
+        }
+
+        public override bool Equals(object? obj) => obj is RuntimePathArgsDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(UnlockID, RuntimePath, DeviceID, RevID);
+        }
+
+        public static unsafe RuntimePathArgsDto FromNative(ctl_runtime_path_args_t native)
+        {
+            return new RuntimePathArgsDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                UnlockID = ApplicationIdDto.FromNative(native.UnlockID),
+                RuntimePath = native.pRuntimePath == null ? null : Marshal.PtrToStringUni((IntPtr)native.pRuntimePath),
+                DeviceID = native.DeviceID,
+                RevID = native.RevID
+            };
+        }
+
+        public unsafe ctl_runtime_path_args_t ToNative()
+        {
+            var size = Size == 0 ? (uint)sizeof(ctl_runtime_path_args_t) : Size;
+            return new ctl_runtime_path_args_t
+            {
+                Size = size,
+                Version = Version,
+                UnlockID = UnlockID.ToNative(),
+                pRuntimePath = null,
+                DeviceID = DeviceID,
+                RevID = RevID
+            };
+        }
+    }
+
+    /// <summary>
+    /// DTO for wait property change arguments.
+    /// </summary>
+    public struct WaitPropertyChangeArgsDto : IEquatable<WaitPropertyChangeArgsDto>
+    {
+        public uint Size;
+        public byte Version;
+        public uint PropertyType;
+        public uint TimeOutMilliSec;
+        public uint EventMiscFlags;
+        public ulong ReservedOutFlags;
+
+        public bool Equals(WaitPropertyChangeArgsDto other)
+        {
+            return PropertyType == other.PropertyType &&
+                   TimeOutMilliSec == other.TimeOutMilliSec &&
+                   EventMiscFlags == other.EventMiscFlags &&
+                   ReservedOutFlags == other.ReservedOutFlags;
+        }
+
+        public override bool Equals(object? obj) => obj is WaitPropertyChangeArgsDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(PropertyType, TimeOutMilliSec, EventMiscFlags, ReservedOutFlags);
+        }
+
+        public static WaitPropertyChangeArgsDto FromNative(ctl_wait_property_change_args_t native)
+        {
+            return new WaitPropertyChangeArgsDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                PropertyType = native.PropertyType,
+                TimeOutMilliSec = native.TimeOutMilliSec,
+                EventMiscFlags = native.EventMiscFlags,
+                ReservedOutFlags = native.ReservedOutFlags
+            };
+        }
+
+        public unsafe ctl_wait_property_change_args_t ToNative()
+        {
+            var size = Size == 0 ? (uint)sizeof(ctl_wait_property_change_args_t) : Size;
+            return new ctl_wait_property_change_args_t
+            {
+                Size = size,
+                Version = Version,
+                PropertyType = PropertyType,
+                TimeOutMilliSec = TimeOutMilliSec,
+                EventMiscFlags = EventMiscFlags,
+                pReserved = null,
+                ReservedOutFlags = ReservedOutFlags
             };
         }
     }

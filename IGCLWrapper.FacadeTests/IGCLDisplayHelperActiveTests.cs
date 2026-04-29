@@ -24,7 +24,7 @@ namespace IGCLWrapper.FacadeTests
         {
             RunActiveDisplayTest(nameof(SetCurrentSharpness_ShouldApplyAndRevert_WhenSupported), display =>
             {
-                var capsInfo = FacadeTestUtils.InvokeOrSkip(() => display.GetSharpnessCaps(), "Sharpness caps unsupported");
+                var capsInfo = FacadeTestUtils.InvokeOrSkip(() => display.GetSharpnessCapsNative(), "Sharpness caps unsupported");
                 if (capsInfo.caps.SupportedFilterFlags == 0 || capsInfo.filters.Length == 0)
                     return false;
 
@@ -81,13 +81,13 @@ namespace IGCLWrapper.FacadeTests
                 setArgs.SmoothTransitionTimeInMs = 200;
 
                 ApplyAndRevert(
-                    () => display.SetBrightnessSetting(setArgs),
+                    () => display.SetBrightnessSettingNative(setArgs),
                     () =>
                     {
                         var revert = IGCLDisplayHelper.CreateSetBrightness();
                         revert.TargetBrightness = current.CurrentBrightness;
                         revert.SmoothTransitionTimeInMs = 200;
-                        display.SetBrightnessSetting(revert);
+                        display.SetBrightnessSettingNative(revert);
                     });
 
                 return true;
@@ -100,7 +100,7 @@ namespace IGCLWrapper.FacadeTests
         {
             RunActiveDisplayTest(nameof(SetRetroScalingSettings_ShouldApplyAndRevert_WhenSupported), display =>
             {
-                var caps = FacadeTestUtils.InvokeOrSkip(() => display.GetSupportedRetroScalingCapability(), "Retro scaling caps unsupported");
+                var caps = FacadeTestUtils.InvokeOrSkip(() => display.GetSupportedRetroScalingCapabilityNative(), "Retro scaling caps unsupported");
                 if (caps.SupportedRetroScaling == 0)
                     return false;
 
@@ -119,7 +119,7 @@ namespace IGCLWrapper.FacadeTests
         {
             RunActiveDisplayTest(nameof(SetCurrentScaling_ShouldApplyAndRevert_WhenSupported), display =>
             {
-                var caps = FacadeTestUtils.InvokeOrSkip(() => display.GetSupportedScalingCapability(), "Scaling caps unsupported");
+                var caps = FacadeTestUtils.InvokeOrSkip(() => display.GetSupportedScalingCapabilityNative(), "Scaling caps unsupported");
                 if (caps.SupportedScaling == 0)
                     return false;
 
@@ -263,14 +263,14 @@ namespace IGCLWrapper.FacadeTests
                 var capabilityQuery = IGCLDisplayHelper.CreatePixtxPipeGetConfig();
                 capabilityQuery.QueryType = ctl_pixtx_config_query_type_t.CTL_PIXTX_CONFIG_QUERY_TYPE_CAPABILITY;
 
-                var capability = FacadeTestUtils.InvokeOrSkip(() => display.PixelTransformationGetConfig(capabilityQuery), "Pixel transformation unsupported");
+                var capability = FacadeTestUtils.InvokeOrSkip(() => display.PixelTransformationGetConfigNative(capabilityQuery), "Pixel transformation unsupported");
                 if (!TryPickPixTxMatrixBlock(capability.blocks, out var block))
                     return false;
 
                 PrepareMatrixBlock(ref block);
                 var currentQuery = IGCLDisplayHelper.CreatePixtxPipeGetConfig();
                 currentQuery.QueryType = ctl_pixtx_config_query_type_t.CTL_PIXTX_CONFIG_QUERY_TYPE_CURRENT;
-                var current = FacadeTestUtils.InvokeOrSkip(() => display.PixelTransformationGetConfig(currentQuery, new[] { block }), "Pixel transformation unsupported");
+                var current = FacadeTestUtils.InvokeOrSkip(() => display.PixelTransformationGetConfigNative(currentQuery, new[] { block }), "Pixel transformation unsupported");
                 if (!TryBuildPixTxMatrixUpdate(current.blocks, out var original, out var updated))
                     return false;
 
@@ -925,7 +925,7 @@ namespace IGCLWrapper.FacadeTests
             args.NumBlocks = 1;
             args.pBlockConfigs = &block;
 
-            display.PixelTransformationSetConfig(args);
+            display.PixelTransformationSetConfigNative(args);
         }
 
         private static uint PickFirstSetBit(uint value)

@@ -126,7 +126,7 @@ namespace IGCLWrapper.FacadeTests
 
                 var pixtxQuery = IGCLDisplayHelper.CreatePixtxPipeGetConfig();
                 pixtxQuery.QueryType = ctl_pixtx_config_query_type_t.CTL_PIXTX_CONFIG_QUERY_TYPE_CAPABILITY;
-                FacadeTestUtils.InvokeOrSkip(() => display.PixelTransformationGetConfig(pixtxQuery), "Pixtx config unsupported");
+                FacadeTestUtils.InvokeOrSkip(() => display.PixelTransformationGetConfigNative(pixtxQuery), "Pixtx config unsupported");
 
                 FacadeTestUtils.InvokeOrSkip(() => display.GetWireFormat(), "Wire format unsupported");
 
@@ -743,6 +743,193 @@ namespace IGCLWrapper.FacadeTests
             Assert.Equal((byte)2, vblankNative.NumOfTargets);
             Assert.Equal((ulong)111, vblankNative.VblankTS[0]);
             Assert.Equal((ulong)222, vblankNative.VblankTS[1]);
+        }
+
+        [Fact]
+        public void I2CAccessArgsDto_ShouldRoundTripMetadata()
+        {
+            var dto = I2CAccessArgsDto.CreateReadRequest(0x50, 0x00, 128);
+            Assert.Equal((uint)0x50, dto.Address);
+            Assert.Equal((uint)0x00, dto.Offset);
+            Assert.Equal((uint)128, dto.DataSize);
+            Assert.Equal(ctl_operation_type_t.CTL_OPERATION_TYPE_READ, dto.OpType);
+
+            var write = I2CAccessArgsDto.CreateWriteRequest(0x50, 0x00, new System.Collections.Generic.List<byte> { 0x01, 0x02 });
+            Assert.Equal(ctl_operation_type_t.CTL_OPERATION_TYPE_WRITE, write.OpType);
+            Assert.Equal((uint)2, write.DataSize);
+
+            var native = write.ToNative();
+            var roundTrip = I2CAccessArgsDto.FromNative(native);
+            Assert.Equal(write.Address, roundTrip.Address);
+            Assert.Equal(write.OpType, roundTrip.OpType);
+        }
+
+        [Fact]
+        public void I2CAccessPinPairArgsDto_ShouldRoundTripMetadata()
+        {
+            var dto = I2CAccessPinPairArgsDto.CreateReadRequest(0x50, 0x00, 64);
+            Assert.Equal((uint)0x50, dto.Address);
+            Assert.Equal((uint)64, dto.DataSize);
+            Assert.Equal(ctl_operation_type_t.CTL_OPERATION_TYPE_READ, dto.OpType);
+
+            var write = I2CAccessPinPairArgsDto.CreateWriteRequest(0x50, 0x00, new System.Collections.Generic.List<byte> { 0xAA, 0xBB });
+            Assert.Equal(ctl_operation_type_t.CTL_OPERATION_TYPE_WRITE, write.OpType);
+            Assert.Equal((uint)2, write.DataSize);
+
+            var native = write.ToNative();
+            var roundTrip = I2CAccessPinPairArgsDto.FromNative(native);
+            Assert.Equal(write.Address, roundTrip.Address);
+            Assert.Equal(write.OpType, roundTrip.OpType);
+        }
+
+        [Fact]
+        public void AuxAccessArgsDto_ShouldRoundTripMetadata()
+        {
+            var dto = AuxAccessArgsDto.CreateReadRequest(0x00010A, 4);
+            Assert.Equal((uint)0x00010A, dto.Address);
+            Assert.Equal((uint)4, dto.DataSize);
+            Assert.Equal(ctl_operation_type_t.CTL_OPERATION_TYPE_READ, dto.OpType);
+
+            var write = AuxAccessArgsDto.CreateWriteRequest(0x00010A, new System.Collections.Generic.List<byte> { 0x01 });
+            Assert.Equal(ctl_operation_type_t.CTL_OPERATION_TYPE_WRITE, write.OpType);
+            Assert.Equal((uint)1, write.DataSize);
+
+            var native = write.ToNative();
+            var roundTrip = AuxAccessArgsDto.FromNative(native);
+            Assert.Equal(write.Address, roundTrip.Address);
+            Assert.Equal(write.OpType, roundTrip.OpType);
+        }
+
+        [Fact]
+        public void PanelDescriptorAccessArgsDto_ShouldRoundTripMetadata()
+        {
+            var dto = PanelDescriptorAccessArgsDto.CreateReadRequest(0);
+            Assert.Equal(ctl_operation_type_t.CTL_OPERATION_TYPE_READ, dto.OpType);
+            Assert.Equal((uint)0, dto.BlockNumber);
+
+            var native = new ctl_panel_descriptor_access_args_t
+            {
+                OpType = ctl_operation_type_t.CTL_OPERATION_TYPE_READ,
+                BlockNumber = 1,
+                DescriptorDataSize = 128
+            };
+            var fromNative = PanelDescriptorAccessArgsDto.FromNative(native);
+            Assert.Equal(ctl_operation_type_t.CTL_OPERATION_TYPE_READ, fromNative.OpType);
+            Assert.Equal((uint)1, fromNative.BlockNumber);
+            Assert.Equal((uint)128, fromNative.DescriptorDataSize);
+        }
+
+        [Fact]
+        public void EdidManagementArgsDto_ShouldRoundTripMetadata()
+        {
+            var dto = EdidManagementArgsDto.CreateReadRequest(ctl_edid_type_t.CTL_EDID_TYPE_CURRENT);
+            Assert.Equal(ctl_edid_management_optype_t.CTL_EDID_MANAGEMENT_OPTYPE_READ_EDID, dto.OpType);
+            Assert.Equal(ctl_edid_type_t.CTL_EDID_TYPE_CURRENT, dto.EdidType);
+
+            var native = new ctl_edid_management_args_t
+            {
+                OpType = ctl_edid_management_optype_t.CTL_EDID_MANAGEMENT_OPTYPE_READ_EDID,
+                EdidType = ctl_edid_type_t.CTL_EDID_TYPE_CURRENT,
+                EdidSize = 256
+            };
+            var fromNative = EdidManagementArgsDto.FromNative(native);
+            Assert.Equal(ctl_edid_management_optype_t.CTL_EDID_MANAGEMENT_OPTYPE_READ_EDID, fromNative.OpType);
+            Assert.Equal((uint)256, fromNative.EdidSize);
+        }
+
+        [Fact]
+        public void PixtxColorPrimariesDto_ShouldRoundTrip()
+        {
+            var native = new ctl_pixtx_color_primaries_t { xR = 0.64f, yR = 0.33f, xG = 0.30f, yG = 0.60f, xB = 0.15f, yB = 0.06f, xW = 0.3127f, yW = 0.3290f };
+            var dto = PixtxColorPrimariesDto.FromNative(native);
+            Assert.Equal(0.64f, dto.xR);
+            Assert.Equal(0.33f, dto.yR);
+            var roundTrip = dto.ToNative();
+            Assert.Equal(0.64f, roundTrip.xR);
+            Assert.Equal(0.3127f, roundTrip.xW);
+        }
+
+        [Fact]
+        public void PixtxPixelFormatDto_ShouldRoundTrip()
+        {
+            var primaries = new ctl_pixtx_color_primaries_t { xR = 0.64f, yR = 0.33f };
+            var native = new ctl_pixtx_pixel_format_t
+            {
+                BitsPerColor = 10,
+                IsFloat = 0,
+                EncodingType = ctl_pixtx_gamma_encoding_type_t.CTL_PIXTX_GAMMA_ENCODING_TYPE_SRGB,
+                ColorSpace = ctl_pixtx_color_space_t.CTL_PIXTX_COLOR_SPACE_REC709,
+                ColorModel = ctl_pixtx_color_model_t.CTL_PIXTX_COLOR_MODEL_RGB_FR,
+                ColorPrimaries = primaries,
+                MaxBrightness = 100.0f,
+                MinBrightness = 0.0f
+            };
+            var dto = PixtxPixelFormatDto.FromNative(native);
+            Assert.Equal((uint)10, dto.BitsPerColor);
+            Assert.False(dto.IsFloatBool);
+            Assert.Equal(ctl_pixtx_color_space_t.CTL_PIXTX_COLOR_SPACE_REC709, dto.ColorSpace);
+            var roundTrip = dto.ToNative();
+            Assert.Equal((uint)10, roundTrip.BitsPerColor);
+        }
+
+        [Fact]
+        public void PixtxPipeGetConfigDto_ShouldRoundTrip()
+        {
+            var dto = PixtxPipeGetConfigDto.CreateCapabilityRequest();
+            Assert.Equal(ctl_pixtx_config_query_type_t.CTL_PIXTX_CONFIG_QUERY_TYPE_CAPABILITY, dto.QueryType);
+
+            var current = PixtxPipeGetConfigDto.CreateCurrentRequest();
+            Assert.Equal(ctl_pixtx_config_query_type_t.CTL_PIXTX_CONFIG_QUERY_TYPE_CURRENT, current.QueryType);
+
+            var native = new ctl_pixtx_pipe_get_config_t { QueryType = ctl_pixtx_config_query_type_t.CTL_PIXTX_CONFIG_QUERY_TYPE_CAPABILITY, NumBlocks = 3 };
+            var fromNative = PixtxPipeGetConfigDto.FromNative(native);
+            Assert.Equal((uint)3, fromNative.NumBlocks);
+        }
+
+        [Fact]
+        public void PixtxBlockConfigDto_ShouldRoundTrip()
+        {
+            var native = new ctl_pixtx_block_config_t
+            {
+                BlockId = 1,
+                BlockType = ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3D_LUT
+            };
+            var dto = PixtxBlockConfigDto.FromNative(native);
+            Assert.Equal((uint)1, dto.BlockId);
+            Assert.Equal(ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3D_LUT, dto.BlockType);
+        }
+
+        [Fact]
+        public void PixtxPipeSetConfigDto_ShouldRoundTrip()
+        {
+            var native = new ctl_pixtx_pipe_set_config_t
+            {
+                OpertaionType = ctl_pixtx_config_opertaion_type_t.CTL_PIXTX_CONFIG_OPERTAION_TYPE_RESTORE_DEFAULT,
+                Flags = 0,
+                NumBlocks = 2
+            };
+            var dto = PixtxPipeSetConfigDto.FromNative(native);
+            Assert.Equal(ctl_pixtx_config_opertaion_type_t.CTL_PIXTX_CONFIG_OPERTAION_TYPE_RESTORE_DEFAULT, dto.OpertaionType);
+            Assert.Equal((uint)2, dto.NumBlocks);
+            var roundTrip = dto.ToNative();
+            Assert.Equal(ctl_pixtx_config_opertaion_type_t.CTL_PIXTX_CONFIG_OPERTAION_TYPE_RESTORE_DEFAULT, roundTrip.OpertaionType);
+        }
+
+        [Fact]
+        public void PixelTransformationGetResultDto_ShouldRoundTrip()
+        {
+            var config = new ctl_pixtx_pipe_get_config_t { QueryType = ctl_pixtx_config_query_type_t.CTL_PIXTX_CONFIG_QUERY_TYPE_CAPABILITY, NumBlocks = 2 };
+            var blocks = new[]
+            {
+                new ctl_pixtx_block_config_t { BlockId = 1, BlockType = ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_1D_LUT },
+                new ctl_pixtx_block_config_t { BlockId = 2, BlockType = ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3D_LUT }
+            };
+            var dto = PixelTransformationGetResultDto.FromNative(config, blocks);
+            Assert.Equal((uint)2, dto.PipeConfig.NumBlocks);
+            Assert.NotNull(dto.Blocks);
+            Assert.Equal(2, dto.Blocks!.Count);
+            Assert.Equal((uint)1, dto.Blocks[0].BlockId);
+            Assert.Equal(ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3D_LUT, dto.Blocks[1].BlockType);
         }
         
     }

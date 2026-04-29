@@ -898,13 +898,22 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get display timing information.
+        /// Get display timing information using the native struct.
         /// </summary>
         /// <returns>Display timing struct.</returns>
-        public ctl_display_timing_t GetTiming()
+        public ctl_display_timing_t GetTimingNative()
         {
             var props = GetPropertiesNative();
             return props.Display_Timing_Info;
+        }
+
+        /// <summary>
+        /// Get display timing information as a DTO.
+        /// </summary>
+        /// <returns>Display timing DTO.</returns>
+        public DisplayTimingDto GetTiming()
+        {
+            return DisplayTimingDto.FromNative(GetTimingNative());
         }
 
         /// <summary>
@@ -913,7 +922,7 @@ namespace IGCLWrapper
         /// <returns>True when active; otherwise, false.</returns>
         public bool IsActive()
         {
-            var timing = GetTiming();
+            var timing = GetTimingNative();
             return timing.HActive > 0 && timing.VActive > 0;
         }
 
@@ -923,7 +932,7 @@ namespace IGCLWrapper
         /// <returns>Tuple containing width and height.</returns>
         public (uint width, uint height) GetResolution()
         {
-            var timing = GetTiming();
+            var timing = GetTimingNative();
             return (timing.HActive, timing.VActive);
         }
 
@@ -933,7 +942,7 @@ namespace IGCLWrapper
         /// <returns>Refresh rate in Hz.</returns>
         public double GetRefreshRateHz()
         {
-            var timing = GetTiming();
+            var timing = GetTimingNative();
             return timing.RefreshRate / 1000.0;
         }
 
@@ -978,10 +987,10 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get sharpness capabilities and filter properties.
+        /// Get sharpness capabilities and filter properties using native structs.
         /// </summary>
         /// <returns>Tuple containing caps and filter properties array.</returns>
-        public unsafe (ctl_sharpness_caps_t caps, ctl_sharpness_filter_properties_t[] filters) GetSharpnessCaps()
+        public unsafe (ctl_sharpness_caps_t caps, ctl_sharpness_filter_properties_t[] filters) GetSharpnessCapsNative()
         {
             ThrowIfDisposed();
             var caps = CreateSharpnessCaps();
@@ -1011,9 +1020,9 @@ namespace IGCLWrapper
         /// Get sharpness capabilities and filter properties as a DTO.
         /// </summary>
         /// <returns>Sharpness capabilities DTO.</returns>
-        public SharpnessCapsDto GetSharpnessCapsDto()
+        public SharpnessCapsDto GetSharpnessCaps()
         {
-            var native = GetSharpnessCaps();
+            var native = GetSharpnessCapsNative();
             return SharpnessCapsDto.FromNative(native.caps, native.filters);
         }
 
@@ -1064,10 +1073,10 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Perform I2C access using the provided arguments.
+        /// Perform I2C access using native arguments.
         /// </summary>
         /// <param name="args">I2C access arguments.</param>
-        public unsafe void I2CAccess(ref ctl_i2c_access_args_t args)
+        public unsafe void I2CAccessNative(ref ctl_i2c_access_args_t args)
         {
             ThrowIfDisposed();
             fixed (ctl_i2c_access_args_t* pArgs = &args)
@@ -1079,11 +1088,23 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Perform I2C access on a specific pin pair.
+        /// Perform I2C access using a DTO.
+        /// </summary>
+        /// <param name="args">I2C access arguments DTO.</param>
+        /// <returns>Updated I2C access arguments DTO.</returns>
+        public I2CAccessArgsDto I2CAccess(I2CAccessArgsDto args)
+        {
+            var native = args.ToNative();
+            I2CAccessNative(ref native);
+            return I2CAccessArgsDto.FromNative(native);
+        }
+
+        /// <summary>
+        /// Perform I2C access on a specific pin pair using native arguments.
         /// </summary>
         /// <param name="pinPair">I2C pin pair handle.</param>
         /// <param name="args">I2C access arguments.</param>
-        public unsafe void I2CAccessOnPinPair(IntPtr pinPair, ref ctl_i2c_access_pinpair_args_t args)
+        public unsafe void I2CAccessOnPinPairNative(IntPtr pinPair, ref ctl_i2c_access_pinpair_args_t args)
         {
             ThrowIfDisposed();
             fixed (ctl_i2c_access_pinpair_args_t* pArgs = &args)
@@ -1095,10 +1116,23 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Perform AUX channel access using the provided arguments.
+        /// Perform I2C access on a specific pin pair using a DTO.
+        /// </summary>
+        /// <param name="pinPair">I2C pin pair handle.</param>
+        /// <param name="args">I2C access arguments DTO.</param>
+        /// <returns>Updated I2C access pin pair arguments DTO.</returns>
+        public I2CAccessPinPairArgsDto I2CAccessOnPinPair(IntPtr pinPair, I2CAccessPinPairArgsDto args)
+        {
+            var native = args.ToNative();
+            I2CAccessOnPinPairNative(pinPair, ref native);
+            return I2CAccessPinPairArgsDto.FromNative(native);
+        }
+
+        /// <summary>
+        /// Perform AUX channel access using native arguments.
         /// </summary>
         /// <param name="args">AUX access arguments.</param>
-        public unsafe void AUXAccess(ref ctl_aux_access_args_t args)
+        public unsafe void AUXAccessNative(ref ctl_aux_access_args_t args)
         {
             ThrowIfDisposed();
             fixed (ctl_aux_access_args_t* pArgs = &args)
@@ -1110,10 +1144,22 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get power optimization capability information.
+        /// Perform AUX channel access using a DTO.
+        /// </summary>
+        /// <param name="args">AUX access arguments DTO.</param>
+        /// <returns>Updated AUX access arguments DTO.</returns>
+        public AuxAccessArgsDto AUXAccess(AuxAccessArgsDto args)
+        {
+            var native = args.ToNative();
+            AUXAccessNative(ref native);
+            return AuxAccessArgsDto.FromNative(native);
+        }
+
+        /// <summary>
+        /// Get power optimization capability information using the native struct.
         /// </summary>
         /// <returns>Power optimization capabilities struct.</returns>
-        public unsafe ctl_power_optimization_caps_t GetPowerOptimizationCaps()
+        public unsafe ctl_power_optimization_caps_t GetPowerOptimizationCapsNative()
         {
             ThrowIfDisposed();
             var caps = CreatePowerOptimizationCaps();
@@ -1127,9 +1173,9 @@ namespace IGCLWrapper
         /// Get power optimization capabilities as a DTO.
         /// </summary>
         /// <returns>Power optimization capabilities DTO.</returns>
-        public PowerOptimizationCapsDto GetPowerOptimizationCapsDto()
+        public PowerOptimizationCapsDto GetPowerOptimizationCaps()
         {
-            return PowerOptimizationCapsDto.FromNative(GetPowerOptimizationCaps());
+            return PowerOptimizationCapsDto.FromNative(GetPowerOptimizationCapsNative());
         }
 
         /// <summary>
@@ -1186,10 +1232,10 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Set display brightness.
+        /// Set display brightness using the native struct.
         /// </summary>
         /// <param name="brightness">Brightness settings struct.</param>
-        public unsafe void SetBrightnessSetting(ctl_set_brightness_t brightness)
+        public unsafe void SetBrightnessSettingNative(ctl_set_brightness_t brightness)
         {
             ThrowIfDisposed();
             var copy = brightness;
@@ -1204,14 +1250,14 @@ namespace IGCLWrapper
         /// <param name="brightness">Brightness settings DTO.</param>
         public void SetBrightnessSetting(BrightnessSetDto brightness)
         {
-            SetBrightnessSetting(brightness.ToNative());
+            SetBrightnessSettingNative(brightness.ToNative());
         }
 
         /// <summary>
-        /// Get display brightness.
+        /// Get display brightness using the native struct.
         /// </summary>
         /// <returns>Brightness settings struct.</returns>
-        public unsafe ctl_get_brightness_t GetBrightnessSetting()
+        public unsafe ctl_get_brightness_t GetBrightnessSettingNative()
         {
             ThrowIfDisposed();
             var brightness = CreateGetBrightness();
@@ -1225,17 +1271,17 @@ namespace IGCLWrapper
         /// Get display brightness as a DTO.
         /// </summary>
         /// <returns>Brightness settings DTO.</returns>
-        public BrightnessGetDto GetBrightnessSettingDto()
+        public BrightnessGetDto GetBrightnessSetting()
         {
-            return BrightnessGetDto.FromNative(GetBrightnessSetting());
+            return BrightnessGetDto.FromNative(GetBrightnessSettingNative());
         }
 
         /// <summary>
-        /// Get pixel transformation configuration.
+        /// Get pixel transformation configuration using native structs.
         /// </summary>
         /// <param name="args">Pipe get config arguments.</param>
         /// <returns>Tuple containing config and block array.</returns>
-        public unsafe (ctl_pixtx_pipe_get_config_t config, ctl_pixtx_block_config_t[] blocks) PixelTransformationGetConfig(ctl_pixtx_pipe_get_config_t args)
+        public unsafe (ctl_pixtx_pipe_get_config_t config, ctl_pixtx_block_config_t[] blocks) PixelTransformationGetConfigNative(ctl_pixtx_pipe_get_config_t args)
         {
             ThrowIfDisposed();
             var config = args;
@@ -1268,17 +1314,17 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get pixel transformation configuration using the provided blocks.
+        /// Get pixel transformation configuration using the provided blocks (native structs).
         /// </summary>
         /// <param name="args">Pipe get config arguments.</param>
         /// <param name="blocks">Block configs to query.</param>
         /// <returns>Tuple containing config and block array.</returns>
-        public unsafe (ctl_pixtx_pipe_get_config_t config, ctl_pixtx_block_config_t[] blocks) PixelTransformationGetConfig(ctl_pixtx_pipe_get_config_t args, ctl_pixtx_block_config_t[] blocks)
+        public unsafe (ctl_pixtx_pipe_get_config_t config, ctl_pixtx_block_config_t[] blocks) PixelTransformationGetConfigNative(ctl_pixtx_pipe_get_config_t args, ctl_pixtx_block_config_t[] blocks)
         {
             ThrowIfDisposed();
 
             if (blocks == null || blocks.Length == 0)
-                return PixelTransformationGetConfig(args);
+                return PixelTransformationGetConfigNative(args);
 
             var config = args;
             for (var i = 0; i < blocks.Length; i++)
@@ -1301,10 +1347,10 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Set pixel transformation configuration.
+        /// Set pixel transformation configuration using the native struct.
         /// </summary>
         /// <param name="args">Pipe set config arguments.</param>
-        public unsafe void PixelTransformationSetConfig(ctl_pixtx_pipe_set_config_t args)
+        public unsafe void PixelTransformationSetConfigNative(ctl_pixtx_pipe_set_config_t args)
         {
             ThrowIfDisposed();
             var copy = args;
@@ -1314,11 +1360,31 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Access the panel descriptor using the provided arguments.
+        /// Get pixel transformation configuration as DTOs (metadata only; LUT sample values require native methods).
+        /// </summary>
+        /// <param name="args">Pipe get config DTO.</param>
+        /// <returns>Pixel transformation get result DTO.</returns>
+        public PixelTransformationGetResultDto PixelTransformationGetConfig(PixtxPipeGetConfigDto args)
+        {
+            var native = PixelTransformationGetConfigNative(args.ToNative());
+            return PixelTransformationGetResultDto.FromNative(native.config, native.blocks);
+        }
+
+        /// <summary>
+        /// Set pixel transformation configuration using a DTO (metadata only; LUT sample values require native methods).
+        /// </summary>
+        /// <param name="args">Pipe set config DTO.</param>
+        public void PixelTransformationSetConfig(PixtxPipeSetConfigDto args)
+        {
+            PixelTransformationSetConfigNative(args.ToNative());
+        }
+
+        /// <summary>
+        /// Access the panel descriptor using native arguments.
         /// </summary>
         /// <param name="args">Panel descriptor access arguments.</param>
         /// <returns>Updated panel descriptor access arguments.</returns>
-        public unsafe ctl_panel_descriptor_access_args_t PanelDescriptorAccess(ctl_panel_descriptor_access_args_t args)
+        public unsafe ctl_panel_descriptor_access_args_t PanelDescriptorAccessNative(ctl_panel_descriptor_access_args_t args)
         {
             ThrowIfDisposed();
             var copy = args;
@@ -1326,6 +1392,49 @@ namespace IGCLWrapper
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to access panel descriptor");
             return copy;
+        }
+
+        /// <summary>
+        /// Access the panel descriptor using a DTO.
+        /// </summary>
+        /// <param name="args">Panel descriptor access arguments DTO.</param>
+        /// <returns>Updated panel descriptor access arguments DTO.</returns>
+        public unsafe PanelDescriptorAccessArgsDto PanelDescriptorAccess(PanelDescriptorAccessArgsDto args)
+        {
+            var native = args.ToNativeMetadata();
+            byte[]? dataBuffer = null;
+
+            if (native.DescriptorDataSize > 0)
+                dataBuffer = new byte[native.DescriptorDataSize];
+            else if (args.DescriptorData != null && args.DescriptorData.Count > 0)
+            {
+                dataBuffer = args.DescriptorData.ToArray();
+                native.DescriptorDataSize = (uint)dataBuffer.Length;
+            }
+
+            if (dataBuffer != null)
+            {
+                fixed (byte* pData = dataBuffer)
+                {
+                    native.pDescriptorData = pData;
+                    try
+                    {
+                        var resultWithData = PanelDescriptorAccessNative(native);
+                        var readLength = (int)Math.Min(resultWithData.DescriptorDataSize, (uint)dataBuffer.Length);
+                        var copy = new byte[readLength];
+                        if (readLength > 0)
+                            Buffer.BlockCopy(dataBuffer, 0, copy, 0, readLength);
+                        return PanelDescriptorAccessArgsDto.FromNative(resultWithData, copy);
+                    }
+                    finally
+                    {
+                        native.pDescriptorData = null;
+                    }
+                }
+            }
+
+            var result = PanelDescriptorAccessNative(native);
+            return PanelDescriptorAccessArgsDto.FromNative(result);
         }
 
         /// <summary>
@@ -1342,7 +1451,7 @@ namespace IGCLWrapper
             sizeArgs.DescriptorDataSize = 0;
             sizeArgs.pDescriptorData = null;
 
-            sizeArgs = PanelDescriptorAccess(sizeArgs);
+            sizeArgs = PanelDescriptorAccessNative(sizeArgs);
 
             if (sizeArgs.DescriptorDataSize == 0)
                 return Array.Empty<byte>();
@@ -1355,7 +1464,7 @@ namespace IGCLWrapper
                 readArgs.BlockNumber = 0;
                 readArgs.DescriptorDataSize = sizeArgs.DescriptorDataSize;
                 readArgs.pDescriptorData = pBase;
-                readArgs = PanelDescriptorAccess(readArgs);
+                readArgs = PanelDescriptorAccessNative(readArgs);
             }
 
             byte extensionCount = 0;
@@ -1374,7 +1483,7 @@ namespace IGCLWrapper
                 extSizeArgs.DescriptorDataSize = 0;
                 extSizeArgs.pDescriptorData = null;
 
-                extSizeArgs = PanelDescriptorAccess(extSizeArgs);
+                extSizeArgs = PanelDescriptorAccessNative(extSizeArgs);
 
                 if (extSizeArgs.DescriptorDataSize == 0)
                     continue;
@@ -1387,7 +1496,7 @@ namespace IGCLWrapper
                     extReadArgs.BlockNumber = (uint)(i + 1);
                     extReadArgs.DescriptorDataSize = extSizeArgs.DescriptorDataSize;
                     extReadArgs.pDescriptorData = pExt;
-                    extReadArgs = PanelDescriptorAccess(extReadArgs);
+                    extReadArgs = PanelDescriptorAccessNative(extReadArgs);
                 }
 
                 blocks.Add(extBlock);
@@ -1409,10 +1518,10 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get supported retro scaling capabilities.
+        /// Get supported retro scaling capabilities using the native struct.
         /// </summary>
         /// <returns>Retro scaling capability struct.</returns>
-        public unsafe ctl_retro_scaling_caps_t GetSupportedRetroScalingCapability()
+        public unsafe ctl_retro_scaling_caps_t GetSupportedRetroScalingCapabilityNative()
         {
             ThrowIfDisposed();
             var caps = CreateRetroScalingCaps();
@@ -1426,9 +1535,9 @@ namespace IGCLWrapper
         /// Get supported retro scaling capabilities as a DTO.
         /// </summary>
         /// <returns>Retro scaling capabilities DTO.</returns>
-        public RetroScalingCapsDto GetSupportedRetroScalingCapabilityDto()
+        public RetroScalingCapsDto GetSupportedRetroScalingCapability()
         {
-            return RetroScalingCapsDto.FromNative(GetSupportedRetroScalingCapability());
+            return RetroScalingCapsDto.FromNative(GetSupportedRetroScalingCapabilityNative());
         }
 
         /// <summary>
@@ -1462,6 +1571,13 @@ namespace IGCLWrapper
         }
 
         /// <summary>
+        /// Get supported retro scaling capabilities (DTO-first convenience alias).
+        /// </summary>
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        [Obsolete("Use GetSupportedRetroScalingCapability() instead.")]
+        public RetroScalingCapsDto GetSupportedRetroScalingCapabilityDto() => GetSupportedRetroScalingCapability();
+
+        /// <summary>
         /// Set retro scaling settings using a DTO.
         /// </summary>
         /// <param name="settings">Retro scaling settings DTO.</param>
@@ -1473,10 +1589,10 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get supported scaling capabilities.
+        /// Get supported scaling capabilities using the native struct.
         /// </summary>
         /// <returns>Scaling capability struct.</returns>
-        public unsafe ctl_scaling_caps_t GetSupportedScalingCapability()
+        public unsafe ctl_scaling_caps_t GetSupportedScalingCapabilityNative()
         {
             ThrowIfDisposed();
             var caps = CreateScalingCaps();
@@ -1490,9 +1606,9 @@ namespace IGCLWrapper
         /// Get supported scaling capabilities as a DTO.
         /// </summary>
         /// <returns>Scaling capabilities DTO.</returns>
-        public ScalingCapsDto GetSupportedScalingCapabilityDto()
+        public ScalingCapsDto GetSupportedScalingCapability()
         {
-            return ScalingCapsDto.FromNative(GetSupportedScalingCapability());
+            return ScalingCapsDto.FromNative(GetSupportedScalingCapabilityNative());
         }
 
         /// <summary>
@@ -1663,11 +1779,11 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get mux properties and its display outputs.
+        /// Get mux properties and its display outputs using native structs.
         /// </summary>
         /// <param name="muxHandle">Mux handle.</param>
         /// <returns>Tuple containing mux properties and display output handles.</returns>
-        public unsafe (ctl_mux_properties_t properties, IntPtr[] displayOutputs) GetMuxProperties(IntPtr muxHandle)
+        public unsafe (ctl_mux_properties_t properties, IntPtr[] displayOutputs) GetMuxPropertiesNative(IntPtr muxHandle)
         {
             ThrowIfDisposed();
             var props = CreateMuxProperties();
@@ -1697,9 +1813,9 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="muxHandle">Mux handle.</param>
         /// <returns>Mux properties DTO.</returns>
-        public MuxPropertiesDto GetMuxPropertiesDto(IntPtr muxHandle)
+        public MuxPropertiesDto GetMuxProperties(IntPtr muxHandle)
         {
-            var native = GetMuxProperties(muxHandle);
+            var native = GetMuxPropertiesNative(muxHandle);
             return MuxPropertiesDto.FromNative(native.properties, native.displayOutputs);
         }
 
@@ -1717,10 +1833,10 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get Intel Arc Sync profile parameters.
+        /// Get Intel Arc Sync profile parameters using the native struct.
         /// </summary>
         /// <returns>Arc Sync profile params struct.</returns>
-        public unsafe ctl_intel_arc_sync_profile_params_t GetIntelArcSyncProfile()
+        public unsafe ctl_intel_arc_sync_profile_params_t GetIntelArcSyncProfileNative()
         {
             ThrowIfDisposed();
             var parameters = CreateArcSyncProfileParams();
@@ -1734,16 +1850,16 @@ namespace IGCLWrapper
         /// Get Intel Arc Sync profile parameters as a DTO.
         /// </summary>
         /// <returns>Arc Sync profile parameters DTO.</returns>
-        public IntelArcSyncProfileParamsDto GetIntelArcSyncProfileDto()
+        public IntelArcSyncProfileParamsDto GetIntelArcSyncProfile()
         {
-            return IntelArcSyncProfileParamsDto.FromNative(GetIntelArcSyncProfile());
+            return IntelArcSyncProfileParamsDto.FromNative(GetIntelArcSyncProfileNative());
         }
 
         /// <summary>
-        /// Set Intel Arc Sync profile parameters.
+        /// Set Intel Arc Sync profile parameters using the native struct.
         /// </summary>
         /// <param name="parameters">Arc Sync profile params struct.</param>
-        public unsafe void SetIntelArcSyncProfile(ctl_intel_arc_sync_profile_params_t parameters)
+        public unsafe void SetIntelArcSyncProfileNative(ctl_intel_arc_sync_profile_params_t parameters)
         {
             ThrowIfDisposed();
             var copy = parameters;
@@ -1758,15 +1874,15 @@ namespace IGCLWrapper
         /// <param name="parameters">Arc Sync profile parameters DTO.</param>
         public void SetIntelArcSyncProfile(IntelArcSyncProfileParamsDto parameters)
         {
-            SetIntelArcSyncProfile(parameters.ToNative());
+            SetIntelArcSyncProfileNative(parameters.ToNative());
         }
 
         /// <summary>
-        /// Perform EDID management using the provided arguments.
+        /// Perform EDID management using native arguments.
         /// </summary>
         /// <param name="args">EDID management arguments.</param>
         /// <returns>Updated EDID management arguments.</returns>
-        public unsafe ctl_edid_management_args_t EdidManagement(ctl_edid_management_args_t args)
+        public unsafe ctl_edid_management_args_t EdidManagementNative(ctl_edid_management_args_t args)
         {
             ThrowIfDisposed();
             var copy = args;
@@ -1774,6 +1890,49 @@ namespace IGCLWrapper
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, $"Failed to perform EDID management (op={args.OpType}, edidType={args.EdidType}, result={result})");
             return copy;
+        }
+
+        /// <summary>
+        /// Perform EDID management using a DTO.
+        /// </summary>
+        /// <param name="args">EDID management arguments DTO.</param>
+        /// <returns>Updated EDID management arguments DTO.</returns>
+        public unsafe EdidManagementArgsDto EdidManagement(EdidManagementArgsDto args)
+        {
+            var native = args.ToNativeMetadata();
+            byte[]? edidBuffer = null;
+
+            if (native.EdidSize > 0)
+                edidBuffer = new byte[native.EdidSize];
+            else if (args.EdidData != null && args.EdidData.Count > 0)
+            {
+                edidBuffer = args.EdidData.ToArray();
+                native.EdidSize = (uint)edidBuffer.Length;
+            }
+
+            if (edidBuffer != null)
+            {
+                fixed (byte* pEdid = edidBuffer)
+                {
+                    native.pEdidBuf = pEdid;
+                    try
+                    {
+                        var resultWithData = EdidManagementNative(native);
+                        var readLength = (int)Math.Min(resultWithData.EdidSize, (uint)edidBuffer.Length);
+                        var copy = new byte[readLength];
+                        if (readLength > 0)
+                            Buffer.BlockCopy(edidBuffer, 0, copy, 0, readLength);
+                        return EdidManagementArgsDto.FromNative(resultWithData, copy);
+                    }
+                    finally
+                    {
+                        native.pEdidBuf = null;
+                    }
+                }
+            }
+
+            var result = EdidManagementNative(native);
+            return EdidManagementArgsDto.FromNative(result);
         }
 
         /// <summary>
@@ -1802,7 +1961,7 @@ namespace IGCLWrapper
             args.EdidSize = 0;
             args.pEdidBuf = null;
 
-            args = EdidManagement(args);
+            args = EdidManagementNative(args);
             var outFlags = args.OutFlags;
             if (args.EdidSize == 0)
                 return (Array.Empty<byte>(), outFlags);
@@ -1814,7 +1973,7 @@ namespace IGCLWrapper
                 {
                     args.EdidSize = (uint)buffer.Length;
                     args.pEdidBuf = pBuffer;
-                    args = EdidManagement(args);
+                    args = EdidManagementNative(args);
                 }
 
                 outFlags = args.OutFlags;
@@ -1873,10 +2032,10 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get custom display modes.
+        /// Get custom display modes (native struct result).
         /// </summary>
         /// <returns>Tuple containing updated args and modes.</returns>
-        public unsafe (ctl_get_set_custom_mode_args_t args, ctl_custom_src_mode_t[] modes) GetCustomModes()
+        public unsafe (ctl_get_set_custom_mode_args_t args, ctl_custom_src_mode_t[] modes) GetCustomModesNative()
         {
             var args = CreateCustomModeArgs();
             args.CustomModeOpType = ctl_custom_mode_operation_types_t.CTL_CUSTOM_MODE_OPERATION_TYPES_GET_CUSTOM_SOURCE_MODES;
@@ -1887,9 +2046,9 @@ namespace IGCLWrapper
         /// Get custom display modes as DTOs.
         /// </summary>
         /// <returns>Custom mode result DTO.</returns>
-        public CustomModesResultDto GetCustomModesDto()
+        public CustomModesResultDto GetCustomModes()
         {
-            var native = GetCustomModes();
+            var native = GetCustomModesNative();
             return CustomModesResultDto.FromNative(native.args, native.modes);
         }
 
@@ -1939,10 +2098,10 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get vblank timestamp information.
+        /// Get vblank timestamp information using the native struct.
         /// </summary>
         /// <returns>Vblank timestamp args struct.</returns>
-        public unsafe ctl_vblank_ts_args_t GetVblankTimestamp()
+        public unsafe ctl_vblank_ts_args_t GetVblankTimestampNative()
         {
             ThrowIfDisposed();
             var args = CreateVblankTimestampArgs();
@@ -1958,9 +2117,9 @@ namespace IGCLWrapper
         /// Get vblank timestamp information as a DTO.
         /// </summary>
         /// <returns>Vblank timestamp DTO.</returns>
-        public VblankTimestampArgsDto GetVblankTimestampDto()
+        public VblankTimestampArgsDto GetVblankTimestamp()
         {
-            return VblankTimestampArgsDto.FromNative(GetVblankTimestamp());
+            return VblankTimestampArgsDto.FromNative(GetVblankTimestampNative());
         }
 
         /// <summary>
@@ -5930,6 +6089,633 @@ namespace IGCLWrapper
 
             return native;
         }
+    }
+
+    /// <summary>
+    /// DTO for I2C access arguments.
+    /// </summary>
+    public struct I2CAccessArgsDto : IEquatable<I2CAccessArgsDto>
+    {
+        public uint Size;
+        public byte Version;
+        public uint Address;
+        public uint DataSize;
+        public ctl_operation_type_t OpType;
+        public uint Offset;
+        public uint Flags;
+        public ulong RAD;
+        public List<byte>? Data;
+
+        public static unsafe I2CAccessArgsDto FromNative(ctl_i2c_access_args_t native)
+        {
+            const int maxBytes = 128;
+            var data = new List<byte>((int)Math.Min(native.DataSize, (uint)maxBytes));
+            var pData = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref native.Data.e0);
+            var readCount = (int)Math.Min(native.DataSize, (uint)maxBytes);
+            for (var i = 0; i < readCount; i++)
+                data.Add(pData[i]);
+
+            return new I2CAccessArgsDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                Address = native.Address,
+                DataSize = native.DataSize,
+                OpType = native.OpType,
+                Offset = native.Offset,
+                Flags = native.Flags,
+                RAD = native.RAD,
+                Data = data
+            };
+        }
+
+        public unsafe ctl_i2c_access_args_t ToNative()
+        {
+            var native = new ctl_i2c_access_args_t
+            {
+                Size = Size == 0 ? (uint)sizeof(ctl_i2c_access_args_t) : Size,
+                Version = Version,
+                Address = Address,
+                DataSize = DataSize,
+                OpType = OpType,
+                Offset = Offset,
+                Flags = Flags,
+                RAD = RAD
+            };
+
+            const int maxBytes = 128;
+            var pData = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref native.Data.e0);
+            for (var i = 0; i < maxBytes; i++)
+                pData[i] = 0;
+
+            if (Data != null)
+            {
+                var writeCount = Math.Min(Data.Count, maxBytes);
+                for (var i = 0; i < writeCount; i++)
+                    pData[i] = Data[i];
+
+                if (native.DataSize == 0)
+                    native.DataSize = (uint)writeCount;
+            }
+
+            return native;
+        }
+
+        public bool Equals(I2CAccessArgsDto other)
+        {
+            if (Size != other.Size || Version != other.Version || Address != other.Address ||
+                DataSize != other.DataSize || OpType != other.OpType || Offset != other.Offset ||
+                Flags != other.Flags || RAD != other.RAD)
+                return false;
+
+            if (Data == null && other.Data == null) return true;
+            if (Data == null || other.Data == null) return false;
+            if (Data.Count != other.Data.Count) return false;
+            for (var i = 0; i < Data.Count; i++)
+                if (Data[i] != other.Data[i]) return false;
+            return true;
+        }
+
+        public override bool Equals(object? obj) => obj is I2CAccessArgsDto other && Equals(other);
+        public override int GetHashCode() => HashCode.Combine(Address, DataSize, (int)OpType, Offset, Flags, RAD);
+
+        public static I2CAccessArgsDto CreateReadRequest(uint address, uint offset, uint dataSize)
+            => new I2CAccessArgsDto { Address = address, Offset = offset, DataSize = dataSize, OpType = ctl_operation_type_t.CTL_OPERATION_TYPE_READ };
+
+        public static I2CAccessArgsDto CreateWriteRequest(uint address, uint offset, List<byte> data)
+                => new I2CAccessArgsDto { Address = address, Offset = offset, DataSize = (uint)data.Count, Data = data, OpType = ctl_operation_type_t.CTL_OPERATION_TYPE_WRITE };
+    }
+
+    /// <summary>
+    /// DTO for I2C access pin-pair arguments.
+    /// </summary>
+    public struct I2CAccessPinPairArgsDto : IEquatable<I2CAccessPinPairArgsDto>
+    {
+        public uint Size;
+        public byte Version;
+        public uint Address;
+        public uint DataSize;
+        public ctl_operation_type_t OpType;
+        public uint Offset;
+        public uint Flags;
+        public List<byte>? Data;
+
+        public static unsafe I2CAccessPinPairArgsDto FromNative(ctl_i2c_access_pinpair_args_t native)
+        {
+            const int maxBytes = 128;
+            var data = new List<byte>((int)Math.Min(native.DataSize, (uint)maxBytes));
+            var pData = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref native.Data.e0);
+            var readCount = (int)Math.Min(native.DataSize, (uint)maxBytes);
+            for (var i = 0; i < readCount; i++)
+                data.Add(pData[i]);
+
+            return new I2CAccessPinPairArgsDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                Address = native.Address,
+                DataSize = native.DataSize,
+                OpType = native.OpType,
+                Offset = native.Offset,
+                Flags = native.Flags,
+                Data = data
+            };
+        }
+
+        public unsafe ctl_i2c_access_pinpair_args_t ToNative()
+        {
+            var native = new ctl_i2c_access_pinpair_args_t
+            {
+                Size = Size == 0 ? (uint)sizeof(ctl_i2c_access_pinpair_args_t) : Size,
+                Version = Version,
+                Address = Address,
+                DataSize = DataSize,
+                OpType = OpType,
+                Offset = Offset,
+                Flags = Flags
+            };
+
+            const int maxBytes = 128;
+            var pData = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref native.Data.e0);
+            for (var i = 0; i < maxBytes; i++)
+                pData[i] = 0;
+
+            if (Data != null)
+            {
+                var writeCount = Math.Min(Data.Count, maxBytes);
+                for (var i = 0; i < writeCount; i++)
+                    pData[i] = Data[i];
+
+                if (native.DataSize == 0)
+                    native.DataSize = (uint)writeCount;
+            }
+
+            return native;
+        }
+
+        public bool Equals(I2CAccessPinPairArgsDto other)
+        {
+            if (Size != other.Size || Version != other.Version || Address != other.Address ||
+                DataSize != other.DataSize || OpType != other.OpType || Offset != other.Offset ||
+                Flags != other.Flags)
+                return false;
+
+            if (Data == null && other.Data == null) return true;
+            if (Data == null || other.Data == null) return false;
+            if (Data.Count != other.Data.Count) return false;
+            for (var i = 0; i < Data.Count; i++)
+                if (Data[i] != other.Data[i]) return false;
+            return true;
+        }
+
+        public override bool Equals(object? obj) => obj is I2CAccessPinPairArgsDto other && Equals(other);
+        public override int GetHashCode() => HashCode.Combine(Address, DataSize, (int)OpType, Offset, Flags);
+
+        public static I2CAccessPinPairArgsDto CreateReadRequest(uint address, uint offset, uint dataSize)
+            => new I2CAccessPinPairArgsDto { Address = address, Offset = offset, DataSize = dataSize, OpType = ctl_operation_type_t.CTL_OPERATION_TYPE_READ };
+
+        public static I2CAccessPinPairArgsDto CreateWriteRequest(uint address, uint offset, List<byte> data)
+                => new I2CAccessPinPairArgsDto { Address = address, Offset = offset, DataSize = (uint)data.Count, Data = data, OpType = ctl_operation_type_t.CTL_OPERATION_TYPE_WRITE };
+    }
+
+    /// <summary>
+    /// DTO for AUX channel access arguments.
+    /// </summary>
+    public struct AuxAccessArgsDto : IEquatable<AuxAccessArgsDto>
+    {
+        public uint Size;
+        public byte Version;
+        public ctl_operation_type_t OpType;
+        public uint Flags;
+        public uint Address;
+        public ulong RAD;
+        public uint PortID;
+        public uint DataSize;
+        public List<byte>? Data;
+
+        public static unsafe AuxAccessArgsDto FromNative(ctl_aux_access_args_t native)
+        {
+            const int maxBytes = 132;
+            var data = new List<byte>((int)Math.Min(native.DataSize, (uint)maxBytes));
+            var pData = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref native.Data.e0);
+            var readCount = (int)Math.Min(native.DataSize, (uint)maxBytes);
+            for (var i = 0; i < readCount; i++)
+                data.Add(pData[i]);
+
+            return new AuxAccessArgsDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                OpType = native.OpType,
+                Flags = native.Flags,
+                Address = native.Address,
+                RAD = native.RAD,
+                PortID = native.PortID,
+                DataSize = native.DataSize,
+                Data = data
+            };
+        }
+
+        public unsafe ctl_aux_access_args_t ToNative()
+        {
+            var native = new ctl_aux_access_args_t
+            {
+                Size = Size == 0 ? (uint)sizeof(ctl_aux_access_args_t) : Size,
+                Version = Version,
+                OpType = OpType,
+                Flags = Flags,
+                Address = Address,
+                RAD = RAD,
+                PortID = PortID,
+                DataSize = DataSize
+            };
+
+            const int maxBytes = 132;
+            var pData = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref native.Data.e0);
+            for (var i = 0; i < maxBytes; i++)
+                pData[i] = 0;
+
+            if (Data != null)
+            {
+                var writeCount = Math.Min(Data.Count, maxBytes);
+                for (var i = 0; i < writeCount; i++)
+                    pData[i] = Data[i];
+
+                if (native.DataSize == 0)
+                    native.DataSize = (uint)writeCount;
+            }
+
+            return native;
+        }
+
+        public bool Equals(AuxAccessArgsDto other)
+        {
+            if (Size != other.Size || Version != other.Version || OpType != other.OpType ||
+                Flags != other.Flags || Address != other.Address || RAD != other.RAD ||
+                PortID != other.PortID || DataSize != other.DataSize)
+                return false;
+
+            if (Data == null && other.Data == null) return true;
+            if (Data == null || other.Data == null) return false;
+            if (Data.Count != other.Data.Count) return false;
+            for (var i = 0; i < Data.Count; i++)
+                if (Data[i] != other.Data[i]) return false;
+            return true;
+        }
+
+        public override bool Equals(object? obj) => obj is AuxAccessArgsDto other && Equals(other);
+        public override int GetHashCode() => HashCode.Combine((int)OpType, Address, DataSize, Flags, RAD, PortID);
+
+        public static AuxAccessArgsDto CreateReadRequest(uint address, uint dataSize)
+            => new AuxAccessArgsDto { Address = address, DataSize = dataSize, OpType = ctl_operation_type_t.CTL_OPERATION_TYPE_READ };
+
+        public static AuxAccessArgsDto CreateWriteRequest(uint address, List<byte> data)
+                => new AuxAccessArgsDto { Address = address, DataSize = (uint)data.Count, Data = data, OpType = ctl_operation_type_t.CTL_OPERATION_TYPE_WRITE };
+    }
+
+    /// <summary>
+    /// DTO for panel descriptor access arguments.
+    /// </summary>
+    public struct PanelDescriptorAccessArgsDto : IEquatable<PanelDescriptorAccessArgsDto>
+    {
+        public uint Size;
+        public byte Version;
+        public ctl_operation_type_t OpType;
+        public uint BlockNumber;
+        public uint DescriptorDataSize;
+        public List<byte>? DescriptorData;
+
+        public static PanelDescriptorAccessArgsDto FromNative(ctl_panel_descriptor_access_args_t native, byte[]? data = null)
+        {
+            return new PanelDescriptorAccessArgsDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                OpType = native.OpType,
+                BlockNumber = native.BlockNumber,
+                DescriptorDataSize = native.DescriptorDataSize,
+                DescriptorData = data != null ? new List<byte>(data) : null
+            };
+        }
+
+        public unsafe ctl_panel_descriptor_access_args_t ToNativeMetadata()
+        {
+            return new ctl_panel_descriptor_access_args_t
+            {
+                Size = Size == 0 ? (uint)sizeof(ctl_panel_descriptor_access_args_t) : Size,
+                Version = Version,
+                OpType = OpType,
+                BlockNumber = BlockNumber,
+                DescriptorDataSize = DescriptorDataSize,
+                pDescriptorData = null
+            };
+        }
+
+        public bool Equals(PanelDescriptorAccessArgsDto other)
+            => Size == other.Size && Version == other.Version && OpType == other.OpType &&
+               BlockNumber == other.BlockNumber && DescriptorDataSize == other.DescriptorDataSize;
+
+        public override bool Equals(object? obj) => obj is PanelDescriptorAccessArgsDto other && Equals(other);
+        public override int GetHashCode() => HashCode.Combine((int)OpType, BlockNumber, DescriptorDataSize);
+
+        public static PanelDescriptorAccessArgsDto CreateReadRequest(uint blockNumber)
+            => new PanelDescriptorAccessArgsDto { OpType = ctl_operation_type_t.CTL_OPERATION_TYPE_READ, BlockNumber = blockNumber };
+    }
+
+    /// <summary>
+    /// DTO for EDID management arguments.
+    /// </summary>
+    public struct EdidManagementArgsDto : IEquatable<EdidManagementArgsDto>
+    {
+        public uint Size;
+        public byte Version;
+        public ctl_edid_management_optype_t OpType;
+        public ctl_edid_type_t EdidType;
+        public uint EdidSize;
+        public uint OutFlags;
+        public List<byte>? EdidData;
+
+        public static EdidManagementArgsDto FromNative(ctl_edid_management_args_t native, byte[]? edidData = null)
+        {
+            return new EdidManagementArgsDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                OpType = native.OpType,
+                EdidType = native.EdidType,
+                EdidSize = native.EdidSize,
+                OutFlags = native.OutFlags,
+                EdidData = edidData != null ? new List<byte>(edidData) : null
+            };
+        }
+
+        public unsafe ctl_edid_management_args_t ToNativeMetadata()
+        {
+            return new ctl_edid_management_args_t
+            {
+                Size = Size == 0 ? (uint)sizeof(ctl_edid_management_args_t) : Size,
+                Version = Version,
+                OpType = OpType,
+                EdidType = EdidType,
+                EdidSize = EdidSize,
+                OutFlags = OutFlags,
+                pEdidBuf = null
+            };
+        }
+
+        public bool Equals(EdidManagementArgsDto other)
+            => Size == other.Size && Version == other.Version && OpType == other.OpType &&
+               EdidType == other.EdidType && EdidSize == other.EdidSize && OutFlags == other.OutFlags;
+
+        public override bool Equals(object? obj) => obj is EdidManagementArgsDto other && Equals(other);
+        public override int GetHashCode() => HashCode.Combine((int)OpType, (int)EdidType, EdidSize, OutFlags);
+
+        public static EdidManagementArgsDto CreateReadRequest(ctl_edid_type_t edidType = ctl_edid_type_t.CTL_EDID_TYPE_CURRENT)
+            => new EdidManagementArgsDto { OpType = ctl_edid_management_optype_t.CTL_EDID_MANAGEMENT_OPTYPE_READ_EDID, EdidType = edidType };
+    }
+
+    /// <summary>
+    /// DTO for pixel transformation color primaries.
+    /// </summary>
+    public struct PixtxColorPrimariesDto : IEquatable<PixtxColorPrimariesDto>
+    {
+        public uint Size;
+        public byte Version;
+        public double xR;
+        public double yR;
+        public double xG;
+        public double yG;
+        public double xB;
+        public double yB;
+        public double xW;
+        public double yW;
+
+        public static PixtxColorPrimariesDto FromNative(ctl_pixtx_color_primaries_t native)
+            => new PixtxColorPrimariesDto { Size = native.Size, Version = native.Version, xR = native.xR, yR = native.yR, xG = native.xG, yG = native.yG, xB = native.xB, yB = native.yB, xW = native.xW, yW = native.yW };
+
+        public ctl_pixtx_color_primaries_t ToNative()
+            => new ctl_pixtx_color_primaries_t { Size = Size, Version = Version, xR = xR, yR = yR, xG = xG, yG = yG, xB = xB, yB = yB, xW = xW, yW = yW };
+
+        public bool Equals(PixtxColorPrimariesDto other)
+            => Size == other.Size && Version == other.Version && xR.Equals(other.xR) && yR.Equals(other.yR) &&
+               xG.Equals(other.xG) && yG.Equals(other.yG) && xB.Equals(other.xB) && yB.Equals(other.yB) &&
+               xW.Equals(other.xW) && yW.Equals(other.yW);
+
+        public override bool Equals(object? obj) => obj is PixtxColorPrimariesDto other && Equals(other);
+        public override int GetHashCode() => HashCode.Combine(xR, yR, xG, yG, xB, yB, xW, yW);
+    }
+
+    /// <summary>
+    /// DTO for pixel transformation pixel format.
+    /// </summary>
+    public struct PixtxPixelFormatDto : IEquatable<PixtxPixelFormatDto>
+    {
+        public uint Size;
+        public byte Version;
+        public uint BitsPerColor;
+        public byte IsFloat;
+        public bool IsFloatBool
+        {
+            readonly get => IGCLDisplayDtoBool.ToBool(IsFloat);
+            set => IsFloat = IGCLDisplayDtoBool.ToByte(value);
+        }
+        public ctl_pixtx_gamma_encoding_type_t EncodingType;
+        public ctl_pixtx_color_space_t ColorSpace;
+        public ctl_pixtx_color_model_t ColorModel;
+        public PixtxColorPrimariesDto ColorPrimaries;
+        public double MaxBrightness;
+        public double MinBrightness;
+
+        public static PixtxPixelFormatDto FromNative(ctl_pixtx_pixel_format_t native)
+            => new PixtxPixelFormatDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                BitsPerColor = native.BitsPerColor,
+                IsFloat = native.IsFloat,
+                EncodingType = native.EncodingType,
+                ColorSpace = native.ColorSpace,
+                ColorModel = native.ColorModel,
+                ColorPrimaries = PixtxColorPrimariesDto.FromNative(native.ColorPrimaries),
+                MaxBrightness = native.MaxBrightness,
+                MinBrightness = native.MinBrightness
+            };
+
+        public ctl_pixtx_pixel_format_t ToNative()
+            => new ctl_pixtx_pixel_format_t
+            {
+                Size = Size,
+                Version = Version,
+                BitsPerColor = BitsPerColor,
+                IsFloat = IsFloat,
+                EncodingType = EncodingType,
+                ColorSpace = ColorSpace,
+                ColorModel = ColorModel,
+                ColorPrimaries = ColorPrimaries.ToNative(),
+                MaxBrightness = MaxBrightness,
+                MinBrightness = MinBrightness
+            };
+
+        public bool Equals(PixtxPixelFormatDto other)
+            => Size == other.Size && Version == other.Version && BitsPerColor == other.BitsPerColor &&
+               IsFloat == other.IsFloat && EncodingType == other.EncodingType && ColorSpace == other.ColorSpace &&
+               ColorModel == other.ColorModel && ColorPrimaries.Equals(other.ColorPrimaries) &&
+               MaxBrightness.Equals(other.MaxBrightness) && MinBrightness.Equals(other.MinBrightness);
+
+        public override bool Equals(object? obj) => obj is PixtxPixelFormatDto other && Equals(other);
+        public override int GetHashCode() => HashCode.Combine(BitsPerColor, (int)EncodingType, (int)ColorSpace, (int)ColorModel);
+    }
+
+    /// <summary>
+    /// DTO for pixel transformation pipe get config (metadata only; LUT sample values require native methods).
+    /// </summary>
+    public struct PixtxPipeGetConfigDto : IEquatable<PixtxPipeGetConfigDto>
+    {
+        public uint Size;
+        public byte Version;
+        public ctl_pixtx_config_query_type_t QueryType;
+        public PixtxPixelFormatDto InputPixelFormat;
+        public PixtxPixelFormatDto OutputPixelFormat;
+        public uint NumBlocks;
+
+        public static PixtxPipeGetConfigDto FromNative(ctl_pixtx_pipe_get_config_t native)
+            => new PixtxPipeGetConfigDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                QueryType = native.QueryType,
+                InputPixelFormat = PixtxPixelFormatDto.FromNative(native.InputPixelFormat),
+                OutputPixelFormat = PixtxPixelFormatDto.FromNative(native.OutputPixelFormat),
+                NumBlocks = native.NumBlocks
+            };
+
+        public unsafe ctl_pixtx_pipe_get_config_t ToNative()
+            => new ctl_pixtx_pipe_get_config_t
+            {
+                Size = Size == 0 ? (uint)sizeof(ctl_pixtx_pipe_get_config_t) : Size,
+                Version = Version,
+                QueryType = QueryType,
+                InputPixelFormat = InputPixelFormat.ToNative(),
+                OutputPixelFormat = OutputPixelFormat.ToNative(),
+                NumBlocks = NumBlocks,
+                pBlockConfigs = null
+            };
+
+        public bool Equals(PixtxPipeGetConfigDto other)
+            => Size == other.Size && Version == other.Version && QueryType == other.QueryType &&
+               InputPixelFormat.Equals(other.InputPixelFormat) && OutputPixelFormat.Equals(other.OutputPixelFormat) &&
+               NumBlocks == other.NumBlocks;
+
+        public override bool Equals(object? obj) => obj is PixtxPipeGetConfigDto other && Equals(other);
+        public override int GetHashCode() => HashCode.Combine((int)QueryType, NumBlocks);
+
+        public static PixtxPipeGetConfigDto CreateCapabilityRequest()
+            => new PixtxPipeGetConfigDto { QueryType = ctl_pixtx_config_query_type_t.CTL_PIXTX_CONFIG_QUERY_TYPE_CAPABILITY };
+
+        public static PixtxPipeGetConfigDto CreateCurrentRequest()
+            => new PixtxPipeGetConfigDto { QueryType = ctl_pixtx_config_query_type_t.CTL_PIXTX_CONFIG_QUERY_TYPE_CURRENT };
+    }
+
+    /// <summary>
+    /// DTO for pixel transformation block config (metadata only; LUT sample values require native methods).
+    /// </summary>
+    public struct PixtxBlockConfigDto : IEquatable<PixtxBlockConfigDto>
+    {
+        public uint Size;
+        public byte Version;
+        public uint BlockId;
+        public ctl_pixtx_block_type_t BlockType;
+
+        public static PixtxBlockConfigDto FromNative(ctl_pixtx_block_config_t native)
+            => new PixtxBlockConfigDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                BlockId = native.BlockId,
+                BlockType = native.BlockType
+            };
+
+        public bool Equals(PixtxBlockConfigDto other)
+            => Size == other.Size && Version == other.Version && BlockId == other.BlockId && BlockType == other.BlockType;
+
+        public override bool Equals(object? obj) => obj is PixtxBlockConfigDto other && Equals(other);
+        public override int GetHashCode() => HashCode.Combine(BlockId, (int)BlockType);
+    }
+
+    /// <summary>
+    /// DTO for pixel transformation pipe set config.
+    /// </summary>
+    public struct PixtxPipeSetConfigDto : IEquatable<PixtxPipeSetConfigDto>
+    {
+        public uint Size;
+        public byte Version;
+        public ctl_pixtx_config_opertaion_type_t OpertaionType;
+        public uint Flags;
+        public uint NumBlocks;
+
+        public static PixtxPipeSetConfigDto FromNative(ctl_pixtx_pipe_set_config_t native)
+            => new PixtxPipeSetConfigDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                OpertaionType = native.OpertaionType,
+                Flags = native.Flags,
+                NumBlocks = native.NumBlocks
+            };
+
+        public unsafe ctl_pixtx_pipe_set_config_t ToNative()
+            => new ctl_pixtx_pipe_set_config_t
+            {
+                Size = Size == 0 ? (uint)sizeof(ctl_pixtx_pipe_set_config_t) : Size,
+                Version = Version,
+                OpertaionType = OpertaionType,
+                Flags = Flags,
+                NumBlocks = NumBlocks,
+                pBlockConfigs = null
+            };
+
+        public bool Equals(PixtxPipeSetConfigDto other)
+            => Size == other.Size && Version == other.Version && OpertaionType == other.OpertaionType &&
+               Flags == other.Flags && NumBlocks == other.NumBlocks;
+
+        public override bool Equals(object? obj) => obj is PixtxPipeSetConfigDto other && Equals(other);
+        public override int GetHashCode() => HashCode.Combine((int)OpertaionType, Flags, NumBlocks);
+    }
+
+    /// <summary>
+    /// DTO result for pixel transformation get config (metadata only; LUT sample values require native methods).
+    /// </summary>
+    public struct PixelTransformationGetResultDto : IEquatable<PixelTransformationGetResultDto>
+    {
+        public PixtxPipeGetConfigDto PipeConfig;
+        public List<PixtxBlockConfigDto>? Blocks;
+
+        public static PixelTransformationGetResultDto FromNative(ctl_pixtx_pipe_get_config_t config, ctl_pixtx_block_config_t[] blocks)
+        {
+            var blockDtos = new List<PixtxBlockConfigDto>(blocks.Length);
+            foreach (var b in blocks)
+                blockDtos.Add(PixtxBlockConfigDto.FromNative(b));
+
+            return new PixelTransformationGetResultDto
+            {
+                PipeConfig = PixtxPipeGetConfigDto.FromNative(config),
+                Blocks = blockDtos
+            };
+        }
+
+        public bool Equals(PixelTransformationGetResultDto other)
+        {
+            if (!PipeConfig.Equals(other.PipeConfig)) return false;
+            if (Blocks == null && other.Blocks == null) return true;
+            if (Blocks == null || other.Blocks == null) return false;
+            if (Blocks.Count != other.Blocks.Count) return false;
+            for (var i = 0; i < Blocks.Count; i++)
+                if (!Blocks[i].Equals(other.Blocks[i])) return false;
+            return true;
+        }
+
+        public override bool Equals(object? obj) => obj is PixelTransformationGetResultDto other && Equals(other);
+        public override int GetHashCode() => HashCode.Combine(PipeConfig, Blocks?.Count ?? 0);
     }
 }
 

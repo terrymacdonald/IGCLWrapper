@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
@@ -64,6 +65,48 @@ namespace IGCLWrapper.FacadeTests
             Assert.NotNull(api.GetPciHelper(adapter!));
             Assert.NotNull(api.GetPowerHelper(adapter!));
             Assert.NotNull(api.GetTemperatureHelper(adapter!));
+        }
+
+        [Fact]
+        public unsafe void RuntimePathArgsDto_ShouldRoundTripNative()
+        {
+            var dto = IGCLApiHelper.CreateRuntimePathRequest(@"C:\Temp\IGCL");
+            dto.UnlockID = new ApplicationIdDto
+            {
+                Data1 = 1,
+                Data2 = 2,
+                Data3 = 3,
+                Data4 = new List<byte> { 4, 5, 6, 7, 8, 9, 10, 11 }
+            };
+            dto.DeviceID = 0x1234;
+            dto.RevID = 5;
+
+            IGCLApiHelper.ValidateSetRuntimePathRequest(dto);
+
+            var native = dto.ToNative();
+            Assert.Equal((uint)sizeof(ctl_runtime_path_args_t), native.Size);
+            Assert.True(native.pRuntimePath == null);
+
+            unsafe
+            {
+                fixed (char* pRuntimePath = dto.RuntimePath)
+                {
+                    native.pRuntimePath = (ushort*)pRuntimePath;
+                    var roundTrip = RuntimePathArgsDto.FromNative(native);
+
+                    Assert.Equal(dto.RuntimePath, roundTrip.RuntimePath);
+                    Assert.Equal(dto.DeviceID, roundTrip.DeviceID);
+                    Assert.Equal(dto.RevID, roundTrip.RevID);
+                    Assert.Equal(dto.UnlockID, roundTrip.UnlockID);
+                }
+            }
+        }
+
+        [Fact]
+        public void RuntimePathArgsDto_Validate_ShouldRejectMissingPath()
+        {
+            var dto = new RuntimePathArgsDto();
+            Assert.Throws<ArgumentException>(() => IGCLApiHelper.ValidateSetRuntimePathRequest(dto));
         }
     }
 }

@@ -55,13 +55,32 @@ namespace IGCLWrapper.FacadeTests
             }
         }
 
+        [Fact]
+        public unsafe void WaitPropertyChangeArgsDto_ShouldRoundTripNative()
+        {
+            var dto = IGCLAdapterHelper.CreateWaitPropertyChangeRequest(
+                (uint)ctl_property_type_flag_t.CTL_PROPERTY_TYPE_FLAG_DISPLAY,
+                100);
+            dto.EventMiscFlags = 77;
+            dto.ReservedOutFlags = 1234;
+
+            var native = dto.ToNative();
+            Assert.Equal((uint)sizeof(ctl_wait_property_change_args_t), native.Size);
+            Assert.True(native.pReserved == null);
+
+            var roundTrip = WaitPropertyChangeArgsDto.FromNative(native);
+            Assert.Equal(dto, roundTrip);
+        }
+
         [SkippableFact]
         public void WaitForPropertyChange_ReturnsOrSkips()
         {
             var (api, adapter) = FacadeTestUtils.RequireAdapter();
             using (api)
             {
-                var args = new ctl_wait_property_change_args_t { Size = 0, Version = 0, PropertyType = (uint)ctl_property_type_flag_t.CTL_PROPERTY_TYPE_FLAG_DISPLAY, TimeOutMilliSec = 100 };
+                var args = IGCLAdapterHelper.CreateWaitPropertyChangeRequest(
+                    (uint)ctl_property_type_flag_t.CTL_PROPERTY_TYPE_FLAG_DISPLAY,
+                    100);
                 try
                 {
                     adapter.WaitForPropertyChange(args);

@@ -529,6 +529,25 @@
             </summary>
             <param name="args">Runtime path arguments.</param>
         </member>
+        <member name="M:IGCLWrapper.IGCLApiHelper.CreateRuntimePathRequest(System.String)">
+            <summary>
+            Create a DTO request for setting the IGCL runtime path.
+            </summary>
+            <param name="runtimePath">Runtime path to use.</param>
+            <returns>Initialized runtime path DTO.</returns>
+        </member>
+        <member name="M:IGCLWrapper.IGCLApiHelper.ValidateSetRuntimePathRequest(IGCLWrapper.RuntimePathArgsDto)">
+            <summary>
+            Validate a runtime path DTO request before invoking the native API.
+            </summary>
+            <param name="args">Runtime path DTO.</param>
+        </member>
+        <member name="M:IGCLWrapper.IGCLApiHelper.SetRuntimePath(IGCLWrapper.RuntimePathArgsDto)">
+            <summary>
+            Set the IGCL runtime path using a DTO request.
+            </summary>
+            <param name="args">Runtime path DTO.</param>
+        </member>
         <member name="M:IGCLWrapper.IGCLApiHelper.AreRuntimePathArgsEqual(IGCLWrapper.ctl_runtime_path_args_t,IGCLWrapper.ctl_runtime_path_args_t)">
             <summary>
             Compare runtime path arguments while ignoring native-only fields.
@@ -728,6 +747,15 @@
             <param name="failureAdapter">Adapter handle that failed, if any.</param>
             <returns>Updated genlock args DTO.</returns>
         </member>
+        <member name="M:IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlock(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)">
+            <summary>
+            Set display genlock settings using a DTO.
+            </summary>
+            <param name="adapters">Adapter handles.</param>
+            <param name="operation">Genlock operation.</param>
+            <param name="args">Genlock args DTO.</param>
+            <param name="failureAdapter">Adapter handle that failed, if any.</param>
+        </member>
         <member name="M:IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlockNative(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)">
             <summary>
             Set display genlock settings using a DTO.
@@ -742,6 +770,13 @@
             Link display adapters using the provided args.
             </summary>
             <param name="args">Linked display adapters args.</param>
+        </member>
+        <member name="M:IGCLWrapper.IGCLAdapterHelper.LinkDisplayAdapters(IGCLWrapper.LinkedDisplayAdaptersArgsDto,System.Collections.Generic.IReadOnlyList{System.IntPtr})">
+            <summary>
+            Link display adapters using a DTO request and managed adapter handle list.
+            </summary>
+            <param name="args">Linked display adapters args DTO.</param>
+            <param name="linkedAdapters">Linked adapter handles to submit.</param>
         </member>
         <member name="M:IGCLWrapper.IGCLAdapterHelper.UnlinkDisplayAdapters">
             <summary>
@@ -760,12 +795,27 @@
             </summary>
             <returns>Linked display adapters result DTO.</returns>
         </member>
+        <member name="M:IGCLWrapper.IGCLAdapterHelper.CreateWaitPropertyChangeRequest(System.UInt32,System.UInt32)">
+            <summary>
+            Create a DTO request for waiting on a property change.
+            </summary>
+            <param name="propertyType">Property type flags to wait on.</param>
+            <param name="timeOutMilliSec">Timeout in milliseconds.</param>
+            <returns>Initialized wait request DTO.</returns>
+        </member>
         <member name="M:IGCLWrapper.IGCLAdapterHelper.WaitForPropertyChange(IGCLWrapper.ctl_wait_property_change_args_t)">
             <summary>
             Wait for a property change event.
             </summary>
             <param name="args">Wait arguments.</param>
             <returns>Updated wait arguments.</returns>
+        </member>
+        <member name="M:IGCLWrapper.IGCLAdapterHelper.WaitForPropertyChange(IGCLWrapper.WaitPropertyChangeArgsDto)">
+            <summary>
+            Wait for a property change event using a DTO request.
+            </summary>
+            <param name="args">Wait request DTO.</param>
+            <returns>Updated wait request DTO.</returns>
         </member>
         <member name="M:IGCLWrapper.IGCLAdapterHelper.ThrowIfDisposed">
             <summary>
@@ -1314,6 +1364,21 @@
             DTO for linked display adapters query result.
             </summary>
         </member>
+        <member name="T:IGCLWrapper.ApplicationIdDto">
+            <summary>
+            DTO for application identifier data.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.RuntimePathArgsDto">
+            <summary>
+            DTO for runtime path arguments.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.WaitPropertyChangeArgsDto">
+            <summary>
+            DTO for wait property change arguments.
+            </summary>
+        </member>
         <member name="T:IGCLWrapper.IGCLDisplayHelper">
             <summary>
             Display helper facade for IGCL display handles.
@@ -1697,11 +1762,17 @@
             </summary>
             <returns>Display properties DTO.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetTiming">
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetTimingNative">
             <summary>
-            Get display timing information.
+            Get display timing information using the native struct.
             </summary>
             <returns>Display timing struct.</returns>
+        </member>
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetTiming">
+            <summary>
+            Get display timing information as a DTO.
+            </summary>
+            <returns>Display timing DTO.</returns>
         </member>
         <member name="M:IGCLWrapper.IGCLDisplayHelper.IsActive">
             <summary>
@@ -1745,13 +1816,13 @@
             </summary>
             <returns>Adapter display encoder properties DTO.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetSharpnessCaps">
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetSharpnessCapsNative">
             <summary>
-            Get sharpness capabilities and filter properties.
+            Get sharpness capabilities and filter properties using native structs.
             </summary>
             <returns>Tuple containing caps and filter properties array.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetSharpnessCapsDto">
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetSharpnessCaps">
             <summary>
             Get sharpness capabilities and filter properties as a DTO.
             </summary>
@@ -1781,32 +1852,54 @@
             </summary>
             <param name="settings">Sharpness settings DTO.</param>
         </member>
-        <member name="M:IGCLWrapper.IGCLDisplayHelper.I2CAccess(IGCLWrapper.ctl_i2c_access_args_t@)">
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.I2CAccessNative(IGCLWrapper.ctl_i2c_access_args_t@)">
             <summary>
-            Perform I2C access using the provided arguments.
+            Perform I2C access using native arguments.
             </summary>
             <param name="args">I2C access arguments.</param>
         </member>
-        <member name="M:IGCLWrapper.IGCLDisplayHelper.I2CAccessOnPinPair(System.IntPtr,IGCLWrapper.ctl_i2c_access_pinpair_args_t@)">
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.I2CAccess(IGCLWrapper.I2CAccessArgsDto)">
             <summary>
-            Perform I2C access on a specific pin pair.
+            Perform I2C access using a DTO.
+            </summary>
+            <param name="args">I2C access arguments DTO.</param>
+            <returns>Updated I2C access arguments DTO.</returns>
+        </member>
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.I2CAccessOnPinPairNative(System.IntPtr,IGCLWrapper.ctl_i2c_access_pinpair_args_t@)">
+            <summary>
+            Perform I2C access on a specific pin pair using native arguments.
             </summary>
             <param name="pinPair">I2C pin pair handle.</param>
             <param name="args">I2C access arguments.</param>
         </member>
-        <member name="M:IGCLWrapper.IGCLDisplayHelper.AUXAccess(IGCLWrapper.ctl_aux_access_args_t@)">
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.I2CAccessOnPinPair(System.IntPtr,IGCLWrapper.I2CAccessPinPairArgsDto)">
             <summary>
-            Perform AUX channel access using the provided arguments.
+            Perform I2C access on a specific pin pair using a DTO.
+            </summary>
+            <param name="pinPair">I2C pin pair handle.</param>
+            <param name="args">I2C access arguments DTO.</param>
+            <returns>Updated I2C access pin pair arguments DTO.</returns>
+        </member>
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.AUXAccessNative(IGCLWrapper.ctl_aux_access_args_t@)">
+            <summary>
+            Perform AUX channel access using native arguments.
             </summary>
             <param name="args">AUX access arguments.</param>
         </member>
-        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetPowerOptimizationCaps">
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.AUXAccess(IGCLWrapper.AuxAccessArgsDto)">
             <summary>
-            Get power optimization capability information.
+            Perform AUX channel access using a DTO.
+            </summary>
+            <param name="args">AUX access arguments DTO.</param>
+            <returns>Updated AUX access arguments DTO.</returns>
+        </member>
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetPowerOptimizationCapsNative">
+            <summary>
+            Get power optimization capability information using the native struct.
             </summary>
             <returns>Power optimization capabilities struct.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetPowerOptimizationCapsDto">
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetPowerOptimizationCaps">
             <summary>
             Get power optimization capabilities as a DTO.
             </summary>
@@ -1838,9 +1931,9 @@
             </summary>
             <param name="settings">Settings DTO.</param>
         </member>
-        <member name="M:IGCLWrapper.IGCLDisplayHelper.SetBrightnessSetting(IGCLWrapper.ctl_set_brightness_t)">
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.SetBrightnessSettingNative(IGCLWrapper.ctl_set_brightness_t)">
             <summary>
-            Set display brightness.
+            Set display brightness using the native struct.
             </summary>
             <param name="brightness">Brightness settings struct.</param>
         </member>
@@ -1850,45 +1943,65 @@
             </summary>
             <param name="brightness">Brightness settings DTO.</param>
         </member>
-        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetBrightnessSetting">
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetBrightnessSettingNative">
             <summary>
-            Get display brightness.
+            Get display brightness using the native struct.
             </summary>
             <returns>Brightness settings struct.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetBrightnessSettingDto">
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetBrightnessSetting">
             <summary>
             Get display brightness as a DTO.
             </summary>
             <returns>Brightness settings DTO.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLDisplayHelper.PixelTransformationGetConfig(IGCLWrapper.ctl_pixtx_pipe_get_config_t)">
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.PixelTransformationGetConfigNative(IGCLWrapper.ctl_pixtx_pipe_get_config_t)">
             <summary>
-            Get pixel transformation configuration.
+            Get pixel transformation configuration using native structs.
             </summary>
             <param name="args">Pipe get config arguments.</param>
             <returns>Tuple containing config and block array.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLDisplayHelper.PixelTransformationGetConfig(IGCLWrapper.ctl_pixtx_pipe_get_config_t,IGCLWrapper.ctl_pixtx_block_config_t[])">
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.PixelTransformationGetConfigNative(IGCLWrapper.ctl_pixtx_pipe_get_config_t,IGCLWrapper.ctl_pixtx_block_config_t[])">
             <summary>
-            Get pixel transformation configuration using the provided blocks.
+            Get pixel transformation configuration using the provided blocks (native structs).
             </summary>
             <param name="args">Pipe get config arguments.</param>
             <param name="blocks">Block configs to query.</param>
             <returns>Tuple containing config and block array.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLDisplayHelper.PixelTransformationSetConfig(IGCLWrapper.ctl_pixtx_pipe_set_config_t)">
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.PixelTransformationSetConfigNative(IGCLWrapper.ctl_pixtx_pipe_set_config_t)">
             <summary>
-            Set pixel transformation configuration.
+            Set pixel transformation configuration using the native struct.
             </summary>
             <param name="args">Pipe set config arguments.</param>
         </member>
-        <member name="M:IGCLWrapper.IGCLDisplayHelper.PanelDescriptorAccess(IGCLWrapper.ctl_panel_descriptor_access_args_t)">
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.PixelTransformationGetConfig(IGCLWrapper.PixtxPipeGetConfigDto)">
             <summary>
-            Access the panel descriptor using the provided arguments.
+            Get pixel transformation configuration as DTOs (metadata only; LUT sample values require native methods).
+            </summary>
+            <param name="args">Pipe get config DTO.</param>
+            <returns>Pixel transformation get result DTO.</returns>
+        </member>
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.PixelTransformationSetConfig(IGCLWrapper.PixtxPipeSetConfigDto)">
+            <summary>
+            Set pixel transformation configuration using a DTO (metadata only; LUT sample values require native methods).
+            </summary>
+            <param name="args">Pipe set config DTO.</param>
+        </member>
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.PanelDescriptorAccessNative(IGCLWrapper.ctl_panel_descriptor_access_args_t)">
+            <summary>
+            Access the panel descriptor using native arguments.
             </summary>
             <param name="args">Panel descriptor access arguments.</param>
             <returns>Updated panel descriptor access arguments.</returns>
+        </member>
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.PanelDescriptorAccess(IGCLWrapper.PanelDescriptorAccessArgsDto)">
+            <summary>
+            Access the panel descriptor using a DTO.
+            </summary>
+            <param name="args">Panel descriptor access arguments DTO.</param>
+            <returns>Updated panel descriptor access arguments DTO.</returns>
         </member>
         <member name="M:IGCLWrapper.IGCLDisplayHelper.GetPanelEdidData">
             <summary>
@@ -1896,13 +2009,13 @@
             </summary>
             <returns>Concatenated panel descriptor bytes.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetSupportedRetroScalingCapability">
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetSupportedRetroScalingCapabilityNative">
             <summary>
-            Get supported retro scaling capabilities.
+            Get supported retro scaling capabilities using the native struct.
             </summary>
             <returns>Retro scaling capability struct.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetSupportedRetroScalingCapabilityDto">
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetSupportedRetroScalingCapability">
             <summary>
             Get supported retro scaling capabilities as a DTO.
             </summary>
@@ -1921,19 +2034,24 @@
             </summary>
             <returns>Retro scaling settings DTO.</returns>
         </member>
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetSupportedRetroScalingCapabilityDto">
+            <summary>
+            Get supported retro scaling capabilities (DTO-first convenience alias).
+            </summary>
+        </member>
         <member name="M:IGCLWrapper.IGCLDisplayHelper.SetRetroScalingSettings(IGCLWrapper.RetroScalingSettingsDto)">
             <summary>
             Set retro scaling settings using a DTO.
             </summary>
             <param name="settings">Retro scaling settings DTO.</param>
         </member>
-        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetSupportedScalingCapability">
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetSupportedScalingCapabilityNative">
             <summary>
-            Get supported scaling capabilities.
+            Get supported scaling capabilities using the native struct.
             </summary>
             <returns>Scaling capability struct.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetSupportedScalingCapabilityDto">
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetSupportedScalingCapability">
             <summary>
             Get supported scaling capabilities as a DTO.
             </summary>
@@ -2019,14 +2137,14 @@
             </summary>
             <returns>Array of mux handles.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetMuxProperties(System.IntPtr)">
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetMuxPropertiesNative(System.IntPtr)">
             <summary>
-            Get mux properties and its display outputs.
+            Get mux properties and its display outputs using native structs.
             </summary>
             <param name="muxHandle">Mux handle.</param>
             <returns>Tuple containing mux properties and display output handles.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetMuxPropertiesDto(System.IntPtr)">
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetMuxProperties(System.IntPtr)">
             <summary>
             Get mux properties and display outputs as a DTO.
             </summary>
@@ -2040,21 +2158,21 @@
             <param name="muxHandle">Mux handle.</param>
             <param name="inactiveDisplayOutput">Inactive display output handle.</param>
         </member>
-        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetIntelArcSyncProfile">
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetIntelArcSyncProfileNative">
             <summary>
-            Get Intel Arc Sync profile parameters.
+            Get Intel Arc Sync profile parameters using the native struct.
             </summary>
             <returns>Arc Sync profile params struct.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetIntelArcSyncProfileDto">
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetIntelArcSyncProfile">
             <summary>
             Get Intel Arc Sync profile parameters as a DTO.
             </summary>
             <returns>Arc Sync profile parameters DTO.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLDisplayHelper.SetIntelArcSyncProfile(IGCLWrapper.ctl_intel_arc_sync_profile_params_t)">
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.SetIntelArcSyncProfileNative(IGCLWrapper.ctl_intel_arc_sync_profile_params_t)">
             <summary>
-            Set Intel Arc Sync profile parameters.
+            Set Intel Arc Sync profile parameters using the native struct.
             </summary>
             <param name="parameters">Arc Sync profile params struct.</param>
         </member>
@@ -2064,12 +2182,19 @@
             </summary>
             <param name="parameters">Arc Sync profile parameters DTO.</param>
         </member>
-        <member name="M:IGCLWrapper.IGCLDisplayHelper.EdidManagement(IGCLWrapper.ctl_edid_management_args_t)">
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.EdidManagementNative(IGCLWrapper.ctl_edid_management_args_t)">
             <summary>
-            Perform EDID management using the provided arguments.
+            Perform EDID management using native arguments.
             </summary>
             <param name="args">EDID management arguments.</param>
             <returns>Updated EDID management arguments.</returns>
+        </member>
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.EdidManagement(IGCLWrapper.EdidManagementArgsDto)">
+            <summary>
+            Perform EDID management using a DTO.
+            </summary>
+            <param name="args">EDID management arguments DTO.</param>
+            <returns>Updated EDID management arguments DTO.</returns>
         </member>
         <member name="M:IGCLWrapper.IGCLDisplayHelper.GetEdidManagement(IGCLWrapper.ctl_edid_type_t)">
             <summary>
@@ -2092,13 +2217,13 @@
             <param name="args">Custom mode args.</param>
             <returns>Tuple containing updated args and modes.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetCustomModes">
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetCustomModesNative">
             <summary>
-            Get custom display modes.
+            Get custom display modes (native struct result).
             </summary>
             <returns>Tuple containing updated args and modes.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetCustomModesDto">
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetCustomModes">
             <summary>
             Get custom display modes as DTOs.
             </summary>
@@ -2118,13 +2243,13 @@
             <param name="args">Custom mode args DTO.</param>
             <param name="modes">Custom mode DTOs.</param>
         </member>
-        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetVblankTimestamp">
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetVblankTimestampNative">
             <summary>
-            Get vblank timestamp information.
+            Get vblank timestamp information using the native struct.
             </summary>
             <returns>Vblank timestamp args struct.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetVblankTimestampDto">
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.GetVblankTimestamp">
             <summary>
             Get vblank timestamp information as a DTO.
             </summary>
@@ -3586,6 +3711,61 @@
         <member name="T:IGCLWrapper.VblankTimestampArgsDto">
             <summary>
             DTO for vblank timestamp args.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.I2CAccessArgsDto">
+            <summary>
+            DTO for I2C access arguments.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.I2CAccessPinPairArgsDto">
+            <summary>
+            DTO for I2C access pin-pair arguments.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.AuxAccessArgsDto">
+            <summary>
+            DTO for AUX channel access arguments.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.PanelDescriptorAccessArgsDto">
+            <summary>
+            DTO for panel descriptor access arguments.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.EdidManagementArgsDto">
+            <summary>
+            DTO for EDID management arguments.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.PixtxColorPrimariesDto">
+            <summary>
+            DTO for pixel transformation color primaries.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.PixtxPixelFormatDto">
+            <summary>
+            DTO for pixel transformation pixel format.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.PixtxPipeGetConfigDto">
+            <summary>
+            DTO for pixel transformation pipe get config (metadata only; LUT sample values require native methods).
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.PixtxBlockConfigDto">
+            <summary>
+            DTO for pixel transformation block config (metadata only; LUT sample values require native methods).
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.PixtxPipeSetConfigDto">
+            <summary>
+            DTO for pixel transformation pipe set config.
+            </summary>
+        </member>
+        <member name="T:IGCLWrapper.PixelTransformationGetResultDto">
+            <summary>
+            DTO result for pixel transformation get config (metadata only; LUT sample values require native methods).
             </summary>
         </member>
         <member name="T:IGCLWrapper.IGCLEccHelper">
