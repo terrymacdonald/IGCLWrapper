@@ -69,6 +69,7 @@ namespace IGCLWrapper
             ThrowIfDisposed();
             var request = feature;
             request.Set = true;
+            ValidateSet3DFeatureRequest(request);
             _ = ExecuteGetSet3DFeature(request);
         }
 
@@ -123,6 +124,64 @@ namespace IGCLWrapper
         /// </summary>
         /// <returns>Initialized 3D feature get/set struct.</returns>
         public static unsafe ctl_3d_feature_getset_t Create3DFeatureGetSet() => new ctl_3d_feature_getset_t { Size = (uint)sizeof(ctl_3d_feature_getset_t), Version = 0 };
+
+        /// <summary>
+        /// Create a DTO request for a 3D get operation.
+        /// </summary>
+        /// <param name="featureType">Feature to query.</param>
+        /// <param name="valueType">Expected value type.</param>
+        /// <returns>Initialized get request DTO.</returns>
+        public static ThreeDFeatureGetSetDto Create3DFeatureGetRequest(ctl_3d_feature_t featureType, ctl_property_value_type_t valueType)
+        {
+            return new ThreeDFeatureGetSetDto
+            {
+                FeatureType = featureType,
+                ValueType = valueType,
+                Set = false
+            };
+        }
+
+        /// <summary>
+        /// Create a DTO request for a 3D set operation.
+        /// </summary>
+        /// <param name="featureType">Feature to set.</param>
+        /// <param name="valueType">Value type for the feature.</param>
+        /// <param name="value">Feature value payload.</param>
+        /// <param name="applicationName">Optional application name.</param>
+        /// <param name="customValue">Optional custom payload bytes.</param>
+        /// <returns>Initialized set request DTO.</returns>
+        public static ThreeDFeatureGetSetDto Create3DFeatureSetRequest(
+            ctl_3d_feature_t featureType,
+            ctl_property_value_type_t valueType,
+            PropertyDto value,
+            string? applicationName = null,
+            List<byte>? customValue = null)
+        {
+            return new ThreeDFeatureGetSetDto
+            {
+                FeatureType = featureType,
+                ValueType = valueType,
+                Value = value,
+                ApplicationName = applicationName,
+                CustomValue = customValue,
+                Set = true
+            };
+        }
+
+        /// <summary>
+        /// Validate a 3D set request to catch accidental default DTO usage.
+        /// </summary>
+        /// <param name="request">Request DTO.</param>
+        /// <exception cref="ArgumentException">Thrown when request appears to be an accidental default payload.</exception>
+        public static void ValidateSet3DFeatureRequest(ThreeDFeatureGetSetDto request)
+        {
+            if (request.Equals(default))
+            {
+                throw new ArgumentException(
+                    "3D set request cannot be default. Use Create3DFeatureSetRequest and provide explicit feature/value fields.",
+                    nameof(request));
+            }
+        }
 
         /// <summary>
         /// Compare 3D feature capabilities while ignoring native-only fields.

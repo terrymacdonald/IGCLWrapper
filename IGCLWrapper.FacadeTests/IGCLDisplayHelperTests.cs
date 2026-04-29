@@ -635,6 +635,43 @@ namespace IGCLWrapper.FacadeTests
                 (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_LACE,
                 settings.PowerOptimizationFeature);
         }
+
+        [Fact]
+        public void CreateDisplaySettingsSetRequest_ShouldInitializeUsefulDefaults()
+        {
+            var validFlags = (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_LOW_LATENCY |
+                             (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_AUDIO;
+
+            var dto = IGCLDisplayHelper.CreateDisplaySettingsSetRequest(validFlags);
+
+            Assert.True(dto.Set);
+            Assert.Equal(validFlags, dto.ValidFlags);
+        }
+
+        [Fact]
+        public void CreatePowerOptimizationSettingsSetRequest_ShouldInitializeUsefulDefaults()
+        {
+            var featureFlags = (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_PSR;
+
+            var dto = IGCLDisplayHelper.CreatePowerOptimizationSettingsSetRequest(featureFlags);
+
+            Assert.True(dto.Enable);
+            Assert.Equal(featureFlags, dto.PowerOptimizationFeature);
+        }
+
+        [Fact]
+        public void ValidateSetDisplaySettingsRequest_WithoutValidFlags_ShouldThrow()
+        {
+            var ex = Assert.Throws<ArgumentException>(() => IGCLDisplayHelper.ValidateSetDisplaySettingsRequest(default));
+            Assert.Contains("ValidFlags", ex.Message, StringComparison.OrdinalIgnoreCase);
+        }
+
+        [Fact]
+        public void ValidateSetPowerOptimizationSettingsRequest_WithoutFeatures_ShouldThrow()
+        {
+            var ex = Assert.Throws<ArgumentException>(() => IGCLDisplayHelper.ValidateSetPowerOptimizationSettingsRequest(default));
+            Assert.Contains("PowerOptimizationFeature", ex.Message, StringComparison.OrdinalIgnoreCase);
+        }
         
     }
 }

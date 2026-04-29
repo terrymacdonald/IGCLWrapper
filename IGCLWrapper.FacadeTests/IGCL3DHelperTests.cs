@@ -50,5 +50,34 @@ namespace IGCLWrapper.FacadeTests
             Assert.Equal(dto.ValueType, fromNative.ValueType);
             Assert.True(fromNative.CustomValue == null);
         }
+
+        [Fact]
+        public void Create3DFeatureSetRequest_ShouldInitializeUsefulDefaults()
+        {
+            var value = new PropertyDto
+            {
+                UIntType = new PropertyUIntDto { Enable = true, Value = 120 }
+            };
+
+            var dto = IGCL3DHelper.Create3DFeatureSetRequest(
+                ctl_3d_feature_t.CTL_3D_FEATURE_FRAME_LIMIT,
+                ctl_property_value_type_t.CTL_PROPERTY_VALUE_TYPE_UINT32,
+                value,
+                "Game.exe");
+
+            Assert.True(dto.Set);
+            Assert.Equal(ctl_3d_feature_t.CTL_3D_FEATURE_FRAME_LIMIT, dto.FeatureType);
+            Assert.Equal(ctl_property_value_type_t.CTL_PROPERTY_VALUE_TYPE_UINT32, dto.ValueType);
+            Assert.Equal("Game.exe", dto.ApplicationName);
+            Assert.True(dto.Value.UIntType.Enable);
+            Assert.Equal((uint)120, dto.Value.UIntType.Value);
+        }
+
+        [Fact]
+        public void ValidateSet3DFeatureRequest_DefaultDto_ShouldThrow()
+        {
+            var ex = Assert.Throws<ArgumentException>(() => IGCL3DHelper.ValidateSet3DFeatureRequest(default));
+            Assert.Contains("default", ex.Message, StringComparison.OrdinalIgnoreCase);
+        }
     }
 }

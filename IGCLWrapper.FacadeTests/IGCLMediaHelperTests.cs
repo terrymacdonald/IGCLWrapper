@@ -64,5 +64,33 @@ namespace IGCLWrapper.FacadeTests
             Assert.NotNull(fromNative.ReservedFields);
             Assert.Equal(16, fromNative.ReservedFields!.Count);
         }
+
+        [Fact]
+        public void CreateVideoProcessingFeatureSetRequest_ShouldInitializeUsefulDefaults()
+        {
+            var value = new PropertyDto
+            {
+                BoolType = new PropertyBooleanDto { Enable = true }
+            };
+
+            var dto = IGCLMediaHelper.CreateVideoProcessingFeatureSetRequest(
+                ctl_video_processing_feature_t.CTL_VIDEO_PROCESSING_FEATURE_FILM_MODE_DETECTION,
+                ctl_property_value_type_t.CTL_PROPERTY_VALUE_TYPE_BOOL,
+                value,
+                "Player.exe");
+
+            Assert.True(dto.Set);
+            Assert.Equal(ctl_video_processing_feature_t.CTL_VIDEO_PROCESSING_FEATURE_FILM_MODE_DETECTION, dto.FeatureType);
+            Assert.Equal(ctl_property_value_type_t.CTL_PROPERTY_VALUE_TYPE_BOOL, dto.ValueType);
+            Assert.Equal("Player.exe", dto.ApplicationName);
+            Assert.True(dto.Value.BoolType.Enable);
+        }
+
+        [Fact]
+        public void ValidateSetVideoProcessingFeatureRequest_DefaultDto_ShouldThrow()
+        {
+            var ex = Assert.Throws<ArgumentException>(() => IGCLMediaHelper.ValidateSetVideoProcessingFeatureRequest(default));
+            Assert.Contains("default", ex.Message, StringComparison.OrdinalIgnoreCase);
+        }
     }
 }

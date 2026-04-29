@@ -69,6 +69,7 @@ namespace IGCLWrapper
             ThrowIfDisposed();
             var request = featureGetSet;
             request.Set = true;
+            ValidateSetVideoProcessingFeatureRequest(request);
             _ = ExecuteGetSetVideoProcessingFeature(request);
         }
 
@@ -123,6 +124,64 @@ namespace IGCLWrapper
         /// </summary>
         /// <returns>Initialized video processing feature get/set struct.</returns>
         public static unsafe ctl_video_processing_feature_getset_t CreateVideoProcessingFeatureGetSet() => new ctl_video_processing_feature_getset_t { Size = (uint)sizeof(ctl_video_processing_feature_getset_t), Version = 0 };
+
+        /// <summary>
+        /// Create a DTO request for a video-processing get operation.
+        /// </summary>
+        /// <param name="featureType">Feature to query.</param>
+        /// <param name="valueType">Expected value type.</param>
+        /// <returns>Initialized get request DTO.</returns>
+        public static VideoProcessingFeatureGetSetDto CreateVideoProcessingFeatureGetRequest(ctl_video_processing_feature_t featureType, ctl_property_value_type_t valueType)
+        {
+            return new VideoProcessingFeatureGetSetDto
+            {
+                FeatureType = featureType,
+                ValueType = valueType,
+                Set = false
+            };
+        }
+
+        /// <summary>
+        /// Create a DTO request for a video-processing set operation.
+        /// </summary>
+        /// <param name="featureType">Feature to set.</param>
+        /// <param name="valueType">Value type for the feature.</param>
+        /// <param name="value">Feature value payload.</param>
+        /// <param name="applicationName">Optional application name.</param>
+        /// <param name="customValue">Optional custom payload bytes.</param>
+        /// <returns>Initialized set request DTO.</returns>
+        public static VideoProcessingFeatureGetSetDto CreateVideoProcessingFeatureSetRequest(
+            ctl_video_processing_feature_t featureType,
+            ctl_property_value_type_t valueType,
+            PropertyDto value,
+            string? applicationName = null,
+            List<byte>? customValue = null)
+        {
+            return new VideoProcessingFeatureGetSetDto
+            {
+                FeatureType = featureType,
+                ValueType = valueType,
+                Value = value,
+                ApplicationName = applicationName,
+                CustomValue = customValue,
+                Set = true
+            };
+        }
+
+        /// <summary>
+        /// Validate a video-processing set request to catch accidental default DTO usage.
+        /// </summary>
+        /// <param name="request">Request DTO.</param>
+        /// <exception cref="ArgumentException">Thrown when request appears to be an accidental default payload.</exception>
+        public static void ValidateSetVideoProcessingFeatureRequest(VideoProcessingFeatureGetSetDto request)
+        {
+            if (request.Equals(default))
+            {
+                throw new ArgumentException(
+                    "Video processing set request cannot be default. Use CreateVideoProcessingFeatureSetRequest and provide explicit feature/value fields.",
+                    nameof(request));
+            }
+        }
 
         /// <summary>
         /// Compare video processing feature capabilities while ignoring native-only fields.

@@ -1162,6 +1162,7 @@ namespace IGCLWrapper
         /// <param name="settings">Settings DTO.</param>
         public void SetPowerOptimizationSetting(PowerOptimizationSettingsDto settings)
         {
+            ValidateSetPowerOptimizationSettingsRequest(settings);
             SetPowerOptimizationSettingNative(settings.ToNative());
         }
 
@@ -2039,9 +2040,90 @@ namespace IGCLWrapper
         /// <param name="settings">Display settings DTO.</param>
         public void SetDisplaySettings(DisplaySettingsDto settings)
         {
+            ValidateSetDisplaySettingsRequest(settings);
             var request = settings;
             request.Set = true;
             GetSetDisplaySettingsNative(request.ToNative());
+        }
+
+        /// <summary>
+        /// Create a DTO request for display-settings get operations.
+        /// </summary>
+        /// <returns>Initialized get request DTO.</returns>
+        public static DisplaySettingsDto CreateDisplaySettingsGetRequest()
+        {
+            return new DisplaySettingsDto { Set = false };
+        }
+
+        /// <summary>
+        /// Create a DTO request for display-settings set operations.
+        /// </summary>
+        /// <param name="validFlags">Flags indicating which settings are being changed.</param>
+        /// <returns>Initialized set request DTO.</returns>
+        public static DisplaySettingsDto CreateDisplaySettingsSetRequest(uint validFlags)
+        {
+            return new DisplaySettingsDto
+            {
+                Set = true,
+                ValidFlags = validFlags
+            };
+        }
+
+        /// <summary>
+        /// Create a DTO request for power-optimization get operations.
+        /// </summary>
+        /// <param name="featureFlags">Feature flags to query.</param>
+        /// <returns>Initialized get request DTO.</returns>
+        public static PowerOptimizationSettingsDto CreatePowerOptimizationSettingsGetRequest(uint featureFlags)
+        {
+            return new PowerOptimizationSettingsDto
+            {
+                PowerOptimizationFeature = featureFlags
+            };
+        }
+
+        /// <summary>
+        /// Create a DTO request for power-optimization set operations.
+        /// </summary>
+        /// <param name="featureFlags">Feature flags to set.</param>
+        /// <returns>Initialized set request DTO.</returns>
+        public static PowerOptimizationSettingsDto CreatePowerOptimizationSettingsSetRequest(uint featureFlags)
+        {
+            return new PowerOptimizationSettingsDto
+            {
+                PowerOptimizationFeature = featureFlags,
+                Enable = true
+            };
+        }
+
+        /// <summary>
+        /// Validate a display-settings set request.
+        /// </summary>
+        /// <param name="settings">Settings DTO.</param>
+        /// <exception cref="ArgumentException">Thrown when no valid setting flags are provided.</exception>
+        public static void ValidateSetDisplaySettingsRequest(DisplaySettingsDto settings)
+        {
+            if (settings.ValidFlags == 0)
+            {
+                throw new ArgumentException(
+                    "Display settings set request must specify at least one ValidFlags bit.",
+                    nameof(settings));
+            }
+        }
+
+        /// <summary>
+        /// Validate a power-optimization set request.
+        /// </summary>
+        /// <param name="settings">Settings DTO.</param>
+        /// <exception cref="ArgumentException">Thrown when no optimization feature flags are provided.</exception>
+        public static void ValidateSetPowerOptimizationSettingsRequest(PowerOptimizationSettingsDto settings)
+        {
+            if (settings.PowerOptimizationFeature == 0)
+            {
+                throw new ArgumentException(
+                    "Power optimization set request must specify at least one PowerOptimizationFeature flag.",
+                    nameof(settings));
+            }
         }
 
 
