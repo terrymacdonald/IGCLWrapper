@@ -3947,12 +3947,19 @@
             <param name="fanHandle">Fan handle.</param>
             <returns>Fan properties DTO.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLFanHelper.FanGetConfig(System.IntPtr)">
+        <member name="M:IGCLWrapper.IGCLFanHelper.FanGetConfigNative(System.IntPtr)">
             <summary>
-            Get fan configuration.
+            Get fan configuration using the native struct.
             </summary>
             <param name="fanHandle">Fan handle.</param>
             <returns>Fan config struct.</returns>
+        </member>
+        <member name="M:IGCLWrapper.IGCLFanHelper.FanGetConfig(System.IntPtr)">
+            <summary>
+            Get fan configuration as a DTO.
+            </summary>
+            <param name="fanHandle">Fan handle.</param>
+            <returns>Fan config DTO.</returns>
         </member>
         <member name="M:IGCLWrapper.IGCLFanHelper.FanSetDefaultMode(System.IntPtr)">
             <summary>
@@ -3960,19 +3967,33 @@
             </summary>
             <param name="fanHandle">Fan handle.</param>
         </member>
-        <member name="M:IGCLWrapper.IGCLFanHelper.FanSetFixedSpeedMode(System.IntPtr,IGCLWrapper.ctl_fan_speed_t)">
+        <member name="M:IGCLWrapper.IGCLFanHelper.FanSetFixedSpeedModeNative(System.IntPtr,IGCLWrapper.ctl_fan_speed_t)">
             <summary>
-            Set the fan to fixed speed mode.
+            Set the fan to fixed speed mode using the native struct.
             </summary>
             <param name="fanHandle">Fan handle.</param>
-            <param name="speed">Fan speed settings.</param>
+            <param name="speed">Fan speed settings struct.</param>
         </member>
-        <member name="M:IGCLWrapper.IGCLFanHelper.FanSetSpeedTableMode(System.IntPtr,IGCLWrapper.ctl_fan_speed_table_t)">
+        <member name="M:IGCLWrapper.IGCLFanHelper.FanSetFixedSpeedMode(System.IntPtr,IGCLWrapper.FanSpeedDto)">
             <summary>
-            Set the fan to speed table mode.
+            Set the fan to fixed speed mode using a DTO.
             </summary>
             <param name="fanHandle">Fan handle.</param>
-            <param name="table">Fan speed table.</param>
+            <param name="speed">Fan speed settings DTO.</param>
+        </member>
+        <member name="M:IGCLWrapper.IGCLFanHelper.FanSetSpeedTableModeNative(System.IntPtr,IGCLWrapper.ctl_fan_speed_table_t)">
+            <summary>
+            Set the fan to speed table mode using the native struct.
+            </summary>
+            <param name="fanHandle">Fan handle.</param>
+            <param name="table">Fan speed table struct.</param>
+        </member>
+        <member name="M:IGCLWrapper.IGCLFanHelper.FanSetSpeedTableMode(System.IntPtr,IGCLWrapper.FanSpeedTableDto)">
+            <summary>
+            Set the fan to speed table mode using a DTO.
+            </summary>
+            <param name="fanHandle">Fan handle.</param>
+            <param name="table">Fan speed table DTO.</param>
         </member>
         <member name="M:IGCLWrapper.IGCLFanHelper.FanGetState(System.IntPtr,IGCLWrapper.ctl_fan_speed_units_t)">
             <summary>
@@ -4030,6 +4051,238 @@
             <summary>
             Mark the helper as disposed.
             </summary>
+        </member>
+        <member name="T:IGCLWrapper.FanSpeedDto">
+            <summary>
+            DTO for fan speed.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FanSpeedDto.Size">
+            <summary>
+            Size of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FanSpeedDto.Version">
+            <summary>
+            Version of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FanSpeedDto.Speed">
+            <summary>
+            Speed value.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FanSpeedDto.Units">
+            <summary>
+            Speed units.
+            </summary>
+        </member>
+        <member name="M:IGCLWrapper.FanSpeedDto.Equals(IGCLWrapper.FanSpeedDto)">
+            <summary>
+            Compare fan speeds.
+            </summary>
+            <param name="other">Other speed instance.</param>
+            <returns>True when equal; otherwise, false.</returns>
+        </member>
+        <member name="M:IGCLWrapper.FanSpeedDto.Equals(System.Object)">
+            <summary>
+            Compare to another object.
+            </summary>
+            <param name="obj">Object to compare.</param>
+            <returns>True when equal; otherwise, false.</returns>
+        </member>
+        <member name="M:IGCLWrapper.FanSpeedDto.GetHashCode">
+            <summary>
+            Get a hash code for this instance.
+            </summary>
+            <returns>Hash code value.</returns>
+        </member>
+        <member name="M:IGCLWrapper.FanSpeedDto.FromNative(IGCLWrapper.ctl_fan_speed_t)">
+            <summary>
+            Create a DTO from a native struct.
+            </summary>
+            <param name="native">Native struct.</param>
+            <returns>Fan speed DTO.</returns>
+        </member>
+        <member name="M:IGCLWrapper.FanSpeedDto.ToNative">
+            <summary>
+            Convert this DTO to a native struct.
+            </summary>
+            <returns>Fan speed struct.</returns>
+        </member>
+        <member name="T:IGCLWrapper.FanTempSpeedDto">
+            <summary>
+            DTO for temperature-speed pair in fan table.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FanTempSpeedDto.Size">
+            <summary>
+            Size of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FanTempSpeedDto.Version">
+            <summary>
+            Version of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FanTempSpeedDto.Temperature">
+            <summary>
+            Temperature threshold.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FanTempSpeedDto.Speed">
+            <summary>
+            Associated fan speed.
+            </summary>
+        </member>
+        <member name="M:IGCLWrapper.FanTempSpeedDto.Equals(IGCLWrapper.FanTempSpeedDto)">
+            <summary>
+            Compare temperature-speed pairs.
+            </summary>
+            <param name="other">Other pair instance.</param>
+            <returns>True when equal; otherwise, false.</returns>
+        </member>
+        <member name="M:IGCLWrapper.FanTempSpeedDto.Equals(System.Object)">
+            <summary>
+            Compare to another object.
+            </summary>
+            <param name="obj">Object to compare.</param>
+            <returns>True when equal; otherwise, false.</returns>
+        </member>
+        <member name="M:IGCLWrapper.FanTempSpeedDto.GetHashCode">
+            <summary>
+            Get a hash code for this instance.
+            </summary>
+            <returns>Hash code value.</returns>
+        </member>
+        <member name="M:IGCLWrapper.FanTempSpeedDto.FromNative(IGCLWrapper.ctl_fan_temp_speed_t)">
+            <summary>
+            Create a DTO from a native struct.
+            </summary>
+            <param name="native">Native struct.</param>
+            <returns>Temperature-speed pair DTO.</returns>
+        </member>
+        <member name="M:IGCLWrapper.FanTempSpeedDto.ToNative">
+            <summary>
+            Convert this DTO to a native struct.
+            </summary>
+            <returns>Temperature-speed pair struct.</returns>
+        </member>
+        <member name="T:IGCLWrapper.FanSpeedTableDto">
+            <summary>
+            DTO for fan speed table.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FanSpeedTableDto.Size">
+            <summary>
+            Size of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FanSpeedTableDto.Version">
+            <summary>
+            Version of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FanSpeedTableDto.Table">
+            <summary>
+            Array of temperature-speed points.
+            </summary>
+        </member>
+        <member name="M:IGCLWrapper.FanSpeedTableDto.Equals(IGCLWrapper.FanSpeedTableDto)">
+            <summary>
+            Compare fan speed tables.
+            </summary>
+            <param name="other">Other table instance.</param>
+            <returns>True when equal; otherwise, false.</returns>
+        </member>
+        <member name="M:IGCLWrapper.FanSpeedTableDto.Equals(System.Object)">
+            <summary>
+            Compare to another object.
+            </summary>
+            <param name="obj">Object to compare.</param>
+            <returns>True when equal; otherwise, false.</returns>
+        </member>
+        <member name="M:IGCLWrapper.FanSpeedTableDto.GetHashCode">
+            <summary>
+            Get a hash code for this instance.
+            </summary>
+            <returns>Hash code value.</returns>
+        </member>
+        <member name="M:IGCLWrapper.FanSpeedTableDto.FromNative(IGCLWrapper.ctl_fan_speed_table_t)">
+            <summary>
+            Create a DTO from a native struct.
+            </summary>
+            <param name="native">Native struct.</param>
+            <returns>Fan speed table DTO.</returns>
+        </member>
+        <member name="M:IGCLWrapper.FanSpeedTableDto.ToNative">
+            <summary>
+            Convert this DTO to a native struct.
+            </summary>
+            <returns>Fan speed table struct.</returns>
+        </member>
+        <member name="T:IGCLWrapper.FanConfigDto">
+            <summary>
+            DTO for fan configuration.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FanConfigDto.Size">
+            <summary>
+            Size of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FanConfigDto.Version">
+            <summary>
+            Version of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FanConfigDto.Mode">
+            <summary>
+            Current fan mode.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FanConfigDto.SpeedFixed">
+            <summary>
+            Fixed speed settings.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FanConfigDto.SpeedTable">
+            <summary>
+            Speed table settings.
+            </summary>
+        </member>
+        <member name="M:IGCLWrapper.FanConfigDto.Equals(IGCLWrapper.FanConfigDto)">
+            <summary>
+            Compare fan configurations.
+            </summary>
+            <param name="other">Other config instance.</param>
+            <returns>True when equal; otherwise, false.</returns>
+        </member>
+        <member name="M:IGCLWrapper.FanConfigDto.Equals(System.Object)">
+            <summary>
+            Compare to another object.
+            </summary>
+            <param name="obj">Object to compare.</param>
+            <returns>True when equal; otherwise, false.</returns>
+        </member>
+        <member name="M:IGCLWrapper.FanConfigDto.GetHashCode">
+            <summary>
+            Get a hash code for this instance.
+            </summary>
+            <returns>Hash code value.</returns>
+        </member>
+        <member name="M:IGCLWrapper.FanConfigDto.FromNative(IGCLWrapper.ctl_fan_config_t)">
+            <summary>
+            Create a DTO from a native struct.
+            </summary>
+            <param name="native">Native struct.</param>
+            <returns>Fan config DTO.</returns>
+        </member>
+        <member name="M:IGCLWrapper.FanConfigDto.ToNative">
+            <summary>
+            Convert this DTO to a native struct.
+            </summary>
+            <returns>Fan config struct.</returns>
         </member>
         <member name="T:IGCLWrapper.FanPropertiesDto">
             <summary>
@@ -4331,33 +4584,61 @@
             <param name="freqHandle">Frequency domain handle.</param>
             <returns>Array of available clock values.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLFrequencyHelper.FrequencyGetRange(System.IntPtr)">
+        <member name="M:IGCLWrapper.IGCLFrequencyHelper.FrequencyGetRangeNative(System.IntPtr)">
             <summary>
-            Get the frequency range for a domain.
+            Get the frequency range for a domain using the native struct.
             </summary>
             <param name="freqHandle">Frequency domain handle.</param>
             <returns>Frequency range struct.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLFrequencyHelper.FrequencySetRange(System.IntPtr,IGCLWrapper.ctl_freq_range_t)">
+        <member name="M:IGCLWrapper.IGCLFrequencyHelper.FrequencyGetRange(System.IntPtr)">
             <summary>
-            Set the frequency range for a domain.
+            Get the frequency range for a domain as a DTO.
+            </summary>
+            <param name="freqHandle">Frequency domain handle.</param>
+            <returns>Frequency range DTO.</returns>
+        </member>
+        <member name="M:IGCLWrapper.IGCLFrequencyHelper.FrequencySetRangeNative(System.IntPtr,IGCLWrapper.ctl_freq_range_t)">
+            <summary>
+            Set the frequency range for a domain using the native struct.
             </summary>
             <param name="freqHandle">Frequency domain handle.</param>
             <param name="range">Frequency range struct.</param>
         </member>
-        <member name="M:IGCLWrapper.IGCLFrequencyHelper.FrequencyGetState(System.IntPtr)">
+        <member name="M:IGCLWrapper.IGCLFrequencyHelper.FrequencySetRange(System.IntPtr,IGCLWrapper.FrequencyRangeDto)">
             <summary>
-            Get the current frequency state.
+            Set the frequency range for a domain using a DTO.
+            </summary>
+            <param name="freqHandle">Frequency domain handle.</param>
+            <param name="range">Frequency range DTO.</param>
+        </member>
+        <member name="M:IGCLWrapper.IGCLFrequencyHelper.FrequencyGetStateNative(System.IntPtr)">
+            <summary>
+            Get the current frequency state using the native struct.
             </summary>
             <param name="freqHandle">Frequency domain handle.</param>
             <returns>Frequency state struct.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLFrequencyHelper.FrequencyGetThrottleTime(System.IntPtr)">
+        <member name="M:IGCLWrapper.IGCLFrequencyHelper.FrequencyGetState(System.IntPtr)">
             <summary>
-            Get the throttle time for a frequency domain.
+            Get the current frequency state as a DTO.
+            </summary>
+            <param name="freqHandle">Frequency domain handle.</param>
+            <returns>Frequency state DTO.</returns>
+        </member>
+        <member name="M:IGCLWrapper.IGCLFrequencyHelper.FrequencyGetThrottleTimeNative(System.IntPtr)">
+            <summary>
+            Get the throttle time for a frequency domain using the native struct.
             </summary>
             <param name="freqHandle">Frequency domain handle.</param>
             <returns>Throttle time struct.</returns>
+        </member>
+        <member name="M:IGCLWrapper.IGCLFrequencyHelper.FrequencyGetThrottleTime(System.IntPtr)">
+            <summary>
+            Get the throttle time for a frequency domain as a DTO.
+            </summary>
+            <param name="freqHandle">Frequency domain handle.</param>
+            <returns>Throttle time DTO.</returns>
         </member>
         <member name="M:IGCLWrapper.IGCLFrequencyHelper.CreateFrequencyRangeStruct">
             <summary>
@@ -4401,6 +4682,200 @@
             <summary>
             Mark the helper as disposed.
             </summary>
+        </member>
+        <member name="T:IGCLWrapper.FrequencyRangeDto">
+            <summary>
+            DTO for frequency range.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FrequencyRangeDto.Size">
+            <summary>
+            Size of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FrequencyRangeDto.Version">
+            <summary>
+            Version of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FrequencyRangeDto.Min">
+            <summary>
+            Minimum frequency.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FrequencyRangeDto.Max">
+            <summary>
+            Maximum frequency.
+            </summary>
+        </member>
+        <member name="M:IGCLWrapper.FrequencyRangeDto.Equals(IGCLWrapper.FrequencyRangeDto)">
+            <summary>
+            Compare frequency ranges.
+            </summary>
+            <param name="other">Other range instance.</param>
+            <returns>True when equal; otherwise, false.</returns>
+        </member>
+        <member name="M:IGCLWrapper.FrequencyRangeDto.Equals(System.Object)">
+            <summary>
+            Compare to another object.
+            </summary>
+            <param name="obj">Object to compare.</param>
+            <returns>True when equal; otherwise, false.</returns>
+        </member>
+        <member name="M:IGCLWrapper.FrequencyRangeDto.GetHashCode">
+            <summary>
+            Get a hash code for this instance.
+            </summary>
+            <returns>Hash code value.</returns>
+        </member>
+        <member name="M:IGCLWrapper.FrequencyRangeDto.FromNative(IGCLWrapper.ctl_freq_range_t)">
+            <summary>
+            Create a DTO from a native struct.
+            </summary>
+            <param name="native">Native struct.</param>
+            <returns>Frequency range DTO.</returns>
+        </member>
+        <member name="M:IGCLWrapper.FrequencyRangeDto.ToNative">
+            <summary>
+            Convert this DTO to a native struct.
+            </summary>
+            <returns>Frequency range struct.</returns>
+        </member>
+        <member name="T:IGCLWrapper.FrequencyStateDto">
+            <summary>
+            DTO for frequency state.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FrequencyStateDto.Size">
+            <summary>
+            Size of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FrequencyStateDto.Version">
+            <summary>
+            Version of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FrequencyStateDto.CurrentVoltage">
+            <summary>
+            Current voltage.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FrequencyStateDto.Request">
+            <summary>
+            Requested frequency.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FrequencyStateDto.Tdp">
+            <summary>
+            TDP frequency.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FrequencyStateDto.Efficient">
+            <summary>
+            Efficient frequency.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FrequencyStateDto.Actual">
+            <summary>
+            Actual frequency.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FrequencyStateDto.ThrottleReasons">
+            <summary>
+            Throttle reasons bitmask.
+            </summary>
+        </member>
+        <member name="M:IGCLWrapper.FrequencyStateDto.Equals(IGCLWrapper.FrequencyStateDto)">
+            <summary>
+            Compare frequency states.
+            </summary>
+            <param name="other">Other state instance.</param>
+            <returns>True when equal; otherwise, false.</returns>
+        </member>
+        <member name="M:IGCLWrapper.FrequencyStateDto.Equals(System.Object)">
+            <summary>
+            Compare to another object.
+            </summary>
+            <param name="obj">Object to compare.</param>
+            <returns>True when equal; otherwise, false.</returns>
+        </member>
+        <member name="M:IGCLWrapper.FrequencyStateDto.GetHashCode">
+            <summary>
+            Get a hash code for this instance.
+            </summary>
+            <returns>Hash code value.</returns>
+        </member>
+        <member name="M:IGCLWrapper.FrequencyStateDto.FromNative(IGCLWrapper.ctl_freq_state_t)">
+            <summary>
+            Create a DTO from a native struct.
+            </summary>
+            <param name="native">Native struct.</param>
+            <returns>Frequency state DTO.</returns>
+        </member>
+        <member name="M:IGCLWrapper.FrequencyStateDto.ToNative">
+            <summary>
+            Convert this DTO to a native struct.
+            </summary>
+            <returns>Frequency state struct.</returns>
+        </member>
+        <member name="T:IGCLWrapper.FrequencyThrottleTimeDto">
+            <summary>
+            DTO for frequency throttle time.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FrequencyThrottleTimeDto.Size">
+            <summary>
+            Size of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FrequencyThrottleTimeDto.Version">
+            <summary>
+            Version of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FrequencyThrottleTimeDto.ThrottleTime">
+            <summary>
+            Throttle time value.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.FrequencyThrottleTimeDto.Timestamp">
+            <summary>
+            Timestamp.
+            </summary>
+        </member>
+        <member name="M:IGCLWrapper.FrequencyThrottleTimeDto.Equals(IGCLWrapper.FrequencyThrottleTimeDto)">
+            <summary>
+            Compare frequency throttle times.
+            </summary>
+            <param name="other">Other throttle time instance.</param>
+            <returns>True when equal; otherwise, false.</returns>
+        </member>
+        <member name="M:IGCLWrapper.FrequencyThrottleTimeDto.Equals(System.Object)">
+            <summary>
+            Compare to another object.
+            </summary>
+            <param name="obj">Object to compare.</param>
+            <returns>True when equal; otherwise, false.</returns>
+        </member>
+        <member name="M:IGCLWrapper.FrequencyThrottleTimeDto.GetHashCode">
+            <summary>
+            Get a hash code for this instance.
+            </summary>
+            <returns>Hash code value.</returns>
+        </member>
+        <member name="M:IGCLWrapper.FrequencyThrottleTimeDto.FromNative(IGCLWrapper.ctl_freq_throttle_time_t)">
+            <summary>
+            Create a DTO from a native struct.
+            </summary>
+            <param name="native">Native struct.</param>
+            <returns>Frequency throttle time DTO.</returns>
+        </member>
+        <member name="M:IGCLWrapper.FrequencyThrottleTimeDto.ToNative">
+            <summary>
+            Convert this DTO to a native struct.
+            </summary>
+            <returns>Frequency throttle time struct.</returns>
         </member>
         <member name="T:IGCLWrapper.FrequencyPropertiesDto">
             <summary>
@@ -6050,12 +6525,19 @@
             <param name="powerHandle">Power domain handle.</param>
             <returns>Power properties DTO.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLPowerHelper.PowerGetEnergyCounter(System.IntPtr)">
+        <member name="M:IGCLWrapper.IGCLPowerHelper.PowerGetEnergyCounterNative(System.IntPtr)">
             <summary>
-            Get the power energy counter.
+            Get the power energy counter using the native struct.
             </summary>
             <param name="powerHandle">Power domain handle.</param>
             <returns>Power energy counter struct.</returns>
+        </member>
+        <member name="M:IGCLWrapper.IGCLPowerHelper.PowerGetEnergyCounter(System.IntPtr)">
+            <summary>
+            Get the power energy counter as a DTO.
+            </summary>
+            <param name="powerHandle">Power domain handle.</param>
+            <returns>Power energy counter DTO.</returns>
         </member>
         <member name="M:IGCLWrapper.IGCLPowerHelper.PowerGetLimitsNative(System.IntPtr)">
             <summary>
@@ -6119,6 +6601,64 @@
             <summary>
             Mark the helper as disposed.
             </summary>
+        </member>
+        <member name="T:IGCLWrapper.PowerEnergyCounterDto">
+            <summary>
+            DTO for power energy counter.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PowerEnergyCounterDto.Size">
+            <summary>
+            Size of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PowerEnergyCounterDto.Version">
+            <summary>
+            Version of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PowerEnergyCounterDto.Energy">
+            <summary>
+            Energy value.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.PowerEnergyCounterDto.Timestamp">
+            <summary>
+            Timestamp.
+            </summary>
+        </member>
+        <member name="M:IGCLWrapper.PowerEnergyCounterDto.Equals(IGCLWrapper.PowerEnergyCounterDto)">
+            <summary>
+            Compare power energy counters.
+            </summary>
+            <param name="other">Other counter instance.</param>
+            <returns>True when equal; otherwise, false.</returns>
+        </member>
+        <member name="M:IGCLWrapper.PowerEnergyCounterDto.Equals(System.Object)">
+            <summary>
+            Compare to another object.
+            </summary>
+            <param name="obj">Object to compare.</param>
+            <returns>True when equal; otherwise, false.</returns>
+        </member>
+        <member name="M:IGCLWrapper.PowerEnergyCounterDto.GetHashCode">
+            <summary>
+            Get a hash code for this instance.
+            </summary>
+            <returns>Hash code value.</returns>
+        </member>
+        <member name="M:IGCLWrapper.PowerEnergyCounterDto.FromNative(IGCLWrapper.ctl_power_energy_counter_t)">
+            <summary>
+            Create a DTO from a native struct.
+            </summary>
+            <param name="native">Native struct.</param>
+            <returns>Power energy counter DTO.</returns>
+        </member>
+        <member name="M:IGCLWrapper.PowerEnergyCounterDto.ToNative">
+            <summary>
+            Convert this DTO to a native struct.
+            </summary>
+            <returns>Power energy counter struct.</returns>
         </member>
         <member name="T:IGCLWrapper.PowerPropertiesDto">
             <summary>

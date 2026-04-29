@@ -55,11 +55,11 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get the power energy counter.
+        /// Get the power energy counter using the native struct.
         /// </summary>
         /// <param name="powerHandle">Power domain handle.</param>
         /// <returns>Power energy counter struct.</returns>
-        public unsafe ctl_power_energy_counter_t PowerGetEnergyCounter(IntPtr powerHandle)
+        public unsafe ctl_power_energy_counter_t PowerGetEnergyCounterNative(IntPtr powerHandle)
         {
             ThrowIfDisposed();
             var counter = CreatePowerEnergyCounter();
@@ -67,6 +67,17 @@ namespace IGCLWrapper
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get power energy counter");
             return counter;
+        }
+
+        /// <summary>
+        /// Get the power energy counter as a DTO.
+        /// </summary>
+        /// <param name="powerHandle">Power domain handle.</param>
+        /// <returns>Power energy counter DTO.</returns>
+        public PowerEnergyCounterDto PowerGetEnergyCounter(IntPtr powerHandle)
+        {
+            var native = PowerGetEnergyCounterNative(powerHandle);
+            return PowerEnergyCounterDto.FromNative(native);
         }
 
         /// <summary>
@@ -228,6 +239,98 @@ namespace IGCLWrapper
     {
         public static bool ToBool(byte value) => value != 0;
         public static byte ToByte(bool value) => value ? (byte)1 : (byte)0;
+    }
+
+    /// <summary>
+    /// DTO for power energy counter.
+    /// </summary>
+    public struct PowerEnergyCounterDto : IEquatable<PowerEnergyCounterDto>
+    {
+        /// <summary>
+        /// Size of the native struct.
+        /// </summary>
+        public uint Size;
+        /// <summary>
+        /// Version of the native struct.
+        /// </summary>
+        public byte Version;
+        /// <summary>
+        /// Energy value.
+        /// </summary>
+        public ulong Energy;
+        /// <summary>
+        /// Timestamp.
+        /// </summary>
+        public ulong Timestamp;
+
+        /// <summary>
+        /// Compare power energy counters.
+        /// </summary>
+        /// <param name="other">Other counter instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(PowerEnergyCounterDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   Energy == other.Energy &&
+                   Timestamp == other.Timestamp;
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is PowerEnergyCounterDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(Energy);
+            hash.Add(Timestamp);
+            return hash.ToHashCode();
+        }
+
+        /// <summary>
+        /// Create a DTO from a native struct.
+        /// </summary>
+        /// <param name="native">Native struct.</param>
+        /// <returns>Power energy counter DTO.</returns>
+        public static PowerEnergyCounterDto FromNative(ctl_power_energy_counter_t native)
+        {
+            return new PowerEnergyCounterDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                Energy = native.energy,
+                Timestamp = native.timestamp
+            };
+        }
+
+        /// <summary>
+        /// Convert this DTO to a native struct.
+        /// </summary>
+        /// <returns>Power energy counter struct.</returns>
+        public unsafe ctl_power_energy_counter_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_power_energy_counter_t);
+
+            return new ctl_power_energy_counter_t
+            {
+                Size = size,
+                Version = Version,
+                energy = Energy,
+                timestamp = Timestamp
+            };
+        }
     }
 
     /// <summary>

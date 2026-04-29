@@ -20,9 +20,30 @@ namespace IGCLWrapper.FacadeTests
                 var props = helper.PowerGetProperties(domains[0]);
                 Assert.True(props.Size > 0);
                 var energy = helper.PowerGetEnergyCounter(domains[0]);
-                Assert.True(energy.timestamp >= 0);
+                Assert.True(energy.Timestamp >= 0);
                 helper.PowerGetLimits(domains[0]);
             }
+        }
+
+        [Fact]
+        public void PowerEnergyCounterDto_ShouldRoundTripMetadata()
+        {
+            var native = new ctl_power_energy_counter_t
+            {
+                Size = 123u,
+                Version = 45,
+                energy = 999ul,
+                timestamp = 777ul
+            };
+
+            var dto = PowerEnergyCounterDto.FromNative(native);
+            Assert.Equal(native.Size, dto.Size);
+            Assert.Equal(native.Version, dto.Version);
+            Assert.Equal(native.energy, dto.Energy);
+            Assert.Equal(native.timestamp, dto.Timestamp);
+
+            var roundtrip = dto.ToNative();
+            Assert.True(IGCLPowerHelper.ArePowerEnergyCounterEqual(native, roundtrip));
         }
     }
 }

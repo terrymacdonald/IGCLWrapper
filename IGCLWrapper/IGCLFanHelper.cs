@@ -56,11 +56,11 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get fan configuration.
+        /// Get fan configuration using the native struct.
         /// </summary>
         /// <param name="fanHandle">Fan handle.</param>
         /// <returns>Fan config struct.</returns>
-        public unsafe ctl_fan_config_t FanGetConfig(IntPtr fanHandle)
+        public unsafe ctl_fan_config_t FanGetConfigNative(IntPtr fanHandle)
         {
             ThrowIfDisposed();
             var config = CreateFanConfig();
@@ -68,6 +68,17 @@ namespace IGCLWrapper
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get fan config");
             return config;
+        }
+
+        /// <summary>
+        /// Get fan configuration as a DTO.
+        /// </summary>
+        /// <param name="fanHandle">Fan handle.</param>
+        /// <returns>Fan config DTO.</returns>
+        public FanConfigDto FanGetConfig(IntPtr fanHandle)
+        {
+            var native = FanGetConfigNative(fanHandle);
+            return FanConfigDto.FromNative(native);
         }
 
         /// <summary>
@@ -83,11 +94,11 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Set the fan to fixed speed mode.
+        /// Set the fan to fixed speed mode using the native struct.
         /// </summary>
         /// <param name="fanHandle">Fan handle.</param>
-        /// <param name="speed">Fan speed settings.</param>
-        public unsafe void FanSetFixedSpeedMode(IntPtr fanHandle, ctl_fan_speed_t speed)
+        /// <param name="speed">Fan speed settings struct.</param>
+        public unsafe void FanSetFixedSpeedModeNative(IntPtr fanHandle, ctl_fan_speed_t speed)
         {
             ThrowIfDisposed();
             var result = IGCL.ctlFanSetFixedSpeedMode((_ctl_fan_handle_t*)fanHandle, &speed);
@@ -96,16 +107,36 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Set the fan to speed table mode.
+        /// Set the fan to fixed speed mode using a DTO.
         /// </summary>
         /// <param name="fanHandle">Fan handle.</param>
-        /// <param name="table">Fan speed table.</param>
-        public unsafe void FanSetSpeedTableMode(IntPtr fanHandle, ctl_fan_speed_table_t table)
+        /// <param name="speed">Fan speed settings DTO.</param>
+        public void FanSetFixedSpeedMode(IntPtr fanHandle, FanSpeedDto speed)
+        {
+            FanSetFixedSpeedModeNative(fanHandle, speed.ToNative());
+        }
+
+        /// <summary>
+        /// Set the fan to speed table mode using the native struct.
+        /// </summary>
+        /// <param name="fanHandle">Fan handle.</param>
+        /// <param name="table">Fan speed table struct.</param>
+        public unsafe void FanSetSpeedTableModeNative(IntPtr fanHandle, ctl_fan_speed_table_t table)
         {
             ThrowIfDisposed();
             var result = IGCL.ctlFanSetSpeedTableMode((_ctl_fan_handle_t*)fanHandle, &table);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to set fan speed table");
+        }
+
+        /// <summary>
+        /// Set the fan to speed table mode using a DTO.
+        /// </summary>
+        /// <param name="fanHandle">Fan handle.</param>
+        /// <param name="table">Fan speed table DTO.</param>
+        public void FanSetSpeedTableMode(IntPtr fanHandle, FanSpeedTableDto table)
+        {
+            FanSetSpeedTableModeNative(fanHandle, table.ToNative());
         }
 
         /// <summary>
@@ -253,6 +284,407 @@ namespace IGCLWrapper
     {
         public static bool ToBool(byte value) => value != 0;
         public static byte ToByte(bool value) => value ? (byte)1 : (byte)0;
+    }
+
+    /// <summary>
+    /// DTO for fan speed.
+    /// </summary>
+    public struct FanSpeedDto : IEquatable<FanSpeedDto>
+    {
+        /// <summary>
+        /// Size of the native struct.
+        /// </summary>
+        public uint Size;
+        /// <summary>
+        /// Version of the native struct.
+        /// </summary>
+        public byte Version;
+        /// <summary>
+        /// Speed value.
+        /// </summary>
+        public int Speed;
+        /// <summary>
+        /// Speed units.
+        /// </summary>
+        public ctl_fan_speed_units_t Units;
+
+        /// <summary>
+        /// Compare fan speeds.
+        /// </summary>
+        /// <param name="other">Other speed instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(FanSpeedDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   Speed == other.Speed &&
+                   Units == other.Units;
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is FanSpeedDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(Speed);
+            hash.Add(Units);
+            return hash.ToHashCode();
+        }
+
+        /// <summary>
+        /// Create a DTO from a native struct.
+        /// </summary>
+        /// <param name="native">Native struct.</param>
+        /// <returns>Fan speed DTO.</returns>
+        public static FanSpeedDto FromNative(ctl_fan_speed_t native)
+        {
+            return new FanSpeedDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                Speed = native.speed,
+                Units = native.units
+            };
+        }
+
+        /// <summary>
+        /// Convert this DTO to a native struct.
+        /// </summary>
+        /// <returns>Fan speed struct.</returns>
+        public unsafe ctl_fan_speed_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_fan_speed_t);
+
+            return new ctl_fan_speed_t
+            {
+                Size = size,
+                Version = Version,
+                speed = Speed,
+                units = Units
+            };
+        }
+    }
+
+    /// <summary>
+    /// DTO for temperature-speed pair in fan table.
+    /// </summary>
+    public struct FanTempSpeedDto : IEquatable<FanTempSpeedDto>
+    {
+        /// <summary>
+        /// Size of the native struct.
+        /// </summary>
+        public uint Size;
+        /// <summary>
+        /// Version of the native struct.
+        /// </summary>
+        public byte Version;
+        /// <summary>
+        /// Temperature threshold.
+        /// </summary>
+        public uint Temperature;
+        /// <summary>
+        /// Associated fan speed.
+        /// </summary>
+        public FanSpeedDto Speed;
+
+        /// <summary>
+        /// Compare temperature-speed pairs.
+        /// </summary>
+        /// <param name="other">Other pair instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(FanTempSpeedDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   Temperature == other.Temperature &&
+                   Speed.Equals(other.Speed);
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is FanTempSpeedDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(Temperature);
+            hash.Add(Speed);
+            return hash.ToHashCode();
+        }
+
+        /// <summary>
+        /// Create a DTO from a native struct.
+        /// </summary>
+        /// <param name="native">Native struct.</param>
+        /// <returns>Temperature-speed pair DTO.</returns>
+        public static FanTempSpeedDto FromNative(ctl_fan_temp_speed_t native)
+        {
+            return new FanTempSpeedDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                Temperature = native.temperature,
+                Speed = FanSpeedDto.FromNative(native.speed)
+            };
+        }
+
+        /// <summary>
+        /// Convert this DTO to a native struct.
+        /// </summary>
+        /// <returns>Temperature-speed pair struct.</returns>
+        public unsafe ctl_fan_temp_speed_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_fan_temp_speed_t);
+
+            return new ctl_fan_temp_speed_t
+            {
+                Size = size,
+                Version = Version,
+                temperature = Temperature,
+                speed = Speed.ToNative()
+            };
+        }
+    }
+
+    /// <summary>
+    /// DTO for fan speed table.
+    /// </summary>
+    public struct FanSpeedTableDto : IEquatable<FanSpeedTableDto>
+    {
+        /// <summary>
+        /// Size of the native struct.
+        /// </summary>
+        public uint Size;
+        /// <summary>
+        /// Version of the native struct.
+        /// </summary>
+        public byte Version;
+        /// <summary>
+        /// Array of temperature-speed points.
+        /// </summary>
+        public List<FanTempSpeedDto> Table;
+
+        /// <summary>
+        /// Compare fan speed tables.
+        /// </summary>
+        /// <param name="other">Other table instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(FanSpeedTableDto other)
+        {
+            if (Size != other.Size || Version != other.Version)
+                return false;
+            if (Table == null && other.Table == null)
+                return true;
+            if (Table == null || other.Table == null)
+                return false;
+            if (Table.Count != other.Table.Count)
+                return false;
+            for (int i = 0; i < Table.Count; i++)
+            {
+                if (!Table[i].Equals(other.Table[i]))
+                    return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is FanSpeedTableDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            if (Table != null)
+                foreach (var item in Table)
+                    hash.Add(item);
+            return hash.ToHashCode();
+        }
+
+        /// <summary>
+        /// Create a DTO from a native struct.
+        /// </summary>
+        /// <param name="native">Native struct.</param>
+        /// <returns>Fan speed table DTO.</returns>
+        public static FanSpeedTableDto FromNative(ctl_fan_speed_table_t native)
+        {
+            var table = new List<FanTempSpeedDto>();
+            int count = Math.Min(Math.Max(native.numPoints, 0), 32);
+            var span = MemoryMarshal.CreateReadOnlySpan(ref native.table.e0, 32);
+            for (int i = 0; i < count; i++)
+            {
+                table.Add(FanTempSpeedDto.FromNative(span[i]));
+            }
+
+            return new FanSpeedTableDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                Table = table
+            };
+        }
+
+        /// <summary>
+        /// Convert this DTO to a native struct.
+        /// </summary>
+        /// <returns>Fan speed table struct.</returns>
+        public unsafe ctl_fan_speed_table_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_fan_speed_table_t);
+
+            var native = new ctl_fan_speed_table_t
+            {
+                Size = size,
+                Version = Version,
+                numPoints = Table?.Count ?? 0
+            };
+
+            if (Table != null && Table.Count > 0)
+            {
+                var count = Math.Min(Table.Count, 32);
+                var span = MemoryMarshal.CreateSpan(ref native.table.e0, 32);
+                for (int i = 0; i < count; i++)
+                {
+                    span[i] = Table[i].ToNative();
+                }
+            }
+
+            return native;
+        }
+    }
+
+    /// <summary>
+    /// DTO for fan configuration.
+    /// </summary>
+    public struct FanConfigDto : IEquatable<FanConfigDto>
+    {
+        /// <summary>
+        /// Size of the native struct.
+        /// </summary>
+        public uint Size;
+        /// <summary>
+        /// Version of the native struct.
+        /// </summary>
+        public byte Version;
+        /// <summary>
+        /// Current fan mode.
+        /// </summary>
+        public ctl_fan_speed_mode_t Mode;
+        /// <summary>
+        /// Fixed speed settings.
+        /// </summary>
+        public FanSpeedDto SpeedFixed;
+        /// <summary>
+        /// Speed table settings.
+        /// </summary>
+        public FanSpeedTableDto SpeedTable;
+
+        /// <summary>
+        /// Compare fan configurations.
+        /// </summary>
+        /// <param name="other">Other config instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(FanConfigDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   Mode == other.Mode &&
+                   SpeedFixed.Equals(other.SpeedFixed) &&
+                   SpeedTable.Equals(other.SpeedTable);
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is FanConfigDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(Mode);
+            hash.Add(SpeedFixed);
+            hash.Add(SpeedTable);
+            return hash.ToHashCode();
+        }
+
+        /// <summary>
+        /// Create a DTO from a native struct.
+        /// </summary>
+        /// <param name="native">Native struct.</param>
+        /// <returns>Fan config DTO.</returns>
+        public static FanConfigDto FromNative(ctl_fan_config_t native)
+        {
+            return new FanConfigDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                Mode = native.mode,
+                SpeedFixed = FanSpeedDto.FromNative(native.speedFixed),
+                SpeedTable = FanSpeedTableDto.FromNative(native.speedTable)
+            };
+        }
+
+        /// <summary>
+        /// Convert this DTO to a native struct.
+        /// </summary>
+        /// <returns>Fan config struct.</returns>
+        public unsafe ctl_fan_config_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_fan_config_t);
+
+            return new ctl_fan_config_t
+            {
+                Size = size,
+                Version = Version,
+                mode = Mode,
+                speedFixed = SpeedFixed.ToNative(),
+                speedTable = SpeedTable.ToNative()
+            };
+        }
     }
 
     /// <summary>

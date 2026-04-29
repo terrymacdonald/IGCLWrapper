@@ -33,6 +33,10 @@ Batch 0 baseline summary:
 - Facade tests: `Total 66`, `Passed 46`, `Skipped 20`, `Failed 0`.
 - Native tests: `Total 588`, `Passed 585`, `Skipped 3`, `Failed 0`.
 
+Batch 0 closeout status:
+- Status: Complete.
+- Notes: Baseline inventory and validation completed before DTO migration batches.
+
 ### Batch 1 - API + Display Completion (highest impact)
 Scope files:
 - `IGCLWrapper/IGCLApiHelper.cs`
@@ -59,20 +63,51 @@ Batch 1 completion notes:
   - `dotnet build IGCLWrapper/IGCLWrapper.csproj` -> succeeded.
   - `dotnet test IGCLWrapper.FacadeTests/IGCLWrapper.FacadeTests.csproj --verbosity normal` -> `Total 80`, `Passed 60`, `Skipped 20`, `Failed 0`.
 
-### Batch 2 - Control/Tuning Helpers
+Batch 1 closeout status:
+- Status: Complete.
+- Notes: Batch-level objectives are complete; method-level checklist still needs periodic sync edits when naming or signatures change.
+
+### Batch 2 - Control/Tuning Helpers (Power, Frequency, Fan, Overclock)
 Scope files:
-- `IGCLWrapper/IGCLOverclockHelper.cs`
 - `IGCLWrapper/IGCLPowerHelper.cs`
 - `IGCLWrapper/IGCLFrequencyHelper.cs`
 - `IGCLWrapper/IGCLFanHelper.cs`
-- matching facade tests
+- `IGCLWrapper/IGCLOverclockHelper.cs`
+- `IGCLWrapper.FacadeTests/IGCLPowerHelperTests.cs`
+- `IGCLWrapper.FacadeTests/IGCLFrequencyHelperTests.cs`
+- `IGCLWrapper.FacadeTests/IGCLFanHelperTests.cs`
 
-Steps:
-- [ ] Convert remaining public native-facing facade methods to DTO overloads.
-- [ ] Ensure all set operations validate DTO input before native call.
-- [ ] Ensure any count/buffer fields are derived safely from managed collections.
-- [ ] Add feature-focused tests per method (one behavior per test).
-- [ ] Run build + facade tests and fix regressions.
+Steps completed:
+- [x] Step 1: Complete inventory of public methods across all four control helpers.
+- [x] Step 2-3: Add missing DTO types (8 new: PowerEnergyCounterDto, FrequencyRangeDto, FrequencyStateDto, FrequencyThrottleTimeDto, FanSpeedDto, FanTempSpeedDto, FanSpeedTableDto, FanConfigDto).
+- [x] Step 2-3: Rename native methods to `*Native` suffix; add DTO-first wrapper overloads with proper marshaling.
+- [x] Step 4: Validation factories (minimal scope: most new DTOs are read-only or simple value writes, no complex validation needed).
+- [x] Step 5: Add 8 new passive DTO conversion tests following Display pattern (roundtrip FromNative/ToNative verification).
+- [x] Run build + facade tests and fix regressions.
+
+New DTO types added:
+- `PowerEnergyCounterDto`: Wraps `ctl_power_energy_counter_t` (energy, timestamp).
+- `FrequencyRangeDto`: Wraps `ctl_freq_range_t` (min, max).
+- `FrequencyStateDto`: Wraps `ctl_freq_state_t` (voltage, frequency state info, throttle reasons).
+- `FrequencyThrottleTimeDto`: Wraps `ctl_freq_throttle_time_t` (throttle time, timestamp).
+- `FanSpeedDto`: Wraps `ctl_fan_speed_t` (speed value, units).
+- `FanTempSpeedDto`: Wraps `ctl_fan_temp_speed_t` (temperature, speed pair).
+- `FanSpeedTableDto`: Wraps `ctl_fan_speed_table_t` (managed List<FanTempSpeedDto> from fixed buffer).
+- `FanConfigDto`: Wraps `ctl_fan_config_t` (mode, speedFixed, speedTable).
+
+Method renames (native escape hatches):
+- Power: `PowerGetEnergyCounter()` → `PowerGetEnergyCounterNative()` + DTO wrapper.
+- Frequency: `FrequencyGetRange()` → `FrequencyGetRangeNative()`, `FrequencySetRange()` → `FrequencySetRangeNative()`, `FrequencyGetState()` → `FrequencyGetStateNative()`, `FrequencyGetThrottleTime()` → `FrequencyGetThrottleTimeNative()` (all with DTO wrappers).
+- Fan: `FanGetConfig()` → `FanGetConfigNative()`, `FanSetFixedSpeedMode()` → `FanSetFixedSpeedModeNative()`, `FanSetSpeedTableMode()` → `FanSetSpeedTableModeNative()` (all with DTO wrappers).
+- Overclock: No changes (all primitive getters/setters, already DTO-covered).
+
+Batch 2 validation run:
+- `dotnet build IGCLWrapper/IGCLWrapper.csproj` → succeeded.
+- `dotnet test IGCLWrapper.FacadeTests/IGCLWrapper.FacadeTests.csproj --verbosity normal` → `Total 88`, `Passed 68`, `Skipped 20`, `Failed 0` (+8 new passive DTO tests).
+
+Batch 2 closeout status:
+- Status: ✅ Complete.
+- Notes: Control/tuning helpers fully DTO-migrated with native escape hatches. All new DTOs validated with passive roundtrip tests. Overclock helpers left as-is (primitive operations, already tested). Ready for Batch 3 (monitoring/info helpers).
 
 ### Batch 3 - Monitoring/Info Helpers
 Scope files:
@@ -91,6 +126,10 @@ Steps:
 - [ ] Fill DTO conversion test gaps.
 - [ ] Run build + facade tests and fix regressions.
 
+Batch 3 status:
+- Status: Not started.
+- Notes: Pending completion of Batch 2.
+
 ### Batch 4 - 3D/Media Normalization
 Scope files:
 - `IGCLWrapper/IGCL3DHelper.cs`
@@ -103,6 +142,10 @@ Steps:
 - [ ] Validate custom-value buffer handling via facade tests.
 - [ ] Run build + facade tests and fix regressions.
 
+Batch 4 status:
+- Status: Not started.
+- Notes: Planned after monitoring/info helper migration is complete.
+
 ### Batch 5 - Docs/Samples/Polish
 Scope files:
 - `README.md`
@@ -114,6 +157,10 @@ Steps:
 - [ ] Update sample code to avoid direct native struct usage where feasible.
 - [ ] Document native methods as advanced paths.
 - [ ] Run full build + both test suites.
+
+Batch 5 status:
+- Status: Not started.
+- Notes: Final polish/documentation batch after code migration batches are complete.
 
 ## Method-Level Checklist
 

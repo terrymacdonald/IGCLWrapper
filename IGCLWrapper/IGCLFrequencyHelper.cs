@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 namespace IGCLWrapper
 {
@@ -79,11 +80,11 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get the frequency range for a domain.
+        /// Get the frequency range for a domain using the native struct.
         /// </summary>
         /// <param name="freqHandle">Frequency domain handle.</param>
         /// <returns>Frequency range struct.</returns>
-        public unsafe ctl_freq_range_t FrequencyGetRange(IntPtr freqHandle)
+        public unsafe ctl_freq_range_t FrequencyGetRangeNative(IntPtr freqHandle)
         {
             ThrowIfDisposed();
             var range = CreateFrequencyRange();
@@ -94,11 +95,22 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Set the frequency range for a domain.
+        /// Get the frequency range for a domain as a DTO.
+        /// </summary>
+        /// <param name="freqHandle">Frequency domain handle.</param>
+        /// <returns>Frequency range DTO.</returns>
+        public FrequencyRangeDto FrequencyGetRange(IntPtr freqHandle)
+        {
+            var native = FrequencyGetRangeNative(freqHandle);
+            return FrequencyRangeDto.FromNative(native);
+        }
+
+        /// <summary>
+        /// Set the frequency range for a domain using the native struct.
         /// </summary>
         /// <param name="freqHandle">Frequency domain handle.</param>
         /// <param name="range">Frequency range struct.</param>
-        public unsafe void FrequencySetRange(IntPtr freqHandle, ctl_freq_range_t range)
+        public unsafe void FrequencySetRangeNative(IntPtr freqHandle, ctl_freq_range_t range)
         {
             ThrowIfDisposed();
             var result = IGCL.ctlFrequencySetRange((_ctl_freq_handle_t*)freqHandle, &range);
@@ -107,11 +119,21 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get the current frequency state.
+        /// Set the frequency range for a domain using a DTO.
+        /// </summary>
+        /// <param name="freqHandle">Frequency domain handle.</param>
+        /// <param name="range">Frequency range DTO.</param>
+        public void FrequencySetRange(IntPtr freqHandle, FrequencyRangeDto range)
+        {
+            FrequencySetRangeNative(freqHandle, range.ToNative());
+        }
+
+        /// <summary>
+        /// Get the current frequency state using the native struct.
         /// </summary>
         /// <param name="freqHandle">Frequency domain handle.</param>
         /// <returns>Frequency state struct.</returns>
-        public unsafe ctl_freq_state_t FrequencyGetState(IntPtr freqHandle)
+        public unsafe ctl_freq_state_t FrequencyGetStateNative(IntPtr freqHandle)
         {
             ThrowIfDisposed();
             var state = CreateFrequencyState();
@@ -122,11 +144,22 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get the throttle time for a frequency domain.
+        /// Get the current frequency state as a DTO.
+        /// </summary>
+        /// <param name="freqHandle">Frequency domain handle.</param>
+        /// <returns>Frequency state DTO.</returns>
+        public FrequencyStateDto FrequencyGetState(IntPtr freqHandle)
+        {
+            var native = FrequencyGetStateNative(freqHandle);
+            return FrequencyStateDto.FromNative(native);
+        }
+
+        /// <summary>
+        /// Get the throttle time for a frequency domain using the native struct.
         /// </summary>
         /// <param name="freqHandle">Frequency domain handle.</param>
         /// <returns>Throttle time struct.</returns>
-        public unsafe ctl_freq_throttle_time_t FrequencyGetThrottleTime(IntPtr freqHandle)
+        public unsafe ctl_freq_throttle_time_t FrequencyGetThrottleTimeNative(IntPtr freqHandle)
         {
             ThrowIfDisposed();
             var tt = CreateFrequencyThrottleTime();
@@ -134,6 +167,17 @@ namespace IGCLWrapper
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get throttle time");
             return tt;
+        }
+
+        /// <summary>
+        /// Get the throttle time for a frequency domain as a DTO.
+        /// </summary>
+        /// <param name="freqHandle">Frequency domain handle.</param>
+        /// <returns>Throttle time DTO.</returns>
+        public FrequencyThrottleTimeDto FrequencyGetThrottleTime(IntPtr freqHandle)
+        {
+            var native = FrequencyGetThrottleTimeNative(freqHandle);
+            return FrequencyThrottleTimeDto.FromNative(native);
         }
 
         private static unsafe IReadOnlyList<IntPtr> EnumerateHandles(_ctl_device_adapter_handle_t* adapter)
@@ -240,6 +284,314 @@ namespace IGCLWrapper
     {
         public static bool ToBool(byte value) => value != 0;
         public static byte ToByte(bool value) => value ? (byte)1 : (byte)0;
+    }
+
+    /// <summary>
+    /// DTO for frequency range.
+    /// </summary>
+    public struct FrequencyRangeDto : IEquatable<FrequencyRangeDto>
+    {
+        /// <summary>
+        /// Size of the native struct.
+        /// </summary>
+        public uint Size;
+        /// <summary>
+        /// Version of the native struct.
+        /// </summary>
+        public byte Version;
+        /// <summary>
+        /// Minimum frequency.
+        /// </summary>
+        public double Min;
+        /// <summary>
+        /// Maximum frequency.
+        /// </summary>
+        public double Max;
+
+        /// <summary>
+        /// Compare frequency ranges.
+        /// </summary>
+        /// <param name="other">Other range instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(FrequencyRangeDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   Min.Equals(other.Min) &&
+                   Max.Equals(other.Max);
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is FrequencyRangeDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(Min);
+            hash.Add(Max);
+            return hash.ToHashCode();
+        }
+
+        /// <summary>
+        /// Create a DTO from a native struct.
+        /// </summary>
+        /// <param name="native">Native struct.</param>
+        /// <returns>Frequency range DTO.</returns>
+        public static FrequencyRangeDto FromNative(ctl_freq_range_t native)
+        {
+            return new FrequencyRangeDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                Min = native.min,
+                Max = native.max
+            };
+        }
+
+        /// <summary>
+        /// Convert this DTO to a native struct.
+        /// </summary>
+        /// <returns>Frequency range struct.</returns>
+        public unsafe ctl_freq_range_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_freq_range_t);
+
+            return new ctl_freq_range_t
+            {
+                Size = size,
+                Version = Version,
+                min = Min,
+                max = Max
+            };
+        }
+    }
+
+    /// <summary>
+    /// DTO for frequency state.
+    /// </summary>
+    public struct FrequencyStateDto : IEquatable<FrequencyStateDto>
+    {
+        /// <summary>
+        /// Size of the native struct.
+        /// </summary>
+        public uint Size;
+        /// <summary>
+        /// Version of the native struct.
+        /// </summary>
+        public byte Version;
+        /// <summary>
+        /// Current voltage.
+        /// </summary>
+        public double CurrentVoltage;
+        /// <summary>
+        /// Requested frequency.
+        /// </summary>
+        public double Request;
+        /// <summary>
+        /// TDP frequency.
+        /// </summary>
+        public double Tdp;
+        /// <summary>
+        /// Efficient frequency.
+        /// </summary>
+        public double Efficient;
+        /// <summary>
+        /// Actual frequency.
+        /// </summary>
+        public double Actual;
+        /// <summary>
+        /// Throttle reasons bitmask.
+        /// </summary>
+        public uint ThrottleReasons;
+
+        /// <summary>
+        /// Compare frequency states.
+        /// </summary>
+        /// <param name="other">Other state instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(FrequencyStateDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   CurrentVoltage.Equals(other.CurrentVoltage) &&
+                   Request.Equals(other.Request) &&
+                   Tdp.Equals(other.Tdp) &&
+                   Efficient.Equals(other.Efficient) &&
+                   Actual.Equals(other.Actual) &&
+                   ThrottleReasons == other.ThrottleReasons;
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is FrequencyStateDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(CurrentVoltage);
+            hash.Add(Request);
+            hash.Add(Tdp);
+            hash.Add(Efficient);
+            hash.Add(Actual);
+            hash.Add(ThrottleReasons);
+            return hash.ToHashCode();
+        }
+
+        /// <summary>
+        /// Create a DTO from a native struct.
+        /// </summary>
+        /// <param name="native">Native struct.</param>
+        /// <returns>Frequency state DTO.</returns>
+        public static FrequencyStateDto FromNative(ctl_freq_state_t native)
+        {
+            return new FrequencyStateDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                CurrentVoltage = native.currentVoltage,
+                Request = native.request,
+                Tdp = native.tdp,
+                Efficient = native.efficient,
+                Actual = native.actual,
+                ThrottleReasons = native.throttleReasons
+            };
+        }
+
+        /// <summary>
+        /// Convert this DTO to a native struct.
+        /// </summary>
+        /// <returns>Frequency state struct.</returns>
+        public unsafe ctl_freq_state_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_freq_state_t);
+
+            return new ctl_freq_state_t
+            {
+                Size = size,
+                Version = Version,
+                currentVoltage = CurrentVoltage,
+                request = Request,
+                tdp = Tdp,
+                efficient = Efficient,
+                actual = Actual,
+                throttleReasons = ThrottleReasons
+            };
+        }
+    }
+
+    /// <summary>
+    /// DTO for frequency throttle time.
+    /// </summary>
+    public struct FrequencyThrottleTimeDto : IEquatable<FrequencyThrottleTimeDto>
+    {
+        /// <summary>
+        /// Size of the native struct.
+        /// </summary>
+        public uint Size;
+        /// <summary>
+        /// Version of the native struct.
+        /// </summary>
+        public byte Version;
+        /// <summary>
+        /// Throttle time value.
+        /// </summary>
+        public ulong ThrottleTime;
+        /// <summary>
+        /// Timestamp.
+        /// </summary>
+        public ulong Timestamp;
+
+        /// <summary>
+        /// Compare frequency throttle times.
+        /// </summary>
+        /// <param name="other">Other throttle time instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(FrequencyThrottleTimeDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   ThrottleTime == other.ThrottleTime &&
+                   Timestamp == other.Timestamp;
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is FrequencyThrottleTimeDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(ThrottleTime);
+            hash.Add(Timestamp);
+            return hash.ToHashCode();
+        }
+
+        /// <summary>
+        /// Create a DTO from a native struct.
+        /// </summary>
+        /// <param name="native">Native struct.</param>
+        /// <returns>Frequency throttle time DTO.</returns>
+        public static FrequencyThrottleTimeDto FromNative(ctl_freq_throttle_time_t native)
+        {
+            return new FrequencyThrottleTimeDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                ThrottleTime = native.throttleTime,
+                Timestamp = native.timestamp
+            };
+        }
+
+        /// <summary>
+        /// Convert this DTO to a native struct.
+        /// </summary>
+        /// <returns>Frequency throttle time struct.</returns>
+        public unsafe ctl_freq_throttle_time_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_freq_throttle_time_t);
+
+            return new ctl_freq_throttle_time_t
+            {
+                Size = size,
+                Version = Version,
+                throttleTime = ThrottleTime,
+                timestamp = Timestamp
+            };
+        }
     }
 
     /// <summary>
