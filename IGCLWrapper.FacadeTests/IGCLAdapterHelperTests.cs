@@ -164,5 +164,56 @@ namespace IGCLWrapper.FacadeTests
             Assert.Equal(dto.ChildInfos[0].TargetMode.Width, childNative.TargetMode.Width);
         }
 
+        [Fact]
+        public void DeviceAdapterPropertiesDto_FlagBooleans_ShouldTrackRawMasks()
+        {
+            var dto = new DeviceAdapterPropertiesDto
+            {
+                SupportedSubfunctionFlags = (uint)ctl_supported_functions_flag_t.CTL_SUPPORTED_FUNCTIONS_FLAG_DISPLAY |
+                                            (uint)ctl_supported_functions_flag_t.CTL_SUPPORTED_FUNCTIONS_FLAG_MEDIA,
+                GraphicsAdapterProperties = (uint)ctl_adapter_properties_flag_t.CTL_ADAPTER_PROPERTIES_FLAG_INTEGRATED
+            };
+
+            Assert.True(dto.SupportsDisplay);
+            Assert.False(dto.Supports3D);
+            Assert.True(dto.SupportsMedia);
+            Assert.True(dto.IsIntegratedGraphicsAdapter);
+            Assert.False(dto.IsLdaPrimary);
+            Assert.False(dto.IsLdaSecondary);
+
+            dto.Supports3D = true;
+            dto.IsLdaPrimary = true;
+            dto.IsIntegratedGraphicsAdapter = false;
+
+            Assert.True((dto.SupportedSubfunctionFlags & (uint)ctl_supported_functions_flag_t.CTL_SUPPORTED_FUNCTIONS_FLAG_3D) != 0);
+            Assert.True((dto.GraphicsAdapterProperties & (uint)ctl_adapter_properties_flag_t.CTL_ADAPTER_PROPERTIES_FLAG_LDA_PRIMARY) != 0);
+            Assert.True((dto.GraphicsAdapterProperties & (uint)ctl_adapter_properties_flag_t.CTL_ADAPTER_PROPERTIES_FLAG_INTEGRATED) == 0);
+        }
+
+        [Fact]
+        public void DeviceAdapterPropertiesDto_AllFlagBooleans_ShouldRoundTripMasks()
+        {
+            var dto = new DeviceAdapterPropertiesDto();
+
+            dto.SupportsDisplay = true;
+            dto.Supports3D = true;
+            dto.SupportsMedia = true;
+            dto.IsIntegratedGraphicsAdapter = true;
+            dto.IsLdaPrimary = true;
+            dto.IsLdaSecondary = true;
+
+            Assert.Equal(
+                (uint)ctl_supported_functions_flag_t.CTL_SUPPORTED_FUNCTIONS_FLAG_DISPLAY |
+                (uint)ctl_supported_functions_flag_t.CTL_SUPPORTED_FUNCTIONS_FLAG_3D |
+                (uint)ctl_supported_functions_flag_t.CTL_SUPPORTED_FUNCTIONS_FLAG_MEDIA,
+                dto.SupportedSubfunctionFlags);
+
+            Assert.Equal(
+                (uint)ctl_adapter_properties_flag_t.CTL_ADAPTER_PROPERTIES_FLAG_INTEGRATED |
+                (uint)ctl_adapter_properties_flag_t.CTL_ADAPTER_PROPERTIES_FLAG_LDA_PRIMARY |
+                (uint)ctl_adapter_properties_flag_t.CTL_ADAPTER_PROPERTIES_FLAG_LDA_SECONDARY,
+                dto.GraphicsAdapterProperties);
+        }
+
     }
 }
