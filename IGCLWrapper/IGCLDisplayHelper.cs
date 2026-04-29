@@ -2438,30 +2438,210 @@ namespace IGCLWrapper
         /// Supported output BPC flags.
         /// </summary>
         public uint SupportedOutputBpcFlags;
+        public bool Supports6Bpc
+        {
+            readonly get => HasFlag(SupportedOutputBpcFlags, (uint)ctl_output_bpc_flag_t.CTL_OUTPUT_BPC_FLAG_6BPC);
+            set => SupportedOutputBpcFlags = SetFlag(SupportedOutputBpcFlags, (uint)ctl_output_bpc_flag_t.CTL_OUTPUT_BPC_FLAG_6BPC, value);
+        }
+        public bool Supports8Bpc
+        {
+            readonly get => HasFlag(SupportedOutputBpcFlags, (uint)ctl_output_bpc_flag_t.CTL_OUTPUT_BPC_FLAG_8BPC);
+            set => SupportedOutputBpcFlags = SetFlag(SupportedOutputBpcFlags, (uint)ctl_output_bpc_flag_t.CTL_OUTPUT_BPC_FLAG_8BPC, value);
+        }
+        public bool Supports10Bpc
+        {
+            readonly get => HasFlag(SupportedOutputBpcFlags, (uint)ctl_output_bpc_flag_t.CTL_OUTPUT_BPC_FLAG_10BPC);
+            set => SupportedOutputBpcFlags = SetFlag(SupportedOutputBpcFlags, (uint)ctl_output_bpc_flag_t.CTL_OUTPUT_BPC_FLAG_10BPC, value);
+        }
+        public bool Supports12Bpc
+        {
+            readonly get => HasFlag(SupportedOutputBpcFlags, (uint)ctl_output_bpc_flag_t.CTL_OUTPUT_BPC_FLAG_12BPC);
+            set => SupportedOutputBpcFlags = SetFlag(SupportedOutputBpcFlags, (uint)ctl_output_bpc_flag_t.CTL_OUTPUT_BPC_FLAG_12BPC, value);
+        }
         /// <summary>
         /// Protocol converter type flags.
         /// </summary>
         public uint ProtocolConverterType;
+        public bool HasOnboardProtocolConverter
+        {
+            readonly get => HasFlag(ProtocolConverterType, (uint)ctl_protocol_converter_location_flag_t.CTL_PROTOCOL_CONVERTER_LOCATION_FLAG_ONBOARD);
+            set => ProtocolConverterType = SetFlag(ProtocolConverterType, (uint)ctl_protocol_converter_location_flag_t.CTL_PROTOCOL_CONVERTER_LOCATION_FLAG_ONBOARD, value);
+        }
+        public bool HasExternalProtocolConverter
+        {
+            readonly get => HasFlag(ProtocolConverterType, (uint)ctl_protocol_converter_location_flag_t.CTL_PROTOCOL_CONVERTER_LOCATION_FLAG_EXTERNAL);
+            set => ProtocolConverterType = SetFlag(ProtocolConverterType, (uint)ctl_protocol_converter_location_flag_t.CTL_PROTOCOL_CONVERTER_LOCATION_FLAG_EXTERNAL, value);
+        }
         /// <summary>
         /// Display configuration flags.
         /// </summary>
         public uint DisplayConfigFlags;
+        public bool IsDisplayActive
+        {
+            readonly get => HasFlag(DisplayConfigFlags, (uint)ctl_display_config_flag_t.CTL_DISPLAY_CONFIG_FLAG_DISPLAY_ACTIVE);
+            set => DisplayConfigFlags = SetFlag(DisplayConfigFlags, (uint)ctl_display_config_flag_t.CTL_DISPLAY_CONFIG_FLAG_DISPLAY_ACTIVE, value);
+        }
+        public bool IsDisplayAttached
+        {
+            readonly get => HasFlag(DisplayConfigFlags, (uint)ctl_display_config_flag_t.CTL_DISPLAY_CONFIG_FLAG_DISPLAY_ATTACHED);
+            set => DisplayConfigFlags = SetFlag(DisplayConfigFlags, (uint)ctl_display_config_flag_t.CTL_DISPLAY_CONFIG_FLAG_DISPLAY_ATTACHED, value);
+        }
+        public bool IsDongleConnectedToEncoder
+        {
+            readonly get => HasFlag(DisplayConfigFlags, (uint)ctl_display_config_flag_t.CTL_DISPLAY_CONFIG_FLAG_IS_DONGLE_CONNECTED_TO_ENCODER);
+            set => DisplayConfigFlags = SetFlag(DisplayConfigFlags, (uint)ctl_display_config_flag_t.CTL_DISPLAY_CONFIG_FLAG_IS_DONGLE_CONNECTED_TO_ENCODER, value);
+        }
+        public bool IsDitheringEnabled
+        {
+            readonly get => HasFlag(DisplayConfigFlags, (uint)ctl_display_config_flag_t.CTL_DISPLAY_CONFIG_FLAG_DITHERING_ENABLED);
+            set => DisplayConfigFlags = SetFlag(DisplayConfigFlags, (uint)ctl_display_config_flag_t.CTL_DISPLAY_CONFIG_FLAG_DITHERING_ENABLED, value);
+        }
         /// <summary>
         /// Feature enabled flags.
         /// </summary>
         public uint FeatureEnabledFlags;
+        public bool IsHdcpEnabled
+        {
+            readonly get => HasFlag(FeatureEnabledFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_HDCP);
+            set => FeatureEnabledFlags = SetFlag(FeatureEnabledFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_HDCP, value);
+        }
+        public bool IsHdAudioEnabled
+        {
+            readonly get => HasFlag(FeatureEnabledFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_HD_AUDIO);
+            set => FeatureEnabledFlags = SetFlag(FeatureEnabledFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_HD_AUDIO, value);
+        }
+        public bool IsPsrEnabled
+        {
+            readonly get => HasFlag(FeatureEnabledFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_PSR);
+            set => FeatureEnabledFlags = SetFlag(FeatureEnabledFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_PSR, value);
+        }
+        public bool IsAdaptiveSyncVrrEnabled
+        {
+            readonly get => HasFlag(FeatureEnabledFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_ADAPTIVESYNC_VRR);
+            set => FeatureEnabledFlags = SetFlag(FeatureEnabledFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_ADAPTIVESYNC_VRR, value);
+        }
+        public bool IsVesaCompressionEnabled
+        {
+            readonly get => HasFlag(FeatureEnabledFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_VESA_COMPRESSION);
+            set => FeatureEnabledFlags = SetFlag(FeatureEnabledFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_VESA_COMPRESSION, value);
+        }
+        public bool IsHdrEnabled
+        {
+            readonly get => HasFlag(FeatureEnabledFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_HDR);
+            set => FeatureEnabledFlags = SetFlag(FeatureEnabledFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_HDR, value);
+        }
+        public bool IsHdmiQmsEnabled
+        {
+            readonly get => HasFlag(FeatureEnabledFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_HDMI_QMS);
+            set => FeatureEnabledFlags = SetFlag(FeatureEnabledFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_HDMI_QMS, value);
+        }
+        public bool IsHdr10PlusCertifiedEnabled
+        {
+            readonly get => HasFlag(FeatureEnabledFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_HDR10_PLUS_CERTIFIED);
+            set => FeatureEnabledFlags = SetFlag(FeatureEnabledFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_HDR10_PLUS_CERTIFIED, value);
+        }
+        public bool IsVesaHdrCertifiedEnabled
+        {
+            readonly get => HasFlag(FeatureEnabledFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_VESA_HDR_CERTIFIED);
+            set => FeatureEnabledFlags = SetFlag(FeatureEnabledFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_VESA_HDR_CERTIFIED, value);
+        }
         /// <summary>
         /// Feature supported flags.
         /// </summary>
         public uint FeatureSupportedFlags;
+        public bool SupportsHdcp
+        {
+            readonly get => HasFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_HDCP);
+            set => FeatureSupportedFlags = SetFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_HDCP, value);
+        }
+        public bool SupportsHdAudio
+        {
+            readonly get => HasFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_HD_AUDIO);
+            set => FeatureSupportedFlags = SetFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_HD_AUDIO, value);
+        }
+        public bool SupportsPsr
+        {
+            readonly get => HasFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_PSR);
+            set => FeatureSupportedFlags = SetFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_PSR, value);
+        }
+        public bool SupportsAdaptiveSyncVrr
+        {
+            readonly get => HasFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_ADAPTIVESYNC_VRR);
+            set => FeatureSupportedFlags = SetFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_ADAPTIVESYNC_VRR, value);
+        }
+        public bool SupportsVesaCompression
+        {
+            readonly get => HasFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_VESA_COMPRESSION);
+            set => FeatureSupportedFlags = SetFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_VESA_COMPRESSION, value);
+        }
+        public bool SupportsHdr
+        {
+            readonly get => HasFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_HDR);
+            set => FeatureSupportedFlags = SetFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_HDR, value);
+        }
+        public bool SupportsHdmiQms
+        {
+            readonly get => HasFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_HDMI_QMS);
+            set => FeatureSupportedFlags = SetFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_HDMI_QMS, value);
+        }
+        public bool SupportsHdr10PlusCertified
+        {
+            readonly get => HasFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_HDR10_PLUS_CERTIFIED);
+            set => FeatureSupportedFlags = SetFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_HDR10_PLUS_CERTIFIED, value);
+        }
+        public bool SupportsVesaHdrCertified
+        {
+            readonly get => HasFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_VESA_HDR_CERTIFIED);
+            set => FeatureSupportedFlags = SetFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_VESA_HDR_CERTIFIED, value);
+        }
         /// <summary>
         /// Advanced feature enabled flags.
         /// </summary>
         public uint AdvancedFeatureEnabledFlags;
+        public bool IsDpstEnabled
+        {
+            readonly get => HasFlag(AdvancedFeatureEnabledFlags, (uint)ctl_intel_display_feature_flag_t.CTL_INTEL_DISPLAY_FEATURE_FLAG_DPST);
+            set => AdvancedFeatureEnabledFlags = SetFlag(AdvancedFeatureEnabledFlags, (uint)ctl_intel_display_feature_flag_t.CTL_INTEL_DISPLAY_FEATURE_FLAG_DPST, value);
+        }
+        public bool IsLaceEnabled
+        {
+            readonly get => HasFlag(AdvancedFeatureEnabledFlags, (uint)ctl_intel_display_feature_flag_t.CTL_INTEL_DISPLAY_FEATURE_FLAG_LACE);
+            set => AdvancedFeatureEnabledFlags = SetFlag(AdvancedFeatureEnabledFlags, (uint)ctl_intel_display_feature_flag_t.CTL_INTEL_DISPLAY_FEATURE_FLAG_LACE, value);
+        }
+        public bool IsDrrsEnabled
+        {
+            readonly get => HasFlag(AdvancedFeatureEnabledFlags, (uint)ctl_intel_display_feature_flag_t.CTL_INTEL_DISPLAY_FEATURE_FLAG_DRRS);
+            set => AdvancedFeatureEnabledFlags = SetFlag(AdvancedFeatureEnabledFlags, (uint)ctl_intel_display_feature_flag_t.CTL_INTEL_DISPLAY_FEATURE_FLAG_DRRS, value);
+        }
+        public bool IsArcAdaptiveSyncCertifiedEnabled
+        {
+            readonly get => HasFlag(AdvancedFeatureEnabledFlags, (uint)ctl_intel_display_feature_flag_t.CTL_INTEL_DISPLAY_FEATURE_FLAG_ARC_ADAPTIVE_SYNC_CERTIFIED);
+            set => AdvancedFeatureEnabledFlags = SetFlag(AdvancedFeatureEnabledFlags, (uint)ctl_intel_display_feature_flag_t.CTL_INTEL_DISPLAY_FEATURE_FLAG_ARC_ADAPTIVE_SYNC_CERTIFIED, value);
+        }
         /// <summary>
         /// Advanced feature supported flags.
         /// </summary>
         public uint AdvancedFeatureSupportedFlags;
+        public bool SupportsDpst
+        {
+            readonly get => HasFlag(AdvancedFeatureSupportedFlags, (uint)ctl_intel_display_feature_flag_t.CTL_INTEL_DISPLAY_FEATURE_FLAG_DPST);
+            set => AdvancedFeatureSupportedFlags = SetFlag(AdvancedFeatureSupportedFlags, (uint)ctl_intel_display_feature_flag_t.CTL_INTEL_DISPLAY_FEATURE_FLAG_DPST, value);
+        }
+        public bool SupportsLace
+        {
+            readonly get => HasFlag(AdvancedFeatureSupportedFlags, (uint)ctl_intel_display_feature_flag_t.CTL_INTEL_DISPLAY_FEATURE_FLAG_LACE);
+            set => AdvancedFeatureSupportedFlags = SetFlag(AdvancedFeatureSupportedFlags, (uint)ctl_intel_display_feature_flag_t.CTL_INTEL_DISPLAY_FEATURE_FLAG_LACE, value);
+        }
+        public bool SupportsDrrs
+        {
+            readonly get => HasFlag(AdvancedFeatureSupportedFlags, (uint)ctl_intel_display_feature_flag_t.CTL_INTEL_DISPLAY_FEATURE_FLAG_DRRS);
+            set => AdvancedFeatureSupportedFlags = SetFlag(AdvancedFeatureSupportedFlags, (uint)ctl_intel_display_feature_flag_t.CTL_INTEL_DISPLAY_FEATURE_FLAG_DRRS, value);
+        }
+        public bool SupportsArcAdaptiveSyncCertified
+        {
+            readonly get => HasFlag(AdvancedFeatureSupportedFlags, (uint)ctl_intel_display_feature_flag_t.CTL_INTEL_DISPLAY_FEATURE_FLAG_ARC_ADAPTIVE_SYNC_CERTIFIED);
+            set => AdvancedFeatureSupportedFlags = SetFlag(AdvancedFeatureSupportedFlags, (uint)ctl_intel_display_feature_flag_t.CTL_INTEL_DISPLAY_FEATURE_FLAG_ARC_ADAPTIVE_SYNC_CERTIFIED, value);
+        }
         /// <summary>
         /// Display timing info.
         /// </summary>
@@ -2604,6 +2784,13 @@ namespace IGCLWrapper
             var count = Math.Min(values.Count, ReservedFieldCount);
             for (var i = 0; i < count; i++)
                 pValues[i] = values[i];
+        }
+
+        private static bool HasFlag(uint value, uint flag) => (value & flag) != 0;
+
+        private static uint SetFlag(uint value, uint flag, bool enabled)
+        {
+            return enabled ? (value | flag) : (value & ~flag);
         }
     }
 
@@ -2848,18 +3035,158 @@ namespace IGCLWrapper
         /// Supported output bits-per-component flags.
         /// </summary>
         public uint SupportedOutputBpcFlags;
+        public bool Supports6Bpc
+        {
+            readonly get => HasFlag(SupportedOutputBpcFlags, (uint)ctl_output_bpc_flag_t.CTL_OUTPUT_BPC_FLAG_6BPC);
+            set => SupportedOutputBpcFlags = SetFlag(SupportedOutputBpcFlags, (uint)ctl_output_bpc_flag_t.CTL_OUTPUT_BPC_FLAG_6BPC, value);
+        }
+        public bool Supports8Bpc
+        {
+            readonly get => HasFlag(SupportedOutputBpcFlags, (uint)ctl_output_bpc_flag_t.CTL_OUTPUT_BPC_FLAG_8BPC);
+            set => SupportedOutputBpcFlags = SetFlag(SupportedOutputBpcFlags, (uint)ctl_output_bpc_flag_t.CTL_OUTPUT_BPC_FLAG_8BPC, value);
+        }
+        public bool Supports10Bpc
+        {
+            readonly get => HasFlag(SupportedOutputBpcFlags, (uint)ctl_output_bpc_flag_t.CTL_OUTPUT_BPC_FLAG_10BPC);
+            set => SupportedOutputBpcFlags = SetFlag(SupportedOutputBpcFlags, (uint)ctl_output_bpc_flag_t.CTL_OUTPUT_BPC_FLAG_10BPC, value);
+        }
+        public bool Supports12Bpc
+        {
+            readonly get => HasFlag(SupportedOutputBpcFlags, (uint)ctl_output_bpc_flag_t.CTL_OUTPUT_BPC_FLAG_12BPC);
+            set => SupportedOutputBpcFlags = SetFlag(SupportedOutputBpcFlags, (uint)ctl_output_bpc_flag_t.CTL_OUTPUT_BPC_FLAG_12BPC, value);
+        }
         /// <summary>
         /// Encoder configuration flags.
         /// </summary>
         public uint EncoderConfigFlags;
+        public bool IsInternalDisplay
+        {
+            readonly get => HasFlag(EncoderConfigFlags, (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_INTERNAL_DISPLAY);
+            set => EncoderConfigFlags = SetFlag(EncoderConfigFlags, (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_INTERNAL_DISPLAY, value);
+        }
+        public bool IsVesaTiledDisplay
+        {
+            readonly get => HasFlag(EncoderConfigFlags, (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_VESA_TILED_DISPLAY);
+            set => EncoderConfigFlags = SetFlag(EncoderConfigFlags, (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_VESA_TILED_DISPLAY, value);
+        }
+        public bool IsTypeCCapable
+        {
+            readonly get => HasFlag(EncoderConfigFlags, (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_TYPEC_CAPABLE);
+            set => EncoderConfigFlags = SetFlag(EncoderConfigFlags, (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_TYPEC_CAPABLE, value);
+        }
+        public bool IsThunderboltCapable
+        {
+            readonly get => HasFlag(EncoderConfigFlags, (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_TBT_CAPABLE);
+            set => EncoderConfigFlags = SetFlag(EncoderConfigFlags, (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_TBT_CAPABLE, value);
+        }
+        public bool SupportsDithering
+        {
+            readonly get => HasFlag(EncoderConfigFlags, (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_DITHERING_SUPPORTED);
+            set => EncoderConfigFlags = SetFlag(EncoderConfigFlags, (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_DITHERING_SUPPORTED, value);
+        }
+        public bool IsVirtualDisplay
+        {
+            readonly get => HasFlag(EncoderConfigFlags, (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_VIRTUAL_DISPLAY);
+            set => EncoderConfigFlags = SetFlag(EncoderConfigFlags, (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_VIRTUAL_DISPLAY, value);
+        }
+        public bool IsHiddenDisplay
+        {
+            readonly get => HasFlag(EncoderConfigFlags, (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_HIDDEN_DISPLAY);
+            set => EncoderConfigFlags = SetFlag(EncoderConfigFlags, (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_HIDDEN_DISPLAY, value);
+        }
+        public bool IsCollageDisplay
+        {
+            readonly get => HasFlag(EncoderConfigFlags, (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_COLLAGE_DISPLAY);
+            set => EncoderConfigFlags = SetFlag(EncoderConfigFlags, (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_COLLAGE_DISPLAY, value);
+        }
+        public bool IsSplitDisplay
+        {
+            readonly get => HasFlag(EncoderConfigFlags, (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_SPLIT_DISPLAY);
+            set => EncoderConfigFlags = SetFlag(EncoderConfigFlags, (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_SPLIT_DISPLAY, value);
+        }
+        public bool IsCompanionDisplay
+        {
+            readonly get => HasFlag(EncoderConfigFlags, (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_COMPANION_DISPLAY);
+            set => EncoderConfigFlags = SetFlag(EncoderConfigFlags, (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_COMPANION_DISPLAY, value);
+        }
+        public bool IsMultiGpuCollageDisplay
+        {
+            readonly get => HasFlag(EncoderConfigFlags, (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_MGPU_COLLAGE_DISPLAY);
+            set => EncoderConfigFlags = SetFlag(EncoderConfigFlags, (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_MGPU_COLLAGE_DISPLAY, value);
+        }
         /// <summary>
         /// Feature supported flags.
         /// </summary>
         public uint FeatureSupportedFlags;
+        public bool SupportsHdcp
+        {
+            readonly get => HasFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_HDCP);
+            set => FeatureSupportedFlags = SetFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_HDCP, value);
+        }
+        public bool SupportsHdAudio
+        {
+            readonly get => HasFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_HD_AUDIO);
+            set => FeatureSupportedFlags = SetFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_HD_AUDIO, value);
+        }
+        public bool SupportsPsr
+        {
+            readonly get => HasFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_PSR);
+            set => FeatureSupportedFlags = SetFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_PSR, value);
+        }
+        public bool SupportsAdaptiveSyncVrr
+        {
+            readonly get => HasFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_ADAPTIVESYNC_VRR);
+            set => FeatureSupportedFlags = SetFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_ADAPTIVESYNC_VRR, value);
+        }
+        public bool SupportsVesaCompression
+        {
+            readonly get => HasFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_VESA_COMPRESSION);
+            set => FeatureSupportedFlags = SetFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_VESA_COMPRESSION, value);
+        }
+        public bool SupportsHdr
+        {
+            readonly get => HasFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_HDR);
+            set => FeatureSupportedFlags = SetFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_HDR, value);
+        }
+        public bool SupportsHdmiQms
+        {
+            readonly get => HasFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_HDMI_QMS);
+            set => FeatureSupportedFlags = SetFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_HDMI_QMS, value);
+        }
+        public bool SupportsHdr10PlusCertified
+        {
+            readonly get => HasFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_HDR10_PLUS_CERTIFIED);
+            set => FeatureSupportedFlags = SetFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_HDR10_PLUS_CERTIFIED, value);
+        }
+        public bool SupportsVesaHdrCertified
+        {
+            readonly get => HasFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_VESA_HDR_CERTIFIED);
+            set => FeatureSupportedFlags = SetFlag(FeatureSupportedFlags, (uint)ctl_std_display_feature_flag_t.CTL_STD_DISPLAY_FEATURE_FLAG_VESA_HDR_CERTIFIED, value);
+        }
         /// <summary>
         /// Advanced feature supported flags.
         /// </summary>
         public uint AdvancedFeatureSupportedFlags;
+        public bool SupportsDpst
+        {
+            readonly get => HasFlag(AdvancedFeatureSupportedFlags, (uint)ctl_intel_display_feature_flag_t.CTL_INTEL_DISPLAY_FEATURE_FLAG_DPST);
+            set => AdvancedFeatureSupportedFlags = SetFlag(AdvancedFeatureSupportedFlags, (uint)ctl_intel_display_feature_flag_t.CTL_INTEL_DISPLAY_FEATURE_FLAG_DPST, value);
+        }
+        public bool SupportsLace
+        {
+            readonly get => HasFlag(AdvancedFeatureSupportedFlags, (uint)ctl_intel_display_feature_flag_t.CTL_INTEL_DISPLAY_FEATURE_FLAG_LACE);
+            set => AdvancedFeatureSupportedFlags = SetFlag(AdvancedFeatureSupportedFlags, (uint)ctl_intel_display_feature_flag_t.CTL_INTEL_DISPLAY_FEATURE_FLAG_LACE, value);
+        }
+        public bool SupportsDrrs
+        {
+            readonly get => HasFlag(AdvancedFeatureSupportedFlags, (uint)ctl_intel_display_feature_flag_t.CTL_INTEL_DISPLAY_FEATURE_FLAG_DRRS);
+            set => AdvancedFeatureSupportedFlags = SetFlag(AdvancedFeatureSupportedFlags, (uint)ctl_intel_display_feature_flag_t.CTL_INTEL_DISPLAY_FEATURE_FLAG_DRRS, value);
+        }
+        public bool SupportsArcAdaptiveSyncCertified
+        {
+            readonly get => HasFlag(AdvancedFeatureSupportedFlags, (uint)ctl_intel_display_feature_flag_t.CTL_INTEL_DISPLAY_FEATURE_FLAG_ARC_ADAPTIVE_SYNC_CERTIFIED);
+            set => AdvancedFeatureSupportedFlags = SetFlag(AdvancedFeatureSupportedFlags, (uint)ctl_intel_display_feature_flag_t.CTL_INTEL_DISPLAY_FEATURE_FLAG_ARC_ADAPTIVE_SYNC_CERTIFIED, value);
+        }
         /// <summary>
         /// Reserved native fields.
         /// </summary>
@@ -2980,6 +3307,13 @@ namespace IGCLWrapper
             var count = Math.Min(values.Count, reservedFieldCount);
             for (var i = 0; i < count; i++)
                 pValues[i] = values[i];
+        }
+
+        private static bool HasFlag(uint value, uint flag) => (value & flag) != 0;
+
+        private static uint SetFlag(uint value, uint flag, bool enabled)
+        {
+            return enabled ? (value | flag) : (value & ~flag);
         }
     }
 
@@ -3143,14 +3477,104 @@ namespace IGCLWrapper
         /// Supported flags.
         /// </summary>
         public uint SupportedFlags;
+        public bool IsLowLatencySupported
+        {
+            readonly get => HasFlag(SupportedFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_LOW_LATENCY);
+            set => SupportedFlags = SetFlag(SupportedFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_LOW_LATENCY, value);
+        }
+        public bool IsSourceTmSupported
+        {
+            readonly get => HasFlag(SupportedFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_SOURCE_TM);
+            set => SupportedFlags = SetFlag(SupportedFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_SOURCE_TM, value);
+        }
+        public bool IsContentTypeSupported
+        {
+            readonly get => HasFlag(SupportedFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_CONTENT_TYPE);
+            set => SupportedFlags = SetFlag(SupportedFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_CONTENT_TYPE, value);
+        }
+        public bool IsQuantizationRangeSupported
+        {
+            readonly get => HasFlag(SupportedFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_QUANTIZATION_RANGE);
+            set => SupportedFlags = SetFlag(SupportedFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_QUANTIZATION_RANGE, value);
+        }
+        public bool IsPictureArSupported
+        {
+            readonly get => HasFlag(SupportedFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_PICTURE_AR);
+            set => SupportedFlags = SetFlag(SupportedFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_PICTURE_AR, value);
+        }
+        public bool IsAudioSettingsSupported
+        {
+            readonly get => HasFlag(SupportedFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_AUDIO);
+            set => SupportedFlags = SetFlag(SupportedFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_AUDIO, value);
+        }
         /// <summary>
         /// Controllable flags.
         /// </summary>
         public uint ControllableFlags;
+        public bool IsLowLatencyControllable
+        {
+            readonly get => HasFlag(ControllableFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_LOW_LATENCY);
+            set => ControllableFlags = SetFlag(ControllableFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_LOW_LATENCY, value);
+        }
+        public bool IsSourceTmControllable
+        {
+            readonly get => HasFlag(ControllableFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_SOURCE_TM);
+            set => ControllableFlags = SetFlag(ControllableFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_SOURCE_TM, value);
+        }
+        public bool IsContentTypeControllable
+        {
+            readonly get => HasFlag(ControllableFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_CONTENT_TYPE);
+            set => ControllableFlags = SetFlag(ControllableFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_CONTENT_TYPE, value);
+        }
+        public bool IsQuantizationRangeControllable
+        {
+            readonly get => HasFlag(ControllableFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_QUANTIZATION_RANGE);
+            set => ControllableFlags = SetFlag(ControllableFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_QUANTIZATION_RANGE, value);
+        }
+        public bool IsPictureArControllable
+        {
+            readonly get => HasFlag(ControllableFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_PICTURE_AR);
+            set => ControllableFlags = SetFlag(ControllableFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_PICTURE_AR, value);
+        }
+        public bool IsAudioSettingsControllable
+        {
+            readonly get => HasFlag(ControllableFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_AUDIO);
+            set => ControllableFlags = SetFlag(ControllableFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_AUDIO, value);
+        }
         /// <summary>
         /// Valid flags.
         /// </summary>
         public uint ValidFlags;
+        public bool IsLowLatencyValid
+        {
+            readonly get => HasFlag(ValidFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_LOW_LATENCY);
+            set => ValidFlags = SetFlag(ValidFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_LOW_LATENCY, value);
+        }
+        public bool IsSourceTmValid
+        {
+            readonly get => HasFlag(ValidFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_SOURCE_TM);
+            set => ValidFlags = SetFlag(ValidFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_SOURCE_TM, value);
+        }
+        public bool IsContentTypeValid
+        {
+            readonly get => HasFlag(ValidFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_CONTENT_TYPE);
+            set => ValidFlags = SetFlag(ValidFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_CONTENT_TYPE, value);
+        }
+        public bool IsQuantizationRangeValid
+        {
+            readonly get => HasFlag(ValidFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_QUANTIZATION_RANGE);
+            set => ValidFlags = SetFlag(ValidFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_QUANTIZATION_RANGE, value);
+        }
+        public bool IsPictureArValid
+        {
+            readonly get => HasFlag(ValidFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_PICTURE_AR);
+            set => ValidFlags = SetFlag(ValidFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_PICTURE_AR, value);
+        }
+        public bool IsAudioSettingsValid
+        {
+            readonly get => HasFlag(ValidFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_AUDIO);
+            set => ValidFlags = SetFlag(ValidFlags, (uint)ctl_display_setting_flag_t.CTL_DISPLAY_SETTING_FLAG_AUDIO, value);
+        }
         /// <summary>
         /// Low latency settings.
         /// </summary>
@@ -3171,6 +3595,36 @@ namespace IGCLWrapper
         /// Supported picture aspect ratio flags.
         /// </summary>
         public uint SupportedPictureAr;
+        public bool SupportsPictureArDefault
+        {
+            readonly get => HasFlag(SupportedPictureAr, (uint)ctl_display_setting_picture_ar_flag_t.CTL_DISPLAY_SETTING_PICTURE_AR_FLAG_DEFAULT);
+            set => SupportedPictureAr = SetFlag(SupportedPictureAr, (uint)ctl_display_setting_picture_ar_flag_t.CTL_DISPLAY_SETTING_PICTURE_AR_FLAG_DEFAULT, value);
+        }
+        public bool SupportsPictureArDisabled
+        {
+            readonly get => HasFlag(SupportedPictureAr, (uint)ctl_display_setting_picture_ar_flag_t.CTL_DISPLAY_SETTING_PICTURE_AR_FLAG_DISABLED);
+            set => SupportedPictureAr = SetFlag(SupportedPictureAr, (uint)ctl_display_setting_picture_ar_flag_t.CTL_DISPLAY_SETTING_PICTURE_AR_FLAG_DISABLED, value);
+        }
+        public bool SupportsPictureAr4By3
+        {
+            readonly get => HasFlag(SupportedPictureAr, (uint)ctl_display_setting_picture_ar_flag_t.CTL_DISPLAY_SETTING_PICTURE_AR_FLAG_AR_4_3);
+            set => SupportedPictureAr = SetFlag(SupportedPictureAr, (uint)ctl_display_setting_picture_ar_flag_t.CTL_DISPLAY_SETTING_PICTURE_AR_FLAG_AR_4_3, value);
+        }
+        public bool SupportsPictureAr16By9
+        {
+            readonly get => HasFlag(SupportedPictureAr, (uint)ctl_display_setting_picture_ar_flag_t.CTL_DISPLAY_SETTING_PICTURE_AR_FLAG_AR_16_9);
+            set => SupportedPictureAr = SetFlag(SupportedPictureAr, (uint)ctl_display_setting_picture_ar_flag_t.CTL_DISPLAY_SETTING_PICTURE_AR_FLAG_AR_16_9, value);
+        }
+        public bool SupportsPictureAr64By27
+        {
+            readonly get => HasFlag(SupportedPictureAr, (uint)ctl_display_setting_picture_ar_flag_t.CTL_DISPLAY_SETTING_PICTURE_AR_FLAG_AR_64_27);
+            set => SupportedPictureAr = SetFlag(SupportedPictureAr, (uint)ctl_display_setting_picture_ar_flag_t.CTL_DISPLAY_SETTING_PICTURE_AR_FLAG_AR_64_27, value);
+        }
+        public bool SupportsPictureAr256By135
+        {
+            readonly get => HasFlag(SupportedPictureAr, (uint)ctl_display_setting_picture_ar_flag_t.CTL_DISPLAY_SETTING_PICTURE_AR_FLAG_AR_256_135);
+            set => SupportedPictureAr = SetFlag(SupportedPictureAr, (uint)ctl_display_setting_picture_ar_flag_t.CTL_DISPLAY_SETTING_PICTURE_AR_FLAG_AR_256_135, value);
+        }
         /// <summary>
         /// Picture aspect ratio settings.
         /// </summary>
@@ -3317,6 +3771,13 @@ namespace IGCLWrapper
             var count = Math.Min(values.Count, reservedCount);
             for (var i = 0; i < count; i++)
                 pValues[i] = values[i];
+        }
+
+        private static bool HasFlag(uint value, uint flag) => (value & flag) != 0;
+
+        private static uint SetFlag(uint value, uint flag, bool enabled)
+        {
+            return enabled ? (value | flag) : (value & ~flag);
         }
     }
 
@@ -4168,10 +4629,80 @@ namespace IGCLWrapper
         /// Supported DPST feature flags.
         /// </summary>
         public uint SupportedFeatures;
+        public bool SupportsBacklight
+        {
+            readonly get => HasFlag(SupportedFeatures, (uint)ctl_power_optimization_dpst_flag_t.CTL_POWER_OPTIMIZATION_DPST_FLAG_BKLT);
+            set => SupportedFeatures = SetFlag(SupportedFeatures, (uint)ctl_power_optimization_dpst_flag_t.CTL_POWER_OPTIMIZATION_DPST_FLAG_BKLT, value);
+        }
+        public bool SupportsPanelCabc
+        {
+            readonly get => HasFlag(SupportedFeatures, (uint)ctl_power_optimization_dpst_flag_t.CTL_POWER_OPTIMIZATION_DPST_FLAG_PANEL_CABC);
+            set => SupportedFeatures = SetFlag(SupportedFeatures, (uint)ctl_power_optimization_dpst_flag_t.CTL_POWER_OPTIMIZATION_DPST_FLAG_PANEL_CABC, value);
+        }
+        public bool SupportsOpst
+        {
+            readonly get => HasFlag(SupportedFeatures, (uint)ctl_power_optimization_dpst_flag_t.CTL_POWER_OPTIMIZATION_DPST_FLAG_OPST);
+            set => SupportedFeatures = SetFlag(SupportedFeatures, (uint)ctl_power_optimization_dpst_flag_t.CTL_POWER_OPTIMIZATION_DPST_FLAG_OPST, value);
+        }
+        public bool SupportsElp
+        {
+            readonly get => HasFlag(SupportedFeatures, (uint)ctl_power_optimization_dpst_flag_t.CTL_POWER_OPTIMIZATION_DPST_FLAG_ELP);
+            set => SupportedFeatures = SetFlag(SupportedFeatures, (uint)ctl_power_optimization_dpst_flag_t.CTL_POWER_OPTIMIZATION_DPST_FLAG_ELP, value);
+        }
+        public bool SupportsEpsm
+        {
+            readonly get => HasFlag(SupportedFeatures, (uint)ctl_power_optimization_dpst_flag_t.CTL_POWER_OPTIMIZATION_DPST_FLAG_EPSM);
+            set => SupportedFeatures = SetFlag(SupportedFeatures, (uint)ctl_power_optimization_dpst_flag_t.CTL_POWER_OPTIMIZATION_DPST_FLAG_EPSM, value);
+        }
+        public bool SupportsApd
+        {
+            readonly get => HasFlag(SupportedFeatures, (uint)ctl_power_optimization_dpst_flag_t.CTL_POWER_OPTIMIZATION_DPST_FLAG_APD);
+            set => SupportedFeatures = SetFlag(SupportedFeatures, (uint)ctl_power_optimization_dpst_flag_t.CTL_POWER_OPTIMIZATION_DPST_FLAG_APD, value);
+        }
+        public bool SupportsPixoptix
+        {
+            readonly get => HasFlag(SupportedFeatures, (uint)ctl_power_optimization_dpst_flag_t.CTL_POWER_OPTIMIZATION_DPST_FLAG_PIXOPTIX);
+            set => SupportedFeatures = SetFlag(SupportedFeatures, (uint)ctl_power_optimization_dpst_flag_t.CTL_POWER_OPTIMIZATION_DPST_FLAG_PIXOPTIX, value);
+        }
         /// <summary>
         /// Enabled DPST feature flags.
         /// </summary>
         public uint EnabledFeatures;
+        public bool IsBacklightEnabled
+        {
+            readonly get => HasFlag(EnabledFeatures, (uint)ctl_power_optimization_dpst_flag_t.CTL_POWER_OPTIMIZATION_DPST_FLAG_BKLT);
+            set => EnabledFeatures = SetFlag(EnabledFeatures, (uint)ctl_power_optimization_dpst_flag_t.CTL_POWER_OPTIMIZATION_DPST_FLAG_BKLT, value);
+        }
+        public bool IsPanelCabcEnabled
+        {
+            readonly get => HasFlag(EnabledFeatures, (uint)ctl_power_optimization_dpst_flag_t.CTL_POWER_OPTIMIZATION_DPST_FLAG_PANEL_CABC);
+            set => EnabledFeatures = SetFlag(EnabledFeatures, (uint)ctl_power_optimization_dpst_flag_t.CTL_POWER_OPTIMIZATION_DPST_FLAG_PANEL_CABC, value);
+        }
+        public bool IsOpstEnabled
+        {
+            readonly get => HasFlag(EnabledFeatures, (uint)ctl_power_optimization_dpst_flag_t.CTL_POWER_OPTIMIZATION_DPST_FLAG_OPST);
+            set => EnabledFeatures = SetFlag(EnabledFeatures, (uint)ctl_power_optimization_dpst_flag_t.CTL_POWER_OPTIMIZATION_DPST_FLAG_OPST, value);
+        }
+        public bool IsElpEnabled
+        {
+            readonly get => HasFlag(EnabledFeatures, (uint)ctl_power_optimization_dpst_flag_t.CTL_POWER_OPTIMIZATION_DPST_FLAG_ELP);
+            set => EnabledFeatures = SetFlag(EnabledFeatures, (uint)ctl_power_optimization_dpst_flag_t.CTL_POWER_OPTIMIZATION_DPST_FLAG_ELP, value);
+        }
+        public bool IsEpsmEnabled
+        {
+            readonly get => HasFlag(EnabledFeatures, (uint)ctl_power_optimization_dpst_flag_t.CTL_POWER_OPTIMIZATION_DPST_FLAG_EPSM);
+            set => EnabledFeatures = SetFlag(EnabledFeatures, (uint)ctl_power_optimization_dpst_flag_t.CTL_POWER_OPTIMIZATION_DPST_FLAG_EPSM, value);
+        }
+        public bool IsApdEnabled
+        {
+            readonly get => HasFlag(EnabledFeatures, (uint)ctl_power_optimization_dpst_flag_t.CTL_POWER_OPTIMIZATION_DPST_FLAG_APD);
+            set => EnabledFeatures = SetFlag(EnabledFeatures, (uint)ctl_power_optimization_dpst_flag_t.CTL_POWER_OPTIMIZATION_DPST_FLAG_APD, value);
+        }
+        public bool IsPixoptixEnabled
+        {
+            readonly get => HasFlag(EnabledFeatures, (uint)ctl_power_optimization_dpst_flag_t.CTL_POWER_OPTIMIZATION_DPST_FLAG_PIXOPTIX);
+            set => EnabledFeatures = SetFlag(EnabledFeatures, (uint)ctl_power_optimization_dpst_flag_t.CTL_POWER_OPTIMIZATION_DPST_FLAG_PIXOPTIX, value);
+        }
 
         public bool Equals(PowerOptimizationDpstDto other)
         {
@@ -4225,6 +4756,13 @@ namespace IGCLWrapper
                 SupportedFeatures = SupportedFeatures,
                 EnabledFeatures = EnabledFeatures
             };
+        }
+
+        private static bool HasFlag(uint value, uint flag) => (value & flag) != 0;
+
+        private static uint SetFlag(uint value, uint flag, bool enabled)
+        {
+            return enabled ? (value | flag) : (value & ~flag);
         }
     }
 
@@ -4310,10 +4848,70 @@ namespace IGCLWrapper
         /// Supported LRR flags.
         /// </summary>
         public uint SupportedLrrTypes;
+        public bool SupportsLrr10
+        {
+            readonly get => HasFlag(SupportedLrrTypes, (uint)ctl_power_optimization_lrr_flag_t.CTL_POWER_OPTIMIZATION_LRR_FLAG_LRR10);
+            set => SupportedLrrTypes = SetFlag(SupportedLrrTypes, (uint)ctl_power_optimization_lrr_flag_t.CTL_POWER_OPTIMIZATION_LRR_FLAG_LRR10, value);
+        }
+        public bool SupportsLrr20
+        {
+            readonly get => HasFlag(SupportedLrrTypes, (uint)ctl_power_optimization_lrr_flag_t.CTL_POWER_OPTIMIZATION_LRR_FLAG_LRR20);
+            set => SupportedLrrTypes = SetFlag(SupportedLrrTypes, (uint)ctl_power_optimization_lrr_flag_t.CTL_POWER_OPTIMIZATION_LRR_FLAG_LRR20, value);
+        }
+        public bool SupportsLrr25
+        {
+            readonly get => HasFlag(SupportedLrrTypes, (uint)ctl_power_optimization_lrr_flag_t.CTL_POWER_OPTIMIZATION_LRR_FLAG_LRR25);
+            set => SupportedLrrTypes = SetFlag(SupportedLrrTypes, (uint)ctl_power_optimization_lrr_flag_t.CTL_POWER_OPTIMIZATION_LRR_FLAG_LRR25, value);
+        }
+        public bool SupportsAlrr
+        {
+            readonly get => HasFlag(SupportedLrrTypes, (uint)ctl_power_optimization_lrr_flag_t.CTL_POWER_OPTIMIZATION_LRR_FLAG_ALRR);
+            set => SupportedLrrTypes = SetFlag(SupportedLrrTypes, (uint)ctl_power_optimization_lrr_flag_t.CTL_POWER_OPTIMIZATION_LRR_FLAG_ALRR, value);
+        }
+        public bool SupportsUblrr
+        {
+            readonly get => HasFlag(SupportedLrrTypes, (uint)ctl_power_optimization_lrr_flag_t.CTL_POWER_OPTIMIZATION_LRR_FLAG_UBLRR);
+            set => SupportedLrrTypes = SetFlag(SupportedLrrTypes, (uint)ctl_power_optimization_lrr_flag_t.CTL_POWER_OPTIMIZATION_LRR_FLAG_UBLRR, value);
+        }
+        public bool SupportsUbzrr
+        {
+            readonly get => HasFlag(SupportedLrrTypes, (uint)ctl_power_optimization_lrr_flag_t.CTL_POWER_OPTIMIZATION_LRR_FLAG_UBZRR);
+            set => SupportedLrrTypes = SetFlag(SupportedLrrTypes, (uint)ctl_power_optimization_lrr_flag_t.CTL_POWER_OPTIMIZATION_LRR_FLAG_UBZRR, value);
+        }
         /// <summary>
         /// Current LRR flags.
         /// </summary>
         public uint CurrentLrrTypes;
+        public bool IsLrr10Current
+        {
+            readonly get => HasFlag(CurrentLrrTypes, (uint)ctl_power_optimization_lrr_flag_t.CTL_POWER_OPTIMIZATION_LRR_FLAG_LRR10);
+            set => CurrentLrrTypes = SetFlag(CurrentLrrTypes, (uint)ctl_power_optimization_lrr_flag_t.CTL_POWER_OPTIMIZATION_LRR_FLAG_LRR10, value);
+        }
+        public bool IsLrr20Current
+        {
+            readonly get => HasFlag(CurrentLrrTypes, (uint)ctl_power_optimization_lrr_flag_t.CTL_POWER_OPTIMIZATION_LRR_FLAG_LRR20);
+            set => CurrentLrrTypes = SetFlag(CurrentLrrTypes, (uint)ctl_power_optimization_lrr_flag_t.CTL_POWER_OPTIMIZATION_LRR_FLAG_LRR20, value);
+        }
+        public bool IsLrr25Current
+        {
+            readonly get => HasFlag(CurrentLrrTypes, (uint)ctl_power_optimization_lrr_flag_t.CTL_POWER_OPTIMIZATION_LRR_FLAG_LRR25);
+            set => CurrentLrrTypes = SetFlag(CurrentLrrTypes, (uint)ctl_power_optimization_lrr_flag_t.CTL_POWER_OPTIMIZATION_LRR_FLAG_LRR25, value);
+        }
+        public bool IsAlrrCurrent
+        {
+            readonly get => HasFlag(CurrentLrrTypes, (uint)ctl_power_optimization_lrr_flag_t.CTL_POWER_OPTIMIZATION_LRR_FLAG_ALRR);
+            set => CurrentLrrTypes = SetFlag(CurrentLrrTypes, (uint)ctl_power_optimization_lrr_flag_t.CTL_POWER_OPTIMIZATION_LRR_FLAG_ALRR, value);
+        }
+        public bool IsUblrrCurrent
+        {
+            readonly get => HasFlag(CurrentLrrTypes, (uint)ctl_power_optimization_lrr_flag_t.CTL_POWER_OPTIMIZATION_LRR_FLAG_UBLRR);
+            set => CurrentLrrTypes = SetFlag(CurrentLrrTypes, (uint)ctl_power_optimization_lrr_flag_t.CTL_POWER_OPTIMIZATION_LRR_FLAG_UBLRR, value);
+        }
+        public bool IsUbzrrCurrent
+        {
+            readonly get => HasFlag(CurrentLrrTypes, (uint)ctl_power_optimization_lrr_flag_t.CTL_POWER_OPTIMIZATION_LRR_FLAG_UBZRR);
+            set => CurrentLrrTypes = SetFlag(CurrentLrrTypes, (uint)ctl_power_optimization_lrr_flag_t.CTL_POWER_OPTIMIZATION_LRR_FLAG_UBZRR, value);
+        }
         /// <summary>
         /// Whether PSR must be disabled.
         /// </summary>
@@ -4371,6 +4969,13 @@ namespace IGCLWrapper
                 bRequirePSRDisable = IGCLDisplayDtoBool.ToByte(RequirePsrDisable),
                 LowRR = LowRr
             };
+        }
+
+        private static bool HasFlag(uint value, uint flag) => (value & flag) != 0;
+
+        private static uint SetFlag(uint value, uint flag, bool enabled)
+        {
+            return enabled ? (value | flag) : (value & ~flag);
         }
     }
 
@@ -4457,6 +5062,31 @@ namespace IGCLWrapper
         /// Power optimization feature flags.
         /// </summary>
         public uint PowerOptimizationFeature;
+        public bool UsesFbc
+        {
+            readonly get => HasFlag(PowerOptimizationFeature, (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_FBC);
+            set => PowerOptimizationFeature = SetFlag(PowerOptimizationFeature, (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_FBC, value);
+        }
+        public bool UsesPsr
+        {
+            readonly get => HasFlag(PowerOptimizationFeature, (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_PSR);
+            set => PowerOptimizationFeature = SetFlag(PowerOptimizationFeature, (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_PSR, value);
+        }
+        public bool UsesDpst
+        {
+            readonly get => HasFlag(PowerOptimizationFeature, (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_DPST);
+            set => PowerOptimizationFeature = SetFlag(PowerOptimizationFeature, (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_DPST, value);
+        }
+        public bool UsesLrr
+        {
+            readonly get => HasFlag(PowerOptimizationFeature, (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_LRR);
+            set => PowerOptimizationFeature = SetFlag(PowerOptimizationFeature, (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_LRR, value);
+        }
+        public bool UsesLace
+        {
+            readonly get => HasFlag(PowerOptimizationFeature, (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_LACE);
+            set => PowerOptimizationFeature = SetFlag(PowerOptimizationFeature, (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_LACE, value);
+        }
         /// <summary>
         /// Enable flag.
         /// </summary>
@@ -4545,6 +5175,13 @@ namespace IGCLWrapper
                 FeatureSpecificData = FeatureSpecificData.ToNative(),
                 PowerSource = PowerSource
             };
+        }
+
+        private static bool HasFlag(uint value, uint flag) => (value & flag) != 0;
+
+        private static uint SetFlag(uint value, uint flag, bool enabled)
+        {
+            return enabled ? (value | flag) : (value & ~flag);
         }
     }
 }

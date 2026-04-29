@@ -1617,6 +1617,30 @@ namespace IGCLWrapper
         /// </summary>
         public uint SupportedSubfunctionFlags;
         /// <summary>
+        /// True when display APIs are supported.
+        /// </summary>
+        public bool SupportsDisplay
+        {
+            readonly get => HasFlag(SupportedSubfunctionFlags, (uint)ctl_supported_functions_flag_t.CTL_SUPPORTED_FUNCTIONS_FLAG_DISPLAY);
+            set => SupportedSubfunctionFlags = SetFlag(SupportedSubfunctionFlags, (uint)ctl_supported_functions_flag_t.CTL_SUPPORTED_FUNCTIONS_FLAG_DISPLAY, value);
+        }
+        /// <summary>
+        /// True when 3D APIs are supported.
+        /// </summary>
+        public bool Supports3D
+        {
+            readonly get => HasFlag(SupportedSubfunctionFlags, (uint)ctl_supported_functions_flag_t.CTL_SUPPORTED_FUNCTIONS_FLAG_3D);
+            set => SupportedSubfunctionFlags = SetFlag(SupportedSubfunctionFlags, (uint)ctl_supported_functions_flag_t.CTL_SUPPORTED_FUNCTIONS_FLAG_3D, value);
+        }
+        /// <summary>
+        /// True when media APIs are supported.
+        /// </summary>
+        public bool SupportsMedia
+        {
+            readonly get => HasFlag(SupportedSubfunctionFlags, (uint)ctl_supported_functions_flag_t.CTL_SUPPORTED_FUNCTIONS_FLAG_MEDIA);
+            set => SupportedSubfunctionFlags = SetFlag(SupportedSubfunctionFlags, (uint)ctl_supported_functions_flag_t.CTL_SUPPORTED_FUNCTIONS_FLAG_MEDIA, value);
+        }
+        /// <summary>
         /// Driver version value.
         /// </summary>
         public ulong DriverVersion;
@@ -1656,6 +1680,30 @@ namespace IGCLWrapper
         /// Graphics adapter properties flags.
         /// </summary>
         public uint GraphicsAdapterProperties;
+        /// <summary>
+        /// True when the adapter is integrated.
+        /// </summary>
+        public bool IsIntegratedGraphicsAdapter
+        {
+            readonly get => HasFlag(GraphicsAdapterProperties, (uint)ctl_adapter_properties_flag_t.CTL_ADAPTER_PROPERTIES_FLAG_INTEGRATED);
+            set => GraphicsAdapterProperties = SetFlag(GraphicsAdapterProperties, (uint)ctl_adapter_properties_flag_t.CTL_ADAPTER_PROPERTIES_FLAG_INTEGRATED, value);
+        }
+        /// <summary>
+        /// True when this is the primary LDA adapter.
+        /// </summary>
+        public bool IsLdaPrimary
+        {
+            readonly get => HasFlag(GraphicsAdapterProperties, (uint)ctl_adapter_properties_flag_t.CTL_ADAPTER_PROPERTIES_FLAG_LDA_PRIMARY);
+            set => GraphicsAdapterProperties = SetFlag(GraphicsAdapterProperties, (uint)ctl_adapter_properties_flag_t.CTL_ADAPTER_PROPERTIES_FLAG_LDA_PRIMARY, value);
+        }
+        /// <summary>
+        /// True when this is the secondary LDA adapter.
+        /// </summary>
+        public bool IsLdaSecondary
+        {
+            readonly get => HasFlag(GraphicsAdapterProperties, (uint)ctl_adapter_properties_flag_t.CTL_ADAPTER_PROPERTIES_FLAG_LDA_SECONDARY);
+            set => GraphicsAdapterProperties = SetFlag(GraphicsAdapterProperties, (uint)ctl_adapter_properties_flag_t.CTL_ADAPTER_PROPERTIES_FLAG_LDA_SECONDARY, value);
+        }
         /// <summary>
         /// Average graphics clock (MHz).
         /// </summary>
@@ -1870,6 +1918,13 @@ namespace IGCLWrapper
             var count = Math.Min(value.Count, ReservedLength);
             for (var i = 0; i < count; i++)
                 pReserved[i] = unchecked((sbyte)value[i]);
+        }
+
+        private static bool HasFlag(uint value, uint flag) => (value & flag) != 0;
+
+        private static uint SetFlag(uint value, uint flag, bool enabled)
+        {
+            return enabled ? (value | flag) : (value & ~flag);
         }
     }
 

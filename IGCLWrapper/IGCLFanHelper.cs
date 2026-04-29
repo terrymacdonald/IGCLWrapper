@@ -276,10 +276,35 @@ namespace IGCLWrapper
         /// Supported control modes.
         /// </summary>
         public uint SupportedModes;
+        public bool SupportsDefaultMode
+        {
+            readonly get => HasEnumBit(SupportedModes, (int)ctl_fan_speed_mode_t.CTL_FAN_SPEED_MODE_DEFAULT);
+            set => SupportedModes = SetEnumBit(SupportedModes, (int)ctl_fan_speed_mode_t.CTL_FAN_SPEED_MODE_DEFAULT, value);
+        }
+        public bool SupportsFixedMode
+        {
+            readonly get => HasEnumBit(SupportedModes, (int)ctl_fan_speed_mode_t.CTL_FAN_SPEED_MODE_FIXED);
+            set => SupportedModes = SetEnumBit(SupportedModes, (int)ctl_fan_speed_mode_t.CTL_FAN_SPEED_MODE_FIXED, value);
+        }
+        public bool SupportsTableMode
+        {
+            readonly get => HasEnumBit(SupportedModes, (int)ctl_fan_speed_mode_t.CTL_FAN_SPEED_MODE_TABLE);
+            set => SupportedModes = SetEnumBit(SupportedModes, (int)ctl_fan_speed_mode_t.CTL_FAN_SPEED_MODE_TABLE, value);
+        }
         /// <summary>
         /// Supported speed units.
         /// </summary>
         public uint SupportedUnits;
+        public bool SupportsRpmUnits
+        {
+            readonly get => HasEnumBit(SupportedUnits, (int)ctl_fan_speed_units_t.CTL_FAN_SPEED_UNITS_RPM);
+            set => SupportedUnits = SetEnumBit(SupportedUnits, (int)ctl_fan_speed_units_t.CTL_FAN_SPEED_UNITS_RPM, value);
+        }
+        public bool SupportsPercentUnits
+        {
+            readonly get => HasEnumBit(SupportedUnits, (int)ctl_fan_speed_units_t.CTL_FAN_SPEED_UNITS_PERCENT);
+            set => SupportedUnits = SetEnumBit(SupportedUnits, (int)ctl_fan_speed_units_t.CTL_FAN_SPEED_UNITS_PERCENT, value);
+        }
         /// <summary>
         /// Maximum RPM.
         /// </summary>
@@ -364,6 +389,18 @@ namespace IGCLWrapper
                 maxRPM = MaxRpm,
                 maxPoints = MaxPoints
             };
+        }
+
+        private static bool HasEnumBit(uint value, int enumValue)
+        {
+            var bit = 1u << enumValue;
+            return (value & bit) != 0;
+        }
+
+        private static uint SetEnumBit(uint value, int enumValue, bool enabled)
+        {
+            var bit = 1u << enumValue;
+            return enabled ? (value | bit) : (value & ~bit);
         }
     }
 }
