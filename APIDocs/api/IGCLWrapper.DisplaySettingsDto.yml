@@ -12,6 +12,24 @@ items:
   - IGCLWrapper.DisplaySettingsDto.Equals(System.Object)
   - IGCLWrapper.DisplaySettingsDto.FromNative(IGCLWrapper.ctl_display_settings_t)
   - IGCLWrapper.DisplaySettingsDto.GetHashCode
+  - IGCLWrapper.DisplaySettingsDto.IsAudioSettingsControllable
+  - IGCLWrapper.DisplaySettingsDto.IsAudioSettingsSupported
+  - IGCLWrapper.DisplaySettingsDto.IsAudioSettingsValid
+  - IGCLWrapper.DisplaySettingsDto.IsContentTypeControllable
+  - IGCLWrapper.DisplaySettingsDto.IsContentTypeSupported
+  - IGCLWrapper.DisplaySettingsDto.IsContentTypeValid
+  - IGCLWrapper.DisplaySettingsDto.IsLowLatencyControllable
+  - IGCLWrapper.DisplaySettingsDto.IsLowLatencySupported
+  - IGCLWrapper.DisplaySettingsDto.IsLowLatencyValid
+  - IGCLWrapper.DisplaySettingsDto.IsPictureArControllable
+  - IGCLWrapper.DisplaySettingsDto.IsPictureArSupported
+  - IGCLWrapper.DisplaySettingsDto.IsPictureArValid
+  - IGCLWrapper.DisplaySettingsDto.IsQuantizationRangeControllable
+  - IGCLWrapper.DisplaySettingsDto.IsQuantizationRangeSupported
+  - IGCLWrapper.DisplaySettingsDto.IsQuantizationRangeValid
+  - IGCLWrapper.DisplaySettingsDto.IsSourceTmControllable
+  - IGCLWrapper.DisplaySettingsDto.IsSourceTmSupported
+  - IGCLWrapper.DisplaySettingsDto.IsSourceTmValid
   - IGCLWrapper.DisplaySettingsDto.LowLatency
   - IGCLWrapper.DisplaySettingsDto.PictureAr
   - IGCLWrapper.DisplaySettingsDto.QuantizationRange
@@ -21,6 +39,12 @@ items:
   - IGCLWrapper.DisplaySettingsDto.SourceTm
   - IGCLWrapper.DisplaySettingsDto.SupportedFlags
   - IGCLWrapper.DisplaySettingsDto.SupportedPictureAr
+  - IGCLWrapper.DisplaySettingsDto.SupportsPictureAr16By9
+  - IGCLWrapper.DisplaySettingsDto.SupportsPictureAr256By135
+  - IGCLWrapper.DisplaySettingsDto.SupportsPictureAr4By3
+  - IGCLWrapper.DisplaySettingsDto.SupportsPictureAr64By27
+  - IGCLWrapper.DisplaySettingsDto.SupportsPictureArDefault
+  - IGCLWrapper.DisplaySettingsDto.SupportsPictureArDisabled
   - IGCLWrapper.DisplaySettingsDto.ToNative
   - IGCLWrapper.DisplaySettingsDto.ValidFlags
   - IGCLWrapper.DisplaySettingsDto.Version
@@ -38,7 +62,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: DisplaySettingsDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3127
+    startLine: 3461
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -72,7 +96,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3132
+    startLine: 3466
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -101,7 +125,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3136
+    startLine: 3470
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -130,7 +154,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Set
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3140
+    startLine: 3474
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -159,7 +183,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SupportedFlags
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3144
+    startLine: 3478
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -170,6 +194,180 @@ items:
     return:
       type: System.UInt32
     content.vb: Public SupportedFlags As UInteger
+- uid: IGCLWrapper.DisplaySettingsDto.IsLowLatencySupported
+  commentId: P:IGCLWrapper.DisplaySettingsDto.IsLowLatencySupported
+  id: IsLowLatencySupported
+  parent: IGCLWrapper.DisplaySettingsDto
+  langs:
+  - csharp
+  - vb
+  name: IsLowLatencySupported
+  nameWithType: DisplaySettingsDto.IsLowLatencySupported
+  fullName: IGCLWrapper.DisplaySettingsDto.IsLowLatencySupported
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsLowLatencySupported
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3479
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsLowLatencySupported { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsLowLatencySupported As Boolean
+  overload: IGCLWrapper.DisplaySettingsDto.IsLowLatencySupported*
+- uid: IGCLWrapper.DisplaySettingsDto.IsSourceTmSupported
+  commentId: P:IGCLWrapper.DisplaySettingsDto.IsSourceTmSupported
+  id: IsSourceTmSupported
+  parent: IGCLWrapper.DisplaySettingsDto
+  langs:
+  - csharp
+  - vb
+  name: IsSourceTmSupported
+  nameWithType: DisplaySettingsDto.IsSourceTmSupported
+  fullName: IGCLWrapper.DisplaySettingsDto.IsSourceTmSupported
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsSourceTmSupported
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3484
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsSourceTmSupported { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsSourceTmSupported As Boolean
+  overload: IGCLWrapper.DisplaySettingsDto.IsSourceTmSupported*
+- uid: IGCLWrapper.DisplaySettingsDto.IsContentTypeSupported
+  commentId: P:IGCLWrapper.DisplaySettingsDto.IsContentTypeSupported
+  id: IsContentTypeSupported
+  parent: IGCLWrapper.DisplaySettingsDto
+  langs:
+  - csharp
+  - vb
+  name: IsContentTypeSupported
+  nameWithType: DisplaySettingsDto.IsContentTypeSupported
+  fullName: IGCLWrapper.DisplaySettingsDto.IsContentTypeSupported
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsContentTypeSupported
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3489
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsContentTypeSupported { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsContentTypeSupported As Boolean
+  overload: IGCLWrapper.DisplaySettingsDto.IsContentTypeSupported*
+- uid: IGCLWrapper.DisplaySettingsDto.IsQuantizationRangeSupported
+  commentId: P:IGCLWrapper.DisplaySettingsDto.IsQuantizationRangeSupported
+  id: IsQuantizationRangeSupported
+  parent: IGCLWrapper.DisplaySettingsDto
+  langs:
+  - csharp
+  - vb
+  name: IsQuantizationRangeSupported
+  nameWithType: DisplaySettingsDto.IsQuantizationRangeSupported
+  fullName: IGCLWrapper.DisplaySettingsDto.IsQuantizationRangeSupported
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsQuantizationRangeSupported
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3494
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsQuantizationRangeSupported { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsQuantizationRangeSupported As Boolean
+  overload: IGCLWrapper.DisplaySettingsDto.IsQuantizationRangeSupported*
+- uid: IGCLWrapper.DisplaySettingsDto.IsPictureArSupported
+  commentId: P:IGCLWrapper.DisplaySettingsDto.IsPictureArSupported
+  id: IsPictureArSupported
+  parent: IGCLWrapper.DisplaySettingsDto
+  langs:
+  - csharp
+  - vb
+  name: IsPictureArSupported
+  nameWithType: DisplaySettingsDto.IsPictureArSupported
+  fullName: IGCLWrapper.DisplaySettingsDto.IsPictureArSupported
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsPictureArSupported
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3499
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsPictureArSupported { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsPictureArSupported As Boolean
+  overload: IGCLWrapper.DisplaySettingsDto.IsPictureArSupported*
+- uid: IGCLWrapper.DisplaySettingsDto.IsAudioSettingsSupported
+  commentId: P:IGCLWrapper.DisplaySettingsDto.IsAudioSettingsSupported
+  id: IsAudioSettingsSupported
+  parent: IGCLWrapper.DisplaySettingsDto
+  langs:
+  - csharp
+  - vb
+  name: IsAudioSettingsSupported
+  nameWithType: DisplaySettingsDto.IsAudioSettingsSupported
+  fullName: IGCLWrapper.DisplaySettingsDto.IsAudioSettingsSupported
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsAudioSettingsSupported
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3504
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsAudioSettingsSupported { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsAudioSettingsSupported As Boolean
+  overload: IGCLWrapper.DisplaySettingsDto.IsAudioSettingsSupported*
 - uid: IGCLWrapper.DisplaySettingsDto.ControllableFlags
   commentId: F:IGCLWrapper.DisplaySettingsDto.ControllableFlags
   id: ControllableFlags
@@ -188,7 +386,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ControllableFlags
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3148
+    startLine: 3512
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -199,6 +397,180 @@ items:
     return:
       type: System.UInt32
     content.vb: Public ControllableFlags As UInteger
+- uid: IGCLWrapper.DisplaySettingsDto.IsLowLatencyControllable
+  commentId: P:IGCLWrapper.DisplaySettingsDto.IsLowLatencyControllable
+  id: IsLowLatencyControllable
+  parent: IGCLWrapper.DisplaySettingsDto
+  langs:
+  - csharp
+  - vb
+  name: IsLowLatencyControllable
+  nameWithType: DisplaySettingsDto.IsLowLatencyControllable
+  fullName: IGCLWrapper.DisplaySettingsDto.IsLowLatencyControllable
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsLowLatencyControllable
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3513
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsLowLatencyControllable { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsLowLatencyControllable As Boolean
+  overload: IGCLWrapper.DisplaySettingsDto.IsLowLatencyControllable*
+- uid: IGCLWrapper.DisplaySettingsDto.IsSourceTmControllable
+  commentId: P:IGCLWrapper.DisplaySettingsDto.IsSourceTmControllable
+  id: IsSourceTmControllable
+  parent: IGCLWrapper.DisplaySettingsDto
+  langs:
+  - csharp
+  - vb
+  name: IsSourceTmControllable
+  nameWithType: DisplaySettingsDto.IsSourceTmControllable
+  fullName: IGCLWrapper.DisplaySettingsDto.IsSourceTmControllable
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsSourceTmControllable
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3518
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsSourceTmControllable { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsSourceTmControllable As Boolean
+  overload: IGCLWrapper.DisplaySettingsDto.IsSourceTmControllable*
+- uid: IGCLWrapper.DisplaySettingsDto.IsContentTypeControllable
+  commentId: P:IGCLWrapper.DisplaySettingsDto.IsContentTypeControllable
+  id: IsContentTypeControllable
+  parent: IGCLWrapper.DisplaySettingsDto
+  langs:
+  - csharp
+  - vb
+  name: IsContentTypeControllable
+  nameWithType: DisplaySettingsDto.IsContentTypeControllable
+  fullName: IGCLWrapper.DisplaySettingsDto.IsContentTypeControllable
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsContentTypeControllable
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3523
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsContentTypeControllable { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsContentTypeControllable As Boolean
+  overload: IGCLWrapper.DisplaySettingsDto.IsContentTypeControllable*
+- uid: IGCLWrapper.DisplaySettingsDto.IsQuantizationRangeControllable
+  commentId: P:IGCLWrapper.DisplaySettingsDto.IsQuantizationRangeControllable
+  id: IsQuantizationRangeControllable
+  parent: IGCLWrapper.DisplaySettingsDto
+  langs:
+  - csharp
+  - vb
+  name: IsQuantizationRangeControllable
+  nameWithType: DisplaySettingsDto.IsQuantizationRangeControllable
+  fullName: IGCLWrapper.DisplaySettingsDto.IsQuantizationRangeControllable
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsQuantizationRangeControllable
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3528
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsQuantizationRangeControllable { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsQuantizationRangeControllable As Boolean
+  overload: IGCLWrapper.DisplaySettingsDto.IsQuantizationRangeControllable*
+- uid: IGCLWrapper.DisplaySettingsDto.IsPictureArControllable
+  commentId: P:IGCLWrapper.DisplaySettingsDto.IsPictureArControllable
+  id: IsPictureArControllable
+  parent: IGCLWrapper.DisplaySettingsDto
+  langs:
+  - csharp
+  - vb
+  name: IsPictureArControllable
+  nameWithType: DisplaySettingsDto.IsPictureArControllable
+  fullName: IGCLWrapper.DisplaySettingsDto.IsPictureArControllable
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsPictureArControllable
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3533
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsPictureArControllable { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsPictureArControllable As Boolean
+  overload: IGCLWrapper.DisplaySettingsDto.IsPictureArControllable*
+- uid: IGCLWrapper.DisplaySettingsDto.IsAudioSettingsControllable
+  commentId: P:IGCLWrapper.DisplaySettingsDto.IsAudioSettingsControllable
+  id: IsAudioSettingsControllable
+  parent: IGCLWrapper.DisplaySettingsDto
+  langs:
+  - csharp
+  - vb
+  name: IsAudioSettingsControllable
+  nameWithType: DisplaySettingsDto.IsAudioSettingsControllable
+  fullName: IGCLWrapper.DisplaySettingsDto.IsAudioSettingsControllable
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsAudioSettingsControllable
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3538
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsAudioSettingsControllable { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsAudioSettingsControllable As Boolean
+  overload: IGCLWrapper.DisplaySettingsDto.IsAudioSettingsControllable*
 - uid: IGCLWrapper.DisplaySettingsDto.ValidFlags
   commentId: F:IGCLWrapper.DisplaySettingsDto.ValidFlags
   id: ValidFlags
@@ -217,7 +589,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ValidFlags
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3152
+    startLine: 3546
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -228,6 +600,180 @@ items:
     return:
       type: System.UInt32
     content.vb: Public ValidFlags As UInteger
+- uid: IGCLWrapper.DisplaySettingsDto.IsLowLatencyValid
+  commentId: P:IGCLWrapper.DisplaySettingsDto.IsLowLatencyValid
+  id: IsLowLatencyValid
+  parent: IGCLWrapper.DisplaySettingsDto
+  langs:
+  - csharp
+  - vb
+  name: IsLowLatencyValid
+  nameWithType: DisplaySettingsDto.IsLowLatencyValid
+  fullName: IGCLWrapper.DisplaySettingsDto.IsLowLatencyValid
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsLowLatencyValid
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3547
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsLowLatencyValid { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsLowLatencyValid As Boolean
+  overload: IGCLWrapper.DisplaySettingsDto.IsLowLatencyValid*
+- uid: IGCLWrapper.DisplaySettingsDto.IsSourceTmValid
+  commentId: P:IGCLWrapper.DisplaySettingsDto.IsSourceTmValid
+  id: IsSourceTmValid
+  parent: IGCLWrapper.DisplaySettingsDto
+  langs:
+  - csharp
+  - vb
+  name: IsSourceTmValid
+  nameWithType: DisplaySettingsDto.IsSourceTmValid
+  fullName: IGCLWrapper.DisplaySettingsDto.IsSourceTmValid
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsSourceTmValid
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3552
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsSourceTmValid { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsSourceTmValid As Boolean
+  overload: IGCLWrapper.DisplaySettingsDto.IsSourceTmValid*
+- uid: IGCLWrapper.DisplaySettingsDto.IsContentTypeValid
+  commentId: P:IGCLWrapper.DisplaySettingsDto.IsContentTypeValid
+  id: IsContentTypeValid
+  parent: IGCLWrapper.DisplaySettingsDto
+  langs:
+  - csharp
+  - vb
+  name: IsContentTypeValid
+  nameWithType: DisplaySettingsDto.IsContentTypeValid
+  fullName: IGCLWrapper.DisplaySettingsDto.IsContentTypeValid
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsContentTypeValid
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3557
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsContentTypeValid { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsContentTypeValid As Boolean
+  overload: IGCLWrapper.DisplaySettingsDto.IsContentTypeValid*
+- uid: IGCLWrapper.DisplaySettingsDto.IsQuantizationRangeValid
+  commentId: P:IGCLWrapper.DisplaySettingsDto.IsQuantizationRangeValid
+  id: IsQuantizationRangeValid
+  parent: IGCLWrapper.DisplaySettingsDto
+  langs:
+  - csharp
+  - vb
+  name: IsQuantizationRangeValid
+  nameWithType: DisplaySettingsDto.IsQuantizationRangeValid
+  fullName: IGCLWrapper.DisplaySettingsDto.IsQuantizationRangeValid
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsQuantizationRangeValid
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3562
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsQuantizationRangeValid { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsQuantizationRangeValid As Boolean
+  overload: IGCLWrapper.DisplaySettingsDto.IsQuantizationRangeValid*
+- uid: IGCLWrapper.DisplaySettingsDto.IsPictureArValid
+  commentId: P:IGCLWrapper.DisplaySettingsDto.IsPictureArValid
+  id: IsPictureArValid
+  parent: IGCLWrapper.DisplaySettingsDto
+  langs:
+  - csharp
+  - vb
+  name: IsPictureArValid
+  nameWithType: DisplaySettingsDto.IsPictureArValid
+  fullName: IGCLWrapper.DisplaySettingsDto.IsPictureArValid
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsPictureArValid
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3567
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsPictureArValid { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsPictureArValid As Boolean
+  overload: IGCLWrapper.DisplaySettingsDto.IsPictureArValid*
+- uid: IGCLWrapper.DisplaySettingsDto.IsAudioSettingsValid
+  commentId: P:IGCLWrapper.DisplaySettingsDto.IsAudioSettingsValid
+  id: IsAudioSettingsValid
+  parent: IGCLWrapper.DisplaySettingsDto
+  langs:
+  - csharp
+  - vb
+  name: IsAudioSettingsValid
+  nameWithType: DisplaySettingsDto.IsAudioSettingsValid
+  fullName: IGCLWrapper.DisplaySettingsDto.IsAudioSettingsValid
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsAudioSettingsValid
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3572
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsAudioSettingsValid { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsAudioSettingsValid As Boolean
+  overload: IGCLWrapper.DisplaySettingsDto.IsAudioSettingsValid*
 - uid: IGCLWrapper.DisplaySettingsDto.LowLatency
   commentId: F:IGCLWrapper.DisplaySettingsDto.LowLatency
   id: LowLatency
@@ -246,7 +792,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LowLatency
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3156
+    startLine: 3580
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -275,7 +821,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SourceTm
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3160
+    startLine: 3584
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -304,7 +850,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ContentType
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3164
+    startLine: 3588
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -333,7 +879,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: QuantizationRange
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3168
+    startLine: 3592
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -362,7 +908,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SupportedPictureAr
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3172
+    startLine: 3596
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -373,6 +919,180 @@ items:
     return:
       type: System.UInt32
     content.vb: Public SupportedPictureAr As UInteger
+- uid: IGCLWrapper.DisplaySettingsDto.SupportsPictureArDefault
+  commentId: P:IGCLWrapper.DisplaySettingsDto.SupportsPictureArDefault
+  id: SupportsPictureArDefault
+  parent: IGCLWrapper.DisplaySettingsDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsPictureArDefault
+  nameWithType: DisplaySettingsDto.SupportsPictureArDefault
+  fullName: IGCLWrapper.DisplaySettingsDto.SupportsPictureArDefault
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsPictureArDefault
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3597
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsPictureArDefault { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsPictureArDefault As Boolean
+  overload: IGCLWrapper.DisplaySettingsDto.SupportsPictureArDefault*
+- uid: IGCLWrapper.DisplaySettingsDto.SupportsPictureArDisabled
+  commentId: P:IGCLWrapper.DisplaySettingsDto.SupportsPictureArDisabled
+  id: SupportsPictureArDisabled
+  parent: IGCLWrapper.DisplaySettingsDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsPictureArDisabled
+  nameWithType: DisplaySettingsDto.SupportsPictureArDisabled
+  fullName: IGCLWrapper.DisplaySettingsDto.SupportsPictureArDisabled
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsPictureArDisabled
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3602
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsPictureArDisabled { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsPictureArDisabled As Boolean
+  overload: IGCLWrapper.DisplaySettingsDto.SupportsPictureArDisabled*
+- uid: IGCLWrapper.DisplaySettingsDto.SupportsPictureAr4By3
+  commentId: P:IGCLWrapper.DisplaySettingsDto.SupportsPictureAr4By3
+  id: SupportsPictureAr4By3
+  parent: IGCLWrapper.DisplaySettingsDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsPictureAr4By3
+  nameWithType: DisplaySettingsDto.SupportsPictureAr4By3
+  fullName: IGCLWrapper.DisplaySettingsDto.SupportsPictureAr4By3
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsPictureAr4By3
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3607
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsPictureAr4By3 { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsPictureAr4By3 As Boolean
+  overload: IGCLWrapper.DisplaySettingsDto.SupportsPictureAr4By3*
+- uid: IGCLWrapper.DisplaySettingsDto.SupportsPictureAr16By9
+  commentId: P:IGCLWrapper.DisplaySettingsDto.SupportsPictureAr16By9
+  id: SupportsPictureAr16By9
+  parent: IGCLWrapper.DisplaySettingsDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsPictureAr16By9
+  nameWithType: DisplaySettingsDto.SupportsPictureAr16By9
+  fullName: IGCLWrapper.DisplaySettingsDto.SupportsPictureAr16By9
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsPictureAr16By9
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3612
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsPictureAr16By9 { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsPictureAr16By9 As Boolean
+  overload: IGCLWrapper.DisplaySettingsDto.SupportsPictureAr16By9*
+- uid: IGCLWrapper.DisplaySettingsDto.SupportsPictureAr64By27
+  commentId: P:IGCLWrapper.DisplaySettingsDto.SupportsPictureAr64By27
+  id: SupportsPictureAr64By27
+  parent: IGCLWrapper.DisplaySettingsDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsPictureAr64By27
+  nameWithType: DisplaySettingsDto.SupportsPictureAr64By27
+  fullName: IGCLWrapper.DisplaySettingsDto.SupportsPictureAr64By27
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsPictureAr64By27
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3617
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsPictureAr64By27 { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsPictureAr64By27 As Boolean
+  overload: IGCLWrapper.DisplaySettingsDto.SupportsPictureAr64By27*
+- uid: IGCLWrapper.DisplaySettingsDto.SupportsPictureAr256By135
+  commentId: P:IGCLWrapper.DisplaySettingsDto.SupportsPictureAr256By135
+  id: SupportsPictureAr256By135
+  parent: IGCLWrapper.DisplaySettingsDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsPictureAr256By135
+  nameWithType: DisplaySettingsDto.SupportsPictureAr256By135
+  fullName: IGCLWrapper.DisplaySettingsDto.SupportsPictureAr256By135
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsPictureAr256By135
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3622
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsPictureAr256By135 { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsPictureAr256By135 As Boolean
+  overload: IGCLWrapper.DisplaySettingsDto.SupportsPictureAr256By135*
 - uid: IGCLWrapper.DisplaySettingsDto.PictureAr
   commentId: F:IGCLWrapper.DisplaySettingsDto.PictureAr
   id: PictureAr
@@ -391,7 +1111,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PictureAr
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3176
+    startLine: 3630
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -420,7 +1140,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AudioSettings
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3180
+    startLine: 3634
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -449,7 +1169,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Reserved
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3184
+    startLine: 3638
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -478,7 +1198,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3191
+    startLine: 3645
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -515,7 +1235,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3214
+    startLine: 3668
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -554,7 +1274,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetHashCode
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3220
+    startLine: 3674
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -586,7 +1306,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3244
+    startLine: 3698
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -621,7 +1341,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3269
+    startLine: 3723
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -897,6 +1617,114 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: IGCLWrapper.DisplaySettingsDto.IsLowLatencySupported*
+  commentId: Overload:IGCLWrapper.DisplaySettingsDto.IsLowLatencySupported
+  href: IGCLWrapper.DisplaySettingsDto.html#IGCLWrapper_DisplaySettingsDto_IsLowLatencySupported
+  name: IsLowLatencySupported
+  nameWithType: DisplaySettingsDto.IsLowLatencySupported
+  fullName: IGCLWrapper.DisplaySettingsDto.IsLowLatencySupported
+- uid: IGCLWrapper.DisplaySettingsDto.IsSourceTmSupported*
+  commentId: Overload:IGCLWrapper.DisplaySettingsDto.IsSourceTmSupported
+  href: IGCLWrapper.DisplaySettingsDto.html#IGCLWrapper_DisplaySettingsDto_IsSourceTmSupported
+  name: IsSourceTmSupported
+  nameWithType: DisplaySettingsDto.IsSourceTmSupported
+  fullName: IGCLWrapper.DisplaySettingsDto.IsSourceTmSupported
+- uid: IGCLWrapper.DisplaySettingsDto.IsContentTypeSupported*
+  commentId: Overload:IGCLWrapper.DisplaySettingsDto.IsContentTypeSupported
+  href: IGCLWrapper.DisplaySettingsDto.html#IGCLWrapper_DisplaySettingsDto_IsContentTypeSupported
+  name: IsContentTypeSupported
+  nameWithType: DisplaySettingsDto.IsContentTypeSupported
+  fullName: IGCLWrapper.DisplaySettingsDto.IsContentTypeSupported
+- uid: IGCLWrapper.DisplaySettingsDto.IsQuantizationRangeSupported*
+  commentId: Overload:IGCLWrapper.DisplaySettingsDto.IsQuantizationRangeSupported
+  href: IGCLWrapper.DisplaySettingsDto.html#IGCLWrapper_DisplaySettingsDto_IsQuantizationRangeSupported
+  name: IsQuantizationRangeSupported
+  nameWithType: DisplaySettingsDto.IsQuantizationRangeSupported
+  fullName: IGCLWrapper.DisplaySettingsDto.IsQuantizationRangeSupported
+- uid: IGCLWrapper.DisplaySettingsDto.IsPictureArSupported*
+  commentId: Overload:IGCLWrapper.DisplaySettingsDto.IsPictureArSupported
+  href: IGCLWrapper.DisplaySettingsDto.html#IGCLWrapper_DisplaySettingsDto_IsPictureArSupported
+  name: IsPictureArSupported
+  nameWithType: DisplaySettingsDto.IsPictureArSupported
+  fullName: IGCLWrapper.DisplaySettingsDto.IsPictureArSupported
+- uid: IGCLWrapper.DisplaySettingsDto.IsAudioSettingsSupported*
+  commentId: Overload:IGCLWrapper.DisplaySettingsDto.IsAudioSettingsSupported
+  href: IGCLWrapper.DisplaySettingsDto.html#IGCLWrapper_DisplaySettingsDto_IsAudioSettingsSupported
+  name: IsAudioSettingsSupported
+  nameWithType: DisplaySettingsDto.IsAudioSettingsSupported
+  fullName: IGCLWrapper.DisplaySettingsDto.IsAudioSettingsSupported
+- uid: IGCLWrapper.DisplaySettingsDto.IsLowLatencyControllable*
+  commentId: Overload:IGCLWrapper.DisplaySettingsDto.IsLowLatencyControllable
+  href: IGCLWrapper.DisplaySettingsDto.html#IGCLWrapper_DisplaySettingsDto_IsLowLatencyControllable
+  name: IsLowLatencyControllable
+  nameWithType: DisplaySettingsDto.IsLowLatencyControllable
+  fullName: IGCLWrapper.DisplaySettingsDto.IsLowLatencyControllable
+- uid: IGCLWrapper.DisplaySettingsDto.IsSourceTmControllable*
+  commentId: Overload:IGCLWrapper.DisplaySettingsDto.IsSourceTmControllable
+  href: IGCLWrapper.DisplaySettingsDto.html#IGCLWrapper_DisplaySettingsDto_IsSourceTmControllable
+  name: IsSourceTmControllable
+  nameWithType: DisplaySettingsDto.IsSourceTmControllable
+  fullName: IGCLWrapper.DisplaySettingsDto.IsSourceTmControllable
+- uid: IGCLWrapper.DisplaySettingsDto.IsContentTypeControllable*
+  commentId: Overload:IGCLWrapper.DisplaySettingsDto.IsContentTypeControllable
+  href: IGCLWrapper.DisplaySettingsDto.html#IGCLWrapper_DisplaySettingsDto_IsContentTypeControllable
+  name: IsContentTypeControllable
+  nameWithType: DisplaySettingsDto.IsContentTypeControllable
+  fullName: IGCLWrapper.DisplaySettingsDto.IsContentTypeControllable
+- uid: IGCLWrapper.DisplaySettingsDto.IsQuantizationRangeControllable*
+  commentId: Overload:IGCLWrapper.DisplaySettingsDto.IsQuantizationRangeControllable
+  href: IGCLWrapper.DisplaySettingsDto.html#IGCLWrapper_DisplaySettingsDto_IsQuantizationRangeControllable
+  name: IsQuantizationRangeControllable
+  nameWithType: DisplaySettingsDto.IsQuantizationRangeControllable
+  fullName: IGCLWrapper.DisplaySettingsDto.IsQuantizationRangeControllable
+- uid: IGCLWrapper.DisplaySettingsDto.IsPictureArControllable*
+  commentId: Overload:IGCLWrapper.DisplaySettingsDto.IsPictureArControllable
+  href: IGCLWrapper.DisplaySettingsDto.html#IGCLWrapper_DisplaySettingsDto_IsPictureArControllable
+  name: IsPictureArControllable
+  nameWithType: DisplaySettingsDto.IsPictureArControllable
+  fullName: IGCLWrapper.DisplaySettingsDto.IsPictureArControllable
+- uid: IGCLWrapper.DisplaySettingsDto.IsAudioSettingsControllable*
+  commentId: Overload:IGCLWrapper.DisplaySettingsDto.IsAudioSettingsControllable
+  href: IGCLWrapper.DisplaySettingsDto.html#IGCLWrapper_DisplaySettingsDto_IsAudioSettingsControllable
+  name: IsAudioSettingsControllable
+  nameWithType: DisplaySettingsDto.IsAudioSettingsControllable
+  fullName: IGCLWrapper.DisplaySettingsDto.IsAudioSettingsControllable
+- uid: IGCLWrapper.DisplaySettingsDto.IsLowLatencyValid*
+  commentId: Overload:IGCLWrapper.DisplaySettingsDto.IsLowLatencyValid
+  href: IGCLWrapper.DisplaySettingsDto.html#IGCLWrapper_DisplaySettingsDto_IsLowLatencyValid
+  name: IsLowLatencyValid
+  nameWithType: DisplaySettingsDto.IsLowLatencyValid
+  fullName: IGCLWrapper.DisplaySettingsDto.IsLowLatencyValid
+- uid: IGCLWrapper.DisplaySettingsDto.IsSourceTmValid*
+  commentId: Overload:IGCLWrapper.DisplaySettingsDto.IsSourceTmValid
+  href: IGCLWrapper.DisplaySettingsDto.html#IGCLWrapper_DisplaySettingsDto_IsSourceTmValid
+  name: IsSourceTmValid
+  nameWithType: DisplaySettingsDto.IsSourceTmValid
+  fullName: IGCLWrapper.DisplaySettingsDto.IsSourceTmValid
+- uid: IGCLWrapper.DisplaySettingsDto.IsContentTypeValid*
+  commentId: Overload:IGCLWrapper.DisplaySettingsDto.IsContentTypeValid
+  href: IGCLWrapper.DisplaySettingsDto.html#IGCLWrapper_DisplaySettingsDto_IsContentTypeValid
+  name: IsContentTypeValid
+  nameWithType: DisplaySettingsDto.IsContentTypeValid
+  fullName: IGCLWrapper.DisplaySettingsDto.IsContentTypeValid
+- uid: IGCLWrapper.DisplaySettingsDto.IsQuantizationRangeValid*
+  commentId: Overload:IGCLWrapper.DisplaySettingsDto.IsQuantizationRangeValid
+  href: IGCLWrapper.DisplaySettingsDto.html#IGCLWrapper_DisplaySettingsDto_IsQuantizationRangeValid
+  name: IsQuantizationRangeValid
+  nameWithType: DisplaySettingsDto.IsQuantizationRangeValid
+  fullName: IGCLWrapper.DisplaySettingsDto.IsQuantizationRangeValid
+- uid: IGCLWrapper.DisplaySettingsDto.IsPictureArValid*
+  commentId: Overload:IGCLWrapper.DisplaySettingsDto.IsPictureArValid
+  href: IGCLWrapper.DisplaySettingsDto.html#IGCLWrapper_DisplaySettingsDto_IsPictureArValid
+  name: IsPictureArValid
+  nameWithType: DisplaySettingsDto.IsPictureArValid
+  fullName: IGCLWrapper.DisplaySettingsDto.IsPictureArValid
+- uid: IGCLWrapper.DisplaySettingsDto.IsAudioSettingsValid*
+  commentId: Overload:IGCLWrapper.DisplaySettingsDto.IsAudioSettingsValid
+  href: IGCLWrapper.DisplaySettingsDto.html#IGCLWrapper_DisplaySettingsDto_IsAudioSettingsValid
+  name: IsAudioSettingsValid
+  nameWithType: DisplaySettingsDto.IsAudioSettingsValid
+  fullName: IGCLWrapper.DisplaySettingsDto.IsAudioSettingsValid
 - uid: IGCLWrapper.ctl_display_setting_low_latency_t
   commentId: T:IGCLWrapper.ctl_display_setting_low_latency_t
   parent: IGCLWrapper
@@ -925,6 +1753,42 @@ references:
   name: ctl_display_setting_quantization_range_t
   nameWithType: ctl_display_setting_quantization_range_t
   fullName: IGCLWrapper.ctl_display_setting_quantization_range_t
+- uid: IGCLWrapper.DisplaySettingsDto.SupportsPictureArDefault*
+  commentId: Overload:IGCLWrapper.DisplaySettingsDto.SupportsPictureArDefault
+  href: IGCLWrapper.DisplaySettingsDto.html#IGCLWrapper_DisplaySettingsDto_SupportsPictureArDefault
+  name: SupportsPictureArDefault
+  nameWithType: DisplaySettingsDto.SupportsPictureArDefault
+  fullName: IGCLWrapper.DisplaySettingsDto.SupportsPictureArDefault
+- uid: IGCLWrapper.DisplaySettingsDto.SupportsPictureArDisabled*
+  commentId: Overload:IGCLWrapper.DisplaySettingsDto.SupportsPictureArDisabled
+  href: IGCLWrapper.DisplaySettingsDto.html#IGCLWrapper_DisplaySettingsDto_SupportsPictureArDisabled
+  name: SupportsPictureArDisabled
+  nameWithType: DisplaySettingsDto.SupportsPictureArDisabled
+  fullName: IGCLWrapper.DisplaySettingsDto.SupportsPictureArDisabled
+- uid: IGCLWrapper.DisplaySettingsDto.SupportsPictureAr4By3*
+  commentId: Overload:IGCLWrapper.DisplaySettingsDto.SupportsPictureAr4By3
+  href: IGCLWrapper.DisplaySettingsDto.html#IGCLWrapper_DisplaySettingsDto_SupportsPictureAr4By3
+  name: SupportsPictureAr4By3
+  nameWithType: DisplaySettingsDto.SupportsPictureAr4By3
+  fullName: IGCLWrapper.DisplaySettingsDto.SupportsPictureAr4By3
+- uid: IGCLWrapper.DisplaySettingsDto.SupportsPictureAr16By9*
+  commentId: Overload:IGCLWrapper.DisplaySettingsDto.SupportsPictureAr16By9
+  href: IGCLWrapper.DisplaySettingsDto.html#IGCLWrapper_DisplaySettingsDto_SupportsPictureAr16By9
+  name: SupportsPictureAr16By9
+  nameWithType: DisplaySettingsDto.SupportsPictureAr16By9
+  fullName: IGCLWrapper.DisplaySettingsDto.SupportsPictureAr16By9
+- uid: IGCLWrapper.DisplaySettingsDto.SupportsPictureAr64By27*
+  commentId: Overload:IGCLWrapper.DisplaySettingsDto.SupportsPictureAr64By27
+  href: IGCLWrapper.DisplaySettingsDto.html#IGCLWrapper_DisplaySettingsDto_SupportsPictureAr64By27
+  name: SupportsPictureAr64By27
+  nameWithType: DisplaySettingsDto.SupportsPictureAr64By27
+  fullName: IGCLWrapper.DisplaySettingsDto.SupportsPictureAr64By27
+- uid: IGCLWrapper.DisplaySettingsDto.SupportsPictureAr256By135*
+  commentId: Overload:IGCLWrapper.DisplaySettingsDto.SupportsPictureAr256By135
+  href: IGCLWrapper.DisplaySettingsDto.html#IGCLWrapper_DisplaySettingsDto_SupportsPictureAr256By135
+  name: SupportsPictureAr256By135
+  nameWithType: DisplaySettingsDto.SupportsPictureAr256By135
+  fullName: IGCLWrapper.DisplaySettingsDto.SupportsPictureAr256By135
 - uid: IGCLWrapper.ctl_display_setting_picture_ar_flag_t
   commentId: T:IGCLWrapper.ctl_display_setting_picture_ar_flag_t
   parent: IGCLWrapper

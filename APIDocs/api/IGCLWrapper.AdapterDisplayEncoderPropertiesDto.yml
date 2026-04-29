@@ -12,12 +12,40 @@ items:
   - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.FeatureSupportedFlags
   - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.FromNative(IGCLWrapper.ctl_adapter_display_encoder_properties_t)
   - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.GetHashCode
+  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsCollageDisplay
+  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsCompanionDisplay
+  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsHiddenDisplay
+  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsInternalDisplay
+  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsMultiGpuCollageDisplay
   - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsOnBoardProtocolConverterOutputPresent
+  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsSplitDisplay
+  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsThunderboltCapable
+  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsTypeCCapable
+  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsVesaTiledDisplay
+  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsVirtualDisplay
   - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.OsDisplayEncoderHandle
   - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.ReservedFields
   - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Size
   - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportedOutputBpcFlags
   - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportedSpec
+  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Supports10Bpc
+  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Supports12Bpc
+  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Supports6Bpc
+  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Supports8Bpc
+  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsAdaptiveSyncVrr
+  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsArcAdaptiveSyncCertified
+  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsDithering
+  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsDpst
+  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsDrrs
+  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdAudio
+  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdcp
+  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdmiQms
+  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdr
+  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdr10PlusCertified
+  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsLace
+  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsPsr
+  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsVesaCompression
+  - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsVesaHdrCertified
   - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.ToNative
   - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Type
   - IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Version
@@ -35,7 +63,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AdapterDisplayEncoderPropertiesDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2820
+    startLine: 3007
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -69,7 +97,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2825
+    startLine: 3012
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -98,7 +126,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2829
+    startLine: 3016
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -127,7 +155,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OsDisplayEncoderHandle
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2833
+    startLine: 3020
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -156,7 +184,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Type
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2837
+    startLine: 3024
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -185,7 +213,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsOnBoardProtocolConverterOutputPresent
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2841
+    startLine: 3028
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -214,7 +242,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SupportedSpec
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2845
+    startLine: 3032
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -243,7 +271,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SupportedOutputBpcFlags
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2849
+    startLine: 3036
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -254,6 +282,122 @@ items:
     return:
       type: System.UInt32
     content.vb: Public SupportedOutputBpcFlags As UInteger
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Supports6Bpc
+  commentId: P:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Supports6Bpc
+  id: Supports6Bpc
+  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: Supports6Bpc
+  nameWithType: AdapterDisplayEncoderPropertiesDto.Supports6Bpc
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Supports6Bpc
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Supports6Bpc
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3037
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool Supports6Bpc { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Supports6Bpc As Boolean
+  overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Supports6Bpc*
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Supports8Bpc
+  commentId: P:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Supports8Bpc
+  id: Supports8Bpc
+  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: Supports8Bpc
+  nameWithType: AdapterDisplayEncoderPropertiesDto.Supports8Bpc
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Supports8Bpc
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Supports8Bpc
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3042
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool Supports8Bpc { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Supports8Bpc As Boolean
+  overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Supports8Bpc*
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Supports10Bpc
+  commentId: P:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Supports10Bpc
+  id: Supports10Bpc
+  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: Supports10Bpc
+  nameWithType: AdapterDisplayEncoderPropertiesDto.Supports10Bpc
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Supports10Bpc
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Supports10Bpc
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3047
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool Supports10Bpc { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Supports10Bpc As Boolean
+  overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Supports10Bpc*
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Supports12Bpc
+  commentId: P:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Supports12Bpc
+  id: Supports12Bpc
+  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: Supports12Bpc
+  nameWithType: AdapterDisplayEncoderPropertiesDto.Supports12Bpc
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Supports12Bpc
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Supports12Bpc
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3052
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool Supports12Bpc { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Supports12Bpc As Boolean
+  overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Supports12Bpc*
 - uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.EncoderConfigFlags
   commentId: F:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.EncoderConfigFlags
   id: EncoderConfigFlags
@@ -272,7 +416,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EncoderConfigFlags
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2853
+    startLine: 3060
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -283,6 +427,325 @@ items:
     return:
       type: System.UInt32
     content.vb: Public EncoderConfigFlags As UInteger
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsInternalDisplay
+  commentId: P:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsInternalDisplay
+  id: IsInternalDisplay
+  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: IsInternalDisplay
+  nameWithType: AdapterDisplayEncoderPropertiesDto.IsInternalDisplay
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsInternalDisplay
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsInternalDisplay
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3061
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsInternalDisplay { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsInternalDisplay As Boolean
+  overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsInternalDisplay*
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsVesaTiledDisplay
+  commentId: P:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsVesaTiledDisplay
+  id: IsVesaTiledDisplay
+  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: IsVesaTiledDisplay
+  nameWithType: AdapterDisplayEncoderPropertiesDto.IsVesaTiledDisplay
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsVesaTiledDisplay
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsVesaTiledDisplay
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3066
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsVesaTiledDisplay { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsVesaTiledDisplay As Boolean
+  overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsVesaTiledDisplay*
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsTypeCCapable
+  commentId: P:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsTypeCCapable
+  id: IsTypeCCapable
+  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: IsTypeCCapable
+  nameWithType: AdapterDisplayEncoderPropertiesDto.IsTypeCCapable
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsTypeCCapable
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsTypeCCapable
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3071
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsTypeCCapable { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsTypeCCapable As Boolean
+  overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsTypeCCapable*
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsThunderboltCapable
+  commentId: P:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsThunderboltCapable
+  id: IsThunderboltCapable
+  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: IsThunderboltCapable
+  nameWithType: AdapterDisplayEncoderPropertiesDto.IsThunderboltCapable
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsThunderboltCapable
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsThunderboltCapable
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3076
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsThunderboltCapable { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsThunderboltCapable As Boolean
+  overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsThunderboltCapable*
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsDithering
+  commentId: P:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsDithering
+  id: SupportsDithering
+  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsDithering
+  nameWithType: AdapterDisplayEncoderPropertiesDto.SupportsDithering
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsDithering
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsDithering
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3081
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsDithering { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsDithering As Boolean
+  overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsDithering*
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsVirtualDisplay
+  commentId: P:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsVirtualDisplay
+  id: IsVirtualDisplay
+  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: IsVirtualDisplay
+  nameWithType: AdapterDisplayEncoderPropertiesDto.IsVirtualDisplay
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsVirtualDisplay
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsVirtualDisplay
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3086
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsVirtualDisplay { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsVirtualDisplay As Boolean
+  overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsVirtualDisplay*
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsHiddenDisplay
+  commentId: P:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsHiddenDisplay
+  id: IsHiddenDisplay
+  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: IsHiddenDisplay
+  nameWithType: AdapterDisplayEncoderPropertiesDto.IsHiddenDisplay
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsHiddenDisplay
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsHiddenDisplay
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3091
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsHiddenDisplay { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsHiddenDisplay As Boolean
+  overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsHiddenDisplay*
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsCollageDisplay
+  commentId: P:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsCollageDisplay
+  id: IsCollageDisplay
+  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: IsCollageDisplay
+  nameWithType: AdapterDisplayEncoderPropertiesDto.IsCollageDisplay
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsCollageDisplay
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsCollageDisplay
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3096
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsCollageDisplay { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsCollageDisplay As Boolean
+  overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsCollageDisplay*
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsSplitDisplay
+  commentId: P:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsSplitDisplay
+  id: IsSplitDisplay
+  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: IsSplitDisplay
+  nameWithType: AdapterDisplayEncoderPropertiesDto.IsSplitDisplay
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsSplitDisplay
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsSplitDisplay
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3101
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsSplitDisplay { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsSplitDisplay As Boolean
+  overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsSplitDisplay*
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsCompanionDisplay
+  commentId: P:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsCompanionDisplay
+  id: IsCompanionDisplay
+  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: IsCompanionDisplay
+  nameWithType: AdapterDisplayEncoderPropertiesDto.IsCompanionDisplay
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsCompanionDisplay
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsCompanionDisplay
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3106
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsCompanionDisplay { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsCompanionDisplay As Boolean
+  overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsCompanionDisplay*
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsMultiGpuCollageDisplay
+  commentId: P:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsMultiGpuCollageDisplay
+  id: IsMultiGpuCollageDisplay
+  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: IsMultiGpuCollageDisplay
+  nameWithType: AdapterDisplayEncoderPropertiesDto.IsMultiGpuCollageDisplay
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsMultiGpuCollageDisplay
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsMultiGpuCollageDisplay
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3111
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsMultiGpuCollageDisplay { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsMultiGpuCollageDisplay As Boolean
+  overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsMultiGpuCollageDisplay*
 - uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.FeatureSupportedFlags
   commentId: F:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.FeatureSupportedFlags
   id: FeatureSupportedFlags
@@ -301,7 +764,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FeatureSupportedFlags
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2857
+    startLine: 3119
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -312,6 +775,267 @@ items:
     return:
       type: System.UInt32
     content.vb: Public FeatureSupportedFlags As UInteger
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdcp
+  commentId: P:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdcp
+  id: SupportsHdcp
+  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsHdcp
+  nameWithType: AdapterDisplayEncoderPropertiesDto.SupportsHdcp
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdcp
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsHdcp
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3120
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsHdcp { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsHdcp As Boolean
+  overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdcp*
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdAudio
+  commentId: P:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdAudio
+  id: SupportsHdAudio
+  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsHdAudio
+  nameWithType: AdapterDisplayEncoderPropertiesDto.SupportsHdAudio
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdAudio
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsHdAudio
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3125
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsHdAudio { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsHdAudio As Boolean
+  overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdAudio*
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsPsr
+  commentId: P:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsPsr
+  id: SupportsPsr
+  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsPsr
+  nameWithType: AdapterDisplayEncoderPropertiesDto.SupportsPsr
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsPsr
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsPsr
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3130
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsPsr { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsPsr As Boolean
+  overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsPsr*
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsAdaptiveSyncVrr
+  commentId: P:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsAdaptiveSyncVrr
+  id: SupportsAdaptiveSyncVrr
+  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsAdaptiveSyncVrr
+  nameWithType: AdapterDisplayEncoderPropertiesDto.SupportsAdaptiveSyncVrr
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsAdaptiveSyncVrr
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsAdaptiveSyncVrr
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3135
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsAdaptiveSyncVrr { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsAdaptiveSyncVrr As Boolean
+  overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsAdaptiveSyncVrr*
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsVesaCompression
+  commentId: P:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsVesaCompression
+  id: SupportsVesaCompression
+  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsVesaCompression
+  nameWithType: AdapterDisplayEncoderPropertiesDto.SupportsVesaCompression
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsVesaCompression
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsVesaCompression
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3140
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsVesaCompression { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsVesaCompression As Boolean
+  overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsVesaCompression*
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdr
+  commentId: P:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdr
+  id: SupportsHdr
+  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsHdr
+  nameWithType: AdapterDisplayEncoderPropertiesDto.SupportsHdr
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdr
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsHdr
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3145
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsHdr { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsHdr As Boolean
+  overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdr*
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdmiQms
+  commentId: P:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdmiQms
+  id: SupportsHdmiQms
+  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsHdmiQms
+  nameWithType: AdapterDisplayEncoderPropertiesDto.SupportsHdmiQms
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdmiQms
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsHdmiQms
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3150
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsHdmiQms { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsHdmiQms As Boolean
+  overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdmiQms*
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdr10PlusCertified
+  commentId: P:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdr10PlusCertified
+  id: SupportsHdr10PlusCertified
+  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsHdr10PlusCertified
+  nameWithType: AdapterDisplayEncoderPropertiesDto.SupportsHdr10PlusCertified
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdr10PlusCertified
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsHdr10PlusCertified
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3155
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsHdr10PlusCertified { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsHdr10PlusCertified As Boolean
+  overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdr10PlusCertified*
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsVesaHdrCertified
+  commentId: P:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsVesaHdrCertified
+  id: SupportsVesaHdrCertified
+  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsVesaHdrCertified
+  nameWithType: AdapterDisplayEncoderPropertiesDto.SupportsVesaHdrCertified
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsVesaHdrCertified
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsVesaHdrCertified
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3160
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsVesaHdrCertified { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsVesaHdrCertified As Boolean
+  overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsVesaHdrCertified*
 - uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.AdvancedFeatureSupportedFlags
   commentId: F:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.AdvancedFeatureSupportedFlags
   id: AdvancedFeatureSupportedFlags
@@ -330,7 +1054,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AdvancedFeatureSupportedFlags
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2861
+    startLine: 3168
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -341,6 +1065,122 @@ items:
     return:
       type: System.UInt32
     content.vb: Public AdvancedFeatureSupportedFlags As UInteger
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsDpst
+  commentId: P:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsDpst
+  id: SupportsDpst
+  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsDpst
+  nameWithType: AdapterDisplayEncoderPropertiesDto.SupportsDpst
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsDpst
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsDpst
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3169
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsDpst { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsDpst As Boolean
+  overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsDpst*
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsLace
+  commentId: P:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsLace
+  id: SupportsLace
+  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsLace
+  nameWithType: AdapterDisplayEncoderPropertiesDto.SupportsLace
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsLace
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsLace
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3174
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsLace { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsLace As Boolean
+  overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsLace*
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsDrrs
+  commentId: P:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsDrrs
+  id: SupportsDrrs
+  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsDrrs
+  nameWithType: AdapterDisplayEncoderPropertiesDto.SupportsDrrs
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsDrrs
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsDrrs
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3179
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsDrrs { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsDrrs As Boolean
+  overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsDrrs*
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsArcAdaptiveSyncCertified
+  commentId: P:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsArcAdaptiveSyncCertified
+  id: SupportsArcAdaptiveSyncCertified
+  parent: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsArcAdaptiveSyncCertified
+  nameWithType: AdapterDisplayEncoderPropertiesDto.SupportsArcAdaptiveSyncCertified
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsArcAdaptiveSyncCertified
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsArcAdaptiveSyncCertified
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3184
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsArcAdaptiveSyncCertified { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsArcAdaptiveSyncCertified As Boolean
+  overload: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsArcAdaptiveSyncCertified*
 - uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.ReservedFields
   commentId: F:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.ReservedFields
   id: ReservedFields
@@ -359,7 +1199,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ReservedFields
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2865
+    startLine: 3192
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -388,7 +1228,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2872
+    startLine: 3199
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -425,7 +1265,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2889
+    startLine: 3216
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -464,7 +1304,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetHashCode
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2895
+    startLine: 3222
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -496,7 +1336,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2913
+    startLine: 3240
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -531,7 +1371,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2935
+    startLine: 3262
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -828,6 +1668,174 @@ references:
   name: RevisionDatatypeDto
   nameWithType: RevisionDatatypeDto
   fullName: IGCLWrapper.RevisionDatatypeDto
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Supports6Bpc*
+  commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Supports6Bpc
+  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_Supports6Bpc
+  name: Supports6Bpc
+  nameWithType: AdapterDisplayEncoderPropertiesDto.Supports6Bpc
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Supports6Bpc
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Supports8Bpc*
+  commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Supports8Bpc
+  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_Supports8Bpc
+  name: Supports8Bpc
+  nameWithType: AdapterDisplayEncoderPropertiesDto.Supports8Bpc
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Supports8Bpc
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Supports10Bpc*
+  commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Supports10Bpc
+  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_Supports10Bpc
+  name: Supports10Bpc
+  nameWithType: AdapterDisplayEncoderPropertiesDto.Supports10Bpc
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Supports10Bpc
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Supports12Bpc*
+  commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Supports12Bpc
+  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_Supports12Bpc
+  name: Supports12Bpc
+  nameWithType: AdapterDisplayEncoderPropertiesDto.Supports12Bpc
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.Supports12Bpc
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsInternalDisplay*
+  commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsInternalDisplay
+  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_IsInternalDisplay
+  name: IsInternalDisplay
+  nameWithType: AdapterDisplayEncoderPropertiesDto.IsInternalDisplay
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsInternalDisplay
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsVesaTiledDisplay*
+  commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsVesaTiledDisplay
+  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_IsVesaTiledDisplay
+  name: IsVesaTiledDisplay
+  nameWithType: AdapterDisplayEncoderPropertiesDto.IsVesaTiledDisplay
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsVesaTiledDisplay
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsTypeCCapable*
+  commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsTypeCCapable
+  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_IsTypeCCapable
+  name: IsTypeCCapable
+  nameWithType: AdapterDisplayEncoderPropertiesDto.IsTypeCCapable
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsTypeCCapable
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsThunderboltCapable*
+  commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsThunderboltCapable
+  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_IsThunderboltCapable
+  name: IsThunderboltCapable
+  nameWithType: AdapterDisplayEncoderPropertiesDto.IsThunderboltCapable
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsThunderboltCapable
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsDithering*
+  commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsDithering
+  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_SupportsDithering
+  name: SupportsDithering
+  nameWithType: AdapterDisplayEncoderPropertiesDto.SupportsDithering
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsDithering
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsVirtualDisplay*
+  commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsVirtualDisplay
+  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_IsVirtualDisplay
+  name: IsVirtualDisplay
+  nameWithType: AdapterDisplayEncoderPropertiesDto.IsVirtualDisplay
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsVirtualDisplay
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsHiddenDisplay*
+  commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsHiddenDisplay
+  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_IsHiddenDisplay
+  name: IsHiddenDisplay
+  nameWithType: AdapterDisplayEncoderPropertiesDto.IsHiddenDisplay
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsHiddenDisplay
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsCollageDisplay*
+  commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsCollageDisplay
+  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_IsCollageDisplay
+  name: IsCollageDisplay
+  nameWithType: AdapterDisplayEncoderPropertiesDto.IsCollageDisplay
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsCollageDisplay
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsSplitDisplay*
+  commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsSplitDisplay
+  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_IsSplitDisplay
+  name: IsSplitDisplay
+  nameWithType: AdapterDisplayEncoderPropertiesDto.IsSplitDisplay
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsSplitDisplay
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsCompanionDisplay*
+  commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsCompanionDisplay
+  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_IsCompanionDisplay
+  name: IsCompanionDisplay
+  nameWithType: AdapterDisplayEncoderPropertiesDto.IsCompanionDisplay
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsCompanionDisplay
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsMultiGpuCollageDisplay*
+  commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsMultiGpuCollageDisplay
+  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_IsMultiGpuCollageDisplay
+  name: IsMultiGpuCollageDisplay
+  nameWithType: AdapterDisplayEncoderPropertiesDto.IsMultiGpuCollageDisplay
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.IsMultiGpuCollageDisplay
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdcp*
+  commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdcp
+  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_SupportsHdcp
+  name: SupportsHdcp
+  nameWithType: AdapterDisplayEncoderPropertiesDto.SupportsHdcp
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdcp
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdAudio*
+  commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdAudio
+  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_SupportsHdAudio
+  name: SupportsHdAudio
+  nameWithType: AdapterDisplayEncoderPropertiesDto.SupportsHdAudio
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdAudio
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsPsr*
+  commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsPsr
+  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_SupportsPsr
+  name: SupportsPsr
+  nameWithType: AdapterDisplayEncoderPropertiesDto.SupportsPsr
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsPsr
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsAdaptiveSyncVrr*
+  commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsAdaptiveSyncVrr
+  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_SupportsAdaptiveSyncVrr
+  name: SupportsAdaptiveSyncVrr
+  nameWithType: AdapterDisplayEncoderPropertiesDto.SupportsAdaptiveSyncVrr
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsAdaptiveSyncVrr
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsVesaCompression*
+  commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsVesaCompression
+  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_SupportsVesaCompression
+  name: SupportsVesaCompression
+  nameWithType: AdapterDisplayEncoderPropertiesDto.SupportsVesaCompression
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsVesaCompression
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdr*
+  commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdr
+  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_SupportsHdr
+  name: SupportsHdr
+  nameWithType: AdapterDisplayEncoderPropertiesDto.SupportsHdr
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdr
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdmiQms*
+  commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdmiQms
+  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_SupportsHdmiQms
+  name: SupportsHdmiQms
+  nameWithType: AdapterDisplayEncoderPropertiesDto.SupportsHdmiQms
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdmiQms
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdr10PlusCertified*
+  commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdr10PlusCertified
+  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_SupportsHdr10PlusCertified
+  name: SupportsHdr10PlusCertified
+  nameWithType: AdapterDisplayEncoderPropertiesDto.SupportsHdr10PlusCertified
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsHdr10PlusCertified
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsVesaHdrCertified*
+  commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsVesaHdrCertified
+  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_SupportsVesaHdrCertified
+  name: SupportsVesaHdrCertified
+  nameWithType: AdapterDisplayEncoderPropertiesDto.SupportsVesaHdrCertified
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsVesaHdrCertified
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsDpst*
+  commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsDpst
+  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_SupportsDpst
+  name: SupportsDpst
+  nameWithType: AdapterDisplayEncoderPropertiesDto.SupportsDpst
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsDpst
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsLace*
+  commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsLace
+  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_SupportsLace
+  name: SupportsLace
+  nameWithType: AdapterDisplayEncoderPropertiesDto.SupportsLace
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsLace
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsDrrs*
+  commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsDrrs
+  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_SupportsDrrs
+  name: SupportsDrrs
+  nameWithType: AdapterDisplayEncoderPropertiesDto.SupportsDrrs
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsDrrs
+- uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsArcAdaptiveSyncCertified*
+  commentId: Overload:IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsArcAdaptiveSyncCertified
+  href: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html#IGCLWrapper_AdapterDisplayEncoderPropertiesDto_SupportsArcAdaptiveSyncCertified
+  name: SupportsArcAdaptiveSyncCertified
+  nameWithType: AdapterDisplayEncoderPropertiesDto.SupportsArcAdaptiveSyncCertified
+  fullName: IGCLWrapper.AdapterDisplayEncoderPropertiesDto.SupportsArcAdaptiveSyncCertified
 - uid: System.Collections.Generic.List{System.UInt32}
   commentId: T:System.Collections.Generic.List{System.UInt32}
   parent: System.Collections.Generic

@@ -10,11 +10,25 @@ items:
   - IGCLWrapper.PowerOptimizationDpstDto.Equals(System.Object)
   - IGCLWrapper.PowerOptimizationDpstDto.FromNative(IGCLWrapper.ctl_power_optimization_dpst_t)
   - IGCLWrapper.PowerOptimizationDpstDto.GetHashCode
+  - IGCLWrapper.PowerOptimizationDpstDto.IsApdEnabled
+  - IGCLWrapper.PowerOptimizationDpstDto.IsBacklightEnabled
+  - IGCLWrapper.PowerOptimizationDpstDto.IsElpEnabled
+  - IGCLWrapper.PowerOptimizationDpstDto.IsEpsmEnabled
+  - IGCLWrapper.PowerOptimizationDpstDto.IsOpstEnabled
+  - IGCLWrapper.PowerOptimizationDpstDto.IsPanelCabcEnabled
+  - IGCLWrapper.PowerOptimizationDpstDto.IsPixoptixEnabled
   - IGCLWrapper.PowerOptimizationDpstDto.Level
   - IGCLWrapper.PowerOptimizationDpstDto.MaxLevel
   - IGCLWrapper.PowerOptimizationDpstDto.MinLevel
   - IGCLWrapper.PowerOptimizationDpstDto.Size
   - IGCLWrapper.PowerOptimizationDpstDto.SupportedFeatures
+  - IGCLWrapper.PowerOptimizationDpstDto.SupportsApd
+  - IGCLWrapper.PowerOptimizationDpstDto.SupportsBacklight
+  - IGCLWrapper.PowerOptimizationDpstDto.SupportsElp
+  - IGCLWrapper.PowerOptimizationDpstDto.SupportsEpsm
+  - IGCLWrapper.PowerOptimizationDpstDto.SupportsOpst
+  - IGCLWrapper.PowerOptimizationDpstDto.SupportsPanelCabc
+  - IGCLWrapper.PowerOptimizationDpstDto.SupportsPixoptix
   - IGCLWrapper.PowerOptimizationDpstDto.ToNative
   - IGCLWrapper.PowerOptimizationDpstDto.Version
   langs:
@@ -31,7 +45,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PowerOptimizationDpstDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 4144
+    startLine: 4605
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -65,7 +79,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 4149
+    startLine: 4610
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -94,7 +108,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 4153
+    startLine: 4614
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -123,7 +137,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: MinLevel
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 4157
+    startLine: 4618
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -152,7 +166,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: MaxLevel
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 4161
+    startLine: 4622
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -181,7 +195,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Level
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 4165
+    startLine: 4626
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -210,7 +224,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SupportedFeatures
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 4169
+    startLine: 4630
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -221,6 +235,209 @@ items:
     return:
       type: System.UInt32
     content.vb: Public SupportedFeatures As UInteger
+- uid: IGCLWrapper.PowerOptimizationDpstDto.SupportsBacklight
+  commentId: P:IGCLWrapper.PowerOptimizationDpstDto.SupportsBacklight
+  id: SupportsBacklight
+  parent: IGCLWrapper.PowerOptimizationDpstDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsBacklight
+  nameWithType: PowerOptimizationDpstDto.SupportsBacklight
+  fullName: IGCLWrapper.PowerOptimizationDpstDto.SupportsBacklight
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsBacklight
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 4631
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsBacklight { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsBacklight As Boolean
+  overload: IGCLWrapper.PowerOptimizationDpstDto.SupportsBacklight*
+- uid: IGCLWrapper.PowerOptimizationDpstDto.SupportsPanelCabc
+  commentId: P:IGCLWrapper.PowerOptimizationDpstDto.SupportsPanelCabc
+  id: SupportsPanelCabc
+  parent: IGCLWrapper.PowerOptimizationDpstDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsPanelCabc
+  nameWithType: PowerOptimizationDpstDto.SupportsPanelCabc
+  fullName: IGCLWrapper.PowerOptimizationDpstDto.SupportsPanelCabc
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsPanelCabc
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 4636
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsPanelCabc { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsPanelCabc As Boolean
+  overload: IGCLWrapper.PowerOptimizationDpstDto.SupportsPanelCabc*
+- uid: IGCLWrapper.PowerOptimizationDpstDto.SupportsOpst
+  commentId: P:IGCLWrapper.PowerOptimizationDpstDto.SupportsOpst
+  id: SupportsOpst
+  parent: IGCLWrapper.PowerOptimizationDpstDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsOpst
+  nameWithType: PowerOptimizationDpstDto.SupportsOpst
+  fullName: IGCLWrapper.PowerOptimizationDpstDto.SupportsOpst
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsOpst
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 4641
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsOpst { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsOpst As Boolean
+  overload: IGCLWrapper.PowerOptimizationDpstDto.SupportsOpst*
+- uid: IGCLWrapper.PowerOptimizationDpstDto.SupportsElp
+  commentId: P:IGCLWrapper.PowerOptimizationDpstDto.SupportsElp
+  id: SupportsElp
+  parent: IGCLWrapper.PowerOptimizationDpstDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsElp
+  nameWithType: PowerOptimizationDpstDto.SupportsElp
+  fullName: IGCLWrapper.PowerOptimizationDpstDto.SupportsElp
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsElp
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 4646
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsElp { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsElp As Boolean
+  overload: IGCLWrapper.PowerOptimizationDpstDto.SupportsElp*
+- uid: IGCLWrapper.PowerOptimizationDpstDto.SupportsEpsm
+  commentId: P:IGCLWrapper.PowerOptimizationDpstDto.SupportsEpsm
+  id: SupportsEpsm
+  parent: IGCLWrapper.PowerOptimizationDpstDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsEpsm
+  nameWithType: PowerOptimizationDpstDto.SupportsEpsm
+  fullName: IGCLWrapper.PowerOptimizationDpstDto.SupportsEpsm
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsEpsm
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 4651
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsEpsm { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsEpsm As Boolean
+  overload: IGCLWrapper.PowerOptimizationDpstDto.SupportsEpsm*
+- uid: IGCLWrapper.PowerOptimizationDpstDto.SupportsApd
+  commentId: P:IGCLWrapper.PowerOptimizationDpstDto.SupportsApd
+  id: SupportsApd
+  parent: IGCLWrapper.PowerOptimizationDpstDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsApd
+  nameWithType: PowerOptimizationDpstDto.SupportsApd
+  fullName: IGCLWrapper.PowerOptimizationDpstDto.SupportsApd
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsApd
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 4656
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsApd { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsApd As Boolean
+  overload: IGCLWrapper.PowerOptimizationDpstDto.SupportsApd*
+- uid: IGCLWrapper.PowerOptimizationDpstDto.SupportsPixoptix
+  commentId: P:IGCLWrapper.PowerOptimizationDpstDto.SupportsPixoptix
+  id: SupportsPixoptix
+  parent: IGCLWrapper.PowerOptimizationDpstDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsPixoptix
+  nameWithType: PowerOptimizationDpstDto.SupportsPixoptix
+  fullName: IGCLWrapper.PowerOptimizationDpstDto.SupportsPixoptix
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsPixoptix
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 4661
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsPixoptix { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsPixoptix As Boolean
+  overload: IGCLWrapper.PowerOptimizationDpstDto.SupportsPixoptix*
 - uid: IGCLWrapper.PowerOptimizationDpstDto.EnabledFeatures
   commentId: F:IGCLWrapper.PowerOptimizationDpstDto.EnabledFeatures
   id: EnabledFeatures
@@ -239,7 +456,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnabledFeatures
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 4173
+    startLine: 4669
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -250,6 +467,209 @@ items:
     return:
       type: System.UInt32
     content.vb: Public EnabledFeatures As UInteger
+- uid: IGCLWrapper.PowerOptimizationDpstDto.IsBacklightEnabled
+  commentId: P:IGCLWrapper.PowerOptimizationDpstDto.IsBacklightEnabled
+  id: IsBacklightEnabled
+  parent: IGCLWrapper.PowerOptimizationDpstDto
+  langs:
+  - csharp
+  - vb
+  name: IsBacklightEnabled
+  nameWithType: PowerOptimizationDpstDto.IsBacklightEnabled
+  fullName: IGCLWrapper.PowerOptimizationDpstDto.IsBacklightEnabled
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsBacklightEnabled
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 4670
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsBacklightEnabled { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsBacklightEnabled As Boolean
+  overload: IGCLWrapper.PowerOptimizationDpstDto.IsBacklightEnabled*
+- uid: IGCLWrapper.PowerOptimizationDpstDto.IsPanelCabcEnabled
+  commentId: P:IGCLWrapper.PowerOptimizationDpstDto.IsPanelCabcEnabled
+  id: IsPanelCabcEnabled
+  parent: IGCLWrapper.PowerOptimizationDpstDto
+  langs:
+  - csharp
+  - vb
+  name: IsPanelCabcEnabled
+  nameWithType: PowerOptimizationDpstDto.IsPanelCabcEnabled
+  fullName: IGCLWrapper.PowerOptimizationDpstDto.IsPanelCabcEnabled
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsPanelCabcEnabled
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 4675
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsPanelCabcEnabled { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsPanelCabcEnabled As Boolean
+  overload: IGCLWrapper.PowerOptimizationDpstDto.IsPanelCabcEnabled*
+- uid: IGCLWrapper.PowerOptimizationDpstDto.IsOpstEnabled
+  commentId: P:IGCLWrapper.PowerOptimizationDpstDto.IsOpstEnabled
+  id: IsOpstEnabled
+  parent: IGCLWrapper.PowerOptimizationDpstDto
+  langs:
+  - csharp
+  - vb
+  name: IsOpstEnabled
+  nameWithType: PowerOptimizationDpstDto.IsOpstEnabled
+  fullName: IGCLWrapper.PowerOptimizationDpstDto.IsOpstEnabled
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsOpstEnabled
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 4680
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsOpstEnabled { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsOpstEnabled As Boolean
+  overload: IGCLWrapper.PowerOptimizationDpstDto.IsOpstEnabled*
+- uid: IGCLWrapper.PowerOptimizationDpstDto.IsElpEnabled
+  commentId: P:IGCLWrapper.PowerOptimizationDpstDto.IsElpEnabled
+  id: IsElpEnabled
+  parent: IGCLWrapper.PowerOptimizationDpstDto
+  langs:
+  - csharp
+  - vb
+  name: IsElpEnabled
+  nameWithType: PowerOptimizationDpstDto.IsElpEnabled
+  fullName: IGCLWrapper.PowerOptimizationDpstDto.IsElpEnabled
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsElpEnabled
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 4685
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsElpEnabled { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsElpEnabled As Boolean
+  overload: IGCLWrapper.PowerOptimizationDpstDto.IsElpEnabled*
+- uid: IGCLWrapper.PowerOptimizationDpstDto.IsEpsmEnabled
+  commentId: P:IGCLWrapper.PowerOptimizationDpstDto.IsEpsmEnabled
+  id: IsEpsmEnabled
+  parent: IGCLWrapper.PowerOptimizationDpstDto
+  langs:
+  - csharp
+  - vb
+  name: IsEpsmEnabled
+  nameWithType: PowerOptimizationDpstDto.IsEpsmEnabled
+  fullName: IGCLWrapper.PowerOptimizationDpstDto.IsEpsmEnabled
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsEpsmEnabled
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 4690
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsEpsmEnabled { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsEpsmEnabled As Boolean
+  overload: IGCLWrapper.PowerOptimizationDpstDto.IsEpsmEnabled*
+- uid: IGCLWrapper.PowerOptimizationDpstDto.IsApdEnabled
+  commentId: P:IGCLWrapper.PowerOptimizationDpstDto.IsApdEnabled
+  id: IsApdEnabled
+  parent: IGCLWrapper.PowerOptimizationDpstDto
+  langs:
+  - csharp
+  - vb
+  name: IsApdEnabled
+  nameWithType: PowerOptimizationDpstDto.IsApdEnabled
+  fullName: IGCLWrapper.PowerOptimizationDpstDto.IsApdEnabled
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsApdEnabled
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 4695
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsApdEnabled { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsApdEnabled As Boolean
+  overload: IGCLWrapper.PowerOptimizationDpstDto.IsApdEnabled*
+- uid: IGCLWrapper.PowerOptimizationDpstDto.IsPixoptixEnabled
+  commentId: P:IGCLWrapper.PowerOptimizationDpstDto.IsPixoptixEnabled
+  id: IsPixoptixEnabled
+  parent: IGCLWrapper.PowerOptimizationDpstDto
+  langs:
+  - csharp
+  - vb
+  name: IsPixoptixEnabled
+  nameWithType: PowerOptimizationDpstDto.IsPixoptixEnabled
+  fullName: IGCLWrapper.PowerOptimizationDpstDto.IsPixoptixEnabled
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsPixoptixEnabled
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 4700
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsPixoptixEnabled { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsPixoptixEnabled As Boolean
+  overload: IGCLWrapper.PowerOptimizationDpstDto.IsPixoptixEnabled*
 - uid: IGCLWrapper.PowerOptimizationDpstDto.Equals(IGCLWrapper.PowerOptimizationDpstDto)
   commentId: M:IGCLWrapper.PowerOptimizationDpstDto.Equals(IGCLWrapper.PowerOptimizationDpstDto)
   id: Equals(IGCLWrapper.PowerOptimizationDpstDto)
@@ -268,7 +688,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 4175
+    startLine: 4706
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -305,7 +725,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 4184
+    startLine: 4715
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -344,7 +764,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetHashCode
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 4186
+    startLine: 4717
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -376,7 +796,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 4197
+    startLine: 4728
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -407,7 +827,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 4211
+    startLine: 4742
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -669,6 +1089,101 @@ references:
   nameWithType.vb: Byte
   fullName.vb: Byte
   name.vb: Byte
+- uid: IGCLWrapper.PowerOptimizationDpstDto.SupportsBacklight*
+  commentId: Overload:IGCLWrapper.PowerOptimizationDpstDto.SupportsBacklight
+  href: IGCLWrapper.PowerOptimizationDpstDto.html#IGCLWrapper_PowerOptimizationDpstDto_SupportsBacklight
+  name: SupportsBacklight
+  nameWithType: PowerOptimizationDpstDto.SupportsBacklight
+  fullName: IGCLWrapper.PowerOptimizationDpstDto.SupportsBacklight
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: IGCLWrapper.PowerOptimizationDpstDto.SupportsPanelCabc*
+  commentId: Overload:IGCLWrapper.PowerOptimizationDpstDto.SupportsPanelCabc
+  href: IGCLWrapper.PowerOptimizationDpstDto.html#IGCLWrapper_PowerOptimizationDpstDto_SupportsPanelCabc
+  name: SupportsPanelCabc
+  nameWithType: PowerOptimizationDpstDto.SupportsPanelCabc
+  fullName: IGCLWrapper.PowerOptimizationDpstDto.SupportsPanelCabc
+- uid: IGCLWrapper.PowerOptimizationDpstDto.SupportsOpst*
+  commentId: Overload:IGCLWrapper.PowerOptimizationDpstDto.SupportsOpst
+  href: IGCLWrapper.PowerOptimizationDpstDto.html#IGCLWrapper_PowerOptimizationDpstDto_SupportsOpst
+  name: SupportsOpst
+  nameWithType: PowerOptimizationDpstDto.SupportsOpst
+  fullName: IGCLWrapper.PowerOptimizationDpstDto.SupportsOpst
+- uid: IGCLWrapper.PowerOptimizationDpstDto.SupportsElp*
+  commentId: Overload:IGCLWrapper.PowerOptimizationDpstDto.SupportsElp
+  href: IGCLWrapper.PowerOptimizationDpstDto.html#IGCLWrapper_PowerOptimizationDpstDto_SupportsElp
+  name: SupportsElp
+  nameWithType: PowerOptimizationDpstDto.SupportsElp
+  fullName: IGCLWrapper.PowerOptimizationDpstDto.SupportsElp
+- uid: IGCLWrapper.PowerOptimizationDpstDto.SupportsEpsm*
+  commentId: Overload:IGCLWrapper.PowerOptimizationDpstDto.SupportsEpsm
+  href: IGCLWrapper.PowerOptimizationDpstDto.html#IGCLWrapper_PowerOptimizationDpstDto_SupportsEpsm
+  name: SupportsEpsm
+  nameWithType: PowerOptimizationDpstDto.SupportsEpsm
+  fullName: IGCLWrapper.PowerOptimizationDpstDto.SupportsEpsm
+- uid: IGCLWrapper.PowerOptimizationDpstDto.SupportsApd*
+  commentId: Overload:IGCLWrapper.PowerOptimizationDpstDto.SupportsApd
+  href: IGCLWrapper.PowerOptimizationDpstDto.html#IGCLWrapper_PowerOptimizationDpstDto_SupportsApd
+  name: SupportsApd
+  nameWithType: PowerOptimizationDpstDto.SupportsApd
+  fullName: IGCLWrapper.PowerOptimizationDpstDto.SupportsApd
+- uid: IGCLWrapper.PowerOptimizationDpstDto.SupportsPixoptix*
+  commentId: Overload:IGCLWrapper.PowerOptimizationDpstDto.SupportsPixoptix
+  href: IGCLWrapper.PowerOptimizationDpstDto.html#IGCLWrapper_PowerOptimizationDpstDto_SupportsPixoptix
+  name: SupportsPixoptix
+  nameWithType: PowerOptimizationDpstDto.SupportsPixoptix
+  fullName: IGCLWrapper.PowerOptimizationDpstDto.SupportsPixoptix
+- uid: IGCLWrapper.PowerOptimizationDpstDto.IsBacklightEnabled*
+  commentId: Overload:IGCLWrapper.PowerOptimizationDpstDto.IsBacklightEnabled
+  href: IGCLWrapper.PowerOptimizationDpstDto.html#IGCLWrapper_PowerOptimizationDpstDto_IsBacklightEnabled
+  name: IsBacklightEnabled
+  nameWithType: PowerOptimizationDpstDto.IsBacklightEnabled
+  fullName: IGCLWrapper.PowerOptimizationDpstDto.IsBacklightEnabled
+- uid: IGCLWrapper.PowerOptimizationDpstDto.IsPanelCabcEnabled*
+  commentId: Overload:IGCLWrapper.PowerOptimizationDpstDto.IsPanelCabcEnabled
+  href: IGCLWrapper.PowerOptimizationDpstDto.html#IGCLWrapper_PowerOptimizationDpstDto_IsPanelCabcEnabled
+  name: IsPanelCabcEnabled
+  nameWithType: PowerOptimizationDpstDto.IsPanelCabcEnabled
+  fullName: IGCLWrapper.PowerOptimizationDpstDto.IsPanelCabcEnabled
+- uid: IGCLWrapper.PowerOptimizationDpstDto.IsOpstEnabled*
+  commentId: Overload:IGCLWrapper.PowerOptimizationDpstDto.IsOpstEnabled
+  href: IGCLWrapper.PowerOptimizationDpstDto.html#IGCLWrapper_PowerOptimizationDpstDto_IsOpstEnabled
+  name: IsOpstEnabled
+  nameWithType: PowerOptimizationDpstDto.IsOpstEnabled
+  fullName: IGCLWrapper.PowerOptimizationDpstDto.IsOpstEnabled
+- uid: IGCLWrapper.PowerOptimizationDpstDto.IsElpEnabled*
+  commentId: Overload:IGCLWrapper.PowerOptimizationDpstDto.IsElpEnabled
+  href: IGCLWrapper.PowerOptimizationDpstDto.html#IGCLWrapper_PowerOptimizationDpstDto_IsElpEnabled
+  name: IsElpEnabled
+  nameWithType: PowerOptimizationDpstDto.IsElpEnabled
+  fullName: IGCLWrapper.PowerOptimizationDpstDto.IsElpEnabled
+- uid: IGCLWrapper.PowerOptimizationDpstDto.IsEpsmEnabled*
+  commentId: Overload:IGCLWrapper.PowerOptimizationDpstDto.IsEpsmEnabled
+  href: IGCLWrapper.PowerOptimizationDpstDto.html#IGCLWrapper_PowerOptimizationDpstDto_IsEpsmEnabled
+  name: IsEpsmEnabled
+  nameWithType: PowerOptimizationDpstDto.IsEpsmEnabled
+  fullName: IGCLWrapper.PowerOptimizationDpstDto.IsEpsmEnabled
+- uid: IGCLWrapper.PowerOptimizationDpstDto.IsApdEnabled*
+  commentId: Overload:IGCLWrapper.PowerOptimizationDpstDto.IsApdEnabled
+  href: IGCLWrapper.PowerOptimizationDpstDto.html#IGCLWrapper_PowerOptimizationDpstDto_IsApdEnabled
+  name: IsApdEnabled
+  nameWithType: PowerOptimizationDpstDto.IsApdEnabled
+  fullName: IGCLWrapper.PowerOptimizationDpstDto.IsApdEnabled
+- uid: IGCLWrapper.PowerOptimizationDpstDto.IsPixoptixEnabled*
+  commentId: Overload:IGCLWrapper.PowerOptimizationDpstDto.IsPixoptixEnabled
+  href: IGCLWrapper.PowerOptimizationDpstDto.html#IGCLWrapper_PowerOptimizationDpstDto_IsPixoptixEnabled
+  name: IsPixoptixEnabled
+  nameWithType: PowerOptimizationDpstDto.IsPixoptixEnabled
+  fullName: IGCLWrapper.PowerOptimizationDpstDto.IsPixoptixEnabled
 - uid: IGCLWrapper.PowerOptimizationDpstDto.Equals*
   commentId: Overload:IGCLWrapper.PowerOptimizationDpstDto.Equals
   href: IGCLWrapper.PowerOptimizationDpstDto.html#IGCLWrapper_PowerOptimizationDpstDto_Equals_IGCLWrapper_PowerOptimizationDpstDto_
@@ -712,17 +1227,6 @@ references:
   name: PowerOptimizationDpstDto
   nameWithType: PowerOptimizationDpstDto
   fullName: IGCLWrapper.PowerOptimizationDpstDto
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
 - uid: System.IEquatable`1.Equals(`0)
   commentId: M:System.IEquatable`1.Equals(`0)
   isExternal: true

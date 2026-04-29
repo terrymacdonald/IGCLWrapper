@@ -16,6 +16,9 @@ items:
   - IGCLWrapper.DeviceAdapterPropertiesDto.FromNative(IGCLWrapper.ctl_device_adapter_properties_t)
   - IGCLWrapper.DeviceAdapterPropertiesDto.GetHashCode
   - IGCLWrapper.DeviceAdapterPropertiesDto.GraphicsAdapterProperties
+  - IGCLWrapper.DeviceAdapterPropertiesDto.IsIntegratedGraphicsAdapter
+  - IGCLWrapper.DeviceAdapterPropertiesDto.IsLdaPrimary
+  - IGCLWrapper.DeviceAdapterPropertiesDto.IsLdaSecondary
   - IGCLWrapper.DeviceAdapterPropertiesDto.Name
   - IGCLWrapper.DeviceAdapterPropertiesDto.NumEusPerSubSlice
   - IGCLWrapper.DeviceAdapterPropertiesDto.NumSlices
@@ -29,6 +32,9 @@ items:
   - IGCLWrapper.DeviceAdapterPropertiesDto.RevId
   - IGCLWrapper.DeviceAdapterPropertiesDto.Size
   - IGCLWrapper.DeviceAdapterPropertiesDto.SupportedSubfunctionFlags
+  - IGCLWrapper.DeviceAdapterPropertiesDto.Supports3D
+  - IGCLWrapper.DeviceAdapterPropertiesDto.SupportsDisplay
+  - IGCLWrapper.DeviceAdapterPropertiesDto.SupportsMedia
   - IGCLWrapper.DeviceAdapterPropertiesDto.ToNative
   - IGCLWrapper.DeviceAdapterPropertiesDto.Version
   langs:
@@ -206,6 +212,99 @@ items:
     return:
       type: System.UInt32
     content.vb: Public SupportedSubfunctionFlags As UInteger
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.SupportsDisplay
+  commentId: P:IGCLWrapper.DeviceAdapterPropertiesDto.SupportsDisplay
+  id: SupportsDisplay
+  parent: IGCLWrapper.DeviceAdapterPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsDisplay
+  nameWithType: DeviceAdapterPropertiesDto.SupportsDisplay
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.SupportsDisplay
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsDisplay
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1621
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: True when display APIs are supported.
+  example: []
+  syntax:
+    content: public bool SupportsDisplay { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsDisplay As Boolean
+  overload: IGCLWrapper.DeviceAdapterPropertiesDto.SupportsDisplay*
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.Supports3D
+  commentId: P:IGCLWrapper.DeviceAdapterPropertiesDto.Supports3D
+  id: Supports3D
+  parent: IGCLWrapper.DeviceAdapterPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: Supports3D
+  nameWithType: DeviceAdapterPropertiesDto.Supports3D
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.Supports3D
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Supports3D
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1629
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: True when 3D APIs are supported.
+  example: []
+  syntax:
+    content: public bool Supports3D { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Supports3D As Boolean
+  overload: IGCLWrapper.DeviceAdapterPropertiesDto.Supports3D*
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.SupportsMedia
+  commentId: P:IGCLWrapper.DeviceAdapterPropertiesDto.SupportsMedia
+  id: SupportsMedia
+  parent: IGCLWrapper.DeviceAdapterPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsMedia
+  nameWithType: DeviceAdapterPropertiesDto.SupportsMedia
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.SupportsMedia
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsMedia
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1637
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: True when media APIs are supported.
+  example: []
+  syntax:
+    content: public bool SupportsMedia { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsMedia As Boolean
+  overload: IGCLWrapper.DeviceAdapterPropertiesDto.SupportsMedia*
 - uid: IGCLWrapper.DeviceAdapterPropertiesDto.DriverVersion
   commentId: F:IGCLWrapper.DeviceAdapterPropertiesDto.DriverVersion
   id: DriverVersion
@@ -224,7 +323,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: DriverVersion
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1621
+    startLine: 1645
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -253,7 +352,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FirmwareVersion
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1625
+    startLine: 1649
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -282,7 +381,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PciVendorId
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1629
+    startLine: 1653
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -311,7 +410,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PciDeviceId
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1633
+    startLine: 1657
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -340,7 +439,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: RevId
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1637
+    startLine: 1661
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -369,7 +468,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: NumEusPerSubSlice
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1641
+    startLine: 1665
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -398,7 +497,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: NumSubSlicesPerSlice
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1645
+    startLine: 1669
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -427,7 +526,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: NumSlices
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1649
+    startLine: 1673
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -456,7 +555,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Name
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1653
+    startLine: 1677
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -485,7 +584,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GraphicsAdapterProperties
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1657
+    startLine: 1681
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -496,6 +595,99 @@ items:
     return:
       type: System.UInt32
     content.vb: Public GraphicsAdapterProperties As UInteger
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.IsIntegratedGraphicsAdapter
+  commentId: P:IGCLWrapper.DeviceAdapterPropertiesDto.IsIntegratedGraphicsAdapter
+  id: IsIntegratedGraphicsAdapter
+  parent: IGCLWrapper.DeviceAdapterPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: IsIntegratedGraphicsAdapter
+  nameWithType: DeviceAdapterPropertiesDto.IsIntegratedGraphicsAdapter
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.IsIntegratedGraphicsAdapter
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsIntegratedGraphicsAdapter
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1685
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: True when the adapter is integrated.
+  example: []
+  syntax:
+    content: public bool IsIntegratedGraphicsAdapter { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsIntegratedGraphicsAdapter As Boolean
+  overload: IGCLWrapper.DeviceAdapterPropertiesDto.IsIntegratedGraphicsAdapter*
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.IsLdaPrimary
+  commentId: P:IGCLWrapper.DeviceAdapterPropertiesDto.IsLdaPrimary
+  id: IsLdaPrimary
+  parent: IGCLWrapper.DeviceAdapterPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: IsLdaPrimary
+  nameWithType: DeviceAdapterPropertiesDto.IsLdaPrimary
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.IsLdaPrimary
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsLdaPrimary
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1693
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: True when this is the primary LDA adapter.
+  example: []
+  syntax:
+    content: public bool IsLdaPrimary { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsLdaPrimary As Boolean
+  overload: IGCLWrapper.DeviceAdapterPropertiesDto.IsLdaPrimary*
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.IsLdaSecondary
+  commentId: P:IGCLWrapper.DeviceAdapterPropertiesDto.IsLdaSecondary
+  id: IsLdaSecondary
+  parent: IGCLWrapper.DeviceAdapterPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: IsLdaSecondary
+  nameWithType: DeviceAdapterPropertiesDto.IsLdaSecondary
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.IsLdaSecondary
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsLdaSecondary
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1701
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: True when this is the secondary LDA adapter.
+  example: []
+  syntax:
+    content: public bool IsLdaSecondary { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsLdaSecondary As Boolean
+  overload: IGCLWrapper.DeviceAdapterPropertiesDto.IsLdaSecondary*
 - uid: IGCLWrapper.DeviceAdapterPropertiesDto.Frequency
   commentId: F:IGCLWrapper.DeviceAdapterPropertiesDto.Frequency
   id: Frequency
@@ -514,7 +706,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Frequency
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1661
+    startLine: 1709
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -543,7 +735,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PciSubsysId
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1665
+    startLine: 1713
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -572,7 +764,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PciSubsysVendorId
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1669
+    startLine: 1717
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -601,7 +793,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AdapterBdf
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1673
+    startLine: 1721
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -630,7 +822,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: NumXeCores
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1677
+    startLine: 1725
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -659,7 +851,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Reserved
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1681
+    startLine: 1729
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -688,7 +880,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1688
+    startLine: 1736
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -725,7 +917,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1716
+    startLine: 1764
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -764,7 +956,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetHashCode
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1722
+    startLine: 1770
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -796,7 +988,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1751
+    startLine: 1799
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -831,7 +1023,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1783
+    startLine: 1831
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1103,6 +1295,35 @@ references:
   name: ctl_device_type_t
   nameWithType: ctl_device_type_t
   fullName: IGCLWrapper.ctl_device_type_t
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.SupportsDisplay*
+  commentId: Overload:IGCLWrapper.DeviceAdapterPropertiesDto.SupportsDisplay
+  href: IGCLWrapper.DeviceAdapterPropertiesDto.html#IGCLWrapper_DeviceAdapterPropertiesDto_SupportsDisplay
+  name: SupportsDisplay
+  nameWithType: DeviceAdapterPropertiesDto.SupportsDisplay
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.SupportsDisplay
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.Supports3D*
+  commentId: Overload:IGCLWrapper.DeviceAdapterPropertiesDto.Supports3D
+  href: IGCLWrapper.DeviceAdapterPropertiesDto.html#IGCLWrapper_DeviceAdapterPropertiesDto_Supports3D
+  name: Supports3D
+  nameWithType: DeviceAdapterPropertiesDto.Supports3D
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.Supports3D
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.SupportsMedia*
+  commentId: Overload:IGCLWrapper.DeviceAdapterPropertiesDto.SupportsMedia
+  href: IGCLWrapper.DeviceAdapterPropertiesDto.html#IGCLWrapper_DeviceAdapterPropertiesDto_SupportsMedia
+  name: SupportsMedia
+  nameWithType: DeviceAdapterPropertiesDto.SupportsMedia
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.SupportsMedia
 - uid: System.UInt64
   commentId: T:System.UInt64
   parent: System
@@ -1132,6 +1353,24 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.IsIntegratedGraphicsAdapter*
+  commentId: Overload:IGCLWrapper.DeviceAdapterPropertiesDto.IsIntegratedGraphicsAdapter
+  href: IGCLWrapper.DeviceAdapterPropertiesDto.html#IGCLWrapper_DeviceAdapterPropertiesDto_IsIntegratedGraphicsAdapter
+  name: IsIntegratedGraphicsAdapter
+  nameWithType: DeviceAdapterPropertiesDto.IsIntegratedGraphicsAdapter
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.IsIntegratedGraphicsAdapter
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.IsLdaPrimary*
+  commentId: Overload:IGCLWrapper.DeviceAdapterPropertiesDto.IsLdaPrimary
+  href: IGCLWrapper.DeviceAdapterPropertiesDto.html#IGCLWrapper_DeviceAdapterPropertiesDto_IsLdaPrimary
+  name: IsLdaPrimary
+  nameWithType: DeviceAdapterPropertiesDto.IsLdaPrimary
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.IsLdaPrimary
+- uid: IGCLWrapper.DeviceAdapterPropertiesDto.IsLdaSecondary*
+  commentId: Overload:IGCLWrapper.DeviceAdapterPropertiesDto.IsLdaSecondary
+  href: IGCLWrapper.DeviceAdapterPropertiesDto.html#IGCLWrapper_DeviceAdapterPropertiesDto_IsLdaSecondary
+  name: IsLdaSecondary
+  nameWithType: DeviceAdapterPropertiesDto.IsLdaSecondary
+  fullName: IGCLWrapper.DeviceAdapterPropertiesDto.IsLdaSecondary
 - uid: System.UInt16
   commentId: T:System.UInt16
   parent: System
@@ -1293,17 +1532,6 @@ references:
   name: DeviceAdapterPropertiesDto
   nameWithType: DeviceAdapterPropertiesDto
   fullName: IGCLWrapper.DeviceAdapterPropertiesDto
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
 - uid: System.IEquatable`1.Equals(`0)
   commentId: M:System.IEquatable`1.Equals(`0)
   isExternal: true

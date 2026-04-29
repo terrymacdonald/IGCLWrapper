@@ -10,10 +10,22 @@ items:
   - IGCLWrapper.PowerOptimizationLrrDto.Equals(System.Object)
   - IGCLWrapper.PowerOptimizationLrrDto.FromNative(IGCLWrapper.ctl_power_optimization_lrr_t)
   - IGCLWrapper.PowerOptimizationLrrDto.GetHashCode
+  - IGCLWrapper.PowerOptimizationLrrDto.IsAlrrCurrent
+  - IGCLWrapper.PowerOptimizationLrrDto.IsLrr10Current
+  - IGCLWrapper.PowerOptimizationLrrDto.IsLrr20Current
+  - IGCLWrapper.PowerOptimizationLrrDto.IsLrr25Current
+  - IGCLWrapper.PowerOptimizationLrrDto.IsUblrrCurrent
+  - IGCLWrapper.PowerOptimizationLrrDto.IsUbzrrCurrent
   - IGCLWrapper.PowerOptimizationLrrDto.LowRr
   - IGCLWrapper.PowerOptimizationLrrDto.RequirePsrDisable
   - IGCLWrapper.PowerOptimizationLrrDto.Size
   - IGCLWrapper.PowerOptimizationLrrDto.SupportedLrrTypes
+  - IGCLWrapper.PowerOptimizationLrrDto.SupportsAlrr
+  - IGCLWrapper.PowerOptimizationLrrDto.SupportsLrr10
+  - IGCLWrapper.PowerOptimizationLrrDto.SupportsLrr20
+  - IGCLWrapper.PowerOptimizationLrrDto.SupportsLrr25
+  - IGCLWrapper.PowerOptimizationLrrDto.SupportsUblrr
+  - IGCLWrapper.PowerOptimizationLrrDto.SupportsUbzrr
   - IGCLWrapper.PowerOptimizationLrrDto.ToNative
   - IGCLWrapper.PowerOptimizationLrrDto.Version
   langs:
@@ -30,7 +42,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PowerOptimizationLrrDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 4298
+    startLine: 4836
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -64,7 +76,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 4303
+    startLine: 4841
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -93,7 +105,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 4307
+    startLine: 4845
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -122,7 +134,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SupportedLrrTypes
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 4311
+    startLine: 4849
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -133,6 +145,180 @@ items:
     return:
       type: System.UInt32
     content.vb: Public SupportedLrrTypes As UInteger
+- uid: IGCLWrapper.PowerOptimizationLrrDto.SupportsLrr10
+  commentId: P:IGCLWrapper.PowerOptimizationLrrDto.SupportsLrr10
+  id: SupportsLrr10
+  parent: IGCLWrapper.PowerOptimizationLrrDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsLrr10
+  nameWithType: PowerOptimizationLrrDto.SupportsLrr10
+  fullName: IGCLWrapper.PowerOptimizationLrrDto.SupportsLrr10
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsLrr10
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 4850
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsLrr10 { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsLrr10 As Boolean
+  overload: IGCLWrapper.PowerOptimizationLrrDto.SupportsLrr10*
+- uid: IGCLWrapper.PowerOptimizationLrrDto.SupportsLrr20
+  commentId: P:IGCLWrapper.PowerOptimizationLrrDto.SupportsLrr20
+  id: SupportsLrr20
+  parent: IGCLWrapper.PowerOptimizationLrrDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsLrr20
+  nameWithType: PowerOptimizationLrrDto.SupportsLrr20
+  fullName: IGCLWrapper.PowerOptimizationLrrDto.SupportsLrr20
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsLrr20
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 4855
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsLrr20 { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsLrr20 As Boolean
+  overload: IGCLWrapper.PowerOptimizationLrrDto.SupportsLrr20*
+- uid: IGCLWrapper.PowerOptimizationLrrDto.SupportsLrr25
+  commentId: P:IGCLWrapper.PowerOptimizationLrrDto.SupportsLrr25
+  id: SupportsLrr25
+  parent: IGCLWrapper.PowerOptimizationLrrDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsLrr25
+  nameWithType: PowerOptimizationLrrDto.SupportsLrr25
+  fullName: IGCLWrapper.PowerOptimizationLrrDto.SupportsLrr25
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsLrr25
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 4860
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsLrr25 { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsLrr25 As Boolean
+  overload: IGCLWrapper.PowerOptimizationLrrDto.SupportsLrr25*
+- uid: IGCLWrapper.PowerOptimizationLrrDto.SupportsAlrr
+  commentId: P:IGCLWrapper.PowerOptimizationLrrDto.SupportsAlrr
+  id: SupportsAlrr
+  parent: IGCLWrapper.PowerOptimizationLrrDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsAlrr
+  nameWithType: PowerOptimizationLrrDto.SupportsAlrr
+  fullName: IGCLWrapper.PowerOptimizationLrrDto.SupportsAlrr
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsAlrr
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 4865
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsAlrr { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsAlrr As Boolean
+  overload: IGCLWrapper.PowerOptimizationLrrDto.SupportsAlrr*
+- uid: IGCLWrapper.PowerOptimizationLrrDto.SupportsUblrr
+  commentId: P:IGCLWrapper.PowerOptimizationLrrDto.SupportsUblrr
+  id: SupportsUblrr
+  parent: IGCLWrapper.PowerOptimizationLrrDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsUblrr
+  nameWithType: PowerOptimizationLrrDto.SupportsUblrr
+  fullName: IGCLWrapper.PowerOptimizationLrrDto.SupportsUblrr
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsUblrr
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 4870
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsUblrr { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsUblrr As Boolean
+  overload: IGCLWrapper.PowerOptimizationLrrDto.SupportsUblrr*
+- uid: IGCLWrapper.PowerOptimizationLrrDto.SupportsUbzrr
+  commentId: P:IGCLWrapper.PowerOptimizationLrrDto.SupportsUbzrr
+  id: SupportsUbzrr
+  parent: IGCLWrapper.PowerOptimizationLrrDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsUbzrr
+  nameWithType: PowerOptimizationLrrDto.SupportsUbzrr
+  fullName: IGCLWrapper.PowerOptimizationLrrDto.SupportsUbzrr
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsUbzrr
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 4875
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsUbzrr { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsUbzrr As Boolean
+  overload: IGCLWrapper.PowerOptimizationLrrDto.SupportsUbzrr*
 - uid: IGCLWrapper.PowerOptimizationLrrDto.CurrentLrrTypes
   commentId: F:IGCLWrapper.PowerOptimizationLrrDto.CurrentLrrTypes
   id: CurrentLrrTypes
@@ -151,7 +337,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CurrentLrrTypes
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 4315
+    startLine: 4883
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -162,6 +348,180 @@ items:
     return:
       type: System.UInt32
     content.vb: Public CurrentLrrTypes As UInteger
+- uid: IGCLWrapper.PowerOptimizationLrrDto.IsLrr10Current
+  commentId: P:IGCLWrapper.PowerOptimizationLrrDto.IsLrr10Current
+  id: IsLrr10Current
+  parent: IGCLWrapper.PowerOptimizationLrrDto
+  langs:
+  - csharp
+  - vb
+  name: IsLrr10Current
+  nameWithType: PowerOptimizationLrrDto.IsLrr10Current
+  fullName: IGCLWrapper.PowerOptimizationLrrDto.IsLrr10Current
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsLrr10Current
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 4884
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsLrr10Current { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsLrr10Current As Boolean
+  overload: IGCLWrapper.PowerOptimizationLrrDto.IsLrr10Current*
+- uid: IGCLWrapper.PowerOptimizationLrrDto.IsLrr20Current
+  commentId: P:IGCLWrapper.PowerOptimizationLrrDto.IsLrr20Current
+  id: IsLrr20Current
+  parent: IGCLWrapper.PowerOptimizationLrrDto
+  langs:
+  - csharp
+  - vb
+  name: IsLrr20Current
+  nameWithType: PowerOptimizationLrrDto.IsLrr20Current
+  fullName: IGCLWrapper.PowerOptimizationLrrDto.IsLrr20Current
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsLrr20Current
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 4889
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsLrr20Current { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsLrr20Current As Boolean
+  overload: IGCLWrapper.PowerOptimizationLrrDto.IsLrr20Current*
+- uid: IGCLWrapper.PowerOptimizationLrrDto.IsLrr25Current
+  commentId: P:IGCLWrapper.PowerOptimizationLrrDto.IsLrr25Current
+  id: IsLrr25Current
+  parent: IGCLWrapper.PowerOptimizationLrrDto
+  langs:
+  - csharp
+  - vb
+  name: IsLrr25Current
+  nameWithType: PowerOptimizationLrrDto.IsLrr25Current
+  fullName: IGCLWrapper.PowerOptimizationLrrDto.IsLrr25Current
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsLrr25Current
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 4894
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsLrr25Current { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsLrr25Current As Boolean
+  overload: IGCLWrapper.PowerOptimizationLrrDto.IsLrr25Current*
+- uid: IGCLWrapper.PowerOptimizationLrrDto.IsAlrrCurrent
+  commentId: P:IGCLWrapper.PowerOptimizationLrrDto.IsAlrrCurrent
+  id: IsAlrrCurrent
+  parent: IGCLWrapper.PowerOptimizationLrrDto
+  langs:
+  - csharp
+  - vb
+  name: IsAlrrCurrent
+  nameWithType: PowerOptimizationLrrDto.IsAlrrCurrent
+  fullName: IGCLWrapper.PowerOptimizationLrrDto.IsAlrrCurrent
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsAlrrCurrent
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 4899
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsAlrrCurrent { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsAlrrCurrent As Boolean
+  overload: IGCLWrapper.PowerOptimizationLrrDto.IsAlrrCurrent*
+- uid: IGCLWrapper.PowerOptimizationLrrDto.IsUblrrCurrent
+  commentId: P:IGCLWrapper.PowerOptimizationLrrDto.IsUblrrCurrent
+  id: IsUblrrCurrent
+  parent: IGCLWrapper.PowerOptimizationLrrDto
+  langs:
+  - csharp
+  - vb
+  name: IsUblrrCurrent
+  nameWithType: PowerOptimizationLrrDto.IsUblrrCurrent
+  fullName: IGCLWrapper.PowerOptimizationLrrDto.IsUblrrCurrent
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsUblrrCurrent
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 4904
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsUblrrCurrent { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsUblrrCurrent As Boolean
+  overload: IGCLWrapper.PowerOptimizationLrrDto.IsUblrrCurrent*
+- uid: IGCLWrapper.PowerOptimizationLrrDto.IsUbzrrCurrent
+  commentId: P:IGCLWrapper.PowerOptimizationLrrDto.IsUbzrrCurrent
+  id: IsUbzrrCurrent
+  parent: IGCLWrapper.PowerOptimizationLrrDto
+  langs:
+  - csharp
+  - vb
+  name: IsUbzrrCurrent
+  nameWithType: PowerOptimizationLrrDto.IsUbzrrCurrent
+  fullName: IGCLWrapper.PowerOptimizationLrrDto.IsUbzrrCurrent
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: IsUbzrrCurrent
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 4909
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool IsUbzrrCurrent { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsUbzrrCurrent As Boolean
+  overload: IGCLWrapper.PowerOptimizationLrrDto.IsUbzrrCurrent*
 - uid: IGCLWrapper.PowerOptimizationLrrDto.RequirePsrDisable
   commentId: F:IGCLWrapper.PowerOptimizationLrrDto.RequirePsrDisable
   id: RequirePsrDisable
@@ -180,7 +540,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: RequirePsrDisable
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 4319
+    startLine: 4917
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -209,7 +569,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LowRr
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 4323
+    startLine: 4921
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -238,7 +598,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 4325
+    startLine: 4923
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -275,7 +635,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 4333
+    startLine: 4931
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -314,7 +674,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetHashCode
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 4335
+    startLine: 4933
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -346,7 +706,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 4345
+    startLine: 4943
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -377,7 +737,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 4358
+    startLine: 4956
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -639,6 +999,12 @@ references:
   nameWithType.vb: Byte
   fullName.vb: Byte
   name.vb: Byte
+- uid: IGCLWrapper.PowerOptimizationLrrDto.SupportsLrr10*
+  commentId: Overload:IGCLWrapper.PowerOptimizationLrrDto.SupportsLrr10
+  href: IGCLWrapper.PowerOptimizationLrrDto.html#IGCLWrapper_PowerOptimizationLrrDto_SupportsLrr10
+  name: SupportsLrr10
+  nameWithType: PowerOptimizationLrrDto.SupportsLrr10
+  fullName: IGCLWrapper.PowerOptimizationLrrDto.SupportsLrr10
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System
@@ -650,6 +1016,72 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: IGCLWrapper.PowerOptimizationLrrDto.SupportsLrr20*
+  commentId: Overload:IGCLWrapper.PowerOptimizationLrrDto.SupportsLrr20
+  href: IGCLWrapper.PowerOptimizationLrrDto.html#IGCLWrapper_PowerOptimizationLrrDto_SupportsLrr20
+  name: SupportsLrr20
+  nameWithType: PowerOptimizationLrrDto.SupportsLrr20
+  fullName: IGCLWrapper.PowerOptimizationLrrDto.SupportsLrr20
+- uid: IGCLWrapper.PowerOptimizationLrrDto.SupportsLrr25*
+  commentId: Overload:IGCLWrapper.PowerOptimizationLrrDto.SupportsLrr25
+  href: IGCLWrapper.PowerOptimizationLrrDto.html#IGCLWrapper_PowerOptimizationLrrDto_SupportsLrr25
+  name: SupportsLrr25
+  nameWithType: PowerOptimizationLrrDto.SupportsLrr25
+  fullName: IGCLWrapper.PowerOptimizationLrrDto.SupportsLrr25
+- uid: IGCLWrapper.PowerOptimizationLrrDto.SupportsAlrr*
+  commentId: Overload:IGCLWrapper.PowerOptimizationLrrDto.SupportsAlrr
+  href: IGCLWrapper.PowerOptimizationLrrDto.html#IGCLWrapper_PowerOptimizationLrrDto_SupportsAlrr
+  name: SupportsAlrr
+  nameWithType: PowerOptimizationLrrDto.SupportsAlrr
+  fullName: IGCLWrapper.PowerOptimizationLrrDto.SupportsAlrr
+- uid: IGCLWrapper.PowerOptimizationLrrDto.SupportsUblrr*
+  commentId: Overload:IGCLWrapper.PowerOptimizationLrrDto.SupportsUblrr
+  href: IGCLWrapper.PowerOptimizationLrrDto.html#IGCLWrapper_PowerOptimizationLrrDto_SupportsUblrr
+  name: SupportsUblrr
+  nameWithType: PowerOptimizationLrrDto.SupportsUblrr
+  fullName: IGCLWrapper.PowerOptimizationLrrDto.SupportsUblrr
+- uid: IGCLWrapper.PowerOptimizationLrrDto.SupportsUbzrr*
+  commentId: Overload:IGCLWrapper.PowerOptimizationLrrDto.SupportsUbzrr
+  href: IGCLWrapper.PowerOptimizationLrrDto.html#IGCLWrapper_PowerOptimizationLrrDto_SupportsUbzrr
+  name: SupportsUbzrr
+  nameWithType: PowerOptimizationLrrDto.SupportsUbzrr
+  fullName: IGCLWrapper.PowerOptimizationLrrDto.SupportsUbzrr
+- uid: IGCLWrapper.PowerOptimizationLrrDto.IsLrr10Current*
+  commentId: Overload:IGCLWrapper.PowerOptimizationLrrDto.IsLrr10Current
+  href: IGCLWrapper.PowerOptimizationLrrDto.html#IGCLWrapper_PowerOptimizationLrrDto_IsLrr10Current
+  name: IsLrr10Current
+  nameWithType: PowerOptimizationLrrDto.IsLrr10Current
+  fullName: IGCLWrapper.PowerOptimizationLrrDto.IsLrr10Current
+- uid: IGCLWrapper.PowerOptimizationLrrDto.IsLrr20Current*
+  commentId: Overload:IGCLWrapper.PowerOptimizationLrrDto.IsLrr20Current
+  href: IGCLWrapper.PowerOptimizationLrrDto.html#IGCLWrapper_PowerOptimizationLrrDto_IsLrr20Current
+  name: IsLrr20Current
+  nameWithType: PowerOptimizationLrrDto.IsLrr20Current
+  fullName: IGCLWrapper.PowerOptimizationLrrDto.IsLrr20Current
+- uid: IGCLWrapper.PowerOptimizationLrrDto.IsLrr25Current*
+  commentId: Overload:IGCLWrapper.PowerOptimizationLrrDto.IsLrr25Current
+  href: IGCLWrapper.PowerOptimizationLrrDto.html#IGCLWrapper_PowerOptimizationLrrDto_IsLrr25Current
+  name: IsLrr25Current
+  nameWithType: PowerOptimizationLrrDto.IsLrr25Current
+  fullName: IGCLWrapper.PowerOptimizationLrrDto.IsLrr25Current
+- uid: IGCLWrapper.PowerOptimizationLrrDto.IsAlrrCurrent*
+  commentId: Overload:IGCLWrapper.PowerOptimizationLrrDto.IsAlrrCurrent
+  href: IGCLWrapper.PowerOptimizationLrrDto.html#IGCLWrapper_PowerOptimizationLrrDto_IsAlrrCurrent
+  name: IsAlrrCurrent
+  nameWithType: PowerOptimizationLrrDto.IsAlrrCurrent
+  fullName: IGCLWrapper.PowerOptimizationLrrDto.IsAlrrCurrent
+- uid: IGCLWrapper.PowerOptimizationLrrDto.IsUblrrCurrent*
+  commentId: Overload:IGCLWrapper.PowerOptimizationLrrDto.IsUblrrCurrent
+  href: IGCLWrapper.PowerOptimizationLrrDto.html#IGCLWrapper_PowerOptimizationLrrDto_IsUblrrCurrent
+  name: IsUblrrCurrent
+  nameWithType: PowerOptimizationLrrDto.IsUblrrCurrent
+  fullName: IGCLWrapper.PowerOptimizationLrrDto.IsUblrrCurrent
+- uid: IGCLWrapper.PowerOptimizationLrrDto.IsUbzrrCurrent*
+  commentId: Overload:IGCLWrapper.PowerOptimizationLrrDto.IsUbzrrCurrent
+  href: IGCLWrapper.PowerOptimizationLrrDto.html#IGCLWrapper_PowerOptimizationLrrDto_IsUbzrrCurrent
+  name: IsUbzrrCurrent
+  nameWithType: PowerOptimizationLrrDto.IsUbzrrCurrent
+  fullName: IGCLWrapper.PowerOptimizationLrrDto.IsUbzrrCurrent
 - uid: System.UInt16
   commentId: T:System.UInt16
   parent: System

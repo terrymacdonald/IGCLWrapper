@@ -15,6 +15,11 @@ items:
   - IGCLWrapper.FanPropertiesDto.Size
   - IGCLWrapper.FanPropertiesDto.SupportedModes
   - IGCLWrapper.FanPropertiesDto.SupportedUnits
+  - IGCLWrapper.FanPropertiesDto.SupportsDefaultMode
+  - IGCLWrapper.FanPropertiesDto.SupportsFixedMode
+  - IGCLWrapper.FanPropertiesDto.SupportsPercentUnits
+  - IGCLWrapper.FanPropertiesDto.SupportsRpmUnits
+  - IGCLWrapper.FanPropertiesDto.SupportsTableMode
   - IGCLWrapper.FanPropertiesDto.ToNative
   - IGCLWrapper.FanPropertiesDto.Version
   langs:
@@ -163,6 +168,93 @@ items:
     return:
       type: System.UInt32
     content.vb: Public SupportedModes As UInteger
+- uid: IGCLWrapper.FanPropertiesDto.SupportsDefaultMode
+  commentId: P:IGCLWrapper.FanPropertiesDto.SupportsDefaultMode
+  id: SupportsDefaultMode
+  parent: IGCLWrapper.FanPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsDefaultMode
+  nameWithType: FanPropertiesDto.SupportsDefaultMode
+  fullName: IGCLWrapper.FanPropertiesDto.SupportsDefaultMode
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFanHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsDefaultMode
+    path: ../IGCLWrapper/IGCLFanHelper.cs
+    startLine: 278
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsDefaultMode { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsDefaultMode As Boolean
+  overload: IGCLWrapper.FanPropertiesDto.SupportsDefaultMode*
+- uid: IGCLWrapper.FanPropertiesDto.SupportsFixedMode
+  commentId: P:IGCLWrapper.FanPropertiesDto.SupportsFixedMode
+  id: SupportsFixedMode
+  parent: IGCLWrapper.FanPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsFixedMode
+  nameWithType: FanPropertiesDto.SupportsFixedMode
+  fullName: IGCLWrapper.FanPropertiesDto.SupportsFixedMode
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFanHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsFixedMode
+    path: ../IGCLWrapper/IGCLFanHelper.cs
+    startLine: 283
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsFixedMode { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsFixedMode As Boolean
+  overload: IGCLWrapper.FanPropertiesDto.SupportsFixedMode*
+- uid: IGCLWrapper.FanPropertiesDto.SupportsTableMode
+  commentId: P:IGCLWrapper.FanPropertiesDto.SupportsTableMode
+  id: SupportsTableMode
+  parent: IGCLWrapper.FanPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsTableMode
+  nameWithType: FanPropertiesDto.SupportsTableMode
+  fullName: IGCLWrapper.FanPropertiesDto.SupportsTableMode
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFanHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsTableMode
+    path: ../IGCLWrapper/IGCLFanHelper.cs
+    startLine: 288
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsTableMode { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsTableMode As Boolean
+  overload: IGCLWrapper.FanPropertiesDto.SupportsTableMode*
 - uid: IGCLWrapper.FanPropertiesDto.SupportedUnits
   commentId: F:IGCLWrapper.FanPropertiesDto.SupportedUnits
   id: SupportedUnits
@@ -181,7 +273,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SupportedUnits
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 281
+    startLine: 296
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -192,6 +284,64 @@ items:
     return:
       type: System.UInt32
     content.vb: Public SupportedUnits As UInteger
+- uid: IGCLWrapper.FanPropertiesDto.SupportsRpmUnits
+  commentId: P:IGCLWrapper.FanPropertiesDto.SupportsRpmUnits
+  id: SupportsRpmUnits
+  parent: IGCLWrapper.FanPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsRpmUnits
+  nameWithType: FanPropertiesDto.SupportsRpmUnits
+  fullName: IGCLWrapper.FanPropertiesDto.SupportsRpmUnits
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFanHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsRpmUnits
+    path: ../IGCLWrapper/IGCLFanHelper.cs
+    startLine: 297
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsRpmUnits { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsRpmUnits As Boolean
+  overload: IGCLWrapper.FanPropertiesDto.SupportsRpmUnits*
+- uid: IGCLWrapper.FanPropertiesDto.SupportsPercentUnits
+  commentId: P:IGCLWrapper.FanPropertiesDto.SupportsPercentUnits
+  id: SupportsPercentUnits
+  parent: IGCLWrapper.FanPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: SupportsPercentUnits
+  nameWithType: FanPropertiesDto.SupportsPercentUnits
+  fullName: IGCLWrapper.FanPropertiesDto.SupportsPercentUnits
+  type: Property
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFanHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SupportsPercentUnits
+    path: ../IGCLWrapper/IGCLFanHelper.cs
+    startLine: 302
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public bool SupportsPercentUnits { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsPercentUnits As Boolean
+  overload: IGCLWrapper.FanPropertiesDto.SupportsPercentUnits*
 - uid: IGCLWrapper.FanPropertiesDto.MaxRpm
   commentId: F:IGCLWrapper.FanPropertiesDto.MaxRpm
   id: MaxRpm
@@ -210,7 +360,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: MaxRpm
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 285
+    startLine: 310
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -239,7 +389,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: MaxPoints
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 289
+    startLine: 314
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -268,7 +418,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 296
+    startLine: 321
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -305,7 +455,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 312
+    startLine: 337
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -344,7 +494,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetHashCode
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 318
+    startLine: 343
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -376,7 +526,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 336
+    startLine: 361
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -411,7 +561,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 354
+    startLine: 379
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -687,6 +837,36 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: IGCLWrapper.FanPropertiesDto.SupportsDefaultMode*
+  commentId: Overload:IGCLWrapper.FanPropertiesDto.SupportsDefaultMode
+  href: IGCLWrapper.FanPropertiesDto.html#IGCLWrapper_FanPropertiesDto_SupportsDefaultMode
+  name: SupportsDefaultMode
+  nameWithType: FanPropertiesDto.SupportsDefaultMode
+  fullName: IGCLWrapper.FanPropertiesDto.SupportsDefaultMode
+- uid: IGCLWrapper.FanPropertiesDto.SupportsFixedMode*
+  commentId: Overload:IGCLWrapper.FanPropertiesDto.SupportsFixedMode
+  href: IGCLWrapper.FanPropertiesDto.html#IGCLWrapper_FanPropertiesDto_SupportsFixedMode
+  name: SupportsFixedMode
+  nameWithType: FanPropertiesDto.SupportsFixedMode
+  fullName: IGCLWrapper.FanPropertiesDto.SupportsFixedMode
+- uid: IGCLWrapper.FanPropertiesDto.SupportsTableMode*
+  commentId: Overload:IGCLWrapper.FanPropertiesDto.SupportsTableMode
+  href: IGCLWrapper.FanPropertiesDto.html#IGCLWrapper_FanPropertiesDto_SupportsTableMode
+  name: SupportsTableMode
+  nameWithType: FanPropertiesDto.SupportsTableMode
+  fullName: IGCLWrapper.FanPropertiesDto.SupportsTableMode
+- uid: IGCLWrapper.FanPropertiesDto.SupportsRpmUnits*
+  commentId: Overload:IGCLWrapper.FanPropertiesDto.SupportsRpmUnits
+  href: IGCLWrapper.FanPropertiesDto.html#IGCLWrapper_FanPropertiesDto_SupportsRpmUnits
+  name: SupportsRpmUnits
+  nameWithType: FanPropertiesDto.SupportsRpmUnits
+  fullName: IGCLWrapper.FanPropertiesDto.SupportsRpmUnits
+- uid: IGCLWrapper.FanPropertiesDto.SupportsPercentUnits*
+  commentId: Overload:IGCLWrapper.FanPropertiesDto.SupportsPercentUnits
+  href: IGCLWrapper.FanPropertiesDto.html#IGCLWrapper_FanPropertiesDto_SupportsPercentUnits
+  name: SupportsPercentUnits
+  nameWithType: FanPropertiesDto.SupportsPercentUnits
+  fullName: IGCLWrapper.FanPropertiesDto.SupportsPercentUnits
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System
