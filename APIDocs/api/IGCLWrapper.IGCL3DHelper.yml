@@ -7,12 +7,15 @@ items:
   children:
   - IGCLWrapper.IGCL3DHelper.Are3dFeatureCapsEqual(IGCLWrapper.ctl_3d_feature_caps_t,IGCLWrapper.ctl_3d_feature_caps_t)
   - IGCLWrapper.IGCL3DHelper.Are3dFeatureGetSetEqual(IGCLWrapper.ctl_3d_feature_getset_t,IGCLWrapper.ctl_3d_feature_getset_t)
+  - IGCLWrapper.IGCL3DHelper.Create3DFeatureGetRequest(IGCLWrapper.ctl_3d_feature_t,IGCLWrapper.ctl_property_value_type_t)
   - IGCLWrapper.IGCL3DHelper.Create3DFeatureGetSet
+  - IGCLWrapper.IGCL3DHelper.Create3DFeatureSetRequest(IGCLWrapper.ctl_3d_feature_t,IGCLWrapper.ctl_property_value_type_t,IGCLWrapper.PropertyDto,System.String,System.Collections.Generic.List{System.Byte})
   - IGCLWrapper.IGCL3DHelper.Dispose
   - IGCLWrapper.IGCL3DHelper.Get3DFeature(IGCLWrapper.ThreeDFeatureGetSetDto)
   - IGCLWrapper.IGCL3DHelper.GetSet3DFeatureNative(IGCLWrapper.ctl_3d_feature_getset_t)
   - IGCLWrapper.IGCL3DHelper.GetSupported3DCapabilities
   - IGCLWrapper.IGCL3DHelper.Set3DFeature(IGCLWrapper.ThreeDFeatureGetSetDto)
+  - IGCLWrapper.IGCL3DHelper.ValidateSet3DFeatureRequest(IGCLWrapper.ThreeDFeatureGetSetDto)
   langs:
   - csharp
   - vb
@@ -198,7 +201,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Create3DFeatureGetSet
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 124
+    startLine: 125
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -211,6 +214,130 @@ items:
       description: Initialized 3D feature get/set struct.
     content.vb: Public Shared Function Create3DFeatureGetSet() As ctl_3d_feature_getset_t
   overload: IGCLWrapper.IGCL3DHelper.Create3DFeatureGetSet*
+- uid: IGCLWrapper.IGCL3DHelper.Create3DFeatureGetRequest(IGCLWrapper.ctl_3d_feature_t,IGCLWrapper.ctl_property_value_type_t)
+  commentId: M:IGCLWrapper.IGCL3DHelper.Create3DFeatureGetRequest(IGCLWrapper.ctl_3d_feature_t,IGCLWrapper.ctl_property_value_type_t)
+  id: Create3DFeatureGetRequest(IGCLWrapper.ctl_3d_feature_t,IGCLWrapper.ctl_property_value_type_t)
+  parent: IGCLWrapper.IGCL3DHelper
+  langs:
+  - csharp
+  - vb
+  name: Create3DFeatureGetRequest(ctl_3d_feature_t, ctl_property_value_type_t)
+  nameWithType: IGCL3DHelper.Create3DFeatureGetRequest(ctl_3d_feature_t, ctl_property_value_type_t)
+  fullName: IGCLWrapper.IGCL3DHelper.Create3DFeatureGetRequest(IGCLWrapper.ctl_3d_feature_t, IGCLWrapper.ctl_property_value_type_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCL3DHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Create3DFeatureGetRequest
+    path: ../IGCLWrapper/IGCL3DHelper.cs
+    startLine: 133
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Create a DTO request for a 3D get operation.
+  example: []
+  syntax:
+    content: public static ThreeDFeatureGetSetDto Create3DFeatureGetRequest(ctl_3d_feature_t featureType, ctl_property_value_type_t valueType)
+    parameters:
+    - id: featureType
+      type: IGCLWrapper.ctl_3d_feature_t
+      description: Feature to query.
+    - id: valueType
+      type: IGCLWrapper.ctl_property_value_type_t
+      description: Expected value type.
+    return:
+      type: IGCLWrapper.ThreeDFeatureGetSetDto
+      description: Initialized get request DTO.
+    content.vb: Public Shared Function Create3DFeatureGetRequest(featureType As ctl_3d_feature_t, valueType As ctl_property_value_type_t) As ThreeDFeatureGetSetDto
+  overload: IGCLWrapper.IGCL3DHelper.Create3DFeatureGetRequest*
+- uid: IGCLWrapper.IGCL3DHelper.Create3DFeatureSetRequest(IGCLWrapper.ctl_3d_feature_t,IGCLWrapper.ctl_property_value_type_t,IGCLWrapper.PropertyDto,System.String,System.Collections.Generic.List{System.Byte})
+  commentId: M:IGCLWrapper.IGCL3DHelper.Create3DFeatureSetRequest(IGCLWrapper.ctl_3d_feature_t,IGCLWrapper.ctl_property_value_type_t,IGCLWrapper.PropertyDto,System.String,System.Collections.Generic.List{System.Byte})
+  id: Create3DFeatureSetRequest(IGCLWrapper.ctl_3d_feature_t,IGCLWrapper.ctl_property_value_type_t,IGCLWrapper.PropertyDto,System.String,System.Collections.Generic.List{System.Byte})
+  parent: IGCLWrapper.IGCL3DHelper
+  langs:
+  - csharp
+  - vb
+  name: Create3DFeatureSetRequest(ctl_3d_feature_t, ctl_property_value_type_t, PropertyDto, string?, List<byte>?)
+  nameWithType: IGCL3DHelper.Create3DFeatureSetRequest(ctl_3d_feature_t, ctl_property_value_type_t, PropertyDto, string?, List<byte>?)
+  fullName: IGCLWrapper.IGCL3DHelper.Create3DFeatureSetRequest(IGCLWrapper.ctl_3d_feature_t, IGCLWrapper.ctl_property_value_type_t, IGCLWrapper.PropertyDto, string?, System.Collections.Generic.List<byte>?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCL3DHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Create3DFeatureSetRequest
+    path: ../IGCLWrapper/IGCL3DHelper.cs
+    startLine: 152
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Create a DTO request for a 3D set operation.
+  example: []
+  syntax:
+    content: public static ThreeDFeatureGetSetDto Create3DFeatureSetRequest(ctl_3d_feature_t featureType, ctl_property_value_type_t valueType, PropertyDto value, string? applicationName = null, List<byte>? customValue = null)
+    parameters:
+    - id: featureType
+      type: IGCLWrapper.ctl_3d_feature_t
+      description: Feature to set.
+    - id: valueType
+      type: IGCLWrapper.ctl_property_value_type_t
+      description: Value type for the feature.
+    - id: value
+      type: IGCLWrapper.PropertyDto
+      description: Feature value payload.
+    - id: applicationName
+      type: System.String
+      description: Optional application name.
+    - id: customValue
+      type: System.Collections.Generic.List{System.Byte}
+      description: Optional custom payload bytes.
+    return:
+      type: IGCLWrapper.ThreeDFeatureGetSetDto
+      description: Initialized set request DTO.
+    content.vb: Public Shared Function Create3DFeatureSetRequest(featureType As ctl_3d_feature_t, valueType As ctl_property_value_type_t, value As PropertyDto, applicationName As String = Nothing, customValue As List(Of Byte) = Nothing) As ThreeDFeatureGetSetDto
+  overload: IGCLWrapper.IGCL3DHelper.Create3DFeatureSetRequest*
+  nameWithType.vb: IGCL3DHelper.Create3DFeatureSetRequest(ctl_3d_feature_t, ctl_property_value_type_t, PropertyDto, String, List(Of Byte))
+  fullName.vb: IGCLWrapper.IGCL3DHelper.Create3DFeatureSetRequest(IGCLWrapper.ctl_3d_feature_t, IGCLWrapper.ctl_property_value_type_t, IGCLWrapper.PropertyDto, String, System.Collections.Generic.List(Of Byte))
+  name.vb: Create3DFeatureSetRequest(ctl_3d_feature_t, ctl_property_value_type_t, PropertyDto, String, List(Of Byte))
+- uid: IGCLWrapper.IGCL3DHelper.ValidateSet3DFeatureRequest(IGCLWrapper.ThreeDFeatureGetSetDto)
+  commentId: M:IGCLWrapper.IGCL3DHelper.ValidateSet3DFeatureRequest(IGCLWrapper.ThreeDFeatureGetSetDto)
+  id: ValidateSet3DFeatureRequest(IGCLWrapper.ThreeDFeatureGetSetDto)
+  parent: IGCLWrapper.IGCL3DHelper
+  langs:
+  - csharp
+  - vb
+  name: ValidateSet3DFeatureRequest(ThreeDFeatureGetSetDto)
+  nameWithType: IGCL3DHelper.ValidateSet3DFeatureRequest(ThreeDFeatureGetSetDto)
+  fullName: IGCLWrapper.IGCL3DHelper.ValidateSet3DFeatureRequest(IGCLWrapper.ThreeDFeatureGetSetDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCL3DHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: ValidateSet3DFeatureRequest
+    path: ../IGCLWrapper/IGCL3DHelper.cs
+    startLine: 175
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Validate a 3D set request to catch accidental default DTO usage.
+  example: []
+  syntax:
+    content: public static void ValidateSet3DFeatureRequest(ThreeDFeatureGetSetDto request)
+    parameters:
+    - id: request
+      type: IGCLWrapper.ThreeDFeatureGetSetDto
+      description: Request DTO.
+    content.vb: Public Shared Sub ValidateSet3DFeatureRequest(request As ThreeDFeatureGetSetDto)
+  overload: IGCLWrapper.IGCL3DHelper.ValidateSet3DFeatureRequest*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown when request appears to be an accidental default payload.
 - uid: IGCLWrapper.IGCL3DHelper.Are3dFeatureCapsEqual(IGCLWrapper.ctl_3d_feature_caps_t,IGCLWrapper.ctl_3d_feature_caps_t)
   commentId: M:IGCLWrapper.IGCL3DHelper.Are3dFeatureCapsEqual(IGCLWrapper.ctl_3d_feature_caps_t,IGCLWrapper.ctl_3d_feature_caps_t)
   id: Are3dFeatureCapsEqual(IGCLWrapper.ctl_3d_feature_caps_t,IGCLWrapper.ctl_3d_feature_caps_t)
@@ -229,7 +356,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Are3dFeatureCapsEqual
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 132
+    startLine: 191
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -267,7 +394,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Are3dFeatureGetSetEqual
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 145
+    startLine: 204
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -305,7 +432,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 153
+    startLine: 212
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -596,6 +723,163 @@ references:
   name: Create3DFeatureGetSet
   nameWithType: IGCL3DHelper.Create3DFeatureGetSet
   fullName: IGCLWrapper.IGCL3DHelper.Create3DFeatureGetSet
+- uid: IGCLWrapper.IGCL3DHelper.Create3DFeatureGetRequest*
+  commentId: Overload:IGCLWrapper.IGCL3DHelper.Create3DFeatureGetRequest
+  href: IGCLWrapper.IGCL3DHelper.html#IGCLWrapper_IGCL3DHelper_Create3DFeatureGetRequest_IGCLWrapper_ctl_3d_feature_t_IGCLWrapper_ctl_property_value_type_t_
+  name: Create3DFeatureGetRequest
+  nameWithType: IGCL3DHelper.Create3DFeatureGetRequest
+  fullName: IGCLWrapper.IGCL3DHelper.Create3DFeatureGetRequest
+- uid: IGCLWrapper.ctl_3d_feature_t
+  commentId: T:IGCLWrapper.ctl_3d_feature_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_3d_feature_t.html
+  name: ctl_3d_feature_t
+  nameWithType: ctl_3d_feature_t
+  fullName: IGCLWrapper.ctl_3d_feature_t
+- uid: IGCLWrapper.ctl_property_value_type_t
+  commentId: T:IGCLWrapper.ctl_property_value_type_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_property_value_type_t.html
+  name: ctl_property_value_type_t
+  nameWithType: ctl_property_value_type_t
+  fullName: IGCLWrapper.ctl_property_value_type_t
+- uid: IGCLWrapper.IGCL3DHelper.Create3DFeatureSetRequest*
+  commentId: Overload:IGCLWrapper.IGCL3DHelper.Create3DFeatureSetRequest
+  href: IGCLWrapper.IGCL3DHelper.html#IGCLWrapper_IGCL3DHelper_Create3DFeatureSetRequest_IGCLWrapper_ctl_3d_feature_t_IGCLWrapper_ctl_property_value_type_t_IGCLWrapper_PropertyDto_System_String_System_Collections_Generic_List_System_Byte__
+  name: Create3DFeatureSetRequest
+  nameWithType: IGCL3DHelper.Create3DFeatureSetRequest
+  fullName: IGCLWrapper.IGCL3DHelper.Create3DFeatureSetRequest
+- uid: IGCLWrapper.PropertyDto
+  commentId: T:IGCLWrapper.PropertyDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.PropertyDto.html
+  name: PropertyDto
+  nameWithType: PropertyDto
+  fullName: IGCLWrapper.PropertyDto
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Collections.Generic.List{System.Byte}
+  commentId: T:System.Collections.Generic.List{System.Byte}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<byte>
+  nameWithType: List<byte>
+  fullName: System.Collections.Generic.List<byte>
+  nameWithType.vb: List(Of Byte)
+  fullName.vb: System.Collections.Generic.List(Of Byte)
+  name.vb: List(Of Byte)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: IGCLWrapper.IGCL3DHelper.ValidateSet3DFeatureRequest*
+  commentId: Overload:IGCLWrapper.IGCL3DHelper.ValidateSet3DFeatureRequest
+  href: IGCLWrapper.IGCL3DHelper.html#IGCLWrapper_IGCL3DHelper_ValidateSet3DFeatureRequest_IGCLWrapper_ThreeDFeatureGetSetDto_
+  name: ValidateSet3DFeatureRequest
+  nameWithType: IGCL3DHelper.ValidateSet3DFeatureRequest
+  fullName: IGCLWrapper.IGCL3DHelper.ValidateSet3DFeatureRequest
 - uid: IGCLWrapper.IGCL3DHelper.Are3dFeatureCapsEqual*
   commentId: Overload:IGCLWrapper.IGCL3DHelper.Are3dFeatureCapsEqual
   href: IGCLWrapper.IGCL3DHelper.html#IGCLWrapper_IGCL3DHelper_Are3dFeatureCapsEqual_IGCLWrapper_ctl_3d_feature_caps_t_IGCLWrapper_ctl_3d_feature_caps_t_

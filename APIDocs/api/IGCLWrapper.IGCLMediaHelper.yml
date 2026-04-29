@@ -7,12 +7,15 @@ items:
   children:
   - IGCLWrapper.IGCLMediaHelper.AreVideoProcessingFeatureCapsEqual(IGCLWrapper.ctl_video_processing_feature_caps_t,IGCLWrapper.ctl_video_processing_feature_caps_t)
   - IGCLWrapper.IGCLMediaHelper.AreVideoProcessingFeatureGetSetEqual(IGCLWrapper.ctl_video_processing_feature_getset_t,IGCLWrapper.ctl_video_processing_feature_getset_t)
+  - IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureGetRequest(IGCLWrapper.ctl_video_processing_feature_t,IGCLWrapper.ctl_property_value_type_t)
   - IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureGetSet
+  - IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureSetRequest(IGCLWrapper.ctl_video_processing_feature_t,IGCLWrapper.ctl_property_value_type_t,IGCLWrapper.PropertyDto,System.String,System.Collections.Generic.List{System.Byte})
   - IGCLWrapper.IGCLMediaHelper.Dispose
   - IGCLWrapper.IGCLMediaHelper.GetSetVideoProcessingFeatureNative(IGCLWrapper.ctl_video_processing_feature_getset_t)
   - IGCLWrapper.IGCLMediaHelper.GetSupportedVideoProcessingCapabilities
   - IGCLWrapper.IGCLMediaHelper.GetVideoProcessingFeature(IGCLWrapper.VideoProcessingFeatureGetSetDto)
   - IGCLWrapper.IGCLMediaHelper.SetVideoProcessingFeature(IGCLWrapper.VideoProcessingFeatureGetSetDto)
+  - IGCLWrapper.IGCLMediaHelper.ValidateSetVideoProcessingFeatureRequest(IGCLWrapper.VideoProcessingFeatureGetSetDto)
   langs:
   - csharp
   - vb
@@ -198,7 +201,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateVideoProcessingFeatureGetSet
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 124
+    startLine: 125
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -211,6 +214,130 @@ items:
       description: Initialized video processing feature get/set struct.
     content.vb: Public Shared Function CreateVideoProcessingFeatureGetSet() As ctl_video_processing_feature_getset_t
   overload: IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureGetSet*
+- uid: IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureGetRequest(IGCLWrapper.ctl_video_processing_feature_t,IGCLWrapper.ctl_property_value_type_t)
+  commentId: M:IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureGetRequest(IGCLWrapper.ctl_video_processing_feature_t,IGCLWrapper.ctl_property_value_type_t)
+  id: CreateVideoProcessingFeatureGetRequest(IGCLWrapper.ctl_video_processing_feature_t,IGCLWrapper.ctl_property_value_type_t)
+  parent: IGCLWrapper.IGCLMediaHelper
+  langs:
+  - csharp
+  - vb
+  name: CreateVideoProcessingFeatureGetRequest(ctl_video_processing_feature_t, ctl_property_value_type_t)
+  nameWithType: IGCLMediaHelper.CreateVideoProcessingFeatureGetRequest(ctl_video_processing_feature_t, ctl_property_value_type_t)
+  fullName: IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureGetRequest(IGCLWrapper.ctl_video_processing_feature_t, IGCLWrapper.ctl_property_value_type_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLMediaHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: CreateVideoProcessingFeatureGetRequest
+    path: ../IGCLWrapper/IGCLMediaHelper.cs
+    startLine: 133
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Create a DTO request for a video-processing get operation.
+  example: []
+  syntax:
+    content: public static VideoProcessingFeatureGetSetDto CreateVideoProcessingFeatureGetRequest(ctl_video_processing_feature_t featureType, ctl_property_value_type_t valueType)
+    parameters:
+    - id: featureType
+      type: IGCLWrapper.ctl_video_processing_feature_t
+      description: Feature to query.
+    - id: valueType
+      type: IGCLWrapper.ctl_property_value_type_t
+      description: Expected value type.
+    return:
+      type: IGCLWrapper.VideoProcessingFeatureGetSetDto
+      description: Initialized get request DTO.
+    content.vb: Public Shared Function CreateVideoProcessingFeatureGetRequest(featureType As ctl_video_processing_feature_t, valueType As ctl_property_value_type_t) As VideoProcessingFeatureGetSetDto
+  overload: IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureGetRequest*
+- uid: IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureSetRequest(IGCLWrapper.ctl_video_processing_feature_t,IGCLWrapper.ctl_property_value_type_t,IGCLWrapper.PropertyDto,System.String,System.Collections.Generic.List{System.Byte})
+  commentId: M:IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureSetRequest(IGCLWrapper.ctl_video_processing_feature_t,IGCLWrapper.ctl_property_value_type_t,IGCLWrapper.PropertyDto,System.String,System.Collections.Generic.List{System.Byte})
+  id: CreateVideoProcessingFeatureSetRequest(IGCLWrapper.ctl_video_processing_feature_t,IGCLWrapper.ctl_property_value_type_t,IGCLWrapper.PropertyDto,System.String,System.Collections.Generic.List{System.Byte})
+  parent: IGCLWrapper.IGCLMediaHelper
+  langs:
+  - csharp
+  - vb
+  name: CreateVideoProcessingFeatureSetRequest(ctl_video_processing_feature_t, ctl_property_value_type_t, PropertyDto, string?, List<byte>?)
+  nameWithType: IGCLMediaHelper.CreateVideoProcessingFeatureSetRequest(ctl_video_processing_feature_t, ctl_property_value_type_t, PropertyDto, string?, List<byte>?)
+  fullName: IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureSetRequest(IGCLWrapper.ctl_video_processing_feature_t, IGCLWrapper.ctl_property_value_type_t, IGCLWrapper.PropertyDto, string?, System.Collections.Generic.List<byte>?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLMediaHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: CreateVideoProcessingFeatureSetRequest
+    path: ../IGCLWrapper/IGCLMediaHelper.cs
+    startLine: 152
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Create a DTO request for a video-processing set operation.
+  example: []
+  syntax:
+    content: public static VideoProcessingFeatureGetSetDto CreateVideoProcessingFeatureSetRequest(ctl_video_processing_feature_t featureType, ctl_property_value_type_t valueType, PropertyDto value, string? applicationName = null, List<byte>? customValue = null)
+    parameters:
+    - id: featureType
+      type: IGCLWrapper.ctl_video_processing_feature_t
+      description: Feature to set.
+    - id: valueType
+      type: IGCLWrapper.ctl_property_value_type_t
+      description: Value type for the feature.
+    - id: value
+      type: IGCLWrapper.PropertyDto
+      description: Feature value payload.
+    - id: applicationName
+      type: System.String
+      description: Optional application name.
+    - id: customValue
+      type: System.Collections.Generic.List{System.Byte}
+      description: Optional custom payload bytes.
+    return:
+      type: IGCLWrapper.VideoProcessingFeatureGetSetDto
+      description: Initialized set request DTO.
+    content.vb: Public Shared Function CreateVideoProcessingFeatureSetRequest(featureType As ctl_video_processing_feature_t, valueType As ctl_property_value_type_t, value As PropertyDto, applicationName As String = Nothing, customValue As List(Of Byte) = Nothing) As VideoProcessingFeatureGetSetDto
+  overload: IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureSetRequest*
+  nameWithType.vb: IGCLMediaHelper.CreateVideoProcessingFeatureSetRequest(ctl_video_processing_feature_t, ctl_property_value_type_t, PropertyDto, String, List(Of Byte))
+  fullName.vb: IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureSetRequest(IGCLWrapper.ctl_video_processing_feature_t, IGCLWrapper.ctl_property_value_type_t, IGCLWrapper.PropertyDto, String, System.Collections.Generic.List(Of Byte))
+  name.vb: CreateVideoProcessingFeatureSetRequest(ctl_video_processing_feature_t, ctl_property_value_type_t, PropertyDto, String, List(Of Byte))
+- uid: IGCLWrapper.IGCLMediaHelper.ValidateSetVideoProcessingFeatureRequest(IGCLWrapper.VideoProcessingFeatureGetSetDto)
+  commentId: M:IGCLWrapper.IGCLMediaHelper.ValidateSetVideoProcessingFeatureRequest(IGCLWrapper.VideoProcessingFeatureGetSetDto)
+  id: ValidateSetVideoProcessingFeatureRequest(IGCLWrapper.VideoProcessingFeatureGetSetDto)
+  parent: IGCLWrapper.IGCLMediaHelper
+  langs:
+  - csharp
+  - vb
+  name: ValidateSetVideoProcessingFeatureRequest(VideoProcessingFeatureGetSetDto)
+  nameWithType: IGCLMediaHelper.ValidateSetVideoProcessingFeatureRequest(VideoProcessingFeatureGetSetDto)
+  fullName: IGCLWrapper.IGCLMediaHelper.ValidateSetVideoProcessingFeatureRequest(IGCLWrapper.VideoProcessingFeatureGetSetDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLMediaHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: ValidateSetVideoProcessingFeatureRequest
+    path: ../IGCLWrapper/IGCLMediaHelper.cs
+    startLine: 175
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Validate a video-processing set request to catch accidental default DTO usage.
+  example: []
+  syntax:
+    content: public static void ValidateSetVideoProcessingFeatureRequest(VideoProcessingFeatureGetSetDto request)
+    parameters:
+    - id: request
+      type: IGCLWrapper.VideoProcessingFeatureGetSetDto
+      description: Request DTO.
+    content.vb: Public Shared Sub ValidateSetVideoProcessingFeatureRequest(request As VideoProcessingFeatureGetSetDto)
+  overload: IGCLWrapper.IGCLMediaHelper.ValidateSetVideoProcessingFeatureRequest*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown when request appears to be an accidental default payload.
 - uid: IGCLWrapper.IGCLMediaHelper.AreVideoProcessingFeatureCapsEqual(IGCLWrapper.ctl_video_processing_feature_caps_t,IGCLWrapper.ctl_video_processing_feature_caps_t)
   commentId: M:IGCLWrapper.IGCLMediaHelper.AreVideoProcessingFeatureCapsEqual(IGCLWrapper.ctl_video_processing_feature_caps_t,IGCLWrapper.ctl_video_processing_feature_caps_t)
   id: AreVideoProcessingFeatureCapsEqual(IGCLWrapper.ctl_video_processing_feature_caps_t,IGCLWrapper.ctl_video_processing_feature_caps_t)
@@ -229,7 +356,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreVideoProcessingFeatureCapsEqual
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 132
+    startLine: 191
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -267,7 +394,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreVideoProcessingFeatureGetSetEqual
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 145
+    startLine: 204
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -305,7 +432,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 153
+    startLine: 212
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -596,6 +723,163 @@ references:
   name: CreateVideoProcessingFeatureGetSet
   nameWithType: IGCLMediaHelper.CreateVideoProcessingFeatureGetSet
   fullName: IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureGetSet
+- uid: IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureGetRequest*
+  commentId: Overload:IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureGetRequest
+  href: IGCLWrapper.IGCLMediaHelper.html#IGCLWrapper_IGCLMediaHelper_CreateVideoProcessingFeatureGetRequest_IGCLWrapper_ctl_video_processing_feature_t_IGCLWrapper_ctl_property_value_type_t_
+  name: CreateVideoProcessingFeatureGetRequest
+  nameWithType: IGCLMediaHelper.CreateVideoProcessingFeatureGetRequest
+  fullName: IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureGetRequest
+- uid: IGCLWrapper.ctl_video_processing_feature_t
+  commentId: T:IGCLWrapper.ctl_video_processing_feature_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_video_processing_feature_t.html
+  name: ctl_video_processing_feature_t
+  nameWithType: ctl_video_processing_feature_t
+  fullName: IGCLWrapper.ctl_video_processing_feature_t
+- uid: IGCLWrapper.ctl_property_value_type_t
+  commentId: T:IGCLWrapper.ctl_property_value_type_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_property_value_type_t.html
+  name: ctl_property_value_type_t
+  nameWithType: ctl_property_value_type_t
+  fullName: IGCLWrapper.ctl_property_value_type_t
+- uid: IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureSetRequest*
+  commentId: Overload:IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureSetRequest
+  href: IGCLWrapper.IGCLMediaHelper.html#IGCLWrapper_IGCLMediaHelper_CreateVideoProcessingFeatureSetRequest_IGCLWrapper_ctl_video_processing_feature_t_IGCLWrapper_ctl_property_value_type_t_IGCLWrapper_PropertyDto_System_String_System_Collections_Generic_List_System_Byte__
+  name: CreateVideoProcessingFeatureSetRequest
+  nameWithType: IGCLMediaHelper.CreateVideoProcessingFeatureSetRequest
+  fullName: IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureSetRequest
+- uid: IGCLWrapper.PropertyDto
+  commentId: T:IGCLWrapper.PropertyDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.PropertyDto.html
+  name: PropertyDto
+  nameWithType: PropertyDto
+  fullName: IGCLWrapper.PropertyDto
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Collections.Generic.List{System.Byte}
+  commentId: T:System.Collections.Generic.List{System.Byte}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<byte>
+  nameWithType: List<byte>
+  fullName: System.Collections.Generic.List<byte>
+  nameWithType.vb: List(Of Byte)
+  fullName.vb: System.Collections.Generic.List(Of Byte)
+  name.vb: List(Of Byte)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: IGCLWrapper.IGCLMediaHelper.ValidateSetVideoProcessingFeatureRequest*
+  commentId: Overload:IGCLWrapper.IGCLMediaHelper.ValidateSetVideoProcessingFeatureRequest
+  href: IGCLWrapper.IGCLMediaHelper.html#IGCLWrapper_IGCLMediaHelper_ValidateSetVideoProcessingFeatureRequest_IGCLWrapper_VideoProcessingFeatureGetSetDto_
+  name: ValidateSetVideoProcessingFeatureRequest
+  nameWithType: IGCLMediaHelper.ValidateSetVideoProcessingFeatureRequest
+  fullName: IGCLWrapper.IGCLMediaHelper.ValidateSetVideoProcessingFeatureRequest
 - uid: IGCLWrapper.IGCLMediaHelper.AreVideoProcessingFeatureCapsEqual*
   commentId: Overload:IGCLWrapper.IGCLMediaHelper.AreVideoProcessingFeatureCapsEqual
   href: IGCLWrapper.IGCLMediaHelper.html#IGCLWrapper_IGCLMediaHelper_AreVideoProcessingFeatureCapsEqual_IGCLWrapper_ctl_video_processing_feature_caps_t_IGCLWrapper_ctl_video_processing_feature_caps_t_

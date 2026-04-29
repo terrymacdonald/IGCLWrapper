@@ -160,7 +160,7 @@ Class IGCLMediaHelper  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="IGCLWrapper_IGCLMediaHelper_AreVideoProcessingFeatureCapsEqual_IGCLWrapper_ctl_video_processing_feature_caps_t_IGCLWrapper_ctl_video_processing_feature_caps_t_" data-uid="IGCLWrapper.IGCLMediaHelper.AreVideoProcessingFeatureCapsEqual(IGCLWrapper.ctl_video_processing_feature_caps_t,IGCLWrapper.ctl_video_processing_feature_caps_t)">
   AreVideoProcessingFeatureCapsEqual(ctl_video_processing_feature_caps_t, ctl_video_processing_feature_caps_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L133"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L192"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare video processing feature capabilities while ignoring native-only fields.</p>
@@ -202,7 +202,7 @@ Class IGCLMediaHelper  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="IGCLWrapper_IGCLMediaHelper_AreVideoProcessingFeatureGetSetEqual_IGCLWrapper_ctl_video_processing_feature_getset_t_IGCLWrapper_ctl_video_processing_feature_getset_t_" data-uid="IGCLWrapper.IGCLMediaHelper.AreVideoProcessingFeatureGetSetEqual(IGCLWrapper.ctl_video_processing_feature_getset_t,IGCLWrapper.ctl_video_processing_feature_getset_t)">
   AreVideoProcessingFeatureGetSetEqual(ctl_video_processing_feature_getset_t, ctl_video_processing_feature_getset_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L146"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L205"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare video processing feature get/set data while ignoring native-only fields.</p>
@@ -240,11 +240,53 @@ Class IGCLMediaHelper  <a class="header-action link-secondary" title="View sourc
 
 
 
+  <a id="IGCLWrapper_IGCLMediaHelper_CreateVideoProcessingFeatureGetRequest_" data-uid="IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureGetRequest*"></a>
+
+  <h3 id="IGCLWrapper_IGCLMediaHelper_CreateVideoProcessingFeatureGetRequest_IGCLWrapper_ctl_video_processing_feature_t_IGCLWrapper_ctl_property_value_type_t_" data-uid="IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureGetRequest(IGCLWrapper.ctl_video_processing_feature_t,IGCLWrapper.ctl_property_value_type_t)">
+  CreateVideoProcessingFeatureGetRequest(ctl_video_processing_feature_t, ctl_property_value_type_t)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Create a DTO request for a video-processing get operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static VideoProcessingFeatureGetSetDto CreateVideoProcessingFeatureGetRequest(ctl_video_processing_feature_t featureType, ctl_property_value_type_t valueType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>featureType</code> <a class="xref" href="IGCLWrapper.ctl_video_processing_feature_t.html">ctl_video_processing_feature_t</a></dt>
+    <dd><p>Feature to query.</p>
+</dd>
+    <dt><code>valueType</code> <a class="xref" href="IGCLWrapper.ctl_property_value_type_t.html">ctl_property_value_type_t</a></dt>
+    <dd><p>Expected value type.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="IGCLWrapper.VideoProcessingFeatureGetSetDto.html">VideoProcessingFeatureGetSetDto</a></dt>
+    <dd><p>Initialized get request DTO.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="IGCLWrapper_IGCLMediaHelper_CreateVideoProcessingFeatureGetSet_" data-uid="IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureGetSet*"></a>
 
   <h3 id="IGCLWrapper_IGCLMediaHelper_CreateVideoProcessingFeatureGetSet" data-uid="IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureGetSet">
   CreateVideoProcessingFeatureGetSet()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L126"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a video processing feature get/set struct with Size and Version initialized.</p>
@@ -273,11 +315,62 @@ Class IGCLMediaHelper  <a class="header-action link-secondary" title="View sourc
 
 
 
+  <a id="IGCLWrapper_IGCLMediaHelper_CreateVideoProcessingFeatureSetRequest_" data-uid="IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureSetRequest*"></a>
+
+  <h3 id="IGCLWrapper_IGCLMediaHelper_CreateVideoProcessingFeatureSetRequest_IGCLWrapper_ctl_video_processing_feature_t_IGCLWrapper_ctl_property_value_type_t_IGCLWrapper_PropertyDto_System_String_System_Collections_Generic_List_System_Byte__" data-uid="IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureSetRequest(IGCLWrapper.ctl_video_processing_feature_t,IGCLWrapper.ctl_property_value_type_t,IGCLWrapper.PropertyDto,System.String,System.Collections.Generic.List{System.Byte})">
+  CreateVideoProcessingFeatureSetRequest(ctl_video_processing_feature_t, ctl_property_value_type_t, PropertyDto, string?, List&lt;byte&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Create a DTO request for a video-processing set operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static VideoProcessingFeatureGetSetDto CreateVideoProcessingFeatureSetRequest(ctl_video_processing_feature_t featureType, ctl_property_value_type_t valueType, PropertyDto value, string? applicationName = null, List&lt;byte&gt;? customValue = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>featureType</code> <a class="xref" href="IGCLWrapper.ctl_video_processing_feature_t.html">ctl_video_processing_feature_t</a></dt>
+    <dd><p>Feature to set.</p>
+</dd>
+    <dt><code>valueType</code> <a class="xref" href="IGCLWrapper.ctl_property_value_type_t.html">ctl_property_value_type_t</a></dt>
+    <dd><p>Value type for the feature.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="IGCLWrapper.PropertyDto.html">PropertyDto</a></dt>
+    <dd><p>Feature value payload.</p>
+</dd>
+    <dt><code>applicationName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Optional application name.</p>
+</dd>
+    <dt><code>customValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</dt>
+    <dd><p>Optional custom payload bytes.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="IGCLWrapper.VideoProcessingFeatureGetSetDto.html">VideoProcessingFeatureGetSetDto</a></dt>
+    <dd><p>Initialized set request DTO.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="IGCLWrapper_IGCLMediaHelper_Dispose_" data-uid="IGCLWrapper.IGCLMediaHelper.Dispose*"></a>
 
   <h3 id="IGCLWrapper_IGCLMediaHelper_Dispose" data-uid="IGCLWrapper.IGCLMediaHelper.Dispose">
   Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L154"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L213"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Mark the helper as disposed.</p>
@@ -441,6 +534,45 @@ Class IGCLMediaHelper  <a class="header-action link-secondary" title="View sourc
 
 
 
+
+
+
+  <a id="IGCLWrapper_IGCLMediaHelper_ValidateSetVideoProcessingFeatureRequest_" data-uid="IGCLWrapper.IGCLMediaHelper.ValidateSetVideoProcessingFeatureRequest*"></a>
+
+  <h3 id="IGCLWrapper_IGCLMediaHelper_ValidateSetVideoProcessingFeatureRequest_IGCLWrapper_VideoProcessingFeatureGetSetDto_" data-uid="IGCLWrapper.IGCLMediaHelper.ValidateSetVideoProcessingFeatureRequest(IGCLWrapper.VideoProcessingFeatureGetSetDto)">
+  ValidateSetVideoProcessingFeatureRequest(VideoProcessingFeatureGetSetDto)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLMediaHelper.cs/#L176"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Validate a video-processing set request to catch accidental default DTO usage.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ValidateSetVideoProcessingFeatureRequest(VideoProcessingFeatureGetSetDto request)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>request</code> <a class="xref" href="IGCLWrapper.VideoProcessingFeatureGetSetDto.html">VideoProcessingFeatureGetSetDto</a></dt>
+    <dd><p>Request DTO.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown when request appears to be an accidental default payload.</p>
+</dd>
+  </dl>
 
 
 
