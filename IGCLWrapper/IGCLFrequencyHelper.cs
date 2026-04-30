@@ -30,29 +30,18 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get frequency domain properties using the native struct.
+        /// Get frequency domain properties as a DTO.
         /// </summary>
         /// <param name="freqHandle">Frequency domain handle.</param>
-        /// <returns>Frequency properties struct.</returns>
-        public unsafe ctl_freq_properties_t FrequencyGetPropertiesNative(IntPtr freqHandle)
+        /// <returns>Frequency properties DTO.</returns>
+        public unsafe FrequencyPropertiesDto FrequencyGetProperties(IntPtr freqHandle)
         {
             ThrowIfDisposed();
             var props = CreateFrequencyProperties();
             var result = IGCL.ctlFrequencyGetProperties((_ctl_freq_handle_t*)freqHandle, &props);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get frequency properties");
-            return props;
-        }
-
-        /// <summary>
-        /// Get frequency domain properties as a DTO.
-        /// </summary>
-        /// <param name="freqHandle">Frequency domain handle.</param>
-        /// <returns>Frequency properties DTO.</returns>
-        public FrequencyPropertiesDto FrequencyGetProperties(IntPtr freqHandle)
-        {
-            var native = FrequencyGetPropertiesNative(freqHandle);
-            return FrequencyPropertiesDto.FromNative(native);
+            return FrequencyPropertiesDto.FromNative(props);
         }
 
         /// <summary>
@@ -80,42 +69,18 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get the frequency range for a domain using the native struct.
+        /// Get the frequency range for a domain as a DTO.
         /// </summary>
         /// <param name="freqHandle">Frequency domain handle.</param>
-        /// <returns>Frequency range struct.</returns>
-        public unsafe ctl_freq_range_t FrequencyGetRangeNative(IntPtr freqHandle)
+        /// <returns>Frequency range DTO.</returns>
+        public unsafe FrequencyRangeDto FrequencyGetRange(IntPtr freqHandle)
         {
             ThrowIfDisposed();
             var range = CreateFrequencyRange();
             var result = IGCL.ctlFrequencyGetRange((_ctl_freq_handle_t*)freqHandle, &range);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get frequency range");
-            return range;
-        }
-
-        /// <summary>
-        /// Get the frequency range for a domain as a DTO.
-        /// </summary>
-        /// <param name="freqHandle">Frequency domain handle.</param>
-        /// <returns>Frequency range DTO.</returns>
-        public FrequencyRangeDto FrequencyGetRange(IntPtr freqHandle)
-        {
-            var native = FrequencyGetRangeNative(freqHandle);
-            return FrequencyRangeDto.FromNative(native);
-        }
-
-        /// <summary>
-        /// Set the frequency range for a domain using the native struct.
-        /// </summary>
-        /// <param name="freqHandle">Frequency domain handle.</param>
-        /// <param name="range">Frequency range struct.</param>
-        public unsafe void FrequencySetRangeNative(IntPtr freqHandle, ctl_freq_range_t range)
-        {
-            ThrowIfDisposed();
-            var result = IGCL.ctlFrequencySetRange((_ctl_freq_handle_t*)freqHandle, &range);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to set frequency range");
+            return FrequencyRangeDto.FromNative(range);
         }
 
         /// <summary>
@@ -123,24 +88,13 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="freqHandle">Frequency domain handle.</param>
         /// <param name="range">Frequency range DTO.</param>
-        public void FrequencySetRange(IntPtr freqHandle, FrequencyRangeDto range)
-        {
-            FrequencySetRangeNative(freqHandle, range.ToNative());
-        }
-
-        /// <summary>
-        /// Get the current frequency state using the native struct.
-        /// </summary>
-        /// <param name="freqHandle">Frequency domain handle.</param>
-        /// <returns>Frequency state struct.</returns>
-        public unsafe ctl_freq_state_t FrequencyGetStateNative(IntPtr freqHandle)
+        public unsafe void FrequencySetRange(IntPtr freqHandle, FrequencyRangeDto range)
         {
             ThrowIfDisposed();
-            var state = CreateFrequencyState();
-            var result = IGCL.ctlFrequencyGetState((_ctl_freq_handle_t*)freqHandle, &state);
+            var native = range.ToNative();
+            var result = IGCL.ctlFrequencySetRange((_ctl_freq_handle_t*)freqHandle, &native);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get frequency state");
-            return state;
+                throw new IGCLException(result, "Failed to set frequency range");
         }
 
         /// <summary>
@@ -148,25 +102,14 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="freqHandle">Frequency domain handle.</param>
         /// <returns>Frequency state DTO.</returns>
-        public FrequencyStateDto FrequencyGetState(IntPtr freqHandle)
-        {
-            var native = FrequencyGetStateNative(freqHandle);
-            return FrequencyStateDto.FromNative(native);
-        }
-
-        /// <summary>
-        /// Get the throttle time for a frequency domain using the native struct.
-        /// </summary>
-        /// <param name="freqHandle">Frequency domain handle.</param>
-        /// <returns>Throttle time struct.</returns>
-        public unsafe ctl_freq_throttle_time_t FrequencyGetThrottleTimeNative(IntPtr freqHandle)
+        public unsafe FrequencyStateDto FrequencyGetState(IntPtr freqHandle)
         {
             ThrowIfDisposed();
-            var tt = CreateFrequencyThrottleTime();
-            var result = IGCL.ctlFrequencyGetThrottleTime((_ctl_freq_handle_t*)freqHandle, &tt);
+            var state = CreateFrequencyState();
+            var result = IGCL.ctlFrequencyGetState((_ctl_freq_handle_t*)freqHandle, &state);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get throttle time");
-            return tt;
+                throw new IGCLException(result, "Failed to get frequency state");
+            return FrequencyStateDto.FromNative(state);
         }
 
         /// <summary>
@@ -174,10 +117,14 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="freqHandle">Frequency domain handle.</param>
         /// <returns>Throttle time DTO.</returns>
-        public FrequencyThrottleTimeDto FrequencyGetThrottleTime(IntPtr freqHandle)
+        public unsafe FrequencyThrottleTimeDto FrequencyGetThrottleTime(IntPtr freqHandle)
         {
-            var native = FrequencyGetThrottleTimeNative(freqHandle);
-            return FrequencyThrottleTimeDto.FromNative(native);
+            ThrowIfDisposed();
+            var tt = CreateFrequencyThrottleTime();
+            var result = IGCL.ctlFrequencyGetThrottleTime((_ctl_freq_handle_t*)freqHandle, &tt);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, "Failed to get throttle time");
+            return FrequencyThrottleTimeDto.FromNative(tt);
         }
 
         private static unsafe IReadOnlyList<IntPtr> EnumerateHandles(_ctl_device_adapter_handle_t* adapter)

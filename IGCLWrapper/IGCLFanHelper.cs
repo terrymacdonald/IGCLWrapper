@@ -30,44 +30,18 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get fan properties using the native struct.
+        /// Get fan properties as a DTO.
         /// </summary>
         /// <param name="fanHandle">Fan handle.</param>
-        /// <returns>Fan properties struct.</returns>
-        public unsafe ctl_fan_properties_t FanGetPropertiesNative(IntPtr fanHandle)
+        /// <returns>Fan properties DTO.</returns>
+        public unsafe FanPropertiesDto FanGetProperties(IntPtr fanHandle)
         {
             ThrowIfDisposed();
             var props = CreateFanProperties();
             var result = IGCL.ctlFanGetProperties((_ctl_fan_handle_t*)fanHandle, &props);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get fan properties");
-            return props;
-        }
-
-        /// <summary>
-        /// Get fan properties as a DTO.
-        /// </summary>
-        /// <param name="fanHandle">Fan handle.</param>
-        /// <returns>Fan properties DTO.</returns>
-        public FanPropertiesDto FanGetProperties(IntPtr fanHandle)
-        {
-            var native = FanGetPropertiesNative(fanHandle);
-            return FanPropertiesDto.FromNative(native);
-        }
-
-        /// <summary>
-        /// Get fan configuration using the native struct.
-        /// </summary>
-        /// <param name="fanHandle">Fan handle.</param>
-        /// <returns>Fan config struct.</returns>
-        public unsafe ctl_fan_config_t FanGetConfigNative(IntPtr fanHandle)
-        {
-            ThrowIfDisposed();
-            var config = CreateFanConfig();
-            var result = IGCL.ctlFanGetConfig((_ctl_fan_handle_t*)fanHandle, &config);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get fan config");
-            return config;
+            return FanPropertiesDto.FromNative(props);
         }
 
         /// <summary>
@@ -75,10 +49,14 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="fanHandle">Fan handle.</param>
         /// <returns>Fan config DTO.</returns>
-        public FanConfigDto FanGetConfig(IntPtr fanHandle)
+        public unsafe FanConfigDto FanGetConfig(IntPtr fanHandle)
         {
-            var native = FanGetConfigNative(fanHandle);
-            return FanConfigDto.FromNative(native);
+            ThrowIfDisposed();
+            var config = CreateFanConfig();
+            var result = IGCL.ctlFanGetConfig((_ctl_fan_handle_t*)fanHandle, &config);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, "Failed to get fan config");
+            return FanConfigDto.FromNative(config);
         }
 
         /// <summary>
@@ -94,39 +72,17 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Set the fan to fixed speed mode using the native struct.
-        /// </summary>
-        /// <param name="fanHandle">Fan handle.</param>
-        /// <param name="speed">Fan speed settings struct.</param>
-        public unsafe void FanSetFixedSpeedModeNative(IntPtr fanHandle, ctl_fan_speed_t speed)
-        {
-            ThrowIfDisposed();
-            var result = IGCL.ctlFanSetFixedSpeedMode((_ctl_fan_handle_t*)fanHandle, &speed);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to set fan fixed speed");
-        }
-
-        /// <summary>
         /// Set the fan to fixed speed mode using a DTO.
         /// </summary>
         /// <param name="fanHandle">Fan handle.</param>
         /// <param name="speed">Fan speed settings DTO.</param>
-        public void FanSetFixedSpeedMode(IntPtr fanHandle, FanSpeedDto speed)
-        {
-            FanSetFixedSpeedModeNative(fanHandle, speed.ToNative());
-        }
-
-        /// <summary>
-        /// Set the fan to speed table mode using the native struct.
-        /// </summary>
-        /// <param name="fanHandle">Fan handle.</param>
-        /// <param name="table">Fan speed table struct.</param>
-        public unsafe void FanSetSpeedTableModeNative(IntPtr fanHandle, ctl_fan_speed_table_t table)
+        public unsafe void FanSetFixedSpeedMode(IntPtr fanHandle, FanSpeedDto speed)
         {
             ThrowIfDisposed();
-            var result = IGCL.ctlFanSetSpeedTableMode((_ctl_fan_handle_t*)fanHandle, &table);
+            var native = speed.ToNative();
+            var result = IGCL.ctlFanSetFixedSpeedMode((_ctl_fan_handle_t*)fanHandle, &native);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to set fan speed table");
+                throw new IGCLException(result, "Failed to set fan fixed speed");
         }
 
         /// <summary>
@@ -134,9 +90,13 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="fanHandle">Fan handle.</param>
         /// <param name="table">Fan speed table DTO.</param>
-        public void FanSetSpeedTableMode(IntPtr fanHandle, FanSpeedTableDto table)
+        public unsafe void FanSetSpeedTableMode(IntPtr fanHandle, FanSpeedTableDto table)
         {
-            FanSetSpeedTableModeNative(fanHandle, table.ToNative());
+            ThrowIfDisposed();
+            var native = table.ToNative();
+            var result = IGCL.ctlFanSetSpeedTableMode((_ctl_fan_handle_t*)fanHandle, &native);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, "Failed to set fan speed table");
         }
 
         /// <summary>

@@ -29,44 +29,18 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get power domain properties using the native struct.
+        /// Get power domain properties as a DTO.
         /// </summary>
         /// <param name="powerHandle">Power domain handle.</param>
-        /// <returns>Power properties struct.</returns>
-        public unsafe ctl_power_properties_t PowerGetPropertiesNative(IntPtr powerHandle)
+        /// <returns>Power properties DTO.</returns>
+        public unsafe PowerPropertiesDto PowerGetProperties(IntPtr powerHandle)
         {
             ThrowIfDisposed();
             var props = CreatePowerProperties();
             var result = IGCL.ctlPowerGetProperties((_ctl_pwr_handle_t*)powerHandle, &props);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get power properties");
-            return props;
-        }
-
-        /// <summary>
-        /// Get power domain properties as a DTO.
-        /// </summary>
-        /// <param name="powerHandle">Power domain handle.</param>
-        /// <returns>Power properties DTO.</returns>
-        public PowerPropertiesDto PowerGetProperties(IntPtr powerHandle)
-        {
-            var native = PowerGetPropertiesNative(powerHandle);
-            return PowerPropertiesDto.FromNative(native);
-        }
-
-        /// <summary>
-        /// Get the power energy counter using the native struct.
-        /// </summary>
-        /// <param name="powerHandle">Power domain handle.</param>
-        /// <returns>Power energy counter struct.</returns>
-        public unsafe ctl_power_energy_counter_t PowerGetEnergyCounterNative(IntPtr powerHandle)
-        {
-            ThrowIfDisposed();
-            var counter = CreatePowerEnergyCounter();
-            var result = IGCL.ctlPowerGetEnergyCounter((_ctl_pwr_handle_t*)powerHandle, &counter);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get power energy counter");
-            return counter;
+            return PowerPropertiesDto.FromNative(props);
         }
 
         /// <summary>
@@ -74,25 +48,14 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="powerHandle">Power domain handle.</param>
         /// <returns>Power energy counter DTO.</returns>
-        public PowerEnergyCounterDto PowerGetEnergyCounter(IntPtr powerHandle)
-        {
-            var native = PowerGetEnergyCounterNative(powerHandle);
-            return PowerEnergyCounterDto.FromNative(native);
-        }
-
-        /// <summary>
-        /// Get power limits using the native struct.
-        /// </summary>
-        /// <param name="powerHandle">Power domain handle.</param>
-        /// <returns>Power limits struct.</returns>
-        public unsafe ctl_power_limits_t PowerGetLimitsNative(IntPtr powerHandle)
+        public unsafe PowerEnergyCounterDto PowerGetEnergyCounter(IntPtr powerHandle)
         {
             ThrowIfDisposed();
-            var limits = CreatePowerLimits();
-            var result = IGCL.ctlPowerGetLimits((_ctl_pwr_handle_t*)powerHandle, &limits);
+            var counter = CreatePowerEnergyCounter();
+            var result = IGCL.ctlPowerGetEnergyCounter((_ctl_pwr_handle_t*)powerHandle, &counter);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get power limits");
-            return limits;
+                throw new IGCLException(result, "Failed to get power energy counter");
+            return PowerEnergyCounterDto.FromNative(counter);
         }
 
         /// <summary>
@@ -100,23 +63,14 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="powerHandle">Power domain handle.</param>
         /// <returns>Power limits DTO.</returns>
-        public PowerLimitsDto PowerGetLimits(IntPtr powerHandle)
-        {
-            var native = PowerGetLimitsNative(powerHandle);
-            return PowerLimitsDto.FromNative(native);
-        }
-
-        /// <summary>
-        /// Set power limits using the native struct.
-        /// </summary>
-        /// <param name="powerHandle">Power domain handle.</param>
-        /// <param name="limits">Power limits struct.</param>
-        public unsafe void PowerSetLimitsNative(IntPtr powerHandle, ctl_power_limits_t limits)
+        public unsafe PowerLimitsDto PowerGetLimits(IntPtr powerHandle)
         {
             ThrowIfDisposed();
-            var result = IGCL.ctlPowerSetLimits((_ctl_pwr_handle_t*)powerHandle, &limits);
+            var limits = CreatePowerLimits();
+            var result = IGCL.ctlPowerGetLimits((_ctl_pwr_handle_t*)powerHandle, &limits);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to set power limits");
+                throw new IGCLException(result, "Failed to get power limits");
+            return PowerLimitsDto.FromNative(limits);
         }
 
         /// <summary>
@@ -124,9 +78,13 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="powerHandle">Power domain handle.</param>
         /// <param name="limits">Power limits DTO.</param>
-        public void PowerSetLimits(IntPtr powerHandle, PowerLimitsDto limits)
+        public unsafe void PowerSetLimits(IntPtr powerHandle, PowerLimitsDto limits)
         {
-            PowerSetLimitsNative(powerHandle, limits.ToNative());
+            ThrowIfDisposed();
+            var native = limits.ToNative();
+            var result = IGCL.ctlPowerSetLimits((_ctl_pwr_handle_t*)powerHandle, &native);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, "Failed to set power limits");
         }
 
         private static unsafe IReadOnlyList<IntPtr> EnumerateHandles(_ctl_device_adapter_handle_t* adapter)

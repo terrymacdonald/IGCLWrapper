@@ -3953,26 +3953,12 @@
             </summary>
             <returns>Read-only list of fan handles.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLFanHelper.FanGetPropertiesNative(System.IntPtr)">
-            <summary>
-            Get fan properties using the native struct.
-            </summary>
-            <param name="fanHandle">Fan handle.</param>
-            <returns>Fan properties struct.</returns>
-        </member>
         <member name="M:IGCLWrapper.IGCLFanHelper.FanGetProperties(System.IntPtr)">
             <summary>
             Get fan properties as a DTO.
             </summary>
             <param name="fanHandle">Fan handle.</param>
             <returns>Fan properties DTO.</returns>
-        </member>
-        <member name="M:IGCLWrapper.IGCLFanHelper.FanGetConfigNative(System.IntPtr)">
-            <summary>
-            Get fan configuration using the native struct.
-            </summary>
-            <param name="fanHandle">Fan handle.</param>
-            <returns>Fan config struct.</returns>
         </member>
         <member name="M:IGCLWrapper.IGCLFanHelper.FanGetConfig(System.IntPtr)">
             <summary>
@@ -3987,26 +3973,12 @@
             </summary>
             <param name="fanHandle">Fan handle.</param>
         </member>
-        <member name="M:IGCLWrapper.IGCLFanHelper.FanSetFixedSpeedModeNative(System.IntPtr,IGCLWrapper.ctl_fan_speed_t)">
-            <summary>
-            Set the fan to fixed speed mode using the native struct.
-            </summary>
-            <param name="fanHandle">Fan handle.</param>
-            <param name="speed">Fan speed settings struct.</param>
-        </member>
         <member name="M:IGCLWrapper.IGCLFanHelper.FanSetFixedSpeedMode(System.IntPtr,IGCLWrapper.FanSpeedDto)">
             <summary>
             Set the fan to fixed speed mode using a DTO.
             </summary>
             <param name="fanHandle">Fan handle.</param>
             <param name="speed">Fan speed settings DTO.</param>
-        </member>
-        <member name="M:IGCLWrapper.IGCLFanHelper.FanSetSpeedTableModeNative(System.IntPtr,IGCLWrapper.ctl_fan_speed_table_t)">
-            <summary>
-            Set the fan to speed table mode using the native struct.
-            </summary>
-            <param name="fanHandle">Fan handle.</param>
-            <param name="table">Fan speed table struct.</param>
         </member>
         <member name="M:IGCLWrapper.IGCLFanHelper.FanSetSpeedTableMode(System.IntPtr,IGCLWrapper.FanSpeedTableDto)">
             <summary>
@@ -4583,13 +4555,6 @@
             </summary>
             <returns>Read-only list of frequency domain handles.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLFrequencyHelper.FrequencyGetPropertiesNative(System.IntPtr)">
-            <summary>
-            Get frequency domain properties using the native struct.
-            </summary>
-            <param name="freqHandle">Frequency domain handle.</param>
-            <returns>Frequency properties struct.</returns>
-        </member>
         <member name="M:IGCLWrapper.IGCLFrequencyHelper.FrequencyGetProperties(System.IntPtr)">
             <summary>
             Get frequency domain properties as a DTO.
@@ -4604,26 +4569,12 @@
             <param name="freqHandle">Frequency domain handle.</param>
             <returns>Array of available clock values.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLFrequencyHelper.FrequencyGetRangeNative(System.IntPtr)">
-            <summary>
-            Get the frequency range for a domain using the native struct.
-            </summary>
-            <param name="freqHandle">Frequency domain handle.</param>
-            <returns>Frequency range struct.</returns>
-        </member>
         <member name="M:IGCLWrapper.IGCLFrequencyHelper.FrequencyGetRange(System.IntPtr)">
             <summary>
             Get the frequency range for a domain as a DTO.
             </summary>
             <param name="freqHandle">Frequency domain handle.</param>
             <returns>Frequency range DTO.</returns>
-        </member>
-        <member name="M:IGCLWrapper.IGCLFrequencyHelper.FrequencySetRangeNative(System.IntPtr,IGCLWrapper.ctl_freq_range_t)">
-            <summary>
-            Set the frequency range for a domain using the native struct.
-            </summary>
-            <param name="freqHandle">Frequency domain handle.</param>
-            <param name="range">Frequency range struct.</param>
         </member>
         <member name="M:IGCLWrapper.IGCLFrequencyHelper.FrequencySetRange(System.IntPtr,IGCLWrapper.FrequencyRangeDto)">
             <summary>
@@ -4632,26 +4583,12 @@
             <param name="freqHandle">Frequency domain handle.</param>
             <param name="range">Frequency range DTO.</param>
         </member>
-        <member name="M:IGCLWrapper.IGCLFrequencyHelper.FrequencyGetStateNative(System.IntPtr)">
-            <summary>
-            Get the current frequency state using the native struct.
-            </summary>
-            <param name="freqHandle">Frequency domain handle.</param>
-            <returns>Frequency state struct.</returns>
-        </member>
         <member name="M:IGCLWrapper.IGCLFrequencyHelper.FrequencyGetState(System.IntPtr)">
             <summary>
             Get the current frequency state as a DTO.
             </summary>
             <param name="freqHandle">Frequency domain handle.</param>
             <returns>Frequency state DTO.</returns>
-        </member>
-        <member name="M:IGCLWrapper.IGCLFrequencyHelper.FrequencyGetThrottleTimeNative(System.IntPtr)">
-            <summary>
-            Get the throttle time for a frequency domain using the native struct.
-            </summary>
-            <param name="freqHandle">Frequency domain handle.</param>
-            <returns>Throttle time struct.</returns>
         </member>
         <member name="M:IGCLWrapper.IGCLFrequencyHelper.FrequencyGetThrottleTime(System.IntPtr)">
             <summary>
@@ -6593,26 +6530,12 @@
             </summary>
             <returns>Read-only list of power domain handles.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLPowerHelper.PowerGetPropertiesNative(System.IntPtr)">
-            <summary>
-            Get power domain properties using the native struct.
-            </summary>
-            <param name="powerHandle">Power domain handle.</param>
-            <returns>Power properties struct.</returns>
-        </member>
         <member name="M:IGCLWrapper.IGCLPowerHelper.PowerGetProperties(System.IntPtr)">
             <summary>
             Get power domain properties as a DTO.
             </summary>
             <param name="powerHandle">Power domain handle.</param>
             <returns>Power properties DTO.</returns>
-        </member>
-        <member name="M:IGCLWrapper.IGCLPowerHelper.PowerGetEnergyCounterNative(System.IntPtr)">
-            <summary>
-            Get the power energy counter using the native struct.
-            </summary>
-            <param name="powerHandle">Power domain handle.</param>
-            <returns>Power energy counter struct.</returns>
         </member>
         <member name="M:IGCLWrapper.IGCLPowerHelper.PowerGetEnergyCounter(System.IntPtr)">
             <summary>
@@ -6621,26 +6544,12 @@
             <param name="powerHandle">Power domain handle.</param>
             <returns>Power energy counter DTO.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLPowerHelper.PowerGetLimitsNative(System.IntPtr)">
-            <summary>
-            Get power limits using the native struct.
-            </summary>
-            <param name="powerHandle">Power domain handle.</param>
-            <returns>Power limits struct.</returns>
-        </member>
         <member name="M:IGCLWrapper.IGCLPowerHelper.PowerGetLimits(System.IntPtr)">
             <summary>
             Get power limits as a DTO.
             </summary>
             <param name="powerHandle">Power domain handle.</param>
             <returns>Power limits DTO.</returns>
-        </member>
-        <member name="M:IGCLWrapper.IGCLPowerHelper.PowerSetLimitsNative(System.IntPtr,IGCLWrapper.ctl_power_limits_t)">
-            <summary>
-            Set power limits using the native struct.
-            </summary>
-            <param name="powerHandle">Power domain handle.</param>
-            <param name="limits">Power limits struct.</param>
         </member>
         <member name="M:IGCLWrapper.IGCLPowerHelper.PowerSetLimits(System.IntPtr,IGCLWrapper.PowerLimitsDto)">
             <summary>
