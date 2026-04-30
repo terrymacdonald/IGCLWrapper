@@ -21,20 +21,6 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get firmware properties for the adapter.
-        /// </summary>
-        /// <returns>Firmware properties struct.</returns>
-        public unsafe ctl_firmware_properties_t GetFirmwarePropertiesNative()
-        {
-            ThrowIfDisposed();
-            var props = CreateFirmwareProperties();
-            var result = IGCL.ctlGetFirmwareProperties((_ctl_device_adapter_handle_t*)_adapter, &props);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, $"Failed to get firmware properties: {result}");
-            return props;
-        }
-
-        /// <summary>
         /// Get firmware properties for the adapter as a DTO.
         /// </summary>
         /// <returns>Firmware properties DTO.</returns>
@@ -56,21 +42,6 @@ namespace IGCLWrapper
         {
             ThrowIfDisposed();
             return EnumerateHandles((_ctl_device_adapter_handle_t*)_adapter);
-        }
-
-        /// <summary>
-        /// Get firmware component properties.
-        /// </summary>
-        /// <param name="firmwareHandle">Firmware component handle.</param>
-        /// <returns>Firmware component properties struct.</returns>
-        public unsafe ctl_firmware_component_properties_t GetFirmwareComponentPropertiesNative(IntPtr firmwareHandle)
-        {
-            ThrowIfDisposed();
-            var props = CreateFirmwareComponentProperties();
-            var result = IGCL.ctlGetFirmwareComponentProperties((_ctl_firmware_component_handle_t*)firmwareHandle, &props);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get firmware component properties");
-            return props;
         }
 
         /// <summary>

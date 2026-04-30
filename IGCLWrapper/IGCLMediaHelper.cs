@@ -22,39 +22,15 @@ namespace IGCLWrapper
         /// <summary>
         /// Get supported video processing feature capabilities for the adapter.
         /// </summary>
-        /// <returns>Video processing feature capabilities native struct.</returns>
-        public unsafe ctl_video_processing_feature_caps_t GetSupportedVideoProcessingCapabilitiesNative()
+        /// <returns>Video processing feature capabilities DTO.</returns>
+        public unsafe VideoProcessingFeatureCapsDto GetSupportedVideoProcessingCapabilities()
         {
             ThrowIfDisposed();
             var caps = CreateVideoProcessingCaps();
             var result = IGCL.ctlGetSupportedVideoProcessingCapabilities((_ctl_device_adapter_handle_t*)_adapter, &caps);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get video processing capabilities");
-            return caps;
-        }
-
-        /// <summary>
-        /// Get supported video processing feature capabilities for the adapter.
-        /// </summary>
-        /// <returns>Video processing feature capabilities DTO.</returns>
-        public VideoProcessingFeatureCapsDto GetSupportedVideoProcessingCapabilities()
-        {
-            var native = GetSupportedVideoProcessingCapabilitiesNative();
-            return VideoProcessingFeatureCapsDto.FromNative(native);
-        }
-
-        /// <summary>
-        /// Call the native get/set video processing feature API using the provided struct.
-        /// </summary>
-        /// <param name="featureGetSet">Video processing feature get/set struct.</param>
-        /// <returns>Updated video processing feature get/set struct.</returns>
-        public unsafe ctl_video_processing_feature_getset_t GetSetVideoProcessingFeatureNative(ctl_video_processing_feature_getset_t featureGetSet)
-        {
-            ThrowIfDisposed();
-            var result = IGCL.ctlGetSetVideoProcessingFeature((_ctl_device_adapter_handle_t*)_adapter, &featureGetSet);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, $"Failed to get/set video processing feature {featureGetSet.FeatureType}");
-            return featureGetSet;
+            return VideoProcessingFeatureCapsDto.FromNative(caps);
         }
 
         /// <summary>
@@ -118,8 +94,10 @@ namespace IGCLWrapper
                 }
             }
 
-            var updated = GetSetVideoProcessingFeatureNative(native);
-            return VideoProcessingFeatureGetSetDto.FromNative(updated);
+            var result2 = IGCL.ctlGetSetVideoProcessingFeature((_ctl_device_adapter_handle_t*)_adapter, &native);
+            if (result2 != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result2, $"Failed to get/set video processing feature {native.FeatureType}");
+            return VideoProcessingFeatureGetSetDto.FromNative(native);
         }
 
         private void ThrowIfDisposed()

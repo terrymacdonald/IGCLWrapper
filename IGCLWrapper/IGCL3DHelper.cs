@@ -22,39 +22,15 @@ namespace IGCLWrapper
         /// <summary>
         /// Get supported 3D feature capabilities for the adapter.
         /// </summary>
-        /// <returns>3D feature capabilities native struct.</returns>
-        public unsafe ctl_3d_feature_caps_t GetSupported3DCapabilitiesNative()
+        /// <returns>3D feature capabilities DTO.</returns>
+        public unsafe ThreeDFeatureCapsDto GetSupported3DCapabilities()
         {
             ThrowIfDisposed();
             var caps = Create3DFeatureCaps();
             var result = IGCL.ctlGetSupported3DCapabilities((_ctl_device_adapter_handle_t*)_adapter, &caps);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get 3D capabilities");
-            return caps;
-        }
-
-        /// <summary>
-        /// Get supported 3D feature capabilities for the adapter.
-        /// </summary>
-        /// <returns>3D feature capabilities DTO.</returns>
-        public ThreeDFeatureCapsDto GetSupported3DCapabilities()
-        {
-            var native = GetSupported3DCapabilitiesNative();
-            return ThreeDFeatureCapsDto.FromNative(native);
-        }
-
-        /// <summary>
-        /// Call the native get/set 3D feature API using the provided struct.
-        /// </summary>
-        /// <param name="feature">3D feature get/set struct.</param>
-        /// <returns>Updated 3D feature get/set struct.</returns>
-        public unsafe ctl_3d_feature_getset_t GetSet3DFeatureNative(ctl_3d_feature_getset_t feature)
-        {
-            ThrowIfDisposed();
-            var result = IGCL.ctlGetSet3DFeature((_ctl_device_adapter_handle_t*)_adapter, &feature);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, $"Failed to get/set 3D feature {feature.FeatureType}");
-            return feature;
+            return ThreeDFeatureCapsDto.FromNative(caps);
         }
 
         /// <summary>
@@ -118,8 +94,10 @@ namespace IGCLWrapper
                 }
             }
 
-            var updated = GetSet3DFeatureNative(native);
-            return ThreeDFeatureGetSetDto.FromNative(updated);
+            var result2 = IGCL.ctlGetSet3DFeature((_ctl_device_adapter_handle_t*)_adapter, &native);
+            if (result2 != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result2, $"Failed to get/set 3D feature {native.FeatureType}");
+            return ThreeDFeatureGetSetDto.FromNative(native);
         }
 
         private void ThrowIfDisposed()

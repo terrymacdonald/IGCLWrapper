@@ -9,24 +9,11 @@
             3D feature helper: capabilities and get/set operations.
             </summary>
         </member>
-        <member name="M:IGCLWrapper.IGCL3DHelper.GetSupported3DCapabilitiesNative">
-            <summary>
-            Get supported 3D feature capabilities for the adapter.
-            </summary>
-            <returns>3D feature capabilities native struct.</returns>
-        </member>
         <member name="M:IGCLWrapper.IGCL3DHelper.GetSupported3DCapabilities">
             <summary>
             Get supported 3D feature capabilities for the adapter.
             </summary>
             <returns>3D feature capabilities DTO.</returns>
-        </member>
-        <member name="M:IGCLWrapper.IGCL3DHelper.GetSet3DFeatureNative(IGCLWrapper.ctl_3d_feature_getset_t)">
-            <summary>
-            Call the native get/set 3D feature API using the provided struct.
-            </summary>
-            <param name="feature">3D feature get/set struct.</param>
-            <returns>Updated 3D feature get/set struct.</returns>
         </member>
         <member name="M:IGCLWrapper.IGCL3DHelper.Get3DFeature(IGCLWrapper.ThreeDFeatureGetSetDto)">
             <summary>
@@ -4354,12 +4341,6 @@
             Firmware helper: base and component firmware queries, PCIe link speed control.
             </summary>
         </member>
-        <member name="M:IGCLWrapper.IGCLFirmwareHelper.GetFirmwarePropertiesNative">
-            <summary>
-            Get firmware properties for the adapter.
-            </summary>
-            <returns>Firmware properties struct.</returns>
-        </member>
         <member name="M:IGCLWrapper.IGCLFirmwareHelper.GetFirmwareProperties">
             <summary>
             Get firmware properties for the adapter as a DTO.
@@ -4371,13 +4352,6 @@
             Enumerate firmware component handles for the adapter.
             </summary>
             <returns>Read-only list of firmware component handles.</returns>
-        </member>
-        <member name="M:IGCLWrapper.IGCLFirmwareHelper.GetFirmwareComponentPropertiesNative(System.IntPtr)">
-            <summary>
-            Get firmware component properties.
-            </summary>
-            <param name="firmwareHandle">Firmware component handle.</param>
-            <returns>Firmware component properties struct.</returns>
         </member>
         <member name="M:IGCLWrapper.IGCLFirmwareHelper.GetFirmwareComponentProperties(System.IntPtr)">
             <summary>
@@ -5145,24 +5119,11 @@
             Media helper: video processing capabilities and get/set.
             </summary>
         </member>
-        <member name="M:IGCLWrapper.IGCLMediaHelper.GetSupportedVideoProcessingCapabilitiesNative">
-            <summary>
-            Get supported video processing feature capabilities for the adapter.
-            </summary>
-            <returns>Video processing feature capabilities native struct.</returns>
-        </member>
         <member name="M:IGCLWrapper.IGCLMediaHelper.GetSupportedVideoProcessingCapabilities">
             <summary>
             Get supported video processing feature capabilities for the adapter.
             </summary>
             <returns>Video processing feature capabilities DTO.</returns>
-        </member>
-        <member name="M:IGCLWrapper.IGCLMediaHelper.GetSetVideoProcessingFeatureNative(IGCLWrapper.ctl_video_processing_feature_getset_t)">
-            <summary>
-            Call the native get/set video processing feature API using the provided struct.
-            </summary>
-            <param name="featureGetSet">Video processing feature get/set struct.</param>
-            <returns>Updated video processing feature get/set struct.</returns>
         </member>
         <member name="M:IGCLWrapper.IGCLMediaHelper.GetVideoProcessingFeature(IGCLWrapper.VideoProcessingFeatureGetSetDto)">
             <summary>
