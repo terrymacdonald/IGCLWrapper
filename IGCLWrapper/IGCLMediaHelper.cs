@@ -151,7 +151,7 @@ namespace IGCLWrapper
                 ValueType = valueType,
                 Value = value,
                 ApplicationName = applicationName,
-                CustomValue = customValue,
+                CustomValue = customValue ?? new List<byte>(),
                 Set = true
             };
         }
@@ -311,7 +311,7 @@ namespace IGCLWrapper
                 Set = IGCLMediaDtoBool.ToBool(native.bSet),
                 ValueType = native.ValueType,
                 Value = PropertyDto.FromNative(native.Value),
-                CustomValue = ReadCustomValue(native.pCustomValue, native.CustomValueSize),
+                CustomValue = ReadCustomValue(native.pCustomValue, native.CustomValueSize) ?? new List<byte>(),
                 ReservedFields = ReadReservedFields(native.ReservedFields)
             };
         }

@@ -1580,7 +1580,7 @@ namespace IGCLWrapper
                 for (var i = 0; i < (int)native.NumModes; i++)
                     modes.Add(DisplayTimingDto.FromNative(native.pTargetModes[i]));
             }
-            return new GenlockTargetModeListDto { TargetModes = modes };
+            return new GenlockTargetModeListDto { TargetModes = modes ?? new List<DisplayTimingDto>() };
         }
     }
 
@@ -1636,8 +1636,8 @@ namespace IGCLWrapper
                 NumGenlockDisplays = native.NumGenlockDisplays,
                 IsPrimaryGenlockSystem = IGCLDisplayDtoBool.ToBool(native.IsPrimaryGenlockSystem),
                 CommonTargetMode = DisplayTimingDto.FromNative(native.CommonTargetMode),
-                GenlockDisplayInfos = null,
-                GenlockModeLists = null
+                GenlockDisplayInfos = new List<GenlockDisplayInfoDto>(),
+                GenlockModeLists = new List<GenlockTargetModeListDto>()
             };
         }
 
@@ -1659,7 +1659,7 @@ namespace IGCLWrapper
     /// </summary>
     public struct DeviceAdapterPropertiesDto : IEquatable<DeviceAdapterPropertiesDto>
     {
-        public DeviceAdapterPropertiesDto() {}
+        public DeviceAdapterPropertiesDto() { Name = string.Empty; }
         private const int NameLength = 100;
         private const int ReservedLength = 108;
         /// <summary>

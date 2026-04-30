@@ -134,7 +134,7 @@ namespace IGCLWrapper
     /// </summary>
     public struct FirmwarePropertiesDto : IEquatable<FirmwarePropertiesDto>
     {
-        public FirmwarePropertiesDto() {}
+        public FirmwarePropertiesDto() { Name = string.Empty; FirmwareVersion = string.Empty; }
         private const int NameLength = 64;
         private const int VersionLength = 64;
         private const int ReservedLength = 16;
@@ -334,7 +334,7 @@ namespace IGCLWrapper
     /// </summary>
     public struct FirmwareComponentPropertiesDto : IEquatable<FirmwareComponentPropertiesDto>
     {
-        public FirmwareComponentPropertiesDto() {}
+        public FirmwareComponentPropertiesDto() { Name = string.Empty; ComponentVersion = string.Empty; }
         private const int NameLength = 64;
         private const int VersionLength = 64;
         private const int ReservedLength = 20;

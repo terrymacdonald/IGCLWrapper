@@ -2188,7 +2188,7 @@ namespace IGCLWrapper
 
             return new GenericVoidDatatypeDto
             {
-                Data = values,
+                Data = values ?? new List<byte>(),
                 DataSize = native.size
             };
         }
@@ -3500,7 +3500,7 @@ namespace IGCLWrapper
                 NumBins = native.NumBins,
                 Enable = IGCLDisplayDtoBool.ToBool(native.Enable),
                 IsSupported = IGCLDisplayDtoBool.ToBool(native.IsSupported),
-                Histogram = histogram
+                Histogram = histogram ?? new List<uint>()
             };
         }
 
@@ -4074,7 +4074,7 @@ namespace IGCLWrapper
             {
                 MaxNumEntries = native.MaxNumEntries,
                 NumEntries = native.NumEntries,
-                LuxToAggrMappingTable = entries
+                LuxToAggrMappingTable = entries ?? new List<LaceLuxAggrMapEntryDto>()
             };
         }
 
@@ -6124,7 +6124,7 @@ namespace IGCLWrapper
                 OpType = native.OpType,
                 BlockNumber = native.BlockNumber,
                 DescriptorDataSize = native.DescriptorDataSize,
-                DescriptorData = data != null ? new List<byte>(data) : null
+                DescriptorData = data != null ? new List<byte>(data) : new List<byte>()
             };
         }
 
@@ -6176,7 +6176,7 @@ namespace IGCLWrapper
                 EdidType = native.EdidType,
                 EdidSize = native.EdidSize,
                 OutFlags = native.OutFlags,
-                EdidData = edidData != null ? new List<byte>(edidData) : null
+                EdidData = edidData != null ? new List<byte>(edidData) : new List<byte>()
             };
         }
 
