@@ -858,7 +858,7 @@ namespace IGCLWrapper
         /// Get display properties for this display handle.
         /// </summary>
         /// <returns>Display properties struct.</returns>
-        public unsafe ctl_display_properties_t GetPropertiesNative()
+        private unsafe ctl_display_properties_t GetPropertiesNative()
         {
             ThrowIfDisposed();
             lock (_lock)
@@ -901,7 +901,7 @@ namespace IGCLWrapper
         /// Get display timing information using the native struct.
         /// </summary>
         /// <returns>Display timing struct.</returns>
-        public ctl_display_timing_t GetTimingNative()
+        private ctl_display_timing_t GetTimingNative()
         {
             var props = GetPropertiesNative();
             return props.Display_Timing_Info;
@@ -963,34 +963,24 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get adapter display encoder properties using the native struct.
+        /// Get adapter display encoder properties as a DTO.
         /// </summary>
-        /// <returns>Adapter display encoder properties struct.</returns>
-        public unsafe ctl_adapter_display_encoder_properties_t GetAdapterDisplayEncoderPropertiesNative()
+        /// <returns>Adapter display encoder properties DTO.</returns>
+        public unsafe AdapterDisplayEncoderPropertiesDto GetAdapterDisplayEncoderProperties()
         {
             ThrowIfDisposed();
             var props = new ctl_adapter_display_encoder_properties_t { Size = (uint)sizeof(ctl_adapter_display_encoder_properties_t), Version = 0 };
             var result = IGCL.ctlGetAdaperDisplayEncoderProperties((_ctl_display_output_handle_t*)DisplayHandle, &props);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get adapter display encoder properties");
-            return props;
+            return AdapterDisplayEncoderPropertiesDto.FromNative(props);
         }
 
         /// <summary>
-        /// Get adapter display encoder properties as a DTO.
+        /// Get sharpness capabilities and filter properties as a DTO.
         /// </summary>
-        /// <returns>Adapter display encoder properties DTO.</returns>
-        public AdapterDisplayEncoderPropertiesDto GetAdapterDisplayEncoderProperties()
-        {
-            var native = GetAdapterDisplayEncoderPropertiesNative();
-            return AdapterDisplayEncoderPropertiesDto.FromNative(native);
-        }
-
-        /// <summary>
-        /// Get sharpness capabilities and filter properties using native structs.
-        /// </summary>
-        /// <returns>Tuple containing caps and filter properties array.</returns>
-        public unsafe (ctl_sharpness_caps_t caps, ctl_sharpness_filter_properties_t[] filters) GetSharpnessCapsNative()
+        /// <returns>Sharpness capabilities DTO.</returns>
+        public unsafe SharpnessCapsDto GetSharpnessCaps()
         {
             ThrowIfDisposed();
             var caps = CreateSharpnessCaps();
@@ -1001,7 +991,7 @@ namespace IGCLWrapper
                 throw new IGCLException(result, "Failed to get sharpness caps");
 
             if (caps.NumFilterTypes == 0)
-                return (caps, Array.Empty<ctl_sharpness_filter_properties_t>());
+                return SharpnessCapsDto.FromNative(caps, Array.Empty<ctl_sharpness_filter_properties_t>());
 
             var filters = new ctl_sharpness_filter_properties_t[caps.NumFilterTypes];
             fixed (ctl_sharpness_filter_properties_t* pFilters = filters)
@@ -1013,78 +1003,34 @@ namespace IGCLWrapper
                     throw new IGCLException(result, "Failed to get sharpness caps");
             }
 
-            return (caps, filters);
-        }
-
-        /// <summary>
-        /// Get sharpness capabilities and filter properties as a DTO.
-        /// </summary>
-        /// <returns>Sharpness capabilities DTO.</returns>
-        public SharpnessCapsDto GetSharpnessCaps()
-        {
-            var native = GetSharpnessCapsNative();
-            return SharpnessCapsDto.FromNative(native.caps, native.filters);
-        }
-
-        /// <summary>
-        /// Get current sharpness settings using the native struct.
-        /// </summary>
-        /// <returns>Sharpness settings struct.</returns>
-        public unsafe ctl_sharpness_settings_t GetCurrentSharpnessNative()
-        {
-            ThrowIfDisposed();
-            var settings = CreateSharpnessSettings();
-            var result = IGCL.ctlGetCurrentSharpness((_ctl_display_output_handle_t*)DisplayHandle, &settings);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get current sharpness");
-            return settings;
+            return SharpnessCapsDto.FromNative(caps, filters);
         }
 
         /// <summary>
         /// Get current sharpness settings as a DTO.
         /// </summary>
         /// <returns>Sharpness settings DTO.</returns>
-        public SharpnessSettingsDto GetCurrentSharpness()
-        {
-            var native = GetCurrentSharpnessNative();
-            return SharpnessSettingsDto.FromNative(native);
-        }
-
-        /// <summary>
-        /// Set sharpness settings using the native struct.
-        /// </summary>
-        /// <param name="settings">Sharpness settings struct.</param>
-        public unsafe void SetCurrentSharpnessNative(ctl_sharpness_settings_t settings)
+        public unsafe SharpnessSettingsDto GetCurrentSharpness()
         {
             ThrowIfDisposed();
-            var copy = settings;
-            var result = IGCL.ctlSetCurrentSharpness((_ctl_display_output_handle_t*)DisplayHandle, &copy);
+            var settings = CreateSharpnessSettings();
+            var result = IGCL.ctlGetCurrentSharpness((_ctl_display_output_handle_t*)DisplayHandle, &settings);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to set sharpness");
+                throw new IGCLException(result, "Failed to get current sharpness");
+            return SharpnessSettingsDto.FromNative(settings);
         }
 
         /// <summary>
         /// Set sharpness settings using a DTO.
         /// </summary>
         /// <param name="settings">Sharpness settings DTO.</param>
-        public void SetCurrentSharpness(SharpnessSettingsDto settings)
-        {
-            SetCurrentSharpnessNative(settings.ToNative());
-        }
-
-        /// <summary>
-        /// Perform I2C access using native arguments.
-        /// </summary>
-        /// <param name="args">I2C access arguments.</param>
-        public unsafe void I2CAccessNative(ref ctl_i2c_access_args_t args)
+        public unsafe void SetCurrentSharpness(SharpnessSettingsDto settings)
         {
             ThrowIfDisposed();
-            fixed (ctl_i2c_access_args_t* pArgs = &args)
-            {
-                var result = IGCL.ctlI2CAccess((_ctl_display_output_handle_t*)DisplayHandle, pArgs);
-                if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                    throw new IGCLException(result, "I2C access failed");
-            }
+            var copy = settings.ToNative();
+            var result = IGCL.ctlSetCurrentSharpness((_ctl_display_output_handle_t*)DisplayHandle, &copy);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, "Failed to set sharpness");
         }
 
         /// <summary>
@@ -1092,27 +1038,14 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="args">I2C access arguments DTO.</param>
         /// <returns>Updated I2C access arguments DTO.</returns>
-        public I2CAccessArgsDto I2CAccess(I2CAccessArgsDto args)
-        {
-            var native = args.ToNative();
-            I2CAccessNative(ref native);
-            return I2CAccessArgsDto.FromNative(native);
-        }
-
-        /// <summary>
-        /// Perform I2C access on a specific pin pair using native arguments.
-        /// </summary>
-        /// <param name="pinPair">I2C pin pair handle.</param>
-        /// <param name="args">I2C access arguments.</param>
-        public unsafe void I2CAccessOnPinPairNative(IntPtr pinPair, ref ctl_i2c_access_pinpair_args_t args)
+        public unsafe I2CAccessArgsDto I2CAccess(I2CAccessArgsDto args)
         {
             ThrowIfDisposed();
-            fixed (ctl_i2c_access_pinpair_args_t* pArgs = &args)
-            {
-                var result = IGCL.ctlI2CAccessOnPinPair((_ctl_i2c_pin_pair_handle_t*)pinPair, pArgs);
-                if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                    throw new IGCLException(result, "I2C access on pin pair failed");
-            }
+            var native = args.ToNative();
+            var result = IGCL.ctlI2CAccess((_ctl_display_output_handle_t*)DisplayHandle, &native);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, "I2C access failed");
+            return I2CAccessArgsDto.FromNative(native);
         }
 
         /// <summary>
@@ -1121,26 +1054,14 @@ namespace IGCLWrapper
         /// <param name="pinPair">I2C pin pair handle.</param>
         /// <param name="args">I2C access arguments DTO.</param>
         /// <returns>Updated I2C access pin pair arguments DTO.</returns>
-        public I2CAccessPinPairArgsDto I2CAccessOnPinPair(IntPtr pinPair, I2CAccessPinPairArgsDto args)
-        {
-            var native = args.ToNative();
-            I2CAccessOnPinPairNative(pinPair, ref native);
-            return I2CAccessPinPairArgsDto.FromNative(native);
-        }
-
-        /// <summary>
-        /// Perform AUX channel access using native arguments.
-        /// </summary>
-        /// <param name="args">AUX access arguments.</param>
-        public unsafe void AUXAccessNative(ref ctl_aux_access_args_t args)
+        public unsafe I2CAccessPinPairArgsDto I2CAccessOnPinPair(IntPtr pinPair, I2CAccessPinPairArgsDto args)
         {
             ThrowIfDisposed();
-            fixed (ctl_aux_access_args_t* pArgs = &args)
-            {
-                var result = IGCL.ctlAUXAccess((_ctl_display_output_handle_t*)DisplayHandle, pArgs);
-                if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                    throw new IGCLException(result, "AUX access failed");
-            }
+            var native = args.ToNative();
+            var result = IGCL.ctlI2CAccessOnPinPair((_ctl_i2c_pin_pair_handle_t*)pinPair, &native);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, "I2C access on pin pair failed");
+            return I2CAccessPinPairArgsDto.FromNative(native);
         }
 
         /// <summary>
@@ -1148,53 +1069,28 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="args">AUX access arguments DTO.</param>
         /// <returns>Updated AUX access arguments DTO.</returns>
-        public AuxAccessArgsDto AUXAccess(AuxAccessArgsDto args)
-        {
-            var native = args.ToNative();
-            AUXAccessNative(ref native);
-            return AuxAccessArgsDto.FromNative(native);
-        }
-
-        /// <summary>
-        /// Get power optimization capability information using the native struct.
-        /// </summary>
-        /// <returns>Power optimization capabilities struct.</returns>
-        public unsafe ctl_power_optimization_caps_t GetPowerOptimizationCapsNative()
+        public unsafe AuxAccessArgsDto AUXAccess(AuxAccessArgsDto args)
         {
             ThrowIfDisposed();
-            var caps = CreatePowerOptimizationCaps();
-            var result = IGCL.ctlGetPowerOptimizationCaps((_ctl_display_output_handle_t*)DisplayHandle, &caps);
+            var native = args.ToNative();
+            var result = IGCL.ctlAUXAccess((_ctl_display_output_handle_t*)DisplayHandle, &native);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get power optimization caps");
-            return caps;
+                throw new IGCLException(result, "AUX access failed");
+            return AuxAccessArgsDto.FromNative(native);
         }
 
         /// <summary>
         /// Get power optimization capabilities as a DTO.
         /// </summary>
         /// <returns>Power optimization capabilities DTO.</returns>
-        public PowerOptimizationCapsDto GetPowerOptimizationCaps()
-        {
-            return PowerOptimizationCapsDto.FromNative(GetPowerOptimizationCapsNative());
-        }
-
-        /// <summary>
-        /// Get power optimization settings using the native struct.
-        /// </summary>
-        /// <param name="settings">Settings request struct.</param>
-        /// <returns>Updated settings struct.</returns>
-        public unsafe ctl_power_optimization_settings_t GetPowerOptimizationSettingNative(ctl_power_optimization_settings_t settings)
+        public unsafe PowerOptimizationCapsDto GetPowerOptimizationCaps()
         {
             ThrowIfDisposed();
-            var copy = settings;
-            if (copy.Size == 0)
-                copy.Size = (uint)sizeof(ctl_power_optimization_settings_t);
-            if (copy.Version == 0)
-                copy.Version = 0;
-            var result = IGCL.ctlGetPowerOptimizationSetting((_ctl_display_output_handle_t*)DisplayHandle, &copy);
+            var caps = CreatePowerOptimizationCaps();
+            var result = IGCL.ctlGetPowerOptimizationCaps((_ctl_display_output_handle_t*)DisplayHandle, &caps);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get power optimization settings");
-            return copy;
+                throw new IGCLException(result, "Failed to get power optimization caps");
+            return PowerOptimizationCapsDto.FromNative(caps);
         }
 
         /// <summary>
@@ -1202,78 +1098,59 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="settings">Settings request DTO.</param>
         /// <returns>Updated settings DTO.</returns>
-        public PowerOptimizationSettingsDto GetPowerOptimizationSetting(PowerOptimizationSettingsDto settings)
-        {
-            var native = GetPowerOptimizationSettingNative(settings.ToNative());
-            return PowerOptimizationSettingsDto.FromNative(native);
-        }
-
-        /// <summary>
-        /// Set power optimization settings using the native struct.
-        /// </summary>
-        /// <param name="settings">Settings struct.</param>
-        public unsafe void SetPowerOptimizationSettingNative(ctl_power_optimization_settings_t settings)
+        public unsafe PowerOptimizationSettingsDto GetPowerOptimizationSetting(PowerOptimizationSettingsDto settings)
         {
             ThrowIfDisposed();
-            var copy = settings;
-            var result = IGCL.ctlSetPowerOptimizationSetting((_ctl_display_output_handle_t*)DisplayHandle, &copy);
+            var copy = settings.ToNative();
+            if (copy.Size == 0)
+                copy.Size = (uint)sizeof(ctl_power_optimization_settings_t);
+            if (copy.Version == 0)
+                copy.Version = 0;
+            var result = IGCL.ctlGetPowerOptimizationSetting((_ctl_display_output_handle_t*)DisplayHandle, &copy);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to set power optimization settings");
+                throw new IGCLException(result, "Failed to get power optimization settings");
+            return PowerOptimizationSettingsDto.FromNative(copy);
         }
 
         /// <summary>
         /// Set power optimization settings using a DTO.
         /// </summary>
         /// <param name="settings">Settings DTO.</param>
-        public void SetPowerOptimizationSetting(PowerOptimizationSettingsDto settings)
+        public unsafe void SetPowerOptimizationSetting(PowerOptimizationSettingsDto settings)
         {
             ValidateSetPowerOptimizationSettingsRequest(settings);
-            SetPowerOptimizationSettingNative(settings.ToNative());
-        }
-
-        /// <summary>
-        /// Set display brightness using the native struct.
-        /// </summary>
-        /// <param name="brightness">Brightness settings struct.</param>
-        public unsafe void SetBrightnessSettingNative(ctl_set_brightness_t brightness)
-        {
             ThrowIfDisposed();
-            var copy = brightness;
-            var result = IGCL.ctlSetBrightnessSetting((_ctl_display_output_handle_t*)DisplayHandle, &copy);
+            var copy = settings.ToNative();
+            var result = IGCL.ctlSetPowerOptimizationSetting((_ctl_display_output_handle_t*)DisplayHandle, &copy);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to set brightness");
+                throw new IGCLException(result, "Failed to set power optimization settings");
         }
 
         /// <summary>
         /// Set display brightness using a DTO.
         /// </summary>
         /// <param name="brightness">Brightness settings DTO.</param>
-        public void SetBrightnessSetting(BrightnessSetDto brightness)
-        {
-            SetBrightnessSettingNative(brightness.ToNative());
-        }
-
-        /// <summary>
-        /// Get display brightness using the native struct.
-        /// </summary>
-        /// <returns>Brightness settings struct.</returns>
-        public unsafe ctl_get_brightness_t GetBrightnessSettingNative()
+        public unsafe void SetBrightnessSetting(BrightnessSetDto brightness)
         {
             ThrowIfDisposed();
-            var brightness = CreateGetBrightness();
-            var result = IGCL.ctlGetBrightnessSetting((_ctl_display_output_handle_t*)DisplayHandle, &brightness);
+            var copy = brightness.ToNative();
+            var result = IGCL.ctlSetBrightnessSetting((_ctl_display_output_handle_t*)DisplayHandle, &copy);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, $"Failed to get brightness: {result}");
-            return brightness;
+                throw new IGCLException(result, "Failed to set brightness");
         }
 
         /// <summary>
         /// Get display brightness as a DTO.
         /// </summary>
         /// <returns>Brightness settings DTO.</returns>
-        public BrightnessGetDto GetBrightnessSetting()
+        public unsafe BrightnessGetDto GetBrightnessSetting()
         {
-            return BrightnessGetDto.FromNative(GetBrightnessSettingNative());
+            ThrowIfDisposed();
+            var brightness = CreateGetBrightness();
+            var result = IGCL.ctlGetBrightnessSetting((_ctl_display_output_handle_t*)DisplayHandle, &brightness);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, $"Failed to get brightness: {result}");
+            return BrightnessGetDto.FromNative(brightness);
         }
 
         /// <summary>
@@ -1347,19 +1224,6 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Set pixel transformation configuration using the native struct.
-        /// </summary>
-        /// <param name="args">Pipe set config arguments.</param>
-        public unsafe void PixelTransformationSetConfigNative(ctl_pixtx_pipe_set_config_t args)
-        {
-            ThrowIfDisposed();
-            var copy = args;
-            var result = IGCL.ctlPixelTransformationSetConfig((_ctl_display_output_handle_t*)DisplayHandle, &copy);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to set pixel transformation config");
-        }
-
-        /// <summary>
         /// Get pixel transformation configuration as DTOs (metadata only; LUT sample values require native methods).
         /// </summary>
         /// <param name="args">Pipe get config DTO.</param>
@@ -1374,9 +1238,26 @@ namespace IGCLWrapper
         /// Set pixel transformation configuration using a DTO (metadata only; LUT sample values require native methods).
         /// </summary>
         /// <param name="args">Pipe set config DTO.</param>
-        public void PixelTransformationSetConfig(PixtxPipeSetConfigDto args)
+        public unsafe void PixelTransformationSetConfig(PixtxPipeSetConfigDto args)
         {
-            PixelTransformationSetConfigNative(args.ToNative());
+            ThrowIfDisposed();
+            var copy = args.ToNative();
+            var result = IGCL.ctlPixelTransformationSetConfig((_ctl_display_output_handle_t*)DisplayHandle, &copy);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, "Failed to set pixel transformation config");
+        }
+
+        /// <summary>
+        /// Set pixel transformation configuration using a native struct (for advanced use cases with raw pointer fields).
+        /// </summary>
+        /// <param name="args">Pipe set config native struct.</param>
+        public unsafe void PixelTransformationSetConfigNative(ctl_pixtx_pipe_set_config_t args)
+        {
+            ThrowIfDisposed();
+            var copy = args;
+            var result = IGCL.ctlPixelTransformationSetConfig((_ctl_display_output_handle_t*)DisplayHandle, &copy);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, "Failed to set pixel transformation config");
         }
 
         /// <summary>
@@ -1384,7 +1265,7 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="args">Panel descriptor access arguments.</param>
         /// <returns>Updated panel descriptor access arguments.</returns>
-        public unsafe ctl_panel_descriptor_access_args_t PanelDescriptorAccessNative(ctl_panel_descriptor_access_args_t args)
+        private unsafe ctl_panel_descriptor_access_args_t PanelDescriptorAccessNative(ctl_panel_descriptor_access_args_t args)
         {
             ThrowIfDisposed();
             var copy = args;
@@ -1518,26 +1399,17 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get supported retro scaling capabilities using the native struct.
+        /// Get supported retro scaling capabilities as a DTO.
         /// </summary>
-        /// <returns>Retro scaling capability struct.</returns>
-        public unsafe ctl_retro_scaling_caps_t GetSupportedRetroScalingCapabilityNative()
+        /// <returns>Retro scaling capabilities DTO.</returns>
+        public unsafe RetroScalingCapsDto GetSupportedRetroScalingCapability()
         {
             ThrowIfDisposed();
             var caps = CreateRetroScalingCaps();
             var result = IGCL.ctlGetSupportedRetroScalingCapability((_ctl_device_adapter_handle_t*)AdapterHandle, &caps);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get retro scaling capability");
-            return caps;
-        }
-
-        /// <summary>
-        /// Get supported retro scaling capabilities as a DTO.
-        /// </summary>
-        /// <returns>Retro scaling capabilities DTO.</returns>
-        public RetroScalingCapsDto GetSupportedRetroScalingCapability()
-        {
-            return RetroScalingCapsDto.FromNative(GetSupportedRetroScalingCapabilityNative());
+            return RetroScalingCapsDto.FromNative(caps);
         }
 
         /// <summary>
@@ -1545,7 +1417,7 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="settings">Retro scaling settings struct.</param>
         /// <returns>Updated retro scaling settings struct.</returns>
-        public unsafe ctl_retro_scaling_settings_t GetSetRetroScalingNative(ctl_retro_scaling_settings_t settings)
+        private unsafe ctl_retro_scaling_settings_t GetSetRetroScalingNative(ctl_retro_scaling_settings_t settings)
         {
             ThrowIfDisposed();
             var copy = settings;
@@ -1589,79 +1461,51 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get supported scaling capabilities using the native struct.
+        /// Get supported scaling capabilities as a DTO.
         /// </summary>
-        /// <returns>Scaling capability struct.</returns>
-        public unsafe ctl_scaling_caps_t GetSupportedScalingCapabilityNative()
+        /// <returns>Scaling capabilities DTO.</returns>
+        public unsafe ScalingCapsDto GetSupportedScalingCapability()
         {
             ThrowIfDisposed();
             var caps = CreateScalingCaps();
             var result = IGCL.ctlGetSupportedScalingCapability((_ctl_display_output_handle_t*)DisplayHandle, &caps);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get scaling capability");
-            return caps;
-        }
-
-        /// <summary>
-        /// Get supported scaling capabilities as a DTO.
-        /// </summary>
-        /// <returns>Scaling capabilities DTO.</returns>
-        public ScalingCapsDto GetSupportedScalingCapability()
-        {
-            return ScalingCapsDto.FromNative(GetSupportedScalingCapabilityNative());
-        }
-
-        /// <summary>
-        /// Get current scaling settings using the native struct.
-        /// </summary>
-        /// <returns>Scaling settings struct.</returns>
-        public unsafe ctl_scaling_settings_t GetCurrentScalingNative()
-        {
-            ThrowIfDisposed();
-            var settings = CreateScalingSettings();
-            var result = IGCL.ctlGetCurrentScaling((_ctl_display_output_handle_t*)DisplayHandle, &settings);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get current scaling");
-            return settings;
+            return ScalingCapsDto.FromNative(caps);
         }
 
         /// <summary>
         /// Get current scaling settings as a DTO.
         /// </summary>
         /// <returns>Scaling settings DTO.</returns>
-        public ScalingSettingsDto GetCurrentScaling()
-        {
-            var native = GetCurrentScalingNative();
-            return ScalingSettingsDto.FromNative(native);
-        }
-
-        /// <summary>
-        /// Set scaling settings using the native struct.
-        /// </summary>
-        /// <param name="settings">Scaling settings struct.</param>
-        public unsafe void SetCurrentScalingNative(ctl_scaling_settings_t settings)
+        public unsafe ScalingSettingsDto GetCurrentScaling()
         {
             ThrowIfDisposed();
-            var copy = settings;
-            var result = IGCL.ctlSetCurrentScaling((_ctl_display_output_handle_t*)DisplayHandle, &copy);
+            var settings = CreateScalingSettings();
+            var result = IGCL.ctlGetCurrentScaling((_ctl_display_output_handle_t*)DisplayHandle, &settings);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to set scaling");
+                throw new IGCLException(result, "Failed to get current scaling");
+            return ScalingSettingsDto.FromNative(settings);
         }
 
         /// <summary>
         /// Set scaling settings using a DTO.
         /// </summary>
         /// <param name="settings">Scaling settings DTO.</param>
-        public void SetCurrentScaling(ScalingSettingsDto settings)
+        public unsafe void SetCurrentScaling(ScalingSettingsDto settings)
         {
-            SetCurrentScalingNative(settings.ToNative());
+            ThrowIfDisposed();
+            var copy = settings.ToNative();
+            var result = IGCL.ctlSetCurrentScaling((_ctl_display_output_handle_t*)DisplayHandle, &copy);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, "Failed to set scaling");
         }
 
         /// <summary>
-        /// Get LACE configuration using the native struct.
+        /// Get LACE configuration as a DTO.
         /// </summary>
-        /// <returns>LACE config struct.</returns>
-        public unsafe ctl_lace_config_t GetLACEConfigNative()
+        /// <returns>LACE config DTO.</returns>
+        public unsafe LaceConfigDto GetLACEConfig()
         {
             ThrowIfDisposed();
             var config = CreateLaceConfig();
@@ -1669,54 +1513,20 @@ namespace IGCLWrapper
             var result = IGCL.ctlGetLACEConfig((_ctl_display_output_handle_t*)DisplayHandle, &config);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get LACE config");
-            return config;
-        }
-
-        /// <summary>
-        /// Get LACE configuration as a DTO.
-        /// </summary>
-        /// <returns>LACE config DTO.</returns>
-        public LaceConfigDto GetLACEConfig()
-        {
-            var native = GetLACEConfigNative();
-            return LaceConfigDto.FromNative(native);
-        }
-
-        /// <summary>
-        /// Set LACE configuration using the native struct.
-        /// </summary>
-        /// <param name="config">LACE config struct.</param>
-        public unsafe void SetLACEConfigNative(ctl_lace_config_t config)
-        {
-            ThrowIfDisposed();
-            var copy = config;
-            var result = IGCL.ctlSetLACEConfig((_ctl_display_output_handle_t*)DisplayHandle, &copy);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to set LACE config");
+            return LaceConfigDto.FromNative(config);
         }
 
         /// <summary>
         /// Set LACE configuration using a DTO.
         /// </summary>
         /// <param name="config">LACE config DTO.</param>
-        public void SetLACEConfig(LaceConfigDto config)
-        {
-            SetLACEConfigNative(config.ToNative());
-        }
-
-        /// <summary>
-        /// Call the software PSR API using the native struct.
-        /// </summary>
-        /// <param name="settings">Software PSR settings struct.</param>
-        /// <returns>Updated software PSR settings struct.</returns>
-        public unsafe ctl_sw_psr_settings_t SoftwarePSRNative(ctl_sw_psr_settings_t settings)
+        public unsafe void SetLACEConfig(LaceConfigDto config)
         {
             ThrowIfDisposed();
-            var copy = settings;
-            var result = IGCL.ctlSoftwarePSR((_ctl_display_output_handle_t*)DisplayHandle, &copy);
+            var copy = config.ToNative();
+            var result = IGCL.ctlSetLACEConfig((_ctl_display_output_handle_t*)DisplayHandle, &copy);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get/set software PSR");
-            return copy;
+                throw new IGCLException(result, "Failed to set LACE config");
         }
 
         /// <summary>
@@ -1724,34 +1534,28 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="settings">Software PSR settings DTO.</param>
         /// <returns>Updated software PSR settings DTO.</returns>
-        public SwPsrSettingsDto SoftwarePSR(SwPsrSettingsDto settings)
-        {
-            var native = SoftwarePSRNative(settings.ToNative());
-            return SwPsrSettingsDto.FromNative(native);
-        }
-
-        /// <summary>
-        /// Get Intel Arc Sync info for a monitor using the native struct.
-        /// </summary>
-        /// <returns>Monitor params struct.</returns>
-        public unsafe ctl_intel_arc_sync_monitor_params_t GetIntelArcSyncInfoForMonitorNative()
+        public unsafe SwPsrSettingsDto SoftwarePSR(SwPsrSettingsDto settings)
         {
             ThrowIfDisposed();
-            var parameters = CreateArcSyncMonitorParams();
-            var result = IGCL.ctlGetIntelArcSyncInfoForMonitor((_ctl_display_output_handle_t*)DisplayHandle, &parameters);
+            var copy = settings.ToNative();
+            var result = IGCL.ctlSoftwarePSR((_ctl_display_output_handle_t*)DisplayHandle, &copy);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get Intel Arc Sync info");
-            return parameters;
+                throw new IGCLException(result, "Failed to get/set software PSR");
+            return SwPsrSettingsDto.FromNative(copy);
         }
 
         /// <summary>
         /// Get Intel Arc Sync info for a monitor as a DTO.
         /// </summary>
         /// <returns>Monitor params DTO.</returns>
-        public IntelArcSyncMonitorParamsDto GetIntelArcSyncInfoForMonitor()
+        public unsafe IntelArcSyncMonitorParamsDto GetIntelArcSyncInfoForMonitor()
         {
-            var native = GetIntelArcSyncInfoForMonitorNative();
-            return IntelArcSyncMonitorParamsDto.FromNative(native);
+            ThrowIfDisposed();
+            var parameters = CreateArcSyncMonitorParams();
+            var result = IGCL.ctlGetIntelArcSyncInfoForMonitor((_ctl_display_output_handle_t*)DisplayHandle, &parameters);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, "Failed to get Intel Arc Sync info");
+            return IntelArcSyncMonitorParamsDto.FromNative(parameters);
         }
 
         /// <summary>
@@ -1779,11 +1583,11 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get mux properties and its display outputs using native structs.
+        /// Get mux properties and display outputs as a DTO.
         /// </summary>
         /// <param name="muxHandle">Mux handle.</param>
-        /// <returns>Tuple containing mux properties and display output handles.</returns>
-        public unsafe (ctl_mux_properties_t properties, IntPtr[] displayOutputs) GetMuxPropertiesNative(IntPtr muxHandle)
+        /// <returns>Mux properties DTO.</returns>
+        public unsafe MuxPropertiesDto GetMuxProperties(IntPtr muxHandle)
         {
             ThrowIfDisposed();
             var props = CreateMuxProperties();
@@ -1805,18 +1609,7 @@ namespace IGCLWrapper
                 }
             }
 
-            return (props, outputs);
-        }
-
-        /// <summary>
-        /// Get mux properties and display outputs as a DTO.
-        /// </summary>
-        /// <param name="muxHandle">Mux handle.</param>
-        /// <returns>Mux properties DTO.</returns>
-        public MuxPropertiesDto GetMuxProperties(IntPtr muxHandle)
-        {
-            var native = GetMuxPropertiesNative(muxHandle);
-            return MuxPropertiesDto.FromNative(native.properties, native.displayOutputs);
+            return MuxPropertiesDto.FromNative(props, outputs);
         }
 
         /// <summary>
@@ -1833,48 +1626,30 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get Intel Arc Sync profile parameters using the native struct.
+        /// Get Intel Arc Sync profile parameters as a DTO.
         /// </summary>
-        /// <returns>Arc Sync profile params struct.</returns>
-        public unsafe ctl_intel_arc_sync_profile_params_t GetIntelArcSyncProfileNative()
+        /// <returns>Arc Sync profile parameters DTO.</returns>
+        public unsafe IntelArcSyncProfileParamsDto GetIntelArcSyncProfile()
         {
             ThrowIfDisposed();
             var parameters = CreateArcSyncProfileParams();
             var result = IGCL.ctlGetIntelArcSyncProfile((_ctl_display_output_handle_t*)DisplayHandle, &parameters);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get Intel Arc Sync profile");
-            return parameters;
-        }
-
-        /// <summary>
-        /// Get Intel Arc Sync profile parameters as a DTO.
-        /// </summary>
-        /// <returns>Arc Sync profile parameters DTO.</returns>
-        public IntelArcSyncProfileParamsDto GetIntelArcSyncProfile()
-        {
-            return IntelArcSyncProfileParamsDto.FromNative(GetIntelArcSyncProfileNative());
-        }
-
-        /// <summary>
-        /// Set Intel Arc Sync profile parameters using the native struct.
-        /// </summary>
-        /// <param name="parameters">Arc Sync profile params struct.</param>
-        public unsafe void SetIntelArcSyncProfileNative(ctl_intel_arc_sync_profile_params_t parameters)
-        {
-            ThrowIfDisposed();
-            var copy = parameters;
-            var result = IGCL.ctlSetIntelArcSyncProfile((_ctl_display_output_handle_t*)DisplayHandle, &copy);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to set Intel Arc Sync profile");
+            return IntelArcSyncProfileParamsDto.FromNative(parameters);
         }
 
         /// <summary>
         /// Set Intel Arc Sync profile parameters using a DTO.
         /// </summary>
         /// <param name="parameters">Arc Sync profile parameters DTO.</param>
-        public void SetIntelArcSyncProfile(IntelArcSyncProfileParamsDto parameters)
+        public unsafe void SetIntelArcSyncProfile(IntelArcSyncProfileParamsDto parameters)
         {
-            SetIntelArcSyncProfileNative(parameters.ToNative());
+            ThrowIfDisposed();
+            var copy = parameters.ToNative();
+            var result = IGCL.ctlSetIntelArcSyncProfile((_ctl_display_output_handle_t*)DisplayHandle, &copy);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, "Failed to set Intel Arc Sync profile");
         }
 
         /// <summary>
@@ -1882,7 +1657,7 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="args">EDID management arguments.</param>
         /// <returns>Updated EDID management arguments.</returns>
-        public unsafe ctl_edid_management_args_t EdidManagementNative(ctl_edid_management_args_t args)
+        private unsafe ctl_edid_management_args_t EdidManagementNative(ctl_edid_management_args_t args)
         {
             ThrowIfDisposed();
             var copy = args;
@@ -2001,7 +1776,7 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="args">Custom mode args.</param>
         /// <returns>Tuple containing updated args and modes.</returns>
-        public unsafe (ctl_get_set_custom_mode_args_t args, ctl_custom_src_mode_t[] modes) GetCustomModesNative(ctl_get_set_custom_mode_args_t args)
+        private unsafe (ctl_get_set_custom_mode_args_t args, ctl_custom_src_mode_t[] modes) GetCustomModesNative(ctl_get_set_custom_mode_args_t args)
         {
             ThrowIfDisposed();
             var request = args;
@@ -2032,23 +1807,14 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get custom display modes (native struct result).
-        /// </summary>
-        /// <returns>Tuple containing updated args and modes.</returns>
-        public unsafe (ctl_get_set_custom_mode_args_t args, ctl_custom_src_mode_t[] modes) GetCustomModesNative()
-        {
-            var args = CreateCustomModeArgs();
-            args.CustomModeOpType = ctl_custom_mode_operation_types_t.CTL_CUSTOM_MODE_OPERATION_TYPES_GET_CUSTOM_SOURCE_MODES;
-            return GetCustomModesNative(args);
-        }
-
-        /// <summary>
         /// Get custom display modes as DTOs.
         /// </summary>
         /// <returns>Custom mode result DTO.</returns>
         public CustomModesResultDto GetCustomModes()
         {
-            var native = GetCustomModesNative();
+            var args = CreateCustomModeArgs();
+            args.CustomModeOpType = ctl_custom_mode_operation_types_t.CTL_CUSTOM_MODE_OPERATION_TYPES_GET_CUSTOM_SOURCE_MODES;
+            var native = GetCustomModesNative(args);
             return CustomModesResultDto.FromNative(native.args, native.modes);
         }
 
@@ -2098,10 +1864,10 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get vblank timestamp information using the native struct.
+        /// Get vblank timestamp information as a DTO.
         /// </summary>
-        /// <returns>Vblank timestamp args struct.</returns>
-        public unsafe ctl_vblank_ts_args_t GetVblankTimestampNative()
+        /// <returns>Vblank timestamp DTO.</returns>
+        public unsafe VblankTimestampArgsDto GetVblankTimestamp()
         {
             ThrowIfDisposed();
             var args = CreateVblankTimestampArgs();
@@ -2110,16 +1876,7 @@ namespace IGCLWrapper
             var result = IGCL.ctlGetVblankTimestamp((_ctl_display_output_handle_t*)DisplayHandle, &args);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get vblank timestamp");
-            return args;
-        }
-
-        /// <summary>
-        /// Get vblank timestamp information as a DTO.
-        /// </summary>
-        /// <returns>Vblank timestamp DTO.</returns>
-        public VblankTimestampArgsDto GetVblankTimestamp()
-        {
-            return VblankTimestampArgsDto.FromNative(GetVblankTimestampNative());
+            return VblankTimestampArgsDto.FromNative(args);
         }
 
         /// <summary>
@@ -2128,7 +1885,7 @@ namespace IGCLWrapper
         /// <param name="args">DCE args struct.</param>
         /// <param name="histogram">Histogram buffer or null.</param>
         /// <returns>Tuple containing updated args and histogram.</returns>
-        public unsafe (ctl_dce_args_t args, uint[] histogram) GetSetDynamicContrastEnhancementNative(ctl_dce_args_t args, uint[]? histogram = null)
+        private unsafe (ctl_dce_args_t args, uint[] histogram) GetSetDynamicContrastEnhancementNative(ctl_dce_args_t args, uint[]? histogram = null)
         {
             ThrowIfDisposed();
             var request = args;
@@ -2203,36 +1960,6 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Call the native get/set wire format API using the provided struct.
-        /// </summary>
-        /// <param name="args">Wire format args struct.</param>
-        /// <returns>Updated wire format args struct.</returns>
-        public unsafe ctl_get_set_wire_format_config_t GetSetWireFormatNative(ctl_get_set_wire_format_config_t args)
-        {
-            ThrowIfDisposed();
-            var copy = args;
-            var result = IGCL.ctlGetSetWireFormat((_ctl_display_output_handle_t*)DisplayHandle, &copy);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get/set wire format");
-            return copy;
-        }
-
-        /// <summary>
-        /// Get wire format settings.
-        /// </summary>
-        /// <returns>Wire format args struct.</returns>
-        public unsafe ctl_get_set_wire_format_config_t GetWireFormatNative()
-        {
-            var request = new ctl_get_set_wire_format_config_t
-            {
-                Size = (uint)sizeof(ctl_get_set_wire_format_config_t),
-                Version = 0,
-                Operation = ctl_wire_format_operation_type_t.CTL_WIRE_FORMAT_OPERATION_TYPE_GET
-            };
-            return GetSetWireFormatNative(request);
-        }
-
-        /// <summary>
         /// Get wire format settings as a DTO.
         /// </summary>
         /// <returns>Wire format settings DTO.</returns>
@@ -2251,21 +1978,6 @@ namespace IGCLWrapper
                 throw new IGCLException(result, "Failed to get wire format");
 
             return WireFormatConfigDto.FromNative(request);
-        }
-
-        /// <summary>
-        /// Set wire format settings using a native struct.
-        /// </summary>
-        /// <param name="args">Wire format args struct.</param>
-        public unsafe void SetWireFormatNative(ctl_get_set_wire_format_config_t args)
-        {
-            var request = args;
-            if (request.Size == 0)
-                request.Size = (uint)sizeof(ctl_get_set_wire_format_config_t);
-            if (request.Version == 0)
-                request.Version = 0;
-            request.Operation = ctl_wire_format_operation_type_t.CTL_WIRE_FORMAT_OPERATION_TYPE_SET;
-            GetSetWireFormatNative(request);
         }
 
         /// <summary>
@@ -2292,7 +2004,7 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="args">Display settings struct.</param>
         /// <returns>Updated display settings struct.</returns>
-        public unsafe ctl_display_settings_t GetSetDisplaySettingsNative(ctl_display_settings_t args)
+        private unsafe ctl_display_settings_t GetSetDisplaySettingsNative(ctl_display_settings_t args)
         {
             ThrowIfDisposed();
             var copy = args;

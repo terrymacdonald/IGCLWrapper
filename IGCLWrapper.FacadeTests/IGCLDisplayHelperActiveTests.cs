@@ -24,8 +24,8 @@ namespace IGCLWrapper.FacadeTests
         {
             RunActiveDisplayTest(nameof(SetCurrentSharpness_ShouldApplyAndRevert_WhenSupported), display =>
             {
-                var capsInfo = FacadeTestUtils.InvokeOrSkip(() => display.GetSharpnessCapsNative(), "Sharpness caps unsupported");
-                if (capsInfo.caps.SupportedFilterFlags == 0 || capsInfo.filters.Length == 0)
+                var capsInfo = FacadeTestUtils.InvokeOrSkip(() => display.GetSharpnessCaps(), "Sharpness caps unsupported");
+                if (capsInfo.SupportedFilterFlags == 0 || (capsInfo.FilterProperties?.Count ?? 0) == 0)
                     return false;
 
                 var current = FacadeTestUtils.InvokeOrSkip(() => display.GetCurrentSharpness(), "Sharpness unsupported");
@@ -76,18 +76,22 @@ namespace IGCLWrapper.FacadeTests
                 if (newTarget == current.CurrentBrightness)
                     return false;
 
-                var setArgs = IGCLDisplayHelper.CreateSetBrightness();
-                setArgs.TargetBrightness = newTarget;
-                setArgs.SmoothTransitionTimeInMs = 200;
+                var setDto = new BrightnessSetDto
+                {
+                    TargetBrightness = newTarget,
+                    SmoothTransitionTimeInMs = 200
+                };
 
                 ApplyAndRevert(
-                    () => display.SetBrightnessSettingNative(setArgs),
+                    () => display.SetBrightnessSetting(setDto),
                     () =>
                     {
-                        var revert = IGCLDisplayHelper.CreateSetBrightness();
-                        revert.TargetBrightness = current.CurrentBrightness;
-                        revert.SmoothTransitionTimeInMs = 200;
-                        display.SetBrightnessSettingNative(revert);
+                        var revert = new BrightnessSetDto
+                        {
+                            TargetBrightness = current.CurrentBrightness,
+                            SmoothTransitionTimeInMs = 200
+                        };
+                        display.SetBrightnessSetting(revert);
                     });
 
                 return true;
@@ -100,7 +104,7 @@ namespace IGCLWrapper.FacadeTests
         {
             RunActiveDisplayTest(nameof(SetRetroScalingSettings_ShouldApplyAndRevert_WhenSupported), display =>
             {
-                var caps = FacadeTestUtils.InvokeOrSkip(() => display.GetSupportedRetroScalingCapabilityNative(), "Retro scaling caps unsupported");
+                var caps = FacadeTestUtils.InvokeOrSkip(() => display.GetSupportedRetroScalingCapability(), "Retro scaling caps unsupported");
                 if (caps.SupportedRetroScaling == 0)
                     return false;
 
@@ -119,7 +123,7 @@ namespace IGCLWrapper.FacadeTests
         {
             RunActiveDisplayTest(nameof(SetCurrentScaling_ShouldApplyAndRevert_WhenSupported), display =>
             {
-                var caps = FacadeTestUtils.InvokeOrSkip(() => display.GetSupportedScalingCapabilityNative(), "Scaling caps unsupported");
+                var caps = FacadeTestUtils.InvokeOrSkip(() => display.GetSupportedScalingCapability(), "Scaling caps unsupported");
                 if (caps.SupportedScaling == 0)
                     return false;
 
@@ -335,19 +339,19 @@ namespace IGCLWrapper.FacadeTests
 
                 foreach (var display in displays)
                 {
-                    ctl_display_properties_t props;
+                    DisplayPropertiesDto props;
                     try
                     {
-                        props = display.GetPropertiesNative();
+                        props = display.GetProperties();
                     }
                     catch (Exception ex)
                     {
-                        failures.Add($"{adapterLabel}/{display.Name}: GetPropertiesNative failed: {ex.Message}");
+                        failures.Add($"{adapterLabel}/{display.Name}: GetProperties failed: {ex.Message}");
                         continue;
                     }
 
-                    var isActive = (props.DisplayConfigFlags & (uint)ctl_display_config_flag_t.CTL_DISPLAY_CONFIG_FLAG_DISPLAY_ACTIVE) != 0;
-                    var isAttached = (props.DisplayConfigFlags & (uint)ctl_display_config_flag_t.CTL_DISPLAY_CONFIG_FLAG_DISPLAY_ATTACHED) != 0;
+                    var isActive = props.IsDisplayActive;
+                    var isAttached = props.IsDisplayAttached;
                     if (!isActive || !isAttached)
                         continue;
 
@@ -440,10 +444,10 @@ namespace IGCLWrapper.FacadeTests
                    result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION;
         }
 
-        private static bool TryBuildSharpnessUpdate((ctl_sharpness_caps_t caps, ctl_sharpness_filter_properties_t[] filters) capsInfo, SharpnessSettingsDto current, out SharpnessSettingsDto updated)
+        private static bool TryBuildSharpnessUpdate(SharpnessCapsDto capsInfo, SharpnessSettingsDto current, out SharpnessSettingsDto updated)
         {
             updated = current;
-            if (capsInfo.caps.SupportedFilterFlags == 0 || capsInfo.filters.Length == 0)
+            if (capsInfo.SupportedFilterFlags == 0 || (capsInfo.FilterProperties?.Count ?? 0) == 0)
                 return false;
 
             var filterType = PickSharpnessFilter(capsInfo, current.FilterType, out var range);
@@ -463,12 +467,13 @@ namespace IGCLWrapper.FacadeTests
                    !updated.Intensity.Equals(current.Intensity);
         }
 
-        private static uint PickSharpnessFilter((ctl_sharpness_caps_t caps, ctl_sharpness_filter_properties_t[] filters) capsInfo, uint currentFilter, out ctl_property_range_info_t range)
+        private static uint PickSharpnessFilter(SharpnessCapsDto capsInfo, uint currentFilter, out PropertyRangeInfoDto range)
         {
             range = default;
-            foreach (var filter in capsInfo.filters)
+            if (capsInfo.FilterProperties == null) return 0;
+            foreach (var filter in capsInfo.FilterProperties)
             {
-                if ((capsInfo.caps.SupportedFilterFlags & filter.FilterType) == 0)
+                if ((capsInfo.SupportedFilterFlags & filter.FilterType) == 0)
                     continue;
                 if (filter.FilterType == currentFilter)
                     continue;
@@ -477,9 +482,9 @@ namespace IGCLWrapper.FacadeTests
                 return filter.FilterType;
             }
 
-            foreach (var filter in capsInfo.filters)
+            foreach (var filter in capsInfo.FilterProperties)
             {
-                if ((capsInfo.caps.SupportedFilterFlags & filter.FilterType) == 0)
+                if ((capsInfo.SupportedFilterFlags & filter.FilterType) == 0)
                     continue;
                 if (filter.FilterType != currentFilter)
                     continue;
@@ -491,10 +496,10 @@ namespace IGCLWrapper.FacadeTests
             return 0;
         }
 
-        private static bool TryPickDifferentFloat(float current, ctl_property_range_info_t range, out float candidate)
+        private static bool TryPickDifferentFloat(float current, PropertyRangeInfoDto range, out float candidate)
         {
-            var min = range.min_possible_value;
-            var max = range.max_possible_value;
+            var min = range.MinPossibleValue;
+            var max = range.MaxPossibleValue;
 
             if (max < min)
             {
@@ -509,7 +514,7 @@ namespace IGCLWrapper.FacadeTests
                 return !candidate.Equals(current);
             }
 
-            var step = range.step_size;
+            var step = range.StepSize;
             if (step <= 0 || float.IsNaN(step))
                 step = (max - min) / 10f;
             if (step <= 0 || float.IsNaN(step))
@@ -658,7 +663,7 @@ namespace IGCLWrapper.FacadeTests
             }
         }
 
-        private static bool TryBuildRetroScalingUpdate(ctl_retro_scaling_caps_t caps, RetroScalingSettingsDto current, out RetroScalingSettingsDto updated)
+        private static bool TryBuildRetroScalingUpdate(RetroScalingCapsDto caps, RetroScalingSettingsDto current, out RetroScalingSettingsDto updated)
         {
             updated = current;
             if (caps.SupportedRetroScaling == 0)
@@ -679,7 +684,7 @@ namespace IGCLWrapper.FacadeTests
             return updated.RetroScalingType != current.RetroScalingType || updated.Enable != current.Enable;
         }
 
-        private static bool TryBuildScalingUpdate(ctl_scaling_caps_t caps, ScalingSettingsDto current, out ScalingSettingsDto updated)
+        private static bool TryBuildScalingUpdate(ScalingCapsDto caps, ScalingSettingsDto current, out ScalingSettingsDto updated)
         {
             updated = current;
             if (caps.SupportedScaling == 0)

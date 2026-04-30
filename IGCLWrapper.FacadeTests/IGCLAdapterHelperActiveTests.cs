@@ -55,11 +55,11 @@ namespace IGCLWrapper.FacadeTests
                     if (!TryParseDisplayHandle(display, out var handle))
                         continue;
 
-                    ctl_display_properties_t props;
+                    DisplayPropertiesDto props;
                     AdapterDisplayEncoderPropertiesDto encoderProps;
                     try
                     {
-                        props = display.GetPropertiesNative();
+                        props = display.GetProperties();
                         encoderProps = display.GetAdapterDisplayEncoderProperties();
                     }
                     catch (IGCLException)
@@ -67,20 +67,20 @@ namespace IGCLWrapper.FacadeTests
                         continue;
                     }
 
-                    var isDisplayActive = ((uint)props.DisplayConfigFlags & (uint)ctl_display_config_flag_t.CTL_DISPLAY_CONFIG_FLAG_DISPLAY_ACTIVE) != 0;
-                    var isDisplayAttached = ((uint)props.DisplayConfigFlags & (uint)ctl_display_config_flag_t.CTL_DISPLAY_CONFIG_FLAG_DISPLAY_ATTACHED) != 0;
+                    var isDisplayActive = props.IsDisplayActive;
+                    var isDisplayAttached = props.IsDisplayAttached;
                     var encoderFlags = encoderProps.EncoderConfigFlags;
                     var isCombinedAvailable = encoderFlags == 0 || (encoderFlags & combinedAllowedEncoderTypes) != 0;
 
                     if (!isDisplayActive || !isDisplayAttached || !isCombinedAvailable)
                         continue;
 
-                    var width = (int)props.Display_Timing_Info.HActive;
-                    var height = (int)props.Display_Timing_Info.VActive;
+                    var width = (int)props.DisplayTimingInfo.HActive;
+                    var height = (int)props.DisplayTimingInfo.VActive;
                     if (width <= 0 || height <= 0)
                         continue;
 
-                    var refreshRate = props.Display_Timing_Info.RefreshRate;
+                    var refreshRate = props.DisplayTimingInfo.RefreshRate;
                     var encoderId = encoderProps.OsDisplayEncoderHandle.WindowsDisplayEncoderId;
                     var entry = (handle, width, height, refreshRate, props.DisplayConfigFlags, encoderFlags, encoderId);
                     activeOutputs.Add(entry);
