@@ -92,5 +92,26 @@ namespace IGCLWrapper.FacadeTests
             var ex = Assert.Throws<ArgumentException>(() => IGCLMediaHelper.ValidateSetVideoProcessingFeatureRequest(default));
             Assert.Contains("default", ex.Message, StringComparison.OrdinalIgnoreCase);
         }
+
+        [Fact]
+        public void VideoProcessingFeatureCapsDto_ShouldRoundTripMetadata()
+        {
+            var native = new ctl_video_processing_feature_caps_t
+            {
+                Size = 48u,
+                Version = 2,
+                NumSupportedFeatures = 3u
+            };
+
+            var dto = VideoProcessingFeatureCapsDto.FromNative(native);
+            Assert.Equal(native.Size, dto.Size);
+            Assert.Equal(native.Version, dto.Version);
+            Assert.Equal(native.NumSupportedFeatures, dto.NumSupportedFeatures);
+            Assert.NotNull(dto.ReservedFields);
+            Assert.Equal(16, dto.ReservedFields!.Count);
+
+            var roundtrip = dto.ToNative();
+            Assert.Equal(native.NumSupportedFeatures, roundtrip.NumSupportedFeatures);
+        }
     }
 }

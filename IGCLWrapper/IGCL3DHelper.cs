@@ -22,8 +22,8 @@ namespace IGCLWrapper
         /// <summary>
         /// Get supported 3D feature capabilities for the adapter.
         /// </summary>
-        /// <returns>3D feature capabilities struct.</returns>
-        public unsafe ctl_3d_feature_caps_t GetSupported3DCapabilities()
+        /// <returns>3D feature capabilities native struct.</returns>
+        public unsafe ctl_3d_feature_caps_t GetSupported3DCapabilitiesNative()
         {
             ThrowIfDisposed();
             var caps = Create3DFeatureCaps();
@@ -31,6 +31,16 @@ namespace IGCLWrapper
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get 3D capabilities");
             return caps;
+        }
+
+        /// <summary>
+        /// Get supported 3D feature capabilities for the adapter.
+        /// </summary>
+        /// <returns>3D feature capabilities DTO.</returns>
+        public ThreeDFeatureCapsDto GetSupported3DCapabilities()
+        {
+            var native = GetSupported3DCapabilitiesNative();
+            return ThreeDFeatureCapsDto.FromNative(native);
         }
 
         /// <summary>
@@ -191,9 +201,7 @@ namespace IGCLWrapper
         /// <returns>True when equal; otherwise, false.</returns>
         public static bool Are3dFeatureCapsEqual(ctl_3d_feature_caps_t left, ctl_3d_feature_caps_t right)
         {
-            return left.Size == right.Size &&
-                   left.Version == right.Version &&
-                   left.NumSupportedFeatures == right.NumSupportedFeatures;
+            return ThreeDFeatureCapsDto.FromNative(left).Equals(ThreeDFeatureCapsDto.FromNative(right));
         }
 
         /// <summary>
@@ -597,6 +605,66 @@ namespace IGCLWrapper
                     return false;
             }
             return true;
+        }
+    }
+
+    /// <summary>
+    /// DTO for 3D feature capabilities.
+    /// </summary>
+    public struct ThreeDFeatureCapsDto : IEquatable<ThreeDFeatureCapsDto>
+    {
+        /// <summary>
+        /// Size of the native struct.
+        /// </summary>
+        public uint Size;
+        /// <summary>
+        /// Version of the native struct.
+        /// </summary>
+        public byte Version;
+        /// <summary>
+        /// Number of supported features.
+        /// </summary>
+        public uint NumSupportedFeatures;
+
+        public bool Equals(ThreeDFeatureCapsDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   NumSupportedFeatures == other.NumSupportedFeatures;
+        }
+
+        public override bool Equals(object? obj) => obj is ThreeDFeatureCapsDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(NumSupportedFeatures);
+            return hash.ToHashCode();
+        }
+
+        public static ThreeDFeatureCapsDto FromNative(ctl_3d_feature_caps_t native)
+        {
+            return new ThreeDFeatureCapsDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                NumSupportedFeatures = native.NumSupportedFeatures
+            };
+        }
+
+        public unsafe ctl_3d_feature_caps_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_3d_feature_caps_t);
+            return new ctl_3d_feature_caps_t
+            {
+                Size = size,
+                Version = Version,
+                NumSupportedFeatures = NumSupportedFeatures
+            };
         }
     }
 }

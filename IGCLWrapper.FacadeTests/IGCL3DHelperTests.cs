@@ -79,5 +79,24 @@ namespace IGCLWrapper.FacadeTests
             var ex = Assert.Throws<ArgumentException>(() => IGCL3DHelper.ValidateSet3DFeatureRequest(default));
             Assert.Contains("default", ex.Message, StringComparison.OrdinalIgnoreCase);
         }
+
+        [Fact]
+        public void ThreeDFeatureCapsDto_ShouldRoundTripMetadata()
+        {
+            var native = new ctl_3d_feature_caps_t
+            {
+                Size = 32u,
+                Version = 1,
+                NumSupportedFeatures = 5u
+            };
+
+            var dto = ThreeDFeatureCapsDto.FromNative(native);
+            Assert.Equal(native.Size, dto.Size);
+            Assert.Equal(native.Version, dto.Version);
+            Assert.Equal(native.NumSupportedFeatures, dto.NumSupportedFeatures);
+
+            var roundtrip = dto.ToNative();
+            Assert.Equal(native.NumSupportedFeatures, roundtrip.NumSupportedFeatures);
+        }
     }
 }

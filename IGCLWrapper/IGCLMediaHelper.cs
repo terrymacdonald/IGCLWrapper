@@ -22,8 +22,8 @@ namespace IGCLWrapper
         /// <summary>
         /// Get supported video processing feature capabilities for the adapter.
         /// </summary>
-        /// <returns>Video processing feature capabilities struct.</returns>
-        public unsafe ctl_video_processing_feature_caps_t GetSupportedVideoProcessingCapabilities()
+        /// <returns>Video processing feature capabilities native struct.</returns>
+        public unsafe ctl_video_processing_feature_caps_t GetSupportedVideoProcessingCapabilitiesNative()
         {
             ThrowIfDisposed();
             var caps = CreateVideoProcessingCaps();
@@ -31,6 +31,16 @@ namespace IGCLWrapper
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get video processing capabilities");
             return caps;
+        }
+
+        /// <summary>
+        /// Get supported video processing feature capabilities for the adapter.
+        /// </summary>
+        /// <returns>Video processing feature capabilities DTO.</returns>
+        public VideoProcessingFeatureCapsDto GetSupportedVideoProcessingCapabilities()
+        {
+            var native = GetSupportedVideoProcessingCapabilitiesNative();
+            return VideoProcessingFeatureCapsDto.FromNative(native);
         }
 
         /// <summary>
@@ -191,9 +201,7 @@ namespace IGCLWrapper
         /// <returns>True when equal; otherwise, false.</returns>
         public static bool AreVideoProcessingFeatureCapsEqual(ctl_video_processing_feature_caps_t left, ctl_video_processing_feature_caps_t right)
         {
-            return left.Size == right.Size &&
-                   left.Version == right.Version &&
-                   left.NumSupportedFeatures == right.NumSupportedFeatures;
+            return VideoProcessingFeatureCapsDto.FromNative(left).Equals(VideoProcessingFeatureCapsDto.FromNative(right));
         }
 
         /// <summary>
@@ -403,6 +411,97 @@ namespace IGCLWrapper
         }
 
         private static unsafe void WriteReservedFields(List<uint>? values, ref ctl_video_processing_feature_getset_t._ReservedFields_e__FixedBuffer buffer)
+        {
+            var pValues = (uint*)Unsafe.AsPointer(ref buffer.e0);
+            for (var i = 0; i < ReservedFieldCount; i++)
+                pValues[i] = 0;
+
+            if (values == null || values.Count == 0)
+                return;
+
+            var count = Math.Min(values.Count, ReservedFieldCount);
+            for (var i = 0; i < count; i++)
+                pValues[i] = values[i];
+        }
+    }
+
+    /// <summary>
+    /// DTO for video processing feature capabilities.
+    /// </summary>
+    public unsafe struct VideoProcessingFeatureCapsDto : IEquatable<VideoProcessingFeatureCapsDto>
+    {
+        private const int ReservedFieldCount = 16;
+        /// <summary>
+        /// Size of the native struct.
+        /// </summary>
+        public uint Size;
+        /// <summary>
+        /// Version of the native struct.
+        /// </summary>
+        public byte Version;
+        /// <summary>
+        /// Number of supported features.
+        /// </summary>
+        public uint NumSupportedFeatures;
+        /// <summary>
+        /// Reserved fields.
+        /// </summary>
+        public List<uint>? ReservedFields;
+
+        public bool Equals(VideoProcessingFeatureCapsDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   NumSupportedFeatures == other.NumSupportedFeatures;
+        }
+
+        public override bool Equals(object? obj) => obj is VideoProcessingFeatureCapsDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(NumSupportedFeatures);
+            return hash.ToHashCode();
+        }
+
+        public static VideoProcessingFeatureCapsDto FromNative(ctl_video_processing_feature_caps_t native)
+        {
+            return new VideoProcessingFeatureCapsDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                NumSupportedFeatures = native.NumSupportedFeatures,
+                ReservedFields = ReadReservedFields(native.ReservedFields)
+            };
+        }
+
+        public unsafe ctl_video_processing_feature_caps_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_video_processing_feature_caps_t);
+            var native = new ctl_video_processing_feature_caps_t
+            {
+                Size = size,
+                Version = Version,
+                NumSupportedFeatures = NumSupportedFeatures
+            };
+            WriteReservedFields(ReservedFields, ref native.ReservedFields);
+            return native;
+        }
+
+        private static unsafe List<uint> ReadReservedFields(ctl_video_processing_feature_caps_t._ReservedFields_e__FixedBuffer buffer)
+        {
+            var values = new List<uint>(ReservedFieldCount);
+            var pValues = (uint*)Unsafe.AsPointer(ref buffer.e0);
+            for (var i = 0; i < ReservedFieldCount; i++)
+                values.Add(pValues[i]);
+            return values;
+        }
+
+        private static unsafe void WriteReservedFields(List<uint>? values, ref ctl_video_processing_feature_caps_t._ReservedFields_e__FixedBuffer buffer)
         {
             var pValues = (uint*)Unsafe.AsPointer(ref buffer.e0);
             for (var i = 0; i < ReservedFieldCount; i++)

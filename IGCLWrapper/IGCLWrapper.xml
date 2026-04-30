@@ -9,11 +9,17 @@
             3D feature helper: capabilities and get/set operations.
             </summary>
         </member>
+        <member name="M:IGCLWrapper.IGCL3DHelper.GetSupported3DCapabilitiesNative">
+            <summary>
+            Get supported 3D feature capabilities for the adapter.
+            </summary>
+            <returns>3D feature capabilities native struct.</returns>
+        </member>
         <member name="M:IGCLWrapper.IGCL3DHelper.GetSupported3DCapabilities">
             <summary>
             Get supported 3D feature capabilities for the adapter.
             </summary>
-            <returns>3D feature capabilities struct.</returns>
+            <returns>3D feature capabilities DTO.</returns>
         </member>
         <member name="M:IGCLWrapper.IGCL3DHelper.GetSet3DFeatureNative(IGCLWrapper.ctl_3d_feature_getset_t)">
             <summary>
@@ -260,6 +266,26 @@
             Convert this DTO to a native struct (pointers are null; pin at call site).
             </summary>
             <returns>3D feature get/set struct.</returns>
+        </member>
+        <member name="T:IGCLWrapper.ThreeDFeatureCapsDto">
+            <summary>
+            DTO for 3D feature capabilities.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.ThreeDFeatureCapsDto.Size">
+            <summary>
+            Size of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.ThreeDFeatureCapsDto.Version">
+            <summary>
+            Version of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.ThreeDFeatureCapsDto.NumSupportedFeatures">
+            <summary>
+            Number of supported features.
+            </summary>
         </member>
         <member name="T:IGCLWrapper.IGCLException">
             <summary>
@@ -5229,11 +5255,17 @@
             Media helper: video processing capabilities and get/set.
             </summary>
         </member>
+        <member name="M:IGCLWrapper.IGCLMediaHelper.GetSupportedVideoProcessingCapabilitiesNative">
+            <summary>
+            Get supported video processing feature capabilities for the adapter.
+            </summary>
+            <returns>Video processing feature capabilities native struct.</returns>
+        </member>
         <member name="M:IGCLWrapper.IGCLMediaHelper.GetSupportedVideoProcessingCapabilities">
             <summary>
             Get supported video processing feature capabilities for the adapter.
             </summary>
-            <returns>Video processing feature capabilities struct.</returns>
+            <returns>Video processing feature capabilities DTO.</returns>
         </member>
         <member name="M:IGCLWrapper.IGCLMediaHelper.GetSetVideoProcessingFeatureNative(IGCLWrapper.ctl_video_processing_feature_getset_t)">
             <summary>
@@ -5390,6 +5422,31 @@
             Convert this DTO to a native struct (pointers are null; pin at call site).
             </summary>
             <returns>Video processing feature get/set struct.</returns>
+        </member>
+        <member name="T:IGCLWrapper.VideoProcessingFeatureCapsDto">
+            <summary>
+            DTO for video processing feature capabilities.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.VideoProcessingFeatureCapsDto.Size">
+            <summary>
+            Size of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.VideoProcessingFeatureCapsDto.Version">
+            <summary>
+            Version of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.VideoProcessingFeatureCapsDto.NumSupportedFeatures">
+            <summary>
+            Number of supported features.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.VideoProcessingFeatureCapsDto.ReservedFields">
+            <summary>
+            Reserved fields.
+            </summary>
         </member>
         <member name="T:IGCLWrapper.IGCLMemoryHelper">
             <summary>
