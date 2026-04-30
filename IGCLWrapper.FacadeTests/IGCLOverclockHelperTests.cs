@@ -25,5 +25,27 @@ namespace IGCLWrapper.FacadeTests
                 FacadeTestUtils.InvokeOrSkip(() => helper.OverclockTemperatureLimitGetV2(), "Temp limit unsupported");
             }
         }
+
+        [Fact]
+        public void OcVfPairDto_ShouldRoundTripMetadata()
+        {
+            var native = new ctl_oc_vf_pair_t
+            {
+                Size = 24u,
+                Version = 1,
+                Voltage = 1050.5,
+                Frequency = 1800.0
+            };
+
+            var dto = OcVfPairDto.FromNative(native);
+            Assert.Equal(native.Size, dto.Size);
+            Assert.Equal(native.Version, dto.Version);
+            Assert.Equal(native.Voltage, dto.Voltage);
+            Assert.Equal(native.Frequency, dto.Frequency);
+
+            var roundtrip = dto.ToNative();
+            Assert.Equal(native.Voltage, roundtrip.Voltage);
+            Assert.Equal(native.Frequency, roundtrip.Frequency);
+        }
     }
 }

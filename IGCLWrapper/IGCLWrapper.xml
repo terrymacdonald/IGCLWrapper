@@ -829,16 +829,16 @@
             <param name="timeOutMilliSec">Timeout in milliseconds.</param>
             <returns>Initialized wait request DTO.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLAdapterHelper.WaitForPropertyChange(IGCLWrapper.ctl_wait_property_change_args_t)">
+        <member name="M:IGCLWrapper.IGCLAdapterHelper.WaitForPropertyChangeNative(IGCLWrapper.ctl_wait_property_change_args_t)">
             <summary>
-            Wait for a property change event.
+            Wait for a property change event using the native struct.
             </summary>
-            <param name="args">Wait arguments.</param>
-            <returns>Updated wait arguments.</returns>
+            <param name="args">Wait arguments native struct.</param>
+            <returns>Updated wait arguments native struct.</returns>
         </member>
         <member name="M:IGCLWrapper.IGCLAdapterHelper.WaitForPropertyChange(IGCLWrapper.WaitPropertyChangeArgsDto)">
             <summary>
-            Wait for a property change event using a DTO request.
+            Wait for a property change event.
             </summary>
             <param name="args">Wait request DTO.</param>
             <returns>Updated wait request DTO.</returns>
@@ -5606,17 +5606,29 @@
             </summary>
             <param name="offset">Voltage offset value.</param>
         </member>
+        <member name="M:IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockGetNative">
+            <summary>
+            Get the GPU lock voltage/frequency pair using the native struct.
+            </summary>
+            <returns>Voltage/frequency pair native struct.</returns>
+        </member>
         <member name="M:IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockGet">
             <summary>
             Get the GPU lock voltage/frequency pair.
             </summary>
-            <returns>Voltage/frequency pair struct.</returns>
+            <returns>Voltage/frequency pair DTO.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockSet(IGCLWrapper.ctl_oc_vf_pair_t)">
+        <member name="M:IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockSetNative(IGCLWrapper.ctl_oc_vf_pair_t)">
+            <summary>
+            Set the GPU lock voltage/frequency pair using the native struct.
+            </summary>
+            <param name="pair">Voltage/frequency pair native struct.</param>
+        </member>
+        <member name="M:IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockSet(IGCLWrapper.OcVfPairDto)">
             <summary>
             Set the GPU lock voltage/frequency pair.
             </summary>
-            <param name="pair">Voltage/frequency pair struct.</param>
+            <param name="pair">Voltage/frequency pair DTO.</param>
         </member>
         <member name="M:IGCLWrapper.IGCLOverclockHelper.OverclockVramFrequencyOffsetGet">
             <summary>
@@ -6420,6 +6432,31 @@
             Convert this DTO to a native struct.
             </summary>
             <returns>Power telemetry struct.</returns>
+        </member>
+        <member name="T:IGCLWrapper.OcVfPairDto">
+            <summary>
+            DTO for GPU overclock voltage/frequency lock pair.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.OcVfPairDto.Size">
+            <summary>
+            Size of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.OcVfPairDto.Version">
+            <summary>
+            Version of the native struct.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.OcVfPairDto.Voltage">
+            <summary>
+            Lock voltage in mV.
+            </summary>
+        </member>
+        <member name="F:IGCLWrapper.OcVfPairDto.Frequency">
+            <summary>
+            Lock frequency in MHz.
+            </summary>
         </member>
         <member name="T:IGCLWrapper.IGCLPciHelper">
             <summary>

@@ -165,10 +165,10 @@ namespace IGCLWrapper
 
         #region GPU lock
         /// <summary>
-        /// Get the GPU lock voltage/frequency pair.
+        /// Get the GPU lock voltage/frequency pair using the native struct.
         /// </summary>
-        /// <returns>Voltage/frequency pair struct.</returns>
-        public unsafe ctl_oc_vf_pair_t OverclockGpuLockGet()
+        /// <returns>Voltage/frequency pair native struct.</returns>
+        public unsafe ctl_oc_vf_pair_t OverclockGpuLockGetNative()
         {
             ThrowIfDisposed();
             var pair = CreateVfPair();
@@ -179,10 +179,20 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Set the GPU lock voltage/frequency pair.
+        /// Get the GPU lock voltage/frequency pair.
         /// </summary>
-        /// <param name="pair">Voltage/frequency pair struct.</param>
-        public unsafe void OverclockGpuLockSet(ctl_oc_vf_pair_t pair)
+        /// <returns>Voltage/frequency pair DTO.</returns>
+        public OcVfPairDto OverclockGpuLockGet()
+        {
+            var native = OverclockGpuLockGetNative();
+            return OcVfPairDto.FromNative(native);
+        }
+
+        /// <summary>
+        /// Set the GPU lock voltage/frequency pair using the native struct.
+        /// </summary>
+        /// <param name="pair">Voltage/frequency pair native struct.</param>
+        public unsafe void OverclockGpuLockSetNative(ctl_oc_vf_pair_t pair)
         {
             ThrowIfDisposed();
             if (pair.Size == 0)
@@ -195,6 +205,15 @@ namespace IGCLWrapper
             var result = IGCL.ctlOverclockGpuLockSet((_ctl_device_adapter_handle_t*)_adapter, pair);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, OverclockError);
+        }
+
+        /// <summary>
+        /// Set the GPU lock voltage/frequency pair.
+        /// </summary>
+        /// <param name="pair">Voltage/frequency pair DTO.</param>
+        public void OverclockGpuLockSet(OcVfPairDto pair)
+        {
+            OverclockGpuLockSetNative(pair.ToNative());
         }
         #endregion
 
@@ -1608,6 +1627,74 @@ namespace IGCLWrapper
                     return false;
             }
             return true;
+        }
+    }
+
+    /// <summary>
+    /// DTO for GPU overclock voltage/frequency lock pair.
+    /// </summary>
+    public struct OcVfPairDto : IEquatable<OcVfPairDto>
+    {
+        /// <summary>
+        /// Size of the native struct.
+        /// </summary>
+        public uint Size;
+        /// <summary>
+        /// Version of the native struct.
+        /// </summary>
+        public byte Version;
+        /// <summary>
+        /// Lock voltage in mV.
+        /// </summary>
+        public double Voltage;
+        /// <summary>
+        /// Lock frequency in MHz.
+        /// </summary>
+        public double Frequency;
+
+        public bool Equals(OcVfPairDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   Voltage == other.Voltage &&
+                   Frequency == other.Frequency;
+        }
+
+        public override bool Equals(object? obj) => obj is OcVfPairDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(Voltage);
+            hash.Add(Frequency);
+            return hash.ToHashCode();
+        }
+
+        public static OcVfPairDto FromNative(ctl_oc_vf_pair_t native)
+        {
+            return new OcVfPairDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                Voltage = native.Voltage,
+                Frequency = native.Frequency
+            };
+        }
+
+        public unsafe ctl_oc_vf_pair_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_oc_vf_pair_t);
+            return new ctl_oc_vf_pair_t
+            {
+                Size = size,
+                Version = Version,
+                Voltage = Voltage,
+                Frequency = Frequency
+            };
         }
     }
 }

@@ -1263,11 +1263,11 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Wait for a property change event.
+        /// Wait for a property change event using the native struct.
         /// </summary>
-        /// <param name="args">Wait arguments.</param>
-        /// <returns>Updated wait arguments.</returns>
-        public unsafe ctl_wait_property_change_args_t WaitForPropertyChange(ctl_wait_property_change_args_t args)
+        /// <param name="args">Wait arguments native struct.</param>
+        /// <returns>Updated wait arguments native struct.</returns>
+        public unsafe ctl_wait_property_change_args_t WaitForPropertyChangeNative(ctl_wait_property_change_args_t args)
         {
             ThrowIfDisposed();
             var copy = args;
@@ -1282,13 +1282,13 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Wait for a property change event using a DTO request.
+        /// Wait for a property change event.
         /// </summary>
         /// <param name="args">Wait request DTO.</param>
         /// <returns>Updated wait request DTO.</returns>
         public WaitPropertyChangeArgsDto WaitForPropertyChange(WaitPropertyChangeArgsDto args)
         {
-            var native = WaitForPropertyChange(args.ToNative());
+            var native = WaitForPropertyChangeNative(args.ToNative());
             return WaitPropertyChangeArgsDto.FromNative(native);
         }
 
