@@ -29,44 +29,18 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get LED properties using the native struct.
+        /// Get LED properties as a DTO.
         /// </summary>
         /// <param name="ledHandle">LED handle.</param>
-        /// <returns>LED properties struct.</returns>
-        public unsafe ctl_led_properties_t LedGetPropertiesNative(IntPtr ledHandle)
+        /// <returns>LED properties DTO.</returns>
+        public unsafe LedPropertiesDto LedGetProperties(IntPtr ledHandle)
         {
             ThrowIfDisposed();
             var props = CreateLedProperties();
             var result = IGCL.ctlLedGetProperties((_ctl_led_handle_t*)ledHandle, &props);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get LED properties");
-            return props;
-        }
-
-        /// <summary>
-        /// Get LED properties as a DTO.
-        /// </summary>
-        /// <param name="ledHandle">LED handle.</param>
-        /// <returns>LED properties DTO.</returns>
-        public LedPropertiesDto LedGetProperties(IntPtr ledHandle)
-        {
-            var native = LedGetPropertiesNative(ledHandle);
-            return LedPropertiesDto.FromNative(native);
-        }
-
-        /// <summary>
-        /// Get LED state using the native struct.
-        /// </summary>
-        /// <param name="ledHandle">LED handle.</param>
-        /// <returns>LED state struct.</returns>
-        public unsafe ctl_led_state_t LedGetStateNative(IntPtr ledHandle)
-        {
-            ThrowIfDisposed();
-            var state = CreateLedState();
-            var result = IGCL.ctlLedGetState((_ctl_led_handle_t*)ledHandle, &state);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get LED state");
-            return state;
+            return LedPropertiesDto.FromNative(props);
         }
 
         /// <summary>
@@ -74,23 +48,14 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="ledHandle">LED handle.</param>
         /// <returns>LED state DTO.</returns>
-        public LedStateDto LedGetState(IntPtr ledHandle)
-        {
-            var native = LedGetStateNative(ledHandle);
-            return LedStateDto.FromNative(native);
-        }
-
-        /// <summary>
-        /// Set LED state using the native struct.
-        /// </summary>
-        /// <param name="ledHandle">LED handle.</param>
-        /// <param name="state">LED state struct.</param>
-        public unsafe void LedSetStateNative(IntPtr ledHandle, ctl_led_state_t state)
+        public unsafe LedStateDto LedGetState(IntPtr ledHandle)
         {
             ThrowIfDisposed();
-            var result = IGCL.ctlLedSetState((_ctl_led_handle_t*)ledHandle, &state, (uint)sizeof(ctl_led_state_t));
+            var state = CreateLedState();
+            var result = IGCL.ctlLedGetState((_ctl_led_handle_t*)ledHandle, &state);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to set LED state");
+                throw new IGCLException(result, "Failed to get LED state");
+            return LedStateDto.FromNative(state);
         }
 
         /// <summary>
@@ -98,9 +63,13 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="ledHandle">LED handle.</param>
         /// <param name="state">LED state DTO.</param>
-        public void LedSetState(IntPtr ledHandle, LedStateDto state)
+        public unsafe void LedSetState(IntPtr ledHandle, LedStateDto state)
         {
-            LedSetStateNative(ledHandle, state.ToNative());
+            ThrowIfDisposed();
+            var native = state.ToNative();
+            var result = IGCL.ctlLedSetState((_ctl_led_handle_t*)ledHandle, &native, (uint)sizeof(ctl_led_state_t));
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, "Failed to set LED state");
         }
 
         private static unsafe IReadOnlyList<IntPtr> EnumerateHandles(_ctl_device_adapter_handle_t* adapter)

@@ -21,27 +21,17 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get overclock properties using the native struct.
+        /// Get overclock properties as a DTO.
         /// </summary>
-        /// <returns>Overclock properties struct.</returns>
-        public unsafe ctl_oc_properties_t GetPropertiesNative()
+        /// <returns>Overclock properties DTO.</returns>
+        public unsafe OverclockPropertiesDto GetProperties()
         {
             ThrowIfDisposed();
             var props = CreateOverclockProperties();
             var result = IGCL.ctlOverclockGetProperties((_ctl_device_adapter_handle_t*)_adapter, &props);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get overclock properties");
-            return props;
-        }
-
-        /// <summary>
-        /// Get overclock properties as a DTO.
-        /// </summary>
-        /// <returns>Overclock properties DTO.</returns>
-        public OverclockPropertiesDto GetProperties()
-        {
-            var native = GetPropertiesNative();
-            return OverclockPropertiesDto.FromNative(native);
+            return OverclockPropertiesDto.FromNative(props);
         }
 
         /// <summary>
@@ -165,55 +155,37 @@ namespace IGCLWrapper
 
         #region GPU lock
         /// <summary>
-        /// Get the GPU lock voltage/frequency pair using the native struct.
+        /// Get the GPU lock voltage/frequency pair.
         /// </summary>
-        /// <returns>Voltage/frequency pair native struct.</returns>
-        public unsafe ctl_oc_vf_pair_t OverclockGpuLockGetNative()
+        /// <returns>Voltage/frequency pair DTO.</returns>
+        public unsafe OcVfPairDto OverclockGpuLockGet()
         {
             ThrowIfDisposed();
             var pair = CreateVfPair();
             var result = IGCL.ctlOverclockGpuLockGet((_ctl_device_adapter_handle_t*)_adapter, &pair);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, OverclockError);
-            return pair;
-        }
-
-        /// <summary>
-        /// Get the GPU lock voltage/frequency pair.
-        /// </summary>
-        /// <returns>Voltage/frequency pair DTO.</returns>
-        public OcVfPairDto OverclockGpuLockGet()
-        {
-            var native = OverclockGpuLockGetNative();
-            return OcVfPairDto.FromNative(native);
-        }
-
-        /// <summary>
-        /// Set the GPU lock voltage/frequency pair using the native struct.
-        /// </summary>
-        /// <param name="pair">Voltage/frequency pair native struct.</param>
-        public unsafe void OverclockGpuLockSetNative(ctl_oc_vf_pair_t pair)
-        {
-            ThrowIfDisposed();
-            if (pair.Size == 0)
-            {
-                var init = CreateVfPair();
-                init.Frequency = pair.Frequency;
-                init.Voltage = pair.Voltage;
-                pair = init;
-            }
-            var result = IGCL.ctlOverclockGpuLockSet((_ctl_device_adapter_handle_t*)_adapter, pair);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, OverclockError);
+            return OcVfPairDto.FromNative(pair);
         }
 
         /// <summary>
         /// Set the GPU lock voltage/frequency pair.
         /// </summary>
         /// <param name="pair">Voltage/frequency pair DTO.</param>
-        public void OverclockGpuLockSet(OcVfPairDto pair)
+        public unsafe void OverclockGpuLockSet(OcVfPairDto pair)
         {
-            OverclockGpuLockSetNative(pair.ToNative());
+            ThrowIfDisposed();
+            var native = pair.ToNative();
+            if (native.Size == 0)
+            {
+                var init = CreateVfPair();
+                init.Frequency = native.Frequency;
+                init.Voltage = native.Voltage;
+                native = init;
+            }
+            var result = IGCL.ctlOverclockGpuLockSet((_ctl_device_adapter_handle_t*)_adapter, native);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, OverclockError);
         }
         #endregion
 
@@ -406,27 +378,17 @@ namespace IGCLWrapper
         #endregion
 
         /// <summary>
-        /// Get power telemetry using the native struct.
+        /// Get power telemetry as a DTO.
         /// </summary>
-        /// <returns>Power telemetry struct.</returns>
-        public unsafe ctl_power_telemetry_t GetPowerTelemetryNative()
+        /// <returns>Power telemetry DTO.</returns>
+        public unsafe PowerTelemetryDto GetPowerTelemetry()
         {
             ThrowIfDisposed();
             var telemetry = CreatePowerTelemetry();
             var result = IGCL.ctlPowerTelemetryGet((_ctl_device_adapter_handle_t*)_adapter, &telemetry);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, OverclockError);
-            return telemetry;
-        }
-
-        /// <summary>
-        /// Get power telemetry as a DTO.
-        /// </summary>
-        /// <returns>Power telemetry DTO.</returns>
-        public PowerTelemetryDto GetPowerTelemetry()
-        {
-            var native = GetPowerTelemetryNative();
-            return PowerTelemetryDto.FromNative(native);
+            return PowerTelemetryDto.FromNative(telemetry);
         }
 
         /// <summary>

@@ -4931,13 +4931,6 @@
             </summary>
             <returns>Read-only list of LED handles.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLLedHelper.LedGetPropertiesNative(System.IntPtr)">
-            <summary>
-            Get LED properties using the native struct.
-            </summary>
-            <param name="ledHandle">LED handle.</param>
-            <returns>LED properties struct.</returns>
-        </member>
         <member name="M:IGCLWrapper.IGCLLedHelper.LedGetProperties(System.IntPtr)">
             <summary>
             Get LED properties as a DTO.
@@ -4945,26 +4938,12 @@
             <param name="ledHandle">LED handle.</param>
             <returns>LED properties DTO.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLLedHelper.LedGetStateNative(System.IntPtr)">
-            <summary>
-            Get LED state using the native struct.
-            </summary>
-            <param name="ledHandle">LED handle.</param>
-            <returns>LED state struct.</returns>
-        </member>
         <member name="M:IGCLWrapper.IGCLLedHelper.LedGetState(System.IntPtr)">
             <summary>
             Get LED state as a DTO.
             </summary>
             <param name="ledHandle">LED handle.</param>
             <returns>LED state DTO.</returns>
-        </member>
-        <member name="M:IGCLWrapper.IGCLLedHelper.LedSetStateNative(System.IntPtr,IGCLWrapper.ctl_led_state_t)">
-            <summary>
-            Set LED state using the native struct.
-            </summary>
-            <param name="ledHandle">LED handle.</param>
-            <param name="state">LED state struct.</param>
         </member>
         <member name="M:IGCLWrapper.IGCLLedHelper.LedSetState(System.IntPtr,IGCLWrapper.LedStateDto)">
             <summary>
@@ -5431,12 +5410,6 @@
             Overclock helper: properties, offsets, limits, telemetry, and reset.
             </summary>
         </member>
-        <member name="M:IGCLWrapper.IGCLOverclockHelper.GetPropertiesNative">
-            <summary>
-            Get overclock properties using the native struct.
-            </summary>
-            <returns>Overclock properties struct.</returns>
-        </member>
         <member name="M:IGCLWrapper.IGCLOverclockHelper.GetProperties">
             <summary>
             Get overclock properties as a DTO.
@@ -5496,23 +5469,11 @@
             </summary>
             <param name="offset">Voltage offset value.</param>
         </member>
-        <member name="M:IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockGetNative">
-            <summary>
-            Get the GPU lock voltage/frequency pair using the native struct.
-            </summary>
-            <returns>Voltage/frequency pair native struct.</returns>
-        </member>
         <member name="M:IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockGet">
             <summary>
             Get the GPU lock voltage/frequency pair.
             </summary>
             <returns>Voltage/frequency pair DTO.</returns>
-        </member>
-        <member name="M:IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockSetNative(IGCLWrapper.ctl_oc_vf_pair_t)">
-            <summary>
-            Set the GPU lock voltage/frequency pair using the native struct.
-            </summary>
-            <param name="pair">Voltage/frequency pair native struct.</param>
         </member>
         <member name="M:IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockSet(IGCLWrapper.OcVfPairDto)">
             <summary>
@@ -5603,12 +5564,6 @@
             Set the overclock temperature limit (V2).
             </summary>
             <param name="value">Temperature limit value.</param>
-        </member>
-        <member name="M:IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetryNative">
-            <summary>
-            Get power telemetry using the native struct.
-            </summary>
-            <returns>Power telemetry struct.</returns>
         </member>
         <member name="M:IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry">
             <summary>
