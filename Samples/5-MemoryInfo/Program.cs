@@ -48,13 +48,13 @@ namespace MemoryInfo
             {
                 var props = memoryHelper.MemoryGetProperties(modules[i]);
                 Console.WriteLine($"Module {i + 1}:");
-                Console.WriteLine($"  Type       : {props.type}");
-                Console.WriteLine($"  Bus Width  : {props.busWidth} bits");
-                Console.WriteLine($"  Location   : {props.location}");
+                Console.WriteLine($"  Type       : {props.Type}");
+                Console.WriteLine($"  Bus Width  : {props.BusWidth} bits");
+                Console.WriteLine($"  Location   : {props.Location}");
 
                 var state = memoryHelper.MemoryGetState(modules[i]);
-                Console.WriteLine($"  Free       : {state.free / (1024 * 1024)} MB");
-                Console.WriteLine($"  Total      : {state.size / (1024 * 1024)} MB\n");
+                Console.WriteLine($"  Free       : {state.Free / (1024 * 1024)} MB");
+                Console.WriteLine($"  Total      : {state.TotalSize / (1024 * 1024)} MB\n");
             }
         }
     }

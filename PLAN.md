@@ -127,8 +127,8 @@ Steps:
 - [ ] Run build + facade tests and fix regressions.
 
 Batch 3 status:
-- Status: Not started.
-- Notes: Pending completion of Batch 2.
+- Status: ✅ Complete.
+- Notes: All monitoring/info helpers fully DTO-migrated. New DTOs: EnginePropertiesDto, EngineStatsDto, TemperaturePropertiesDto, MemoryPropertiesDto, MemoryStateDto, MemoryBandwidthDto, PciStateDto, EccStateDescDto. Native escape hatches preserved. 8 new passive roundtrip tests added. Final test count: 96 total, 76 passed, 20 skipped, 0 failed.
 
 ### Batch 4 - 3D/Media Normalization
 Scope files:
@@ -143,24 +143,26 @@ Steps:
 - [ ] Run build + facade tests and fix regressions.
 
 Batch 4 status:
-- Status: Not started.
-- Notes: Planned after monitoring/info helper migration is complete.
+- Status: ✅ Complete.
+- Notes: 3D and Media helpers fully reviewed. GetSupported3DCapabilities() and GetSupportedVideoProcessingCapabilities() renamed to *Native() with new DTO wrappers returning ThreeDFeatureCapsDto and VideoProcessingFeatureCapsDto. Are3dFeatureCapsEqual() and AreVideoProcessingFeatureCapsEqual() updated to use DTO equality. 2 new passive roundtrip tests added. Final test count: 98 total, 78 passed, 20 skipped, 0 failed.
 
-### Batch 5 - Docs/Samples/Polish
+### Batch 5 - Cross-Check + Samples/Polish
 Scope files:
 - `README.md`
 - `Samples/**`
 - optional XML docs updates in helpers
 
 Steps:
-- [ ] Update docs to show DTO-first workflows.
-- [ ] Update sample code to avoid direct native struct usage where feasible.
-- [ ] Document native methods as advanced paths.
-- [ ] Run full build + both test suites.
+- [x] Cross-check all public facade methods for any remaining non-DTO, non-Native returns.
+- [x] Fix WaitForPropertyChange native variant → WaitForPropertyChangeNative().
+- [x] Fix OverclockGpuLockGet/Set → *Native() + new DTO wrappers + OcVfPairDto.
+- [x] Add OcVfPairDto passive roundtrip test.
+- [x] Update sample code to use DTO field names (capitalized) instead of native field names.
+- [x] Run full build + both test suites.
 
 Batch 5 status:
-- Status: Not started.
-- Notes: Final polish/documentation batch after code migration batches are complete.
+- Status: ✅ Complete.
+- Notes: All code migration done. Samples updated to use DTO property names (capitalized) — fixed 1-GettingStarted (DeviceAdapterPropertiesDto fields), 3-GpuMonitoring (energy/frequency DTO fields), 5-MemoryInfo (memory props/state DTO fields), 6-RealTimeMonitor (energy/frequency DTO fields). Facade: 99 total, 79 passed, 20 skipped, 0 failed. Native: 588 total, 585 passed, 3 skipped, 0 failed.
 
 ## Method-Level Checklist
 

@@ -81,14 +81,14 @@ namespace RealTimeMonitor
             if (powerDomains.Count > 0)
             {
                 var counter = powerHelper.PowerGetEnergyCounter(powerDomains[0]);
-                energy = $"{counter.energy} uJ";
+                energy = $"{counter.Energy} uJ";
             }
 
             string frequency = "n/a";
             if (freqDomains.Count > 0)
             {
                 var state = freqHelper.FrequencyGetState(freqDomains[0]);
-                frequency = $"{state.actual:F0} MHz";
+                frequency = $"{state.Actual:F0} MHz";
             }
 
             Console.WriteLine($"GPU Temperature : {temperature,-10}");

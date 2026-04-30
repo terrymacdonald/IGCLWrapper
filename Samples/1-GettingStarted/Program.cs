@@ -86,19 +86,19 @@ namespace GettingStarted
             // Basic GPU Information
             Console.WriteLine("\nGPU Information:");
             Console.WriteLine($"  Name         : {name}");
-            Console.WriteLine($"  Vendor ID    : 0x{props.pci_vendor_id:X} (Intel)");
-            Console.WriteLine($"  Device ID    : 0x{props.pci_device_id:X}");
-            Console.WriteLine($"  Revision     : {props.rev_id}");
-            Console.WriteLine($"  Driver Ver   : {FormatDriverVersion(props.driver_version)}");
+            Console.WriteLine($"  Vendor ID    : 0x{props.PciVendorId:X} (Intel)");
+            Console.WriteLine($"  Device ID    : 0x{props.PciDeviceId:X}");
+            Console.WriteLine($"  Revision     : {props.RevId}");
+            Console.WriteLine($"  Driver Ver   : {FormatDriverVersion(props.DriverVersion)}");
 
             // GPU Architecture Details
             Console.WriteLine("\nArchitecture:");
-            Console.WriteLine($"  Slices       : {props.num_slices}");
-            Console.WriteLine($"  Sub-slices   : {props.num_sub_slices_per_slice} per slice");
-            Console.WriteLine($"  EUs per SS   : {props.num_eus_per_sub_slice}");
+            Console.WriteLine($"  Slices       : {props.NumSlices}");
+            Console.WriteLine($"  Sub-slices   : {props.NumSubSlicesPerSlice} per slice");
+            Console.WriteLine($"  EUs per SS   : {props.NumEusPerSubSlice}");
             
-            uint totalSubSlices = props.num_slices * props.num_sub_slices_per_slice;
-            uint totalEUs = totalSubSlices * props.num_eus_per_sub_slice;
+            uint totalSubSlices = props.NumSlices * props.NumSubSlicesPerSlice;
+            uint totalEUs = totalSubSlices * props.NumEusPerSubSlice;
             Console.WriteLine($"  Total EUs    : {totalEUs}");
 
             // Memory Information (if available)

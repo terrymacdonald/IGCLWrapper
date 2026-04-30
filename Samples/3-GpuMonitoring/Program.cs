@@ -62,7 +62,7 @@ namespace GpuMonitoring
             for (int i = 0; i < domains.Count; i++)
             {
                 var energy = powerHelper.PowerGetEnergyCounter(domains[i]);
-                Console.WriteLine($"  Domain {i + 1}     : {energy.energy} uJ (timestamp {energy.timestamp})");
+                Console.WriteLine($"  Domain {i + 1}     : {energy.Energy} uJ (timestamp {energy.Timestamp})");
             }
             Console.WriteLine();
         }
@@ -91,7 +91,7 @@ namespace GpuMonitoring
                 for (int i = 0; i < domains.Count; i++)
                 {
                     var state = freqHelper.FrequencyGetState(domains[i]);
-                    Console.WriteLine($"  Domain {i + 1}      : {state.actual:F0} MHz (Request: {state.request:F0} MHz)");
+                    Console.WriteLine($"  Domain {i + 1}      : {state.Actual:F0} MHz (Request: {state.Request:F0} MHz)");
                 }
             }
         }
