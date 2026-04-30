@@ -16,7 +16,7 @@ namespace IGCLWrapper.FacadeTests
             var (api, adapter) = FacadeTestUtils.RequireAdapter();
             using (api)
             {
-                var props = adapter.GetPropertiesNative();
+                var props = adapter.GetProperties();
                 Assert.True(props.Size > 0);
                 var displays = adapter.EnumerateDisplayOutputs();
                 Assert.NotNull(displays);

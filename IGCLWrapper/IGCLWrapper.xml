@@ -670,29 +670,17 @@
             </summary>
             <returns>Adapter properties DTO.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLAdapterHelper.EnumerateDevicesNative">
-            <summary>
-            Enumerate device adapter handles available to this API instance.
-            </summary>
-            <returns>Array of adapter handles.</returns>
-        </member>
         <member name="M:IGCLWrapper.IGCLAdapterHelper.EnumerateDisplayOutputsNative">
             <summary>
             Enumerate display output handles for this adapter.
             </summary>
             <returns>Array of display output handles.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLAdapterHelper.EnumerateI2CPinPairsNative">
+        <member name="M:IGCLWrapper.IGCLAdapterHelper.EnumerateI2CPinPairs">
             <summary>
             Enumerate I2C pin pair handles for this adapter.
             </summary>
             <returns>Array of I2C pin pair handles.</returns>
-        </member>
-        <member name="M:IGCLWrapper.IGCLAdapterHelper.GetDevicePropertiesNative">
-            <summary>
-            Get device adapter properties for this adapter.
-            </summary>
-            <returns>Adapter properties struct.</returns>
         </member>
         <member name="M:IGCLWrapper.IGCLAdapterHelper.GetDeviceProperties">
             <summary>
@@ -769,15 +757,6 @@
             <param name="args">Genlock args DTO.</param>
             <param name="failureAdapter">Adapter handle that failed, if any.</param>
         </member>
-        <member name="M:IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlockNative(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)">
-            <summary>
-            Set display genlock settings using a DTO.
-            </summary>
-            <param name="adapters">Adapter handles.</param>
-            <param name="operation">Genlock operation.</param>
-            <param name="args">Genlock args DTO.</param>
-            <param name="failureAdapter">Adapter handle that failed, if any.</param>
-        </member>
         <member name="M:IGCLWrapper.IGCLAdapterHelper.LinkDisplayAdapters(IGCLWrapper.ctl_lda_args_t)">
             <summary>
             Link display adapters using the provided args.
@@ -815,13 +794,6 @@
             <param name="propertyType">Property type flags to wait on.</param>
             <param name="timeOutMilliSec">Timeout in milliseconds.</param>
             <returns>Initialized wait request DTO.</returns>
-        </member>
-        <member name="M:IGCLWrapper.IGCLAdapterHelper.WaitForPropertyChangeNative(IGCLWrapper.ctl_wait_property_change_args_t)">
-            <summary>
-            Wait for a property change event using the native struct.
-            </summary>
-            <param name="args">Wait arguments native struct.</param>
-            <returns>Updated wait arguments native struct.</returns>
         </member>
         <member name="M:IGCLWrapper.IGCLAdapterHelper.WaitForPropertyChange(IGCLWrapper.WaitPropertyChangeArgsDto)">
             <summary>

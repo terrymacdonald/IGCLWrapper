@@ -436,7 +436,7 @@ namespace IGCLWrapper
         /// Get adapter properties.
         /// </summary>
         /// <returns>Adapter properties struct.</returns>
-        public unsafe ctl_device_adapter_properties_t GetPropertiesNative()
+        private unsafe ctl_device_adapter_properties_t GetPropertiesNative()
         {
             ThrowIfDisposed();
             lock (_lock)
@@ -476,34 +476,10 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Enumerate device adapter handles available to this API instance.
-        /// </summary>
-        /// <returns>Array of adapter handles.</returns>
-        public unsafe IntPtr[] EnumerateDevicesNative()
-        {
-            ThrowIfDisposed();
-            uint count = 0;
-            var result = IGCL.ctlEnumerateDevices((_ctl_api_handle_t*)Api.ApiHandle, &count, null);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS && count == 0)
-                throw new IGCLException(result, "Failed to get device count");
-            if (count == 0)
-                return Array.Empty<IntPtr>();
-
-            var devices = new IntPtr[count];
-            fixed (IntPtr* pDevices = devices)
-            {
-                result = IGCL.ctlEnumerateDevices((_ctl_api_handle_t*)Api.ApiHandle, &count, (_ctl_device_adapter_handle_t**)pDevices);
-                if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                    throw new IGCLException(result, "Failed to enumerate devices");
-            }
-            return devices;
-        }
-
-        /// <summary>
         /// Enumerate display output handles for this adapter.
         /// </summary>
         /// <returns>Array of display output handles.</returns>
-        public unsafe IntPtr[] EnumerateDisplayOutputsNative()
+        private unsafe IntPtr[] EnumerateDisplayOutputsNative()
         {
             ThrowIfDisposed();
             uint count = 0;
@@ -526,7 +502,7 @@ namespace IGCLWrapper
         /// Enumerate I2C pin pair handles for this adapter.
         /// </summary>
         /// <returns>Array of I2C pin pair handles.</returns>
-        public unsafe IntPtr[] EnumerateI2CPinPairsNative()
+        public unsafe IntPtr[] EnumerateI2CPinPairs()
         {
             ThrowIfDisposed();
             uint count = 0;
@@ -543,20 +519,6 @@ namespace IGCLWrapper
                     throw new IGCLException(result, "Failed to enumerate I2C pin pairs");
             }
             return pins;
-        }
-
-        /// <summary>
-        /// Get device adapter properties for this adapter.
-        /// </summary>
-        /// <returns>Adapter properties struct.</returns>
-        public unsafe ctl_device_adapter_properties_t GetDevicePropertiesNative()
-        {
-            ThrowIfDisposed();
-            var props = CreateAdapterProperties();
-            var result = IGCL.ctlGetDeviceProperties((_ctl_device_adapter_handle_t*)AdapterHandle, &props);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get device properties");
-            return props;
         }
 
         /// <summary>
@@ -627,7 +589,7 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="args">Combined display args struct.</param>
         /// <returns>Updated combined display args struct.</returns>
-        public unsafe ctl_combined_display_args_t GetSetCombinedDisplayNative(ctl_combined_display_args_t args)
+        private unsafe ctl_combined_display_args_t GetSetCombinedDisplayNative(ctl_combined_display_args_t args)
         {
             ThrowIfDisposed();
             var copy = args;
@@ -1089,7 +1051,7 @@ namespace IGCLWrapper
         /// <param name="args">Genlock args struct.</param>
         /// <param name="failureAdapter">Adapter handle that failed, if any.</param>
         /// <returns>Updated genlock args struct.</returns>
-        public unsafe ctl_genlock_args_t GetSetDisplayGenlockNative(IntPtr[] adapters, ctl_genlock_args_t args, out IntPtr failureAdapter)
+        private unsafe ctl_genlock_args_t GetSetDisplayGenlockNative(IntPtr[] adapters, ctl_genlock_args_t args, out IntPtr failureAdapter)
         {
             ThrowIfDisposed();
             if (adapters == null || adapters.Length == 0)
@@ -1137,18 +1099,6 @@ namespace IGCLWrapper
             var request = args;
             request.Operation = operation;
             GetSetDisplayGenlockNative(adapters, request.ToNative(), out failureAdapter);
-        }
-
-        /// <summary>
-        /// Set display genlock settings using a DTO.
-        /// </summary>
-        /// <param name="adapters">Adapter handles.</param>
-        /// <param name="operation">Genlock operation.</param>
-        /// <param name="args">Genlock args DTO.</param>
-        /// <param name="failureAdapter">Adapter handle that failed, if any.</param>
-        public void SetDisplayGenlockNative(IntPtr[] adapters, ctl_genlock_operation_t operation, GenlockArgsDto args, out IntPtr failureAdapter)
-        {
-            SetDisplayGenlock(adapters, operation, args, out failureAdapter);
         }
 
         /// <summary>
@@ -1263,32 +1213,19 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Wait for a property change event using the native struct.
-        /// </summary>
-        /// <param name="args">Wait arguments native struct.</param>
-        /// <returns>Updated wait arguments native struct.</returns>
-        public unsafe ctl_wait_property_change_args_t WaitForPropertyChangeNative(ctl_wait_property_change_args_t args)
-        {
-            ThrowIfDisposed();
-            var copy = args;
-            if (copy.Size == 0)
-                copy.Size = (uint)sizeof(ctl_wait_property_change_args_t);
-            if (copy.Version == 0)
-                copy.Version = 0;
-            var result = IGCL.ctlWaitForPropertyChange((_ctl_device_adapter_handle_t*)AdapterHandle, &copy);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to wait for property change");
-            return copy;
-        }
-
-        /// <summary>
         /// Wait for a property change event.
         /// </summary>
         /// <param name="args">Wait request DTO.</param>
         /// <returns>Updated wait request DTO.</returns>
-        public WaitPropertyChangeArgsDto WaitForPropertyChange(WaitPropertyChangeArgsDto args)
+        public unsafe WaitPropertyChangeArgsDto WaitForPropertyChange(WaitPropertyChangeArgsDto args)
         {
-            var native = WaitForPropertyChangeNative(args.ToNative());
+            ThrowIfDisposed();
+            var native = args.ToNative();
+            if (native.Size == 0)
+                native.Size = (uint)sizeof(ctl_wait_property_change_args_t);
+            var result = IGCL.ctlWaitForPropertyChange((_ctl_device_adapter_handle_t*)AdapterHandle, &native);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, "Failed to wait for property change");
             return WaitPropertyChangeArgsDto.FromNative(native);
         }
 

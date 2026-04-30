@@ -16,8 +16,7 @@ namespace IGCLWrapper.FacadeTests
             using (api)
             {
                 var adapters = api.EnumerateAdapters();
-                var discrete = adapters.FirstOrDefault(a =>
-                    (a.GetPropertiesNative().graphics_adapter_properties & (uint)ctl_adapter_properties_flag_t.CTL_ADAPTER_PROPERTIES_FLAG_INTEGRATED) == 0);
+                var discrete = adapters.FirstOrDefault(a => !a.GetProperties().IsIntegratedGraphicsAdapter);
 
                 Skip.If(discrete == null, "Firmware properties require a discrete adapter.");
 
@@ -39,8 +38,7 @@ namespace IGCLWrapper.FacadeTests
             using (api)
             {
                 var adapters = api.EnumerateAdapters();
-                var discrete = adapters.FirstOrDefault(a =>
-                    (a.GetPropertiesNative().graphics_adapter_properties & (uint)ctl_adapter_properties_flag_t.CTL_ADAPTER_PROPERTIES_FLAG_INTEGRATED) == 0);
+                var discrete = adapters.FirstOrDefault(a => !a.GetProperties().IsIntegratedGraphicsAdapter);
 
                 Skip.If(discrete == null, "Firmware properties require a discrete adapter.");
 
@@ -63,8 +61,7 @@ namespace IGCLWrapper.FacadeTests
             using (api)
             {
                 var adapters = api.EnumerateAdapters();
-                var discrete = adapters.FirstOrDefault(a =>
-                    (a.GetPropertiesNative().graphics_adapter_properties & (uint)ctl_adapter_properties_flag_t.CTL_ADAPTER_PROPERTIES_FLAG_INTEGRATED) == 0);
+                var discrete = adapters.FirstOrDefault(a => !a.GetProperties().IsIntegratedGraphicsAdapter);
 
                 Skip.If(discrete == null, "Firmware component properties require a discrete adapter.");
 
