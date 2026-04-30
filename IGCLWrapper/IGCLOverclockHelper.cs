@@ -1163,6 +1163,7 @@ namespace IGCLWrapper
     /// </summary>
     public struct PowerTelemetryDto : IEquatable<PowerTelemetryDto>
     {
+        public PowerTelemetryDto() {}
         /// <summary>
         /// Size of the native struct.
         /// </summary>
@@ -1278,11 +1279,11 @@ namespace IGCLWrapper
         /// <summary>
         /// PSU telemetry items.
         /// </summary>
-        public List<PsuInfoDto>? Psu;
+        public List<PsuInfoDto> Psu = new();
         /// <summary>
         /// Fan speed telemetry items.
         /// </summary>
-        public List<OcTelemetryItemDto>? FanSpeed;
+        public List<OcTelemetryItemDto> FanSpeed = new();
         /// <summary>
         /// GPU VR temperature telemetry item.
         /// </summary>

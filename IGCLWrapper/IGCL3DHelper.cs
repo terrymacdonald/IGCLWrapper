@@ -427,6 +427,7 @@ namespace IGCLWrapper
     /// </summary>
     public unsafe struct ThreeDFeatureGetSetDto : IEquatable<ThreeDFeatureGetSetDto>
     {
+        public ThreeDFeatureGetSetDto() {}
         /// <summary>
         /// Size of the native struct.
         /// </summary>
@@ -458,7 +459,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Custom value bytes.
         /// </summary>
-        public List<byte>? CustomValue;
+        public List<byte> CustomValue = new List<byte>();
 
         /// <summary>
         /// Compare 3D feature get/set data while ignoring pointer fields.

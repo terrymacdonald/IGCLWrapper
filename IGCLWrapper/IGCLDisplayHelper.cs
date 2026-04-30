@@ -2144,10 +2144,11 @@ namespace IGCLWrapper
     /// </summary>
     public struct GenericVoidDatatypeDto : IEquatable<GenericVoidDatatypeDto>
     {
+        public GenericVoidDatatypeDto() {}
         /// <summary>
         /// Native data bytes.
         /// </summary>
-        public List<byte>? Data;
+        public List<byte> Data = new();
         /// <summary>
         /// Size of native data in bytes.
         /// </summary>
@@ -2478,6 +2479,7 @@ namespace IGCLWrapper
     /// </summary>
     public struct DisplayPropertiesDto : IEquatable<DisplayPropertiesDto>
     {
+        public DisplayPropertiesDto() {}
         private const int ReservedFieldCount = 16;
         /// <summary>
         /// Size of the native struct.
@@ -2722,7 +2724,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Reserved native fields.
         /// </summary>
-        public List<uint>? ReservedFields;
+        public List<uint> ReservedFields = new();
 
         /// <summary>
         /// Compare display properties while ignoring pointer-backed and reserved fields.
@@ -2937,6 +2939,7 @@ namespace IGCLWrapper
     /// </summary>
     public struct WireFormatConfigDto : IEquatable<WireFormatConfigDto>
     {
+        public WireFormatConfigDto() {}
         private const int SupportedWireFormatCount = 4;
         /// <summary>
         /// Size of the native struct.
@@ -2953,7 +2956,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Supported wire format values.
         /// </summary>
-        public List<WireFormatDto>? SupportedWireFormat;
+        public List<WireFormatDto> SupportedWireFormat = new();
         /// <summary>
         /// Selected wire format.
         /// </summary>
@@ -3080,6 +3083,7 @@ namespace IGCLWrapper
     /// </summary>
     public struct AdapterDisplayEncoderPropertiesDto : IEquatable<AdapterDisplayEncoderPropertiesDto>
     {
+        public AdapterDisplayEncoderPropertiesDto() {}
         /// <summary>
         /// Size of the native struct.
         /// </summary>
@@ -3263,7 +3267,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Reserved native fields.
         /// </summary>
-        public List<uint>? ReservedFields;
+        public List<uint> ReservedFields = new();
 
         /// <summary>
         /// Compare adapter display encoder properties while ignoring reserved native fields.
@@ -3395,6 +3399,7 @@ namespace IGCLWrapper
     /// </summary>
     public struct DceArgsDto : IEquatable<DceArgsDto>
     {
+        public DceArgsDto() {}
         /// <summary>
         /// Size of the native struct.
         /// </summary>
@@ -3430,7 +3435,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Histogram bins.
         /// </summary>
-        public List<uint>? Histogram;
+        public List<uint> Histogram = new();
 
         /// <summary>
         /// Compare DCE args while ignoring pointer fields.
@@ -3534,6 +3539,7 @@ namespace IGCLWrapper
     /// </summary>
     public struct DisplaySettingsDto : IEquatable<DisplaySettingsDto>
     {
+        public DisplaySettingsDto() {}
         /// <summary>
         /// Size of the native struct.
         /// </summary>
@@ -3709,7 +3715,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Reserved native fields.
         /// </summary>
-        public List<uint>? Reserved;
+        public List<uint> Reserved = new();
 
         /// <summary>
         /// Compare display settings while ignoring reserved native fields.
@@ -4024,6 +4030,7 @@ namespace IGCLWrapper
     /// </summary>
     public struct LaceLuxAggrMapDto : IEquatable<LaceLuxAggrMapDto>
     {
+        public LaceLuxAggrMapDto() {}
         /// <summary>
         /// Maximum supported entries.
         /// </summary>
@@ -4035,7 +4042,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Managed lux/aggressiveness mapping table.
         /// </summary>
-        public List<LaceLuxAggrMapEntryDto>? LuxToAggrMappingTable;
+        public List<LaceLuxAggrMapEntryDto> LuxToAggrMappingTable = new();
 
         public bool Equals(LaceLuxAggrMapDto other)
         {
@@ -5263,11 +5270,12 @@ namespace IGCLWrapper
     /// </summary>
     public struct BrightnessGetDto
     {
+        public BrightnessGetDto() {}
         public uint Size;
         public byte Version;
         public uint TargetBrightness;
         public uint CurrentBrightness;
-        public List<uint>? ReservedFields;
+        public List<uint> ReservedFields = new();
 
         public static unsafe BrightnessGetDto FromNative(ctl_get_brightness_t native)
         {
@@ -5327,11 +5335,12 @@ namespace IGCLWrapper
     /// </summary>
     public struct BrightnessSetDto
     {
+        public BrightnessSetDto() {}
         public uint Size;
         public byte Version;
         public uint TargetBrightness;
         public uint SmoothTransitionTimeInMs;
-        public List<uint>? ReservedFields;
+        public List<uint> ReservedFields = new();
 
         public static unsafe BrightnessSetDto FromNative(ctl_set_brightness_t native)
         {
@@ -5541,11 +5550,12 @@ namespace IGCLWrapper
     /// </summary>
     public struct SharpnessCapsDto
     {
+        public SharpnessCapsDto() {}
         public uint Size;
         public byte Version;
         public uint SupportedFilterFlags;
         public byte NumFilterTypes;
-        public List<SharpnessFilterPropertiesDto>? FilterProperties;
+        public List<SharpnessFilterPropertiesDto> FilterProperties = new();
 
         public static SharpnessCapsDto FromNative(ctl_sharpness_caps_t caps, ctl_sharpness_filter_properties_t[] filters)
         {
@@ -5650,11 +5660,12 @@ namespace IGCLWrapper
     /// </summary>
     public struct CustomModeArgsDto
     {
+        public CustomModeArgsDto() {}
         public uint Size;
         public byte Version;
         public ctl_custom_mode_operation_types_t CustomModeOpType;
         public uint NumOfModes;
-        public List<CustomSourceModeDto>? Modes;
+        public List<CustomSourceModeDto> Modes = new();
 
         public static CustomModeArgsDto FromNative(ctl_get_set_custom_mode_args_t native)
         {
@@ -5685,8 +5696,9 @@ namespace IGCLWrapper
     /// </summary>
     public struct CustomModesResultDto
     {
+        public CustomModesResultDto() {}
         public CustomModeArgsDto Args;
-        public List<CustomSourceModeDto>? Modes;
+        public List<CustomSourceModeDto> Modes = new();
 
         public static CustomModesResultDto FromNative(ctl_get_set_custom_mode_args_t args, ctl_custom_src_mode_t[] modes)
         {
@@ -5710,12 +5722,13 @@ namespace IGCLWrapper
     /// </summary>
     public struct MuxPropertiesDto
     {
+        public MuxPropertiesDto() {}
         public uint Size;
         public byte Version;
         public byte MuxId;
         public uint Count;
         public byte IndexOfDisplayOutputOwningMux;
-        public List<nint>? DisplayOutputs;
+        public List<nint> DisplayOutputs = new();
 
         public static MuxPropertiesDto FromNative(ctl_mux_properties_t native, IntPtr[] outputs)
         {
@@ -5753,10 +5766,11 @@ namespace IGCLWrapper
     /// </summary>
     public struct VblankTimestampArgsDto
     {
+        public VblankTimestampArgsDto() {}
         public uint Size;
         public byte Version;
         public byte NumOfTargets;
-        public List<ulong>? VblankTimestamps;
+        public List<ulong> VblankTimestamps = new();
 
         public static unsafe VblankTimestampArgsDto FromNative(ctl_vblank_ts_args_t native)
         {
@@ -5808,6 +5822,7 @@ namespace IGCLWrapper
     /// </summary>
     public struct I2CAccessArgsDto : IEquatable<I2CAccessArgsDto>
     {
+        public I2CAccessArgsDto() {}
         public uint Size;
         public byte Version;
         public uint Address;
@@ -5816,7 +5831,7 @@ namespace IGCLWrapper
         public uint Offset;
         public uint Flags;
         public ulong RAD;
-        public List<byte>? Data;
+        public List<byte> Data = new();
 
         public static unsafe I2CAccessArgsDto FromNative(ctl_i2c_access_args_t native)
         {
@@ -5903,6 +5918,7 @@ namespace IGCLWrapper
     /// </summary>
     public struct I2CAccessPinPairArgsDto : IEquatable<I2CAccessPinPairArgsDto>
     {
+        public I2CAccessPinPairArgsDto() {}
         public uint Size;
         public byte Version;
         public uint Address;
@@ -5910,7 +5926,7 @@ namespace IGCLWrapper
         public ctl_operation_type_t OpType;
         public uint Offset;
         public uint Flags;
-        public List<byte>? Data;
+        public List<byte> Data = new();
 
         public static unsafe I2CAccessPinPairArgsDto FromNative(ctl_i2c_access_pinpair_args_t native)
         {
@@ -5995,6 +6011,7 @@ namespace IGCLWrapper
     /// </summary>
     public struct AuxAccessArgsDto : IEquatable<AuxAccessArgsDto>
     {
+        public AuxAccessArgsDto() {}
         public uint Size;
         public byte Version;
         public ctl_operation_type_t OpType;
@@ -6003,7 +6020,7 @@ namespace IGCLWrapper
         public ulong RAD;
         public uint PortID;
         public uint DataSize;
-        public List<byte>? Data;
+        public List<byte> Data = new();
 
         public static unsafe AuxAccessArgsDto FromNative(ctl_aux_access_args_t native)
         {
@@ -6090,12 +6107,13 @@ namespace IGCLWrapper
     /// </summary>
     public struct PanelDescriptorAccessArgsDto : IEquatable<PanelDescriptorAccessArgsDto>
     {
+        public PanelDescriptorAccessArgsDto() {}
         public uint Size;
         public byte Version;
         public ctl_operation_type_t OpType;
         public uint BlockNumber;
         public uint DescriptorDataSize;
-        public List<byte>? DescriptorData;
+        public List<byte> DescriptorData = new();
 
         public static PanelDescriptorAccessArgsDto FromNative(ctl_panel_descriptor_access_args_t native, byte[]? data = null)
         {
@@ -6139,13 +6157,14 @@ namespace IGCLWrapper
     /// </summary>
     public struct EdidManagementArgsDto : IEquatable<EdidManagementArgsDto>
     {
+        public EdidManagementArgsDto() {}
         public uint Size;
         public byte Version;
         public ctl_edid_management_optype_t OpType;
         public ctl_edid_type_t EdidType;
         public uint EdidSize;
         public uint OutFlags;
-        public List<byte>? EdidData;
+        public List<byte> EdidData = new();
 
         public static EdidManagementArgsDto FromNative(ctl_edid_management_args_t native, byte[]? edidData = null)
         {
@@ -6399,8 +6418,9 @@ namespace IGCLWrapper
     /// </summary>
     public struct PixelTransformationGetResultDto : IEquatable<PixelTransformationGetResultDto>
     {
+        public PixelTransformationGetResultDto() {}
         public PixtxPipeGetConfigDto PipeConfig;
-        public List<PixtxBlockConfigDto>? Blocks;
+        public List<PixtxBlockConfigDto> Blocks = new();
 
         public static PixelTransformationGetResultDto FromNative(ctl_pixtx_pipe_get_config_t config, ctl_pixtx_block_config_t[] blocks)
         {

@@ -1431,6 +1431,7 @@ namespace IGCLWrapper
     /// </summary>
     public struct ChildDisplayTargetModeDto : IEquatable<ChildDisplayTargetModeDto>
     {
+        public ChildDisplayTargetModeDto() {}
         private const int ReservedFieldCount = 4;
         /// <summary>
         /// Target width.
@@ -1447,7 +1448,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Reserved mode fields.
         /// </summary>
-        public List<uint>? ReservedFields;
+        public List<uint> ReservedFields = new();
 
         public bool Equals(ChildDisplayTargetModeDto other)
         {
@@ -1543,10 +1544,11 @@ namespace IGCLWrapper
     /// </summary>
     public struct GenlockTargetModeListDto : IEquatable<GenlockTargetModeListDto>
     {
+        public GenlockTargetModeListDto() {}
         /// <summary>
         /// Target modes available for this display.
         /// </summary>
-        public List<DisplayTimingDto>? TargetModes;
+        public List<DisplayTimingDto> TargetModes = new();
 
         public bool Equals(GenlockTargetModeListDto other)
         {
@@ -1587,6 +1589,7 @@ namespace IGCLWrapper
     /// </summary>
     public struct GenlockTopologyDto : IEquatable<GenlockTopologyDto>
     {
+        public GenlockTopologyDto() {}
         /// <summary>
         /// Number of displays in the genlock topology.
         /// </summary>
@@ -1602,11 +1605,11 @@ namespace IGCLWrapper
         /// <summary>
         /// Managed genlock display info list.
         /// </summary>
-        public List<GenlockDisplayInfoDto>? GenlockDisplayInfos;
+        public List<GenlockDisplayInfoDto> GenlockDisplayInfos = new();
         /// <summary>
         /// Managed genlock mode lists.
         /// </summary>
-        public List<GenlockTargetModeListDto>? GenlockModeLists;
+        public List<GenlockTargetModeListDto> GenlockModeLists = new();
 
         public bool Equals(GenlockTopologyDto other)
         {
@@ -1656,6 +1659,7 @@ namespace IGCLWrapper
     /// </summary>
     public struct DeviceAdapterPropertiesDto : IEquatable<DeviceAdapterPropertiesDto>
     {
+        public DeviceAdapterPropertiesDto() {}
         private const int NameLength = 100;
         private const int ReservedLength = 108;
         /// <summary>
@@ -1789,7 +1793,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Reserved native fields.
         /// </summary>
-        public List<byte>? Reserved;
+        public List<byte> Reserved = new();
 
         /// <summary>
         /// Compare adapter properties while ignoring reserved native fields.
@@ -1995,6 +1999,7 @@ namespace IGCLWrapper
     /// </summary>
     public unsafe struct CombinedDisplayArgsDto : IEquatable<CombinedDisplayArgsDto>
     {
+        public CombinedDisplayArgsDto() {}
         /// <summary>
         /// Size of the native struct.
         /// </summary>
@@ -2026,7 +2031,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Managed child display info list.
         /// </summary>
-        public List<CombinedDisplayChildInfoDto>? ChildInfos;
+        public List<CombinedDisplayChildInfoDto> ChildInfos = new();
         /// <summary>
         /// Combined display output Windows display encoder identifier.
         /// </summary>
@@ -2345,10 +2350,11 @@ namespace IGCLWrapper
     /// </summary>
     public struct LinkedDisplayAdaptersArgsDto
     {
+        public LinkedDisplayAdaptersArgsDto() {}
         public uint Size;
         public byte Version;
         public byte NumAdapters;
-        public List<ulong>? Reserved;
+        public List<ulong> Reserved = new();
 
         public static unsafe LinkedDisplayAdaptersArgsDto FromNative(ctl_lda_args_t native)
         {
@@ -2407,8 +2413,9 @@ namespace IGCLWrapper
     /// </summary>
     public struct LinkedDisplayAdaptersResultDto
     {
+        public LinkedDisplayAdaptersResultDto() {}
         public LinkedDisplayAdaptersArgsDto Args;
-        public List<nint>? LinkedAdapters;
+        public List<nint> LinkedAdapters = new();
 
         public static LinkedDisplayAdaptersResultDto FromNative(ctl_lda_args_t args, IntPtr[] linkedAdapters)
         {
@@ -2429,10 +2436,11 @@ namespace IGCLWrapper
     /// </summary>
     public struct ApplicationIdDto : IEquatable<ApplicationIdDto>
     {
+        public ApplicationIdDto() {}
         public uint Data1;
         public ushort Data2;
         public ushort Data3;
-        public List<byte>? Data4;
+        public List<byte> Data4 = new();
 
         public bool Equals(ApplicationIdDto other)
         {

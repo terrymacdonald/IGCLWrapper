@@ -134,6 +134,7 @@ namespace IGCLWrapper
     /// </summary>
     public struct FirmwarePropertiesDto : IEquatable<FirmwarePropertiesDto>
     {
+        public FirmwarePropertiesDto() {}
         private const int NameLength = 64;
         private const int VersionLength = 64;
         private const int ReservedLength = 16;
@@ -160,7 +161,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Reserved native fields.
         /// </summary>
-        public List<byte>? Reserved;
+        public List<byte> Reserved = new();
 
         /// <summary>
         /// Compare firmware properties while ignoring reserved fields.
@@ -333,6 +334,7 @@ namespace IGCLWrapper
     /// </summary>
     public struct FirmwareComponentPropertiesDto : IEquatable<FirmwareComponentPropertiesDto>
     {
+        public FirmwareComponentPropertiesDto() {}
         private const int NameLength = 64;
         private const int VersionLength = 64;
         private const int ReservedLength = 20;
@@ -355,7 +357,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Reserved native fields.
         /// </summary>
-        public List<byte>? Reserved;
+        public List<byte> Reserved = new();
 
         /// <summary>
         /// Compare firmware component properties while ignoring reserved fields.

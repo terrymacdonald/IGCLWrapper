@@ -213,6 +213,7 @@ namespace IGCLWrapper
     /// </summary>
     public unsafe struct VideoProcessingFeatureGetSetDto : IEquatable<VideoProcessingFeatureGetSetDto>
     {
+        public VideoProcessingFeatureGetSetDto() {}
         private const int ReservedFieldCount = 16;
         /// <summary>
         /// Size of the native struct.
@@ -245,11 +246,11 @@ namespace IGCLWrapper
         /// <summary>
         /// Custom value bytes.
         /// </summary>
-        public List<byte>? CustomValue;
+        public List<byte> CustomValue = new();
         /// <summary>
         /// Reserved fields.
         /// </summary>
-        public List<uint>? ReservedFields;
+        public List<uint> ReservedFields = new();
 
         /// <summary>
         /// Compare video processing feature get/set args while ignoring pointer and reserved fields.
@@ -408,6 +409,7 @@ namespace IGCLWrapper
     /// </summary>
     public unsafe struct VideoProcessingFeatureCapsDto : IEquatable<VideoProcessingFeatureCapsDto>
     {
+        public VideoProcessingFeatureCapsDto() {}
         private const int ReservedFieldCount = 16;
         /// <summary>
         /// Size of the native struct.
@@ -424,7 +426,7 @@ namespace IGCLWrapper
         /// <summary>
         /// Reserved fields.
         /// </summary>
-        public List<uint>? ReservedFields;
+        public List<uint> ReservedFields = new();
 
         public bool Equals(VideoProcessingFeatureCapsDto other)
         {
