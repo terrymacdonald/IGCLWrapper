@@ -64,8 +64,7 @@ var display = adapter.EnumerateDisplayOutputs().First();
 var encoder = display.GetAdapterDisplayEncoderProperties();
 var combined = adapter.GetCombinedDisplay();
 ```
-Use `*Native()` helper methods when you need raw structs instead of DTOs.
-Get/Set operations are split into `Get*()` and `Set*()` helpers; `GetSet*Native()` remains for direct IGCL calls.
+Get/Set operations are split into separate `Get*()` and `Set*()` helpers. For advanced use cases needing raw IGCL structs, use `IGCLApi` directly.
 
 ## Building All Samples
 

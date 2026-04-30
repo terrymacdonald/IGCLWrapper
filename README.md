@@ -8,7 +8,7 @@ A modern C# wrapper for Intel Graphics Control Library (IGCL), providing easy ac
 - Automatic cleanup via `IDisposable` (SafeHandle-backed)
 - Strongly typed structs/enums matching IGCL headers
 - Helper methods for common adapter/display queries
-- Facade DTOs for bool-friendly helper results, with `*Native()` accessors when you need raw structs
+- Facade DTOs for bool-friendly helper results
 - ClangSharp-generated bindings kept in sync with the SDK
 - Tests skip gracefully when hardware is absent
 - Split test suites:
@@ -80,8 +80,8 @@ catch (DllNotFoundException)
 
 ## Working with the facade helpers (IGCLApiHelper)
 Use the facade helpers to avoid manual struct sizing/handle management.
-DTO-returning helpers use `bool` properties; call `*Native()` variants when you need the raw structs.
-Get/Set operations are split into `Get*()` and `Set*()` helpers; `GetSet*Native()` remains for direct IGCL calls.
+DTO-returning helpers use `bool` properties instead of native `byte` fields.
+Get/Set operations are split into separate `Get*()` and `Set*()` helpers. For advanced use cases requiring raw IGCL structs (e.g. pixel transformation with pointer fields), use the `IGCLApi` native layer directly.
 
 ### List active display resolutions
 ```csharp
@@ -256,10 +256,29 @@ foreach (var adapter in igcl.EnumerateAdapters())
 Tests require Intel GPU hardware and the IGCL DLLs present. They skip gracefully if not available.
 ```powershell
 ./test_igcl.ps1
-# or
+# or individually:
 dotnet test IGCLWrapper.NativeTests/IGCLWrapper.NativeTests.csproj
 dotnet test IGCLWrapper.FacadeTests/IGCLWrapper.FacadeTests.csproj
 ```
+
+`./test_igcl.ps1` runs both suites in sequence (native first, then facade) and reports a combined result.
+
+### Passive tests (read-only)
+The majority of tests are **passive** — they read state from the GPU but never modify it. These run safely on any machine with Intel GPU hardware and are always included in the default test run. Both `IGCLWrapper.NativeTests` and `IGCLWrapper.FacadeTests` are passive by default.
+
+### Active tests (apply-and-revert)
+A subset of facade tests modify hardware state (e.g. change sharpness, brightness, scaling). These live in `*ActiveTests.cs` files (e.g. `IGCLDisplayHelperActiveTests.cs`, `IGCLAdapterHelperActiveTests.cs`) and are tagged `[Trait("Category", "Active")]`. Each active test applies a change, verifies it, then reverts to the original value — even if the test fails.
+
+Active tests are included in the default `./test_igcl.ps1` run. To run them explicitly or to exclude them:
+```powershell
+# Run only active tests
+dotnet test IGCLWrapper.FacadeTests/IGCLWrapper.FacadeTests.csproj --filter "Category=Active"
+
+# Run everything except active tests
+dotnet test IGCLWrapper.FacadeTests/IGCLWrapper.FacadeTests.csproj --filter "Category!=Active"
+```
+
+Active tests run sequentially within their collection (`ActiveDisplay`, then `ActiveCombined`) to avoid conflicting hardware state changes.
 
 ## Updating bindings
 When Intel releases a new IGCL:
@@ -281,7 +300,7 @@ When Intel releases a new IGCL:
 ## Usage notes
 - Always dispose `IGCLApi` (use `using`); SafeHandle + finalizer backstops leaks.
 - Handles returned from enumerate calls are opaque; pass them back to IGCL or helper methods.
-- Facade helpers return DTOs with `bool` properties; use `*Native()` helper methods to access raw structs.
+- Facade helpers return DTOs with `bool` properties. For advanced native struct access, use `IGCLApi` directly.
 - Struct `Version` fields are bytes in native structs; use `(byte)0/1` in native code paths.
 
 ## Contributing

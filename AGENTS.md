@@ -49,40 +49,44 @@ when this appears in the IGCLDisplayHelper
 - The Native level functions should always be developed and tested first. Those low level functions will be used by Facade level functions, so its important that we make sure that they Native functinos work before moving up to the higher-level Facade functions.
 - Initialization (Native): Use `using var IGCL = IGCLApi.Initialize();` by default.
 - Disposal (Native): Dispose any child pointers before disposing `IGCL`. Any call after disposal should throw `ObjectDisposedException`.
+- Native struct factory pattern: Every native struct that requires `Size` and `Version` fields has a static `Create*()` factory method on the helper class (e.g. `CreateDisplayProperties()`, `CreateSharpnessCaps()`). Always use these instead of inline struct initialization. If a factory method doesn't exist for a struct you need, add one. All `Create*()` methods are `unsafe` because they use `sizeof()`. Example: `private static unsafe ctl_foo_t CreateFoo() => new ctl_foo_t { Size = (uint)sizeof(ctl_foo_t), Version = 0 };`
+- `unsafe` pointer rule: In an `unsafe` method, use `&local` directly to pass a pointer to a local stack variable to IGCL functions. Do NOT use `fixed (T* p = &local)` — this causes CS0213 ("cannot use the fixed statement to take the address of an already fixed expression") because local stack variables are already fixed. Example: `var result = IGCL.ctlFoo(handle, &myLocalStruct);`
 
 
 ## Core Facade-Specific Development Rules
 - Facade level objects should handle all underlying Native level memory management themselves. The user should not need to worry about it. This includes memory creation, disposal when objects are deleted, and handling functions being called multiple times in threads. Our aim is to never have memory leaks when using Facades.
 - The Facade functions should (in general) return Helper objects that represent the relevant objects within the underlying IGCL SDK, for example IGCLDesktop. Each returned Facade object should have properties that store the information contained within the underlying Native objects e.g. NativeResolutionWidth, and Access to any underlying functions that are offered by the Native objects e.g. IGCLAdapterHelper providing access to EnumerateDisplayOutputs() function that returns a list of Displays outputs currently known to Windows.
-- Facade helper methods should return DTOs with `bool` properties where native structs use `byte` for `bool`. Provide `*Native()` helper methods for raw struct access.
+- Facade helper methods should return DTOs with `bool` properties where native structs use `byte` for `bool`. Do NOT add public `*Native()` methods to helper classes — the public API exposes only DTO-returning methods.
+- DTOs provide `static FromNative(nativeStruct)` and `ToNative()` instance methods for round-tripping with native structs when needed internally.
+- Exception: `IGCLDisplayHelper` exposes three public `*Native()` methods (`PixelTransformationGetConfigNative` and `PixelTransformationSetConfigNative`) because these require setting raw pointer fields (`pBlockConfigs`) that cannot be expressed through DTOs. No other helper class should have public `*Native()` methods.
 - For native bitmask/flags fields stored in DTOs (e.g. `*Flags`, `Supported*`, `Enabled*`), keep the raw numeric field for roundtrip fidelity but also expose per-flag boolean convenience properties on the DTO so callers can use the data ergonomically without manual bitmask operations. Verify flag mappings against `drivers.gpu.control-library/include/igcl_api.h` and generated enums.
-- Split combined operations into `Get*()` and `Set*()` helpers; keep `GetSet*Native()` as the lightweight direct wrapper.
+- Split combined operations into `Get*()` and `Set*()` helpers. `GetSet*Native()` methods exist only as **private** implementation helpers inside helper classes; they are not part of the public API.
 - Initialization (Facade): Use `using var IGCL = IGCLApiHelper.Initialize();` as the standard entry point.
 - Disposal (Facade): Dispose facade system services and returned facade objects before disposing `IGCL`. `IGCLApiHelper` disposal should result in `ObjectDisposedException` on use-after-dispose.
+- Each helper class has a private `ThrowIfDisposed()` method that must be called at the top of every public method.
 
 ## Build and Scripts
-- Prepare: `./prepare_IGCL.ps1` (downloads/validates IGCL SDK headers into `IGCL/`).
-- Build: `./build_IGCL.ps1` (restores, cleans, builds solution; version from `VERSION` + git commit count). Direct build: `dotnet build IGCLWrapper/IGCLWrapper.csproj`.
-- Release ZIP: `./create_IGCL_release_zip.ps1` (produces artifacts/IGCLWrapper-<version>-Release.zip).
+- Prepare: `./prepare_igcl.ps1` (downloads/validates IGCL SDK headers into `IGCL/`).
+- Build: `./build_igcl.ps1` (restores, cleans, builds solution; version from `VERSION` + git commit count). Direct build: `dotnet build IGCLWrapper/IGCLWrapper.csproj`.
+- Test: `./test_igcl.ps1` (runs both native and facade test suites).
+- Release ZIP: `./create_igcl_release_zip.ps1` (produces artifacts/IGCLWrapper-<version>-Release.zip).
 
 ## Testing Expectations
 - Suites: xUnit in `IGCLWrapper.NativeTests` (Native) and `IGCLWrapper.FacadeTests` (Facade) targeting `net10.0`; hardware-aware and read-only (no tuning changes). Global xUnit parallelization is disabled.
 - Test one feature per individual test case, as we want to keep good visibility for the user as to which test fails.
 - Run (Native first): `dotnet test IGCLWrapper.NativeTests/IGCLWrapper.NativeTests.csproj --verbosity normal` (or from tests folder), or `./test_IGCL.ps1`. Then run facades with `dotnet test IGCLWrapper.FacadeTests/IGCLWrapper.FacadeTests.csproj --verbosity normal`.
 - Both Native and Facade tests should test the full range of the Intel IGCL API. 
-- Test Filenames should align with each of the feature areas being tested. e.g. 
-  - IGCLDisplayNativeTests.cs should be where the Native tests that exercise the Display objects live, and 
-  - IGCLDisplayFacadeTests.cs should be where the Facade tests that exercise the Display objects live.
-  - This structure will keep the files small to make it easier for LLMs to edit them, and make it easier for humans to find the functions when they need fixing.
+- Test Filenames: Native tests are currently organized in consolidated domain files: `DisplayServicesTests.cs`, `GpuServicesTests.cs`, `SystemServicesTests.cs`, `CoreApiTests.cs`, `BasicApiTests.cs`. New native tests for a feature should go in the most relevant existing file. Facade tests use `IGCL<Feature>HelperTests.cs` (e.g. `IGCLDisplayHelperTests.cs`, `IGCLFrequencyHelperTests.cs`). This keeps files small and feature-aligned.
 - Native vs Facade tests:
-  - Native (`*NativeTests.cs`): Use only ClangSharp-generated APIs in `IGCLWrapper/cs_generated`; never call facades as they will be tested in the Facade tests. THe Native tests should be able to run and pass successfully even if all the IGCLWrapper Facade functions were removed.
-  - Facade (`*FacadeTests.cs`): Exercise helper/facade ergonomics built on native APIs.
+  - Native (`DisplayServicesTests.cs` etc.): Use only ClangSharp-generated APIs in `IGCLWrapper/cs_generated`; never call facades as they will be tested in the Facade tests. The Native tests should be able to run and pass successfully even if all the IGCLWrapper Facade functions were removed.
+  - Facade (`IGCL<Feature>HelperTests.cs`): Exercise helper/facade ergonomics built on native APIs. Use `FacadeTestUtils.RequireAdapter()` to bootstrap and `FacadeTestUtils.InvokeOrSkip()` to wrap optional-feature calls — it automatically converts `CTL_RESULT_ERROR_UNSUPPORTED_FEATURE`, `CTL_RESULT_ERROR_UNSUPPORTED_VERSION`, and `EntryPointNotFoundException` into `SkipException`.
+  - Active tests (`IGCL<Feature>HelperActiveTests.cs`): Tests that write/modify hardware state (apply-and-revert) live in a separate `*ActiveTests.cs` file. Tag each test `[Trait("Category", "Active")]` and place it in `[Collection("ActiveDisplay")]` or `[Collection("ActiveCombined")]` (defined in `TestCollectionOrdering.cs`). Use the `RunActiveDisplayTest` / `ApplyAndRevert` helpers to ensure settings are always reverted even on failure.
 - Test creation: Write Native tests first to validate low-level APIs, then Facade tests. If IGCL marks features optional or provides `IsSupported`, gate tests accordingly; skip only when unsupported. Fix underlying wrapper bugs rather than skipping failing coverage. Shared fixtures for bootstrapping IGCL are acceptable; keep initialization/disposal safe across tests.
-- Hardware skip: Tests that need Intel GPU/driver or IGCL DLL gracefully skip when missing.
+- Hardware skip: Tests that need Intel GPU/driver or IGCL DLL gracefully skip when missing. Use `IGCLApiHelper.IsIGCLDllAvailable()` and `IGCLHardwareDetection.HasIntelGPU()` for detection (already encapsulated in `FacadeTestUtils.RequireAdapter()`).
 
 ## Usage Notes
-- DLL loading: `IGCLApi` dynamically loads `amdIGCL64.dll` via `LoadLibraryEx`; keep `IGCLNative.GetDllName()` and `IGCLApi.LoadIGCLDll()` in sync if names/paths change; surface errors via `IGCLException`.
-- Data shapes: Helpers expose serializable `Info` structs (e.g., `GpuInfo`, `DisplayInfo`) and support apply/restore flows.
+- DLL loading: `IGCLApi` dynamically loads `ControlLib.dll` (x64) or `ControlLib32.dll` (x86) via `LoadLibraryEx`; keep `IGCLNative.GetDllName()` and `IGCLApi.LoadIGCLDll()` in sync if names/paths change; surface errors via `IGCLException`.
+- Data shapes: Helpers expose DTO classes (e.g. `DisplayPropertiesDto`, `FrequencyPropertiesDto`) with `bool` convenience properties, per-flag booleans for bitmask fields, and `FromNative()`/`ToNative()` round-trip methods.
 - Samples: See `IGCLWrapper/README.md` and `Samples/` for usage patterns (enumeration, capability checks, event listeners).
 
 ## Versioning
