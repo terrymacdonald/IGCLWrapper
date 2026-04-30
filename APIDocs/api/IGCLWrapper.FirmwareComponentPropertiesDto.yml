@@ -5,6 +5,7 @@ items:
   id: FirmwareComponentPropertiesDto
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.FirmwareComponentPropertiesDto.#ctor
   - IGCLWrapper.FirmwareComponentPropertiesDto.ComponentVersion
   - IGCLWrapper.FirmwareComponentPropertiesDto.Equals(IGCLWrapper.FirmwareComponentPropertiesDto)
   - IGCLWrapper.FirmwareComponentPropertiesDto.Equals(System.Object)
@@ -29,7 +30,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FirmwareComponentPropertiesDto
     path: ../IGCLWrapper/IGCLFirmwareHelper.cs
-    startLine: 333
+    startLine: 334
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -45,6 +46,35 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.FirmwareComponentPropertiesDto.#ctor
+  commentId: M:IGCLWrapper.FirmwareComponentPropertiesDto.#ctor
+  id: '#ctor'
+  parent: IGCLWrapper.FirmwareComponentPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: FirmwareComponentPropertiesDto()
+  nameWithType: FirmwareComponentPropertiesDto.FirmwareComponentPropertiesDto()
+  fullName: IGCLWrapper.FirmwareComponentPropertiesDto.FirmwareComponentPropertiesDto()
+  type: Constructor
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFirmwareHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: .ctor
+    path: ../IGCLWrapper/IGCLFirmwareHelper.cs
+    startLine: 336
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public FirmwareComponentPropertiesDto()
+    content.vb: Public Sub New()
+  overload: IGCLWrapper.FirmwareComponentPropertiesDto.#ctor*
+  nameWithType.vb: FirmwareComponentPropertiesDto.New()
+  fullName.vb: IGCLWrapper.FirmwareComponentPropertiesDto.New()
+  name.vb: New()
 - uid: IGCLWrapper.FirmwareComponentPropertiesDto.Size
   commentId: F:IGCLWrapper.FirmwareComponentPropertiesDto.Size
   id: Size
@@ -63,7 +93,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLFirmwareHelper.cs
-    startLine: 341
+    startLine: 343
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -92,7 +122,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLFirmwareHelper.cs
-    startLine: 345
+    startLine: 347
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -121,7 +151,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Name
     path: ../IGCLWrapper/IGCLFirmwareHelper.cs
-    startLine: 349
+    startLine: 351
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -150,7 +180,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ComponentVersion
     path: ../IGCLWrapper/IGCLFirmwareHelper.cs
-    startLine: 353
+    startLine: 355
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -179,14 +209,14 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Reserved
     path: ../IGCLWrapper/IGCLFirmwareHelper.cs
-    startLine: 357
+    startLine: 359
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Reserved native fields.
   example: []
   syntax:
-    content: public List<byte>? Reserved
+    content: public List<byte> Reserved
     return:
       type: System.Collections.Generic.List{System.Byte}
     content.vb: Public Reserved As List(Of Byte)
@@ -208,7 +238,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLFirmwareHelper.cs
-    startLine: 364
+    startLine: 366
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -245,7 +275,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLFirmwareHelper.cs
-    startLine: 378
+    startLine: 380
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -284,7 +314,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetHashCode
     path: ../IGCLWrapper/IGCLFirmwareHelper.cs
-    startLine: 384
+    startLine: 386
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -316,7 +346,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLFirmwareHelper.cs
-    startLine: 399
+    startLine: 401
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -351,7 +381,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLFirmwareHelper.cs
-    startLine: 415
+    startLine: 417
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -594,6 +624,15 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: IGCLWrapper.FirmwareComponentPropertiesDto.#ctor*
+  commentId: Overload:IGCLWrapper.FirmwareComponentPropertiesDto.#ctor
+  href: IGCLWrapper.FirmwareComponentPropertiesDto.html#IGCLWrapper_FirmwareComponentPropertiesDto__ctor
+  name: FirmwareComponentPropertiesDto
+  nameWithType: FirmwareComponentPropertiesDto.FirmwareComponentPropertiesDto
+  fullName: IGCLWrapper.FirmwareComponentPropertiesDto.FirmwareComponentPropertiesDto
+  nameWithType.vb: FirmwareComponentPropertiesDto.New
+  fullName.vb: IGCLWrapper.FirmwareComponentPropertiesDto.New
+  name.vb: New
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System

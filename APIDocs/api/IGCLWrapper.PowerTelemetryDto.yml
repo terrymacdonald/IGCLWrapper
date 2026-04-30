@@ -5,6 +5,7 @@ items:
   id: PowerTelemetryDto
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.PowerTelemetryDto.#ctor
   - IGCLWrapper.PowerTelemetryDto.Equals(IGCLWrapper.PowerTelemetryDto)
   - IGCLWrapper.PowerTelemetryDto.Equals(System.Object)
   - IGCLWrapper.PowerTelemetryDto.FanSpeed
@@ -79,6 +80,35 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.PowerTelemetryDto.#ctor
+  commentId: M:IGCLWrapper.PowerTelemetryDto.#ctor
+  id: '#ctor'
+  parent: IGCLWrapper.PowerTelemetryDto
+  langs:
+  - csharp
+  - vb
+  name: PowerTelemetryDto()
+  nameWithType: PowerTelemetryDto.PowerTelemetryDto()
+  fullName: IGCLWrapper.PowerTelemetryDto.PowerTelemetryDto()
+  type: Constructor
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: .ctor
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 1165
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public PowerTelemetryDto()
+    content.vb: Public Sub New()
+  overload: IGCLWrapper.PowerTelemetryDto.#ctor*
+  nameWithType.vb: PowerTelemetryDto.New()
+  fullName.vb: IGCLWrapper.PowerTelemetryDto.New()
+  name.vb: New()
 - uid: IGCLWrapper.PowerTelemetryDto.Size
   commentId: F:IGCLWrapper.PowerTelemetryDto.Size
   id: Size
@@ -97,7 +127,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1168
+    startLine: 1169
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -126,7 +156,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1172
+    startLine: 1173
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -155,7 +185,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: TimeStamp
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1176
+    startLine: 1177
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -184,7 +214,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuEnergyCounter
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1180
+    startLine: 1181
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -213,7 +243,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuVoltage
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1184
+    startLine: 1185
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -242,7 +272,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuCurrentClockFrequency
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1188
+    startLine: 1189
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -271,7 +301,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuCurrentTemperature
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1192
+    startLine: 1193
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -300,7 +330,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GlobalActivityCounter
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1196
+    startLine: 1197
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -329,7 +359,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: RenderComputeActivityCounter
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1200
+    startLine: 1201
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -358,7 +388,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: MediaActivityCounter
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1204
+    startLine: 1205
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -387,7 +417,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuPowerLimited
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1208
+    startLine: 1209
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -416,7 +446,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuTemperatureLimited
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1212
+    startLine: 1213
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -445,7 +475,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuCurrentLimited
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1216
+    startLine: 1217
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -474,7 +504,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuVoltageLimited
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1220
+    startLine: 1221
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -503,7 +533,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuUtilizationLimited
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1224
+    startLine: 1225
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -532,7 +562,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramEnergyCounter
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1228
+    startLine: 1229
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -561,7 +591,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramVoltage
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1232
+    startLine: 1233
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -590,7 +620,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramCurrentClockFrequency
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1236
+    startLine: 1237
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -619,7 +649,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramCurrentEffectiveFrequency
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1240
+    startLine: 1241
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -648,7 +678,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramReadBandwidthCounter
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1244
+    startLine: 1245
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -677,7 +707,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramWriteBandwidthCounter
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1248
+    startLine: 1249
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -706,7 +736,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramCurrentTemperature
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1252
+    startLine: 1253
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -735,7 +765,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramPowerLimited
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1256
+    startLine: 1257
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -764,7 +794,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramTemperatureLimited
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1260
+    startLine: 1261
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -793,7 +823,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramCurrentLimited
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1264
+    startLine: 1265
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -822,7 +852,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramVoltageLimited
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1268
+    startLine: 1269
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -851,7 +881,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramUtilizationLimited
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1272
+    startLine: 1273
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -880,7 +910,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: TotalCardEnergyCounter
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1276
+    startLine: 1277
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -909,14 +939,14 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Psu
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1280
+    startLine: 1281
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: PSU telemetry items.
   example: []
   syntax:
-    content: public List<PsuInfoDto>? Psu
+    content: public List<PsuInfoDto> Psu
     return:
       type: System.Collections.Generic.List{IGCLWrapper.PsuInfoDto}
     content.vb: Public Psu As List(Of PsuInfoDto)
@@ -938,14 +968,14 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FanSpeed
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1284
+    startLine: 1285
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Fan speed telemetry items.
   example: []
   syntax:
-    content: public List<OcTelemetryItemDto>? FanSpeed
+    content: public List<OcTelemetryItemDto> FanSpeed
     return:
       type: System.Collections.Generic.List{IGCLWrapper.OcTelemetryItemDto}
     content.vb: Public FanSpeed As List(Of OcTelemetryItemDto)
@@ -967,7 +997,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuVrTemp
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1288
+    startLine: 1289
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -996,7 +1026,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramVrTemp
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1292
+    startLine: 1293
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1025,7 +1055,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SaVrTemp
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1296
+    startLine: 1297
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1054,7 +1084,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuEffectiveClock
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1300
+    startLine: 1301
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1083,7 +1113,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuOverVoltagePercent
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1304
+    startLine: 1305
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1112,7 +1142,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuPowerPercent
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1308
+    startLine: 1309
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1141,7 +1171,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GpuTemperaturePercent
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1312
+    startLine: 1313
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1170,7 +1200,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramReadBandwidth
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1316
+    startLine: 1317
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1199,7 +1229,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VramWriteBandwidth
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1320
+    startLine: 1321
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1228,7 +1258,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1327
+    startLine: 1328
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1265,7 +1295,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1373
+    startLine: 1374
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1304,7 +1334,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetHashCode
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1379
+    startLine: 1380
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1336,7 +1366,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1437
+    startLine: 1438
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1371,7 +1401,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 1497
+    startLine: 1498
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1614,6 +1644,15 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: IGCLWrapper.PowerTelemetryDto.#ctor*
+  commentId: Overload:IGCLWrapper.PowerTelemetryDto.#ctor
+  href: IGCLWrapper.PowerTelemetryDto.html#IGCLWrapper_PowerTelemetryDto__ctor
+  name: PowerTelemetryDto
+  nameWithType: PowerTelemetryDto.PowerTelemetryDto
+  fullName: IGCLWrapper.PowerTelemetryDto.PowerTelemetryDto
+  nameWithType.vb: PowerTelemetryDto.New
+  fullName.vb: IGCLWrapper.PowerTelemetryDto.New
+  name.vb: New
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System

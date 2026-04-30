@@ -5,6 +5,7 @@ items:
   id: EdidManagementArgsDto
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.EdidManagementArgsDto.#ctor
   - IGCLWrapper.EdidManagementArgsDto.CreateReadRequest(IGCLWrapper.ctl_edid_type_t)
   - IGCLWrapper.EdidManagementArgsDto.EdidData
   - IGCLWrapper.EdidManagementArgsDto.EdidSize
@@ -32,7 +33,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EdidManagementArgsDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6139
+    startLine: 6157
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -48,6 +49,35 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.EdidManagementArgsDto.#ctor
+  commentId: M:IGCLWrapper.EdidManagementArgsDto.#ctor
+  id: '#ctor'
+  parent: IGCLWrapper.EdidManagementArgsDto
+  langs:
+  - csharp
+  - vb
+  name: EdidManagementArgsDto()
+  nameWithType: EdidManagementArgsDto.EdidManagementArgsDto()
+  fullName: IGCLWrapper.EdidManagementArgsDto.EdidManagementArgsDto()
+  type: Constructor
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: .ctor
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6159
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public EdidManagementArgsDto()
+    content.vb: Public Sub New()
+  overload: IGCLWrapper.EdidManagementArgsDto.#ctor*
+  nameWithType.vb: EdidManagementArgsDto.New()
+  fullName.vb: IGCLWrapper.EdidManagementArgsDto.New()
+  name.vb: New()
 - uid: IGCLWrapper.EdidManagementArgsDto.Size
   commentId: F:IGCLWrapper.EdidManagementArgsDto.Size
   id: Size
@@ -66,7 +96,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6141
+    startLine: 6160
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -93,7 +123,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6142
+    startLine: 6161
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -120,7 +150,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OpType
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6143
+    startLine: 6162
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -147,7 +177,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EdidType
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6144
+    startLine: 6163
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -174,7 +204,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EdidSize
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6145
+    startLine: 6164
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -201,7 +231,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OutFlags
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6146
+    startLine: 6165
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -228,12 +258,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EdidData
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6147
+    startLine: 6166
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public List<byte>? EdidData
+    content: public List<byte> EdidData
     return:
       type: System.Collections.Generic.List{System.Byte}
     content.vb: Public EdidData As List(Of Byte)
@@ -255,7 +285,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6149
+    startLine: 6168
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -291,7 +321,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNativeMetadata
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6163
+    startLine: 6182
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -319,7 +349,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6177
+    startLine: 6196
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -356,7 +386,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6181
+    startLine: 6200
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -395,7 +425,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetHashCode
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6182
+    startLine: 6201
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -427,7 +457,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateReadRequest
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6184
+    startLine: 6203
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -670,6 +700,15 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: IGCLWrapper.EdidManagementArgsDto.#ctor*
+  commentId: Overload:IGCLWrapper.EdidManagementArgsDto.#ctor
+  href: IGCLWrapper.EdidManagementArgsDto.html#IGCLWrapper_EdidManagementArgsDto__ctor
+  name: EdidManagementArgsDto
+  nameWithType: EdidManagementArgsDto.EdidManagementArgsDto
+  fullName: IGCLWrapper.EdidManagementArgsDto.EdidManagementArgsDto
+  nameWithType.vb: EdidManagementArgsDto.New
+  fullName.vb: IGCLWrapper.EdidManagementArgsDto.New
+  name.vb: New
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System

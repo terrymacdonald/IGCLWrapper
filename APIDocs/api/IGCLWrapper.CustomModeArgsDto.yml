@@ -5,6 +5,7 @@ items:
   id: CustomModeArgsDto
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.CustomModeArgsDto.#ctor
   - IGCLWrapper.CustomModeArgsDto.CustomModeOpType
   - IGCLWrapper.CustomModeArgsDto.FromNative(IGCLWrapper.ctl_get_set_custom_mode_args_t)
   - IGCLWrapper.CustomModeArgsDto.Modes
@@ -26,7 +27,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CustomModeArgsDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5650
+    startLine: 5660
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -42,6 +43,35 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.CustomModeArgsDto.#ctor
+  commentId: M:IGCLWrapper.CustomModeArgsDto.#ctor
+  id: '#ctor'
+  parent: IGCLWrapper.CustomModeArgsDto
+  langs:
+  - csharp
+  - vb
+  name: CustomModeArgsDto()
+  nameWithType: CustomModeArgsDto.CustomModeArgsDto()
+  fullName: IGCLWrapper.CustomModeArgsDto.CustomModeArgsDto()
+  type: Constructor
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: .ctor
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 5662
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public CustomModeArgsDto()
+    content.vb: Public Sub New()
+  overload: IGCLWrapper.CustomModeArgsDto.#ctor*
+  nameWithType.vb: CustomModeArgsDto.New()
+  fullName.vb: IGCLWrapper.CustomModeArgsDto.New()
+  name.vb: New()
 - uid: IGCLWrapper.CustomModeArgsDto.Size
   commentId: F:IGCLWrapper.CustomModeArgsDto.Size
   id: Size
@@ -60,7 +90,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5652
+    startLine: 5663
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -87,7 +117,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5653
+    startLine: 5664
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -114,7 +144,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CustomModeOpType
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5654
+    startLine: 5665
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -141,7 +171,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: NumOfModes
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5655
+    startLine: 5666
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -168,12 +198,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Modes
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5656
+    startLine: 5667
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public List<CustomSourceModeDto>? Modes
+    content: public List<CustomSourceModeDto> Modes
     return:
       type: System.Collections.Generic.List{IGCLWrapper.CustomSourceModeDto}
     content.vb: Public Modes As List(Of CustomSourceModeDto)
@@ -195,7 +225,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5658
+    startLine: 5669
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -226,7 +256,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5669
+    startLine: 5680
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -460,6 +490,15 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: IGCLWrapper.CustomModeArgsDto.#ctor*
+  commentId: Overload:IGCLWrapper.CustomModeArgsDto.#ctor
+  href: IGCLWrapper.CustomModeArgsDto.html#IGCLWrapper_CustomModeArgsDto__ctor
+  name: CustomModeArgsDto
+  nameWithType: CustomModeArgsDto.CustomModeArgsDto
+  fullName: IGCLWrapper.CustomModeArgsDto.CustomModeArgsDto
+  nameWithType.vb: CustomModeArgsDto.New
+  fullName.vb: IGCLWrapper.CustomModeArgsDto.New
+  name.vb: New
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System

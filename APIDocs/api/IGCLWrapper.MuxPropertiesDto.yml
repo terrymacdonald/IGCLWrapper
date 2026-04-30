@@ -5,6 +5,7 @@ items:
   id: MuxPropertiesDto
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.MuxPropertiesDto.#ctor
   - IGCLWrapper.MuxPropertiesDto.Count
   - IGCLWrapper.MuxPropertiesDto.DisplayOutputs
   - IGCLWrapper.MuxPropertiesDto.FromNative(IGCLWrapper.ctl_mux_properties_t,System.IntPtr[])
@@ -27,7 +28,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: MuxPropertiesDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5710
+    startLine: 5722
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -43,6 +44,35 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.MuxPropertiesDto.#ctor
+  commentId: M:IGCLWrapper.MuxPropertiesDto.#ctor
+  id: '#ctor'
+  parent: IGCLWrapper.MuxPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: MuxPropertiesDto()
+  nameWithType: MuxPropertiesDto.MuxPropertiesDto()
+  fullName: IGCLWrapper.MuxPropertiesDto.MuxPropertiesDto()
+  type: Constructor
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: .ctor
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 5724
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public MuxPropertiesDto()
+    content.vb: Public Sub New()
+  overload: IGCLWrapper.MuxPropertiesDto.#ctor*
+  nameWithType.vb: MuxPropertiesDto.New()
+  fullName.vb: IGCLWrapper.MuxPropertiesDto.New()
+  name.vb: New()
 - uid: IGCLWrapper.MuxPropertiesDto.Size
   commentId: F:IGCLWrapper.MuxPropertiesDto.Size
   id: Size
@@ -61,7 +91,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5712
+    startLine: 5725
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -88,7 +118,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5713
+    startLine: 5726
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -115,7 +145,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: MuxId
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5714
+    startLine: 5727
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -142,7 +172,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Count
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5715
+    startLine: 5728
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -169,7 +199,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IndexOfDisplayOutputOwningMux
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5716
+    startLine: 5729
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -196,12 +226,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: DisplayOutputs
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5717
+    startLine: 5730
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public List<nint>? DisplayOutputs
+    content: public List<nint> DisplayOutputs
     return:
       type: System.Collections.Generic.List{System.IntPtr}
     content.vb: Public DisplayOutputs As List(Of IntPtr)
@@ -223,7 +253,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5719
+    startLine: 5732
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -259,7 +289,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5736
+    startLine: 5749
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -493,6 +523,15 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: IGCLWrapper.MuxPropertiesDto.#ctor*
+  commentId: Overload:IGCLWrapper.MuxPropertiesDto.#ctor
+  href: IGCLWrapper.MuxPropertiesDto.html#IGCLWrapper_MuxPropertiesDto__ctor
+  name: MuxPropertiesDto
+  nameWithType: MuxPropertiesDto.MuxPropertiesDto
+  fullName: IGCLWrapper.MuxPropertiesDto.MuxPropertiesDto
+  nameWithType.vb: MuxPropertiesDto.New
+  fullName.vb: IGCLWrapper.MuxPropertiesDto.New
+  name.vb: New
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System

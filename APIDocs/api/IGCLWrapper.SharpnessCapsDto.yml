@@ -5,6 +5,7 @@ items:
   id: SharpnessCapsDto
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.SharpnessCapsDto.#ctor
   - IGCLWrapper.SharpnessCapsDto.FilterProperties
   - IGCLWrapper.SharpnessCapsDto.FromNative(IGCLWrapper.ctl_sharpness_caps_t,IGCLWrapper.ctl_sharpness_filter_properties_t[])
   - IGCLWrapper.SharpnessCapsDto.NumFilterTypes
@@ -26,7 +27,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SharpnessCapsDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5541
+    startLine: 5550
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -42,6 +43,35 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.SharpnessCapsDto.#ctor
+  commentId: M:IGCLWrapper.SharpnessCapsDto.#ctor
+  id: '#ctor'
+  parent: IGCLWrapper.SharpnessCapsDto
+  langs:
+  - csharp
+  - vb
+  name: SharpnessCapsDto()
+  nameWithType: SharpnessCapsDto.SharpnessCapsDto()
+  fullName: IGCLWrapper.SharpnessCapsDto.SharpnessCapsDto()
+  type: Constructor
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: .ctor
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 5552
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public SharpnessCapsDto()
+    content.vb: Public Sub New()
+  overload: IGCLWrapper.SharpnessCapsDto.#ctor*
+  nameWithType.vb: SharpnessCapsDto.New()
+  fullName.vb: IGCLWrapper.SharpnessCapsDto.New()
+  name.vb: New()
 - uid: IGCLWrapper.SharpnessCapsDto.Size
   commentId: F:IGCLWrapper.SharpnessCapsDto.Size
   id: Size
@@ -60,7 +90,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5543
+    startLine: 5553
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -87,7 +117,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5544
+    startLine: 5554
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -114,7 +144,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SupportedFilterFlags
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5545
+    startLine: 5555
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -141,7 +171,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: NumFilterTypes
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5546
+    startLine: 5556
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -168,12 +198,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FilterProperties
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5547
+    startLine: 5557
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public List<SharpnessFilterPropertiesDto>? FilterProperties
+    content: public List<SharpnessFilterPropertiesDto> FilterProperties
     return:
       type: System.Collections.Generic.List{IGCLWrapper.SharpnessFilterPropertiesDto}
     content.vb: Public FilterProperties As List(Of SharpnessFilterPropertiesDto)
@@ -195,7 +225,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5549
+    startLine: 5559
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -231,7 +261,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5565
+    startLine: 5575
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -465,6 +495,15 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: IGCLWrapper.SharpnessCapsDto.#ctor*
+  commentId: Overload:IGCLWrapper.SharpnessCapsDto.#ctor
+  href: IGCLWrapper.SharpnessCapsDto.html#IGCLWrapper_SharpnessCapsDto__ctor
+  name: SharpnessCapsDto
+  nameWithType: SharpnessCapsDto.SharpnessCapsDto
+  fullName: IGCLWrapper.SharpnessCapsDto.SharpnessCapsDto
+  nameWithType.vb: SharpnessCapsDto.New
+  fullName.vb: IGCLWrapper.SharpnessCapsDto.New
+  name.vb: New
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System

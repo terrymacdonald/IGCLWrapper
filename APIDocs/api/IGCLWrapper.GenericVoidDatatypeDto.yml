@@ -5,6 +5,7 @@ items:
   id: GenericVoidDatatypeDto
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.GenericVoidDatatypeDto.#ctor
   - IGCLWrapper.GenericVoidDatatypeDto.Data
   - IGCLWrapper.GenericVoidDatatypeDto.DataSize
   - IGCLWrapper.GenericVoidDatatypeDto.Equals(IGCLWrapper.GenericVoidDatatypeDto)
@@ -42,6 +43,35 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.GenericVoidDatatypeDto.#ctor
+  commentId: M:IGCLWrapper.GenericVoidDatatypeDto.#ctor
+  id: '#ctor'
+  parent: IGCLWrapper.GenericVoidDatatypeDto
+  langs:
+  - csharp
+  - vb
+  name: GenericVoidDatatypeDto()
+  nameWithType: GenericVoidDatatypeDto.GenericVoidDatatypeDto()
+  fullName: IGCLWrapper.GenericVoidDatatypeDto.GenericVoidDatatypeDto()
+  type: Constructor
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: .ctor
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 2146
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public GenericVoidDatatypeDto()
+    content.vb: Public Sub New()
+  overload: IGCLWrapper.GenericVoidDatatypeDto.#ctor*
+  nameWithType.vb: GenericVoidDatatypeDto.New()
+  fullName.vb: IGCLWrapper.GenericVoidDatatypeDto.New()
+  name.vb: New()
 - uid: IGCLWrapper.GenericVoidDatatypeDto.Data
   commentId: F:IGCLWrapper.GenericVoidDatatypeDto.Data
   id: Data
@@ -60,14 +90,14 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Data
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2149
+    startLine: 2150
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Native data bytes.
   example: []
   syntax:
-    content: public List<byte>? Data
+    content: public List<byte> Data
     return:
       type: System.Collections.Generic.List{System.Byte}
     content.vb: Public Data As List(Of Byte)
@@ -89,7 +119,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: DataSize
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2153
+    startLine: 2154
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -118,7 +148,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2155
+    startLine: 2156
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -155,7 +185,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2161
+    startLine: 2162
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -194,7 +224,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetHashCode
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2163
+    startLine: 2164
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -226,7 +256,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2176
+    startLine: 2177
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -257,7 +287,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2194
+    startLine: 2195
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -497,6 +527,15 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: IGCLWrapper.GenericVoidDatatypeDto.#ctor*
+  commentId: Overload:IGCLWrapper.GenericVoidDatatypeDto.#ctor
+  href: IGCLWrapper.GenericVoidDatatypeDto.html#IGCLWrapper_GenericVoidDatatypeDto__ctor
+  name: GenericVoidDatatypeDto
+  nameWithType: GenericVoidDatatypeDto.GenericVoidDatatypeDto
+  fullName: IGCLWrapper.GenericVoidDatatypeDto.GenericVoidDatatypeDto
+  nameWithType.vb: GenericVoidDatatypeDto.New
+  fullName.vb: IGCLWrapper.GenericVoidDatatypeDto.New
+  name.vb: New
 - uid: System.Collections.Generic.List{System.Byte}
   commentId: T:System.Collections.Generic.List{System.Byte}
   parent: System.Collections.Generic

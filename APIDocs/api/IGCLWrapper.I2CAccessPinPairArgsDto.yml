@@ -5,6 +5,7 @@ items:
   id: I2CAccessPinPairArgsDto
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.I2CAccessPinPairArgsDto.#ctor
   - IGCLWrapper.I2CAccessPinPairArgsDto.Address
   - IGCLWrapper.I2CAccessPinPairArgsDto.CreateReadRequest(System.UInt32,System.UInt32,System.UInt32)
   - IGCLWrapper.I2CAccessPinPairArgsDto.CreateWriteRequest(System.UInt32,System.UInt32,System.Collections.Generic.List{System.Byte})
@@ -34,7 +35,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: I2CAccessPinPairArgsDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5903
+    startLine: 5918
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -50,6 +51,35 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.I2CAccessPinPairArgsDto.#ctor
+  commentId: M:IGCLWrapper.I2CAccessPinPairArgsDto.#ctor
+  id: '#ctor'
+  parent: IGCLWrapper.I2CAccessPinPairArgsDto
+  langs:
+  - csharp
+  - vb
+  name: I2CAccessPinPairArgsDto()
+  nameWithType: I2CAccessPinPairArgsDto.I2CAccessPinPairArgsDto()
+  fullName: IGCLWrapper.I2CAccessPinPairArgsDto.I2CAccessPinPairArgsDto()
+  type: Constructor
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: .ctor
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 5920
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public I2CAccessPinPairArgsDto()
+    content.vb: Public Sub New()
+  overload: IGCLWrapper.I2CAccessPinPairArgsDto.#ctor*
+  nameWithType.vb: I2CAccessPinPairArgsDto.New()
+  fullName.vb: IGCLWrapper.I2CAccessPinPairArgsDto.New()
+  name.vb: New()
 - uid: IGCLWrapper.I2CAccessPinPairArgsDto.Size
   commentId: F:IGCLWrapper.I2CAccessPinPairArgsDto.Size
   id: Size
@@ -68,7 +98,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5905
+    startLine: 5921
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -95,7 +125,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5906
+    startLine: 5922
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -122,7 +152,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Address
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5907
+    startLine: 5923
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -149,7 +179,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: DataSize
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5908
+    startLine: 5924
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -176,7 +206,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OpType
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5909
+    startLine: 5925
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -203,7 +233,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Offset
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5910
+    startLine: 5926
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -230,7 +260,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Flags
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5911
+    startLine: 5927
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -257,12 +287,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Data
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5912
+    startLine: 5928
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public List<byte>? Data
+    content: public List<byte> Data
     return:
       type: System.Collections.Generic.List{System.Byte}
     content.vb: Public Data As List(Of Byte)
@@ -284,7 +314,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5914
+    startLine: 5930
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -315,7 +345,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5936
+    startLine: 5952
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -343,7 +373,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5967
+    startLine: 5983
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -380,7 +410,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5982
+    startLine: 5998
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -419,7 +449,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetHashCode
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5983
+    startLine: 5999
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -451,7 +481,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateReadRequest
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5985
+    startLine: 6001
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -489,7 +519,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateWriteRequest
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5988
+    startLine: 6004
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -739,6 +769,15 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: IGCLWrapper.I2CAccessPinPairArgsDto.#ctor*
+  commentId: Overload:IGCLWrapper.I2CAccessPinPairArgsDto.#ctor
+  href: IGCLWrapper.I2CAccessPinPairArgsDto.html#IGCLWrapper_I2CAccessPinPairArgsDto__ctor
+  name: I2CAccessPinPairArgsDto
+  nameWithType: I2CAccessPinPairArgsDto.I2CAccessPinPairArgsDto
+  fullName: IGCLWrapper.I2CAccessPinPairArgsDto.I2CAccessPinPairArgsDto
+  nameWithType.vb: I2CAccessPinPairArgsDto.New
+  fullName.vb: IGCLWrapper.I2CAccessPinPairArgsDto.New
+  name.vb: New
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System

@@ -5,6 +5,7 @@ items:
   id: VideoProcessingFeatureGetSetDto
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.VideoProcessingFeatureGetSetDto.#ctor
   - IGCLWrapper.VideoProcessingFeatureGetSetDto.ApplicationName
   - IGCLWrapper.VideoProcessingFeatureGetSetDto.CustomValue
   - IGCLWrapper.VideoProcessingFeatureGetSetDto.Equals(IGCLWrapper.VideoProcessingFeatureGetSetDto)
@@ -49,6 +50,35 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.VideoProcessingFeatureGetSetDto.#ctor
+  commentId: M:IGCLWrapper.VideoProcessingFeatureGetSetDto.#ctor
+  id: '#ctor'
+  parent: IGCLWrapper.VideoProcessingFeatureGetSetDto
+  langs:
+  - csharp
+  - vb
+  name: VideoProcessingFeatureGetSetDto()
+  nameWithType: VideoProcessingFeatureGetSetDto.VideoProcessingFeatureGetSetDto()
+  fullName: IGCLWrapper.VideoProcessingFeatureGetSetDto.VideoProcessingFeatureGetSetDto()
+  type: Constructor
+  source:
+    remote:
+      path: IGCLWrapper/IGCLMediaHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: .ctor
+    path: ../IGCLWrapper/IGCLMediaHelper.cs
+    startLine: 215
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public VideoProcessingFeatureGetSetDto()
+    content.vb: Public Sub New()
+  overload: IGCLWrapper.VideoProcessingFeatureGetSetDto.#ctor*
+  nameWithType.vb: VideoProcessingFeatureGetSetDto.New()
+  fullName.vb: IGCLWrapper.VideoProcessingFeatureGetSetDto.New()
+  name.vb: New()
 - uid: IGCLWrapper.VideoProcessingFeatureGetSetDto.Size
   commentId: F:IGCLWrapper.VideoProcessingFeatureGetSetDto.Size
   id: Size
@@ -67,7 +97,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 219
+    startLine: 220
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -96,7 +126,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 223
+    startLine: 224
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -125,7 +155,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FeatureType
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 227
+    startLine: 228
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -154,7 +184,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ApplicationName
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 231
+    startLine: 232
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -183,7 +213,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Set
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 235
+    startLine: 236
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -212,7 +242,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ValueType
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 239
+    startLine: 240
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -241,7 +271,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Value
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 243
+    startLine: 244
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -270,14 +300,14 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CustomValue
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 247
+    startLine: 248
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Custom value bytes.
   example: []
   syntax:
-    content: public List<byte>? CustomValue
+    content: public List<byte> CustomValue
     return:
       type: System.Collections.Generic.List{System.Byte}
     content.vb: Public CustomValue As List(Of Byte)
@@ -299,14 +329,14 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ReservedFields
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 251
+    startLine: 252
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Reserved fields.
   example: []
   syntax:
-    content: public List<uint>? ReservedFields
+    content: public List<uint> ReservedFields
     return:
       type: System.Collections.Generic.List{System.UInt32}
     content.vb: Public ReservedFields As List(Of UInteger)
@@ -328,7 +358,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 258
+    startLine: 259
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -365,7 +395,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 273
+    startLine: 274
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -404,7 +434,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetHashCode
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 279
+    startLine: 280
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -436,7 +466,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 301
+    startLine: 302
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -471,7 +501,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 321
+    startLine: 322
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -714,6 +744,15 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: IGCLWrapper.VideoProcessingFeatureGetSetDto.#ctor*
+  commentId: Overload:IGCLWrapper.VideoProcessingFeatureGetSetDto.#ctor
+  href: IGCLWrapper.VideoProcessingFeatureGetSetDto.html#IGCLWrapper_VideoProcessingFeatureGetSetDto__ctor
+  name: VideoProcessingFeatureGetSetDto
+  nameWithType: VideoProcessingFeatureGetSetDto.VideoProcessingFeatureGetSetDto
+  fullName: IGCLWrapper.VideoProcessingFeatureGetSetDto.VideoProcessingFeatureGetSetDto
+  nameWithType.vb: VideoProcessingFeatureGetSetDto.New
+  fullName.vb: IGCLWrapper.VideoProcessingFeatureGetSetDto.New
+  name.vb: New
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System

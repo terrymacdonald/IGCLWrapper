@@ -5,6 +5,7 @@ items:
   id: CombinedDisplayArgsDto
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.CombinedDisplayArgsDto.#ctor
   - IGCLWrapper.CombinedDisplayArgsDto.ChildInfos
   - IGCLWrapper.CombinedDisplayArgsDto.CombinedDesktopHeight
   - IGCLWrapper.CombinedDisplayArgsDto.CombinedDesktopWidth
@@ -33,7 +34,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CombinedDisplayArgsDto
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1995
+    startLine: 1999
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -49,6 +50,35 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.CombinedDisplayArgsDto.#ctor
+  commentId: M:IGCLWrapper.CombinedDisplayArgsDto.#ctor
+  id: '#ctor'
+  parent: IGCLWrapper.CombinedDisplayArgsDto
+  langs:
+  - csharp
+  - vb
+  name: CombinedDisplayArgsDto()
+  nameWithType: CombinedDisplayArgsDto.CombinedDisplayArgsDto()
+  fullName: IGCLWrapper.CombinedDisplayArgsDto.CombinedDisplayArgsDto()
+  type: Constructor
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: .ctor
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 2001
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public CombinedDisplayArgsDto()
+    content.vb: Public Sub New()
+  overload: IGCLWrapper.CombinedDisplayArgsDto.#ctor*
+  nameWithType.vb: CombinedDisplayArgsDto.New()
+  fullName.vb: IGCLWrapper.CombinedDisplayArgsDto.New()
+  name.vb: New()
 - uid: IGCLWrapper.CombinedDisplayArgsDto.Size
   commentId: F:IGCLWrapper.CombinedDisplayArgsDto.Size
   id: Size
@@ -67,7 +97,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 2000
+    startLine: 2005
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -96,7 +126,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 2004
+    startLine: 2009
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -125,7 +155,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OpType
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 2008
+    startLine: 2013
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -154,7 +184,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsSupported
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 2012
+    startLine: 2017
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -183,7 +213,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: NumOutputs
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 2016
+    startLine: 2021
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -212,7 +242,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CombinedDesktopWidth
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 2020
+    startLine: 2025
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -241,7 +271,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CombinedDesktopHeight
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 2024
+    startLine: 2029
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -270,14 +300,14 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ChildInfos
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 2028
+    startLine: 2033
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Managed child display info list.
   example: []
   syntax:
-    content: public List<CombinedDisplayChildInfoDto>? ChildInfos
+    content: public List<CombinedDisplayChildInfoDto> ChildInfos
     return:
       type: System.Collections.Generic.List{IGCLWrapper.CombinedDisplayChildInfoDto}
     content.vb: Public ChildInfos As List(Of CombinedDisplayChildInfoDto)
@@ -299,7 +329,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CombinedDisplayOutputWindowsDisplayEncoderId
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 2032
+    startLine: 2037
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -328,7 +358,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 2039
+    startLine: 2044
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -365,7 +395,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 2055
+    startLine: 2060
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -404,7 +434,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetHashCode
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 2061
+    startLine: 2066
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -436,7 +466,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 2083
+    startLine: 2088
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -471,7 +501,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 2102
+    startLine: 2107
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -714,6 +744,15 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: IGCLWrapper.CombinedDisplayArgsDto.#ctor*
+  commentId: Overload:IGCLWrapper.CombinedDisplayArgsDto.#ctor
+  href: IGCLWrapper.CombinedDisplayArgsDto.html#IGCLWrapper_CombinedDisplayArgsDto__ctor
+  name: CombinedDisplayArgsDto
+  nameWithType: CombinedDisplayArgsDto.CombinedDisplayArgsDto
+  fullName: IGCLWrapper.CombinedDisplayArgsDto.CombinedDisplayArgsDto
+  nameWithType.vb: CombinedDisplayArgsDto.New
+  fullName.vb: IGCLWrapper.CombinedDisplayArgsDto.New
+  name.vb: New
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System

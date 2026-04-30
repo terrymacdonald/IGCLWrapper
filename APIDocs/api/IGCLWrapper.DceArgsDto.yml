@@ -5,6 +5,7 @@ items:
   id: DceArgsDto
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.DceArgsDto.#ctor
   - IGCLWrapper.DceArgsDto.Enable
   - IGCLWrapper.DceArgsDto.Equals(IGCLWrapper.DceArgsDto)
   - IGCLWrapper.DceArgsDto.Equals(System.Object)
@@ -33,7 +34,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: DceArgsDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3395
+    startLine: 3399
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -49,6 +50,35 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.DceArgsDto.#ctor
+  commentId: M:IGCLWrapper.DceArgsDto.#ctor
+  id: '#ctor'
+  parent: IGCLWrapper.DceArgsDto
+  langs:
+  - csharp
+  - vb
+  name: DceArgsDto()
+  nameWithType: DceArgsDto.DceArgsDto()
+  fullName: IGCLWrapper.DceArgsDto.DceArgsDto()
+  type: Constructor
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: .ctor
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 3401
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public DceArgsDto()
+    content.vb: Public Sub New()
+  overload: IGCLWrapper.DceArgsDto.#ctor*
+  nameWithType.vb: DceArgsDto.New()
+  fullName.vb: IGCLWrapper.DceArgsDto.New()
+  name.vb: New()
 - uid: IGCLWrapper.DceArgsDto.Size
   commentId: F:IGCLWrapper.DceArgsDto.Size
   id: Size
@@ -67,7 +97,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3400
+    startLine: 3405
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -96,7 +126,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3404
+    startLine: 3409
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -125,7 +155,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Set
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3408
+    startLine: 3413
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -154,7 +184,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: TargetBrightnessPercent
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3412
+    startLine: 3417
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -183,7 +213,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PhaseinSpeedMultiplier
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3416
+    startLine: 3421
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -212,7 +242,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: NumBins
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3420
+    startLine: 3425
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -241,7 +271,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Enable
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3424
+    startLine: 3429
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -270,7 +300,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsSupported
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3428
+    startLine: 3433
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -299,14 +329,14 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Histogram
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3432
+    startLine: 3437
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Histogram bins.
   example: []
   syntax:
-    content: public List<uint>? Histogram
+    content: public List<uint> Histogram
     return:
       type: System.Collections.Generic.List{System.UInt32}
     content.vb: Public Histogram As List(Of UInteger)
@@ -328,7 +358,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3439
+    startLine: 3444
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -365,7 +395,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3454
+    startLine: 3459
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -404,7 +434,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetHashCode
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3460
+    startLine: 3465
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -436,7 +466,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3477
+    startLine: 3482
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -471,7 +501,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 3505
+    startLine: 3510
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -714,6 +744,15 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: IGCLWrapper.DceArgsDto.#ctor*
+  commentId: Overload:IGCLWrapper.DceArgsDto.#ctor
+  href: IGCLWrapper.DceArgsDto.html#IGCLWrapper_DceArgsDto__ctor
+  name: DceArgsDto
+  nameWithType: DceArgsDto.DceArgsDto
+  fullName: IGCLWrapper.DceArgsDto.DceArgsDto
+  nameWithType.vb: DceArgsDto.New
+  fullName.vb: IGCLWrapper.DceArgsDto.New
+  name.vb: New
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System

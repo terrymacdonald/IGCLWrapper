@@ -5,6 +5,7 @@ items:
   id: GenlockTopologyDto
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.GenlockTopologyDto.#ctor
   - IGCLWrapper.GenlockTopologyDto.CommonTargetMode
   - IGCLWrapper.GenlockTopologyDto.Equals(IGCLWrapper.GenlockTopologyDto)
   - IGCLWrapper.GenlockTopologyDto.Equals(System.Object)
@@ -29,7 +30,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GenlockTopologyDto
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1587
+    startLine: 1589
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -45,6 +46,35 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.GenlockTopologyDto.#ctor
+  commentId: M:IGCLWrapper.GenlockTopologyDto.#ctor
+  id: '#ctor'
+  parent: IGCLWrapper.GenlockTopologyDto
+  langs:
+  - csharp
+  - vb
+  name: GenlockTopologyDto()
+  nameWithType: GenlockTopologyDto.GenlockTopologyDto()
+  fullName: IGCLWrapper.GenlockTopologyDto.GenlockTopologyDto()
+  type: Constructor
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: .ctor
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1591
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public GenlockTopologyDto()
+    content.vb: Public Sub New()
+  overload: IGCLWrapper.GenlockTopologyDto.#ctor*
+  nameWithType.vb: GenlockTopologyDto.New()
+  fullName.vb: IGCLWrapper.GenlockTopologyDto.New()
+  name.vb: New()
 - uid: IGCLWrapper.GenlockTopologyDto.NumGenlockDisplays
   commentId: F:IGCLWrapper.GenlockTopologyDto.NumGenlockDisplays
   id: NumGenlockDisplays
@@ -63,7 +93,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: NumGenlockDisplays
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1592
+    startLine: 1595
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -92,7 +122,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsPrimaryGenlockSystem
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1596
+    startLine: 1599
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -121,7 +151,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CommonTargetMode
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1600
+    startLine: 1603
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -150,14 +180,14 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GenlockDisplayInfos
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1604
+    startLine: 1607
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Managed genlock display info list.
   example: []
   syntax:
-    content: public List<GenlockDisplayInfoDto>? GenlockDisplayInfos
+    content: public List<GenlockDisplayInfoDto> GenlockDisplayInfos
     return:
       type: System.Collections.Generic.List{IGCLWrapper.GenlockDisplayInfoDto}
     content.vb: Public GenlockDisplayInfos As List(Of GenlockDisplayInfoDto)
@@ -179,14 +209,14 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GenlockModeLists
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1608
+    startLine: 1611
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Managed genlock mode lists.
   example: []
   syntax:
-    content: public List<GenlockTargetModeListDto>? GenlockModeLists
+    content: public List<GenlockTargetModeListDto> GenlockModeLists
     return:
       type: System.Collections.Generic.List{IGCLWrapper.GenlockTargetModeListDto}
     content.vb: Public GenlockModeLists As List(Of GenlockTargetModeListDto)
@@ -208,7 +238,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1610
+    startLine: 1613
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -245,7 +275,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1617
+    startLine: 1620
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -284,7 +314,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetHashCode
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1619
+    startLine: 1622
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -316,7 +346,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1628
+    startLine: 1631
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -347,7 +377,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1640
+    startLine: 1643
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -587,6 +617,15 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: IGCLWrapper.GenlockTopologyDto.#ctor*
+  commentId: Overload:IGCLWrapper.GenlockTopologyDto.#ctor
+  href: IGCLWrapper.GenlockTopologyDto.html#IGCLWrapper_GenlockTopologyDto__ctor
+  name: GenlockTopologyDto
+  nameWithType: GenlockTopologyDto.GenlockTopologyDto
+  fullName: IGCLWrapper.GenlockTopologyDto.GenlockTopologyDto
+  nameWithType.vb: GenlockTopologyDto.New
+  fullName.vb: IGCLWrapper.GenlockTopologyDto.New
+  name.vb: New
 - uid: System.Byte
   commentId: T:System.Byte
   parent: System

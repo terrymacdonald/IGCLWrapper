@@ -5,6 +5,7 @@ items:
   id: ThreeDFeatureGetSetDto
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.ThreeDFeatureGetSetDto.#ctor
   - IGCLWrapper.ThreeDFeatureGetSetDto.ApplicationName
   - IGCLWrapper.ThreeDFeatureGetSetDto.CustomValue
   - IGCLWrapper.ThreeDFeatureGetSetDto.Equals(IGCLWrapper.ThreeDFeatureGetSetDto)
@@ -48,6 +49,35 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.ThreeDFeatureGetSetDto.#ctor
+  commentId: M:IGCLWrapper.ThreeDFeatureGetSetDto.#ctor
+  id: '#ctor'
+  parent: IGCLWrapper.ThreeDFeatureGetSetDto
+  langs:
+  - csharp
+  - vb
+  name: ThreeDFeatureGetSetDto()
+  nameWithType: ThreeDFeatureGetSetDto.ThreeDFeatureGetSetDto()
+  fullName: IGCLWrapper.ThreeDFeatureGetSetDto.ThreeDFeatureGetSetDto()
+  type: Constructor
+  source:
+    remote:
+      path: IGCLWrapper/IGCL3DHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: .ctor
+    path: ../IGCLWrapper/IGCL3DHelper.cs
+    startLine: 429
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ThreeDFeatureGetSetDto()
+    content.vb: Public Sub New()
+  overload: IGCLWrapper.ThreeDFeatureGetSetDto.#ctor*
+  nameWithType.vb: ThreeDFeatureGetSetDto.New()
+  fullName.vb: IGCLWrapper.ThreeDFeatureGetSetDto.New()
+  name.vb: New()
 - uid: IGCLWrapper.ThreeDFeatureGetSetDto.Size
   commentId: F:IGCLWrapper.ThreeDFeatureGetSetDto.Size
   id: Size
@@ -66,7 +96,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 432
+    startLine: 433
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -95,7 +125,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 436
+    startLine: 437
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -124,7 +154,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FeatureType
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 440
+    startLine: 441
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -153,7 +183,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ApplicationName
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 444
+    startLine: 445
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -182,7 +212,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Set
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 448
+    startLine: 449
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -211,7 +241,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ValueType
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 452
+    startLine: 453
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -240,7 +270,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Value
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 456
+    startLine: 457
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -269,14 +299,14 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CustomValue
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 460
+    startLine: 461
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Custom value bytes.
   example: []
   syntax:
-    content: public List<byte>? CustomValue
+    content: public List<byte> CustomValue
     return:
       type: System.Collections.Generic.List{System.Byte}
     content.vb: Public CustomValue As List(Of Byte)
@@ -298,7 +328,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 467
+    startLine: 468
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -335,7 +365,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 482
+    startLine: 483
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -374,7 +404,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetHashCode
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 488
+    startLine: 489
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -406,7 +436,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 510
+    startLine: 511
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -441,7 +471,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 529
+    startLine: 530
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -684,6 +714,15 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: IGCLWrapper.ThreeDFeatureGetSetDto.#ctor*
+  commentId: Overload:IGCLWrapper.ThreeDFeatureGetSetDto.#ctor
+  href: IGCLWrapper.ThreeDFeatureGetSetDto.html#IGCLWrapper_ThreeDFeatureGetSetDto__ctor
+  name: ThreeDFeatureGetSetDto
+  nameWithType: ThreeDFeatureGetSetDto.ThreeDFeatureGetSetDto
+  fullName: IGCLWrapper.ThreeDFeatureGetSetDto.ThreeDFeatureGetSetDto
+  nameWithType.vb: ThreeDFeatureGetSetDto.New
+  fullName.vb: IGCLWrapper.ThreeDFeatureGetSetDto.New
+  name.vb: New
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System

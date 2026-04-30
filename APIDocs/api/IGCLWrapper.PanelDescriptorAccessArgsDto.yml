@@ -5,6 +5,7 @@ items:
   id: PanelDescriptorAccessArgsDto
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.PanelDescriptorAccessArgsDto.#ctor
   - IGCLWrapper.PanelDescriptorAccessArgsDto.BlockNumber
   - IGCLWrapper.PanelDescriptorAccessArgsDto.CreateReadRequest(System.UInt32)
   - IGCLWrapper.PanelDescriptorAccessArgsDto.DescriptorData
@@ -31,7 +32,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PanelDescriptorAccessArgsDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6090
+    startLine: 6107
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -47,6 +48,35 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.PanelDescriptorAccessArgsDto.#ctor
+  commentId: M:IGCLWrapper.PanelDescriptorAccessArgsDto.#ctor
+  id: '#ctor'
+  parent: IGCLWrapper.PanelDescriptorAccessArgsDto
+  langs:
+  - csharp
+  - vb
+  name: PanelDescriptorAccessArgsDto()
+  nameWithType: PanelDescriptorAccessArgsDto.PanelDescriptorAccessArgsDto()
+  fullName: IGCLWrapper.PanelDescriptorAccessArgsDto.PanelDescriptorAccessArgsDto()
+  type: Constructor
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: .ctor
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6109
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public PanelDescriptorAccessArgsDto()
+    content.vb: Public Sub New()
+  overload: IGCLWrapper.PanelDescriptorAccessArgsDto.#ctor*
+  nameWithType.vb: PanelDescriptorAccessArgsDto.New()
+  fullName.vb: IGCLWrapper.PanelDescriptorAccessArgsDto.New()
+  name.vb: New()
 - uid: IGCLWrapper.PanelDescriptorAccessArgsDto.Size
   commentId: F:IGCLWrapper.PanelDescriptorAccessArgsDto.Size
   id: Size
@@ -65,7 +95,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6092
+    startLine: 6110
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -92,7 +122,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6093
+    startLine: 6111
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -119,7 +149,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OpType
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6094
+    startLine: 6112
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -146,7 +176,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: BlockNumber
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6095
+    startLine: 6113
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -173,7 +203,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: DescriptorDataSize
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6096
+    startLine: 6114
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -200,12 +230,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: DescriptorData
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6097
+    startLine: 6115
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public List<byte>? DescriptorData
+    content: public List<byte> DescriptorData
     return:
       type: System.Collections.Generic.List{System.Byte}
     content.vb: Public DescriptorData As List(Of Byte)
@@ -227,7 +257,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6099
+    startLine: 6117
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -263,7 +293,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNativeMetadata
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6112
+    startLine: 6130
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -291,7 +321,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6125
+    startLine: 6143
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -328,7 +358,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6129
+    startLine: 6147
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -367,7 +397,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetHashCode
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6130
+    startLine: 6148
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -399,7 +429,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateReadRequest
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6132
+    startLine: 6150
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -645,6 +675,15 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: IGCLWrapper.PanelDescriptorAccessArgsDto.#ctor*
+  commentId: Overload:IGCLWrapper.PanelDescriptorAccessArgsDto.#ctor
+  href: IGCLWrapper.PanelDescriptorAccessArgsDto.html#IGCLWrapper_PanelDescriptorAccessArgsDto__ctor
+  name: PanelDescriptorAccessArgsDto
+  nameWithType: PanelDescriptorAccessArgsDto.PanelDescriptorAccessArgsDto
+  fullName: IGCLWrapper.PanelDescriptorAccessArgsDto.PanelDescriptorAccessArgsDto
+  nameWithType.vb: PanelDescriptorAccessArgsDto.New
+  fullName.vb: IGCLWrapper.PanelDescriptorAccessArgsDto.New
+  name.vb: New
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System

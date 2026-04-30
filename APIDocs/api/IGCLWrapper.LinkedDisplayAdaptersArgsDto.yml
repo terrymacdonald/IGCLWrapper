@@ -5,6 +5,7 @@ items:
   id: LinkedDisplayAdaptersArgsDto
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.LinkedDisplayAdaptersArgsDto.#ctor
   - IGCLWrapper.LinkedDisplayAdaptersArgsDto.FromNative(IGCLWrapper.ctl_lda_args_t)
   - IGCLWrapper.LinkedDisplayAdaptersArgsDto.NumAdapters
   - IGCLWrapper.LinkedDisplayAdaptersArgsDto.Reserved
@@ -25,7 +26,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LinkedDisplayAdaptersArgsDto
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 2345
+    startLine: 2350
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -41,6 +42,35 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.LinkedDisplayAdaptersArgsDto.#ctor
+  commentId: M:IGCLWrapper.LinkedDisplayAdaptersArgsDto.#ctor
+  id: '#ctor'
+  parent: IGCLWrapper.LinkedDisplayAdaptersArgsDto
+  langs:
+  - csharp
+  - vb
+  name: LinkedDisplayAdaptersArgsDto()
+  nameWithType: LinkedDisplayAdaptersArgsDto.LinkedDisplayAdaptersArgsDto()
+  fullName: IGCLWrapper.LinkedDisplayAdaptersArgsDto.LinkedDisplayAdaptersArgsDto()
+  type: Constructor
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: .ctor
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 2352
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public LinkedDisplayAdaptersArgsDto()
+    content.vb: Public Sub New()
+  overload: IGCLWrapper.LinkedDisplayAdaptersArgsDto.#ctor*
+  nameWithType.vb: LinkedDisplayAdaptersArgsDto.New()
+  fullName.vb: IGCLWrapper.LinkedDisplayAdaptersArgsDto.New()
+  name.vb: New()
 - uid: IGCLWrapper.LinkedDisplayAdaptersArgsDto.Size
   commentId: F:IGCLWrapper.LinkedDisplayAdaptersArgsDto.Size
   id: Size
@@ -59,7 +89,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 2347
+    startLine: 2353
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -86,7 +116,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 2348
+    startLine: 2354
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -113,7 +143,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: NumAdapters
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 2349
+    startLine: 2355
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -140,12 +170,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Reserved
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 2350
+    startLine: 2356
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public List<ulong>? Reserved
+    content: public List<ulong> Reserved
     return:
       type: System.Collections.Generic.List{System.UInt64}
     content.vb: Public Reserved As List(Of ULong)
@@ -167,7 +197,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 2352
+    startLine: 2358
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -198,7 +228,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 2363
+    startLine: 2369
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -432,6 +462,15 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: IGCLWrapper.LinkedDisplayAdaptersArgsDto.#ctor*
+  commentId: Overload:IGCLWrapper.LinkedDisplayAdaptersArgsDto.#ctor
+  href: IGCLWrapper.LinkedDisplayAdaptersArgsDto.html#IGCLWrapper_LinkedDisplayAdaptersArgsDto__ctor
+  name: LinkedDisplayAdaptersArgsDto
+  nameWithType: LinkedDisplayAdaptersArgsDto.LinkedDisplayAdaptersArgsDto
+  fullName: IGCLWrapper.LinkedDisplayAdaptersArgsDto.LinkedDisplayAdaptersArgsDto
+  nameWithType.vb: LinkedDisplayAdaptersArgsDto.New
+  fullName.vb: IGCLWrapper.LinkedDisplayAdaptersArgsDto.New
+  name.vb: New
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System

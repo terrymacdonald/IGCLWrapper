@@ -5,6 +5,7 @@ items:
   id: ChildDisplayTargetModeDto
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.ChildDisplayTargetModeDto.#ctor
   - IGCLWrapper.ChildDisplayTargetModeDto.Equals(IGCLWrapper.ChildDisplayTargetModeDto)
   - IGCLWrapper.ChildDisplayTargetModeDto.Equals(System.Object)
   - IGCLWrapper.ChildDisplayTargetModeDto.FromNative(IGCLWrapper.ctl_child_display_target_mode_t)
@@ -44,6 +45,35 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.ChildDisplayTargetModeDto.#ctor
+  commentId: M:IGCLWrapper.ChildDisplayTargetModeDto.#ctor
+  id: '#ctor'
+  parent: IGCLWrapper.ChildDisplayTargetModeDto
+  langs:
+  - csharp
+  - vb
+  name: ChildDisplayTargetModeDto()
+  nameWithType: ChildDisplayTargetModeDto.ChildDisplayTargetModeDto()
+  fullName: IGCLWrapper.ChildDisplayTargetModeDto.ChildDisplayTargetModeDto()
+  type: Constructor
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: .ctor
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1433
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ChildDisplayTargetModeDto()
+    content.vb: Public Sub New()
+  overload: IGCLWrapper.ChildDisplayTargetModeDto.#ctor*
+  nameWithType.vb: ChildDisplayTargetModeDto.New()
+  fullName.vb: IGCLWrapper.ChildDisplayTargetModeDto.New()
+  name.vb: New()
 - uid: IGCLWrapper.ChildDisplayTargetModeDto.Width
   commentId: F:IGCLWrapper.ChildDisplayTargetModeDto.Width
   id: Width
@@ -62,7 +92,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Width
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1437
+    startLine: 1438
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -91,7 +121,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Height
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1441
+    startLine: 1442
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -120,7 +150,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: RefreshRate
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1445
+    startLine: 1446
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -149,14 +179,14 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ReservedFields
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1449
+    startLine: 1450
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Reserved mode fields.
   example: []
   syntax:
-    content: public List<uint>? ReservedFields
+    content: public List<uint> ReservedFields
     return:
       type: System.Collections.Generic.List{System.UInt32}
     content.vb: Public ReservedFields As List(Of UInteger)
@@ -178,7 +208,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1451
+    startLine: 1452
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -215,7 +245,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1458
+    startLine: 1459
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -254,7 +284,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetHashCode
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1460
+    startLine: 1461
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -286,7 +316,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1469
+    startLine: 1470
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -317,7 +347,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1480
+    startLine: 1481
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -557,6 +587,15 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: IGCLWrapper.ChildDisplayTargetModeDto.#ctor*
+  commentId: Overload:IGCLWrapper.ChildDisplayTargetModeDto.#ctor
+  href: IGCLWrapper.ChildDisplayTargetModeDto.html#IGCLWrapper_ChildDisplayTargetModeDto__ctor
+  name: ChildDisplayTargetModeDto
+  nameWithType: ChildDisplayTargetModeDto.ChildDisplayTargetModeDto
+  fullName: IGCLWrapper.ChildDisplayTargetModeDto.ChildDisplayTargetModeDto
+  nameWithType.vb: ChildDisplayTargetModeDto.New
+  fullName.vb: IGCLWrapper.ChildDisplayTargetModeDto.New
+  name.vb: New
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System

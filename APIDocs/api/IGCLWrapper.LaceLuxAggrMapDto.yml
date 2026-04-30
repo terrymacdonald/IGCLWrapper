@@ -5,6 +5,7 @@ items:
   id: LaceLuxAggrMapDto
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.LaceLuxAggrMapDto.#ctor
   - IGCLWrapper.LaceLuxAggrMapDto.Equals(IGCLWrapper.LaceLuxAggrMapDto)
   - IGCLWrapper.LaceLuxAggrMapDto.Equals(System.Object)
   - IGCLWrapper.LaceLuxAggrMapDto.FromNative(IGCLWrapper.ctl_lace_lux_aggr_map_t)
@@ -27,7 +28,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LaceLuxAggrMapDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 4024
+    startLine: 4030
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -43,6 +44,35 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.LaceLuxAggrMapDto.#ctor
+  commentId: M:IGCLWrapper.LaceLuxAggrMapDto.#ctor
+  id: '#ctor'
+  parent: IGCLWrapper.LaceLuxAggrMapDto
+  langs:
+  - csharp
+  - vb
+  name: LaceLuxAggrMapDto()
+  nameWithType: LaceLuxAggrMapDto.LaceLuxAggrMapDto()
+  fullName: IGCLWrapper.LaceLuxAggrMapDto.LaceLuxAggrMapDto()
+  type: Constructor
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: .ctor
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 4032
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public LaceLuxAggrMapDto()
+    content.vb: Public Sub New()
+  overload: IGCLWrapper.LaceLuxAggrMapDto.#ctor*
+  nameWithType.vb: LaceLuxAggrMapDto.New()
+  fullName.vb: IGCLWrapper.LaceLuxAggrMapDto.New()
+  name.vb: New()
 - uid: IGCLWrapper.LaceLuxAggrMapDto.MaxNumEntries
   commentId: F:IGCLWrapper.LaceLuxAggrMapDto.MaxNumEntries
   id: MaxNumEntries
@@ -61,7 +91,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: MaxNumEntries
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 4029
+    startLine: 4036
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -90,7 +120,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: NumEntries
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 4033
+    startLine: 4040
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -119,14 +149,14 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LuxToAggrMappingTable
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 4037
+    startLine: 4044
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Managed lux/aggressiveness mapping table.
   example: []
   syntax:
-    content: public List<LaceLuxAggrMapEntryDto>? LuxToAggrMappingTable
+    content: public List<LaceLuxAggrMapEntryDto> LuxToAggrMappingTable
     return:
       type: System.Collections.Generic.List{IGCLWrapper.LaceLuxAggrMapEntryDto}
     content.vb: Public LuxToAggrMappingTable As List(Of LaceLuxAggrMapEntryDto)
@@ -148,7 +178,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 4039
+    startLine: 4046
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -185,7 +215,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 4045
+    startLine: 4052
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -224,7 +254,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetHashCode
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 4047
+    startLine: 4054
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -256,7 +286,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 4055
+    startLine: 4062
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -287,7 +317,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 4073
+    startLine: 4080
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -527,6 +557,15 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: IGCLWrapper.LaceLuxAggrMapDto.#ctor*
+  commentId: Overload:IGCLWrapper.LaceLuxAggrMapDto.#ctor
+  href: IGCLWrapper.LaceLuxAggrMapDto.html#IGCLWrapper_LaceLuxAggrMapDto__ctor
+  name: LaceLuxAggrMapDto
+  nameWithType: LaceLuxAggrMapDto.LaceLuxAggrMapDto
+  fullName: IGCLWrapper.LaceLuxAggrMapDto.LaceLuxAggrMapDto
+  nameWithType.vb: LaceLuxAggrMapDto.New
+  fullName.vb: IGCLWrapper.LaceLuxAggrMapDto.New
+  name.vb: New
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System

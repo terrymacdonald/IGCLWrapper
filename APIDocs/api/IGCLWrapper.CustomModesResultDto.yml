@@ -5,6 +5,7 @@ items:
   id: CustomModesResultDto
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.CustomModesResultDto.#ctor
   - IGCLWrapper.CustomModesResultDto.Args
   - IGCLWrapper.CustomModesResultDto.FromNative(IGCLWrapper.ctl_get_set_custom_mode_args_t,IGCLWrapper.ctl_custom_src_mode_t[])
   - IGCLWrapper.CustomModesResultDto.Modes
@@ -22,7 +23,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CustomModesResultDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5685
+    startLine: 5696
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -38,6 +39,35 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.CustomModesResultDto.#ctor
+  commentId: M:IGCLWrapper.CustomModesResultDto.#ctor
+  id: '#ctor'
+  parent: IGCLWrapper.CustomModesResultDto
+  langs:
+  - csharp
+  - vb
+  name: CustomModesResultDto()
+  nameWithType: CustomModesResultDto.CustomModesResultDto()
+  fullName: IGCLWrapper.CustomModesResultDto.CustomModesResultDto()
+  type: Constructor
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: .ctor
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 5698
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public CustomModesResultDto()
+    content.vb: Public Sub New()
+  overload: IGCLWrapper.CustomModesResultDto.#ctor*
+  nameWithType.vb: CustomModesResultDto.New()
+  fullName.vb: IGCLWrapper.CustomModesResultDto.New()
+  name.vb: New()
 - uid: IGCLWrapper.CustomModesResultDto.Args
   commentId: F:IGCLWrapper.CustomModesResultDto.Args
   id: Args
@@ -56,7 +86,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Args
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5687
+    startLine: 5699
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -83,12 +113,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Modes
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5688
+    startLine: 5700
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public List<CustomSourceModeDto>? Modes
+    content: public List<CustomSourceModeDto> Modes
     return:
       type: System.Collections.Generic.List{IGCLWrapper.CustomSourceModeDto}
     content.vb: Public Modes As List(Of CustomSourceModeDto)
@@ -110,7 +140,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5690
+    startLine: 5702
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -352,6 +382,15 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: IGCLWrapper.CustomModesResultDto.#ctor*
+  commentId: Overload:IGCLWrapper.CustomModesResultDto.#ctor
+  href: IGCLWrapper.CustomModesResultDto.html#IGCLWrapper_CustomModesResultDto__ctor
+  name: CustomModesResultDto
+  nameWithType: CustomModesResultDto.CustomModesResultDto
+  fullName: IGCLWrapper.CustomModesResultDto.CustomModesResultDto
+  nameWithType.vb: CustomModesResultDto.New
+  fullName.vb: IGCLWrapper.CustomModesResultDto.New
+  name.vb: New
 - uid: IGCLWrapper.CustomModeArgsDto
   commentId: T:IGCLWrapper.CustomModeArgsDto
   parent: IGCLWrapper

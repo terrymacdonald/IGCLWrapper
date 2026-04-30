@@ -5,6 +5,7 @@ items:
   id: VideoProcessingFeatureCapsDto
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.VideoProcessingFeatureCapsDto.#ctor
   - IGCLWrapper.VideoProcessingFeatureCapsDto.Equals(IGCLWrapper.VideoProcessingFeatureCapsDto)
   - IGCLWrapper.VideoProcessingFeatureCapsDto.Equals(System.Object)
   - IGCLWrapper.VideoProcessingFeatureCapsDto.FromNative(IGCLWrapper.ctl_video_processing_feature_caps_t)
@@ -28,7 +29,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VideoProcessingFeatureCapsDto
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 408
+    startLine: 409
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -44,6 +45,35 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.VideoProcessingFeatureCapsDto.#ctor
+  commentId: M:IGCLWrapper.VideoProcessingFeatureCapsDto.#ctor
+  id: '#ctor'
+  parent: IGCLWrapper.VideoProcessingFeatureCapsDto
+  langs:
+  - csharp
+  - vb
+  name: VideoProcessingFeatureCapsDto()
+  nameWithType: VideoProcessingFeatureCapsDto.VideoProcessingFeatureCapsDto()
+  fullName: IGCLWrapper.VideoProcessingFeatureCapsDto.VideoProcessingFeatureCapsDto()
+  type: Constructor
+  source:
+    remote:
+      path: IGCLWrapper/IGCLMediaHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: .ctor
+    path: ../IGCLWrapper/IGCLMediaHelper.cs
+    startLine: 411
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public VideoProcessingFeatureCapsDto()
+    content.vb: Public Sub New()
+  overload: IGCLWrapper.VideoProcessingFeatureCapsDto.#ctor*
+  nameWithType.vb: VideoProcessingFeatureCapsDto.New()
+  fullName.vb: IGCLWrapper.VideoProcessingFeatureCapsDto.New()
+  name.vb: New()
 - uid: IGCLWrapper.VideoProcessingFeatureCapsDto.Size
   commentId: F:IGCLWrapper.VideoProcessingFeatureCapsDto.Size
   id: Size
@@ -62,7 +92,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 414
+    startLine: 416
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -91,7 +121,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 418
+    startLine: 420
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -120,7 +150,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: NumSupportedFeatures
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 422
+    startLine: 424
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -149,14 +179,14 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ReservedFields
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 426
+    startLine: 428
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Reserved fields.
   example: []
   syntax:
-    content: public List<uint>? ReservedFields
+    content: public List<uint> ReservedFields
     return:
       type: System.Collections.Generic.List{System.UInt32}
     content.vb: Public ReservedFields As List(Of UInteger)
@@ -178,7 +208,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 428
+    startLine: 430
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -215,7 +245,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 435
+    startLine: 437
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -254,7 +284,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetHashCode
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 437
+    startLine: 439
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -286,7 +316,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 446
+    startLine: 448
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -317,7 +347,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 457
+    startLine: 459
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -557,6 +587,15 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: IGCLWrapper.VideoProcessingFeatureCapsDto.#ctor*
+  commentId: Overload:IGCLWrapper.VideoProcessingFeatureCapsDto.#ctor
+  href: IGCLWrapper.VideoProcessingFeatureCapsDto.html#IGCLWrapper_VideoProcessingFeatureCapsDto__ctor
+  name: VideoProcessingFeatureCapsDto
+  nameWithType: VideoProcessingFeatureCapsDto.VideoProcessingFeatureCapsDto
+  fullName: IGCLWrapper.VideoProcessingFeatureCapsDto.VideoProcessingFeatureCapsDto
+  nameWithType.vb: VideoProcessingFeatureCapsDto.New
+  fullName.vb: IGCLWrapper.VideoProcessingFeatureCapsDto.New
+  name.vb: New
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System

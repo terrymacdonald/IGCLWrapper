@@ -5,6 +5,7 @@ items:
   id: BrightnessSetDto
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.BrightnessSetDto.#ctor
   - IGCLWrapper.BrightnessSetDto.FromNative(IGCLWrapper.ctl_set_brightness_t)
   - IGCLWrapper.BrightnessSetDto.ReservedFields
   - IGCLWrapper.BrightnessSetDto.Size
@@ -26,7 +27,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: BrightnessSetDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5327
+    startLine: 5335
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -42,6 +43,35 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.BrightnessSetDto.#ctor
+  commentId: M:IGCLWrapper.BrightnessSetDto.#ctor
+  id: '#ctor'
+  parent: IGCLWrapper.BrightnessSetDto
+  langs:
+  - csharp
+  - vb
+  name: BrightnessSetDto()
+  nameWithType: BrightnessSetDto.BrightnessSetDto()
+  fullName: IGCLWrapper.BrightnessSetDto.BrightnessSetDto()
+  type: Constructor
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: .ctor
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 5337
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public BrightnessSetDto()
+    content.vb: Public Sub New()
+  overload: IGCLWrapper.BrightnessSetDto.#ctor*
+  nameWithType.vb: BrightnessSetDto.New()
+  fullName.vb: IGCLWrapper.BrightnessSetDto.New()
+  name.vb: New()
 - uid: IGCLWrapper.BrightnessSetDto.Size
   commentId: F:IGCLWrapper.BrightnessSetDto.Size
   id: Size
@@ -60,7 +90,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5329
+    startLine: 5338
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -87,7 +117,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5330
+    startLine: 5339
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -114,7 +144,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: TargetBrightness
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5331
+    startLine: 5340
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -141,7 +171,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SmoothTransitionTimeInMs
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5332
+    startLine: 5341
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -168,12 +198,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ReservedFields
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5333
+    startLine: 5342
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public List<uint>? ReservedFields
+    content: public List<uint> ReservedFields
     return:
       type: System.Collections.Generic.List{System.UInt32}
     content.vb: Public ReservedFields As List(Of UInteger)
@@ -195,7 +225,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5335
+    startLine: 5344
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -226,7 +256,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5347
+    startLine: 5356
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -460,6 +490,15 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: IGCLWrapper.BrightnessSetDto.#ctor*
+  commentId: Overload:IGCLWrapper.BrightnessSetDto.#ctor
+  href: IGCLWrapper.BrightnessSetDto.html#IGCLWrapper_BrightnessSetDto__ctor
+  name: BrightnessSetDto
+  nameWithType: BrightnessSetDto.BrightnessSetDto
+  fullName: IGCLWrapper.BrightnessSetDto.BrightnessSetDto
+  nameWithType.vb: BrightnessSetDto.New
+  fullName.vb: IGCLWrapper.BrightnessSetDto.New
+  name.vb: New
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System

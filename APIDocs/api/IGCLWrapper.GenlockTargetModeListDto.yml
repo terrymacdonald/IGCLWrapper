@@ -5,6 +5,7 @@ items:
   id: GenlockTargetModeListDto
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.GenlockTargetModeListDto.#ctor
   - IGCLWrapper.GenlockTargetModeListDto.Equals(IGCLWrapper.GenlockTargetModeListDto)
   - IGCLWrapper.GenlockTargetModeListDto.Equals(System.Object)
   - IGCLWrapper.GenlockTargetModeListDto.FromNative(IGCLWrapper.ctl_genlock_target_mode_list_t)
@@ -24,7 +25,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GenlockTargetModeListDto
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1543
+    startLine: 1544
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -40,6 +41,35 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.GenlockTargetModeListDto.#ctor
+  commentId: M:IGCLWrapper.GenlockTargetModeListDto.#ctor
+  id: '#ctor'
+  parent: IGCLWrapper.GenlockTargetModeListDto
+  langs:
+  - csharp
+  - vb
+  name: GenlockTargetModeListDto()
+  nameWithType: GenlockTargetModeListDto.GenlockTargetModeListDto()
+  fullName: IGCLWrapper.GenlockTargetModeListDto.GenlockTargetModeListDto()
+  type: Constructor
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: .ctor
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 1546
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public GenlockTargetModeListDto()
+    content.vb: Public Sub New()
+  overload: IGCLWrapper.GenlockTargetModeListDto.#ctor*
+  nameWithType.vb: GenlockTargetModeListDto.New()
+  fullName.vb: IGCLWrapper.GenlockTargetModeListDto.New()
+  name.vb: New()
 - uid: IGCLWrapper.GenlockTargetModeListDto.TargetModes
   commentId: F:IGCLWrapper.GenlockTargetModeListDto.TargetModes
   id: TargetModes
@@ -58,14 +88,14 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: TargetModes
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1548
+    startLine: 1550
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Target modes available for this display.
   example: []
   syntax:
-    content: public List<DisplayTimingDto>? TargetModes
+    content: public List<DisplayTimingDto> TargetModes
     return:
       type: System.Collections.Generic.List{IGCLWrapper.DisplayTimingDto}
     content.vb: Public TargetModes As List(Of DisplayTimingDto)
@@ -87,7 +117,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1550
+    startLine: 1552
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -124,7 +154,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1560
+    startLine: 1562
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -163,7 +193,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetHashCode
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1562
+    startLine: 1564
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -195,7 +225,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1571
+    startLine: 1573
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -438,6 +468,15 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: IGCLWrapper.GenlockTargetModeListDto.#ctor*
+  commentId: Overload:IGCLWrapper.GenlockTargetModeListDto.#ctor
+  href: IGCLWrapper.GenlockTargetModeListDto.html#IGCLWrapper_GenlockTargetModeListDto__ctor
+  name: GenlockTargetModeListDto
+  nameWithType: GenlockTargetModeListDto.GenlockTargetModeListDto
+  fullName: IGCLWrapper.GenlockTargetModeListDto.GenlockTargetModeListDto
+  nameWithType.vb: GenlockTargetModeListDto.New
+  fullName.vb: IGCLWrapper.GenlockTargetModeListDto.New
+  name.vb: New
 - uid: System.Collections.Generic.List{IGCLWrapper.DisplayTimingDto}
   commentId: T:System.Collections.Generic.List{IGCLWrapper.DisplayTimingDto}
   parent: System.Collections.Generic

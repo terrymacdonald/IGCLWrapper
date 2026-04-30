@@ -5,6 +5,7 @@ items:
   id: AuxAccessArgsDto
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.AuxAccessArgsDto.#ctor
   - IGCLWrapper.AuxAccessArgsDto.Address
   - IGCLWrapper.AuxAccessArgsDto.CreateReadRequest(System.UInt32,System.UInt32)
   - IGCLWrapper.AuxAccessArgsDto.CreateWriteRequest(System.UInt32,System.Collections.Generic.List{System.Byte})
@@ -35,7 +36,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AuxAccessArgsDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5995
+    startLine: 6011
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -51,6 +52,35 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.AuxAccessArgsDto.#ctor
+  commentId: M:IGCLWrapper.AuxAccessArgsDto.#ctor
+  id: '#ctor'
+  parent: IGCLWrapper.AuxAccessArgsDto
+  langs:
+  - csharp
+  - vb
+  name: AuxAccessArgsDto()
+  nameWithType: AuxAccessArgsDto.AuxAccessArgsDto()
+  fullName: IGCLWrapper.AuxAccessArgsDto.AuxAccessArgsDto()
+  type: Constructor
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: .ctor
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6013
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public AuxAccessArgsDto()
+    content.vb: Public Sub New()
+  overload: IGCLWrapper.AuxAccessArgsDto.#ctor*
+  nameWithType.vb: AuxAccessArgsDto.New()
+  fullName.vb: IGCLWrapper.AuxAccessArgsDto.New()
+  name.vb: New()
 - uid: IGCLWrapper.AuxAccessArgsDto.Size
   commentId: F:IGCLWrapper.AuxAccessArgsDto.Size
   id: Size
@@ -69,7 +99,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5997
+    startLine: 6014
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -96,7 +126,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5998
+    startLine: 6015
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -123,7 +153,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OpType
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5999
+    startLine: 6016
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -150,7 +180,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Flags
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6000
+    startLine: 6017
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -177,7 +207,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Address
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6001
+    startLine: 6018
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -204,7 +234,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: RAD
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6002
+    startLine: 6019
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -231,7 +261,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PortID
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6003
+    startLine: 6020
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -258,7 +288,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: DataSize
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6004
+    startLine: 6021
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -285,12 +315,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Data
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6005
+    startLine: 6022
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public List<byte>? Data
+    content: public List<byte> Data
     return:
       type: System.Collections.Generic.List{System.Byte}
     content.vb: Public Data As List(Of Byte)
@@ -312,7 +342,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6007
+    startLine: 6024
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -343,7 +373,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6030
+    startLine: 6047
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -371,7 +401,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6062
+    startLine: 6079
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -408,7 +438,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6077
+    startLine: 6094
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -447,7 +477,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetHashCode
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6078
+    startLine: 6095
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -479,7 +509,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateReadRequest
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6080
+    startLine: 6097
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -515,7 +545,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateWriteRequest
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6083
+    startLine: 6100
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -763,6 +793,15 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: IGCLWrapper.AuxAccessArgsDto.#ctor*
+  commentId: Overload:IGCLWrapper.AuxAccessArgsDto.#ctor
+  href: IGCLWrapper.AuxAccessArgsDto.html#IGCLWrapper_AuxAccessArgsDto__ctor
+  name: AuxAccessArgsDto
+  nameWithType: AuxAccessArgsDto.AuxAccessArgsDto
+  fullName: IGCLWrapper.AuxAccessArgsDto.AuxAccessArgsDto
+  nameWithType.vb: AuxAccessArgsDto.New
+  fullName.vb: IGCLWrapper.AuxAccessArgsDto.New
+  name.vb: New
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System

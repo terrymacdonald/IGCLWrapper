@@ -5,6 +5,7 @@ items:
   id: LinkedDisplayAdaptersResultDto
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.LinkedDisplayAdaptersResultDto.#ctor
   - IGCLWrapper.LinkedDisplayAdaptersResultDto.Args
   - IGCLWrapper.LinkedDisplayAdaptersResultDto.FromNative(IGCLWrapper.ctl_lda_args_t,System.IntPtr[])
   - IGCLWrapper.LinkedDisplayAdaptersResultDto.LinkedAdapters
@@ -22,7 +23,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LinkedDisplayAdaptersResultDto
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 2407
+    startLine: 2413
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -38,6 +39,35 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.LinkedDisplayAdaptersResultDto.#ctor
+  commentId: M:IGCLWrapper.LinkedDisplayAdaptersResultDto.#ctor
+  id: '#ctor'
+  parent: IGCLWrapper.LinkedDisplayAdaptersResultDto
+  langs:
+  - csharp
+  - vb
+  name: LinkedDisplayAdaptersResultDto()
+  nameWithType: LinkedDisplayAdaptersResultDto.LinkedDisplayAdaptersResultDto()
+  fullName: IGCLWrapper.LinkedDisplayAdaptersResultDto.LinkedDisplayAdaptersResultDto()
+  type: Constructor
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: .ctor
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 2415
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public LinkedDisplayAdaptersResultDto()
+    content.vb: Public Sub New()
+  overload: IGCLWrapper.LinkedDisplayAdaptersResultDto.#ctor*
+  nameWithType.vb: LinkedDisplayAdaptersResultDto.New()
+  fullName.vb: IGCLWrapper.LinkedDisplayAdaptersResultDto.New()
+  name.vb: New()
 - uid: IGCLWrapper.LinkedDisplayAdaptersResultDto.Args
   commentId: F:IGCLWrapper.LinkedDisplayAdaptersResultDto.Args
   id: Args
@@ -56,7 +86,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Args
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 2409
+    startLine: 2416
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -83,12 +113,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LinkedAdapters
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 2410
+    startLine: 2417
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public List<nint>? LinkedAdapters
+    content: public List<nint> LinkedAdapters
     return:
       type: System.Collections.Generic.List{System.IntPtr}
     content.vb: Public LinkedAdapters As List(Of IntPtr)
@@ -110,7 +140,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 2412
+    startLine: 2419
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -352,6 +382,15 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: IGCLWrapper.LinkedDisplayAdaptersResultDto.#ctor*
+  commentId: Overload:IGCLWrapper.LinkedDisplayAdaptersResultDto.#ctor
+  href: IGCLWrapper.LinkedDisplayAdaptersResultDto.html#IGCLWrapper_LinkedDisplayAdaptersResultDto__ctor
+  name: LinkedDisplayAdaptersResultDto
+  nameWithType: LinkedDisplayAdaptersResultDto.LinkedDisplayAdaptersResultDto
+  fullName: IGCLWrapper.LinkedDisplayAdaptersResultDto.LinkedDisplayAdaptersResultDto
+  nameWithType.vb: LinkedDisplayAdaptersResultDto.New
+  fullName.vb: IGCLWrapper.LinkedDisplayAdaptersResultDto.New
+  name.vb: New
 - uid: IGCLWrapper.LinkedDisplayAdaptersArgsDto
   commentId: T:IGCLWrapper.LinkedDisplayAdaptersArgsDto
   parent: IGCLWrapper

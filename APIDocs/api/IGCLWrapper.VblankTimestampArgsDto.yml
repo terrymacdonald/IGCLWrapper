@@ -5,6 +5,7 @@ items:
   id: VblankTimestampArgsDto
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.VblankTimestampArgsDto.#ctor
   - IGCLWrapper.VblankTimestampArgsDto.FromNative(IGCLWrapper.ctl_vblank_ts_args_t)
   - IGCLWrapper.VblankTimestampArgsDto.NumOfTargets
   - IGCLWrapper.VblankTimestampArgsDto.Size
@@ -25,7 +26,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VblankTimestampArgsDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5753
+    startLine: 5766
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -41,6 +42,35 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.VblankTimestampArgsDto.#ctor
+  commentId: M:IGCLWrapper.VblankTimestampArgsDto.#ctor
+  id: '#ctor'
+  parent: IGCLWrapper.VblankTimestampArgsDto
+  langs:
+  - csharp
+  - vb
+  name: VblankTimestampArgsDto()
+  nameWithType: VblankTimestampArgsDto.VblankTimestampArgsDto()
+  fullName: IGCLWrapper.VblankTimestampArgsDto.VblankTimestampArgsDto()
+  type: Constructor
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: .ctor
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 5768
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public VblankTimestampArgsDto()
+    content.vb: Public Sub New()
+  overload: IGCLWrapper.VblankTimestampArgsDto.#ctor*
+  nameWithType.vb: VblankTimestampArgsDto.New()
+  fullName.vb: IGCLWrapper.VblankTimestampArgsDto.New()
+  name.vb: New()
 - uid: IGCLWrapper.VblankTimestampArgsDto.Size
   commentId: F:IGCLWrapper.VblankTimestampArgsDto.Size
   id: Size
@@ -59,7 +89,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5755
+    startLine: 5769
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -86,7 +116,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5756
+    startLine: 5770
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -113,7 +143,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: NumOfTargets
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5757
+    startLine: 5771
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -140,12 +170,12 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VblankTimestamps
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5758
+    startLine: 5772
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   syntax:
-    content: public List<ulong>? VblankTimestamps
+    content: public List<ulong> VblankTimestamps
     return:
       type: System.Collections.Generic.List{System.UInt64}
     content.vb: Public VblankTimestamps As List(Of ULong)
@@ -167,7 +197,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5760
+    startLine: 5774
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -198,7 +228,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5777
+    startLine: 5791
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -432,6 +462,15 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: IGCLWrapper.VblankTimestampArgsDto.#ctor*
+  commentId: Overload:IGCLWrapper.VblankTimestampArgsDto.#ctor
+  href: IGCLWrapper.VblankTimestampArgsDto.html#IGCLWrapper_VblankTimestampArgsDto__ctor
+  name: VblankTimestampArgsDto
+  nameWithType: VblankTimestampArgsDto.VblankTimestampArgsDto
+  fullName: IGCLWrapper.VblankTimestampArgsDto.VblankTimestampArgsDto
+  nameWithType.vb: VblankTimestampArgsDto.New
+  fullName.vb: IGCLWrapper.VblankTimestampArgsDto.New
+  name.vb: New
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System
