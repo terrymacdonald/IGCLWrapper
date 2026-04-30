@@ -3799,23 +3799,11 @@
             ECC helper: properties and state management.
             </summary>
         </member>
-        <member name="M:IGCLWrapper.IGCLEccHelper.EccGetPropertiesNative">
-            <summary>
-            Get ECC properties using the native struct.
-            </summary>
-            <returns>ECC properties struct.</returns>
-        </member>
         <member name="M:IGCLWrapper.IGCLEccHelper.EccGetProperties">
             <summary>
             Get ECC properties as a DTO.
             </summary>
             <returns>ECC properties DTO.</returns>
-        </member>
-        <member name="M:IGCLWrapper.IGCLEccHelper.EccGetStateNative">
-            <summary>
-            Get ECC state description using the native struct.
-            </summary>
-            <returns>ECC state description struct.</returns>
         </member>
         <member name="M:IGCLWrapper.IGCLEccHelper.EccGetState">
             <summary>
@@ -3919,26 +3907,12 @@
             </summary>
             <returns>Read-only list of engine handles.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLEngineHelper.EngineGetPropertiesNative(System.IntPtr)">
-            <summary>
-            Get engine properties for a handle using the native struct.
-            </summary>
-            <param name="engineHandle">Engine handle.</param>
-            <returns>Engine properties struct.</returns>
-        </member>
         <member name="M:IGCLWrapper.IGCLEngineHelper.EngineGetProperties(System.IntPtr)">
             <summary>
             Get engine properties as a DTO.
             </summary>
             <param name="engineHandle">Engine handle.</param>
             <returns>Engine properties DTO.</returns>
-        </member>
-        <member name="M:IGCLWrapper.IGCLEngineHelper.EngineGetActivityNative(System.IntPtr)">
-            <summary>
-            Get engine activity stats for a handle using the native struct.
-            </summary>
-            <param name="engineHandle">Engine handle.</param>
-            <returns>Engine stats struct.</returns>
         </member>
         <member name="M:IGCLWrapper.IGCLEngineHelper.EngineGetActivity(System.IntPtr)">
             <summary>
@@ -5459,13 +5433,6 @@
             </summary>
             <returns>Read-only list of memory module handles.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLMemoryHelper.MemoryGetPropertiesNative(System.IntPtr)">
-            <summary>
-            Get memory module properties using the native struct.
-            </summary>
-            <param name="memoryHandle">Memory module handle.</param>
-            <returns>Memory properties struct.</returns>
-        </member>
         <member name="M:IGCLWrapper.IGCLMemoryHelper.MemoryGetProperties(System.IntPtr)">
             <summary>
             Get memory module properties as a DTO.
@@ -5473,26 +5440,12 @@
             <param name="memoryHandle">Memory module handle.</param>
             <returns>Memory properties DTO.</returns>
         </member>
-        <member name="M:IGCLWrapper.IGCLMemoryHelper.MemoryGetStateNative(System.IntPtr)">
-            <summary>
-            Get current memory module state using the native struct.
-            </summary>
-            <param name="memoryHandle">Memory module handle.</param>
-            <returns>Memory state struct.</returns>
-        </member>
         <member name="M:IGCLWrapper.IGCLMemoryHelper.MemoryGetState(System.IntPtr)">
             <summary>
             Get current memory module state as a DTO.
             </summary>
             <param name="memoryHandle">Memory module handle.</param>
             <returns>Memory state DTO.</returns>
-        </member>
-        <member name="M:IGCLWrapper.IGCLMemoryHelper.MemoryGetBandwidthNative(System.IntPtr)">
-            <summary>
-            Get memory bandwidth information using the native struct.
-            </summary>
-            <param name="memoryHandle">Memory module handle.</param>
-            <returns>Memory bandwidth struct.</returns>
         </member>
         <member name="M:IGCLWrapper.IGCLMemoryHelper.MemoryGetBandwidth(System.IntPtr)">
             <summary>
@@ -6463,23 +6416,11 @@
             PCI helper: properties and current state.
             </summary>
         </member>
-        <member name="M:IGCLWrapper.IGCLPciHelper.PciGetPropertiesNative">
-            <summary>
-            Get PCI properties using the native struct.
-            </summary>
-            <returns>PCI properties struct.</returns>
-        </member>
         <member name="M:IGCLWrapper.IGCLPciHelper.PciGetProperties">
             <summary>
             Get PCI properties as a DTO.
             </summary>
             <returns>PCI properties DTO.</returns>
-        </member>
-        <member name="M:IGCLWrapper.IGCLPciHelper.PciGetStateNative">
-            <summary>
-            Get PCI state using the native struct.
-            </summary>
-            <returns>PCI state struct.</returns>
         </member>
         <member name="M:IGCLWrapper.IGCLPciHelper.PciGetState">
             <summary>
@@ -7091,13 +7032,6 @@
             Enumerate temperature sensor handles for the adapter.
             </summary>
             <returns>Read-only list of temperature sensor handles.</returns>
-        </member>
-        <member name="M:IGCLWrapper.IGCLTemperatureHelper.TemperatureGetPropertiesNative(System.IntPtr)">
-            <summary>
-            Get temperature sensor properties using the native struct.
-            </summary>
-            <param name="sensorHandle">Temperature sensor handle.</param>
-            <returns>Temperature properties struct.</returns>
         </member>
         <member name="M:IGCLWrapper.IGCLTemperatureHelper.TemperatureGetProperties(System.IntPtr)">
             <summary>

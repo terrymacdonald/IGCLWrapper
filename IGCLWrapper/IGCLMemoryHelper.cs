@@ -29,44 +29,18 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get memory module properties using the native struct.
+        /// Get memory module properties as a DTO.
         /// </summary>
         /// <param name="memoryHandle">Memory module handle.</param>
-        /// <returns>Memory properties struct.</returns>
-        public unsafe ctl_mem_properties_t MemoryGetPropertiesNative(IntPtr memoryHandle)
+        /// <returns>Memory properties DTO.</returns>
+        public unsafe MemoryPropertiesDto MemoryGetProperties(IntPtr memoryHandle)
         {
             ThrowIfDisposed();
             var props = CreateMemoryProperties();
             var result = IGCL.ctlMemoryGetProperties((_ctl_mem_handle_t*)memoryHandle, &props);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get memory properties");
-            return props;
-        }
-
-        /// <summary>
-        /// Get memory module properties as a DTO.
-        /// </summary>
-        /// <param name="memoryHandle">Memory module handle.</param>
-        /// <returns>Memory properties DTO.</returns>
-        public MemoryPropertiesDto MemoryGetProperties(IntPtr memoryHandle)
-        {
-            var native = MemoryGetPropertiesNative(memoryHandle);
-            return MemoryPropertiesDto.FromNative(native);
-        }
-
-        /// <summary>
-        /// Get current memory module state using the native struct.
-        /// </summary>
-        /// <param name="memoryHandle">Memory module handle.</param>
-        /// <returns>Memory state struct.</returns>
-        public unsafe ctl_mem_state_t MemoryGetStateNative(IntPtr memoryHandle)
-        {
-            ThrowIfDisposed();
-            var state = CreateMemoryState();
-            var result = IGCL.ctlMemoryGetState((_ctl_mem_handle_t*)memoryHandle, &state);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get memory state");
-            return state;
+            return MemoryPropertiesDto.FromNative(props);
         }
 
         /// <summary>
@@ -74,25 +48,14 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="memoryHandle">Memory module handle.</param>
         /// <returns>Memory state DTO.</returns>
-        public MemoryStateDto MemoryGetState(IntPtr memoryHandle)
-        {
-            var native = MemoryGetStateNative(memoryHandle);
-            return MemoryStateDto.FromNative(native);
-        }
-
-        /// <summary>
-        /// Get memory bandwidth information using the native struct.
-        /// </summary>
-        /// <param name="memoryHandle">Memory module handle.</param>
-        /// <returns>Memory bandwidth struct.</returns>
-        public unsafe ctl_mem_bandwidth_t MemoryGetBandwidthNative(IntPtr memoryHandle)
+        public unsafe MemoryStateDto MemoryGetState(IntPtr memoryHandle)
         {
             ThrowIfDisposed();
-            var bw = CreateMemoryBandwidth();
-            var result = IGCL.ctlMemoryGetBandwidth((_ctl_mem_handle_t*)memoryHandle, &bw);
+            var state = CreateMemoryState();
+            var result = IGCL.ctlMemoryGetState((_ctl_mem_handle_t*)memoryHandle, &state);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, $"Failed to get memory bandwidth: {result}");
-            return bw;
+                throw new IGCLException(result, "Failed to get memory state");
+            return MemoryStateDto.FromNative(state);
         }
 
         /// <summary>
@@ -100,10 +63,14 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="memoryHandle">Memory module handle.</param>
         /// <returns>Memory bandwidth DTO.</returns>
-        public MemoryBandwidthDto MemoryGetBandwidth(IntPtr memoryHandle)
+        public unsafe MemoryBandwidthDto MemoryGetBandwidth(IntPtr memoryHandle)
         {
-            var native = MemoryGetBandwidthNative(memoryHandle);
-            return MemoryBandwidthDto.FromNative(native);
+            ThrowIfDisposed();
+            var bw = CreateMemoryBandwidth();
+            var result = IGCL.ctlMemoryGetBandwidth((_ctl_mem_handle_t*)memoryHandle, &bw);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, $"Failed to get memory bandwidth: {result}");
+            return MemoryBandwidthDto.FromNative(bw);
         }
 
         private static unsafe IReadOnlyList<IntPtr> EnumerateHandles(_ctl_device_adapter_handle_t* adapter)

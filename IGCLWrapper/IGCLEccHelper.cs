@@ -18,51 +18,31 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get ECC properties using the native struct.
+        /// Get ECC properties as a DTO.
         /// </summary>
-        /// <returns>ECC properties struct.</returns>
-        public unsafe ctl_ecc_properties_t EccGetPropertiesNative()
+        /// <returns>ECC properties DTO.</returns>
+        public unsafe EccPropertiesDto EccGetProperties()
         {
             ThrowIfDisposed();
             var props = CreateEccProperties();
             var result = IGCL.ctlEccGetProperties((_ctl_device_adapter_handle_t*)_adapter, &props);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get ECC properties");
-            return props;
-        }
-
-        /// <summary>
-        /// Get ECC properties as a DTO.
-        /// </summary>
-        /// <returns>ECC properties DTO.</returns>
-        public EccPropertiesDto EccGetProperties()
-        {
-            var native = EccGetPropertiesNative();
-            return EccPropertiesDto.FromNative(native);
-        }
-
-        /// <summary>
-        /// Get ECC state description using the native struct.
-        /// </summary>
-        /// <returns>ECC state description struct.</returns>
-        public unsafe ctl_ecc_state_desc_t EccGetStateNative()
-        {
-            ThrowIfDisposed();
-            var state = CreateEccState();
-            var result = IGCL.ctlEccGetState((_ctl_device_adapter_handle_t*)_adapter, &state);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get ECC state");
-            return state;
+            return EccPropertiesDto.FromNative(props);
         }
 
         /// <summary>
         /// Get ECC state description as a DTO.
         /// </summary>
         /// <returns>ECC state description DTO.</returns>
-        public EccStateDescDto EccGetState()
+        public unsafe EccStateDescDto EccGetState()
         {
-            var native = EccGetStateNative();
-            return EccStateDescDto.FromNative(native);
+            ThrowIfDisposed();
+            var state = CreateEccState();
+            var result = IGCL.ctlEccGetState((_ctl_device_adapter_handle_t*)_adapter, &state);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, "Failed to get ECC state");
+            return EccStateDescDto.FromNative(state);
         }
 
         /// <summary>

@@ -18,51 +18,31 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get PCI properties using the native struct.
+        /// Get PCI properties as a DTO.
         /// </summary>
-        /// <returns>PCI properties struct.</returns>
-        public unsafe ctl_pci_properties_t PciGetPropertiesNative()
+        /// <returns>PCI properties DTO.</returns>
+        public unsafe PciPropertiesDto PciGetProperties()
         {
             ThrowIfDisposed();
             var props = new ctl_pci_properties_t { Size = (uint)sizeof(ctl_pci_properties_t), Version = 0 };
             var result = IGCL.ctlPciGetProperties((_ctl_device_adapter_handle_t*)_adapter, &props);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get PCI properties");
-            return props;
-        }
-
-        /// <summary>
-        /// Get PCI properties as a DTO.
-        /// </summary>
-        /// <returns>PCI properties DTO.</returns>
-        public PciPropertiesDto PciGetProperties()
-        {
-            var native = PciGetPropertiesNative();
-            return PciPropertiesDto.FromNative(native);
-        }
-
-        /// <summary>
-        /// Get PCI state using the native struct.
-        /// </summary>
-        /// <returns>PCI state struct.</returns>
-        public unsafe ctl_pci_state_t PciGetStateNative()
-        {
-            ThrowIfDisposed();
-            var state = new ctl_pci_state_t { Size = (uint)sizeof(ctl_pci_state_t), Version = 0 };
-            var result = IGCL.ctlPciGetState((_ctl_device_adapter_handle_t*)_adapter, &state);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get PCI state");
-            return state;
+            return PciPropertiesDto.FromNative(props);
         }
 
         /// <summary>
         /// Get PCI state as a DTO.
         /// </summary>
         /// <returns>PCI state DTO.</returns>
-        public PciStateDto PciGetState()
+        public unsafe PciStateDto PciGetState()
         {
-            var native = PciGetStateNative();
-            return PciStateDto.FromNative(native);
+            ThrowIfDisposed();
+            var state = new ctl_pci_state_t { Size = (uint)sizeof(ctl_pci_state_t), Version = 0 };
+            var result = IGCL.ctlPciGetState((_ctl_device_adapter_handle_t*)_adapter, &state);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, "Failed to get PCI state");
+            return PciStateDto.FromNative(state);
         }
 
         private void ThrowIfDisposed()

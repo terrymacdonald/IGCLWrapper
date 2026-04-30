@@ -29,44 +29,18 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get engine properties for a handle using the native struct.
+        /// Get engine properties as a DTO.
         /// </summary>
         /// <param name="engineHandle">Engine handle.</param>
-        /// <returns>Engine properties struct.</returns>
-        public unsafe ctl_engine_properties_t EngineGetPropertiesNative(IntPtr engineHandle)
+        /// <returns>Engine properties DTO.</returns>
+        public unsafe EnginePropertiesDto EngineGetProperties(IntPtr engineHandle)
         {
             ThrowIfDisposed();
             var props = CreateEngineProperties();
             var result = IGCL.ctlEngineGetProperties((_ctl_engine_handle_t*)engineHandle, &props);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get engine properties");
-            return props;
-        }
-
-        /// <summary>
-        /// Get engine properties as a DTO.
-        /// </summary>
-        /// <param name="engineHandle">Engine handle.</param>
-        /// <returns>Engine properties DTO.</returns>
-        public EnginePropertiesDto EngineGetProperties(IntPtr engineHandle)
-        {
-            var native = EngineGetPropertiesNative(engineHandle);
-            return EnginePropertiesDto.FromNative(native);
-        }
-
-        /// <summary>
-        /// Get engine activity stats for a handle using the native struct.
-        /// </summary>
-        /// <param name="engineHandle">Engine handle.</param>
-        /// <returns>Engine stats struct.</returns>
-        public unsafe ctl_engine_stats_t EngineGetActivityNative(IntPtr engineHandle)
-        {
-            ThrowIfDisposed();
-            var stats = CreateEngineStats();
-            var result = IGCL.ctlEngineGetActivity((_ctl_engine_handle_t*)engineHandle, &stats);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get engine activity");
-            return stats;
+            return EnginePropertiesDto.FromNative(props);
         }
 
         /// <summary>
@@ -74,10 +48,14 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="engineHandle">Engine handle.</param>
         /// <returns>Engine stats DTO.</returns>
-        public EngineStatsDto EngineGetActivity(IntPtr engineHandle)
+        public unsafe EngineStatsDto EngineGetActivity(IntPtr engineHandle)
         {
-            var native = EngineGetActivityNative(engineHandle);
-            return EngineStatsDto.FromNative(native);
+            ThrowIfDisposed();
+            var stats = CreateEngineStats();
+            var result = IGCL.ctlEngineGetActivity((_ctl_engine_handle_t*)engineHandle, &stats);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, "Failed to get engine activity");
+            return EngineStatsDto.FromNative(stats);
         }
 
         private static unsafe IReadOnlyList<IntPtr> EnumerateHandles(_ctl_device_adapter_handle_t* adapter)

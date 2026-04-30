@@ -29,29 +29,18 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get temperature sensor properties using the native struct.
+        /// Get temperature sensor properties as a DTO.
         /// </summary>
         /// <param name="sensorHandle">Temperature sensor handle.</param>
-        /// <returns>Temperature properties struct.</returns>
-        public unsafe ctl_temp_properties_t TemperatureGetPropertiesNative(IntPtr sensorHandle)
+        /// <returns>Temperature properties DTO.</returns>
+        public unsafe TemperaturePropertiesDto TemperatureGetProperties(IntPtr sensorHandle)
         {
             ThrowIfDisposed();
             var props = CreateTemperatureProperties();
             var result = IGCL.ctlTemperatureGetProperties((_ctl_temp_handle_t*)sensorHandle, &props);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get temperature properties");
-            return props;
-        }
-
-        /// <summary>
-        /// Get temperature sensor properties as a DTO.
-        /// </summary>
-        /// <param name="sensorHandle">Temperature sensor handle.</param>
-        /// <returns>Temperature properties DTO.</returns>
-        public TemperaturePropertiesDto TemperatureGetProperties(IntPtr sensorHandle)
-        {
-            var native = TemperatureGetPropertiesNative(sensorHandle);
-            return TemperaturePropertiesDto.FromNative(native);
+            return TemperaturePropertiesDto.FromNative(props);
         }
 
         /// <summary>
