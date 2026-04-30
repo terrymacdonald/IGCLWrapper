@@ -60,7 +60,7 @@ namespace IGCLWrapper.FacadeTests
             var fromNative = VideoProcessingFeatureGetSetDto.FromNative(native);
             Assert.Equal(dto.FeatureType, fromNative.FeatureType);
             Assert.Equal(dto.ValueType, fromNative.ValueType);
-            Assert.True(fromNative.CustomValue == null);
+            Assert.Empty(fromNative.CustomValue);
             Assert.NotNull(fromNative.ReservedFields);
             Assert.Equal(16, fromNative.ReservedFields!.Count);
         }

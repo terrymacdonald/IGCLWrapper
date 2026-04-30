@@ -48,7 +48,7 @@ namespace IGCLWrapper.FacadeTests
             var fromNative = ThreeDFeatureGetSetDto.FromNative(native);
             Assert.Equal(dto.FeatureType, fromNative.FeatureType);
             Assert.Equal(dto.ValueType, fromNative.ValueType);
-            Assert.True(fromNative.CustomValue == null);
+            Assert.Empty(fromNative.CustomValue);
         }
 
         [Fact]
