@@ -29,11 +29,11 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get temperature sensor properties.
+        /// Get temperature sensor properties using the native struct.
         /// </summary>
         /// <param name="sensorHandle">Temperature sensor handle.</param>
         /// <returns>Temperature properties struct.</returns>
-        public unsafe ctl_temp_properties_t TemperatureGetProperties(IntPtr sensorHandle)
+        public unsafe ctl_temp_properties_t TemperatureGetPropertiesNative(IntPtr sensorHandle)
         {
             ThrowIfDisposed();
             var props = CreateTemperatureProperties();
@@ -41,6 +41,17 @@ namespace IGCLWrapper
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get temperature properties");
             return props;
+        }
+
+        /// <summary>
+        /// Get temperature sensor properties as a DTO.
+        /// </summary>
+        /// <param name="sensorHandle">Temperature sensor handle.</param>
+        /// <returns>Temperature properties DTO.</returns>
+        public TemperaturePropertiesDto TemperatureGetProperties(IntPtr sensorHandle)
+        {
+            var native = TemperatureGetPropertiesNative(sensorHandle);
+            return TemperaturePropertiesDto.FromNative(native);
         }
 
         /// <summary>
@@ -104,6 +115,57 @@ namespace IGCLWrapper
         public void Dispose()
         {
             _disposed = true;
+        }
+    }
+
+    public struct TemperaturePropertiesDto : IEquatable<TemperaturePropertiesDto>
+    {
+        public uint Size;
+        public byte Version;
+        public ctl_temp_sensors_t Type;
+        public double MaxTemperature;
+
+        public bool Equals(TemperaturePropertiesDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   Type == other.Type &&
+                   MaxTemperature.Equals(other.MaxTemperature);
+        }
+
+        public override bool Equals(object? obj) => obj is TemperaturePropertiesDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Type);
+            hash.Add(MaxTemperature);
+            return hash.ToHashCode();
+        }
+
+        public static TemperaturePropertiesDto FromNative(ctl_temp_properties_t native)
+        {
+            return new TemperaturePropertiesDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                Type = native.type,
+                MaxTemperature = native.maxTemperature
+            };
+        }
+
+        public unsafe ctl_temp_properties_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_temp_properties_t);
+            return new ctl_temp_properties_t
+            {
+                Size = size,
+                Version = Version,
+                type = Type,
+                maxTemperature = MaxTemperature
+            };
         }
     }
 }

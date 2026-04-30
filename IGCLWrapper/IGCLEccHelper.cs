@@ -42,10 +42,10 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get ECC state description.
+        /// Get ECC state description using the native struct.
         /// </summary>
         /// <returns>ECC state description struct.</returns>
-        public unsafe ctl_ecc_state_desc_t EccGetState()
+        public unsafe ctl_ecc_state_desc_t EccGetStateNative()
         {
             ThrowIfDisposed();
             var state = CreateEccState();
@@ -53,6 +53,16 @@ namespace IGCLWrapper
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get ECC state");
             return state;
+        }
+
+        /// <summary>
+        /// Get ECC state description as a DTO.
+        /// </summary>
+        /// <returns>ECC state description DTO.</returns>
+        public EccStateDescDto EccGetState()
+        {
+            var native = EccGetStateNative();
+            return EccStateDescDto.FromNative(native);
         }
 
         /// <summary>
@@ -94,10 +104,7 @@ namespace IGCLWrapper
         /// <returns>True when equal; otherwise, false.</returns>
         public static bool AreEccStateDescriptionsEqual(ctl_ecc_state_desc_t left, ctl_ecc_state_desc_t right)
         {
-            return left.Size == right.Size &&
-                   left.Version == right.Version &&
-                   left.currentEccState == right.currentEccState &&
-                   left.pendingEccState == right.pendingEccState;
+            return EccStateDescDto.FromNative(left).Equals(EccStateDescDto.FromNative(right));
         }
 
         private static unsafe ctl_ecc_properties_t CreateEccProperties() => new ctl_ecc_properties_t { Size = (uint)sizeof(ctl_ecc_properties_t), Version = 0 };
@@ -202,6 +209,57 @@ namespace IGCLWrapper
                 Version = Version,
                 isSupported = IGCLEccDtoBool.ToByte(IsSupported),
                 canControl = IGCLEccDtoBool.ToByte(CanControl)
+            };
+        }
+    }
+
+    public struct EccStateDescDto : IEquatable<EccStateDescDto>
+    {
+        public uint Size;
+        public byte Version;
+        public ctl_ecc_state_t CurrentEccState;
+        public ctl_ecc_state_t PendingEccState;
+
+        public bool Equals(EccStateDescDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   CurrentEccState == other.CurrentEccState &&
+                   PendingEccState == other.PendingEccState;
+        }
+
+        public override bool Equals(object? obj) => obj is EccStateDescDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(CurrentEccState);
+            hash.Add(PendingEccState);
+            return hash.ToHashCode();
+        }
+
+        public static EccStateDescDto FromNative(ctl_ecc_state_desc_t native)
+        {
+            return new EccStateDescDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                CurrentEccState = native.currentEccState,
+                PendingEccState = native.pendingEccState
+            };
+        }
+
+        public unsafe ctl_ecc_state_desc_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_ecc_state_desc_t);
+            return new ctl_ecc_state_desc_t
+            {
+                Size = size,
+                Version = Version,
+                currentEccState = CurrentEccState,
+                pendingEccState = PendingEccState
             };
         }
     }

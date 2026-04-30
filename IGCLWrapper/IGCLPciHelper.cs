@@ -42,10 +42,10 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get PCI state.
+        /// Get PCI state using the native struct.
         /// </summary>
         /// <returns>PCI state struct.</returns>
-        public unsafe ctl_pci_state_t PciGetState()
+        public unsafe ctl_pci_state_t PciGetStateNative()
         {
             ThrowIfDisposed();
             var state = new ctl_pci_state_t { Size = (uint)sizeof(ctl_pci_state_t), Version = 0 };
@@ -53,6 +53,16 @@ namespace IGCLWrapper
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get PCI state");
             return state;
+        }
+
+        /// <summary>
+        /// Get PCI state as a DTO.
+        /// </summary>
+        /// <returns>PCI state DTO.</returns>
+        public PciStateDto PciGetState()
+        {
+            var native = PciGetStateNative();
+            return PciStateDto.FromNative(native);
         }
 
         private void ThrowIfDisposed()
@@ -85,9 +95,7 @@ namespace IGCLWrapper
         /// <returns>True when equal; otherwise, false.</returns>
         public static bool ArePciStateEqual(ctl_pci_state_t left, ctl_pci_state_t right)
         {
-            return left.Size == right.Size &&
-                   left.Version == right.Version &&
-                   ArePciSpeedEqual(left.speed, right.speed);
+            return PciStateDto.FromNative(left).Equals(PciStateDto.FromNative(right));
         }
 
         private static bool ArePciAddressEqual(ctl_pci_address_t left, ctl_pci_address_t right)
@@ -378,6 +386,52 @@ namespace IGCLWrapper
                 maxSpeed = MaxSpeed.ToNative(),
                 resizable_bar_supported = IGCLPciDtoBool.ToByte(ResizableBarSupported),
                 resizable_bar_enabled = IGCLPciDtoBool.ToByte(ResizableBarEnabled)
+            };
+        }
+    }
+
+    public struct PciStateDto : IEquatable<PciStateDto>
+    {
+        public uint Size;
+        public byte Version;
+        public PciSpeedDto Speed;
+
+        public bool Equals(PciStateDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   Speed.Equals(other.Speed);
+        }
+
+        public override bool Equals(object? obj) => obj is PciStateDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Speed);
+            return hash.ToHashCode();
+        }
+
+        public static PciStateDto FromNative(ctl_pci_state_t native)
+        {
+            return new PciStateDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                Speed = PciSpeedDto.FromNative(native.speed)
+            };
+        }
+
+        public unsafe ctl_pci_state_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_pci_state_t);
+            return new ctl_pci_state_t
+            {
+                Size = size,
+                Version = Version,
+                speed = Speed.ToNative()
             };
         }
     }

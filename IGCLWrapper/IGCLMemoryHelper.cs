@@ -29,11 +29,11 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get memory module properties.
+        /// Get memory module properties using the native struct.
         /// </summary>
         /// <param name="memoryHandle">Memory module handle.</param>
         /// <returns>Memory properties struct.</returns>
-        public unsafe ctl_mem_properties_t MemoryGetProperties(IntPtr memoryHandle)
+        public unsafe ctl_mem_properties_t MemoryGetPropertiesNative(IntPtr memoryHandle)
         {
             ThrowIfDisposed();
             var props = CreateMemoryProperties();
@@ -44,11 +44,22 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get current memory module state.
+        /// Get memory module properties as a DTO.
+        /// </summary>
+        /// <param name="memoryHandle">Memory module handle.</param>
+        /// <returns>Memory properties DTO.</returns>
+        public MemoryPropertiesDto MemoryGetProperties(IntPtr memoryHandle)
+        {
+            var native = MemoryGetPropertiesNative(memoryHandle);
+            return MemoryPropertiesDto.FromNative(native);
+        }
+
+        /// <summary>
+        /// Get current memory module state using the native struct.
         /// </summary>
         /// <param name="memoryHandle">Memory module handle.</param>
         /// <returns>Memory state struct.</returns>
-        public unsafe ctl_mem_state_t MemoryGetState(IntPtr memoryHandle)
+        public unsafe ctl_mem_state_t MemoryGetStateNative(IntPtr memoryHandle)
         {
             ThrowIfDisposed();
             var state = CreateMemoryState();
@@ -59,11 +70,22 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get memory bandwidth information.
+        /// Get current memory module state as a DTO.
+        /// </summary>
+        /// <param name="memoryHandle">Memory module handle.</param>
+        /// <returns>Memory state DTO.</returns>
+        public MemoryStateDto MemoryGetState(IntPtr memoryHandle)
+        {
+            var native = MemoryGetStateNative(memoryHandle);
+            return MemoryStateDto.FromNative(native);
+        }
+
+        /// <summary>
+        /// Get memory bandwidth information using the native struct.
         /// </summary>
         /// <param name="memoryHandle">Memory module handle.</param>
         /// <returns>Memory bandwidth struct.</returns>
-        public unsafe ctl_mem_bandwidth_t MemoryGetBandwidth(IntPtr memoryHandle)
+        public unsafe ctl_mem_bandwidth_t MemoryGetBandwidthNative(IntPtr memoryHandle)
         {
             ThrowIfDisposed();
             var bw = CreateMemoryBandwidth();
@@ -71,6 +93,17 @@ namespace IGCLWrapper
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, $"Failed to get memory bandwidth: {result}");
             return bw;
+        }
+
+        /// <summary>
+        /// Get memory bandwidth information as a DTO.
+        /// </summary>
+        /// <param name="memoryHandle">Memory module handle.</param>
+        /// <returns>Memory bandwidth DTO.</returns>
+        public MemoryBandwidthDto MemoryGetBandwidth(IntPtr memoryHandle)
+        {
+            var native = MemoryGetBandwidthNative(memoryHandle);
+            return MemoryBandwidthDto.FromNative(native);
         }
 
         private static unsafe IReadOnlyList<IntPtr> EnumerateHandles(_ctl_device_adapter_handle_t* adapter)
@@ -154,6 +187,184 @@ namespace IGCLWrapper
         public void Dispose()
         {
             _disposed = true;
+        }
+    }
+
+    public struct MemoryPropertiesDto : IEquatable<MemoryPropertiesDto>
+    {
+        public uint Size;
+        public byte Version;
+        public ctl_mem_type_t Type;
+        public ctl_mem_loc_t Location;
+        public ulong PhysicalSize;
+        public int BusWidth;
+        public int NumChannels;
+
+        public bool Equals(MemoryPropertiesDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   Type == other.Type &&
+                   Location == other.Location &&
+                   PhysicalSize == other.PhysicalSize &&
+                   BusWidth == other.BusWidth &&
+                   NumChannels == other.NumChannels;
+        }
+
+        public override bool Equals(object? obj) => obj is MemoryPropertiesDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Type);
+            hash.Add(Location);
+            hash.Add(PhysicalSize);
+            hash.Add(BusWidth);
+            hash.Add(NumChannels);
+            return hash.ToHashCode();
+        }
+
+        public static MemoryPropertiesDto FromNative(ctl_mem_properties_t native)
+        {
+            return new MemoryPropertiesDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                Type = native.type,
+                Location = native.location,
+                PhysicalSize = native.physicalSize,
+                BusWidth = native.busWidth,
+                NumChannels = native.numChannels
+            };
+        }
+
+        public unsafe ctl_mem_properties_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_mem_properties_t);
+            return new ctl_mem_properties_t
+            {
+                Size = size,
+                Version = Version,
+                type = Type,
+                location = Location,
+                physicalSize = PhysicalSize,
+                busWidth = BusWidth,
+                numChannels = NumChannels
+            };
+        }
+    }
+
+    public struct MemoryStateDto : IEquatable<MemoryStateDto>
+    {
+        public uint Size;
+        public byte Version;
+        public ulong Free;
+        public ulong TotalSize;
+
+        public bool Equals(MemoryStateDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   Free == other.Free &&
+                   TotalSize == other.TotalSize;
+        }
+
+        public override bool Equals(object? obj) => obj is MemoryStateDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Free);
+            hash.Add(TotalSize);
+            return hash.ToHashCode();
+        }
+
+        public static MemoryStateDto FromNative(ctl_mem_state_t native)
+        {
+            return new MemoryStateDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                Free = native.free,
+                TotalSize = native.size
+            };
+        }
+
+        public unsafe ctl_mem_state_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_mem_state_t);
+            return new ctl_mem_state_t
+            {
+                Size = size,
+                Version = Version,
+                free = Free,
+                size = TotalSize
+            };
+        }
+    }
+
+    public struct MemoryBandwidthDto : IEquatable<MemoryBandwidthDto>
+    {
+        public uint Size;
+        public byte Version;
+        public ulong MaxBandwidth;
+        public ulong Timestamp;
+        public ulong ReadCounter;
+        public ulong WriteCounter;
+
+        public bool Equals(MemoryBandwidthDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   MaxBandwidth == other.MaxBandwidth &&
+                   Timestamp == other.Timestamp &&
+                   ReadCounter == other.ReadCounter &&
+                   WriteCounter == other.WriteCounter;
+        }
+
+        public override bool Equals(object? obj) => obj is MemoryBandwidthDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(MaxBandwidth);
+            hash.Add(Timestamp);
+            hash.Add(ReadCounter);
+            hash.Add(WriteCounter);
+            return hash.ToHashCode();
+        }
+
+        public static MemoryBandwidthDto FromNative(ctl_mem_bandwidth_t native)
+        {
+            return new MemoryBandwidthDto
+            {
+                Size = native.Size,
+                Version = native.Version,
+                MaxBandwidth = native.maxBandwidth,
+                Timestamp = native.timestamp,
+                ReadCounter = native.readCounter,
+                WriteCounter = native.writeCounter
+            };
+        }
+
+        public unsafe ctl_mem_bandwidth_t ToNative()
+        {
+            var size = Size;
+            if (size == 0)
+                size = (uint)sizeof(ctl_mem_bandwidth_t);
+            return new ctl_mem_bandwidth_t
+            {
+                Size = size,
+                Version = Version,
+                maxBandwidth = MaxBandwidth,
+                timestamp = Timestamp,
+                readCounter = ReadCounter,
+                writeCounter = WriteCounter
+            };
         }
     }
 }
