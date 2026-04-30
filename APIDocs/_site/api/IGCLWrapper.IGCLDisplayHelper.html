@@ -160,7 +160,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_Name" data-uid="IGCLWrapper.IGCLDisplayHelper.Name">
   Name
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L943"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L952"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Friendly name for the display handle.</p>
@@ -194,26 +194,32 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <a id="IGCLWrapper_IGCLDisplayHelper_AUXAccess_" data-uid="IGCLWrapper.IGCLDisplayHelper.AUXAccess*"></a>
 
-  <h3 id="IGCLWrapper_IGCLDisplayHelper_AUXAccess_IGCLWrapper_ctl_aux_access_args_t__" data-uid="IGCLWrapper.IGCLDisplayHelper.AUXAccess(IGCLWrapper.ctl_aux_access_args_t@)">
-  AUXAccess(ref ctl_aux_access_args_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1091"><i class="bi bi-code-slash"></i></a>
+  <h3 id="IGCLWrapper_IGCLDisplayHelper_AUXAccess_IGCLWrapper_AuxAccessArgsDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.AUXAccess(IGCLWrapper.AuxAccessArgsDto)">
+  AUXAccess(AuxAccessArgsDto)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1072"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Perform AUX channel access using the provided arguments.</p>
+  <div class="markdown level1 summary"><p>Perform AUX channel access using a DTO.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void AUXAccess(ref ctl_aux_access_args_t args)</code></pre>
+    <pre><code class="lang-csharp hljs">public AuxAccessArgsDto AUXAccess(AuxAccessArgsDto args)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>args</code> <a class="xref" href="IGCLWrapper.ctl_aux_access_args_t.html">ctl_aux_access_args_t</a></dt>
-    <dd><p>AUX access arguments.</p>
+    <dt><code>args</code> <a class="xref" href="IGCLWrapper.AuxAccessArgsDto.html">AuxAccessArgsDto</a></dt>
+    <dd><p>AUX access arguments DTO.</p>
 </dd>
   </dl>
 
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="IGCLWrapper.AuxAccessArgsDto.html">AuxAccessArgsDto</a></dt>
+    <dd><p>Updated AUX access arguments DTO.</p>
+</dd>
+  </dl>
 
 
 
@@ -1615,7 +1621,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_CheckDriverVersion_System_UInt32_" data-uid="IGCLWrapper.IGCLDisplayHelper.CheckDriverVersion(System.UInt32)">
   CheckDriverVersion(uint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L950"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L959"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Check the driver version against the provided version info.</p>
@@ -1786,7 +1792,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_CreateDisplaySettingsGetRequest" data-uid="IGCLWrapper.IGCLDisplayHelper.CreateDisplaySettingsGetRequest">
   CreateDisplaySettingsGetRequest()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2053"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2044"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a DTO request for display-settings get operations.</p>
@@ -1819,7 +1825,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_CreateDisplaySettingsSetRequest_System_UInt32_" data-uid="IGCLWrapper.IGCLDisplayHelper.CreateDisplaySettingsSetRequest(System.UInt32)">
   CreateDisplaySettingsSetRequest(uint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2063"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2054"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a DTO request for display-settings set operations.</p>
@@ -2056,7 +2062,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_CreatePowerOptimizationSettingsGetRequest_System_UInt32_" data-uid="IGCLWrapper.IGCLDisplayHelper.CreatePowerOptimizationSettingsGetRequest(System.UInt32)">
   CreatePowerOptimizationSettingsGetRequest(uint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2077"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2068"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a DTO request for power-optimization get operations.</p>
@@ -2095,7 +2101,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_CreatePowerOptimizationSettingsSetRequest_System_UInt32_" data-uid="IGCLWrapper.IGCLDisplayHelper.CreatePowerOptimizationSettingsSetRequest(System.UInt32)">
   CreatePowerOptimizationSettingsSetRequest(uint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2090"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2081"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a DTO request for power-optimization set operations.</p>
@@ -2365,7 +2371,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_Dispose" data-uid="IGCLWrapper.IGCLDisplayHelper.Dispose">
   Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2139"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2130"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Mark the helper as disposed.</p>
@@ -2390,30 +2396,30 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <a id="IGCLWrapper_IGCLDisplayHelper_EdidManagement_" data-uid="IGCLWrapper.IGCLDisplayHelper.EdidManagement*"></a>
 
-  <h3 id="IGCLWrapper_IGCLDisplayHelper_EdidManagement_IGCLWrapper_ctl_edid_management_args_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.EdidManagement(IGCLWrapper.ctl_edid_management_args_t)">
-  EdidManagement(ctl_edid_management_args_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1685"><i class="bi bi-code-slash"></i></a>
+  <h3 id="IGCLWrapper_IGCLDisplayHelper_EdidManagement_IGCLWrapper_EdidManagementArgsDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.EdidManagement(IGCLWrapper.EdidManagementArgsDto)">
+  EdidManagement(EdidManagementArgsDto)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1675"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Perform EDID management using the provided arguments.</p>
+  <div class="markdown level1 summary"><p>Perform EDID management using a DTO.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_edid_management_args_t EdidManagement(ctl_edid_management_args_t args)</code></pre>
+    <pre><code class="lang-csharp hljs">public EdidManagementArgsDto EdidManagement(EdidManagementArgsDto args)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>args</code> <a class="xref" href="IGCLWrapper.ctl_edid_management_args_t.html">ctl_edid_management_args_t</a></dt>
-    <dd><p>EDID management arguments.</p>
+    <dt><code>args</code> <a class="xref" href="IGCLWrapper.EdidManagementArgsDto.html">EdidManagementArgsDto</a></dt>
+    <dd><p>EDID management arguments DTO.</p>
 </dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_edid_management_args_t.html">ctl_edid_management_args_t</a></dt>
-    <dd><p>Updated EDID management arguments.</p>
+    <dt><a class="xref" href="IGCLWrapper.EdidManagementArgsDto.html">EdidManagementArgsDto</a></dt>
+    <dd><p>Updated EDID management arguments DTO.</p>
 </dd>
   </dl>
 
@@ -2431,7 +2437,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_EnumerateMuxDevices" data-uid="IGCLWrapper.IGCLDisplayHelper.EnumerateMuxDevices">
   EnumerateMuxDevices()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1590"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1565"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Enumerate mux device handles.</p>
@@ -2464,7 +2470,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetAdapterDisplayEncoderProperties" data-uid="IGCLWrapper.IGCLDisplayHelper.GetAdapterDisplayEncoderProperties">
   GetAdapterDisplayEncoderProperties()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L974"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L969"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get adapter display encoder properties as a DTO.</p>
@@ -2493,59 +2499,26 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
 
 
-  <a id="IGCLWrapper_IGCLDisplayHelper_GetAdapterDisplayEncoderPropertiesNative_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetAdapterDisplayEncoderPropertiesNative*"></a>
-
-  <h3 id="IGCLWrapper_IGCLDisplayHelper_GetAdapterDisplayEncoderPropertiesNative" data-uid="IGCLWrapper.IGCLDisplayHelper.GetAdapterDisplayEncoderPropertiesNative">
-  GetAdapterDisplayEncoderPropertiesNative()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L960"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Get adapter display encoder properties using the native struct.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_adapter_display_encoder_properties_t GetAdapterDisplayEncoderPropertiesNative()</code></pre>
-  </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_adapter_display_encoder_properties_t.html">ctl_adapter_display_encoder_properties_t</a></dt>
-    <dd><p>Adapter display encoder properties struct.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="IGCLWrapper_IGCLDisplayHelper_GetBrightnessSetting_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetBrightnessSetting*"></a>
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetBrightnessSetting" data-uid="IGCLWrapper.IGCLDisplayHelper.GetBrightnessSetting">
   GetBrightnessSetting()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1186"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1146"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Get display brightness.</p>
+  <div class="markdown level1 summary"><p>Get display brightness as a DTO.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_get_brightness_t GetBrightnessSetting()</code></pre>
+    <pre><code class="lang-csharp hljs">public BrightnessGetDto GetBrightnessSetting()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_get_brightness_t.html">ctl_get_brightness_t</a></dt>
-    <dd><p>Brightness settings struct.</p>
+    <dt><a class="xref" href="IGCLWrapper.BrightnessGetDto.html">BrightnessGetDto</a></dt>
+    <dd><p>Brightness settings DTO.</p>
 </dd>
   </dl>
 
@@ -2563,7 +2536,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetCurrentScaling" data-uid="IGCLWrapper.IGCLDisplayHelper.GetCurrentScaling">
   GetCurrentScaling()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1461"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1481"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get current scaling settings as a DTO.</p>
@@ -2592,44 +2565,11 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
 
 
-  <a id="IGCLWrapper_IGCLDisplayHelper_GetCurrentScalingNative_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetCurrentScalingNative*"></a>
-
-  <h3 id="IGCLWrapper_IGCLDisplayHelper_GetCurrentScalingNative" data-uid="IGCLWrapper.IGCLDisplayHelper.GetCurrentScalingNative">
-  GetCurrentScalingNative()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1447"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Get current scaling settings using the native struct.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_scaling_settings_t GetCurrentScalingNative()</code></pre>
-  </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_scaling_settings_t.html">ctl_scaling_settings_t</a></dt>
-    <dd><p>Scaling settings struct.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="IGCLWrapper_IGCLDisplayHelper_GetCurrentSharpness_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetCurrentSharpness*"></a>
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetCurrentSharpness" data-uid="IGCLWrapper.IGCLDisplayHelper.GetCurrentSharpness">
   GetCurrentSharpness()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1028"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1013"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get current sharpness settings as a DTO.</p>
@@ -2658,98 +2598,26 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
 
 
-  <a id="IGCLWrapper_IGCLDisplayHelper_GetCurrentSharpnessNative_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetCurrentSharpnessNative*"></a>
-
-  <h3 id="IGCLWrapper_IGCLDisplayHelper_GetCurrentSharpnessNative" data-uid="IGCLWrapper.IGCLDisplayHelper.GetCurrentSharpnessNative">
-  GetCurrentSharpnessNative()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1014"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Get current sharpness settings using the native struct.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_sharpness_settings_t GetCurrentSharpnessNative()</code></pre>
-  </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_sharpness_settings_t.html">ctl_sharpness_settings_t</a></dt>
-    <dd><p>Sharpness settings struct.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="IGCLWrapper_IGCLDisplayHelper_GetCustomModes_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetCustomModes*"></a>
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetCustomModes" data-uid="IGCLWrapper.IGCLDisplayHelper.GetCustomModes">
   GetCustomModes()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1795"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1813"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Get custom display modes.</p>
+  <div class="markdown level1 summary"><p>Get custom display modes as DTOs.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public (ctl_get_set_custom_mode_args_t args, ctl_custom_src_mode_t[] modes) GetCustomModes()</code></pre>
+    <pre><code class="lang-csharp hljs">public CustomModesResultDto GetCustomModes()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt>(<a class="xref" href="IGCLWrapper.ctl_get_set_custom_mode_args_t.html">ctl_get_set_custom_mode_args_t</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-igclwrapper.ctl_get_set_custom_mode_args_t,igclwrapper.ctl_custom_src_mode_t[]-.args">args</a>, <a class="xref" href="IGCLWrapper.ctl_custom_src_mode_t.html">ctl_custom_src_mode_t</a>[] <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-igclwrapper.ctl_get_set_custom_mode_args_t,igclwrapper.ctl_custom_src_mode_t[]-.modes">modes</a>)</dt>
-    <dd><p>Tuple containing updated args and modes.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="IGCLWrapper_IGCLDisplayHelper_GetCustomModesNative_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetCustomModesNative*"></a>
-
-  <h3 id="IGCLWrapper_IGCLDisplayHelper_GetCustomModesNative_IGCLWrapper_ctl_get_set_custom_mode_args_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetCustomModesNative(IGCLWrapper.ctl_get_set_custom_mode_args_t)">
-  GetCustomModesNative(ctl_get_set_custom_mode_args_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1761"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Get custom display modes using the provided native arguments.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public (ctl_get_set_custom_mode_args_t args, ctl_custom_src_mode_t[] modes) GetCustomModesNative(ctl_get_set_custom_mode_args_t args)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>args</code> <a class="xref" href="IGCLWrapper.ctl_get_set_custom_mode_args_t.html">ctl_get_set_custom_mode_args_t</a></dt>
-    <dd><p>Custom mode args.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt>(<a class="xref" href="IGCLWrapper.ctl_get_set_custom_mode_args_t.html">ctl_get_set_custom_mode_args_t</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-igclwrapper.ctl_get_set_custom_mode_args_t,igclwrapper.ctl_custom_src_mode_t[]-.args">args</a>, <a class="xref" href="IGCLWrapper.ctl_custom_src_mode_t.html">ctl_custom_src_mode_t</a>[] <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-igclwrapper.ctl_get_set_custom_mode_args_t,igclwrapper.ctl_custom_src_mode_t[]-.modes">modes</a>)</dt>
-    <dd><p>Tuple containing updated args and modes.</p>
+    <dt><a class="xref" href="IGCLWrapper.CustomModesResultDto.html">CustomModesResultDto</a></dt>
+    <dd><p>Custom mode result DTO.</p>
 </dd>
   </dl>
 
@@ -2767,7 +2635,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetDisplaySettings" data-uid="IGCLWrapper.IGCLDisplayHelper.GetDisplaySettings">
   GetDisplaySettings()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2030"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2021"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get display settings as a DTO.</p>
@@ -2800,7 +2668,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetDynamicContrastEnhancement" data-uid="IGCLWrapper.IGCLDisplayHelper.GetDynamicContrastEnhancement">
   GetDynamicContrastEnhancement()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1907"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1943"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get dynamic contrast enhancement settings as a DTO.</p>
@@ -2833,7 +2701,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetEdidManagement_IGCLWrapper_ctl_edid_type_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetEdidManagement(IGCLWrapper.ctl_edid_type_t)">
   GetEdidManagement(ctl_edid_type_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1700"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1718"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Read EDID bytes via the EDID management API.</p>
@@ -2872,7 +2740,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetEdidManagementWithFlags_IGCLWrapper_ctl_edid_type_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetEdidManagementWithFlags(IGCLWrapper.ctl_edid_type_t)">
   GetEdidManagementWithFlags(ctl_edid_type_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1711"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1729"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Read EDID bytes via the EDID management API and return output flags.</p>
@@ -2911,7 +2779,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetIntelArcSyncInfoForMonitor" data-uid="IGCLWrapper.IGCLDisplayHelper.GetIntelArcSyncInfoForMonitor">
   GetIntelArcSyncInfoForMonitor()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1580"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1551"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get Intel Arc Sync info for a monitor as a DTO.</p>
@@ -2940,59 +2808,26 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
 
 
-  <a id="IGCLWrapper_IGCLDisplayHelper_GetIntelArcSyncInfoForMonitorNative_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetIntelArcSyncInfoForMonitorNative*"></a>
-
-  <h3 id="IGCLWrapper_IGCLDisplayHelper_GetIntelArcSyncInfoForMonitorNative" data-uid="IGCLWrapper.IGCLDisplayHelper.GetIntelArcSyncInfoForMonitorNative">
-  GetIntelArcSyncInfoForMonitorNative()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1566"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Get Intel Arc Sync info for a monitor using the native struct.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_intel_arc_sync_monitor_params_t GetIntelArcSyncInfoForMonitorNative()</code></pre>
-  </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_intel_arc_sync_monitor_params_t.html">ctl_intel_arc_sync_monitor_params_t</a></dt>
-    <dd><p>Monitor params struct.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="IGCLWrapper_IGCLDisplayHelper_GetIntelArcSyncProfile_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetIntelArcSyncProfile*"></a>
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetIntelArcSyncProfile" data-uid="IGCLWrapper.IGCLDisplayHelper.GetIntelArcSyncProfile">
   GetIntelArcSyncProfile()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1657"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1632"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Get Intel Arc Sync profile parameters.</p>
+  <div class="markdown level1 summary"><p>Get Intel Arc Sync profile parameters as a DTO.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_intel_arc_sync_profile_params_t GetIntelArcSyncProfile()</code></pre>
+    <pre><code class="lang-csharp hljs">public IntelArcSyncProfileParamsDto GetIntelArcSyncProfile()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_intel_arc_sync_profile_params_t.html">ctl_intel_arc_sync_profile_params_t</a></dt>
-    <dd><p>Arc Sync profile params struct.</p>
+    <dt><a class="xref" href="IGCLWrapper.IntelArcSyncProfileParamsDto.html">IntelArcSyncProfileParamsDto</a></dt>
+    <dd><p>Arc Sync profile parameters DTO.</p>
 </dd>
   </dl>
 
@@ -3039,52 +2874,19 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
 
 
-  <a id="IGCLWrapper_IGCLDisplayHelper_GetLACEConfigNative_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetLACEConfigNative*"></a>
-
-  <h3 id="IGCLWrapper_IGCLDisplayHelper_GetLACEConfigNative" data-uid="IGCLWrapper.IGCLDisplayHelper.GetLACEConfigNative">
-  GetLACEConfigNative()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1493"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Get LACE configuration using the native struct.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_lace_config_t GetLACEConfigNative()</code></pre>
-  </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_lace_config_t.html">ctl_lace_config_t</a></dt>
-    <dd><p>LACE config struct.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="IGCLWrapper_IGCLDisplayHelper_GetMuxProperties_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetMuxProperties*"></a>
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetMuxProperties_System_IntPtr_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetMuxProperties(System.IntPtr)">
   GetMuxProperties(nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1615"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1590"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Get mux properties and its display outputs.</p>
+  <div class="markdown level1 summary"><p>Get mux properties and display outputs as a DTO.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public (ctl_mux_properties_t properties, nint[] displayOutputs) GetMuxProperties(nint muxHandle)</code></pre>
+    <pre><code class="lang-csharp hljs">public MuxPropertiesDto GetMuxProperties(nint muxHandle)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -3096,8 +2898,8 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt>(<a class="xref" href="IGCLWrapper.ctl_mux_properties_t.html">ctl_mux_properties_t</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-igclwrapper.ctl_mux_properties_t,system.intptr[]-.properties">properties</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a>[] <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-igclwrapper.ctl_mux_properties_t,system.intptr[]-.displayoutputs">displayOutputs</a>)</dt>
-    <dd><p>Tuple containing mux properties and display output handles.</p>
+    <dt><a class="xref" href="IGCLWrapper.MuxPropertiesDto.html">MuxPropertiesDto</a></dt>
+    <dd><p>Mux properties DTO.</p>
 </dd>
   </dl>
 
@@ -3115,7 +2917,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetPanelEdidData" data-uid="IGCLWrapper.IGCLDisplayHelper.GetPanelEdidData">
   GetPanelEdidData()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1298"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1325"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Read EDID via panel descriptor access as a single concatenated byte array.</p>
@@ -3148,22 +2950,22 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetPowerOptimizationCaps" data-uid="IGCLWrapper.IGCLDisplayHelper.GetPowerOptimizationCaps">
   GetPowerOptimizationCaps()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1106"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1086"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Get power optimization capability information.</p>
+  <div class="markdown level1 summary"><p>Get power optimization capabilities as a DTO.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_power_optimization_caps_t GetPowerOptimizationCaps()</code></pre>
+    <pre><code class="lang-csharp hljs">public PowerOptimizationCapsDto GetPowerOptimizationCaps()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_power_optimization_caps_t.html">ctl_power_optimization_caps_t</a></dt>
-    <dd><p>Power optimization capabilities struct.</p>
+    <dt><a class="xref" href="IGCLWrapper.PowerOptimizationCapsDto.html">PowerOptimizationCapsDto</a></dt>
+    <dd><p>Power optimization capabilities DTO.</p>
 </dd>
   </dl>
 
@@ -3181,7 +2983,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetPowerOptimizationSetting_IGCLWrapper_PowerOptimizationSettingsDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetPowerOptimizationSetting(IGCLWrapper.PowerOptimizationSettingsDto)">
   GetPowerOptimizationSetting(PowerOptimizationSettingsDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1140"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1101"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get power optimization settings using a DTO.</p>
@@ -3203,45 +3005,6 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <dl class="parameters">
     <dt><a class="xref" href="IGCLWrapper.PowerOptimizationSettingsDto.html">PowerOptimizationSettingsDto</a></dt>
     <dd><p>Updated settings DTO.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="IGCLWrapper_IGCLDisplayHelper_GetPowerOptimizationSettingNative_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetPowerOptimizationSettingNative*"></a>
-
-  <h3 id="IGCLWrapper_IGCLDisplayHelper_GetPowerOptimizationSettingNative_IGCLWrapper_ctl_power_optimization_settings_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetPowerOptimizationSettingNative(IGCLWrapper.ctl_power_optimization_settings_t)">
-  GetPowerOptimizationSettingNative(ctl_power_optimization_settings_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1121"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Get power optimization settings using the native struct.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_power_optimization_settings_t GetPowerOptimizationSettingNative(ctl_power_optimization_settings_t settings)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>settings</code> <a class="xref" href="IGCLWrapper.ctl_power_optimization_settings_t.html">ctl_power_optimization_settings_t</a></dt>
-    <dd><p>Settings request struct.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_power_optimization_settings_t.html">ctl_power_optimization_settings_t</a></dt>
-    <dd><p>Updated settings struct.</p>
 </dd>
   </dl>
 
@@ -3288,44 +3051,11 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
 
 
-  <a id="IGCLWrapper_IGCLDisplayHelper_GetPropertiesNative_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetPropertiesNative*"></a>
-
-  <h3 id="IGCLWrapper_IGCLDisplayHelper_GetPropertiesNative" data-uid="IGCLWrapper.IGCLDisplayHelper.GetPropertiesNative">
-  GetPropertiesNative()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L861"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Get display properties for this display handle.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_display_properties_t GetPropertiesNative()</code></pre>
-  </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_display_properties_t.html">ctl_display_properties_t</a></dt>
-    <dd><p>Display properties struct.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="IGCLWrapper_IGCLDisplayHelper_GetRefreshRateHz_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetRefreshRateHz*"></a>
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetRefreshRateHz" data-uid="IGCLWrapper.IGCLDisplayHelper.GetRefreshRateHz">
   GetRefreshRateHz()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L934"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L943"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get the display refresh rate in Hz.</p>
@@ -3358,7 +3088,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetResolution" data-uid="IGCLWrapper.IGCLDisplayHelper.GetResolution">
   GetResolution()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L924"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L933"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get the current display resolution.</p>
@@ -3391,7 +3121,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetRetroScalingSettings" data-uid="IGCLWrapper.IGCLDisplayHelper.GetRetroScalingSettings">
   GetRetroScalingSettings()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1411"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1438"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get retro scaling settings as a DTO.</p>
@@ -3420,185 +3150,26 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
 
 
-  <a id="IGCLWrapper_IGCLDisplayHelper_GetSetDisplaySettingsNative_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetSetDisplaySettingsNative*"></a>
-
-  <h3 id="IGCLWrapper_IGCLDisplayHelper_GetSetDisplaySettingsNative_IGCLWrapper_ctl_display_settings_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetSetDisplaySettingsNative(IGCLWrapper.ctl_display_settings_t)">
-  GetSetDisplaySettingsNative(ctl_display_settings_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2016"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Call the native get/set display settings API using the provided struct.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_display_settings_t GetSetDisplaySettingsNative(ctl_display_settings_t args)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>args</code> <a class="xref" href="IGCLWrapper.ctl_display_settings_t.html">ctl_display_settings_t</a></dt>
-    <dd><p>Display settings struct.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_display_settings_t.html">ctl_display_settings_t</a></dt>
-    <dd><p>Updated display settings struct.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="IGCLWrapper_IGCLDisplayHelper_GetSetDynamicContrastEnhancementNative_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetSetDynamicContrastEnhancementNative*"></a>
-
-  <h3 id="IGCLWrapper_IGCLDisplayHelper_GetSetDynamicContrastEnhancementNative_IGCLWrapper_ctl_dce_args_t_System_UInt32___" data-uid="IGCLWrapper.IGCLDisplayHelper.GetSetDynamicContrastEnhancementNative(IGCLWrapper.ctl_dce_args_t,System.UInt32[])">
-  GetSetDynamicContrastEnhancementNative(ctl_dce_args_t, uint[]?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1852"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Call the native get/set DCE API using the provided struct.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public (ctl_dce_args_t args, uint[] histogram) GetSetDynamicContrastEnhancementNative(ctl_dce_args_t args, uint[]? histogram = null)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>args</code> <a class="xref" href="IGCLWrapper.ctl_dce_args_t.html">ctl_dce_args_t</a></dt>
-    <dd><p>DCE args struct.</p>
-</dd>
-    <dt><code>histogram</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>[]</dt>
-    <dd><p>Histogram buffer or null.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt>(<a class="xref" href="IGCLWrapper.ctl_dce_args_t.html">ctl_dce_args_t</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-igclwrapper.ctl_dce_args_t,system.uint32[]-.args">args</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>[] <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-igclwrapper.ctl_dce_args_t,system.uint32[]-.histogram">histogram</a>)</dt>
-    <dd><p>Tuple containing updated args and histogram.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="IGCLWrapper_IGCLDisplayHelper_GetSetRetroScalingNative_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetSetRetroScalingNative*"></a>
-
-  <h3 id="IGCLWrapper_IGCLDisplayHelper_GetSetRetroScalingNative_IGCLWrapper_ctl_retro_scaling_settings_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetSetRetroScalingNative(IGCLWrapper.ctl_retro_scaling_settings_t)">
-  GetSetRetroScalingNative(ctl_retro_scaling_settings_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1393"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Call the native get/set retro scaling API using the provided struct.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_retro_scaling_settings_t GetSetRetroScalingNative(ctl_retro_scaling_settings_t settings)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>settings</code> <a class="xref" href="IGCLWrapper.ctl_retro_scaling_settings_t.html">ctl_retro_scaling_settings_t</a></dt>
-    <dd><p>Retro scaling settings struct.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_retro_scaling_settings_t.html">ctl_retro_scaling_settings_t</a></dt>
-    <dd><p>Updated retro scaling settings struct.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="IGCLWrapper_IGCLDisplayHelper_GetSetWireFormatNative_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetSetWireFormatNative*"></a>
-
-  <h3 id="IGCLWrapper_IGCLDisplayHelper_GetSetWireFormatNative_IGCLWrapper_ctl_get_set_wire_format_config_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetSetWireFormatNative(IGCLWrapper.ctl_get_set_wire_format_config_t)">
-  GetSetWireFormatNative(ctl_get_set_wire_format_config_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1931"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Call the native get/set wire format API using the provided struct.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_get_set_wire_format_config_t GetSetWireFormatNative(ctl_get_set_wire_format_config_t args)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>args</code> <a class="xref" href="IGCLWrapper.ctl_get_set_wire_format_config_t.html">ctl_get_set_wire_format_config_t</a></dt>
-    <dd><p>Wire format args struct.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_get_set_wire_format_config_t.html">ctl_get_set_wire_format_config_t</a></dt>
-    <dd><p>Updated wire format args struct.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="IGCLWrapper_IGCLDisplayHelper_GetSharpnessCaps_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetSharpnessCaps*"></a>
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetSharpnessCaps" data-uid="IGCLWrapper.IGCLDisplayHelper.GetSharpnessCaps">
   GetSharpnessCaps()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L984"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L983"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Get sharpness capabilities and filter properties.</p>
+  <div class="markdown level1 summary"><p>Get sharpness capabilities and filter properties as a DTO.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public (ctl_sharpness_caps_t caps, ctl_sharpness_filter_properties_t[] filters) GetSharpnessCaps()</code></pre>
+    <pre><code class="lang-csharp hljs">public SharpnessCapsDto GetSharpnessCaps()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt>(<a class="xref" href="IGCLWrapper.ctl_sharpness_caps_t.html">ctl_sharpness_caps_t</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-igclwrapper.ctl_sharpness_caps_t,igclwrapper.ctl_sharpness_filter_properties_t[]-.caps">caps</a>, <a class="xref" href="IGCLWrapper.ctl_sharpness_filter_properties_t.html">ctl_sharpness_filter_properties_t</a>[] <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-igclwrapper.ctl_sharpness_caps_t,igclwrapper.ctl_sharpness_filter_properties_t[]-.filters">filters</a>)</dt>
-    <dd><p>Tuple containing caps and filter properties array.</p>
+    <dt><a class="xref" href="IGCLWrapper.SharpnessCapsDto.html">SharpnessCapsDto</a></dt>
+    <dd><p>Sharpness capabilities DTO.</p>
 </dd>
   </dl>
 
@@ -3616,22 +3187,22 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetSupportedRetroScalingCapability" data-uid="IGCLWrapper.IGCLDisplayHelper.GetSupportedRetroScalingCapability">
   GetSupportedRetroScalingCapability()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1378"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1405"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Get supported retro scaling capabilities.</p>
+  <div class="markdown level1 summary"><p>Get supported retro scaling capabilities as a DTO.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_retro_scaling_caps_t GetSupportedRetroScalingCapability()</code></pre>
+    <pre><code class="lang-csharp hljs">public RetroScalingCapsDto GetSupportedRetroScalingCapability()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_retro_scaling_caps_t.html">ctl_retro_scaling_caps_t</a></dt>
-    <dd><p>Retro scaling capability struct.</p>
+    <dt><a class="xref" href="IGCLWrapper.RetroScalingCapsDto.html">RetroScalingCapsDto</a></dt>
+    <dd><p>Retro scaling capabilities DTO.</p>
 </dd>
   </dl>
 
@@ -3649,22 +3220,22 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetSupportedScalingCapability" data-uid="IGCLWrapper.IGCLDisplayHelper.GetSupportedScalingCapability">
   GetSupportedScalingCapability()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1433"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1467"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Get supported scaling capabilities.</p>
+  <div class="markdown level1 summary"><p>Get supported scaling capabilities as a DTO.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_scaling_caps_t GetSupportedScalingCapability()</code></pre>
+    <pre><code class="lang-csharp hljs">public ScalingCapsDto GetSupportedScalingCapability()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_scaling_caps_t.html">ctl_scaling_caps_t</a></dt>
-    <dd><p>Scaling capability struct.</p>
+    <dt><a class="xref" href="IGCLWrapper.ScalingCapsDto.html">ScalingCapsDto</a></dt>
+    <dd><p>Scaling capabilities DTO.</p>
 </dd>
   </dl>
 
@@ -3682,22 +3253,22 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetTiming" data-uid="IGCLWrapper.IGCLDisplayHelper.GetTiming">
   GetTiming()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L904"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L914"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Get display timing information.</p>
+  <div class="markdown level1 summary"><p>Get display timing information as a DTO.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_display_timing_t GetTiming()</code></pre>
+    <pre><code class="lang-csharp hljs">public DisplayTimingDto GetTiming()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_display_timing_t.html">ctl_display_timing_t</a></dt>
-    <dd><p>Display timing struct.</p>
+    <dt><a class="xref" href="IGCLWrapper.DisplayTimingDto.html">DisplayTimingDto</a></dt>
+    <dd><p>Display timing DTO.</p>
 </dd>
   </dl>
 
@@ -3715,22 +3286,22 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetVblankTimestamp" data-uid="IGCLWrapper.IGCLDisplayHelper.GetVblankTimestamp">
   GetVblankTimestamp()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1834"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1870"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Get vblank timestamp information.</p>
+  <div class="markdown level1 summary"><p>Get vblank timestamp information as a DTO.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_vblank_ts_args_t GetVblankTimestamp()</code></pre>
+    <pre><code class="lang-csharp hljs">public VblankTimestampArgsDto GetVblankTimestamp()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_vblank_ts_args_t.html">ctl_vblank_ts_args_t</a></dt>
-    <dd><p>Vblank timestamp args struct.</p>
+    <dt><a class="xref" href="IGCLWrapper.VblankTimestampArgsDto.html">VblankTimestampArgsDto</a></dt>
+    <dd><p>Vblank timestamp DTO.</p>
 </dd>
   </dl>
 
@@ -3748,7 +3319,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetWireFormat" data-uid="IGCLWrapper.IGCLDisplayHelper.GetWireFormat">
   GetWireFormat()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1960"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1966"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get wire format settings as a DTO.</p>
@@ -3777,61 +3348,34 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
 
 
-  <a id="IGCLWrapper_IGCLDisplayHelper_GetWireFormatNative_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetWireFormatNative*"></a>
-
-  <h3 id="IGCLWrapper_IGCLDisplayHelper_GetWireFormatNative" data-uid="IGCLWrapper.IGCLDisplayHelper.GetWireFormatNative">
-  GetWireFormatNative()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1945"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Get wire format settings.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_get_set_wire_format_config_t GetWireFormatNative()</code></pre>
-  </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_get_set_wire_format_config_t.html">ctl_get_set_wire_format_config_t</a></dt>
-    <dd><p>Wire format args struct.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="IGCLWrapper_IGCLDisplayHelper_I2CAccess_" data-uid="IGCLWrapper.IGCLDisplayHelper.I2CAccess*"></a>
 
-  <h3 id="IGCLWrapper_IGCLDisplayHelper_I2CAccess_IGCLWrapper_ctl_i2c_access_args_t__" data-uid="IGCLWrapper.IGCLDisplayHelper.I2CAccess(IGCLWrapper.ctl_i2c_access_args_t@)">
-  I2CAccess(ref ctl_i2c_access_args_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1060"><i class="bi bi-code-slash"></i></a>
+  <h3 id="IGCLWrapper_IGCLDisplayHelper_I2CAccess_IGCLWrapper_I2CAccessArgsDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.I2CAccess(IGCLWrapper.I2CAccessArgsDto)">
+  I2CAccess(I2CAccessArgsDto)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1041"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Perform I2C access using the provided arguments.</p>
+  <div class="markdown level1 summary"><p>Perform I2C access using a DTO.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void I2CAccess(ref ctl_i2c_access_args_t args)</code></pre>
+    <pre><code class="lang-csharp hljs">public I2CAccessArgsDto I2CAccess(I2CAccessArgsDto args)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>args</code> <a class="xref" href="IGCLWrapper.ctl_i2c_access_args_t.html">ctl_i2c_access_args_t</a></dt>
-    <dd><p>I2C access arguments.</p>
+    <dt><code>args</code> <a class="xref" href="IGCLWrapper.I2CAccessArgsDto.html">I2CAccessArgsDto</a></dt>
+    <dd><p>I2C access arguments DTO.</p>
 </dd>
   </dl>
 
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="IGCLWrapper.I2CAccessArgsDto.html">I2CAccessArgsDto</a></dt>
+    <dd><p>Updated I2C access arguments DTO.</p>
+</dd>
+  </dl>
 
 
 
@@ -3845,17 +3389,17 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <a id="IGCLWrapper_IGCLDisplayHelper_I2CAccessOnPinPair_" data-uid="IGCLWrapper.IGCLDisplayHelper.I2CAccessOnPinPair*"></a>
 
-  <h3 id="IGCLWrapper_IGCLDisplayHelper_I2CAccessOnPinPair_System_IntPtr_IGCLWrapper_ctl_i2c_access_pinpair_args_t__" data-uid="IGCLWrapper.IGCLDisplayHelper.I2CAccessOnPinPair(System.IntPtr,IGCLWrapper.ctl_i2c_access_pinpair_args_t@)">
-  I2CAccessOnPinPair(nint, ref ctl_i2c_access_pinpair_args_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1076"><i class="bi bi-code-slash"></i></a>
+  <h3 id="IGCLWrapper_IGCLDisplayHelper_I2CAccessOnPinPair_System_IntPtr_IGCLWrapper_I2CAccessPinPairArgsDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.I2CAccessOnPinPair(System.IntPtr,IGCLWrapper.I2CAccessPinPairArgsDto)">
+  I2CAccessOnPinPair(nint, I2CAccessPinPairArgsDto)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1057"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Perform I2C access on a specific pin pair.</p>
+  <div class="markdown level1 summary"><p>Perform I2C access on a specific pin pair using a DTO.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void I2CAccessOnPinPair(nint pinPair, ref ctl_i2c_access_pinpair_args_t args)</code></pre>
+    <pre><code class="lang-csharp hljs">public I2CAccessPinPairArgsDto I2CAccessOnPinPair(nint pinPair, I2CAccessPinPairArgsDto args)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -3863,11 +3407,17 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
     <dt><code>pinPair</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
     <dd><p>I2C pin pair handle.</p>
 </dd>
-    <dt><code>args</code> <a class="xref" href="IGCLWrapper.ctl_i2c_access_pinpair_args_t.html">ctl_i2c_access_pinpair_args_t</a></dt>
-    <dd><p>I2C access arguments.</p>
+    <dt><code>args</code> <a class="xref" href="IGCLWrapper.I2CAccessPinPairArgsDto.html">I2CAccessPinPairArgsDto</a></dt>
+    <dd><p>I2C access arguments DTO.</p>
 </dd>
   </dl>
 
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="IGCLWrapper.I2CAccessPinPairArgsDto.html">I2CAccessPinPairArgsDto</a></dt>
+    <dd><p>Updated I2C access pin pair arguments DTO.</p>
+</dd>
+  </dl>
 
 
 
@@ -3883,7 +3433,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_IsActive" data-uid="IGCLWrapper.IGCLDisplayHelper.IsActive">
   IsActive()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L914"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L923"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Check whether the display is active.</p>
@@ -3914,30 +3464,30 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <a id="IGCLWrapper_IGCLDisplayHelper_PanelDescriptorAccess_" data-uid="IGCLWrapper.IGCLDisplayHelper.PanelDescriptorAccess*"></a>
 
-  <h3 id="IGCLWrapper_IGCLDisplayHelper_PanelDescriptorAccess_IGCLWrapper_ctl_panel_descriptor_access_args_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.PanelDescriptorAccess(IGCLWrapper.ctl_panel_descriptor_access_args_t)">
-  PanelDescriptorAccess(ctl_panel_descriptor_access_args_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1284"><i class="bi bi-code-slash"></i></a>
+  <h3 id="IGCLWrapper_IGCLDisplayHelper_PanelDescriptorAccess_IGCLWrapper_PanelDescriptorAccessArgsDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.PanelDescriptorAccess(IGCLWrapper.PanelDescriptorAccessArgsDto)">
+  PanelDescriptorAccess(PanelDescriptorAccessArgsDto)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1283"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Access the panel descriptor using the provided arguments.</p>
+  <div class="markdown level1 summary"><p>Access the panel descriptor using a DTO.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_panel_descriptor_access_args_t PanelDescriptorAccess(ctl_panel_descriptor_access_args_t args)</code></pre>
+    <pre><code class="lang-csharp hljs">public PanelDescriptorAccessArgsDto PanelDescriptorAccess(PanelDescriptorAccessArgsDto args)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>args</code> <a class="xref" href="IGCLWrapper.ctl_panel_descriptor_access_args_t.html">ctl_panel_descriptor_access_args_t</a></dt>
-    <dd><p>Panel descriptor access arguments.</p>
+    <dt><code>args</code> <a class="xref" href="IGCLWrapper.PanelDescriptorAccessArgsDto.html">PanelDescriptorAccessArgsDto</a></dt>
+    <dd><p>Panel descriptor access arguments DTO.</p>
 </dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_panel_descriptor_access_args_t.html">ctl_panel_descriptor_access_args_t</a></dt>
-    <dd><p>Updated panel descriptor access arguments.</p>
+    <dt><a class="xref" href="IGCLWrapper.PanelDescriptorAccessArgsDto.html">PanelDescriptorAccessArgsDto</a></dt>
+    <dd><p>Updated panel descriptor access arguments DTO.</p>
 </dd>
   </dl>
 
@@ -3953,17 +3503,56 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <a id="IGCLWrapper_IGCLDisplayHelper_PixelTransformationGetConfig_" data-uid="IGCLWrapper.IGCLDisplayHelper.PixelTransformationGetConfig*"></a>
 
-  <h3 id="IGCLWrapper_IGCLDisplayHelper_PixelTransformationGetConfig_IGCLWrapper_ctl_pixtx_pipe_get_config_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.PixelTransformationGetConfig(IGCLWrapper.ctl_pixtx_pipe_get_config_t)">
-  PixelTransformationGetConfig(ctl_pixtx_pipe_get_config_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1201"><i class="bi bi-code-slash"></i></a>
+  <h3 id="IGCLWrapper_IGCLDisplayHelper_PixelTransformationGetConfig_IGCLWrapper_PixtxPipeGetConfigDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.PixelTransformationGetConfig(IGCLWrapper.PixtxPipeGetConfigDto)">
+  PixelTransformationGetConfig(PixtxPipeGetConfigDto)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1231"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Get pixel transformation configuration.</p>
+  <div class="markdown level1 summary"><p>Get pixel transformation configuration as DTOs (metadata only; LUT sample values require native methods).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public (ctl_pixtx_pipe_get_config_t config, ctl_pixtx_block_config_t[] blocks) PixelTransformationGetConfig(ctl_pixtx_pipe_get_config_t args)</code></pre>
+    <pre><code class="lang-csharp hljs">public PixelTransformationGetResultDto PixelTransformationGetConfig(PixtxPipeGetConfigDto args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>args</code> <a class="xref" href="IGCLWrapper.PixtxPipeGetConfigDto.html">PixtxPipeGetConfigDto</a></dt>
+    <dd><p>Pipe get config DTO.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="IGCLWrapper.PixelTransformationGetResultDto.html">PixelTransformationGetResultDto</a></dt>
+    <dd><p>Pixel transformation get result DTO.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_IGCLDisplayHelper_PixelTransformationGetConfigNative_" data-uid="IGCLWrapper.IGCLDisplayHelper.PixelTransformationGetConfigNative*"></a>
+
+  <h3 id="IGCLWrapper_IGCLDisplayHelper_PixelTransformationGetConfigNative_IGCLWrapper_ctl_pixtx_pipe_get_config_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.PixelTransformationGetConfigNative(IGCLWrapper.ctl_pixtx_pipe_get_config_t)">
+  PixelTransformationGetConfigNative(ctl_pixtx_pipe_get_config_t)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1161"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get pixel transformation configuration using native structs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (ctl_pixtx_pipe_get_config_t config, ctl_pixtx_block_config_t[] blocks) PixelTransformationGetConfigNative(ctl_pixtx_pipe_get_config_t args)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -3990,19 +3579,19 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
 
 
-  <a id="IGCLWrapper_IGCLDisplayHelper_PixelTransformationGetConfig_" data-uid="IGCLWrapper.IGCLDisplayHelper.PixelTransformationGetConfig*"></a>
+  <a id="IGCLWrapper_IGCLDisplayHelper_PixelTransformationGetConfigNative_" data-uid="IGCLWrapper.IGCLDisplayHelper.PixelTransformationGetConfigNative*"></a>
 
-  <h3 id="IGCLWrapper_IGCLDisplayHelper_PixelTransformationGetConfig_IGCLWrapper_ctl_pixtx_pipe_get_config_t_IGCLWrapper_ctl_pixtx_block_config_t___" data-uid="IGCLWrapper.IGCLDisplayHelper.PixelTransformationGetConfig(IGCLWrapper.ctl_pixtx_pipe_get_config_t,IGCLWrapper.ctl_pixtx_block_config_t[])">
-  PixelTransformationGetConfig(ctl_pixtx_pipe_get_config_t, ctl_pixtx_block_config_t[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1239"><i class="bi bi-code-slash"></i></a>
+  <h3 id="IGCLWrapper_IGCLDisplayHelper_PixelTransformationGetConfigNative_IGCLWrapper_ctl_pixtx_pipe_get_config_t_IGCLWrapper_ctl_pixtx_block_config_t___" data-uid="IGCLWrapper.IGCLDisplayHelper.PixelTransformationGetConfigNative(IGCLWrapper.ctl_pixtx_pipe_get_config_t,IGCLWrapper.ctl_pixtx_block_config_t[])">
+  PixelTransformationGetConfigNative(ctl_pixtx_pipe_get_config_t, ctl_pixtx_block_config_t[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1199"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Get pixel transformation configuration using the provided blocks.</p>
+  <div class="markdown level1 summary"><p>Get pixel transformation configuration using the provided blocks (native structs).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public (ctl_pixtx_pipe_get_config_t config, ctl_pixtx_block_config_t[] blocks) PixelTransformationGetConfig(ctl_pixtx_pipe_get_config_t args, ctl_pixtx_block_config_t[] blocks)</code></pre>
+    <pre><code class="lang-csharp hljs">public (ctl_pixtx_pipe_get_config_t config, ctl_pixtx_block_config_t[] blocks) PixelTransformationGetConfigNative(ctl_pixtx_pipe_get_config_t args, ctl_pixtx_block_config_t[] blocks)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -4034,23 +3623,56 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <a id="IGCLWrapper_IGCLDisplayHelper_PixelTransformationSetConfig_" data-uid="IGCLWrapper.IGCLDisplayHelper.PixelTransformationSetConfig*"></a>
 
-  <h3 id="IGCLWrapper_IGCLDisplayHelper_PixelTransformationSetConfig_IGCLWrapper_ctl_pixtx_pipe_set_config_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.PixelTransformationSetConfig(IGCLWrapper.ctl_pixtx_pipe_set_config_t)">
-  PixelTransformationSetConfig(ctl_pixtx_pipe_set_config_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1270"><i class="bi bi-code-slash"></i></a>
+  <h3 id="IGCLWrapper_IGCLDisplayHelper_PixelTransformationSetConfig_IGCLWrapper_PixtxPipeSetConfigDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.PixelTransformationSetConfig(IGCLWrapper.PixtxPipeSetConfigDto)">
+  PixelTransformationSetConfig(PixtxPipeSetConfigDto)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1241"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Set pixel transformation configuration.</p>
+  <div class="markdown level1 summary"><p>Set pixel transformation configuration using a DTO (metadata only; LUT sample values require native methods).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void PixelTransformationSetConfig(ctl_pixtx_pipe_set_config_t args)</code></pre>
+    <pre><code class="lang-csharp hljs">public void PixelTransformationSetConfig(PixtxPipeSetConfigDto args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>args</code> <a class="xref" href="IGCLWrapper.PixtxPipeSetConfigDto.html">PixtxPipeSetConfigDto</a></dt>
+    <dd><p>Pipe set config DTO.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_IGCLDisplayHelper_PixelTransformationSetConfigNative_" data-uid="IGCLWrapper.IGCLDisplayHelper.PixelTransformationSetConfigNative*"></a>
+
+  <h3 id="IGCLWrapper_IGCLDisplayHelper_PixelTransformationSetConfigNative_IGCLWrapper_ctl_pixtx_pipe_set_config_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.PixelTransformationSetConfigNative(IGCLWrapper.ctl_pixtx_pipe_set_config_t)">
+  PixelTransformationSetConfigNative(ctl_pixtx_pipe_set_config_t)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1254"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set pixel transformation configuration using a native struct (for advanced use cases with raw pointer fields).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PixelTransformationSetConfigNative(ctl_pixtx_pipe_set_config_t args)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>args</code> <a class="xref" href="IGCLWrapper.ctl_pixtx_pipe_set_config_t.html">ctl_pixtx_pipe_set_config_t</a></dt>
-    <dd><p>Pipe set config arguments.</p>
+    <dd><p>Pipe set config native struct.</p>
 </dd>
   </dl>
 
@@ -4067,23 +3689,23 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <a id="IGCLWrapper_IGCLDisplayHelper_SetBrightnessSetting_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetBrightnessSetting*"></a>
 
-  <h3 id="IGCLWrapper_IGCLDisplayHelper_SetBrightnessSetting_IGCLWrapper_ctl_set_brightness_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetBrightnessSetting(IGCLWrapper.ctl_set_brightness_t)">
-  SetBrightnessSetting(ctl_set_brightness_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1173"><i class="bi bi-code-slash"></i></a>
+  <h3 id="IGCLWrapper_IGCLDisplayHelper_SetBrightnessSetting_IGCLWrapper_BrightnessSetDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetBrightnessSetting(IGCLWrapper.BrightnessSetDto)">
+  SetBrightnessSetting(BrightnessSetDto)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1133"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Set display brightness.</p>
+  <div class="markdown level1 summary"><p>Set display brightness using a DTO.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SetBrightnessSetting(ctl_set_brightness_t brightness)</code></pre>
+    <pre><code class="lang-csharp hljs">public void SetBrightnessSetting(BrightnessSetDto brightness)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>brightness</code> <a class="xref" href="IGCLWrapper.ctl_set_brightness_t.html">ctl_set_brightness_t</a></dt>
-    <dd><p>Brightness settings struct.</p>
+    <dt><code>brightness</code> <a class="xref" href="IGCLWrapper.BrightnessSetDto.html">BrightnessSetDto</a></dt>
+    <dd><p>Brightness settings DTO.</p>
 </dd>
   </dl>
 
@@ -4102,7 +3724,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_SetCurrentScaling_IGCLWrapper_ScalingSettingsDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetCurrentScaling(IGCLWrapper.ScalingSettingsDto)">
   SetCurrentScaling(ScalingSettingsDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1484"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1495"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Set scaling settings using a DTO.</p>
@@ -4131,44 +3753,11 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
 
 
-  <a id="IGCLWrapper_IGCLDisplayHelper_SetCurrentScalingNative_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetCurrentScalingNative*"></a>
-
-  <h3 id="IGCLWrapper_IGCLDisplayHelper_SetCurrentScalingNative_IGCLWrapper_ctl_scaling_settings_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetCurrentScalingNative(IGCLWrapper.ctl_scaling_settings_t)">
-  SetCurrentScalingNative(ctl_scaling_settings_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1471"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Set scaling settings using the native struct.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SetCurrentScalingNative(ctl_scaling_settings_t settings)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>settings</code> <a class="xref" href="IGCLWrapper.ctl_scaling_settings_t.html">ctl_scaling_settings_t</a></dt>
-    <dd><p>Scaling settings struct.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
   <a id="IGCLWrapper_IGCLDisplayHelper_SetCurrentSharpness_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetCurrentSharpness*"></a>
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_SetCurrentSharpness_IGCLWrapper_SharpnessSettingsDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetCurrentSharpness(IGCLWrapper.SharpnessSettingsDto)">
   SetCurrentSharpness(SharpnessSettingsDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1051"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1027"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Set sharpness settings using a DTO.</p>
@@ -4197,25 +3786,28 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
 
 
-  <a id="IGCLWrapper_IGCLDisplayHelper_SetCurrentSharpnessNative_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetCurrentSharpnessNative*"></a>
+  <a id="IGCLWrapper_IGCLDisplayHelper_SetCustomModes_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetCustomModes*"></a>
 
-  <h3 id="IGCLWrapper_IGCLDisplayHelper_SetCurrentSharpnessNative_IGCLWrapper_ctl_sharpness_settings_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetCurrentSharpnessNative(IGCLWrapper.ctl_sharpness_settings_t)">
-  SetCurrentSharpnessNative(ctl_sharpness_settings_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1038"><i class="bi bi-code-slash"></i></a>
+  <h3 id="IGCLWrapper_IGCLDisplayHelper_SetCustomModes_IGCLWrapper_CustomModeArgsDto_System_Collections_Generic_IReadOnlyList_IGCLWrapper_CustomSourceModeDto__" data-uid="IGCLWrapper.IGCLDisplayHelper.SetCustomModes(IGCLWrapper.CustomModeArgsDto,System.Collections.Generic.IReadOnlyList{IGCLWrapper.CustomSourceModeDto})">
+  SetCustomModes(CustomModeArgsDto, IReadOnlyList&lt;CustomSourceModeDto&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1854"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Set sharpness settings using the native struct.</p>
+  <div class="markdown level1 summary"><p>Set custom display modes using DTOs.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SetCurrentSharpnessNative(ctl_sharpness_settings_t settings)</code></pre>
+    <pre><code class="lang-csharp hljs">public void SetCustomModes(CustomModeArgsDto args, IReadOnlyList&lt;CustomSourceModeDto&gt; modes)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>settings</code> <a class="xref" href="IGCLWrapper.ctl_sharpness_settings_t.html">ctl_sharpness_settings_t</a></dt>
-    <dd><p>Sharpness settings struct.</p>
+    <dt><code>args</code> <a class="xref" href="IGCLWrapper.CustomModeArgsDto.html">CustomModeArgsDto</a></dt>
+    <dd><p>Custom mode args DTO.</p>
+</dd>
+    <dt><code>modes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="IGCLWrapper.CustomSourceModeDto.html">CustomSourceModeDto</a>&gt;</dt>
+    <dd><p>Custom mode DTOs.</p>
 </dd>
   </dl>
 
@@ -4234,7 +3826,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_SetCustomModes_IGCLWrapper_ctl_get_set_custom_mode_args_t_IGCLWrapper_ctl_custom_src_mode_t___" data-uid="IGCLWrapper.IGCLDisplayHelper.SetCustomModes(IGCLWrapper.ctl_get_set_custom_mode_args_t,IGCLWrapper.ctl_custom_src_mode_t[])">
   SetCustomModes(ctl_get_set_custom_mode_args_t, ctl_custom_src_mode_t[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1807"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1826"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Set custom display modes using the provided arguments and mode list.</p>
@@ -4270,7 +3862,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_SetDisplaySettings_IGCLWrapper_DisplaySettingsDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetDisplaySettings(IGCLWrapper.DisplaySettingsDto)">
   SetDisplaySettings(DisplaySettingsDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2041"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2032"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Set display settings using a DTO.</p>
@@ -4303,7 +3895,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_SetDynamicContrastEnhancement_IGCLWrapper_DceArgsDto_System_UInt32___" data-uid="IGCLWrapper.IGCLDisplayHelper.SetDynamicContrastEnhancement(IGCLWrapper.DceArgsDto,System.UInt32[])">
   SetDynamicContrastEnhancement(DceArgsDto, uint[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1919"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1955"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Set dynamic contrast enhancement settings using a DTO and histogram.</p>
@@ -4337,23 +3929,23 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <a id="IGCLWrapper_IGCLDisplayHelper_SetIntelArcSyncProfile_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetIntelArcSyncProfile*"></a>
 
-  <h3 id="IGCLWrapper_IGCLDisplayHelper_SetIntelArcSyncProfile_IGCLWrapper_ctl_intel_arc_sync_profile_params_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetIntelArcSyncProfile(IGCLWrapper.ctl_intel_arc_sync_profile_params_t)">
-  SetIntelArcSyncProfile(ctl_intel_arc_sync_profile_params_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1671"><i class="bi bi-code-slash"></i></a>
+  <h3 id="IGCLWrapper_IGCLDisplayHelper_SetIntelArcSyncProfile_IGCLWrapper_IntelArcSyncProfileParamsDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetIntelArcSyncProfile(IGCLWrapper.IntelArcSyncProfileParamsDto)">
+  SetIntelArcSyncProfile(IntelArcSyncProfileParamsDto)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1646"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Set Intel Arc Sync profile parameters.</p>
+  <div class="markdown level1 summary"><p>Set Intel Arc Sync profile parameters using a DTO.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SetIntelArcSyncProfile(ctl_intel_arc_sync_profile_params_t parameters)</code></pre>
+    <pre><code class="lang-csharp hljs">public void SetIntelArcSyncProfile(IntelArcSyncProfileParamsDto parameters)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>parameters</code> <a class="xref" href="IGCLWrapper.ctl_intel_arc_sync_profile_params_t.html">ctl_intel_arc_sync_profile_params_t</a></dt>
-    <dd><p>Arc Sync profile params struct.</p>
+    <dt><code>parameters</code> <a class="xref" href="IGCLWrapper.IntelArcSyncProfileParamsDto.html">IntelArcSyncProfileParamsDto</a></dt>
+    <dd><p>Arc Sync profile parameters DTO.</p>
 </dd>
   </dl>
 
@@ -4372,7 +3964,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_SetLACEConfig_IGCLWrapper_LaceConfigDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetLACEConfig(IGCLWrapper.LaceConfigDto)">
   SetLACEConfig(LaceConfigDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1531"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1523"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Set LACE configuration using a DTO.</p>
@@ -4401,44 +3993,11 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
 
 
-  <a id="IGCLWrapper_IGCLDisplayHelper_SetLACEConfigNative_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetLACEConfigNative*"></a>
-
-  <h3 id="IGCLWrapper_IGCLDisplayHelper_SetLACEConfigNative_IGCLWrapper_ctl_lace_config_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetLACEConfigNative(IGCLWrapper.ctl_lace_config_t)">
-  SetLACEConfigNative(ctl_lace_config_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1518"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Set LACE configuration using the native struct.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SetLACEConfigNative(ctl_lace_config_t config)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>config</code> <a class="xref" href="IGCLWrapper.ctl_lace_config_t.html">ctl_lace_config_t</a></dt>
-    <dd><p>LACE config struct.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
   <a id="IGCLWrapper_IGCLDisplayHelper_SetPowerOptimizationSetting_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetPowerOptimizationSetting*"></a>
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_SetPowerOptimizationSetting_IGCLWrapper_PowerOptimizationSettingsDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetPowerOptimizationSetting(IGCLWrapper.PowerOptimizationSettingsDto)">
   SetPowerOptimizationSetting(PowerOptimizationSettingsDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1163"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1119"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Set power optimization settings using a DTO.</p>
@@ -4467,44 +4026,11 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
 
 
-  <a id="IGCLWrapper_IGCLDisplayHelper_SetPowerOptimizationSettingNative_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetPowerOptimizationSettingNative*"></a>
-
-  <h3 id="IGCLWrapper_IGCLDisplayHelper_SetPowerOptimizationSettingNative_IGCLWrapper_ctl_power_optimization_settings_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetPowerOptimizationSettingNative(IGCLWrapper.ctl_power_optimization_settings_t)">
-  SetPowerOptimizationSettingNative(ctl_power_optimization_settings_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1150"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Set power optimization settings using the native struct.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SetPowerOptimizationSettingNative(ctl_power_optimization_settings_t settings)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>settings</code> <a class="xref" href="IGCLWrapper.ctl_power_optimization_settings_t.html">ctl_power_optimization_settings_t</a></dt>
-    <dd><p>Settings struct.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
   <a id="IGCLWrapper_IGCLDisplayHelper_SetRetroScalingSettings_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetRetroScalingSettings*"></a>
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_SetRetroScalingSettings_IGCLWrapper_RetroScalingSettingsDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetRetroScalingSettings(IGCLWrapper.RetroScalingSettingsDto)">
   SetRetroScalingSettings(RetroScalingSettingsDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1422"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1456"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Set retro scaling settings using a DTO.</p>
@@ -4537,7 +4063,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_SetWireFormat_IGCLWrapper_WireFormatConfigDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetWireFormat(IGCLWrapper.WireFormatConfigDto)">
   SetWireFormat(WireFormatConfigDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1996"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1987"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Set wire format settings using a DTO.</p>
@@ -4566,44 +4092,11 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
 
 
-  <a id="IGCLWrapper_IGCLDisplayHelper_SetWireFormatNative_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetWireFormatNative*"></a>
-
-  <h3 id="IGCLWrapper_IGCLDisplayHelper_SetWireFormatNative_IGCLWrapper_ctl_get_set_wire_format_config_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetWireFormatNative(IGCLWrapper.ctl_get_set_wire_format_config_t)">
-  SetWireFormatNative(ctl_get_set_wire_format_config_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1981"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Set wire format settings using a native struct.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SetWireFormatNative(ctl_get_set_wire_format_config_t args)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>args</code> <a class="xref" href="IGCLWrapper.ctl_get_set_wire_format_config_t.html">ctl_get_set_wire_format_config_t</a></dt>
-    <dd><p>Wire format args struct.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
   <a id="IGCLWrapper_IGCLDisplayHelper_SoftwarePSR_" data-uid="IGCLWrapper.IGCLDisplayHelper.SoftwarePSR*"></a>
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_SoftwarePSR_IGCLWrapper_SwPsrSettingsDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.SoftwarePSR(IGCLWrapper.SwPsrSettingsDto)">
   SoftwarePSR(SwPsrSettingsDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1556"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1537"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Call the software PSR API using a DTO.</p>
@@ -4638,50 +4131,11 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
 
 
-  <a id="IGCLWrapper_IGCLDisplayHelper_SoftwarePSRNative_" data-uid="IGCLWrapper.IGCLDisplayHelper.SoftwarePSRNative*"></a>
-
-  <h3 id="IGCLWrapper_IGCLDisplayHelper_SoftwarePSRNative_IGCLWrapper_ctl_sw_psr_settings_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.SoftwarePSRNative(IGCLWrapper.ctl_sw_psr_settings_t)">
-  SoftwarePSRNative(ctl_sw_psr_settings_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1541"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Call the software PSR API using the native struct.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_sw_psr_settings_t SoftwarePSRNative(ctl_sw_psr_settings_t settings)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>settings</code> <a class="xref" href="IGCLWrapper.ctl_sw_psr_settings_t.html">ctl_sw_psr_settings_t</a></dt>
-    <dd><p>Software PSR settings struct.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_sw_psr_settings_t.html">ctl_sw_psr_settings_t</a></dt>
-    <dd><p>Updated software PSR settings struct.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="IGCLWrapper_IGCLDisplayHelper_SwitchMux_" data-uid="IGCLWrapper.IGCLDisplayHelper.SwitchMux*"></a>
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_SwitchMux_System_IntPtr_System_IntPtr_" data-uid="IGCLWrapper.IGCLDisplayHelper.SwitchMux(System.IntPtr,System.IntPtr)">
   SwitchMux(nint, nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1645"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1620"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Switch mux to the specified inactive display output.</p>
@@ -4717,7 +4171,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_ValidateSetDisplaySettingsRequest_IGCLWrapper_DisplaySettingsDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.ValidateSetDisplaySettingsRequest(IGCLWrapper.DisplaySettingsDto)">
   ValidateSetDisplaySettingsRequest(DisplaySettingsDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2104"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2095"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Validate a display-settings set request.</p>
@@ -4756,7 +4210,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_ValidateSetPowerOptimizationSettingsRequest_IGCLWrapper_PowerOptimizationSettingsDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.ValidateSetPowerOptimizationSettingsRequest(IGCLWrapper.PowerOptimizationSettingsDto)">
   ValidateSetPowerOptimizationSettingsRequest(PowerOptimizationSettingsDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2119"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2110"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Validate a power-optimization set request.</p>

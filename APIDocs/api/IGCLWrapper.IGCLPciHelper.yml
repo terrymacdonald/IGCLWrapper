@@ -9,7 +9,6 @@ items:
   - IGCLWrapper.IGCLPciHelper.ArePciStateEqual(IGCLWrapper.ctl_pci_state_t,IGCLWrapper.ctl_pci_state_t)
   - IGCLWrapper.IGCLPciHelper.Dispose
   - IGCLWrapper.IGCLPciHelper.PciGetProperties
-  - IGCLWrapper.IGCLPciHelper.PciGetPropertiesNative
   - IGCLWrapper.IGCLPciHelper.PciGetState
   langs:
   - csharp
@@ -45,37 +44,6 @@ items:
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: IGCLWrapper.IGCLPciHelper.PciGetPropertiesNative
-  commentId: M:IGCLWrapper.IGCLPciHelper.PciGetPropertiesNative
-  id: PciGetPropertiesNative
-  parent: IGCLWrapper.IGCLPciHelper
-  langs:
-  - csharp
-  - vb
-  name: PciGetPropertiesNative()
-  nameWithType: IGCLPciHelper.PciGetPropertiesNative()
-  fullName: IGCLWrapper.IGCLPciHelper.PciGetPropertiesNative()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLPciHelper.cs
-      branch: develop
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: PciGetPropertiesNative
-    path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 23
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  summary: Get PCI properties using the native struct.
-  example: []
-  syntax:
-    content: public ctl_pci_properties_t PciGetPropertiesNative()
-    return:
-      type: IGCLWrapper.ctl_pci_properties_t
-      description: PCI properties struct.
-    content.vb: Public Function PciGetPropertiesNative() As ctl_pci_properties_t
-  overload: IGCLWrapper.IGCLPciHelper.PciGetPropertiesNative*
 - uid: IGCLWrapper.IGCLPciHelper.PciGetProperties
   commentId: M:IGCLWrapper.IGCLPciHelper.PciGetProperties
   id: PciGetProperties
@@ -94,7 +62,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PciGetProperties
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 37
+    startLine: 23
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -125,18 +93,18 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PciGetState
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 47
+    startLine: 37
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Get PCI state.
+  summary: Get PCI state as a DTO.
   example: []
   syntax:
-    content: public ctl_pci_state_t PciGetState()
+    content: public PciStateDto PciGetState()
     return:
-      type: IGCLWrapper.ctl_pci_state_t
-      description: PCI state struct.
-    content.vb: Public Function PciGetState() As ctl_pci_state_t
+      type: IGCLWrapper.PciStateDto
+      description: PCI state DTO.
+    content.vb: Public Function PciGetState() As PciStateDto
   overload: IGCLWrapper.IGCLPciHelper.PciGetState*
 - uid: IGCLWrapper.IGCLPciHelper.ArePciPropertiesEqual(IGCLWrapper.ctl_pci_properties_t,IGCLWrapper.ctl_pci_properties_t)
   commentId: M:IGCLWrapper.IGCLPciHelper.ArePciPropertiesEqual(IGCLWrapper.ctl_pci_properties_t,IGCLWrapper.ctl_pci_properties_t)
@@ -156,7 +124,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ArePciPropertiesEqual
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 69
+    startLine: 59
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -194,7 +162,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ArePciStateEqual
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 85
+    startLine: 75
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -232,7 +200,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 114
+    startLine: 102
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -472,19 +440,6 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: IGCLWrapper.IGCLPciHelper.PciGetPropertiesNative*
-  commentId: Overload:IGCLWrapper.IGCLPciHelper.PciGetPropertiesNative
-  href: IGCLWrapper.IGCLPciHelper.html#IGCLWrapper_IGCLPciHelper_PciGetPropertiesNative
-  name: PciGetPropertiesNative
-  nameWithType: IGCLPciHelper.PciGetPropertiesNative
-  fullName: IGCLWrapper.IGCLPciHelper.PciGetPropertiesNative
-- uid: IGCLWrapper.ctl_pci_properties_t
-  commentId: T:IGCLWrapper.ctl_pci_properties_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_pci_properties_t.html
-  name: ctl_pci_properties_t
-  nameWithType: ctl_pci_properties_t
-  fullName: IGCLWrapper.ctl_pci_properties_t
 - uid: IGCLWrapper.IGCLPciHelper.PciGetProperties*
   commentId: Overload:IGCLWrapper.IGCLPciHelper.PciGetProperties
   href: IGCLWrapper.IGCLPciHelper.html#IGCLWrapper_IGCLPciHelper_PciGetProperties
@@ -504,19 +459,26 @@ references:
   name: PciGetState
   nameWithType: IGCLPciHelper.PciGetState
   fullName: IGCLWrapper.IGCLPciHelper.PciGetState
-- uid: IGCLWrapper.ctl_pci_state_t
-  commentId: T:IGCLWrapper.ctl_pci_state_t
+- uid: IGCLWrapper.PciStateDto
+  commentId: T:IGCLWrapper.PciStateDto
   parent: IGCLWrapper
-  href: IGCLWrapper.ctl_pci_state_t.html
-  name: ctl_pci_state_t
-  nameWithType: ctl_pci_state_t
-  fullName: IGCLWrapper.ctl_pci_state_t
+  href: IGCLWrapper.PciStateDto.html
+  name: PciStateDto
+  nameWithType: PciStateDto
+  fullName: IGCLWrapper.PciStateDto
 - uid: IGCLWrapper.IGCLPciHelper.ArePciPropertiesEqual*
   commentId: Overload:IGCLWrapper.IGCLPciHelper.ArePciPropertiesEqual
   href: IGCLWrapper.IGCLPciHelper.html#IGCLWrapper_IGCLPciHelper_ArePciPropertiesEqual_IGCLWrapper_ctl_pci_properties_t_IGCLWrapper_ctl_pci_properties_t_
   name: ArePciPropertiesEqual
   nameWithType: IGCLPciHelper.ArePciPropertiesEqual
   fullName: IGCLWrapper.IGCLPciHelper.ArePciPropertiesEqual
+- uid: IGCLWrapper.ctl_pci_properties_t
+  commentId: T:IGCLWrapper.ctl_pci_properties_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_pci_properties_t.html
+  name: ctl_pci_properties_t
+  nameWithType: ctl_pci_properties_t
+  fullName: IGCLWrapper.ctl_pci_properties_t
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System
@@ -534,6 +496,13 @@ references:
   name: ArePciStateEqual
   nameWithType: IGCLPciHelper.ArePciStateEqual
   fullName: IGCLWrapper.IGCLPciHelper.ArePciStateEqual
+- uid: IGCLWrapper.ctl_pci_state_t
+  commentId: T:IGCLWrapper.ctl_pci_state_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_pci_state_t.html
+  name: ctl_pci_state_t
+  nameWithType: ctl_pci_state_t
+  fullName: IGCLWrapper.ctl_pci_state_t
 - uid: IGCLWrapper.IGCLPciHelper.Dispose*
   commentId: Overload:IGCLWrapper.IGCLPciHelper.Dispose
   href: IGCLWrapper.IGCLPciHelper.html#IGCLWrapper_IGCLPciHelper_Dispose

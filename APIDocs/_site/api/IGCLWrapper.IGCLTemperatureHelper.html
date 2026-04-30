@@ -265,12 +265,12 @@ Class IGCLTemperatureHelper  <a class="header-action link-secondary" title="View
   <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLTemperatureHelper.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Get temperature sensor properties.</p>
+  <div class="markdown level1 summary"><p>Get temperature sensor properties as a DTO.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_temp_properties_t TemperatureGetProperties(nint sensorHandle)</code></pre>
+    <pre><code class="lang-csharp hljs">public TemperaturePropertiesDto TemperatureGetProperties(nint sensorHandle)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -282,8 +282,8 @@ Class IGCLTemperatureHelper  <a class="header-action link-secondary" title="View
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_temp_properties_t.html">ctl_temp_properties_t</a></dt>
-    <dd><p>Temperature properties struct.</p>
+    <dt><a class="xref" href="IGCLWrapper.TemperaturePropertiesDto.html">TemperaturePropertiesDto</a></dt>
+    <dd><p>Temperature properties DTO.</p>
 </dd>
   </dl>
 

@@ -274,12 +274,12 @@ Class IGCLEngineHelper  <a class="header-action link-secondary" title="View sour
   <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLEngineHelper.cs/#L51"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Get engine activity stats for a handle.</p>
+  <div class="markdown level1 summary"><p>Get engine activity stats as a DTO.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_engine_stats_t EngineGetActivity(nint engineHandle)</code></pre>
+    <pre><code class="lang-csharp hljs">public EngineStatsDto EngineGetActivity(nint engineHandle)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -291,8 +291,8 @@ Class IGCLEngineHelper  <a class="header-action link-secondary" title="View sour
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_engine_stats_t.html">ctl_engine_stats_t</a></dt>
-    <dd><p>Engine stats struct.</p>
+    <dt><a class="xref" href="IGCLWrapper.EngineStatsDto.html">EngineStatsDto</a></dt>
+    <dd><p>Engine stats DTO.</p>
 </dd>
   </dl>
 
@@ -313,12 +313,12 @@ Class IGCLEngineHelper  <a class="header-action link-secondary" title="View sour
   <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLEngineHelper.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Get engine properties for a handle.</p>
+  <div class="markdown level1 summary"><p>Get engine properties as a DTO.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_engine_properties_t EngineGetProperties(nint engineHandle)</code></pre>
+    <pre><code class="lang-csharp hljs">public EnginePropertiesDto EngineGetProperties(nint engineHandle)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -330,8 +330,8 @@ Class IGCLEngineHelper  <a class="header-action link-secondary" title="View sour
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_engine_properties_t.html">ctl_engine_properties_t</a></dt>
-    <dd><p>Engine properties struct.</p>
+    <dt><a class="xref" href="IGCLWrapper.EnginePropertiesDto.html">EnginePropertiesDto</a></dt>
+    <dd><p>Engine properties DTO.</p>
 </dd>
   </dl>
 

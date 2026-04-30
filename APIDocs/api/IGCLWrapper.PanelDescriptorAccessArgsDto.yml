@@ -1,0 +1,975 @@
+### YamlMime:ManagedReference
+items:
+- uid: IGCLWrapper.PanelDescriptorAccessArgsDto
+  commentId: T:IGCLWrapper.PanelDescriptorAccessArgsDto
+  id: PanelDescriptorAccessArgsDto
+  parent: IGCLWrapper
+  children:
+  - IGCLWrapper.PanelDescriptorAccessArgsDto.BlockNumber
+  - IGCLWrapper.PanelDescriptorAccessArgsDto.CreateReadRequest(System.UInt32)
+  - IGCLWrapper.PanelDescriptorAccessArgsDto.DescriptorData
+  - IGCLWrapper.PanelDescriptorAccessArgsDto.DescriptorDataSize
+  - IGCLWrapper.PanelDescriptorAccessArgsDto.Equals(IGCLWrapper.PanelDescriptorAccessArgsDto)
+  - IGCLWrapper.PanelDescriptorAccessArgsDto.Equals(System.Object)
+  - IGCLWrapper.PanelDescriptorAccessArgsDto.FromNative(IGCLWrapper.ctl_panel_descriptor_access_args_t,System.Byte[])
+  - IGCLWrapper.PanelDescriptorAccessArgsDto.GetHashCode
+  - IGCLWrapper.PanelDescriptorAccessArgsDto.OpType
+  - IGCLWrapper.PanelDescriptorAccessArgsDto.Size
+  - IGCLWrapper.PanelDescriptorAccessArgsDto.ToNativeMetadata
+  - IGCLWrapper.PanelDescriptorAccessArgsDto.Version
+  langs:
+  - csharp
+  - vb
+  name: PanelDescriptorAccessArgsDto
+  nameWithType: PanelDescriptorAccessArgsDto
+  fullName: IGCLWrapper.PanelDescriptorAccessArgsDto
+  type: Struct
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: PanelDescriptorAccessArgsDto
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6090
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: DTO for panel descriptor access arguments.
+  example: []
+  syntax:
+    content: 'public struct PanelDescriptorAccessArgsDto : IEquatable<PanelDescriptorAccessArgsDto>'
+    content.vb: Public Structure PanelDescriptorAccessArgsDto Implements IEquatable(Of PanelDescriptorAccessArgsDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.PanelDescriptorAccessArgsDto}
+  inheritedMembers:
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.PanelDescriptorAccessArgsDto.Size
+  commentId: F:IGCLWrapper.PanelDescriptorAccessArgsDto.Size
+  id: Size
+  parent: IGCLWrapper.PanelDescriptorAccessArgsDto
+  langs:
+  - csharp
+  - vb
+  name: Size
+  nameWithType: PanelDescriptorAccessArgsDto.Size
+  fullName: IGCLWrapper.PanelDescriptorAccessArgsDto.Size
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Size
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6092
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public uint Size
+    return:
+      type: System.UInt32
+    content.vb: Public Size As UInteger
+- uid: IGCLWrapper.PanelDescriptorAccessArgsDto.Version
+  commentId: F:IGCLWrapper.PanelDescriptorAccessArgsDto.Version
+  id: Version
+  parent: IGCLWrapper.PanelDescriptorAccessArgsDto
+  langs:
+  - csharp
+  - vb
+  name: Version
+  nameWithType: PanelDescriptorAccessArgsDto.Version
+  fullName: IGCLWrapper.PanelDescriptorAccessArgsDto.Version
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Version
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6093
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public byte Version
+    return:
+      type: System.Byte
+    content.vb: Public Version As Byte
+- uid: IGCLWrapper.PanelDescriptorAccessArgsDto.OpType
+  commentId: F:IGCLWrapper.PanelDescriptorAccessArgsDto.OpType
+  id: OpType
+  parent: IGCLWrapper.PanelDescriptorAccessArgsDto
+  langs:
+  - csharp
+  - vb
+  name: OpType
+  nameWithType: PanelDescriptorAccessArgsDto.OpType
+  fullName: IGCLWrapper.PanelDescriptorAccessArgsDto.OpType
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: OpType
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6094
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_operation_type_t OpType
+    return:
+      type: IGCLWrapper.ctl_operation_type_t
+    content.vb: Public OpType As ctl_operation_type_t
+- uid: IGCLWrapper.PanelDescriptorAccessArgsDto.BlockNumber
+  commentId: F:IGCLWrapper.PanelDescriptorAccessArgsDto.BlockNumber
+  id: BlockNumber
+  parent: IGCLWrapper.PanelDescriptorAccessArgsDto
+  langs:
+  - csharp
+  - vb
+  name: BlockNumber
+  nameWithType: PanelDescriptorAccessArgsDto.BlockNumber
+  fullName: IGCLWrapper.PanelDescriptorAccessArgsDto.BlockNumber
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: BlockNumber
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6095
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public uint BlockNumber
+    return:
+      type: System.UInt32
+    content.vb: Public BlockNumber As UInteger
+- uid: IGCLWrapper.PanelDescriptorAccessArgsDto.DescriptorDataSize
+  commentId: F:IGCLWrapper.PanelDescriptorAccessArgsDto.DescriptorDataSize
+  id: DescriptorDataSize
+  parent: IGCLWrapper.PanelDescriptorAccessArgsDto
+  langs:
+  - csharp
+  - vb
+  name: DescriptorDataSize
+  nameWithType: PanelDescriptorAccessArgsDto.DescriptorDataSize
+  fullName: IGCLWrapper.PanelDescriptorAccessArgsDto.DescriptorDataSize
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: DescriptorDataSize
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6096
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public uint DescriptorDataSize
+    return:
+      type: System.UInt32
+    content.vb: Public DescriptorDataSize As UInteger
+- uid: IGCLWrapper.PanelDescriptorAccessArgsDto.DescriptorData
+  commentId: F:IGCLWrapper.PanelDescriptorAccessArgsDto.DescriptorData
+  id: DescriptorData
+  parent: IGCLWrapper.PanelDescriptorAccessArgsDto
+  langs:
+  - csharp
+  - vb
+  name: DescriptorData
+  nameWithType: PanelDescriptorAccessArgsDto.DescriptorData
+  fullName: IGCLWrapper.PanelDescriptorAccessArgsDto.DescriptorData
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: DescriptorData
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6097
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public List<byte>? DescriptorData
+    return:
+      type: System.Collections.Generic.List{System.Byte}
+    content.vb: Public DescriptorData As List(Of Byte)
+- uid: IGCLWrapper.PanelDescriptorAccessArgsDto.FromNative(IGCLWrapper.ctl_panel_descriptor_access_args_t,System.Byte[])
+  commentId: M:IGCLWrapper.PanelDescriptorAccessArgsDto.FromNative(IGCLWrapper.ctl_panel_descriptor_access_args_t,System.Byte[])
+  id: FromNative(IGCLWrapper.ctl_panel_descriptor_access_args_t,System.Byte[])
+  parent: IGCLWrapper.PanelDescriptorAccessArgsDto
+  langs:
+  - csharp
+  - vb
+  name: FromNative(ctl_panel_descriptor_access_args_t, byte[]?)
+  nameWithType: PanelDescriptorAccessArgsDto.FromNative(ctl_panel_descriptor_access_args_t, byte[]?)
+  fullName: IGCLWrapper.PanelDescriptorAccessArgsDto.FromNative(IGCLWrapper.ctl_panel_descriptor_access_args_t, byte[]?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: FromNative
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6099
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public static PanelDescriptorAccessArgsDto FromNative(ctl_panel_descriptor_access_args_t native, byte[]? data = null)
+    parameters:
+    - id: native
+      type: IGCLWrapper.ctl_panel_descriptor_access_args_t
+    - id: data
+      type: System.Byte[]
+    return:
+      type: IGCLWrapper.PanelDescriptorAccessArgsDto
+    content.vb: Public Shared Function FromNative(native As ctl_panel_descriptor_access_args_t, data As Byte() = Nothing) As PanelDescriptorAccessArgsDto
+  overload: IGCLWrapper.PanelDescriptorAccessArgsDto.FromNative*
+  nameWithType.vb: PanelDescriptorAccessArgsDto.FromNative(ctl_panel_descriptor_access_args_t, Byte())
+  fullName.vb: IGCLWrapper.PanelDescriptorAccessArgsDto.FromNative(IGCLWrapper.ctl_panel_descriptor_access_args_t, Byte())
+  name.vb: FromNative(ctl_panel_descriptor_access_args_t, Byte())
+- uid: IGCLWrapper.PanelDescriptorAccessArgsDto.ToNativeMetadata
+  commentId: M:IGCLWrapper.PanelDescriptorAccessArgsDto.ToNativeMetadata
+  id: ToNativeMetadata
+  parent: IGCLWrapper.PanelDescriptorAccessArgsDto
+  langs:
+  - csharp
+  - vb
+  name: ToNativeMetadata()
+  nameWithType: PanelDescriptorAccessArgsDto.ToNativeMetadata()
+  fullName: IGCLWrapper.PanelDescriptorAccessArgsDto.ToNativeMetadata()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: ToNativeMetadata
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6112
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_panel_descriptor_access_args_t ToNativeMetadata()
+    return:
+      type: IGCLWrapper.ctl_panel_descriptor_access_args_t
+    content.vb: Public Function ToNativeMetadata() As ctl_panel_descriptor_access_args_t
+  overload: IGCLWrapper.PanelDescriptorAccessArgsDto.ToNativeMetadata*
+- uid: IGCLWrapper.PanelDescriptorAccessArgsDto.Equals(IGCLWrapper.PanelDescriptorAccessArgsDto)
+  commentId: M:IGCLWrapper.PanelDescriptorAccessArgsDto.Equals(IGCLWrapper.PanelDescriptorAccessArgsDto)
+  id: Equals(IGCLWrapper.PanelDescriptorAccessArgsDto)
+  parent: IGCLWrapper.PanelDescriptorAccessArgsDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(PanelDescriptorAccessArgsDto)
+  nameWithType: PanelDescriptorAccessArgsDto.Equals(PanelDescriptorAccessArgsDto)
+  fullName: IGCLWrapper.PanelDescriptorAccessArgsDto.Equals(IGCLWrapper.PanelDescriptorAccessArgsDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6125
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(PanelDescriptorAccessArgsDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.PanelDescriptorAccessArgsDto
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As PanelDescriptorAccessArgsDto) As Boolean
+  overload: IGCLWrapper.PanelDescriptorAccessArgsDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.PanelDescriptorAccessArgsDto}.Equals(IGCLWrapper.PanelDescriptorAccessArgsDto)
+- uid: IGCLWrapper.PanelDescriptorAccessArgsDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.PanelDescriptorAccessArgsDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.PanelDescriptorAccessArgsDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: PanelDescriptorAccessArgsDto.Equals(object?)
+  fullName: IGCLWrapper.PanelDescriptorAccessArgsDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6129
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Indicates whether this instance and a specified object are equal.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.PanelDescriptorAccessArgsDto.Equals*
+  nameWithType.vb: PanelDescriptorAccessArgsDto.Equals(Object)
+  fullName.vb: IGCLWrapper.PanelDescriptorAccessArgsDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.PanelDescriptorAccessArgsDto.GetHashCode
+  commentId: M:IGCLWrapper.PanelDescriptorAccessArgsDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.PanelDescriptorAccessArgsDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: PanelDescriptorAccessArgsDto.GetHashCode()
+  fullName: IGCLWrapper.PanelDescriptorAccessArgsDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6130
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Returns the hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A 32-bit signed integer that is the hash code for this instance.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.PanelDescriptorAccessArgsDto.GetHashCode*
+- uid: IGCLWrapper.PanelDescriptorAccessArgsDto.CreateReadRequest(System.UInt32)
+  commentId: M:IGCLWrapper.PanelDescriptorAccessArgsDto.CreateReadRequest(System.UInt32)
+  id: CreateReadRequest(System.UInt32)
+  parent: IGCLWrapper.PanelDescriptorAccessArgsDto
+  langs:
+  - csharp
+  - vb
+  name: CreateReadRequest(uint)
+  nameWithType: PanelDescriptorAccessArgsDto.CreateReadRequest(uint)
+  fullName: IGCLWrapper.PanelDescriptorAccessArgsDto.CreateReadRequest(uint)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: CreateReadRequest
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6132
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public static PanelDescriptorAccessArgsDto CreateReadRequest(uint blockNumber)
+    parameters:
+    - id: blockNumber
+      type: System.UInt32
+    return:
+      type: IGCLWrapper.PanelDescriptorAccessArgsDto
+    content.vb: Public Shared Function CreateReadRequest(blockNumber As UInteger) As PanelDescriptorAccessArgsDto
+  overload: IGCLWrapper.PanelDescriptorAccessArgsDto.CreateReadRequest*
+  nameWithType.vb: PanelDescriptorAccessArgsDto.CreateReadRequest(UInteger)
+  fullName.vb: IGCLWrapper.PanelDescriptorAccessArgsDto.CreateReadRequest(UInteger)
+  name.vb: CreateReadRequest(UInteger)
+references:
+- uid: IGCLWrapper
+  commentId: N:IGCLWrapper
+  href: IGCLWrapper.html
+  name: IGCLWrapper
+  nameWithType: IGCLWrapper
+  fullName: IGCLWrapper
+- uid: System.IEquatable{IGCLWrapper.PanelDescriptorAccessArgsDto}
+  commentId: T:System.IEquatable{IGCLWrapper.PanelDescriptorAccessArgsDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<PanelDescriptorAccessArgsDto>
+  nameWithType: IEquatable<PanelDescriptorAccessArgsDto>
+  fullName: System.IEquatable<IGCLWrapper.PanelDescriptorAccessArgsDto>
+  nameWithType.vb: IEquatable(Of PanelDescriptorAccessArgsDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.PanelDescriptorAccessArgsDto)
+  name.vb: IEquatable(Of PanelDescriptorAccessArgsDto)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.PanelDescriptorAccessArgsDto
+    name: PanelDescriptorAccessArgsDto
+    href: IGCLWrapper.PanelDescriptorAccessArgsDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.PanelDescriptorAccessArgsDto
+    name: PanelDescriptorAccessArgsDto
+    href: IGCLWrapper.PanelDescriptorAccessArgsDto.html
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: IGCLWrapper.ctl_operation_type_t
+  commentId: T:IGCLWrapper.ctl_operation_type_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_operation_type_t.html
+  name: ctl_operation_type_t
+  nameWithType: ctl_operation_type_t
+  fullName: IGCLWrapper.ctl_operation_type_t
+- uid: System.Collections.Generic.List{System.Byte}
+  commentId: T:System.Collections.Generic.List{System.Byte}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<byte>
+  nameWithType: List<byte>
+  fullName: System.Collections.Generic.List<byte>
+  nameWithType.vb: List(Of Byte)
+  fullName.vb: System.Collections.Generic.List(Of Byte)
+  name.vb: List(Of Byte)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: IGCLWrapper.PanelDescriptorAccessArgsDto.FromNative*
+  commentId: Overload:IGCLWrapper.PanelDescriptorAccessArgsDto.FromNative
+  href: IGCLWrapper.PanelDescriptorAccessArgsDto.html#IGCLWrapper_PanelDescriptorAccessArgsDto_FromNative_IGCLWrapper_ctl_panel_descriptor_access_args_t_System_Byte___
+  name: FromNative
+  nameWithType: PanelDescriptorAccessArgsDto.FromNative
+  fullName: IGCLWrapper.PanelDescriptorAccessArgsDto.FromNative
+- uid: IGCLWrapper.ctl_panel_descriptor_access_args_t
+  commentId: T:IGCLWrapper.ctl_panel_descriptor_access_args_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_panel_descriptor_access_args_t.html
+  name: ctl_panel_descriptor_access_args_t
+  nameWithType: ctl_panel_descriptor_access_args_t
+  fullName: IGCLWrapper.ctl_panel_descriptor_access_args_t
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: IGCLWrapper.PanelDescriptorAccessArgsDto
+  commentId: T:IGCLWrapper.PanelDescriptorAccessArgsDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.PanelDescriptorAccessArgsDto.html
+  name: PanelDescriptorAccessArgsDto
+  nameWithType: PanelDescriptorAccessArgsDto
+  fullName: IGCLWrapper.PanelDescriptorAccessArgsDto
+- uid: IGCLWrapper.PanelDescriptorAccessArgsDto.ToNativeMetadata*
+  commentId: Overload:IGCLWrapper.PanelDescriptorAccessArgsDto.ToNativeMetadata
+  href: IGCLWrapper.PanelDescriptorAccessArgsDto.html#IGCLWrapper_PanelDescriptorAccessArgsDto_ToNativeMetadata
+  name: ToNativeMetadata
+  nameWithType: PanelDescriptorAccessArgsDto.ToNativeMetadata
+  fullName: IGCLWrapper.PanelDescriptorAccessArgsDto.ToNativeMetadata
+- uid: IGCLWrapper.PanelDescriptorAccessArgsDto.Equals*
+  commentId: Overload:IGCLWrapper.PanelDescriptorAccessArgsDto.Equals
+  href: IGCLWrapper.PanelDescriptorAccessArgsDto.html#IGCLWrapper_PanelDescriptorAccessArgsDto_Equals_IGCLWrapper_PanelDescriptorAccessArgsDto_
+  name: Equals
+  nameWithType: PanelDescriptorAccessArgsDto.Equals
+  fullName: IGCLWrapper.PanelDescriptorAccessArgsDto.Equals
+- uid: System.IEquatable{IGCLWrapper.PanelDescriptorAccessArgsDto}.Equals(IGCLWrapper.PanelDescriptorAccessArgsDto)
+  commentId: M:System.IEquatable{IGCLWrapper.PanelDescriptorAccessArgsDto}.Equals(IGCLWrapper.PanelDescriptorAccessArgsDto)
+  parent: System.IEquatable{IGCLWrapper.PanelDescriptorAccessArgsDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(PanelDescriptorAccessArgsDto)
+  nameWithType: IEquatable<PanelDescriptorAccessArgsDto>.Equals(PanelDescriptorAccessArgsDto)
+  fullName: System.IEquatable<IGCLWrapper.PanelDescriptorAccessArgsDto>.Equals(IGCLWrapper.PanelDescriptorAccessArgsDto)
+  nameWithType.vb: IEquatable(Of PanelDescriptorAccessArgsDto).Equals(PanelDescriptorAccessArgsDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.PanelDescriptorAccessArgsDto).Equals(IGCLWrapper.PanelDescriptorAccessArgsDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.PanelDescriptorAccessArgsDto}.Equals(IGCLWrapper.PanelDescriptorAccessArgsDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.PanelDescriptorAccessArgsDto
+    name: PanelDescriptorAccessArgsDto
+    href: IGCLWrapper.PanelDescriptorAccessArgsDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.PanelDescriptorAccessArgsDto}.Equals(IGCLWrapper.PanelDescriptorAccessArgsDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.PanelDescriptorAccessArgsDto
+    name: PanelDescriptorAccessArgsDto
+    href: IGCLWrapper.PanelDescriptorAccessArgsDto.html
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.PanelDescriptorAccessArgsDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.PanelDescriptorAccessArgsDto.GetHashCode
+  href: IGCLWrapper.PanelDescriptorAccessArgsDto.html#IGCLWrapper_PanelDescriptorAccessArgsDto_GetHashCode
+  name: GetHashCode
+  nameWithType: PanelDescriptorAccessArgsDto.GetHashCode
+  fullName: IGCLWrapper.PanelDescriptorAccessArgsDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: IGCLWrapper.PanelDescriptorAccessArgsDto.CreateReadRequest*
+  commentId: Overload:IGCLWrapper.PanelDescriptorAccessArgsDto.CreateReadRequest
+  href: IGCLWrapper.PanelDescriptorAccessArgsDto.html#IGCLWrapper_PanelDescriptorAccessArgsDto_CreateReadRequest_System_UInt32_
+  name: CreateReadRequest
+  nameWithType: PanelDescriptorAccessArgsDto.CreateReadRequest
+  fullName: IGCLWrapper.PanelDescriptorAccessArgsDto.CreateReadRequest

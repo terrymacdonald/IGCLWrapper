@@ -13,11 +13,8 @@ items:
   - IGCLWrapper.IGCLPowerHelper.EnumPowerDomains
   - IGCLWrapper.IGCLPowerHelper.PowerGetEnergyCounter(System.IntPtr)
   - IGCLWrapper.IGCLPowerHelper.PowerGetLimits(System.IntPtr)
-  - IGCLWrapper.IGCLPowerHelper.PowerGetLimitsNative(System.IntPtr)
   - IGCLWrapper.IGCLPowerHelper.PowerGetProperties(System.IntPtr)
-  - IGCLWrapper.IGCLPowerHelper.PowerGetPropertiesNative(System.IntPtr)
   - IGCLWrapper.IGCLPowerHelper.PowerSetLimits(System.IntPtr,IGCLWrapper.PowerLimitsDto)
-  - IGCLWrapper.IGCLPowerHelper.PowerSetLimitsNative(System.IntPtr,IGCLWrapper.ctl_power_limits_t)
   langs:
   - csharp
   - vb
@@ -83,44 +80,6 @@ items:
       description: Read-only list of power domain handles.
     content.vb: Public Function EnumPowerDomains() As IReadOnlyList(Of IntPtr)
   overload: IGCLWrapper.IGCLPowerHelper.EnumPowerDomains*
-- uid: IGCLWrapper.IGCLPowerHelper.PowerGetPropertiesNative(System.IntPtr)
-  commentId: M:IGCLWrapper.IGCLPowerHelper.PowerGetPropertiesNative(System.IntPtr)
-  id: PowerGetPropertiesNative(System.IntPtr)
-  parent: IGCLWrapper.IGCLPowerHelper
-  langs:
-  - csharp
-  - vb
-  name: PowerGetPropertiesNative(nint)
-  nameWithType: IGCLPowerHelper.PowerGetPropertiesNative(nint)
-  fullName: IGCLWrapper.IGCLPowerHelper.PowerGetPropertiesNative(nint)
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLPowerHelper.cs
-      branch: develop
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: PowerGetPropertiesNative
-    path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 35
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  summary: Get power domain properties using the native struct.
-  example: []
-  syntax:
-    content: public ctl_power_properties_t PowerGetPropertiesNative(nint powerHandle)
-    parameters:
-    - id: powerHandle
-      type: System.IntPtr
-      description: Power domain handle.
-    return:
-      type: IGCLWrapper.ctl_power_properties_t
-      description: Power properties struct.
-    content.vb: Public Function PowerGetPropertiesNative(powerHandle As IntPtr) As ctl_power_properties_t
-  overload: IGCLWrapper.IGCLPowerHelper.PowerGetPropertiesNative*
-  nameWithType.vb: IGCLPowerHelper.PowerGetPropertiesNative(IntPtr)
-  fullName.vb: IGCLWrapper.IGCLPowerHelper.PowerGetPropertiesNative(System.IntPtr)
-  name.vb: PowerGetPropertiesNative(IntPtr)
 - uid: IGCLWrapper.IGCLPowerHelper.PowerGetProperties(System.IntPtr)
   commentId: M:IGCLWrapper.IGCLPowerHelper.PowerGetProperties(System.IntPtr)
   id: PowerGetProperties(System.IntPtr)
@@ -139,7 +98,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PowerGetProperties
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 50
+    startLine: 35
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -177,64 +136,26 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PowerGetEnergyCounter
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 61
+    startLine: 50
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Get the power energy counter.
+  summary: Get the power energy counter as a DTO.
   example: []
   syntax:
-    content: public ctl_power_energy_counter_t PowerGetEnergyCounter(nint powerHandle)
+    content: public PowerEnergyCounterDto PowerGetEnergyCounter(nint powerHandle)
     parameters:
     - id: powerHandle
       type: System.IntPtr
       description: Power domain handle.
     return:
-      type: IGCLWrapper.ctl_power_energy_counter_t
-      description: Power energy counter struct.
-    content.vb: Public Function PowerGetEnergyCounter(powerHandle As IntPtr) As ctl_power_energy_counter_t
+      type: IGCLWrapper.PowerEnergyCounterDto
+      description: Power energy counter DTO.
+    content.vb: Public Function PowerGetEnergyCounter(powerHandle As IntPtr) As PowerEnergyCounterDto
   overload: IGCLWrapper.IGCLPowerHelper.PowerGetEnergyCounter*
   nameWithType.vb: IGCLPowerHelper.PowerGetEnergyCounter(IntPtr)
   fullName.vb: IGCLWrapper.IGCLPowerHelper.PowerGetEnergyCounter(System.IntPtr)
   name.vb: PowerGetEnergyCounter(IntPtr)
-- uid: IGCLWrapper.IGCLPowerHelper.PowerGetLimitsNative(System.IntPtr)
-  commentId: M:IGCLWrapper.IGCLPowerHelper.PowerGetLimitsNative(System.IntPtr)
-  id: PowerGetLimitsNative(System.IntPtr)
-  parent: IGCLWrapper.IGCLPowerHelper
-  langs:
-  - csharp
-  - vb
-  name: PowerGetLimitsNative(nint)
-  nameWithType: IGCLPowerHelper.PowerGetLimitsNative(nint)
-  fullName: IGCLWrapper.IGCLPowerHelper.PowerGetLimitsNative(nint)
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLPowerHelper.cs
-      branch: develop
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: PowerGetLimitsNative
-    path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 76
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  summary: Get power limits using the native struct.
-  example: []
-  syntax:
-    content: public ctl_power_limits_t PowerGetLimitsNative(nint powerHandle)
-    parameters:
-    - id: powerHandle
-      type: System.IntPtr
-      description: Power domain handle.
-    return:
-      type: IGCLWrapper.ctl_power_limits_t
-      description: Power limits struct.
-    content.vb: Public Function PowerGetLimitsNative(powerHandle As IntPtr) As ctl_power_limits_t
-  overload: IGCLWrapper.IGCLPowerHelper.PowerGetLimitsNative*
-  nameWithType.vb: IGCLPowerHelper.PowerGetLimitsNative(IntPtr)
-  fullName.vb: IGCLWrapper.IGCLPowerHelper.PowerGetLimitsNative(System.IntPtr)
-  name.vb: PowerGetLimitsNative(IntPtr)
 - uid: IGCLWrapper.IGCLPowerHelper.PowerGetLimits(System.IntPtr)
   commentId: M:IGCLWrapper.IGCLPowerHelper.PowerGetLimits(System.IntPtr)
   id: PowerGetLimits(System.IntPtr)
@@ -253,7 +174,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PowerGetLimits
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 91
+    startLine: 65
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -273,44 +194,6 @@ items:
   nameWithType.vb: IGCLPowerHelper.PowerGetLimits(IntPtr)
   fullName.vb: IGCLWrapper.IGCLPowerHelper.PowerGetLimits(System.IntPtr)
   name.vb: PowerGetLimits(IntPtr)
-- uid: IGCLWrapper.IGCLPowerHelper.PowerSetLimitsNative(System.IntPtr,IGCLWrapper.ctl_power_limits_t)
-  commentId: M:IGCLWrapper.IGCLPowerHelper.PowerSetLimitsNative(System.IntPtr,IGCLWrapper.ctl_power_limits_t)
-  id: PowerSetLimitsNative(System.IntPtr,IGCLWrapper.ctl_power_limits_t)
-  parent: IGCLWrapper.IGCLPowerHelper
-  langs:
-  - csharp
-  - vb
-  name: PowerSetLimitsNative(nint, ctl_power_limits_t)
-  nameWithType: IGCLPowerHelper.PowerSetLimitsNative(nint, ctl_power_limits_t)
-  fullName: IGCLWrapper.IGCLPowerHelper.PowerSetLimitsNative(nint, IGCLWrapper.ctl_power_limits_t)
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLPowerHelper.cs
-      branch: develop
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: PowerSetLimitsNative
-    path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 102
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  summary: Set power limits using the native struct.
-  example: []
-  syntax:
-    content: public void PowerSetLimitsNative(nint powerHandle, ctl_power_limits_t limits)
-    parameters:
-    - id: powerHandle
-      type: System.IntPtr
-      description: Power domain handle.
-    - id: limits
-      type: IGCLWrapper.ctl_power_limits_t
-      description: Power limits struct.
-    content.vb: Public Sub PowerSetLimitsNative(powerHandle As IntPtr, limits As ctl_power_limits_t)
-  overload: IGCLWrapper.IGCLPowerHelper.PowerSetLimitsNative*
-  nameWithType.vb: IGCLPowerHelper.PowerSetLimitsNative(IntPtr, ctl_power_limits_t)
-  fullName.vb: IGCLWrapper.IGCLPowerHelper.PowerSetLimitsNative(System.IntPtr, IGCLWrapper.ctl_power_limits_t)
-  name.vb: PowerSetLimitsNative(IntPtr, ctl_power_limits_t)
 - uid: IGCLWrapper.IGCLPowerHelper.PowerSetLimits(System.IntPtr,IGCLWrapper.PowerLimitsDto)
   commentId: M:IGCLWrapper.IGCLPowerHelper.PowerSetLimits(System.IntPtr,IGCLWrapper.PowerLimitsDto)
   id: PowerSetLimits(System.IntPtr,IGCLWrapper.PowerLimitsDto)
@@ -329,7 +212,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PowerSetLimits
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 115
+    startLine: 80
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -367,7 +250,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreatePowerLimitsStruct
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 151
+    startLine: 120
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -398,7 +281,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ArePowerPropertiesEqual
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 159
+    startLine: 128
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -436,7 +319,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ArePowerEnergyCounterEqual
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 175
+    startLine: 144
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -474,7 +357,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ArePowerLimitsEqual
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 189
+    startLine: 158
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -512,7 +395,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 220
+    startLine: 189
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -858,12 +741,12 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: IGCLWrapper.IGCLPowerHelper.PowerGetPropertiesNative*
-  commentId: Overload:IGCLWrapper.IGCLPowerHelper.PowerGetPropertiesNative
-  href: IGCLWrapper.IGCLPowerHelper.html#IGCLWrapper_IGCLPowerHelper_PowerGetPropertiesNative_System_IntPtr_
-  name: PowerGetPropertiesNative
-  nameWithType: IGCLPowerHelper.PowerGetPropertiesNative
-  fullName: IGCLWrapper.IGCLPowerHelper.PowerGetPropertiesNative
+- uid: IGCLWrapper.IGCLPowerHelper.PowerGetProperties*
+  commentId: Overload:IGCLWrapper.IGCLPowerHelper.PowerGetProperties
+  href: IGCLWrapper.IGCLPowerHelper.html#IGCLWrapper_IGCLPowerHelper_PowerGetProperties_System_IntPtr_
+  name: PowerGetProperties
+  nameWithType: IGCLPowerHelper.PowerGetProperties
+  fullName: IGCLWrapper.IGCLPowerHelper.PowerGetProperties
 - uid: System.IntPtr
   commentId: T:System.IntPtr
   parent: System
@@ -875,19 +758,6 @@ references:
   nameWithType.vb: IntPtr
   fullName.vb: System.IntPtr
   name.vb: IntPtr
-- uid: IGCLWrapper.ctl_power_properties_t
-  commentId: T:IGCLWrapper.ctl_power_properties_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_power_properties_t.html
-  name: ctl_power_properties_t
-  nameWithType: ctl_power_properties_t
-  fullName: IGCLWrapper.ctl_power_properties_t
-- uid: IGCLWrapper.IGCLPowerHelper.PowerGetProperties*
-  commentId: Overload:IGCLWrapper.IGCLPowerHelper.PowerGetProperties
-  href: IGCLWrapper.IGCLPowerHelper.html#IGCLWrapper_IGCLPowerHelper_PowerGetProperties_System_IntPtr_
-  name: PowerGetProperties
-  nameWithType: IGCLPowerHelper.PowerGetProperties
-  fullName: IGCLWrapper.IGCLPowerHelper.PowerGetProperties
 - uid: IGCLWrapper.PowerPropertiesDto
   commentId: T:IGCLWrapper.PowerPropertiesDto
   parent: IGCLWrapper
@@ -901,26 +771,13 @@ references:
   name: PowerGetEnergyCounter
   nameWithType: IGCLPowerHelper.PowerGetEnergyCounter
   fullName: IGCLWrapper.IGCLPowerHelper.PowerGetEnergyCounter
-- uid: IGCLWrapper.ctl_power_energy_counter_t
-  commentId: T:IGCLWrapper.ctl_power_energy_counter_t
+- uid: IGCLWrapper.PowerEnergyCounterDto
+  commentId: T:IGCLWrapper.PowerEnergyCounterDto
   parent: IGCLWrapper
-  href: IGCLWrapper.ctl_power_energy_counter_t.html
-  name: ctl_power_energy_counter_t
-  nameWithType: ctl_power_energy_counter_t
-  fullName: IGCLWrapper.ctl_power_energy_counter_t
-- uid: IGCLWrapper.IGCLPowerHelper.PowerGetLimitsNative*
-  commentId: Overload:IGCLWrapper.IGCLPowerHelper.PowerGetLimitsNative
-  href: IGCLWrapper.IGCLPowerHelper.html#IGCLWrapper_IGCLPowerHelper_PowerGetLimitsNative_System_IntPtr_
-  name: PowerGetLimitsNative
-  nameWithType: IGCLPowerHelper.PowerGetLimitsNative
-  fullName: IGCLWrapper.IGCLPowerHelper.PowerGetLimitsNative
-- uid: IGCLWrapper.ctl_power_limits_t
-  commentId: T:IGCLWrapper.ctl_power_limits_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_power_limits_t.html
-  name: ctl_power_limits_t
-  nameWithType: ctl_power_limits_t
-  fullName: IGCLWrapper.ctl_power_limits_t
+  href: IGCLWrapper.PowerEnergyCounterDto.html
+  name: PowerEnergyCounterDto
+  nameWithType: PowerEnergyCounterDto
+  fullName: IGCLWrapper.PowerEnergyCounterDto
 - uid: IGCLWrapper.IGCLPowerHelper.PowerGetLimits*
   commentId: Overload:IGCLWrapper.IGCLPowerHelper.PowerGetLimits
   href: IGCLWrapper.IGCLPowerHelper.html#IGCLWrapper_IGCLPowerHelper_PowerGetLimits_System_IntPtr_
@@ -934,12 +791,6 @@ references:
   name: PowerLimitsDto
   nameWithType: PowerLimitsDto
   fullName: IGCLWrapper.PowerLimitsDto
-- uid: IGCLWrapper.IGCLPowerHelper.PowerSetLimitsNative*
-  commentId: Overload:IGCLWrapper.IGCLPowerHelper.PowerSetLimitsNative
-  href: IGCLWrapper.IGCLPowerHelper.html#IGCLWrapper_IGCLPowerHelper_PowerSetLimitsNative_System_IntPtr_IGCLWrapper_ctl_power_limits_t_
-  name: PowerSetLimitsNative
-  nameWithType: IGCLPowerHelper.PowerSetLimitsNative
-  fullName: IGCLWrapper.IGCLPowerHelper.PowerSetLimitsNative
 - uid: IGCLWrapper.IGCLPowerHelper.PowerSetLimits*
   commentId: Overload:IGCLWrapper.IGCLPowerHelper.PowerSetLimits
   href: IGCLWrapper.IGCLPowerHelper.html#IGCLWrapper_IGCLPowerHelper_PowerSetLimits_System_IntPtr_IGCLWrapper_PowerLimitsDto_
@@ -952,12 +803,26 @@ references:
   name: CreatePowerLimitsStruct
   nameWithType: IGCLPowerHelper.CreatePowerLimitsStruct
   fullName: IGCLWrapper.IGCLPowerHelper.CreatePowerLimitsStruct
+- uid: IGCLWrapper.ctl_power_limits_t
+  commentId: T:IGCLWrapper.ctl_power_limits_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_power_limits_t.html
+  name: ctl_power_limits_t
+  nameWithType: ctl_power_limits_t
+  fullName: IGCLWrapper.ctl_power_limits_t
 - uid: IGCLWrapper.IGCLPowerHelper.ArePowerPropertiesEqual*
   commentId: Overload:IGCLWrapper.IGCLPowerHelper.ArePowerPropertiesEqual
   href: IGCLWrapper.IGCLPowerHelper.html#IGCLWrapper_IGCLPowerHelper_ArePowerPropertiesEqual_IGCLWrapper_ctl_power_properties_t_IGCLWrapper_ctl_power_properties_t_
   name: ArePowerPropertiesEqual
   nameWithType: IGCLPowerHelper.ArePowerPropertiesEqual
   fullName: IGCLWrapper.IGCLPowerHelper.ArePowerPropertiesEqual
+- uid: IGCLWrapper.ctl_power_properties_t
+  commentId: T:IGCLWrapper.ctl_power_properties_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_power_properties_t.html
+  name: ctl_power_properties_t
+  nameWithType: ctl_power_properties_t
+  fullName: IGCLWrapper.ctl_power_properties_t
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System
@@ -975,6 +840,13 @@ references:
   name: ArePowerEnergyCounterEqual
   nameWithType: IGCLPowerHelper.ArePowerEnergyCounterEqual
   fullName: IGCLWrapper.IGCLPowerHelper.ArePowerEnergyCounterEqual
+- uid: IGCLWrapper.ctl_power_energy_counter_t
+  commentId: T:IGCLWrapper.ctl_power_energy_counter_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_power_energy_counter_t.html
+  name: ctl_power_energy_counter_t
+  nameWithType: ctl_power_energy_counter_t
+  fullName: IGCLWrapper.ctl_power_energy_counter_t
 - uid: IGCLWrapper.IGCLPowerHelper.ArePowerLimitsEqual*
   commentId: Overload:IGCLWrapper.IGCLPowerHelper.ArePowerLimitsEqual
   href: IGCLWrapper.IGCLPowerHelper.html#IGCLWrapper_IGCLPowerHelper_ArePowerLimitsEqual_IGCLWrapper_ctl_power_limits_t_IGCLWrapper_ctl_power_limits_t_

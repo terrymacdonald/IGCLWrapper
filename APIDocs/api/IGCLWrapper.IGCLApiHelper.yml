@@ -6,6 +6,7 @@ items:
   parent: IGCLWrapper
   children:
   - IGCLWrapper.IGCLApiHelper.AreRuntimePathArgsEqual(IGCLWrapper.ctl_runtime_path_args_t,IGCLWrapper.ctl_runtime_path_args_t)
+  - IGCLWrapper.IGCLApiHelper.CreateRuntimePathRequest(System.String)
   - IGCLWrapper.IGCLApiHelper.Dispose
   - IGCLWrapper.IGCLApiHelper.EnumerateAdapters
   - IGCLWrapper.IGCLApiHelper.Get3DHelper(IGCLWrapper.IGCLAdapterHelper)
@@ -27,7 +28,9 @@ items:
   - IGCLWrapper.IGCLApiHelper.Initialize
   - IGCLWrapper.IGCLApiHelper.IsIGCLDllAvailable(System.String@)
   - IGCLWrapper.IGCLApiHelper.MakeVersion(System.UInt32,System.UInt32)
+  - IGCLWrapper.IGCLApiHelper.SetRuntimePath(IGCLWrapper.RuntimePathArgsDto)
   - IGCLWrapper.IGCLApiHelper.SetRuntimePath(IGCLWrapper.ctl_runtime_path_args_t)
+  - IGCLWrapper.IGCLApiHelper.ValidateSetRuntimePathRequest(IGCLWrapper.RuntimePathArgsDto)
   langs:
   - csharp
   - vb
@@ -797,6 +800,108 @@ items:
       description: Runtime path arguments.
     content.vb: Public Sub SetRuntimePath(args As ctl_runtime_path_args_t)
   overload: IGCLWrapper.IGCLApiHelper.SetRuntimePath*
+- uid: IGCLWrapper.IGCLApiHelper.CreateRuntimePathRequest(System.String)
+  commentId: M:IGCLWrapper.IGCLApiHelper.CreateRuntimePathRequest(System.String)
+  id: CreateRuntimePathRequest(System.String)
+  parent: IGCLWrapper.IGCLApiHelper
+  langs:
+  - csharp
+  - vb
+  name: CreateRuntimePathRequest(string)
+  nameWithType: IGCLApiHelper.CreateRuntimePathRequest(string)
+  fullName: IGCLWrapper.IGCLApiHelper.CreateRuntimePathRequest(string)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: CreateRuntimePathRequest
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 226
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Create a DTO request for setting the IGCL runtime path.
+  example: []
+  syntax:
+    content: public static RuntimePathArgsDto CreateRuntimePathRequest(string runtimePath)
+    parameters:
+    - id: runtimePath
+      type: System.String
+      description: Runtime path to use.
+    return:
+      type: IGCLWrapper.RuntimePathArgsDto
+      description: Initialized runtime path DTO.
+    content.vb: Public Shared Function CreateRuntimePathRequest(runtimePath As String) As RuntimePathArgsDto
+  overload: IGCLWrapper.IGCLApiHelper.CreateRuntimePathRequest*
+  nameWithType.vb: IGCLApiHelper.CreateRuntimePathRequest(String)
+  fullName.vb: IGCLWrapper.IGCLApiHelper.CreateRuntimePathRequest(String)
+  name.vb: CreateRuntimePathRequest(String)
+- uid: IGCLWrapper.IGCLApiHelper.ValidateSetRuntimePathRequest(IGCLWrapper.RuntimePathArgsDto)
+  commentId: M:IGCLWrapper.IGCLApiHelper.ValidateSetRuntimePathRequest(IGCLWrapper.RuntimePathArgsDto)
+  id: ValidateSetRuntimePathRequest(IGCLWrapper.RuntimePathArgsDto)
+  parent: IGCLWrapper.IGCLApiHelper
+  langs:
+  - csharp
+  - vb
+  name: ValidateSetRuntimePathRequest(RuntimePathArgsDto)
+  nameWithType: IGCLApiHelper.ValidateSetRuntimePathRequest(RuntimePathArgsDto)
+  fullName: IGCLWrapper.IGCLApiHelper.ValidateSetRuntimePathRequest(IGCLWrapper.RuntimePathArgsDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: ValidateSetRuntimePathRequest
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 240
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Validate a runtime path DTO request before invoking the native API.
+  example: []
+  syntax:
+    content: public static void ValidateSetRuntimePathRequest(RuntimePathArgsDto args)
+    parameters:
+    - id: args
+      type: IGCLWrapper.RuntimePathArgsDto
+      description: Runtime path DTO.
+    content.vb: Public Shared Sub ValidateSetRuntimePathRequest(args As RuntimePathArgsDto)
+  overload: IGCLWrapper.IGCLApiHelper.ValidateSetRuntimePathRequest*
+- uid: IGCLWrapper.IGCLApiHelper.SetRuntimePath(IGCLWrapper.RuntimePathArgsDto)
+  commentId: M:IGCLWrapper.IGCLApiHelper.SetRuntimePath(IGCLWrapper.RuntimePathArgsDto)
+  id: SetRuntimePath(IGCLWrapper.RuntimePathArgsDto)
+  parent: IGCLWrapper.IGCLApiHelper
+  langs:
+  - csharp
+  - vb
+  name: SetRuntimePath(RuntimePathArgsDto)
+  nameWithType: IGCLApiHelper.SetRuntimePath(RuntimePathArgsDto)
+  fullName: IGCLWrapper.IGCLApiHelper.SetRuntimePath(IGCLWrapper.RuntimePathArgsDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SetRuntimePath
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 250
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Set the IGCL runtime path using a DTO request.
+  example: []
+  syntax:
+    content: public void SetRuntimePath(RuntimePathArgsDto args)
+    parameters:
+    - id: args
+      type: IGCLWrapper.RuntimePathArgsDto
+      description: Runtime path DTO.
+    content.vb: Public Sub SetRuntimePath(args As RuntimePathArgsDto)
+  overload: IGCLWrapper.IGCLApiHelper.SetRuntimePath*
 - uid: IGCLWrapper.IGCLApiHelper.AreRuntimePathArgsEqual(IGCLWrapper.ctl_runtime_path_args_t,IGCLWrapper.ctl_runtime_path_args_t)
   commentId: M:IGCLWrapper.IGCLApiHelper.AreRuntimePathArgsEqual(IGCLWrapper.ctl_runtime_path_args_t,IGCLWrapper.ctl_runtime_path_args_t)
   id: AreRuntimePathArgsEqual(IGCLWrapper.ctl_runtime_path_args_t,IGCLWrapper.ctl_runtime_path_args_t)
@@ -815,7 +920,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreRuntimePathArgsEqual
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 227
+    startLine: 272
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -853,7 +958,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 253
+    startLine: 298
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1462,6 +1567,25 @@ references:
   name: ctl_runtime_path_args_t
   nameWithType: ctl_runtime_path_args_t
   fullName: IGCLWrapper.ctl_runtime_path_args_t
+- uid: IGCLWrapper.IGCLApiHelper.CreateRuntimePathRequest*
+  commentId: Overload:IGCLWrapper.IGCLApiHelper.CreateRuntimePathRequest
+  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_CreateRuntimePathRequest_System_String_
+  name: CreateRuntimePathRequest
+  nameWithType: IGCLApiHelper.CreateRuntimePathRequest
+  fullName: IGCLWrapper.IGCLApiHelper.CreateRuntimePathRequest
+- uid: IGCLWrapper.RuntimePathArgsDto
+  commentId: T:IGCLWrapper.RuntimePathArgsDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.RuntimePathArgsDto.html
+  name: RuntimePathArgsDto
+  nameWithType: RuntimePathArgsDto
+  fullName: IGCLWrapper.RuntimePathArgsDto
+- uid: IGCLWrapper.IGCLApiHelper.ValidateSetRuntimePathRequest*
+  commentId: Overload:IGCLWrapper.IGCLApiHelper.ValidateSetRuntimePathRequest
+  href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_ValidateSetRuntimePathRequest_IGCLWrapper_RuntimePathArgsDto_
+  name: ValidateSetRuntimePathRequest
+  nameWithType: IGCLApiHelper.ValidateSetRuntimePathRequest
+  fullName: IGCLWrapper.IGCLApiHelper.ValidateSetRuntimePathRequest
 - uid: IGCLWrapper.IGCLApiHelper.AreRuntimePathArgsEqual*
   commentId: Overload:IGCLWrapper.IGCLApiHelper.AreRuntimePathArgsEqual
   href: IGCLWrapper.IGCLApiHelper.html#IGCLWrapper_IGCLApiHelper_AreRuntimePathArgsEqual_IGCLWrapper_ctl_runtime_path_args_t_IGCLWrapper_ctl_runtime_path_args_t_

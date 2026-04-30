@@ -1,0 +1,765 @@
+### YamlMime:ManagedReference
+items:
+- uid: IGCLWrapper.FanTempSpeedDto
+  commentId: T:IGCLWrapper.FanTempSpeedDto
+  id: FanTempSpeedDto
+  parent: IGCLWrapper
+  children:
+  - IGCLWrapper.FanTempSpeedDto.Equals(IGCLWrapper.FanTempSpeedDto)
+  - IGCLWrapper.FanTempSpeedDto.Equals(System.Object)
+  - IGCLWrapper.FanTempSpeedDto.FromNative(IGCLWrapper.ctl_fan_temp_speed_t)
+  - IGCLWrapper.FanTempSpeedDto.GetHashCode
+  - IGCLWrapper.FanTempSpeedDto.Size
+  - IGCLWrapper.FanTempSpeedDto.Speed
+  - IGCLWrapper.FanTempSpeedDto.Temperature
+  - IGCLWrapper.FanTempSpeedDto.ToNative
+  - IGCLWrapper.FanTempSpeedDto.Version
+  langs:
+  - csharp
+  - vb
+  name: FanTempSpeedDto
+  nameWithType: FanTempSpeedDto
+  fullName: IGCLWrapper.FanTempSpeedDto
+  type: Struct
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFanHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: FanTempSpeedDto
+    path: ../IGCLWrapper/IGCLFanHelper.cs
+    startLine: 343
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: DTO for temperature-speed pair in fan table.
+  example: []
+  syntax:
+    content: 'public struct FanTempSpeedDto : IEquatable<FanTempSpeedDto>'
+    content.vb: Public Structure FanTempSpeedDto Implements IEquatable(Of FanTempSpeedDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.FanTempSpeedDto}
+  inheritedMembers:
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.FanTempSpeedDto.Size
+  commentId: F:IGCLWrapper.FanTempSpeedDto.Size
+  id: Size
+  parent: IGCLWrapper.FanTempSpeedDto
+  langs:
+  - csharp
+  - vb
+  name: Size
+  nameWithType: FanTempSpeedDto.Size
+  fullName: IGCLWrapper.FanTempSpeedDto.Size
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFanHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Size
+    path: ../IGCLWrapper/IGCLFanHelper.cs
+    startLine: 348
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Size of the native struct.
+  example: []
+  syntax:
+    content: public uint Size
+    return:
+      type: System.UInt32
+    content.vb: Public Size As UInteger
+- uid: IGCLWrapper.FanTempSpeedDto.Version
+  commentId: F:IGCLWrapper.FanTempSpeedDto.Version
+  id: Version
+  parent: IGCLWrapper.FanTempSpeedDto
+  langs:
+  - csharp
+  - vb
+  name: Version
+  nameWithType: FanTempSpeedDto.Version
+  fullName: IGCLWrapper.FanTempSpeedDto.Version
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFanHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Version
+    path: ../IGCLWrapper/IGCLFanHelper.cs
+    startLine: 352
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Version of the native struct.
+  example: []
+  syntax:
+    content: public byte Version
+    return:
+      type: System.Byte
+    content.vb: Public Version As Byte
+- uid: IGCLWrapper.FanTempSpeedDto.Temperature
+  commentId: F:IGCLWrapper.FanTempSpeedDto.Temperature
+  id: Temperature
+  parent: IGCLWrapper.FanTempSpeedDto
+  langs:
+  - csharp
+  - vb
+  name: Temperature
+  nameWithType: FanTempSpeedDto.Temperature
+  fullName: IGCLWrapper.FanTempSpeedDto.Temperature
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFanHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Temperature
+    path: ../IGCLWrapper/IGCLFanHelper.cs
+    startLine: 356
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Temperature threshold.
+  example: []
+  syntax:
+    content: public uint Temperature
+    return:
+      type: System.UInt32
+    content.vb: Public Temperature As UInteger
+- uid: IGCLWrapper.FanTempSpeedDto.Speed
+  commentId: F:IGCLWrapper.FanTempSpeedDto.Speed
+  id: Speed
+  parent: IGCLWrapper.FanTempSpeedDto
+  langs:
+  - csharp
+  - vb
+  name: Speed
+  nameWithType: FanTempSpeedDto.Speed
+  fullName: IGCLWrapper.FanTempSpeedDto.Speed
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFanHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Speed
+    path: ../IGCLWrapper/IGCLFanHelper.cs
+    startLine: 360
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Associated fan speed.
+  example: []
+  syntax:
+    content: public FanSpeedDto Speed
+    return:
+      type: IGCLWrapper.FanSpeedDto
+    content.vb: Public Speed As FanSpeedDto
+- uid: IGCLWrapper.FanTempSpeedDto.Equals(IGCLWrapper.FanTempSpeedDto)
+  commentId: M:IGCLWrapper.FanTempSpeedDto.Equals(IGCLWrapper.FanTempSpeedDto)
+  id: Equals(IGCLWrapper.FanTempSpeedDto)
+  parent: IGCLWrapper.FanTempSpeedDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(FanTempSpeedDto)
+  nameWithType: FanTempSpeedDto.Equals(FanTempSpeedDto)
+  fullName: IGCLWrapper.FanTempSpeedDto.Equals(IGCLWrapper.FanTempSpeedDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFanHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLFanHelper.cs
+    startLine: 367
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare temperature-speed pairs.
+  example: []
+  syntax:
+    content: public bool Equals(FanTempSpeedDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.FanTempSpeedDto
+      description: Other pair instance.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Function Equals(other As FanTempSpeedDto) As Boolean
+  overload: IGCLWrapper.FanTempSpeedDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.FanTempSpeedDto}.Equals(IGCLWrapper.FanTempSpeedDto)
+- uid: IGCLWrapper.FanTempSpeedDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.FanTempSpeedDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.FanTempSpeedDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: FanTempSpeedDto.Equals(object?)
+  fullName: IGCLWrapper.FanTempSpeedDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFanHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLFanHelper.cs
+    startLine: 380
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare to another object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: Object to compare.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.FanTempSpeedDto.Equals*
+  nameWithType.vb: FanTempSpeedDto.Equals(Object)
+  fullName.vb: IGCLWrapper.FanTempSpeedDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.FanTempSpeedDto.GetHashCode
+  commentId: M:IGCLWrapper.FanTempSpeedDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.FanTempSpeedDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: FanTempSpeedDto.GetHashCode()
+  fullName: IGCLWrapper.FanTempSpeedDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFanHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLFanHelper.cs
+    startLine: 386
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get a hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: Hash code value.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.FanTempSpeedDto.GetHashCode*
+- uid: IGCLWrapper.FanTempSpeedDto.FromNative(IGCLWrapper.ctl_fan_temp_speed_t)
+  commentId: M:IGCLWrapper.FanTempSpeedDto.FromNative(IGCLWrapper.ctl_fan_temp_speed_t)
+  id: FromNative(IGCLWrapper.ctl_fan_temp_speed_t)
+  parent: IGCLWrapper.FanTempSpeedDto
+  langs:
+  - csharp
+  - vb
+  name: FromNative(ctl_fan_temp_speed_t)
+  nameWithType: FanTempSpeedDto.FromNative(ctl_fan_temp_speed_t)
+  fullName: IGCLWrapper.FanTempSpeedDto.FromNative(IGCLWrapper.ctl_fan_temp_speed_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFanHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: FromNative
+    path: ../IGCLWrapper/IGCLFanHelper.cs
+    startLine: 401
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Create a DTO from a native struct.
+  example: []
+  syntax:
+    content: public static FanTempSpeedDto FromNative(ctl_fan_temp_speed_t native)
+    parameters:
+    - id: native
+      type: IGCLWrapper.ctl_fan_temp_speed_t
+      description: Native struct.
+    return:
+      type: IGCLWrapper.FanTempSpeedDto
+      description: Temperature-speed pair DTO.
+    content.vb: Public Shared Function FromNative(native As ctl_fan_temp_speed_t) As FanTempSpeedDto
+  overload: IGCLWrapper.FanTempSpeedDto.FromNative*
+- uid: IGCLWrapper.FanTempSpeedDto.ToNative
+  commentId: M:IGCLWrapper.FanTempSpeedDto.ToNative
+  id: ToNative
+  parent: IGCLWrapper.FanTempSpeedDto
+  langs:
+  - csharp
+  - vb
+  name: ToNative()
+  nameWithType: FanTempSpeedDto.ToNative()
+  fullName: IGCLWrapper.FanTempSpeedDto.ToNative()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFanHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: ToNative
+    path: ../IGCLWrapper/IGCLFanHelper.cs
+    startLine: 416
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Convert this DTO to a native struct.
+  example: []
+  syntax:
+    content: public ctl_fan_temp_speed_t ToNative()
+    return:
+      type: IGCLWrapper.ctl_fan_temp_speed_t
+      description: Temperature-speed pair struct.
+    content.vb: Public Function ToNative() As ctl_fan_temp_speed_t
+  overload: IGCLWrapper.FanTempSpeedDto.ToNative*
+references:
+- uid: IGCLWrapper
+  commentId: N:IGCLWrapper
+  href: IGCLWrapper.html
+  name: IGCLWrapper
+  nameWithType: IGCLWrapper
+  fullName: IGCLWrapper
+- uid: System.IEquatable{IGCLWrapper.FanTempSpeedDto}
+  commentId: T:System.IEquatable{IGCLWrapper.FanTempSpeedDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<FanTempSpeedDto>
+  nameWithType: IEquatable<FanTempSpeedDto>
+  fullName: System.IEquatable<IGCLWrapper.FanTempSpeedDto>
+  nameWithType.vb: IEquatable(Of FanTempSpeedDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.FanTempSpeedDto)
+  name.vb: IEquatable(Of FanTempSpeedDto)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.FanTempSpeedDto
+    name: FanTempSpeedDto
+    href: IGCLWrapper.FanTempSpeedDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.FanTempSpeedDto
+    name: FanTempSpeedDto
+    href: IGCLWrapper.FanTempSpeedDto.html
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: IGCLWrapper.FanSpeedDto
+  commentId: T:IGCLWrapper.FanSpeedDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.FanSpeedDto.html
+  name: FanSpeedDto
+  nameWithType: FanSpeedDto
+  fullName: IGCLWrapper.FanSpeedDto
+- uid: IGCLWrapper.FanTempSpeedDto.Equals*
+  commentId: Overload:IGCLWrapper.FanTempSpeedDto.Equals
+  href: IGCLWrapper.FanTempSpeedDto.html#IGCLWrapper_FanTempSpeedDto_Equals_IGCLWrapper_FanTempSpeedDto_
+  name: Equals
+  nameWithType: FanTempSpeedDto.Equals
+  fullName: IGCLWrapper.FanTempSpeedDto.Equals
+- uid: System.IEquatable{IGCLWrapper.FanTempSpeedDto}.Equals(IGCLWrapper.FanTempSpeedDto)
+  commentId: M:System.IEquatable{IGCLWrapper.FanTempSpeedDto}.Equals(IGCLWrapper.FanTempSpeedDto)
+  parent: System.IEquatable{IGCLWrapper.FanTempSpeedDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(FanTempSpeedDto)
+  nameWithType: IEquatable<FanTempSpeedDto>.Equals(FanTempSpeedDto)
+  fullName: System.IEquatable<IGCLWrapper.FanTempSpeedDto>.Equals(IGCLWrapper.FanTempSpeedDto)
+  nameWithType.vb: IEquatable(Of FanTempSpeedDto).Equals(FanTempSpeedDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.FanTempSpeedDto).Equals(IGCLWrapper.FanTempSpeedDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.FanTempSpeedDto}.Equals(IGCLWrapper.FanTempSpeedDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.FanTempSpeedDto
+    name: FanTempSpeedDto
+    href: IGCLWrapper.FanTempSpeedDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.FanTempSpeedDto}.Equals(IGCLWrapper.FanTempSpeedDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.FanTempSpeedDto
+    name: FanTempSpeedDto
+    href: IGCLWrapper.FanTempSpeedDto.html
+  - name: )
+- uid: IGCLWrapper.FanTempSpeedDto
+  commentId: T:IGCLWrapper.FanTempSpeedDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.FanTempSpeedDto.html
+  name: FanTempSpeedDto
+  nameWithType: FanTempSpeedDto
+  fullName: IGCLWrapper.FanTempSpeedDto
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.FanTempSpeedDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.FanTempSpeedDto.GetHashCode
+  href: IGCLWrapper.FanTempSpeedDto.html#IGCLWrapper_FanTempSpeedDto_GetHashCode
+  name: GetHashCode
+  nameWithType: FanTempSpeedDto.GetHashCode
+  fullName: IGCLWrapper.FanTempSpeedDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: IGCLWrapper.FanTempSpeedDto.FromNative*
+  commentId: Overload:IGCLWrapper.FanTempSpeedDto.FromNative
+  href: IGCLWrapper.FanTempSpeedDto.html#IGCLWrapper_FanTempSpeedDto_FromNative_IGCLWrapper_ctl_fan_temp_speed_t_
+  name: FromNative
+  nameWithType: FanTempSpeedDto.FromNative
+  fullName: IGCLWrapper.FanTempSpeedDto.FromNative
+- uid: IGCLWrapper.ctl_fan_temp_speed_t
+  commentId: T:IGCLWrapper.ctl_fan_temp_speed_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_fan_temp_speed_t.html
+  name: ctl_fan_temp_speed_t
+  nameWithType: ctl_fan_temp_speed_t
+  fullName: IGCLWrapper.ctl_fan_temp_speed_t
+- uid: IGCLWrapper.FanTempSpeedDto.ToNative*
+  commentId: Overload:IGCLWrapper.FanTempSpeedDto.ToNative
+  href: IGCLWrapper.FanTempSpeedDto.html#IGCLWrapper_FanTempSpeedDto_ToNative
+  name: ToNative
+  nameWithType: FanTempSpeedDto.ToNative
+  fullName: IGCLWrapper.FanTempSpeedDto.ToNative

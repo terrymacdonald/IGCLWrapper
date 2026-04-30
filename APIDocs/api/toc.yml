@@ -10,6 +10,18 @@ items:
   - uid: IGCLWrapper.AdapterDisplayEncoderPropertiesDto
     name: AdapterDisplayEncoderPropertiesDto
     type: Struct
+  - uid: IGCLWrapper.ApplicationIdDto
+    name: ApplicationIdDto
+    type: Struct
+  - uid: IGCLWrapper.AuxAccessArgsDto
+    name: AuxAccessArgsDto
+    type: Struct
+  - uid: IGCLWrapper.BrightnessGetDto
+    name: BrightnessGetDto
+    type: Struct
+  - uid: IGCLWrapper.BrightnessSetDto
+    name: BrightnessSetDto
+    type: Struct
   - uid: IGCLWrapper.ChildDisplayTargetModeDto
     name: ChildDisplayTargetModeDto
     type: Struct
@@ -18,6 +30,15 @@ items:
     type: Struct
   - uid: IGCLWrapper.CombinedDisplayChildInfoDto
     name: CombinedDisplayChildInfoDto
+    type: Struct
+  - uid: IGCLWrapper.CustomModeArgsDto
+    name: CustomModeArgsDto
+    type: Struct
+  - uid: IGCLWrapper.CustomModesResultDto
+    name: CustomModesResultDto
+    type: Struct
+  - uid: IGCLWrapper.CustomSourceModeDto
+    name: CustomSourceModeDto
     type: Struct
   - uid: IGCLWrapper.DataValueDto
     name: DataValueDto
@@ -40,8 +61,32 @@ items:
   - uid: IGCLWrapper.EccPropertiesDto
     name: EccPropertiesDto
     type: Struct
+  - uid: IGCLWrapper.EccStateDescDto
+    name: EccStateDescDto
+    type: Struct
+  - uid: IGCLWrapper.EdidManagementArgsDto
+    name: EdidManagementArgsDto
+    type: Struct
+  - uid: IGCLWrapper.EnginePropertiesDto
+    name: EnginePropertiesDto
+    type: Struct
+  - uid: IGCLWrapper.EngineStatsDto
+    name: EngineStatsDto
+    type: Struct
+  - uid: IGCLWrapper.FanConfigDto
+    name: FanConfigDto
+    type: Struct
   - uid: IGCLWrapper.FanPropertiesDto
     name: FanPropertiesDto
+    type: Struct
+  - uid: IGCLWrapper.FanSpeedDto
+    name: FanSpeedDto
+    type: Struct
+  - uid: IGCLWrapper.FanSpeedTableDto
+    name: FanSpeedTableDto
+    type: Struct
+  - uid: IGCLWrapper.FanTempSpeedDto
+    name: FanTempSpeedDto
     type: Struct
   - uid: IGCLWrapper.FirmwareComponentPropertiesDto
     name: FirmwareComponentPropertiesDto
@@ -54,6 +99,15 @@ items:
     type: Struct
   - uid: IGCLWrapper.FrequencyPropertiesDto
     name: FrequencyPropertiesDto
+    type: Struct
+  - uid: IGCLWrapper.FrequencyRangeDto
+    name: FrequencyRangeDto
+    type: Struct
+  - uid: IGCLWrapper.FrequencyStateDto
+    name: FrequencyStateDto
+    type: Struct
+  - uid: IGCLWrapper.FrequencyThrottleTimeDto
+    name: FrequencyThrottleTimeDto
     type: Struct
   - uid: IGCLWrapper.GenericVoidDatatypeDto
     name: GenericVoidDatatypeDto
@@ -69,6 +123,12 @@ items:
     type: Struct
   - uid: IGCLWrapper.GenlockTopologyDto
     name: GenlockTopologyDto
+    type: Struct
+  - uid: IGCLWrapper.I2CAccessArgsDto
+    name: I2CAccessArgsDto
+    type: Struct
+  - uid: IGCLWrapper.I2CAccessPinPairArgsDto
+    name: I2CAccessPinPairArgsDto
     type: Struct
   - uid: IGCLWrapper.IGCL
     name: IGCL
@@ -133,6 +193,9 @@ items:
   - uid: IGCLWrapper.IntelArcSyncMonitorParamsDto
     name: IntelArcSyncMonitorParamsDto
     type: Struct
+  - uid: IGCLWrapper.IntelArcSyncProfileParamsDto
+    name: IntelArcSyncProfileParamsDto
+    type: Struct
   - uid: IGCLWrapper.LaceAggrConfigDto
     name: LaceAggrConfigDto
     type: Struct
@@ -154,17 +217,41 @@ items:
   - uid: IGCLWrapper.LedStateDto
     name: LedStateDto
     type: Struct
+  - uid: IGCLWrapper.LinkedDisplayAdaptersArgsDto
+    name: LinkedDisplayAdaptersArgsDto
+    type: Struct
+  - uid: IGCLWrapper.LinkedDisplayAdaptersResultDto
+    name: LinkedDisplayAdaptersResultDto
+    type: Struct
+  - uid: IGCLWrapper.MemoryBandwidthDto
+    name: MemoryBandwidthDto
+    type: Struct
+  - uid: IGCLWrapper.MemoryPropertiesDto
+    name: MemoryPropertiesDto
+    type: Struct
+  - uid: IGCLWrapper.MemoryStateDto
+    name: MemoryStateDto
+    type: Struct
+  - uid: IGCLWrapper.MuxPropertiesDto
+    name: MuxPropertiesDto
+    type: Struct
   - uid: IGCLWrapper.OcControlInfoDto
     name: OcControlInfoDto
     type: Struct
   - uid: IGCLWrapper.OcTelemetryItemDto
     name: OcTelemetryItemDto
     type: Struct
+  - uid: IGCLWrapper.OcVfPairDto
+    name: OcVfPairDto
+    type: Struct
   - uid: IGCLWrapper.OsDisplayEncoderIdentifierDto
     name: OsDisplayEncoderIdentifierDto
     type: Struct
   - uid: IGCLWrapper.OverclockPropertiesDto
     name: OverclockPropertiesDto
+    type: Struct
+  - uid: IGCLWrapper.PanelDescriptorAccessArgsDto
+    name: PanelDescriptorAccessArgsDto
     type: Struct
   - uid: IGCLWrapper.PciAddressDto
     name: PciAddressDto
@@ -175,11 +262,38 @@ items:
   - uid: IGCLWrapper.PciSpeedDto
     name: PciSpeedDto
     type: Struct
+  - uid: IGCLWrapper.PciStateDto
+    name: PciStateDto
+    type: Struct
+  - uid: IGCLWrapper.PixelTransformationGetResultDto
+    name: PixelTransformationGetResultDto
+    type: Struct
+  - uid: IGCLWrapper.PixtxBlockConfigDto
+    name: PixtxBlockConfigDto
+    type: Struct
+  - uid: IGCLWrapper.PixtxColorPrimariesDto
+    name: PixtxColorPrimariesDto
+    type: Struct
+  - uid: IGCLWrapper.PixtxPipeGetConfigDto
+    name: PixtxPipeGetConfigDto
+    type: Struct
+  - uid: IGCLWrapper.PixtxPipeSetConfigDto
+    name: PixtxPipeSetConfigDto
+    type: Struct
+  - uid: IGCLWrapper.PixtxPixelFormatDto
+    name: PixtxPixelFormatDto
+    type: Struct
   - uid: IGCLWrapper.PowerBurstLimitDto
     name: PowerBurstLimitDto
     type: Struct
+  - uid: IGCLWrapper.PowerEnergyCounterDto
+    name: PowerEnergyCounterDto
+    type: Struct
   - uid: IGCLWrapper.PowerLimitsDto
     name: PowerLimitsDto
+    type: Struct
+  - uid: IGCLWrapper.PowerOptimizationCapsDto
+    name: PowerOptimizationCapsDto
     type: Struct
   - uid: IGCLWrapper.PowerOptimizationDpstDto
     name: PowerOptimizationDpstDto
@@ -223,6 +337,9 @@ items:
   - uid: IGCLWrapper.PropertyIntDto
     name: PropertyIntDto
     type: Struct
+  - uid: IGCLWrapper.PropertyRangeInfoDto
+    name: PropertyRangeInfoDto
+    type: Struct
   - uid: IGCLWrapper.PropertyUIntDto
     name: PropertyUIntDto
     type: Struct
@@ -232,14 +349,29 @@ items:
   - uid: IGCLWrapper.RectDto
     name: RectDto
     type: Struct
+  - uid: IGCLWrapper.RetroScalingCapsDto
+    name: RetroScalingCapsDto
+    type: Struct
   - uid: IGCLWrapper.RetroScalingSettingsDto
     name: RetroScalingSettingsDto
     type: Struct
   - uid: IGCLWrapper.RevisionDatatypeDto
     name: RevisionDatatypeDto
     type: Struct
+  - uid: IGCLWrapper.RuntimePathArgsDto
+    name: RuntimePathArgsDto
+    type: Struct
+  - uid: IGCLWrapper.ScalingCapsDto
+    name: ScalingCapsDto
+    type: Struct
   - uid: IGCLWrapper.ScalingSettingsDto
     name: ScalingSettingsDto
+    type: Struct
+  - uid: IGCLWrapper.SharpnessCapsDto
+    name: SharpnessCapsDto
+    type: Struct
+  - uid: IGCLWrapper.SharpnessFilterPropertiesDto
+    name: SharpnessFilterPropertiesDto
     type: Struct
   - uid: IGCLWrapper.SharpnessSettingsDto
     name: SharpnessSettingsDto
@@ -247,11 +379,26 @@ items:
   - uid: IGCLWrapper.SwPsrSettingsDto
     name: SwPsrSettingsDto
     type: Struct
+  - uid: IGCLWrapper.TemperaturePropertiesDto
+    name: TemperaturePropertiesDto
+    type: Struct
+  - uid: IGCLWrapper.ThreeDFeatureCapsDto
+    name: ThreeDFeatureCapsDto
+    type: Struct
   - uid: IGCLWrapper.ThreeDFeatureGetSetDto
     name: ThreeDFeatureGetSetDto
     type: Struct
+  - uid: IGCLWrapper.VblankTimestampArgsDto
+    name: VblankTimestampArgsDto
+    type: Struct
+  - uid: IGCLWrapper.VideoProcessingFeatureCapsDto
+    name: VideoProcessingFeatureCapsDto
+    type: Struct
   - uid: IGCLWrapper.VideoProcessingFeatureGetSetDto
     name: VideoProcessingFeatureGetSetDto
+    type: Struct
+  - uid: IGCLWrapper.WaitPropertyChangeArgsDto
+    name: WaitPropertyChangeArgsDto
     type: Struct
   - uid: IGCLWrapper.WireFormatConfigDto
     name: WireFormatConfigDto

@@ -98,18 +98,18 @@ items:
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Get engine properties for a handle.
+  summary: Get engine properties as a DTO.
   example: []
   syntax:
-    content: public ctl_engine_properties_t EngineGetProperties(nint engineHandle)
+    content: public EnginePropertiesDto EngineGetProperties(nint engineHandle)
     parameters:
     - id: engineHandle
       type: System.IntPtr
       description: Engine handle.
     return:
-      type: IGCLWrapper.ctl_engine_properties_t
-      description: Engine properties struct.
-    content.vb: Public Function EngineGetProperties(engineHandle As IntPtr) As ctl_engine_properties_t
+      type: IGCLWrapper.EnginePropertiesDto
+      description: Engine properties DTO.
+    content.vb: Public Function EngineGetProperties(engineHandle As IntPtr) As EnginePropertiesDto
   overload: IGCLWrapper.IGCLEngineHelper.EngineGetProperties*
   nameWithType.vb: IGCLEngineHelper.EngineGetProperties(IntPtr)
   fullName.vb: IGCLWrapper.IGCLEngineHelper.EngineGetProperties(System.IntPtr)
@@ -136,18 +136,18 @@ items:
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Get engine activity stats for a handle.
+  summary: Get engine activity stats as a DTO.
   example: []
   syntax:
-    content: public ctl_engine_stats_t EngineGetActivity(nint engineHandle)
+    content: public EngineStatsDto EngineGetActivity(nint engineHandle)
     parameters:
     - id: engineHandle
       type: System.IntPtr
       description: Engine handle.
     return:
-      type: IGCLWrapper.ctl_engine_stats_t
-      description: Engine stats struct.
-    content.vb: Public Function EngineGetActivity(engineHandle As IntPtr) As ctl_engine_stats_t
+      type: IGCLWrapper.EngineStatsDto
+      description: Engine stats DTO.
+    content.vb: Public Function EngineGetActivity(engineHandle As IntPtr) As EngineStatsDto
   overload: IGCLWrapper.IGCLEngineHelper.EngineGetActivity*
   nameWithType.vb: IGCLEngineHelper.EngineGetActivity(IntPtr)
   fullName.vb: IGCLWrapper.IGCLEngineHelper.EngineGetActivity(System.IntPtr)
@@ -609,6 +609,32 @@ references:
   nameWithType.vb: IntPtr
   fullName.vb: System.IntPtr
   name.vb: IntPtr
+- uid: IGCLWrapper.EnginePropertiesDto
+  commentId: T:IGCLWrapper.EnginePropertiesDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.EnginePropertiesDto.html
+  name: EnginePropertiesDto
+  nameWithType: EnginePropertiesDto
+  fullName: IGCLWrapper.EnginePropertiesDto
+- uid: IGCLWrapper.IGCLEngineHelper.EngineGetActivity*
+  commentId: Overload:IGCLWrapper.IGCLEngineHelper.EngineGetActivity
+  href: IGCLWrapper.IGCLEngineHelper.html#IGCLWrapper_IGCLEngineHelper_EngineGetActivity_System_IntPtr_
+  name: EngineGetActivity
+  nameWithType: IGCLEngineHelper.EngineGetActivity
+  fullName: IGCLWrapper.IGCLEngineHelper.EngineGetActivity
+- uid: IGCLWrapper.EngineStatsDto
+  commentId: T:IGCLWrapper.EngineStatsDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.EngineStatsDto.html
+  name: EngineStatsDto
+  nameWithType: EngineStatsDto
+  fullName: IGCLWrapper.EngineStatsDto
+- uid: IGCLWrapper.IGCLEngineHelper.AreEnginePropertiesEqual*
+  commentId: Overload:IGCLWrapper.IGCLEngineHelper.AreEnginePropertiesEqual
+  href: IGCLWrapper.IGCLEngineHelper.html#IGCLWrapper_IGCLEngineHelper_AreEnginePropertiesEqual_IGCLWrapper_ctl_engine_properties_t_IGCLWrapper_ctl_engine_properties_t_
+  name: AreEnginePropertiesEqual
+  nameWithType: IGCLEngineHelper.AreEnginePropertiesEqual
+  fullName: IGCLWrapper.IGCLEngineHelper.AreEnginePropertiesEqual
 - uid: IGCLWrapper.ctl_engine_properties_t
   commentId: T:IGCLWrapper.ctl_engine_properties_t
   parent: IGCLWrapper
@@ -616,25 +642,6 @@ references:
   name: ctl_engine_properties_t
   nameWithType: ctl_engine_properties_t
   fullName: IGCLWrapper.ctl_engine_properties_t
-- uid: IGCLWrapper.IGCLEngineHelper.EngineGetActivity*
-  commentId: Overload:IGCLWrapper.IGCLEngineHelper.EngineGetActivity
-  href: IGCLWrapper.IGCLEngineHelper.html#IGCLWrapper_IGCLEngineHelper_EngineGetActivity_System_IntPtr_
-  name: EngineGetActivity
-  nameWithType: IGCLEngineHelper.EngineGetActivity
-  fullName: IGCLWrapper.IGCLEngineHelper.EngineGetActivity
-- uid: IGCLWrapper.ctl_engine_stats_t
-  commentId: T:IGCLWrapper.ctl_engine_stats_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_engine_stats_t.html
-  name: ctl_engine_stats_t
-  nameWithType: ctl_engine_stats_t
-  fullName: IGCLWrapper.ctl_engine_stats_t
-- uid: IGCLWrapper.IGCLEngineHelper.AreEnginePropertiesEqual*
-  commentId: Overload:IGCLWrapper.IGCLEngineHelper.AreEnginePropertiesEqual
-  href: IGCLWrapper.IGCLEngineHelper.html#IGCLWrapper_IGCLEngineHelper_AreEnginePropertiesEqual_IGCLWrapper_ctl_engine_properties_t_IGCLWrapper_ctl_engine_properties_t_
-  name: AreEnginePropertiesEqual
-  nameWithType: IGCLEngineHelper.AreEnginePropertiesEqual
-  fullName: IGCLWrapper.IGCLEngineHelper.AreEnginePropertiesEqual
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System
@@ -652,6 +659,13 @@ references:
   name: AreEngineStatsEqual
   nameWithType: IGCLEngineHelper.AreEngineStatsEqual
   fullName: IGCLWrapper.IGCLEngineHelper.AreEngineStatsEqual
+- uid: IGCLWrapper.ctl_engine_stats_t
+  commentId: T:IGCLWrapper.ctl_engine_stats_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_engine_stats_t.html
+  name: ctl_engine_stats_t
+  nameWithType: ctl_engine_stats_t
+  fullName: IGCLWrapper.ctl_engine_stats_t
 - uid: IGCLWrapper.IGCLEngineHelper.Dispose*
   commentId: Overload:IGCLWrapper.IGCLEngineHelper.Dispose
   href: IGCLWrapper.IGCLEngineHelper.html#IGCLWrapper_IGCLEngineHelper_Dispose

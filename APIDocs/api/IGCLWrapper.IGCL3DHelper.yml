@@ -12,7 +12,6 @@ items:
   - IGCLWrapper.IGCL3DHelper.Create3DFeatureSetRequest(IGCLWrapper.ctl_3d_feature_t,IGCLWrapper.ctl_property_value_type_t,IGCLWrapper.PropertyDto,System.String,System.Collections.Generic.List{System.Byte})
   - IGCLWrapper.IGCL3DHelper.Dispose
   - IGCLWrapper.IGCL3DHelper.Get3DFeature(IGCLWrapper.ThreeDFeatureGetSetDto)
-  - IGCLWrapper.IGCL3DHelper.GetSet3DFeatureNative(IGCLWrapper.ctl_3d_feature_getset_t)
   - IGCLWrapper.IGCL3DHelper.GetSupported3DCapabilities
   - IGCLWrapper.IGCL3DHelper.Set3DFeature(IGCLWrapper.ThreeDFeatureGetSetDto)
   - IGCLWrapper.IGCL3DHelper.ValidateSet3DFeatureRequest(IGCLWrapper.ThreeDFeatureGetSetDto)
@@ -75,47 +74,12 @@ items:
   summary: Get supported 3D feature capabilities for the adapter.
   example: []
   syntax:
-    content: public ctl_3d_feature_caps_t GetSupported3DCapabilities()
+    content: public ThreeDFeatureCapsDto GetSupported3DCapabilities()
     return:
-      type: IGCLWrapper.ctl_3d_feature_caps_t
-      description: 3D feature capabilities struct.
-    content.vb: Public Function GetSupported3DCapabilities() As ctl_3d_feature_caps_t
+      type: IGCLWrapper.ThreeDFeatureCapsDto
+      description: 3D feature capabilities DTO.
+    content.vb: Public Function GetSupported3DCapabilities() As ThreeDFeatureCapsDto
   overload: IGCLWrapper.IGCL3DHelper.GetSupported3DCapabilities*
-- uid: IGCLWrapper.IGCL3DHelper.GetSet3DFeatureNative(IGCLWrapper.ctl_3d_feature_getset_t)
-  commentId: M:IGCLWrapper.IGCL3DHelper.GetSet3DFeatureNative(IGCLWrapper.ctl_3d_feature_getset_t)
-  id: GetSet3DFeatureNative(IGCLWrapper.ctl_3d_feature_getset_t)
-  parent: IGCLWrapper.IGCL3DHelper
-  langs:
-  - csharp
-  - vb
-  name: GetSet3DFeatureNative(ctl_3d_feature_getset_t)
-  nameWithType: IGCL3DHelper.GetSet3DFeatureNative(ctl_3d_feature_getset_t)
-  fullName: IGCLWrapper.IGCL3DHelper.GetSet3DFeatureNative(IGCLWrapper.ctl_3d_feature_getset_t)
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCL3DHelper.cs
-      branch: develop
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetSet3DFeatureNative
-    path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 40
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  summary: Call the native get/set 3D feature API using the provided struct.
-  example: []
-  syntax:
-    content: public ctl_3d_feature_getset_t GetSet3DFeatureNative(ctl_3d_feature_getset_t feature)
-    parameters:
-    - id: feature
-      type: IGCLWrapper.ctl_3d_feature_getset_t
-      description: 3D feature get/set struct.
-    return:
-      type: IGCLWrapper.ctl_3d_feature_getset_t
-      description: Updated 3D feature get/set struct.
-    content.vb: Public Function GetSet3DFeatureNative(feature As ctl_3d_feature_getset_t) As ctl_3d_feature_getset_t
-  overload: IGCLWrapper.IGCL3DHelper.GetSet3DFeatureNative*
 - uid: IGCLWrapper.IGCL3DHelper.Get3DFeature(IGCLWrapper.ThreeDFeatureGetSetDto)
   commentId: M:IGCLWrapper.IGCL3DHelper.Get3DFeature(IGCLWrapper.ThreeDFeatureGetSetDto)
   id: Get3DFeature(IGCLWrapper.ThreeDFeatureGetSetDto)
@@ -134,7 +98,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Get3DFeature
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 54
+    startLine: 40
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -169,7 +133,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Set3DFeature
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 66
+    startLine: 52
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -201,7 +165,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Create3DFeatureGetSet
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 125
+    startLine: 113
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -232,7 +196,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Create3DFeatureGetRequest
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 133
+    startLine: 121
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -270,7 +234,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Create3DFeatureSetRequest
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 152
+    startLine: 140
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -320,7 +284,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ValidateSet3DFeatureRequest
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 175
+    startLine: 163
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -356,7 +320,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Are3dFeatureCapsEqual
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 191
+    startLine: 179
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -394,7 +358,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Are3dFeatureGetSetEqual
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 204
+    startLine: 190
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -432,7 +396,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 212
+    startLine: 198
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -678,26 +642,13 @@ references:
   name: GetSupported3DCapabilities
   nameWithType: IGCL3DHelper.GetSupported3DCapabilities
   fullName: IGCLWrapper.IGCL3DHelper.GetSupported3DCapabilities
-- uid: IGCLWrapper.ctl_3d_feature_caps_t
-  commentId: T:IGCLWrapper.ctl_3d_feature_caps_t
+- uid: IGCLWrapper.ThreeDFeatureCapsDto
+  commentId: T:IGCLWrapper.ThreeDFeatureCapsDto
   parent: IGCLWrapper
-  href: IGCLWrapper.ctl_3d_feature_caps_t.html
-  name: ctl_3d_feature_caps_t
-  nameWithType: ctl_3d_feature_caps_t
-  fullName: IGCLWrapper.ctl_3d_feature_caps_t
-- uid: IGCLWrapper.IGCL3DHelper.GetSet3DFeatureNative*
-  commentId: Overload:IGCLWrapper.IGCL3DHelper.GetSet3DFeatureNative
-  href: IGCLWrapper.IGCL3DHelper.html#IGCLWrapper_IGCL3DHelper_GetSet3DFeatureNative_IGCLWrapper_ctl_3d_feature_getset_t_
-  name: GetSet3DFeatureNative
-  nameWithType: IGCL3DHelper.GetSet3DFeatureNative
-  fullName: IGCLWrapper.IGCL3DHelper.GetSet3DFeatureNative
-- uid: IGCLWrapper.ctl_3d_feature_getset_t
-  commentId: T:IGCLWrapper.ctl_3d_feature_getset_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_3d_feature_getset_t.html
-  name: ctl_3d_feature_getset_t
-  nameWithType: ctl_3d_feature_getset_t
-  fullName: IGCLWrapper.ctl_3d_feature_getset_t
+  href: IGCLWrapper.ThreeDFeatureCapsDto.html
+  name: ThreeDFeatureCapsDto
+  nameWithType: ThreeDFeatureCapsDto
+  fullName: IGCLWrapper.ThreeDFeatureCapsDto
 - uid: IGCLWrapper.IGCL3DHelper.Get3DFeature*
   commentId: Overload:IGCLWrapper.IGCL3DHelper.Get3DFeature
   href: IGCLWrapper.IGCL3DHelper.html#IGCLWrapper_IGCL3DHelper_Get3DFeature_IGCLWrapper_ThreeDFeatureGetSetDto_
@@ -723,6 +674,13 @@ references:
   name: Create3DFeatureGetSet
   nameWithType: IGCL3DHelper.Create3DFeatureGetSet
   fullName: IGCLWrapper.IGCL3DHelper.Create3DFeatureGetSet
+- uid: IGCLWrapper.ctl_3d_feature_getset_t
+  commentId: T:IGCLWrapper.ctl_3d_feature_getset_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_3d_feature_getset_t.html
+  name: ctl_3d_feature_getset_t
+  nameWithType: ctl_3d_feature_getset_t
+  fullName: IGCLWrapper.ctl_3d_feature_getset_t
 - uid: IGCLWrapper.IGCL3DHelper.Create3DFeatureGetRequest*
   commentId: Overload:IGCLWrapper.IGCL3DHelper.Create3DFeatureGetRequest
   href: IGCLWrapper.IGCL3DHelper.html#IGCLWrapper_IGCL3DHelper_Create3DFeatureGetRequest_IGCLWrapper_ctl_3d_feature_t_IGCLWrapper_ctl_property_value_type_t_
@@ -886,6 +844,13 @@ references:
   name: Are3dFeatureCapsEqual
   nameWithType: IGCL3DHelper.Are3dFeatureCapsEqual
   fullName: IGCLWrapper.IGCL3DHelper.Are3dFeatureCapsEqual
+- uid: IGCLWrapper.ctl_3d_feature_caps_t
+  commentId: T:IGCLWrapper.ctl_3d_feature_caps_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_3d_feature_caps_t.html
+  name: ctl_3d_feature_caps_t
+  nameWithType: ctl_3d_feature_caps_t
+  fullName: IGCLWrapper.ctl_3d_feature_caps_t
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System

@@ -160,7 +160,7 @@ Class IGCLPciHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLPciHelper_ArePciPropertiesEqual_IGCLWrapper_ctl_pci_properties_t_IGCLWrapper_ctl_pci_properties_t_" data-uid="IGCLWrapper.IGCLPciHelper.ArePciPropertiesEqual(IGCLWrapper.ctl_pci_properties_t,IGCLWrapper.ctl_pci_properties_t)">
   ArePciPropertiesEqual(ctl_pci_properties_t, ctl_pci_properties_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLPciHelper.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLPciHelper.cs/#L60"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare PCI properties while ignoring native-only fields.</p>
@@ -202,7 +202,7 @@ Class IGCLPciHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLPciHelper_ArePciStateEqual_IGCLWrapper_ctl_pci_state_t_IGCLWrapper_ctl_pci_state_t_" data-uid="IGCLWrapper.IGCLPciHelper.ArePciStateEqual(IGCLWrapper.ctl_pci_state_t,IGCLWrapper.ctl_pci_state_t)">
   ArePciStateEqual(ctl_pci_state_t, ctl_pci_state_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLPciHelper.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLPciHelper.cs/#L76"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare PCI state while ignoring native-only fields.</p>
@@ -244,7 +244,7 @@ Class IGCLPciHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLPciHelper_Dispose" data-uid="IGCLWrapper.IGCLPciHelper.Dispose">
   Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLPciHelper.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLPciHelper.cs/#L103"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Mark the helper as disposed.</p>
@@ -271,7 +271,7 @@ Class IGCLPciHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLPciHelper_PciGetProperties" data-uid="IGCLWrapper.IGCLPciHelper.PciGetProperties">
   PciGetProperties()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLPciHelper.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLPciHelper.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get PCI properties as a DTO.</p>
@@ -300,59 +300,26 @@ Class IGCLPciHelper  <a class="header-action link-secondary" title="View source"
 
 
 
-  <a id="IGCLWrapper_IGCLPciHelper_PciGetPropertiesNative_" data-uid="IGCLWrapper.IGCLPciHelper.PciGetPropertiesNative*"></a>
-
-  <h3 id="IGCLWrapper_IGCLPciHelper_PciGetPropertiesNative" data-uid="IGCLWrapper.IGCLPciHelper.PciGetPropertiesNative">
-  PciGetPropertiesNative()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLPciHelper.cs/#L24"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Get PCI properties using the native struct.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_pci_properties_t PciGetPropertiesNative()</code></pre>
-  </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_pci_properties_t.html">ctl_pci_properties_t</a></dt>
-    <dd><p>PCI properties struct.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="IGCLWrapper_IGCLPciHelper_PciGetState_" data-uid="IGCLWrapper.IGCLPciHelper.PciGetState*"></a>
 
   <h3 id="IGCLWrapper_IGCLPciHelper_PciGetState" data-uid="IGCLWrapper.IGCLPciHelper.PciGetState">
   PciGetState()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLPciHelper.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLPciHelper.cs/#L38"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Get PCI state.</p>
+  <div class="markdown level1 summary"><p>Get PCI state as a DTO.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_pci_state_t PciGetState()</code></pre>
+    <pre><code class="lang-csharp hljs">public PciStateDto PciGetState()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_pci_state_t.html">ctl_pci_state_t</a></dt>
-    <dd><p>PCI state struct.</p>
+    <dt><a class="xref" href="IGCLWrapper.PciStateDto.html">PciStateDto</a></dt>
+    <dd><p>PCI state DTO.</p>
 </dd>
   </dl>
 

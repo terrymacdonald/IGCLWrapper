@@ -1,0 +1,415 @@
+### YamlMime:ManagedReference
+items:
+- uid: IGCLWrapper.CustomSourceModeDto
+  commentId: T:IGCLWrapper.CustomSourceModeDto
+  id: CustomSourceModeDto
+  parent: IGCLWrapper
+  children:
+  - IGCLWrapper.CustomSourceModeDto.FromNative(IGCLWrapper.ctl_custom_src_mode_t)
+  - IGCLWrapper.CustomSourceModeDto.SourceX
+  - IGCLWrapper.CustomSourceModeDto.SourceY
+  - IGCLWrapper.CustomSourceModeDto.ToNative
+  langs:
+  - csharp
+  - vb
+  name: CustomSourceModeDto
+  nameWithType: CustomSourceModeDto
+  fullName: IGCLWrapper.CustomSourceModeDto
+  type: Struct
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: CustomSourceModeDto
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 5623
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: DTO for custom source mode.
+  example: []
+  syntax:
+    content: public struct CustomSourceModeDto
+    content.vb: Public Structure CustomSourceModeDto
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.CustomSourceModeDto.SourceX
+  commentId: F:IGCLWrapper.CustomSourceModeDto.SourceX
+  id: SourceX
+  parent: IGCLWrapper.CustomSourceModeDto
+  langs:
+  - csharp
+  - vb
+  name: SourceX
+  nameWithType: CustomSourceModeDto.SourceX
+  fullName: IGCLWrapper.CustomSourceModeDto.SourceX
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SourceX
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 5625
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public uint SourceX
+    return:
+      type: System.UInt32
+    content.vb: Public SourceX As UInteger
+- uid: IGCLWrapper.CustomSourceModeDto.SourceY
+  commentId: F:IGCLWrapper.CustomSourceModeDto.SourceY
+  id: SourceY
+  parent: IGCLWrapper.CustomSourceModeDto
+  langs:
+  - csharp
+  - vb
+  name: SourceY
+  nameWithType: CustomSourceModeDto.SourceY
+  fullName: IGCLWrapper.CustomSourceModeDto.SourceY
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SourceY
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 5626
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public uint SourceY
+    return:
+      type: System.UInt32
+    content.vb: Public SourceY As UInteger
+- uid: IGCLWrapper.CustomSourceModeDto.FromNative(IGCLWrapper.ctl_custom_src_mode_t)
+  commentId: M:IGCLWrapper.CustomSourceModeDto.FromNative(IGCLWrapper.ctl_custom_src_mode_t)
+  id: FromNative(IGCLWrapper.ctl_custom_src_mode_t)
+  parent: IGCLWrapper.CustomSourceModeDto
+  langs:
+  - csharp
+  - vb
+  name: FromNative(ctl_custom_src_mode_t)
+  nameWithType: CustomSourceModeDto.FromNative(ctl_custom_src_mode_t)
+  fullName: IGCLWrapper.CustomSourceModeDto.FromNative(IGCLWrapper.ctl_custom_src_mode_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: FromNative
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 5628
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public static CustomSourceModeDto FromNative(ctl_custom_src_mode_t native)
+    parameters:
+    - id: native
+      type: IGCLWrapper.ctl_custom_src_mode_t
+    return:
+      type: IGCLWrapper.CustomSourceModeDto
+    content.vb: Public Shared Function FromNative(native As ctl_custom_src_mode_t) As CustomSourceModeDto
+  overload: IGCLWrapper.CustomSourceModeDto.FromNative*
+- uid: IGCLWrapper.CustomSourceModeDto.ToNative
+  commentId: M:IGCLWrapper.CustomSourceModeDto.ToNative
+  id: ToNative
+  parent: IGCLWrapper.CustomSourceModeDto
+  langs:
+  - csharp
+  - vb
+  name: ToNative()
+  nameWithType: CustomSourceModeDto.ToNative()
+  fullName: IGCLWrapper.CustomSourceModeDto.ToNative()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: ToNative
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 5637
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_custom_src_mode_t ToNative()
+    return:
+      type: IGCLWrapper.ctl_custom_src_mode_t
+    content.vb: Public Function ToNative() As ctl_custom_src_mode_t
+  overload: IGCLWrapper.CustomSourceModeDto.ToNative*
+references:
+- uid: IGCLWrapper
+  commentId: N:IGCLWrapper
+  href: IGCLWrapper.html
+  name: IGCLWrapper
+  nameWithType: IGCLWrapper
+  fullName: IGCLWrapper
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: IGCLWrapper.CustomSourceModeDto.FromNative*
+  commentId: Overload:IGCLWrapper.CustomSourceModeDto.FromNative
+  href: IGCLWrapper.CustomSourceModeDto.html#IGCLWrapper_CustomSourceModeDto_FromNative_IGCLWrapper_ctl_custom_src_mode_t_
+  name: FromNative
+  nameWithType: CustomSourceModeDto.FromNative
+  fullName: IGCLWrapper.CustomSourceModeDto.FromNative
+- uid: IGCLWrapper.ctl_custom_src_mode_t
+  commentId: T:IGCLWrapper.ctl_custom_src_mode_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_custom_src_mode_t.html
+  name: ctl_custom_src_mode_t
+  nameWithType: ctl_custom_src_mode_t
+  fullName: IGCLWrapper.ctl_custom_src_mode_t
+- uid: IGCLWrapper.CustomSourceModeDto
+  commentId: T:IGCLWrapper.CustomSourceModeDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.CustomSourceModeDto.html
+  name: CustomSourceModeDto
+  nameWithType: CustomSourceModeDto
+  fullName: IGCLWrapper.CustomSourceModeDto
+- uid: IGCLWrapper.CustomSourceModeDto.ToNative*
+  commentId: Overload:IGCLWrapper.CustomSourceModeDto.ToNative
+  href: IGCLWrapper.CustomSourceModeDto.html#IGCLWrapper_CustomSourceModeDto_ToNative
+  name: ToNative
+  nameWithType: CustomSourceModeDto.ToNative
+  fullName: IGCLWrapper.CustomSourceModeDto.ToNative

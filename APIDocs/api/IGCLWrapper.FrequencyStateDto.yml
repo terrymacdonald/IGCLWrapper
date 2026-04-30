@@ -1,0 +1,889 @@
+### YamlMime:ManagedReference
+items:
+- uid: IGCLWrapper.FrequencyStateDto
+  commentId: T:IGCLWrapper.FrequencyStateDto
+  id: FrequencyStateDto
+  parent: IGCLWrapper
+  children:
+  - IGCLWrapper.FrequencyStateDto.Actual
+  - IGCLWrapper.FrequencyStateDto.CurrentVoltage
+  - IGCLWrapper.FrequencyStateDto.Efficient
+  - IGCLWrapper.FrequencyStateDto.Equals(IGCLWrapper.FrequencyStateDto)
+  - IGCLWrapper.FrequencyStateDto.Equals(System.Object)
+  - IGCLWrapper.FrequencyStateDto.FromNative(IGCLWrapper.ctl_freq_state_t)
+  - IGCLWrapper.FrequencyStateDto.GetHashCode
+  - IGCLWrapper.FrequencyStateDto.Request
+  - IGCLWrapper.FrequencyStateDto.Size
+  - IGCLWrapper.FrequencyStateDto.Tdp
+  - IGCLWrapper.FrequencyStateDto.ThrottleReasons
+  - IGCLWrapper.FrequencyStateDto.ToNative
+  - IGCLWrapper.FrequencyStateDto.Version
+  langs:
+  - csharp
+  - vb
+  name: FrequencyStateDto
+  nameWithType: FrequencyStateDto
+  fullName: IGCLWrapper.FrequencyStateDto
+  type: Struct
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFrequencyHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: FrequencyStateDto
+    path: ../IGCLWrapper/IGCLFrequencyHelper.cs
+    startLine: 330
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: DTO for frequency state.
+  example: []
+  syntax:
+    content: 'public struct FrequencyStateDto : IEquatable<FrequencyStateDto>'
+    content.vb: Public Structure FrequencyStateDto Implements IEquatable(Of FrequencyStateDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.FrequencyStateDto}
+  inheritedMembers:
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.FrequencyStateDto.Size
+  commentId: F:IGCLWrapper.FrequencyStateDto.Size
+  id: Size
+  parent: IGCLWrapper.FrequencyStateDto
+  langs:
+  - csharp
+  - vb
+  name: Size
+  nameWithType: FrequencyStateDto.Size
+  fullName: IGCLWrapper.FrequencyStateDto.Size
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFrequencyHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Size
+    path: ../IGCLWrapper/IGCLFrequencyHelper.cs
+    startLine: 335
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Size of the native struct.
+  example: []
+  syntax:
+    content: public uint Size
+    return:
+      type: System.UInt32
+    content.vb: Public Size As UInteger
+- uid: IGCLWrapper.FrequencyStateDto.Version
+  commentId: F:IGCLWrapper.FrequencyStateDto.Version
+  id: Version
+  parent: IGCLWrapper.FrequencyStateDto
+  langs:
+  - csharp
+  - vb
+  name: Version
+  nameWithType: FrequencyStateDto.Version
+  fullName: IGCLWrapper.FrequencyStateDto.Version
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFrequencyHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Version
+    path: ../IGCLWrapper/IGCLFrequencyHelper.cs
+    startLine: 339
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Version of the native struct.
+  example: []
+  syntax:
+    content: public byte Version
+    return:
+      type: System.Byte
+    content.vb: Public Version As Byte
+- uid: IGCLWrapper.FrequencyStateDto.CurrentVoltage
+  commentId: F:IGCLWrapper.FrequencyStateDto.CurrentVoltage
+  id: CurrentVoltage
+  parent: IGCLWrapper.FrequencyStateDto
+  langs:
+  - csharp
+  - vb
+  name: CurrentVoltage
+  nameWithType: FrequencyStateDto.CurrentVoltage
+  fullName: IGCLWrapper.FrequencyStateDto.CurrentVoltage
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFrequencyHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: CurrentVoltage
+    path: ../IGCLWrapper/IGCLFrequencyHelper.cs
+    startLine: 343
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Current voltage.
+  example: []
+  syntax:
+    content: public double CurrentVoltage
+    return:
+      type: System.Double
+    content.vb: Public CurrentVoltage As Double
+- uid: IGCLWrapper.FrequencyStateDto.Request
+  commentId: F:IGCLWrapper.FrequencyStateDto.Request
+  id: Request
+  parent: IGCLWrapper.FrequencyStateDto
+  langs:
+  - csharp
+  - vb
+  name: Request
+  nameWithType: FrequencyStateDto.Request
+  fullName: IGCLWrapper.FrequencyStateDto.Request
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFrequencyHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Request
+    path: ../IGCLWrapper/IGCLFrequencyHelper.cs
+    startLine: 347
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Requested frequency.
+  example: []
+  syntax:
+    content: public double Request
+    return:
+      type: System.Double
+    content.vb: Public Request As Double
+- uid: IGCLWrapper.FrequencyStateDto.Tdp
+  commentId: F:IGCLWrapper.FrequencyStateDto.Tdp
+  id: Tdp
+  parent: IGCLWrapper.FrequencyStateDto
+  langs:
+  - csharp
+  - vb
+  name: Tdp
+  nameWithType: FrequencyStateDto.Tdp
+  fullName: IGCLWrapper.FrequencyStateDto.Tdp
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFrequencyHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Tdp
+    path: ../IGCLWrapper/IGCLFrequencyHelper.cs
+    startLine: 351
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: TDP frequency.
+  example: []
+  syntax:
+    content: public double Tdp
+    return:
+      type: System.Double
+    content.vb: Public Tdp As Double
+- uid: IGCLWrapper.FrequencyStateDto.Efficient
+  commentId: F:IGCLWrapper.FrequencyStateDto.Efficient
+  id: Efficient
+  parent: IGCLWrapper.FrequencyStateDto
+  langs:
+  - csharp
+  - vb
+  name: Efficient
+  nameWithType: FrequencyStateDto.Efficient
+  fullName: IGCLWrapper.FrequencyStateDto.Efficient
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFrequencyHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Efficient
+    path: ../IGCLWrapper/IGCLFrequencyHelper.cs
+    startLine: 355
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Efficient frequency.
+  example: []
+  syntax:
+    content: public double Efficient
+    return:
+      type: System.Double
+    content.vb: Public Efficient As Double
+- uid: IGCLWrapper.FrequencyStateDto.Actual
+  commentId: F:IGCLWrapper.FrequencyStateDto.Actual
+  id: Actual
+  parent: IGCLWrapper.FrequencyStateDto
+  langs:
+  - csharp
+  - vb
+  name: Actual
+  nameWithType: FrequencyStateDto.Actual
+  fullName: IGCLWrapper.FrequencyStateDto.Actual
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFrequencyHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Actual
+    path: ../IGCLWrapper/IGCLFrequencyHelper.cs
+    startLine: 359
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Actual frequency.
+  example: []
+  syntax:
+    content: public double Actual
+    return:
+      type: System.Double
+    content.vb: Public Actual As Double
+- uid: IGCLWrapper.FrequencyStateDto.ThrottleReasons
+  commentId: F:IGCLWrapper.FrequencyStateDto.ThrottleReasons
+  id: ThrottleReasons
+  parent: IGCLWrapper.FrequencyStateDto
+  langs:
+  - csharp
+  - vb
+  name: ThrottleReasons
+  nameWithType: FrequencyStateDto.ThrottleReasons
+  fullName: IGCLWrapper.FrequencyStateDto.ThrottleReasons
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFrequencyHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: ThrottleReasons
+    path: ../IGCLWrapper/IGCLFrequencyHelper.cs
+    startLine: 363
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Throttle reasons bitmask.
+  example: []
+  syntax:
+    content: public uint ThrottleReasons
+    return:
+      type: System.UInt32
+    content.vb: Public ThrottleReasons As UInteger
+- uid: IGCLWrapper.FrequencyStateDto.Equals(IGCLWrapper.FrequencyStateDto)
+  commentId: M:IGCLWrapper.FrequencyStateDto.Equals(IGCLWrapper.FrequencyStateDto)
+  id: Equals(IGCLWrapper.FrequencyStateDto)
+  parent: IGCLWrapper.FrequencyStateDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(FrequencyStateDto)
+  nameWithType: FrequencyStateDto.Equals(FrequencyStateDto)
+  fullName: IGCLWrapper.FrequencyStateDto.Equals(IGCLWrapper.FrequencyStateDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFrequencyHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLFrequencyHelper.cs
+    startLine: 370
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare frequency states.
+  example: []
+  syntax:
+    content: public bool Equals(FrequencyStateDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.FrequencyStateDto
+      description: Other state instance.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Function Equals(other As FrequencyStateDto) As Boolean
+  overload: IGCLWrapper.FrequencyStateDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.FrequencyStateDto}.Equals(IGCLWrapper.FrequencyStateDto)
+- uid: IGCLWrapper.FrequencyStateDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.FrequencyStateDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.FrequencyStateDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: FrequencyStateDto.Equals(object?)
+  fullName: IGCLWrapper.FrequencyStateDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFrequencyHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLFrequencyHelper.cs
+    startLine: 387
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare to another object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: Object to compare.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.FrequencyStateDto.Equals*
+  nameWithType.vb: FrequencyStateDto.Equals(Object)
+  fullName.vb: IGCLWrapper.FrequencyStateDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.FrequencyStateDto.GetHashCode
+  commentId: M:IGCLWrapper.FrequencyStateDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.FrequencyStateDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: FrequencyStateDto.GetHashCode()
+  fullName: IGCLWrapper.FrequencyStateDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFrequencyHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLFrequencyHelper.cs
+    startLine: 393
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get a hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: Hash code value.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.FrequencyStateDto.GetHashCode*
+- uid: IGCLWrapper.FrequencyStateDto.FromNative(IGCLWrapper.ctl_freq_state_t)
+  commentId: M:IGCLWrapper.FrequencyStateDto.FromNative(IGCLWrapper.ctl_freq_state_t)
+  id: FromNative(IGCLWrapper.ctl_freq_state_t)
+  parent: IGCLWrapper.FrequencyStateDto
+  langs:
+  - csharp
+  - vb
+  name: FromNative(ctl_freq_state_t)
+  nameWithType: FrequencyStateDto.FromNative(ctl_freq_state_t)
+  fullName: IGCLWrapper.FrequencyStateDto.FromNative(IGCLWrapper.ctl_freq_state_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFrequencyHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: FromNative
+    path: ../IGCLWrapper/IGCLFrequencyHelper.cs
+    startLine: 412
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Create a DTO from a native struct.
+  example: []
+  syntax:
+    content: public static FrequencyStateDto FromNative(ctl_freq_state_t native)
+    parameters:
+    - id: native
+      type: IGCLWrapper.ctl_freq_state_t
+      description: Native struct.
+    return:
+      type: IGCLWrapper.FrequencyStateDto
+      description: Frequency state DTO.
+    content.vb: Public Shared Function FromNative(native As ctl_freq_state_t) As FrequencyStateDto
+  overload: IGCLWrapper.FrequencyStateDto.FromNative*
+- uid: IGCLWrapper.FrequencyStateDto.ToNative
+  commentId: M:IGCLWrapper.FrequencyStateDto.ToNative
+  id: ToNative
+  parent: IGCLWrapper.FrequencyStateDto
+  langs:
+  - csharp
+  - vb
+  name: ToNative()
+  nameWithType: FrequencyStateDto.ToNative()
+  fullName: IGCLWrapper.FrequencyStateDto.ToNative()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLFrequencyHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: ToNative
+    path: ../IGCLWrapper/IGCLFrequencyHelper.cs
+    startLine: 431
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Convert this DTO to a native struct.
+  example: []
+  syntax:
+    content: public ctl_freq_state_t ToNative()
+    return:
+      type: IGCLWrapper.ctl_freq_state_t
+      description: Frequency state struct.
+    content.vb: Public Function ToNative() As ctl_freq_state_t
+  overload: IGCLWrapper.FrequencyStateDto.ToNative*
+references:
+- uid: IGCLWrapper
+  commentId: N:IGCLWrapper
+  href: IGCLWrapper.html
+  name: IGCLWrapper
+  nameWithType: IGCLWrapper
+  fullName: IGCLWrapper
+- uid: System.IEquatable{IGCLWrapper.FrequencyStateDto}
+  commentId: T:System.IEquatable{IGCLWrapper.FrequencyStateDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<FrequencyStateDto>
+  nameWithType: IEquatable<FrequencyStateDto>
+  fullName: System.IEquatable<IGCLWrapper.FrequencyStateDto>
+  nameWithType.vb: IEquatable(Of FrequencyStateDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.FrequencyStateDto)
+  name.vb: IEquatable(Of FrequencyStateDto)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.FrequencyStateDto
+    name: FrequencyStateDto
+    href: IGCLWrapper.FrequencyStateDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.FrequencyStateDto
+    name: FrequencyStateDto
+    href: IGCLWrapper.FrequencyStateDto.html
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: IGCLWrapper.FrequencyStateDto.Equals*
+  commentId: Overload:IGCLWrapper.FrequencyStateDto.Equals
+  href: IGCLWrapper.FrequencyStateDto.html#IGCLWrapper_FrequencyStateDto_Equals_IGCLWrapper_FrequencyStateDto_
+  name: Equals
+  nameWithType: FrequencyStateDto.Equals
+  fullName: IGCLWrapper.FrequencyStateDto.Equals
+- uid: System.IEquatable{IGCLWrapper.FrequencyStateDto}.Equals(IGCLWrapper.FrequencyStateDto)
+  commentId: M:System.IEquatable{IGCLWrapper.FrequencyStateDto}.Equals(IGCLWrapper.FrequencyStateDto)
+  parent: System.IEquatable{IGCLWrapper.FrequencyStateDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(FrequencyStateDto)
+  nameWithType: IEquatable<FrequencyStateDto>.Equals(FrequencyStateDto)
+  fullName: System.IEquatable<IGCLWrapper.FrequencyStateDto>.Equals(IGCLWrapper.FrequencyStateDto)
+  nameWithType.vb: IEquatable(Of FrequencyStateDto).Equals(FrequencyStateDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.FrequencyStateDto).Equals(IGCLWrapper.FrequencyStateDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.FrequencyStateDto}.Equals(IGCLWrapper.FrequencyStateDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.FrequencyStateDto
+    name: FrequencyStateDto
+    href: IGCLWrapper.FrequencyStateDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.FrequencyStateDto}.Equals(IGCLWrapper.FrequencyStateDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.FrequencyStateDto
+    name: FrequencyStateDto
+    href: IGCLWrapper.FrequencyStateDto.html
+  - name: )
+- uid: IGCLWrapper.FrequencyStateDto
+  commentId: T:IGCLWrapper.FrequencyStateDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.FrequencyStateDto.html
+  name: FrequencyStateDto
+  nameWithType: FrequencyStateDto
+  fullName: IGCLWrapper.FrequencyStateDto
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.FrequencyStateDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.FrequencyStateDto.GetHashCode
+  href: IGCLWrapper.FrequencyStateDto.html#IGCLWrapper_FrequencyStateDto_GetHashCode
+  name: GetHashCode
+  nameWithType: FrequencyStateDto.GetHashCode
+  fullName: IGCLWrapper.FrequencyStateDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: IGCLWrapper.FrequencyStateDto.FromNative*
+  commentId: Overload:IGCLWrapper.FrequencyStateDto.FromNative
+  href: IGCLWrapper.FrequencyStateDto.html#IGCLWrapper_FrequencyStateDto_FromNative_IGCLWrapper_ctl_freq_state_t_
+  name: FromNative
+  nameWithType: FrequencyStateDto.FromNative
+  fullName: IGCLWrapper.FrequencyStateDto.FromNative
+- uid: IGCLWrapper.ctl_freq_state_t
+  commentId: T:IGCLWrapper.ctl_freq_state_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_freq_state_t.html
+  name: ctl_freq_state_t
+  nameWithType: ctl_freq_state_t
+  fullName: IGCLWrapper.ctl_freq_state_t
+- uid: IGCLWrapper.FrequencyStateDto.ToNative*
+  commentId: Overload:IGCLWrapper.FrequencyStateDto.ToNative
+  href: IGCLWrapper.FrequencyStateDto.html#IGCLWrapper_FrequencyStateDto_ToNative
+  name: ToNative
+  nameWithType: FrequencyStateDto.ToNative
+  fullName: IGCLWrapper.FrequencyStateDto.ToNative

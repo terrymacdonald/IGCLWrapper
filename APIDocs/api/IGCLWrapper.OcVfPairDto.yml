@@ -1,0 +1,762 @@
+### YamlMime:ManagedReference
+items:
+- uid: IGCLWrapper.OcVfPairDto
+  commentId: T:IGCLWrapper.OcVfPairDto
+  id: OcVfPairDto
+  parent: IGCLWrapper
+  children:
+  - IGCLWrapper.OcVfPairDto.Equals(IGCLWrapper.OcVfPairDto)
+  - IGCLWrapper.OcVfPairDto.Equals(System.Object)
+  - IGCLWrapper.OcVfPairDto.Frequency
+  - IGCLWrapper.OcVfPairDto.FromNative(IGCLWrapper.ctl_oc_vf_pair_t)
+  - IGCLWrapper.OcVfPairDto.GetHashCode
+  - IGCLWrapper.OcVfPairDto.Size
+  - IGCLWrapper.OcVfPairDto.ToNative
+  - IGCLWrapper.OcVfPairDto.Version
+  - IGCLWrapper.OcVfPairDto.Voltage
+  langs:
+  - csharp
+  - vb
+  name: OcVfPairDto
+  nameWithType: OcVfPairDto
+  fullName: IGCLWrapper.OcVfPairDto
+  type: Struct
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: OcVfPairDto
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 1597
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: DTO for GPU overclock voltage/frequency lock pair.
+  example: []
+  syntax:
+    content: 'public struct OcVfPairDto : IEquatable<OcVfPairDto>'
+    content.vb: Public Structure OcVfPairDto Implements IEquatable(Of OcVfPairDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.OcVfPairDto}
+  inheritedMembers:
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.OcVfPairDto.Size
+  commentId: F:IGCLWrapper.OcVfPairDto.Size
+  id: Size
+  parent: IGCLWrapper.OcVfPairDto
+  langs:
+  - csharp
+  - vb
+  name: Size
+  nameWithType: OcVfPairDto.Size
+  fullName: IGCLWrapper.OcVfPairDto.Size
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Size
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 1602
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Size of the native struct.
+  example: []
+  syntax:
+    content: public uint Size
+    return:
+      type: System.UInt32
+    content.vb: Public Size As UInteger
+- uid: IGCLWrapper.OcVfPairDto.Version
+  commentId: F:IGCLWrapper.OcVfPairDto.Version
+  id: Version
+  parent: IGCLWrapper.OcVfPairDto
+  langs:
+  - csharp
+  - vb
+  name: Version
+  nameWithType: OcVfPairDto.Version
+  fullName: IGCLWrapper.OcVfPairDto.Version
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Version
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 1606
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Version of the native struct.
+  example: []
+  syntax:
+    content: public byte Version
+    return:
+      type: System.Byte
+    content.vb: Public Version As Byte
+- uid: IGCLWrapper.OcVfPairDto.Voltage
+  commentId: F:IGCLWrapper.OcVfPairDto.Voltage
+  id: Voltage
+  parent: IGCLWrapper.OcVfPairDto
+  langs:
+  - csharp
+  - vb
+  name: Voltage
+  nameWithType: OcVfPairDto.Voltage
+  fullName: IGCLWrapper.OcVfPairDto.Voltage
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Voltage
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 1610
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Lock voltage in mV.
+  example: []
+  syntax:
+    content: public double Voltage
+    return:
+      type: System.Double
+    content.vb: Public Voltage As Double
+- uid: IGCLWrapper.OcVfPairDto.Frequency
+  commentId: F:IGCLWrapper.OcVfPairDto.Frequency
+  id: Frequency
+  parent: IGCLWrapper.OcVfPairDto
+  langs:
+  - csharp
+  - vb
+  name: Frequency
+  nameWithType: OcVfPairDto.Frequency
+  fullName: IGCLWrapper.OcVfPairDto.Frequency
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Frequency
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 1614
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Lock frequency in MHz.
+  example: []
+  syntax:
+    content: public double Frequency
+    return:
+      type: System.Double
+    content.vb: Public Frequency As Double
+- uid: IGCLWrapper.OcVfPairDto.Equals(IGCLWrapper.OcVfPairDto)
+  commentId: M:IGCLWrapper.OcVfPairDto.Equals(IGCLWrapper.OcVfPairDto)
+  id: Equals(IGCLWrapper.OcVfPairDto)
+  parent: IGCLWrapper.OcVfPairDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(OcVfPairDto)
+  nameWithType: OcVfPairDto.Equals(OcVfPairDto)
+  fullName: IGCLWrapper.OcVfPairDto.Equals(IGCLWrapper.OcVfPairDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 1616
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(OcVfPairDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.OcVfPairDto
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As OcVfPairDto) As Boolean
+  overload: IGCLWrapper.OcVfPairDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.OcVfPairDto}.Equals(IGCLWrapper.OcVfPairDto)
+- uid: IGCLWrapper.OcVfPairDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.OcVfPairDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.OcVfPairDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: OcVfPairDto.Equals(object?)
+  fullName: IGCLWrapper.OcVfPairDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 1624
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Indicates whether this instance and a specified object are equal.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.OcVfPairDto.Equals*
+  nameWithType.vb: OcVfPairDto.Equals(Object)
+  fullName.vb: IGCLWrapper.OcVfPairDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.OcVfPairDto.GetHashCode
+  commentId: M:IGCLWrapper.OcVfPairDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.OcVfPairDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: OcVfPairDto.GetHashCode()
+  fullName: IGCLWrapper.OcVfPairDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 1626
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Returns the hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A 32-bit signed integer that is the hash code for this instance.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.OcVfPairDto.GetHashCode*
+- uid: IGCLWrapper.OcVfPairDto.FromNative(IGCLWrapper.ctl_oc_vf_pair_t)
+  commentId: M:IGCLWrapper.OcVfPairDto.FromNative(IGCLWrapper.ctl_oc_vf_pair_t)
+  id: FromNative(IGCLWrapper.ctl_oc_vf_pair_t)
+  parent: IGCLWrapper.OcVfPairDto
+  langs:
+  - csharp
+  - vb
+  name: FromNative(ctl_oc_vf_pair_t)
+  nameWithType: OcVfPairDto.FromNative(ctl_oc_vf_pair_t)
+  fullName: IGCLWrapper.OcVfPairDto.FromNative(IGCLWrapper.ctl_oc_vf_pair_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: FromNative
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 1636
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public static OcVfPairDto FromNative(ctl_oc_vf_pair_t native)
+    parameters:
+    - id: native
+      type: IGCLWrapper.ctl_oc_vf_pair_t
+    return:
+      type: IGCLWrapper.OcVfPairDto
+    content.vb: Public Shared Function FromNative(native As ctl_oc_vf_pair_t) As OcVfPairDto
+  overload: IGCLWrapper.OcVfPairDto.FromNative*
+- uid: IGCLWrapper.OcVfPairDto.ToNative
+  commentId: M:IGCLWrapper.OcVfPairDto.ToNative
+  id: ToNative
+  parent: IGCLWrapper.OcVfPairDto
+  langs:
+  - csharp
+  - vb
+  name: ToNative()
+  nameWithType: OcVfPairDto.ToNative()
+  fullName: IGCLWrapper.OcVfPairDto.ToNative()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLOverclockHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: ToNative
+    path: ../IGCLWrapper/IGCLOverclockHelper.cs
+    startLine: 1647
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_oc_vf_pair_t ToNative()
+    return:
+      type: IGCLWrapper.ctl_oc_vf_pair_t
+    content.vb: Public Function ToNative() As ctl_oc_vf_pair_t
+  overload: IGCLWrapper.OcVfPairDto.ToNative*
+references:
+- uid: IGCLWrapper
+  commentId: N:IGCLWrapper
+  href: IGCLWrapper.html
+  name: IGCLWrapper
+  nameWithType: IGCLWrapper
+  fullName: IGCLWrapper
+- uid: System.IEquatable{IGCLWrapper.OcVfPairDto}
+  commentId: T:System.IEquatable{IGCLWrapper.OcVfPairDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<OcVfPairDto>
+  nameWithType: IEquatable<OcVfPairDto>
+  fullName: System.IEquatable<IGCLWrapper.OcVfPairDto>
+  nameWithType.vb: IEquatable(Of OcVfPairDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.OcVfPairDto)
+  name.vb: IEquatable(Of OcVfPairDto)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.OcVfPairDto
+    name: OcVfPairDto
+    href: IGCLWrapper.OcVfPairDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.OcVfPairDto
+    name: OcVfPairDto
+    href: IGCLWrapper.OcVfPairDto.html
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: IGCLWrapper.OcVfPairDto.Equals*
+  commentId: Overload:IGCLWrapper.OcVfPairDto.Equals
+  href: IGCLWrapper.OcVfPairDto.html#IGCLWrapper_OcVfPairDto_Equals_IGCLWrapper_OcVfPairDto_
+  name: Equals
+  nameWithType: OcVfPairDto.Equals
+  fullName: IGCLWrapper.OcVfPairDto.Equals
+- uid: System.IEquatable{IGCLWrapper.OcVfPairDto}.Equals(IGCLWrapper.OcVfPairDto)
+  commentId: M:System.IEquatable{IGCLWrapper.OcVfPairDto}.Equals(IGCLWrapper.OcVfPairDto)
+  parent: System.IEquatable{IGCLWrapper.OcVfPairDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(OcVfPairDto)
+  nameWithType: IEquatable<OcVfPairDto>.Equals(OcVfPairDto)
+  fullName: System.IEquatable<IGCLWrapper.OcVfPairDto>.Equals(IGCLWrapper.OcVfPairDto)
+  nameWithType.vb: IEquatable(Of OcVfPairDto).Equals(OcVfPairDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.OcVfPairDto).Equals(IGCLWrapper.OcVfPairDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.OcVfPairDto}.Equals(IGCLWrapper.OcVfPairDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.OcVfPairDto
+    name: OcVfPairDto
+    href: IGCLWrapper.OcVfPairDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.OcVfPairDto}.Equals(IGCLWrapper.OcVfPairDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.OcVfPairDto
+    name: OcVfPairDto
+    href: IGCLWrapper.OcVfPairDto.html
+  - name: )
+- uid: IGCLWrapper.OcVfPairDto
+  commentId: T:IGCLWrapper.OcVfPairDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.OcVfPairDto.html
+  name: OcVfPairDto
+  nameWithType: OcVfPairDto
+  fullName: IGCLWrapper.OcVfPairDto
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.OcVfPairDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.OcVfPairDto.GetHashCode
+  href: IGCLWrapper.OcVfPairDto.html#IGCLWrapper_OcVfPairDto_GetHashCode
+  name: GetHashCode
+  nameWithType: OcVfPairDto.GetHashCode
+  fullName: IGCLWrapper.OcVfPairDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: IGCLWrapper.OcVfPairDto.FromNative*
+  commentId: Overload:IGCLWrapper.OcVfPairDto.FromNative
+  href: IGCLWrapper.OcVfPairDto.html#IGCLWrapper_OcVfPairDto_FromNative_IGCLWrapper_ctl_oc_vf_pair_t_
+  name: FromNative
+  nameWithType: OcVfPairDto.FromNative
+  fullName: IGCLWrapper.OcVfPairDto.FromNative
+- uid: IGCLWrapper.ctl_oc_vf_pair_t
+  commentId: T:IGCLWrapper.ctl_oc_vf_pair_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_oc_vf_pair_t.html
+  name: ctl_oc_vf_pair_t
+  nameWithType: ctl_oc_vf_pair_t
+  fullName: IGCLWrapper.ctl_oc_vf_pair_t
+- uid: IGCLWrapper.OcVfPairDto.ToNative*
+  commentId: Overload:IGCLWrapper.OcVfPairDto.ToNative
+  href: IGCLWrapper.OcVfPairDto.html#IGCLWrapper_OcVfPairDto_ToNative
+  name: ToNative
+  nameWithType: OcVfPairDto.ToNative
+  fullName: IGCLWrapper.OcVfPairDto.ToNative

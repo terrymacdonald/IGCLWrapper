@@ -9,7 +9,6 @@ items:
   - IGCLWrapper.IGCLEccHelper.AreEccStateDescriptionsEqual(IGCLWrapper.ctl_ecc_state_desc_t,IGCLWrapper.ctl_ecc_state_desc_t)
   - IGCLWrapper.IGCLEccHelper.Dispose
   - IGCLWrapper.IGCLEccHelper.EccGetProperties
-  - IGCLWrapper.IGCLEccHelper.EccGetPropertiesNative
   - IGCLWrapper.IGCLEccHelper.EccGetState
   - IGCLWrapper.IGCLEccHelper.EccSetState(IGCLWrapper.ctl_ecc_state_t)
   langs:
@@ -46,37 +45,6 @@ items:
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: IGCLWrapper.IGCLEccHelper.EccGetPropertiesNative
-  commentId: M:IGCLWrapper.IGCLEccHelper.EccGetPropertiesNative
-  id: EccGetPropertiesNative
-  parent: IGCLWrapper.IGCLEccHelper
-  langs:
-  - csharp
-  - vb
-  name: EccGetPropertiesNative()
-  nameWithType: IGCLEccHelper.EccGetPropertiesNative()
-  fullName: IGCLWrapper.IGCLEccHelper.EccGetPropertiesNative()
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLEccHelper.cs
-      branch: develop
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: EccGetPropertiesNative
-    path: ../IGCLWrapper/IGCLEccHelper.cs
-    startLine: 23
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  summary: Get ECC properties using the native struct.
-  example: []
-  syntax:
-    content: public ctl_ecc_properties_t EccGetPropertiesNative()
-    return:
-      type: IGCLWrapper.ctl_ecc_properties_t
-      description: ECC properties struct.
-    content.vb: Public Function EccGetPropertiesNative() As ctl_ecc_properties_t
-  overload: IGCLWrapper.IGCLEccHelper.EccGetPropertiesNative*
 - uid: IGCLWrapper.IGCLEccHelper.EccGetProperties
   commentId: M:IGCLWrapper.IGCLEccHelper.EccGetProperties
   id: EccGetProperties
@@ -95,7 +63,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EccGetProperties
     path: ../IGCLWrapper/IGCLEccHelper.cs
-    startLine: 37
+    startLine: 23
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -126,18 +94,18 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EccGetState
     path: ../IGCLWrapper/IGCLEccHelper.cs
-    startLine: 47
+    startLine: 37
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Get ECC state description.
+  summary: Get ECC state description as a DTO.
   example: []
   syntax:
-    content: public ctl_ecc_state_desc_t EccGetState()
+    content: public EccStateDescDto EccGetState()
     return:
-      type: IGCLWrapper.ctl_ecc_state_desc_t
-      description: ECC state description struct.
-    content.vb: Public Function EccGetState() As ctl_ecc_state_desc_t
+      type: IGCLWrapper.EccStateDescDto
+      description: ECC state description DTO.
+    content.vb: Public Function EccGetState() As EccStateDescDto
   overload: IGCLWrapper.IGCLEccHelper.EccGetState*
 - uid: IGCLWrapper.IGCLEccHelper.EccSetState(IGCLWrapper.ctl_ecc_state_t)
   commentId: M:IGCLWrapper.IGCLEccHelper.EccSetState(IGCLWrapper.ctl_ecc_state_t)
@@ -157,7 +125,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EccSetState
     path: ../IGCLWrapper/IGCLEccHelper.cs
-    startLine: 61
+    startLine: 51
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -189,7 +157,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreEccPropertiesEqual
     path: ../IGCLWrapper/IGCLEccHelper.cs
-    startLine: 83
+    startLine: 73
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -227,7 +195,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreEccStateDescriptionsEqual
     path: ../IGCLWrapper/IGCLEccHelper.cs
-    startLine: 94
+    startLine: 84
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -265,7 +233,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLEccHelper.cs
-    startLine: 108
+    startLine: 95
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -505,19 +473,6 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: IGCLWrapper.IGCLEccHelper.EccGetPropertiesNative*
-  commentId: Overload:IGCLWrapper.IGCLEccHelper.EccGetPropertiesNative
-  href: IGCLWrapper.IGCLEccHelper.html#IGCLWrapper_IGCLEccHelper_EccGetPropertiesNative
-  name: EccGetPropertiesNative
-  nameWithType: IGCLEccHelper.EccGetPropertiesNative
-  fullName: IGCLWrapper.IGCLEccHelper.EccGetPropertiesNative
-- uid: IGCLWrapper.ctl_ecc_properties_t
-  commentId: T:IGCLWrapper.ctl_ecc_properties_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_ecc_properties_t.html
-  name: ctl_ecc_properties_t
-  nameWithType: ctl_ecc_properties_t
-  fullName: IGCLWrapper.ctl_ecc_properties_t
 - uid: IGCLWrapper.IGCLEccHelper.EccGetProperties*
   commentId: Overload:IGCLWrapper.IGCLEccHelper.EccGetProperties
   href: IGCLWrapper.IGCLEccHelper.html#IGCLWrapper_IGCLEccHelper_EccGetProperties
@@ -537,13 +492,13 @@ references:
   name: EccGetState
   nameWithType: IGCLEccHelper.EccGetState
   fullName: IGCLWrapper.IGCLEccHelper.EccGetState
-- uid: IGCLWrapper.ctl_ecc_state_desc_t
-  commentId: T:IGCLWrapper.ctl_ecc_state_desc_t
+- uid: IGCLWrapper.EccStateDescDto
+  commentId: T:IGCLWrapper.EccStateDescDto
   parent: IGCLWrapper
-  href: IGCLWrapper.ctl_ecc_state_desc_t.html
-  name: ctl_ecc_state_desc_t
-  nameWithType: ctl_ecc_state_desc_t
-  fullName: IGCLWrapper.ctl_ecc_state_desc_t
+  href: IGCLWrapper.EccStateDescDto.html
+  name: EccStateDescDto
+  nameWithType: EccStateDescDto
+  fullName: IGCLWrapper.EccStateDescDto
 - uid: IGCLWrapper.IGCLEccHelper.EccSetState*
   commentId: Overload:IGCLWrapper.IGCLEccHelper.EccSetState
   href: IGCLWrapper.IGCLEccHelper.html#IGCLWrapper_IGCLEccHelper_EccSetState_IGCLWrapper_ctl_ecc_state_t_
@@ -563,6 +518,13 @@ references:
   name: AreEccPropertiesEqual
   nameWithType: IGCLEccHelper.AreEccPropertiesEqual
   fullName: IGCLWrapper.IGCLEccHelper.AreEccPropertiesEqual
+- uid: IGCLWrapper.ctl_ecc_properties_t
+  commentId: T:IGCLWrapper.ctl_ecc_properties_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_ecc_properties_t.html
+  name: ctl_ecc_properties_t
+  nameWithType: ctl_ecc_properties_t
+  fullName: IGCLWrapper.ctl_ecc_properties_t
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System
@@ -580,6 +542,13 @@ references:
   name: AreEccStateDescriptionsEqual
   nameWithType: IGCLEccHelper.AreEccStateDescriptionsEqual
   fullName: IGCLWrapper.IGCLEccHelper.AreEccStateDescriptionsEqual
+- uid: IGCLWrapper.ctl_ecc_state_desc_t
+  commentId: T:IGCLWrapper.ctl_ecc_state_desc_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_ecc_state_desc_t.html
+  name: ctl_ecc_state_desc_t
+  nameWithType: ctl_ecc_state_desc_t
+  fullName: IGCLWrapper.ctl_ecc_state_desc_t
 - uid: IGCLWrapper.IGCLEccHelper.Dispose*
   commentId: Overload:IGCLWrapper.IGCLEccHelper.Dispose
   href: IGCLWrapper.IGCLEccHelper.html#IGCLWrapper_IGCLEccHelper_Dispose

@@ -32,30 +32,39 @@ if (-not (Test-Path $docfxConfig)) {
     exit 1
 }
 
-# Locate DocFX CLI
+# Locate or install DocFX global tool
 Write-Host "Checking for DocFX CLI..." -ForegroundColor Yellow
-$docfxCmd = Get-Command docfx -ErrorAction SilentlyContinue
-if (-not $docfxCmd) {
+
+$docfxEntry = dotnet tool list --global 2>&1 | Where-Object { $_ -match '^docfx\s' }
+if (-not $docfxEntry) {
+    Write-Host "DocFX not installed. Installing globally..." -ForegroundColor Yellow
+    dotnet tool install --global docfx
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host ""
+        Write-Host "ERROR: Failed to install DocFX. Check your internet connection and .NET SDK version." -ForegroundColor Red
+        Write-Host ""
+        Read-Host "Press Enter to exit"
+        exit 1
+    }
+    Write-Host "DocFX installed successfully." -ForegroundColor Green
     Write-Host ""
-    Write-Host "ERROR: DocFX CLI not found in PATH." -ForegroundColor Red
-    Write-Host "Install DocFX (e.g., 'choco install docfx' or 'dotnet tool install -g docfx')." -ForegroundColor Yellow
-    Write-Host "After installation, ensure 'docfx' is available in your PATH." -ForegroundColor Yellow
+    $docfxEntry = dotnet tool list --global 2>&1 | Where-Object { $_ -match '^docfx\s' }
+}
+
+# Parse installed version and locate the DLL (invoking via 'dotnet exec' bypasses AppLocker)
+$docfxVersion = ($docfxEntry -split '\s+')[1]
+$docfxDll = (Get-ChildItem "$env:USERPROFILE\.dotnet\tools\.store\docfx\$docfxVersion\docfx\$docfxVersion\tools" -Recurse -Filter "docfx.dll" -ErrorAction SilentlyContinue | Select-Object -First 1).FullName
+if (-not $docfxDll) {
+    Write-Host ""
+    Write-Host "ERROR: Could not locate docfx.dll under the global tool store." -ForegroundColor Red
+    Write-Host "Expected: $env:USERPROFILE\.dotnet\tools\.store\docfx\$docfxVersion" -ForegroundColor Yellow
     Write-Host ""
     Read-Host "Press Enter to exit"
     exit 1
 }
 
-try {
-    $docfxVersion = & $docfxCmd.Source --version 2>&1
-    Write-Host "DocFX found: $($docfxCmd.Source)" -ForegroundColor Green
-    if ($docfxVersion) {
-        Write-Host "DocFX version: $docfxVersion" -ForegroundColor Green
-    }
-    Write-Host ""
-} catch {
-    Write-Host "Warning: Unable to read DocFX version: $_" -ForegroundColor Yellow
-    Write-Host ""
-}
+Write-Host "DocFX $docfxVersion found at: $docfxDll" -ForegroundColor Green
+Write-Host ""
 
 # Run DocFX metadata + build
 Write-Host "============================================================================" -ForegroundColor Cyan
@@ -65,7 +74,7 @@ Write-Host ""
 
 Push-Location (Split-Path $docfxConfig -Parent)
 try {
-    & $docfxCmd.Source metadata $docfxConfig
+    dotnet exec $docfxDll metadata $docfxConfig
     if ($LASTEXITCODE -ne 0) { throw "DocFX metadata failed with exit code $LASTEXITCODE" }
 
     Write-Host ""
@@ -77,7 +86,7 @@ try {
     Write-Host "============================================================================" -ForegroundColor Cyan
     Write-Host ""
 
-    & $docfxCmd.Source build $docfxConfig
+    dotnet exec $docfxDll build $docfxConfig
     if ($LASTEXITCODE -ne 0) { throw "DocFX build failed with exit code $LASTEXITCODE" }
 
     Write-Host ""
@@ -101,4 +110,4 @@ Write-Host "Press Ctrl+C to stop the server." -ForegroundColor Yellow
 Write-Host "============================================================================" -ForegroundColor Cyan
 Write-Host ""
 
-& $docfxCmd.Source serve $docfxSite -p $docfxPort --hostname localhost
+dotnet exec $docfxDll serve $docfxSite -p $docfxPort --hostname localhost

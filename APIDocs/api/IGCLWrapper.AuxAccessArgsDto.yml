@@ -1,0 +1,1087 @@
+### YamlMime:ManagedReference
+items:
+- uid: IGCLWrapper.AuxAccessArgsDto
+  commentId: T:IGCLWrapper.AuxAccessArgsDto
+  id: AuxAccessArgsDto
+  parent: IGCLWrapper
+  children:
+  - IGCLWrapper.AuxAccessArgsDto.Address
+  - IGCLWrapper.AuxAccessArgsDto.CreateReadRequest(System.UInt32,System.UInt32)
+  - IGCLWrapper.AuxAccessArgsDto.CreateWriteRequest(System.UInt32,System.Collections.Generic.List{System.Byte})
+  - IGCLWrapper.AuxAccessArgsDto.Data
+  - IGCLWrapper.AuxAccessArgsDto.DataSize
+  - IGCLWrapper.AuxAccessArgsDto.Equals(IGCLWrapper.AuxAccessArgsDto)
+  - IGCLWrapper.AuxAccessArgsDto.Equals(System.Object)
+  - IGCLWrapper.AuxAccessArgsDto.Flags
+  - IGCLWrapper.AuxAccessArgsDto.FromNative(IGCLWrapper.ctl_aux_access_args_t)
+  - IGCLWrapper.AuxAccessArgsDto.GetHashCode
+  - IGCLWrapper.AuxAccessArgsDto.OpType
+  - IGCLWrapper.AuxAccessArgsDto.PortID
+  - IGCLWrapper.AuxAccessArgsDto.RAD
+  - IGCLWrapper.AuxAccessArgsDto.Size
+  - IGCLWrapper.AuxAccessArgsDto.ToNative
+  - IGCLWrapper.AuxAccessArgsDto.Version
+  langs:
+  - csharp
+  - vb
+  name: AuxAccessArgsDto
+  nameWithType: AuxAccessArgsDto
+  fullName: IGCLWrapper.AuxAccessArgsDto
+  type: Struct
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: AuxAccessArgsDto
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 5995
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: DTO for AUX channel access arguments.
+  example: []
+  syntax:
+    content: 'public struct AuxAccessArgsDto : IEquatable<AuxAccessArgsDto>'
+    content.vb: Public Structure AuxAccessArgsDto Implements IEquatable(Of AuxAccessArgsDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.AuxAccessArgsDto}
+  inheritedMembers:
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.AuxAccessArgsDto.Size
+  commentId: F:IGCLWrapper.AuxAccessArgsDto.Size
+  id: Size
+  parent: IGCLWrapper.AuxAccessArgsDto
+  langs:
+  - csharp
+  - vb
+  name: Size
+  nameWithType: AuxAccessArgsDto.Size
+  fullName: IGCLWrapper.AuxAccessArgsDto.Size
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Size
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 5997
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public uint Size
+    return:
+      type: System.UInt32
+    content.vb: Public Size As UInteger
+- uid: IGCLWrapper.AuxAccessArgsDto.Version
+  commentId: F:IGCLWrapper.AuxAccessArgsDto.Version
+  id: Version
+  parent: IGCLWrapper.AuxAccessArgsDto
+  langs:
+  - csharp
+  - vb
+  name: Version
+  nameWithType: AuxAccessArgsDto.Version
+  fullName: IGCLWrapper.AuxAccessArgsDto.Version
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Version
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 5998
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public byte Version
+    return:
+      type: System.Byte
+    content.vb: Public Version As Byte
+- uid: IGCLWrapper.AuxAccessArgsDto.OpType
+  commentId: F:IGCLWrapper.AuxAccessArgsDto.OpType
+  id: OpType
+  parent: IGCLWrapper.AuxAccessArgsDto
+  langs:
+  - csharp
+  - vb
+  name: OpType
+  nameWithType: AuxAccessArgsDto.OpType
+  fullName: IGCLWrapper.AuxAccessArgsDto.OpType
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: OpType
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 5999
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_operation_type_t OpType
+    return:
+      type: IGCLWrapper.ctl_operation_type_t
+    content.vb: Public OpType As ctl_operation_type_t
+- uid: IGCLWrapper.AuxAccessArgsDto.Flags
+  commentId: F:IGCLWrapper.AuxAccessArgsDto.Flags
+  id: Flags
+  parent: IGCLWrapper.AuxAccessArgsDto
+  langs:
+  - csharp
+  - vb
+  name: Flags
+  nameWithType: AuxAccessArgsDto.Flags
+  fullName: IGCLWrapper.AuxAccessArgsDto.Flags
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Flags
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6000
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public uint Flags
+    return:
+      type: System.UInt32
+    content.vb: Public Flags As UInteger
+- uid: IGCLWrapper.AuxAccessArgsDto.Address
+  commentId: F:IGCLWrapper.AuxAccessArgsDto.Address
+  id: Address
+  parent: IGCLWrapper.AuxAccessArgsDto
+  langs:
+  - csharp
+  - vb
+  name: Address
+  nameWithType: AuxAccessArgsDto.Address
+  fullName: IGCLWrapper.AuxAccessArgsDto.Address
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Address
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6001
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public uint Address
+    return:
+      type: System.UInt32
+    content.vb: Public Address As UInteger
+- uid: IGCLWrapper.AuxAccessArgsDto.RAD
+  commentId: F:IGCLWrapper.AuxAccessArgsDto.RAD
+  id: RAD
+  parent: IGCLWrapper.AuxAccessArgsDto
+  langs:
+  - csharp
+  - vb
+  name: RAD
+  nameWithType: AuxAccessArgsDto.RAD
+  fullName: IGCLWrapper.AuxAccessArgsDto.RAD
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: RAD
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6002
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ulong RAD
+    return:
+      type: System.UInt64
+    content.vb: Public RAD As ULong
+- uid: IGCLWrapper.AuxAccessArgsDto.PortID
+  commentId: F:IGCLWrapper.AuxAccessArgsDto.PortID
+  id: PortID
+  parent: IGCLWrapper.AuxAccessArgsDto
+  langs:
+  - csharp
+  - vb
+  name: PortID
+  nameWithType: AuxAccessArgsDto.PortID
+  fullName: IGCLWrapper.AuxAccessArgsDto.PortID
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: PortID
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6003
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public uint PortID
+    return:
+      type: System.UInt32
+    content.vb: Public PortID As UInteger
+- uid: IGCLWrapper.AuxAccessArgsDto.DataSize
+  commentId: F:IGCLWrapper.AuxAccessArgsDto.DataSize
+  id: DataSize
+  parent: IGCLWrapper.AuxAccessArgsDto
+  langs:
+  - csharp
+  - vb
+  name: DataSize
+  nameWithType: AuxAccessArgsDto.DataSize
+  fullName: IGCLWrapper.AuxAccessArgsDto.DataSize
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: DataSize
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6004
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public uint DataSize
+    return:
+      type: System.UInt32
+    content.vb: Public DataSize As UInteger
+- uid: IGCLWrapper.AuxAccessArgsDto.Data
+  commentId: F:IGCLWrapper.AuxAccessArgsDto.Data
+  id: Data
+  parent: IGCLWrapper.AuxAccessArgsDto
+  langs:
+  - csharp
+  - vb
+  name: Data
+  nameWithType: AuxAccessArgsDto.Data
+  fullName: IGCLWrapper.AuxAccessArgsDto.Data
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Data
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6005
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public List<byte>? Data
+    return:
+      type: System.Collections.Generic.List{System.Byte}
+    content.vb: Public Data As List(Of Byte)
+- uid: IGCLWrapper.AuxAccessArgsDto.FromNative(IGCLWrapper.ctl_aux_access_args_t)
+  commentId: M:IGCLWrapper.AuxAccessArgsDto.FromNative(IGCLWrapper.ctl_aux_access_args_t)
+  id: FromNative(IGCLWrapper.ctl_aux_access_args_t)
+  parent: IGCLWrapper.AuxAccessArgsDto
+  langs:
+  - csharp
+  - vb
+  name: FromNative(ctl_aux_access_args_t)
+  nameWithType: AuxAccessArgsDto.FromNative(ctl_aux_access_args_t)
+  fullName: IGCLWrapper.AuxAccessArgsDto.FromNative(IGCLWrapper.ctl_aux_access_args_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: FromNative
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6007
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public static AuxAccessArgsDto FromNative(ctl_aux_access_args_t native)
+    parameters:
+    - id: native
+      type: IGCLWrapper.ctl_aux_access_args_t
+    return:
+      type: IGCLWrapper.AuxAccessArgsDto
+    content.vb: Public Shared Function FromNative(native As ctl_aux_access_args_t) As AuxAccessArgsDto
+  overload: IGCLWrapper.AuxAccessArgsDto.FromNative*
+- uid: IGCLWrapper.AuxAccessArgsDto.ToNative
+  commentId: M:IGCLWrapper.AuxAccessArgsDto.ToNative
+  id: ToNative
+  parent: IGCLWrapper.AuxAccessArgsDto
+  langs:
+  - csharp
+  - vb
+  name: ToNative()
+  nameWithType: AuxAccessArgsDto.ToNative()
+  fullName: IGCLWrapper.AuxAccessArgsDto.ToNative()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: ToNative
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6030
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_aux_access_args_t ToNative()
+    return:
+      type: IGCLWrapper.ctl_aux_access_args_t
+    content.vb: Public Function ToNative() As ctl_aux_access_args_t
+  overload: IGCLWrapper.AuxAccessArgsDto.ToNative*
+- uid: IGCLWrapper.AuxAccessArgsDto.Equals(IGCLWrapper.AuxAccessArgsDto)
+  commentId: M:IGCLWrapper.AuxAccessArgsDto.Equals(IGCLWrapper.AuxAccessArgsDto)
+  id: Equals(IGCLWrapper.AuxAccessArgsDto)
+  parent: IGCLWrapper.AuxAccessArgsDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(AuxAccessArgsDto)
+  nameWithType: AuxAccessArgsDto.Equals(AuxAccessArgsDto)
+  fullName: IGCLWrapper.AuxAccessArgsDto.Equals(IGCLWrapper.AuxAccessArgsDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6062
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(AuxAccessArgsDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.AuxAccessArgsDto
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As AuxAccessArgsDto) As Boolean
+  overload: IGCLWrapper.AuxAccessArgsDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.AuxAccessArgsDto}.Equals(IGCLWrapper.AuxAccessArgsDto)
+- uid: IGCLWrapper.AuxAccessArgsDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.AuxAccessArgsDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.AuxAccessArgsDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: AuxAccessArgsDto.Equals(object?)
+  fullName: IGCLWrapper.AuxAccessArgsDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6077
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Indicates whether this instance and a specified object are equal.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.AuxAccessArgsDto.Equals*
+  nameWithType.vb: AuxAccessArgsDto.Equals(Object)
+  fullName.vb: IGCLWrapper.AuxAccessArgsDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.AuxAccessArgsDto.GetHashCode
+  commentId: M:IGCLWrapper.AuxAccessArgsDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.AuxAccessArgsDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: AuxAccessArgsDto.GetHashCode()
+  fullName: IGCLWrapper.AuxAccessArgsDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6078
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Returns the hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A 32-bit signed integer that is the hash code for this instance.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.AuxAccessArgsDto.GetHashCode*
+- uid: IGCLWrapper.AuxAccessArgsDto.CreateReadRequest(System.UInt32,System.UInt32)
+  commentId: M:IGCLWrapper.AuxAccessArgsDto.CreateReadRequest(System.UInt32,System.UInt32)
+  id: CreateReadRequest(System.UInt32,System.UInt32)
+  parent: IGCLWrapper.AuxAccessArgsDto
+  langs:
+  - csharp
+  - vb
+  name: CreateReadRequest(uint, uint)
+  nameWithType: AuxAccessArgsDto.CreateReadRequest(uint, uint)
+  fullName: IGCLWrapper.AuxAccessArgsDto.CreateReadRequest(uint, uint)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: CreateReadRequest
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6080
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public static AuxAccessArgsDto CreateReadRequest(uint address, uint dataSize)
+    parameters:
+    - id: address
+      type: System.UInt32
+    - id: dataSize
+      type: System.UInt32
+    return:
+      type: IGCLWrapper.AuxAccessArgsDto
+    content.vb: Public Shared Function CreateReadRequest(address As UInteger, dataSize As UInteger) As AuxAccessArgsDto
+  overload: IGCLWrapper.AuxAccessArgsDto.CreateReadRequest*
+  nameWithType.vb: AuxAccessArgsDto.CreateReadRequest(UInteger, UInteger)
+  fullName.vb: IGCLWrapper.AuxAccessArgsDto.CreateReadRequest(UInteger, UInteger)
+  name.vb: CreateReadRequest(UInteger, UInteger)
+- uid: IGCLWrapper.AuxAccessArgsDto.CreateWriteRequest(System.UInt32,System.Collections.Generic.List{System.Byte})
+  commentId: M:IGCLWrapper.AuxAccessArgsDto.CreateWriteRequest(System.UInt32,System.Collections.Generic.List{System.Byte})
+  id: CreateWriteRequest(System.UInt32,System.Collections.Generic.List{System.Byte})
+  parent: IGCLWrapper.AuxAccessArgsDto
+  langs:
+  - csharp
+  - vb
+  name: CreateWriteRequest(uint, List<byte>)
+  nameWithType: AuxAccessArgsDto.CreateWriteRequest(uint, List<byte>)
+  fullName: IGCLWrapper.AuxAccessArgsDto.CreateWriteRequest(uint, System.Collections.Generic.List<byte>)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: CreateWriteRequest
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6083
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public static AuxAccessArgsDto CreateWriteRequest(uint address, List<byte> data)
+    parameters:
+    - id: address
+      type: System.UInt32
+    - id: data
+      type: System.Collections.Generic.List{System.Byte}
+    return:
+      type: IGCLWrapper.AuxAccessArgsDto
+    content.vb: Public Shared Function CreateWriteRequest(address As UInteger, data As List(Of Byte)) As AuxAccessArgsDto
+  overload: IGCLWrapper.AuxAccessArgsDto.CreateWriteRequest*
+  nameWithType.vb: AuxAccessArgsDto.CreateWriteRequest(UInteger, List(Of Byte))
+  fullName.vb: IGCLWrapper.AuxAccessArgsDto.CreateWriteRequest(UInteger, System.Collections.Generic.List(Of Byte))
+  name.vb: CreateWriteRequest(UInteger, List(Of Byte))
+references:
+- uid: IGCLWrapper
+  commentId: N:IGCLWrapper
+  href: IGCLWrapper.html
+  name: IGCLWrapper
+  nameWithType: IGCLWrapper
+  fullName: IGCLWrapper
+- uid: System.IEquatable{IGCLWrapper.AuxAccessArgsDto}
+  commentId: T:System.IEquatable{IGCLWrapper.AuxAccessArgsDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<AuxAccessArgsDto>
+  nameWithType: IEquatable<AuxAccessArgsDto>
+  fullName: System.IEquatable<IGCLWrapper.AuxAccessArgsDto>
+  nameWithType.vb: IEquatable(Of AuxAccessArgsDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.AuxAccessArgsDto)
+  name.vb: IEquatable(Of AuxAccessArgsDto)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.AuxAccessArgsDto
+    name: AuxAccessArgsDto
+    href: IGCLWrapper.AuxAccessArgsDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.AuxAccessArgsDto
+    name: AuxAccessArgsDto
+    href: IGCLWrapper.AuxAccessArgsDto.html
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: IGCLWrapper.ctl_operation_type_t
+  commentId: T:IGCLWrapper.ctl_operation_type_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_operation_type_t.html
+  name: ctl_operation_type_t
+  nameWithType: ctl_operation_type_t
+  fullName: IGCLWrapper.ctl_operation_type_t
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint64
+  name: ulong
+  nameWithType: ulong
+  fullName: ulong
+  nameWithType.vb: ULong
+  fullName.vb: ULong
+  name.vb: ULong
+- uid: System.Collections.Generic.List{System.Byte}
+  commentId: T:System.Collections.Generic.List{System.Byte}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<byte>
+  nameWithType: List<byte>
+  fullName: System.Collections.Generic.List<byte>
+  nameWithType.vb: List(Of Byte)
+  fullName.vb: System.Collections.Generic.List(Of Byte)
+  name.vb: List(Of Byte)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: IGCLWrapper.AuxAccessArgsDto.FromNative*
+  commentId: Overload:IGCLWrapper.AuxAccessArgsDto.FromNative
+  href: IGCLWrapper.AuxAccessArgsDto.html#IGCLWrapper_AuxAccessArgsDto_FromNative_IGCLWrapper_ctl_aux_access_args_t_
+  name: FromNative
+  nameWithType: AuxAccessArgsDto.FromNative
+  fullName: IGCLWrapper.AuxAccessArgsDto.FromNative
+- uid: IGCLWrapper.ctl_aux_access_args_t
+  commentId: T:IGCLWrapper.ctl_aux_access_args_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_aux_access_args_t.html
+  name: ctl_aux_access_args_t
+  nameWithType: ctl_aux_access_args_t
+  fullName: IGCLWrapper.ctl_aux_access_args_t
+- uid: IGCLWrapper.AuxAccessArgsDto
+  commentId: T:IGCLWrapper.AuxAccessArgsDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.AuxAccessArgsDto.html
+  name: AuxAccessArgsDto
+  nameWithType: AuxAccessArgsDto
+  fullName: IGCLWrapper.AuxAccessArgsDto
+- uid: IGCLWrapper.AuxAccessArgsDto.ToNative*
+  commentId: Overload:IGCLWrapper.AuxAccessArgsDto.ToNative
+  href: IGCLWrapper.AuxAccessArgsDto.html#IGCLWrapper_AuxAccessArgsDto_ToNative
+  name: ToNative
+  nameWithType: AuxAccessArgsDto.ToNative
+  fullName: IGCLWrapper.AuxAccessArgsDto.ToNative
+- uid: IGCLWrapper.AuxAccessArgsDto.Equals*
+  commentId: Overload:IGCLWrapper.AuxAccessArgsDto.Equals
+  href: IGCLWrapper.AuxAccessArgsDto.html#IGCLWrapper_AuxAccessArgsDto_Equals_IGCLWrapper_AuxAccessArgsDto_
+  name: Equals
+  nameWithType: AuxAccessArgsDto.Equals
+  fullName: IGCLWrapper.AuxAccessArgsDto.Equals
+- uid: System.IEquatable{IGCLWrapper.AuxAccessArgsDto}.Equals(IGCLWrapper.AuxAccessArgsDto)
+  commentId: M:System.IEquatable{IGCLWrapper.AuxAccessArgsDto}.Equals(IGCLWrapper.AuxAccessArgsDto)
+  parent: System.IEquatable{IGCLWrapper.AuxAccessArgsDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(AuxAccessArgsDto)
+  nameWithType: IEquatable<AuxAccessArgsDto>.Equals(AuxAccessArgsDto)
+  fullName: System.IEquatable<IGCLWrapper.AuxAccessArgsDto>.Equals(IGCLWrapper.AuxAccessArgsDto)
+  nameWithType.vb: IEquatable(Of AuxAccessArgsDto).Equals(AuxAccessArgsDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.AuxAccessArgsDto).Equals(IGCLWrapper.AuxAccessArgsDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.AuxAccessArgsDto}.Equals(IGCLWrapper.AuxAccessArgsDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.AuxAccessArgsDto
+    name: AuxAccessArgsDto
+    href: IGCLWrapper.AuxAccessArgsDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.AuxAccessArgsDto}.Equals(IGCLWrapper.AuxAccessArgsDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.AuxAccessArgsDto
+    name: AuxAccessArgsDto
+    href: IGCLWrapper.AuxAccessArgsDto.html
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.AuxAccessArgsDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.AuxAccessArgsDto.GetHashCode
+  href: IGCLWrapper.AuxAccessArgsDto.html#IGCLWrapper_AuxAccessArgsDto_GetHashCode
+  name: GetHashCode
+  nameWithType: AuxAccessArgsDto.GetHashCode
+  fullName: IGCLWrapper.AuxAccessArgsDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: IGCLWrapper.AuxAccessArgsDto.CreateReadRequest*
+  commentId: Overload:IGCLWrapper.AuxAccessArgsDto.CreateReadRequest
+  href: IGCLWrapper.AuxAccessArgsDto.html#IGCLWrapper_AuxAccessArgsDto_CreateReadRequest_System_UInt32_System_UInt32_
+  name: CreateReadRequest
+  nameWithType: AuxAccessArgsDto.CreateReadRequest
+  fullName: IGCLWrapper.AuxAccessArgsDto.CreateReadRequest
+- uid: IGCLWrapper.AuxAccessArgsDto.CreateWriteRequest*
+  commentId: Overload:IGCLWrapper.AuxAccessArgsDto.CreateWriteRequest
+  href: IGCLWrapper.AuxAccessArgsDto.html#IGCLWrapper_AuxAccessArgsDto_CreateWriteRequest_System_UInt32_System_Collections_Generic_List_System_Byte__
+  name: CreateWriteRequest
+  nameWithType: AuxAccessArgsDto.CreateWriteRequest
+  fullName: IGCLWrapper.AuxAccessArgsDto.CreateWriteRequest

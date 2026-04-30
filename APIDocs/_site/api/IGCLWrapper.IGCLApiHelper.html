@@ -160,7 +160,7 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLApiHelper_AreRuntimePathArgsEqual_IGCLWrapper_ctl_runtime_path_args_t_IGCLWrapper_ctl_runtime_path_args_t_" data-uid="IGCLWrapper.IGCLApiHelper.AreRuntimePathArgsEqual(IGCLWrapper.ctl_runtime_path_args_t,IGCLWrapper.ctl_runtime_path_args_t)">
   AreRuntimePathArgsEqual(ctl_runtime_path_args_t, ctl_runtime_path_args_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L228"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L273"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare runtime path arguments while ignoring native-only fields.</p>
@@ -198,11 +198,50 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
 
 
 
+  <a id="IGCLWrapper_IGCLApiHelper_CreateRuntimePathRequest_" data-uid="IGCLWrapper.IGCLApiHelper.CreateRuntimePathRequest*"></a>
+
+  <h3 id="IGCLWrapper_IGCLApiHelper_CreateRuntimePathRequest_System_String_" data-uid="IGCLWrapper.IGCLApiHelper.CreateRuntimePathRequest(System.String)">
+  CreateRuntimePathRequest(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L227"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Create a DTO request for setting the IGCL runtime path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RuntimePathArgsDto CreateRuntimePathRequest(string runtimePath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>runtimePath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Runtime path to use.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="IGCLWrapper.RuntimePathArgsDto.html">RuntimePathArgsDto</a></dt>
+    <dd><p>Initialized runtime path DTO.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="IGCLWrapper_IGCLApiHelper_Dispose_" data-uid="IGCLWrapper.IGCLApiHelper.Dispose*"></a>
 
   <h3 id="IGCLWrapper_IGCLApiHelper_Dispose" data-uid="IGCLWrapper.IGCLApiHelper.Dispose">
   Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L254"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L299"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Dispose the helper and release the underlying API handle.</p>
@@ -992,6 +1031,39 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
 
   <a id="IGCLWrapper_IGCLApiHelper_SetRuntimePath_" data-uid="IGCLWrapper.IGCLApiHelper.SetRuntimePath*"></a>
 
+  <h3 id="IGCLWrapper_IGCLApiHelper_SetRuntimePath_IGCLWrapper_RuntimePathArgsDto_" data-uid="IGCLWrapper.IGCLApiHelper.SetRuntimePath(IGCLWrapper.RuntimePathArgsDto)">
+  SetRuntimePath(RuntimePathArgsDto)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L251"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set the IGCL runtime path using a DTO request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetRuntimePath(RuntimePathArgsDto args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>args</code> <a class="xref" href="IGCLWrapper.RuntimePathArgsDto.html">RuntimePathArgsDto</a></dt>
+    <dd><p>Runtime path DTO.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_IGCLApiHelper_SetRuntimePath_" data-uid="IGCLWrapper.IGCLApiHelper.SetRuntimePath*"></a>
+
   <h3 id="IGCLWrapper_IGCLApiHelper_SetRuntimePath_IGCLWrapper_ctl_runtime_path_args_t_" data-uid="IGCLWrapper.IGCLApiHelper.SetRuntimePath(IGCLWrapper.ctl_runtime_path_args_t)">
   SetRuntimePath(ctl_runtime_path_args_t)
   <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L209"><i class="bi bi-code-slash"></i></a>
@@ -1009,6 +1081,39 @@ Class IGCLApiHelper  <a class="header-action link-secondary" title="View source"
   <dl class="parameters">
     <dt><code>args</code> <a class="xref" href="IGCLWrapper.ctl_runtime_path_args_t.html">ctl_runtime_path_args_t</a></dt>
     <dd><p>Runtime path arguments.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_IGCLApiHelper_ValidateSetRuntimePathRequest_" data-uid="IGCLWrapper.IGCLApiHelper.ValidateSetRuntimePathRequest*"></a>
+
+  <h3 id="IGCLWrapper_IGCLApiHelper_ValidateSetRuntimePathRequest_IGCLWrapper_RuntimePathArgsDto_" data-uid="IGCLWrapper.IGCLApiHelper.ValidateSetRuntimePathRequest(IGCLWrapper.RuntimePathArgsDto)">
+  ValidateSetRuntimePathRequest(RuntimePathArgsDto)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L241"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Validate a runtime path DTO request before invoking the native API.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ValidateSetRuntimePathRequest(RuntimePathArgsDto args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>args</code> <a class="xref" href="IGCLWrapper.RuntimePathArgsDto.html">RuntimePathArgsDto</a></dt>
+    <dd><p>Runtime path DTO.</p>
 </dd>
   </dl>
 

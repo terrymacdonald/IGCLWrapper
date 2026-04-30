@@ -1,0 +1,883 @@
+### YamlMime:ManagedReference
+items:
+- uid: IGCLWrapper.PixtxPipeGetConfigDto
+  commentId: T:IGCLWrapper.PixtxPipeGetConfigDto
+  id: PixtxPipeGetConfigDto
+  parent: IGCLWrapper
+  children:
+  - IGCLWrapper.PixtxPipeGetConfigDto.CreateCapabilityRequest
+  - IGCLWrapper.PixtxPipeGetConfigDto.CreateCurrentRequest
+  - IGCLWrapper.PixtxPipeGetConfigDto.Equals(IGCLWrapper.PixtxPipeGetConfigDto)
+  - IGCLWrapper.PixtxPipeGetConfigDto.Equals(System.Object)
+  - IGCLWrapper.PixtxPipeGetConfigDto.FromNative(IGCLWrapper.ctl_pixtx_pipe_get_config_t)
+  - IGCLWrapper.PixtxPipeGetConfigDto.GetHashCode
+  - IGCLWrapper.PixtxPipeGetConfigDto.InputPixelFormat
+  - IGCLWrapper.PixtxPipeGetConfigDto.NumBlocks
+  - IGCLWrapper.PixtxPipeGetConfigDto.OutputPixelFormat
+  - IGCLWrapper.PixtxPipeGetConfigDto.QueryType
+  - IGCLWrapper.PixtxPipeGetConfigDto.Size
+  - IGCLWrapper.PixtxPipeGetConfigDto.ToNative
+  - IGCLWrapper.PixtxPipeGetConfigDto.Version
+  langs:
+  - csharp
+  - vb
+  name: PixtxPipeGetConfigDto
+  nameWithType: PixtxPipeGetConfigDto
+  fullName: IGCLWrapper.PixtxPipeGetConfigDto
+  type: Struct
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: PixtxPipeGetConfigDto
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6283
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: DTO for pixel transformation pipe get config (metadata only; LUT sample values require native methods).
+  example: []
+  syntax:
+    content: 'public struct PixtxPipeGetConfigDto : IEquatable<PixtxPipeGetConfigDto>'
+    content.vb: Public Structure PixtxPipeGetConfigDto Implements IEquatable(Of PixtxPipeGetConfigDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.PixtxPipeGetConfigDto}
+  inheritedMembers:
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.PixtxPipeGetConfigDto.Size
+  commentId: F:IGCLWrapper.PixtxPipeGetConfigDto.Size
+  id: Size
+  parent: IGCLWrapper.PixtxPipeGetConfigDto
+  langs:
+  - csharp
+  - vb
+  name: Size
+  nameWithType: PixtxPipeGetConfigDto.Size
+  fullName: IGCLWrapper.PixtxPipeGetConfigDto.Size
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Size
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6285
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public uint Size
+    return:
+      type: System.UInt32
+    content.vb: Public Size As UInteger
+- uid: IGCLWrapper.PixtxPipeGetConfigDto.Version
+  commentId: F:IGCLWrapper.PixtxPipeGetConfigDto.Version
+  id: Version
+  parent: IGCLWrapper.PixtxPipeGetConfigDto
+  langs:
+  - csharp
+  - vb
+  name: Version
+  nameWithType: PixtxPipeGetConfigDto.Version
+  fullName: IGCLWrapper.PixtxPipeGetConfigDto.Version
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Version
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6286
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public byte Version
+    return:
+      type: System.Byte
+    content.vb: Public Version As Byte
+- uid: IGCLWrapper.PixtxPipeGetConfigDto.QueryType
+  commentId: F:IGCLWrapper.PixtxPipeGetConfigDto.QueryType
+  id: QueryType
+  parent: IGCLWrapper.PixtxPipeGetConfigDto
+  langs:
+  - csharp
+  - vb
+  name: QueryType
+  nameWithType: PixtxPipeGetConfigDto.QueryType
+  fullName: IGCLWrapper.PixtxPipeGetConfigDto.QueryType
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: QueryType
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6287
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_pixtx_config_query_type_t QueryType
+    return:
+      type: IGCLWrapper.ctl_pixtx_config_query_type_t
+    content.vb: Public QueryType As ctl_pixtx_config_query_type_t
+- uid: IGCLWrapper.PixtxPipeGetConfigDto.InputPixelFormat
+  commentId: F:IGCLWrapper.PixtxPipeGetConfigDto.InputPixelFormat
+  id: InputPixelFormat
+  parent: IGCLWrapper.PixtxPipeGetConfigDto
+  langs:
+  - csharp
+  - vb
+  name: InputPixelFormat
+  nameWithType: PixtxPipeGetConfigDto.InputPixelFormat
+  fullName: IGCLWrapper.PixtxPipeGetConfigDto.InputPixelFormat
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: InputPixelFormat
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6288
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public PixtxPixelFormatDto InputPixelFormat
+    return:
+      type: IGCLWrapper.PixtxPixelFormatDto
+    content.vb: Public InputPixelFormat As PixtxPixelFormatDto
+- uid: IGCLWrapper.PixtxPipeGetConfigDto.OutputPixelFormat
+  commentId: F:IGCLWrapper.PixtxPipeGetConfigDto.OutputPixelFormat
+  id: OutputPixelFormat
+  parent: IGCLWrapper.PixtxPipeGetConfigDto
+  langs:
+  - csharp
+  - vb
+  name: OutputPixelFormat
+  nameWithType: PixtxPipeGetConfigDto.OutputPixelFormat
+  fullName: IGCLWrapper.PixtxPipeGetConfigDto.OutputPixelFormat
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: OutputPixelFormat
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6289
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public PixtxPixelFormatDto OutputPixelFormat
+    return:
+      type: IGCLWrapper.PixtxPixelFormatDto
+    content.vb: Public OutputPixelFormat As PixtxPixelFormatDto
+- uid: IGCLWrapper.PixtxPipeGetConfigDto.NumBlocks
+  commentId: F:IGCLWrapper.PixtxPipeGetConfigDto.NumBlocks
+  id: NumBlocks
+  parent: IGCLWrapper.PixtxPipeGetConfigDto
+  langs:
+  - csharp
+  - vb
+  name: NumBlocks
+  nameWithType: PixtxPipeGetConfigDto.NumBlocks
+  fullName: IGCLWrapper.PixtxPipeGetConfigDto.NumBlocks
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: NumBlocks
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6290
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public uint NumBlocks
+    return:
+      type: System.UInt32
+    content.vb: Public NumBlocks As UInteger
+- uid: IGCLWrapper.PixtxPipeGetConfigDto.FromNative(IGCLWrapper.ctl_pixtx_pipe_get_config_t)
+  commentId: M:IGCLWrapper.PixtxPipeGetConfigDto.FromNative(IGCLWrapper.ctl_pixtx_pipe_get_config_t)
+  id: FromNative(IGCLWrapper.ctl_pixtx_pipe_get_config_t)
+  parent: IGCLWrapper.PixtxPipeGetConfigDto
+  langs:
+  - csharp
+  - vb
+  name: FromNative(ctl_pixtx_pipe_get_config_t)
+  nameWithType: PixtxPipeGetConfigDto.FromNative(ctl_pixtx_pipe_get_config_t)
+  fullName: IGCLWrapper.PixtxPipeGetConfigDto.FromNative(IGCLWrapper.ctl_pixtx_pipe_get_config_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: FromNative
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6292
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public static PixtxPipeGetConfigDto FromNative(ctl_pixtx_pipe_get_config_t native)
+    parameters:
+    - id: native
+      type: IGCLWrapper.ctl_pixtx_pipe_get_config_t
+    return:
+      type: IGCLWrapper.PixtxPipeGetConfigDto
+    content.vb: Public Shared Function FromNative(native As ctl_pixtx_pipe_get_config_t) As PixtxPipeGetConfigDto
+  overload: IGCLWrapper.PixtxPipeGetConfigDto.FromNative*
+- uid: IGCLWrapper.PixtxPipeGetConfigDto.ToNative
+  commentId: M:IGCLWrapper.PixtxPipeGetConfigDto.ToNative
+  id: ToNative
+  parent: IGCLWrapper.PixtxPipeGetConfigDto
+  langs:
+  - csharp
+  - vb
+  name: ToNative()
+  nameWithType: PixtxPipeGetConfigDto.ToNative()
+  fullName: IGCLWrapper.PixtxPipeGetConfigDto.ToNative()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: ToNative
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6303
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public ctl_pixtx_pipe_get_config_t ToNative()
+    return:
+      type: IGCLWrapper.ctl_pixtx_pipe_get_config_t
+    content.vb: Public Function ToNative() As ctl_pixtx_pipe_get_config_t
+  overload: IGCLWrapper.PixtxPipeGetConfigDto.ToNative*
+- uid: IGCLWrapper.PixtxPipeGetConfigDto.Equals(IGCLWrapper.PixtxPipeGetConfigDto)
+  commentId: M:IGCLWrapper.PixtxPipeGetConfigDto.Equals(IGCLWrapper.PixtxPipeGetConfigDto)
+  id: Equals(IGCLWrapper.PixtxPipeGetConfigDto)
+  parent: IGCLWrapper.PixtxPipeGetConfigDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(PixtxPipeGetConfigDto)
+  nameWithType: PixtxPipeGetConfigDto.Equals(PixtxPipeGetConfigDto)
+  fullName: IGCLWrapper.PixtxPipeGetConfigDto.Equals(IGCLWrapper.PixtxPipeGetConfigDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6315
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(PixtxPipeGetConfigDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.PixtxPipeGetConfigDto
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As PixtxPipeGetConfigDto) As Boolean
+  overload: IGCLWrapper.PixtxPipeGetConfigDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.PixtxPipeGetConfigDto}.Equals(IGCLWrapper.PixtxPipeGetConfigDto)
+- uid: IGCLWrapper.PixtxPipeGetConfigDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.PixtxPipeGetConfigDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.PixtxPipeGetConfigDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: PixtxPipeGetConfigDto.Equals(object?)
+  fullName: IGCLWrapper.PixtxPipeGetConfigDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6320
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Indicates whether this instance and a specified object are equal.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.PixtxPipeGetConfigDto.Equals*
+  nameWithType.vb: PixtxPipeGetConfigDto.Equals(Object)
+  fullName.vb: IGCLWrapper.PixtxPipeGetConfigDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.PixtxPipeGetConfigDto.GetHashCode
+  commentId: M:IGCLWrapper.PixtxPipeGetConfigDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.PixtxPipeGetConfigDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: PixtxPipeGetConfigDto.GetHashCode()
+  fullName: IGCLWrapper.PixtxPipeGetConfigDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6321
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Returns the hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A 32-bit signed integer that is the hash code for this instance.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.PixtxPipeGetConfigDto.GetHashCode*
+- uid: IGCLWrapper.PixtxPipeGetConfigDto.CreateCapabilityRequest
+  commentId: M:IGCLWrapper.PixtxPipeGetConfigDto.CreateCapabilityRequest
+  id: CreateCapabilityRequest
+  parent: IGCLWrapper.PixtxPipeGetConfigDto
+  langs:
+  - csharp
+  - vb
+  name: CreateCapabilityRequest()
+  nameWithType: PixtxPipeGetConfigDto.CreateCapabilityRequest()
+  fullName: IGCLWrapper.PixtxPipeGetConfigDto.CreateCapabilityRequest()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: CreateCapabilityRequest
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6323
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public static PixtxPipeGetConfigDto CreateCapabilityRequest()
+    return:
+      type: IGCLWrapper.PixtxPipeGetConfigDto
+    content.vb: Public Shared Function CreateCapabilityRequest() As PixtxPipeGetConfigDto
+  overload: IGCLWrapper.PixtxPipeGetConfigDto.CreateCapabilityRequest*
+- uid: IGCLWrapper.PixtxPipeGetConfigDto.CreateCurrentRequest
+  commentId: M:IGCLWrapper.PixtxPipeGetConfigDto.CreateCurrentRequest
+  id: CreateCurrentRequest
+  parent: IGCLWrapper.PixtxPipeGetConfigDto
+  langs:
+  - csharp
+  - vb
+  name: CreateCurrentRequest()
+  nameWithType: PixtxPipeGetConfigDto.CreateCurrentRequest()
+  fullName: IGCLWrapper.PixtxPipeGetConfigDto.CreateCurrentRequest()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: CreateCurrentRequest
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6326
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public static PixtxPipeGetConfigDto CreateCurrentRequest()
+    return:
+      type: IGCLWrapper.PixtxPipeGetConfigDto
+    content.vb: Public Shared Function CreateCurrentRequest() As PixtxPipeGetConfigDto
+  overload: IGCLWrapper.PixtxPipeGetConfigDto.CreateCurrentRequest*
+references:
+- uid: IGCLWrapper
+  commentId: N:IGCLWrapper
+  href: IGCLWrapper.html
+  name: IGCLWrapper
+  nameWithType: IGCLWrapper
+  fullName: IGCLWrapper
+- uid: System.IEquatable{IGCLWrapper.PixtxPipeGetConfigDto}
+  commentId: T:System.IEquatable{IGCLWrapper.PixtxPipeGetConfigDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<PixtxPipeGetConfigDto>
+  nameWithType: IEquatable<PixtxPipeGetConfigDto>
+  fullName: System.IEquatable<IGCLWrapper.PixtxPipeGetConfigDto>
+  nameWithType.vb: IEquatable(Of PixtxPipeGetConfigDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.PixtxPipeGetConfigDto)
+  name.vb: IEquatable(Of PixtxPipeGetConfigDto)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.PixtxPipeGetConfigDto
+    name: PixtxPipeGetConfigDto
+    href: IGCLWrapper.PixtxPipeGetConfigDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.PixtxPipeGetConfigDto
+    name: PixtxPipeGetConfigDto
+    href: IGCLWrapper.PixtxPipeGetConfigDto.html
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: IGCLWrapper.ctl_pixtx_config_query_type_t
+  commentId: T:IGCLWrapper.ctl_pixtx_config_query_type_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_pixtx_config_query_type_t.html
+  name: ctl_pixtx_config_query_type_t
+  nameWithType: ctl_pixtx_config_query_type_t
+  fullName: IGCLWrapper.ctl_pixtx_config_query_type_t
+- uid: IGCLWrapper.PixtxPixelFormatDto
+  commentId: T:IGCLWrapper.PixtxPixelFormatDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.PixtxPixelFormatDto.html
+  name: PixtxPixelFormatDto
+  nameWithType: PixtxPixelFormatDto
+  fullName: IGCLWrapper.PixtxPixelFormatDto
+- uid: IGCLWrapper.PixtxPipeGetConfigDto.FromNative*
+  commentId: Overload:IGCLWrapper.PixtxPipeGetConfigDto.FromNative
+  href: IGCLWrapper.PixtxPipeGetConfigDto.html#IGCLWrapper_PixtxPipeGetConfigDto_FromNative_IGCLWrapper_ctl_pixtx_pipe_get_config_t_
+  name: FromNative
+  nameWithType: PixtxPipeGetConfigDto.FromNative
+  fullName: IGCLWrapper.PixtxPipeGetConfigDto.FromNative
+- uid: IGCLWrapper.ctl_pixtx_pipe_get_config_t
+  commentId: T:IGCLWrapper.ctl_pixtx_pipe_get_config_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_pixtx_pipe_get_config_t.html
+  name: ctl_pixtx_pipe_get_config_t
+  nameWithType: ctl_pixtx_pipe_get_config_t
+  fullName: IGCLWrapper.ctl_pixtx_pipe_get_config_t
+- uid: IGCLWrapper.PixtxPipeGetConfigDto
+  commentId: T:IGCLWrapper.PixtxPipeGetConfigDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.PixtxPipeGetConfigDto.html
+  name: PixtxPipeGetConfigDto
+  nameWithType: PixtxPipeGetConfigDto
+  fullName: IGCLWrapper.PixtxPipeGetConfigDto
+- uid: IGCLWrapper.PixtxPipeGetConfigDto.ToNative*
+  commentId: Overload:IGCLWrapper.PixtxPipeGetConfigDto.ToNative
+  href: IGCLWrapper.PixtxPipeGetConfigDto.html#IGCLWrapper_PixtxPipeGetConfigDto_ToNative
+  name: ToNative
+  nameWithType: PixtxPipeGetConfigDto.ToNative
+  fullName: IGCLWrapper.PixtxPipeGetConfigDto.ToNative
+- uid: IGCLWrapper.PixtxPipeGetConfigDto.Equals*
+  commentId: Overload:IGCLWrapper.PixtxPipeGetConfigDto.Equals
+  href: IGCLWrapper.PixtxPipeGetConfigDto.html#IGCLWrapper_PixtxPipeGetConfigDto_Equals_IGCLWrapper_PixtxPipeGetConfigDto_
+  name: Equals
+  nameWithType: PixtxPipeGetConfigDto.Equals
+  fullName: IGCLWrapper.PixtxPipeGetConfigDto.Equals
+- uid: System.IEquatable{IGCLWrapper.PixtxPipeGetConfigDto}.Equals(IGCLWrapper.PixtxPipeGetConfigDto)
+  commentId: M:System.IEquatable{IGCLWrapper.PixtxPipeGetConfigDto}.Equals(IGCLWrapper.PixtxPipeGetConfigDto)
+  parent: System.IEquatable{IGCLWrapper.PixtxPipeGetConfigDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(PixtxPipeGetConfigDto)
+  nameWithType: IEquatable<PixtxPipeGetConfigDto>.Equals(PixtxPipeGetConfigDto)
+  fullName: System.IEquatable<IGCLWrapper.PixtxPipeGetConfigDto>.Equals(IGCLWrapper.PixtxPipeGetConfigDto)
+  nameWithType.vb: IEquatable(Of PixtxPipeGetConfigDto).Equals(PixtxPipeGetConfigDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.PixtxPipeGetConfigDto).Equals(IGCLWrapper.PixtxPipeGetConfigDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.PixtxPipeGetConfigDto}.Equals(IGCLWrapper.PixtxPipeGetConfigDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.PixtxPipeGetConfigDto
+    name: PixtxPipeGetConfigDto
+    href: IGCLWrapper.PixtxPipeGetConfigDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.PixtxPipeGetConfigDto}.Equals(IGCLWrapper.PixtxPipeGetConfigDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.PixtxPipeGetConfigDto
+    name: PixtxPipeGetConfigDto
+    href: IGCLWrapper.PixtxPipeGetConfigDto.html
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.PixtxPipeGetConfigDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.PixtxPipeGetConfigDto.GetHashCode
+  href: IGCLWrapper.PixtxPipeGetConfigDto.html#IGCLWrapper_PixtxPipeGetConfigDto_GetHashCode
+  name: GetHashCode
+  nameWithType: PixtxPipeGetConfigDto.GetHashCode
+  fullName: IGCLWrapper.PixtxPipeGetConfigDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: IGCLWrapper.PixtxPipeGetConfigDto.CreateCapabilityRequest*
+  commentId: Overload:IGCLWrapper.PixtxPipeGetConfigDto.CreateCapabilityRequest
+  href: IGCLWrapper.PixtxPipeGetConfigDto.html#IGCLWrapper_PixtxPipeGetConfigDto_CreateCapabilityRequest
+  name: CreateCapabilityRequest
+  nameWithType: PixtxPipeGetConfigDto.CreateCapabilityRequest
+  fullName: IGCLWrapper.PixtxPipeGetConfigDto.CreateCapabilityRequest
+- uid: IGCLWrapper.PixtxPipeGetConfigDto.CreateCurrentRequest*
+  commentId: Overload:IGCLWrapper.PixtxPipeGetConfigDto.CreateCurrentRequest
+  href: IGCLWrapper.PixtxPipeGetConfigDto.html#IGCLWrapper_PixtxPipeGetConfigDto_CreateCurrentRequest
+  name: CreateCurrentRequest
+  nameWithType: PixtxPipeGetConfigDto.CreateCurrentRequest
+  fullName: IGCLWrapper.PixtxPipeGetConfigDto.CreateCurrentRequest

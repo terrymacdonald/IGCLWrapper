@@ -100,18 +100,18 @@ items:
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Get memory module properties.
+  summary: Get memory module properties as a DTO.
   example: []
   syntax:
-    content: public ctl_mem_properties_t MemoryGetProperties(nint memoryHandle)
+    content: public MemoryPropertiesDto MemoryGetProperties(nint memoryHandle)
     parameters:
     - id: memoryHandle
       type: System.IntPtr
       description: Memory module handle.
     return:
-      type: IGCLWrapper.ctl_mem_properties_t
-      description: Memory properties struct.
-    content.vb: Public Function MemoryGetProperties(memoryHandle As IntPtr) As ctl_mem_properties_t
+      type: IGCLWrapper.MemoryPropertiesDto
+      description: Memory properties DTO.
+    content.vb: Public Function MemoryGetProperties(memoryHandle As IntPtr) As MemoryPropertiesDto
   overload: IGCLWrapper.IGCLMemoryHelper.MemoryGetProperties*
   nameWithType.vb: IGCLMemoryHelper.MemoryGetProperties(IntPtr)
   fullName.vb: IGCLWrapper.IGCLMemoryHelper.MemoryGetProperties(System.IntPtr)
@@ -138,18 +138,18 @@ items:
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Get current memory module state.
+  summary: Get current memory module state as a DTO.
   example: []
   syntax:
-    content: public ctl_mem_state_t MemoryGetState(nint memoryHandle)
+    content: public MemoryStateDto MemoryGetState(nint memoryHandle)
     parameters:
     - id: memoryHandle
       type: System.IntPtr
       description: Memory module handle.
     return:
-      type: IGCLWrapper.ctl_mem_state_t
-      description: Memory state struct.
-    content.vb: Public Function MemoryGetState(memoryHandle As IntPtr) As ctl_mem_state_t
+      type: IGCLWrapper.MemoryStateDto
+      description: Memory state DTO.
+    content.vb: Public Function MemoryGetState(memoryHandle As IntPtr) As MemoryStateDto
   overload: IGCLWrapper.IGCLMemoryHelper.MemoryGetState*
   nameWithType.vb: IGCLMemoryHelper.MemoryGetState(IntPtr)
   fullName.vb: IGCLWrapper.IGCLMemoryHelper.MemoryGetState(System.IntPtr)
@@ -176,18 +176,18 @@ items:
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Get memory bandwidth information.
+  summary: Get memory bandwidth information as a DTO.
   example: []
   syntax:
-    content: public ctl_mem_bandwidth_t MemoryGetBandwidth(nint memoryHandle)
+    content: public MemoryBandwidthDto MemoryGetBandwidth(nint memoryHandle)
     parameters:
     - id: memoryHandle
       type: System.IntPtr
       description: Memory module handle.
     return:
-      type: IGCLWrapper.ctl_mem_bandwidth_t
-      description: Memory bandwidth struct.
-    content.vb: Public Function MemoryGetBandwidth(memoryHandle As IntPtr) As ctl_mem_bandwidth_t
+      type: IGCLWrapper.MemoryBandwidthDto
+      description: Memory bandwidth DTO.
+    content.vb: Public Function MemoryGetBandwidth(memoryHandle As IntPtr) As MemoryBandwidthDto
   overload: IGCLWrapper.IGCLMemoryHelper.MemoryGetBandwidth*
   nameWithType.vb: IGCLMemoryHelper.MemoryGetBandwidth(IntPtr)
   fullName.vb: IGCLWrapper.IGCLMemoryHelper.MemoryGetBandwidth(System.IntPtr)
@@ -687,6 +687,45 @@ references:
   nameWithType.vb: IntPtr
   fullName.vb: System.IntPtr
   name.vb: IntPtr
+- uid: IGCLWrapper.MemoryPropertiesDto
+  commentId: T:IGCLWrapper.MemoryPropertiesDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.MemoryPropertiesDto.html
+  name: MemoryPropertiesDto
+  nameWithType: MemoryPropertiesDto
+  fullName: IGCLWrapper.MemoryPropertiesDto
+- uid: IGCLWrapper.IGCLMemoryHelper.MemoryGetState*
+  commentId: Overload:IGCLWrapper.IGCLMemoryHelper.MemoryGetState
+  href: IGCLWrapper.IGCLMemoryHelper.html#IGCLWrapper_IGCLMemoryHelper_MemoryGetState_System_IntPtr_
+  name: MemoryGetState
+  nameWithType: IGCLMemoryHelper.MemoryGetState
+  fullName: IGCLWrapper.IGCLMemoryHelper.MemoryGetState
+- uid: IGCLWrapper.MemoryStateDto
+  commentId: T:IGCLWrapper.MemoryStateDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.MemoryStateDto.html
+  name: MemoryStateDto
+  nameWithType: MemoryStateDto
+  fullName: IGCLWrapper.MemoryStateDto
+- uid: IGCLWrapper.IGCLMemoryHelper.MemoryGetBandwidth*
+  commentId: Overload:IGCLWrapper.IGCLMemoryHelper.MemoryGetBandwidth
+  href: IGCLWrapper.IGCLMemoryHelper.html#IGCLWrapper_IGCLMemoryHelper_MemoryGetBandwidth_System_IntPtr_
+  name: MemoryGetBandwidth
+  nameWithType: IGCLMemoryHelper.MemoryGetBandwidth
+  fullName: IGCLWrapper.IGCLMemoryHelper.MemoryGetBandwidth
+- uid: IGCLWrapper.MemoryBandwidthDto
+  commentId: T:IGCLWrapper.MemoryBandwidthDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.MemoryBandwidthDto.html
+  name: MemoryBandwidthDto
+  nameWithType: MemoryBandwidthDto
+  fullName: IGCLWrapper.MemoryBandwidthDto
+- uid: IGCLWrapper.IGCLMemoryHelper.AreMemoryPropertiesEqual*
+  commentId: Overload:IGCLWrapper.IGCLMemoryHelper.AreMemoryPropertiesEqual
+  href: IGCLWrapper.IGCLMemoryHelper.html#IGCLWrapper_IGCLMemoryHelper_AreMemoryPropertiesEqual_IGCLWrapper_ctl_mem_properties_t_IGCLWrapper_ctl_mem_properties_t_
+  name: AreMemoryPropertiesEqual
+  nameWithType: IGCLMemoryHelper.AreMemoryPropertiesEqual
+  fullName: IGCLWrapper.IGCLMemoryHelper.AreMemoryPropertiesEqual
 - uid: IGCLWrapper.ctl_mem_properties_t
   commentId: T:IGCLWrapper.ctl_mem_properties_t
   parent: IGCLWrapper
@@ -694,38 +733,6 @@ references:
   name: ctl_mem_properties_t
   nameWithType: ctl_mem_properties_t
   fullName: IGCLWrapper.ctl_mem_properties_t
-- uid: IGCLWrapper.IGCLMemoryHelper.MemoryGetState*
-  commentId: Overload:IGCLWrapper.IGCLMemoryHelper.MemoryGetState
-  href: IGCLWrapper.IGCLMemoryHelper.html#IGCLWrapper_IGCLMemoryHelper_MemoryGetState_System_IntPtr_
-  name: MemoryGetState
-  nameWithType: IGCLMemoryHelper.MemoryGetState
-  fullName: IGCLWrapper.IGCLMemoryHelper.MemoryGetState
-- uid: IGCLWrapper.ctl_mem_state_t
-  commentId: T:IGCLWrapper.ctl_mem_state_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_mem_state_t.html
-  name: ctl_mem_state_t
-  nameWithType: ctl_mem_state_t
-  fullName: IGCLWrapper.ctl_mem_state_t
-- uid: IGCLWrapper.IGCLMemoryHelper.MemoryGetBandwidth*
-  commentId: Overload:IGCLWrapper.IGCLMemoryHelper.MemoryGetBandwidth
-  href: IGCLWrapper.IGCLMemoryHelper.html#IGCLWrapper_IGCLMemoryHelper_MemoryGetBandwidth_System_IntPtr_
-  name: MemoryGetBandwidth
-  nameWithType: IGCLMemoryHelper.MemoryGetBandwidth
-  fullName: IGCLWrapper.IGCLMemoryHelper.MemoryGetBandwidth
-- uid: IGCLWrapper.ctl_mem_bandwidth_t
-  commentId: T:IGCLWrapper.ctl_mem_bandwidth_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_mem_bandwidth_t.html
-  name: ctl_mem_bandwidth_t
-  nameWithType: ctl_mem_bandwidth_t
-  fullName: IGCLWrapper.ctl_mem_bandwidth_t
-- uid: IGCLWrapper.IGCLMemoryHelper.AreMemoryPropertiesEqual*
-  commentId: Overload:IGCLWrapper.IGCLMemoryHelper.AreMemoryPropertiesEqual
-  href: IGCLWrapper.IGCLMemoryHelper.html#IGCLWrapper_IGCLMemoryHelper_AreMemoryPropertiesEqual_IGCLWrapper_ctl_mem_properties_t_IGCLWrapper_ctl_mem_properties_t_
-  name: AreMemoryPropertiesEqual
-  nameWithType: IGCLMemoryHelper.AreMemoryPropertiesEqual
-  fullName: IGCLWrapper.IGCLMemoryHelper.AreMemoryPropertiesEqual
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System
@@ -743,12 +750,26 @@ references:
   name: AreMemoryStatesEqual
   nameWithType: IGCLMemoryHelper.AreMemoryStatesEqual
   fullName: IGCLWrapper.IGCLMemoryHelper.AreMemoryStatesEqual
+- uid: IGCLWrapper.ctl_mem_state_t
+  commentId: T:IGCLWrapper.ctl_mem_state_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_mem_state_t.html
+  name: ctl_mem_state_t
+  nameWithType: ctl_mem_state_t
+  fullName: IGCLWrapper.ctl_mem_state_t
 - uid: IGCLWrapper.IGCLMemoryHelper.AreMemoryBandwidthEqual*
   commentId: Overload:IGCLWrapper.IGCLMemoryHelper.AreMemoryBandwidthEqual
   href: IGCLWrapper.IGCLMemoryHelper.html#IGCLWrapper_IGCLMemoryHelper_AreMemoryBandwidthEqual_IGCLWrapper_ctl_mem_bandwidth_t_IGCLWrapper_ctl_mem_bandwidth_t_
   name: AreMemoryBandwidthEqual
   nameWithType: IGCLMemoryHelper.AreMemoryBandwidthEqual
   fullName: IGCLWrapper.IGCLMemoryHelper.AreMemoryBandwidthEqual
+- uid: IGCLWrapper.ctl_mem_bandwidth_t
+  commentId: T:IGCLWrapper.ctl_mem_bandwidth_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_mem_bandwidth_t.html
+  name: ctl_mem_bandwidth_t
+  nameWithType: ctl_mem_bandwidth_t
+  fullName: IGCLWrapper.ctl_mem_bandwidth_t
 - uid: IGCLWrapper.IGCLMemoryHelper.Dispose*
   commentId: Overload:IGCLWrapper.IGCLMemoryHelper.Dispose
   href: IGCLWrapper.IGCLMemoryHelper.html#IGCLWrapper_IGCLMemoryHelper_Dispose

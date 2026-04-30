@@ -14,11 +14,10 @@ items:
   - IGCLWrapper.IGCLFrequencyHelper.EnumFrequencyDomains
   - IGCLWrapper.IGCLFrequencyHelper.FrequencyGetAvailableClocks(System.IntPtr)
   - IGCLWrapper.IGCLFrequencyHelper.FrequencyGetProperties(System.IntPtr)
-  - IGCLWrapper.IGCLFrequencyHelper.FrequencyGetPropertiesNative(System.IntPtr)
   - IGCLWrapper.IGCLFrequencyHelper.FrequencyGetRange(System.IntPtr)
   - IGCLWrapper.IGCLFrequencyHelper.FrequencyGetState(System.IntPtr)
   - IGCLWrapper.IGCLFrequencyHelper.FrequencyGetThrottleTime(System.IntPtr)
-  - IGCLWrapper.IGCLFrequencyHelper.FrequencySetRange(System.IntPtr,IGCLWrapper.ctl_freq_range_t)
+  - IGCLWrapper.IGCLFrequencyHelper.FrequencySetRange(System.IntPtr,IGCLWrapper.FrequencyRangeDto)
   langs:
   - csharp
   - vb
@@ -33,7 +32,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IGCLFrequencyHelper
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 8
+    startLine: 9
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -71,7 +70,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumFrequencyDomains
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 24
+    startLine: 25
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -84,44 +83,6 @@ items:
       description: Read-only list of frequency domain handles.
     content.vb: Public Function EnumFrequencyDomains() As IReadOnlyList(Of IntPtr)
   overload: IGCLWrapper.IGCLFrequencyHelper.EnumFrequencyDomains*
-- uid: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetPropertiesNative(System.IntPtr)
-  commentId: M:IGCLWrapper.IGCLFrequencyHelper.FrequencyGetPropertiesNative(System.IntPtr)
-  id: FrequencyGetPropertiesNative(System.IntPtr)
-  parent: IGCLWrapper.IGCLFrequencyHelper
-  langs:
-  - csharp
-  - vb
-  name: FrequencyGetPropertiesNative(nint)
-  nameWithType: IGCLFrequencyHelper.FrequencyGetPropertiesNative(nint)
-  fullName: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetPropertiesNative(nint)
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLFrequencyHelper.cs
-      branch: develop
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: FrequencyGetPropertiesNative
-    path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 35
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  summary: Get frequency domain properties using the native struct.
-  example: []
-  syntax:
-    content: public ctl_freq_properties_t FrequencyGetPropertiesNative(nint freqHandle)
-    parameters:
-    - id: freqHandle
-      type: System.IntPtr
-      description: Frequency domain handle.
-    return:
-      type: IGCLWrapper.ctl_freq_properties_t
-      description: Frequency properties struct.
-    content.vb: Public Function FrequencyGetPropertiesNative(freqHandle As IntPtr) As ctl_freq_properties_t
-  overload: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetPropertiesNative*
-  nameWithType.vb: IGCLFrequencyHelper.FrequencyGetPropertiesNative(IntPtr)
-  fullName.vb: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetPropertiesNative(System.IntPtr)
-  name.vb: FrequencyGetPropertiesNative(IntPtr)
 - uid: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetProperties(System.IntPtr)
   commentId: M:IGCLWrapper.IGCLFrequencyHelper.FrequencyGetProperties(System.IntPtr)
   id: FrequencyGetProperties(System.IntPtr)
@@ -140,7 +101,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FrequencyGetProperties
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 50
+    startLine: 36
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -178,7 +139,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FrequencyGetAvailableClocks
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 61
+    startLine: 51
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -216,36 +177,36 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FrequencyGetRange
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 85
+    startLine: 75
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Get the frequency range for a domain.
+  summary: Get the frequency range for a domain as a DTO.
   example: []
   syntax:
-    content: public ctl_freq_range_t FrequencyGetRange(nint freqHandle)
+    content: public FrequencyRangeDto FrequencyGetRange(nint freqHandle)
     parameters:
     - id: freqHandle
       type: System.IntPtr
       description: Frequency domain handle.
     return:
-      type: IGCLWrapper.ctl_freq_range_t
-      description: Frequency range struct.
-    content.vb: Public Function FrequencyGetRange(freqHandle As IntPtr) As ctl_freq_range_t
+      type: IGCLWrapper.FrequencyRangeDto
+      description: Frequency range DTO.
+    content.vb: Public Function FrequencyGetRange(freqHandle As IntPtr) As FrequencyRangeDto
   overload: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetRange*
   nameWithType.vb: IGCLFrequencyHelper.FrequencyGetRange(IntPtr)
   fullName.vb: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetRange(System.IntPtr)
   name.vb: FrequencyGetRange(IntPtr)
-- uid: IGCLWrapper.IGCLFrequencyHelper.FrequencySetRange(System.IntPtr,IGCLWrapper.ctl_freq_range_t)
-  commentId: M:IGCLWrapper.IGCLFrequencyHelper.FrequencySetRange(System.IntPtr,IGCLWrapper.ctl_freq_range_t)
-  id: FrequencySetRange(System.IntPtr,IGCLWrapper.ctl_freq_range_t)
+- uid: IGCLWrapper.IGCLFrequencyHelper.FrequencySetRange(System.IntPtr,IGCLWrapper.FrequencyRangeDto)
+  commentId: M:IGCLWrapper.IGCLFrequencyHelper.FrequencySetRange(System.IntPtr,IGCLWrapper.FrequencyRangeDto)
+  id: FrequencySetRange(System.IntPtr,IGCLWrapper.FrequencyRangeDto)
   parent: IGCLWrapper.IGCLFrequencyHelper
   langs:
   - csharp
   - vb
-  name: FrequencySetRange(nint, ctl_freq_range_t)
-  nameWithType: IGCLFrequencyHelper.FrequencySetRange(nint, ctl_freq_range_t)
-  fullName: IGCLWrapper.IGCLFrequencyHelper.FrequencySetRange(nint, IGCLWrapper.ctl_freq_range_t)
+  name: FrequencySetRange(nint, FrequencyRangeDto)
+  nameWithType: IGCLFrequencyHelper.FrequencySetRange(nint, FrequencyRangeDto)
+  fullName: IGCLWrapper.IGCLFrequencyHelper.FrequencySetRange(nint, IGCLWrapper.FrequencyRangeDto)
   type: Method
   source:
     remote:
@@ -254,26 +215,26 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FrequencySetRange
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 100
+    startLine: 90
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Set the frequency range for a domain.
+  summary: Set the frequency range for a domain using a DTO.
   example: []
   syntax:
-    content: public void FrequencySetRange(nint freqHandle, ctl_freq_range_t range)
+    content: public void FrequencySetRange(nint freqHandle, FrequencyRangeDto range)
     parameters:
     - id: freqHandle
       type: System.IntPtr
       description: Frequency domain handle.
     - id: range
-      type: IGCLWrapper.ctl_freq_range_t
-      description: Frequency range struct.
-    content.vb: Public Sub FrequencySetRange(freqHandle As IntPtr, range As ctl_freq_range_t)
+      type: IGCLWrapper.FrequencyRangeDto
+      description: Frequency range DTO.
+    content.vb: Public Sub FrequencySetRange(freqHandle As IntPtr, range As FrequencyRangeDto)
   overload: IGCLWrapper.IGCLFrequencyHelper.FrequencySetRange*
-  nameWithType.vb: IGCLFrequencyHelper.FrequencySetRange(IntPtr, ctl_freq_range_t)
-  fullName.vb: IGCLWrapper.IGCLFrequencyHelper.FrequencySetRange(System.IntPtr, IGCLWrapper.ctl_freq_range_t)
-  name.vb: FrequencySetRange(IntPtr, ctl_freq_range_t)
+  nameWithType.vb: IGCLFrequencyHelper.FrequencySetRange(IntPtr, FrequencyRangeDto)
+  fullName.vb: IGCLWrapper.IGCLFrequencyHelper.FrequencySetRange(System.IntPtr, IGCLWrapper.FrequencyRangeDto)
+  name.vb: FrequencySetRange(IntPtr, FrequencyRangeDto)
 - uid: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetState(System.IntPtr)
   commentId: M:IGCLWrapper.IGCLFrequencyHelper.FrequencyGetState(System.IntPtr)
   id: FrequencyGetState(System.IntPtr)
@@ -292,22 +253,22 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FrequencyGetState
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 113
+    startLine: 104
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Get the current frequency state.
+  summary: Get the current frequency state as a DTO.
   example: []
   syntax:
-    content: public ctl_freq_state_t FrequencyGetState(nint freqHandle)
+    content: public FrequencyStateDto FrequencyGetState(nint freqHandle)
     parameters:
     - id: freqHandle
       type: System.IntPtr
       description: Frequency domain handle.
     return:
-      type: IGCLWrapper.ctl_freq_state_t
-      description: Frequency state struct.
-    content.vb: Public Function FrequencyGetState(freqHandle As IntPtr) As ctl_freq_state_t
+      type: IGCLWrapper.FrequencyStateDto
+      description: Frequency state DTO.
+    content.vb: Public Function FrequencyGetState(freqHandle As IntPtr) As FrequencyStateDto
   overload: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetState*
   nameWithType.vb: IGCLFrequencyHelper.FrequencyGetState(IntPtr)
   fullName.vb: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetState(System.IntPtr)
@@ -330,22 +291,22 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FrequencyGetThrottleTime
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 128
+    startLine: 119
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Get the throttle time for a frequency domain.
+  summary: Get the throttle time for a frequency domain as a DTO.
   example: []
   syntax:
-    content: public ctl_freq_throttle_time_t FrequencyGetThrottleTime(nint freqHandle)
+    content: public FrequencyThrottleTimeDto FrequencyGetThrottleTime(nint freqHandle)
     parameters:
     - id: freqHandle
       type: System.IntPtr
       description: Frequency domain handle.
     return:
-      type: IGCLWrapper.ctl_freq_throttle_time_t
-      description: Throttle time struct.
-    content.vb: Public Function FrequencyGetThrottleTime(freqHandle As IntPtr) As ctl_freq_throttle_time_t
+      type: IGCLWrapper.FrequencyThrottleTimeDto
+      description: Throttle time DTO.
+    content.vb: Public Function FrequencyGetThrottleTime(freqHandle As IntPtr) As FrequencyThrottleTimeDto
   overload: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetThrottleTime*
   nameWithType.vb: IGCLFrequencyHelper.FrequencyGetThrottleTime(IntPtr)
   fullName.vb: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetThrottleTime(System.IntPtr)
@@ -368,7 +329,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateFrequencyRangeStruct
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 170
+    startLine: 161
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -399,7 +360,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreFrequencyPropertiesEqual
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 178
+    startLine: 169
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -437,7 +398,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreFrequencyRangeEqual
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 189
+    startLine: 180
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -475,7 +436,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreFrequencyStateEqual
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 203
+    startLine: 194
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -513,7 +474,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreFrequencyThrottleTimeEqual
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 221
+    startLine: 212
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -551,7 +512,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLFrequencyHelper.cs
-    startLine: 232
+    startLine: 223
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -897,12 +858,12 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetPropertiesNative*
-  commentId: Overload:IGCLWrapper.IGCLFrequencyHelper.FrequencyGetPropertiesNative
-  href: IGCLWrapper.IGCLFrequencyHelper.html#IGCLWrapper_IGCLFrequencyHelper_FrequencyGetPropertiesNative_System_IntPtr_
-  name: FrequencyGetPropertiesNative
-  nameWithType: IGCLFrequencyHelper.FrequencyGetPropertiesNative
-  fullName: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetPropertiesNative
+- uid: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetProperties*
+  commentId: Overload:IGCLWrapper.IGCLFrequencyHelper.FrequencyGetProperties
+  href: IGCLWrapper.IGCLFrequencyHelper.html#IGCLWrapper_IGCLFrequencyHelper_FrequencyGetProperties_System_IntPtr_
+  name: FrequencyGetProperties
+  nameWithType: IGCLFrequencyHelper.FrequencyGetProperties
+  fullName: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetProperties
 - uid: System.IntPtr
   commentId: T:System.IntPtr
   parent: System
@@ -914,19 +875,6 @@ references:
   nameWithType.vb: IntPtr
   fullName.vb: System.IntPtr
   name.vb: IntPtr
-- uid: IGCLWrapper.ctl_freq_properties_t
-  commentId: T:IGCLWrapper.ctl_freq_properties_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_freq_properties_t.html
-  name: ctl_freq_properties_t
-  nameWithType: ctl_freq_properties_t
-  fullName: IGCLWrapper.ctl_freq_properties_t
-- uid: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetProperties*
-  commentId: Overload:IGCLWrapper.IGCLFrequencyHelper.FrequencyGetProperties
-  href: IGCLWrapper.IGCLFrequencyHelper.html#IGCLWrapper_IGCLFrequencyHelper_FrequencyGetProperties_System_IntPtr_
-  name: FrequencyGetProperties
-  nameWithType: IGCLFrequencyHelper.FrequencyGetProperties
-  fullName: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetProperties
 - uid: IGCLWrapper.FrequencyPropertiesDto
   commentId: T:IGCLWrapper.FrequencyPropertiesDto
   parent: IGCLWrapper
@@ -969,16 +917,16 @@ references:
   name: FrequencyGetRange
   nameWithType: IGCLFrequencyHelper.FrequencyGetRange
   fullName: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetRange
-- uid: IGCLWrapper.ctl_freq_range_t
-  commentId: T:IGCLWrapper.ctl_freq_range_t
+- uid: IGCLWrapper.FrequencyRangeDto
+  commentId: T:IGCLWrapper.FrequencyRangeDto
   parent: IGCLWrapper
-  href: IGCLWrapper.ctl_freq_range_t.html
-  name: ctl_freq_range_t
-  nameWithType: ctl_freq_range_t
-  fullName: IGCLWrapper.ctl_freq_range_t
+  href: IGCLWrapper.FrequencyRangeDto.html
+  name: FrequencyRangeDto
+  nameWithType: FrequencyRangeDto
+  fullName: IGCLWrapper.FrequencyRangeDto
 - uid: IGCLWrapper.IGCLFrequencyHelper.FrequencySetRange*
   commentId: Overload:IGCLWrapper.IGCLFrequencyHelper.FrequencySetRange
-  href: IGCLWrapper.IGCLFrequencyHelper.html#IGCLWrapper_IGCLFrequencyHelper_FrequencySetRange_System_IntPtr_IGCLWrapper_ctl_freq_range_t_
+  href: IGCLWrapper.IGCLFrequencyHelper.html#IGCLWrapper_IGCLFrequencyHelper_FrequencySetRange_System_IntPtr_IGCLWrapper_FrequencyRangeDto_
   name: FrequencySetRange
   nameWithType: IGCLFrequencyHelper.FrequencySetRange
   fullName: IGCLWrapper.IGCLFrequencyHelper.FrequencySetRange
@@ -988,38 +936,52 @@ references:
   name: FrequencyGetState
   nameWithType: IGCLFrequencyHelper.FrequencyGetState
   fullName: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetState
-- uid: IGCLWrapper.ctl_freq_state_t
-  commentId: T:IGCLWrapper.ctl_freq_state_t
+- uid: IGCLWrapper.FrequencyStateDto
+  commentId: T:IGCLWrapper.FrequencyStateDto
   parent: IGCLWrapper
-  href: IGCLWrapper.ctl_freq_state_t.html
-  name: ctl_freq_state_t
-  nameWithType: ctl_freq_state_t
-  fullName: IGCLWrapper.ctl_freq_state_t
+  href: IGCLWrapper.FrequencyStateDto.html
+  name: FrequencyStateDto
+  nameWithType: FrequencyStateDto
+  fullName: IGCLWrapper.FrequencyStateDto
 - uid: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetThrottleTime*
   commentId: Overload:IGCLWrapper.IGCLFrequencyHelper.FrequencyGetThrottleTime
   href: IGCLWrapper.IGCLFrequencyHelper.html#IGCLWrapper_IGCLFrequencyHelper_FrequencyGetThrottleTime_System_IntPtr_
   name: FrequencyGetThrottleTime
   nameWithType: IGCLFrequencyHelper.FrequencyGetThrottleTime
   fullName: IGCLWrapper.IGCLFrequencyHelper.FrequencyGetThrottleTime
-- uid: IGCLWrapper.ctl_freq_throttle_time_t
-  commentId: T:IGCLWrapper.ctl_freq_throttle_time_t
+- uid: IGCLWrapper.FrequencyThrottleTimeDto
+  commentId: T:IGCLWrapper.FrequencyThrottleTimeDto
   parent: IGCLWrapper
-  href: IGCLWrapper.ctl_freq_throttle_time_t.html
-  name: ctl_freq_throttle_time_t
-  nameWithType: ctl_freq_throttle_time_t
-  fullName: IGCLWrapper.ctl_freq_throttle_time_t
+  href: IGCLWrapper.FrequencyThrottleTimeDto.html
+  name: FrequencyThrottleTimeDto
+  nameWithType: FrequencyThrottleTimeDto
+  fullName: IGCLWrapper.FrequencyThrottleTimeDto
 - uid: IGCLWrapper.IGCLFrequencyHelper.CreateFrequencyRangeStruct*
   commentId: Overload:IGCLWrapper.IGCLFrequencyHelper.CreateFrequencyRangeStruct
   href: IGCLWrapper.IGCLFrequencyHelper.html#IGCLWrapper_IGCLFrequencyHelper_CreateFrequencyRangeStruct
   name: CreateFrequencyRangeStruct
   nameWithType: IGCLFrequencyHelper.CreateFrequencyRangeStruct
   fullName: IGCLWrapper.IGCLFrequencyHelper.CreateFrequencyRangeStruct
+- uid: IGCLWrapper.ctl_freq_range_t
+  commentId: T:IGCLWrapper.ctl_freq_range_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_freq_range_t.html
+  name: ctl_freq_range_t
+  nameWithType: ctl_freq_range_t
+  fullName: IGCLWrapper.ctl_freq_range_t
 - uid: IGCLWrapper.IGCLFrequencyHelper.AreFrequencyPropertiesEqual*
   commentId: Overload:IGCLWrapper.IGCLFrequencyHelper.AreFrequencyPropertiesEqual
   href: IGCLWrapper.IGCLFrequencyHelper.html#IGCLWrapper_IGCLFrequencyHelper_AreFrequencyPropertiesEqual_IGCLWrapper_ctl_freq_properties_t_IGCLWrapper_ctl_freq_properties_t_
   name: AreFrequencyPropertiesEqual
   nameWithType: IGCLFrequencyHelper.AreFrequencyPropertiesEqual
   fullName: IGCLWrapper.IGCLFrequencyHelper.AreFrequencyPropertiesEqual
+- uid: IGCLWrapper.ctl_freq_properties_t
+  commentId: T:IGCLWrapper.ctl_freq_properties_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_freq_properties_t.html
+  name: ctl_freq_properties_t
+  nameWithType: ctl_freq_properties_t
+  fullName: IGCLWrapper.ctl_freq_properties_t
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System
@@ -1043,12 +1005,26 @@ references:
   name: AreFrequencyStateEqual
   nameWithType: IGCLFrequencyHelper.AreFrequencyStateEqual
   fullName: IGCLWrapper.IGCLFrequencyHelper.AreFrequencyStateEqual
+- uid: IGCLWrapper.ctl_freq_state_t
+  commentId: T:IGCLWrapper.ctl_freq_state_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_freq_state_t.html
+  name: ctl_freq_state_t
+  nameWithType: ctl_freq_state_t
+  fullName: IGCLWrapper.ctl_freq_state_t
 - uid: IGCLWrapper.IGCLFrequencyHelper.AreFrequencyThrottleTimeEqual*
   commentId: Overload:IGCLWrapper.IGCLFrequencyHelper.AreFrequencyThrottleTimeEqual
   href: IGCLWrapper.IGCLFrequencyHelper.html#IGCLWrapper_IGCLFrequencyHelper_AreFrequencyThrottleTimeEqual_IGCLWrapper_ctl_freq_throttle_time_t_IGCLWrapper_ctl_freq_throttle_time_t_
   name: AreFrequencyThrottleTimeEqual
   nameWithType: IGCLFrequencyHelper.AreFrequencyThrottleTimeEqual
   fullName: IGCLWrapper.IGCLFrequencyHelper.AreFrequencyThrottleTimeEqual
+- uid: IGCLWrapper.ctl_freq_throttle_time_t
+  commentId: T:IGCLWrapper.ctl_freq_throttle_time_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_freq_throttle_time_t.html
+  name: ctl_freq_throttle_time_t
+  nameWithType: ctl_freq_throttle_time_t
+  fullName: IGCLWrapper.ctl_freq_throttle_time_t
 - uid: IGCLWrapper.IGCLFrequencyHelper.Dispose*
   commentId: Overload:IGCLWrapper.IGCLFrequencyHelper.Dispose
   href: IGCLWrapper.IGCLFrequencyHelper.html#IGCLWrapper_IGCLFrequencyHelper_Dispose

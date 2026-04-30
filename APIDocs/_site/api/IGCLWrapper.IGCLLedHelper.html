@@ -160,7 +160,7 @@ Class IGCLLedHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLLedHelper_AreLedPropertiesEqual_IGCLWrapper_ctl_led_properties_t_IGCLWrapper_ctl_led_properties_t_" data-uid="IGCLWrapper.IGCLLedHelper.AreLedPropertiesEqual(IGCLWrapper.ctl_led_properties_t,IGCLWrapper.ctl_led_properties_t)">
   AreLedPropertiesEqual(ctl_led_properties_t, ctl_led_properties_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L144"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L113"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare LED properties while ignoring native-only fields.</p>
@@ -202,7 +202,7 @@ Class IGCLLedHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLLedHelper_AreLedStateEqual_IGCLWrapper_ctl_led_state_t_IGCLWrapper_ctl_led_state_t_" data-uid="IGCLWrapper.IGCLLedHelper.AreLedStateEqual(IGCLWrapper.ctl_led_state_t,IGCLWrapper.ctl_led_state_t)">
   AreLedStateEqual(ctl_led_state_t, ctl_led_state_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L155"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L124"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare LED state while ignoring native-only fields.</p>
@@ -244,7 +244,7 @@ Class IGCLLedHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLLedHelper_CreateLedStateStruct" data-uid="IGCLWrapper.IGCLLedHelper.CreateLedStateStruct">
   CreateLedStateStruct()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L105"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create an LED state struct with Size and Version initialized.</p>
@@ -277,7 +277,7 @@ Class IGCLLedHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLLedHelper_Dispose" data-uid="IGCLWrapper.IGCLLedHelper.Dispose">
   Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L163"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L132"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Mark the helper as disposed.</p>
@@ -337,7 +337,7 @@ Class IGCLLedHelper  <a class="header-action link-secondary" title="View source"
 
   <h3 id="IGCLWrapper_IGCLLedHelper_LedGetProperties_System_IntPtr_" data-uid="IGCLWrapper.IGCLLedHelper.LedGetProperties(System.IntPtr)">
   LedGetProperties(nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get LED properties as a DTO.</p>
@@ -372,50 +372,11 @@ Class IGCLLedHelper  <a class="header-action link-secondary" title="View source"
 
 
 
-  <a id="IGCLWrapper_IGCLLedHelper_LedGetPropertiesNative_" data-uid="IGCLWrapper.IGCLLedHelper.LedGetPropertiesNative*"></a>
-
-  <h3 id="IGCLWrapper_IGCLLedHelper_LedGetPropertiesNative_System_IntPtr_" data-uid="IGCLWrapper.IGCLLedHelper.LedGetPropertiesNative(System.IntPtr)">
-  LedGetPropertiesNative(nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L36"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Get LED properties using the native struct.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_led_properties_t LedGetPropertiesNative(nint ledHandle)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>ledHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
-    <dd><p>LED handle.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_led_properties_t.html">ctl_led_properties_t</a></dt>
-    <dd><p>LED properties struct.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="IGCLWrapper_IGCLLedHelper_LedGetState_" data-uid="IGCLWrapper.IGCLLedHelper.LedGetState*"></a>
 
   <h3 id="IGCLWrapper_IGCLLedHelper_LedGetState_System_IntPtr_" data-uid="IGCLWrapper.IGCLLedHelper.LedGetState(System.IntPtr)">
   LedGetState(nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L51"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get LED state as a DTO.</p>
@@ -450,50 +411,11 @@ Class IGCLLedHelper  <a class="header-action link-secondary" title="View source"
 
 
 
-  <a id="IGCLWrapper_IGCLLedHelper_LedGetStateNative_" data-uid="IGCLWrapper.IGCLLedHelper.LedGetStateNative*"></a>
-
-  <h3 id="IGCLWrapper_IGCLLedHelper_LedGetStateNative_System_IntPtr_" data-uid="IGCLWrapper.IGCLLedHelper.LedGetStateNative(System.IntPtr)">
-  LedGetStateNative(nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L62"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Get LED state using the native struct.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ctl_led_state_t LedGetStateNative(nint ledHandle)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>ledHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
-    <dd><p>LED handle.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ctl_led_state_t.html">ctl_led_state_t</a></dt>
-    <dd><p>LED state struct.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="IGCLWrapper_IGCLLedHelper_LedSetState_" data-uid="IGCLWrapper.IGCLLedHelper.LedSetState*"></a>
 
   <h3 id="IGCLWrapper_IGCLLedHelper_LedSetState_System_IntPtr_IGCLWrapper_LedStateDto_" data-uid="IGCLWrapper.IGCLLedHelper.LedSetState(System.IntPtr,IGCLWrapper.LedStateDto)">
   LedSetState(nint, LedStateDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L66"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Set LED state using a DTO.</p>
@@ -511,42 +433,6 @@ Class IGCLLedHelper  <a class="header-action link-secondary" title="View source"
 </dd>
     <dt><code>state</code> <a class="xref" href="IGCLWrapper.LedStateDto.html">LedStateDto</a></dt>
     <dd><p>LED state DTO.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="IGCLWrapper_IGCLLedHelper_LedSetStateNative_" data-uid="IGCLWrapper.IGCLLedHelper.LedSetStateNative*"></a>
-
-  <h3 id="IGCLWrapper_IGCLLedHelper_LedSetStateNative_System_IntPtr_IGCLWrapper_ctl_led_state_t_" data-uid="IGCLWrapper.IGCLLedHelper.LedSetStateNative(System.IntPtr,IGCLWrapper.ctl_led_state_t)">
-  LedSetStateNative(nint, ctl_led_state_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLLedHelper.cs/#L88"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Set LED state using the native struct.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void LedSetStateNative(nint ledHandle, ctl_led_state_t state)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>ledHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
-    <dd><p>LED handle.</p>
-</dd>
-    <dt><code>state</code> <a class="xref" href="IGCLWrapper.ctl_led_state_t.html">ctl_led_state_t</a></dt>
-    <dd><p>LED state struct.</p>
 </dd>
   </dl>
 
