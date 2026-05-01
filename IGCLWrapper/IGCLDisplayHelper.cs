@@ -6364,7 +6364,7 @@ namespace IGCLWrapper
                BlockNumber == other.BlockNumber && DescriptorDataSize == other.DescriptorDataSize;
 
         public override bool Equals(object? obj) => obj is PanelDescriptorAccessArgsDto other && Equals(other);
-        public override int GetHashCode() => HashCode.Combine((int)OpType, BlockNumber, DescriptorDataSize);
+        public override int GetHashCode() => HashCode.Combine(Size, Version, (int)OpType, BlockNumber, DescriptorDataSize);
 
         public static PanelDescriptorAccessArgsDto CreateReadRequest(uint blockNumber)
             => new PanelDescriptorAccessArgsDto { OpType = ctl_operation_type_t.CTL_OPERATION_TYPE_READ, BlockNumber = blockNumber };
@@ -6417,7 +6417,7 @@ namespace IGCLWrapper
                EdidType == other.EdidType && EdidSize == other.EdidSize && OutFlags == other.OutFlags;
 
         public override bool Equals(object? obj) => obj is EdidManagementArgsDto other && Equals(other);
-        public override int GetHashCode() => HashCode.Combine((int)OpType, (int)EdidType, EdidSize, OutFlags);
+        public override int GetHashCode() => HashCode.Combine(Size, Version, (int)OpType, (int)EdidType, EdidSize, OutFlags);
 
         public static EdidManagementArgsDto CreateReadRequest(ctl_edid_type_t edidType = ctl_edid_type_t.CTL_EDID_TYPE_CURRENT)
             => new EdidManagementArgsDto { OpType = ctl_edid_management_optype_t.CTL_EDID_MANAGEMENT_OPTYPE_READ_EDID, EdidType = edidType };
@@ -6451,7 +6451,21 @@ namespace IGCLWrapper
                xW.Equals(other.xW) && yW.Equals(other.yW);
 
         public override bool Equals(object? obj) => obj is PixtxColorPrimariesDto other && Equals(other);
-        public override int GetHashCode() => HashCode.Combine(xR, yR, xG, yG, xB, yB, xW, yW);
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(xR);
+            hash.Add(yR);
+            hash.Add(xG);
+            hash.Add(yG);
+            hash.Add(xB);
+            hash.Add(yB);
+            hash.Add(xW);
+            hash.Add(yW);
+            return hash.ToHashCode();
+        }
     }
 
     /// <summary>
@@ -6512,7 +6526,21 @@ namespace IGCLWrapper
                MaxBrightness.Equals(other.MaxBrightness) && MinBrightness.Equals(other.MinBrightness);
 
         public override bool Equals(object? obj) => obj is PixtxPixelFormatDto other && Equals(other);
-        public override int GetHashCode() => HashCode.Combine(BitsPerColor, (int)EncodingType, (int)ColorSpace, (int)ColorModel);
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(BitsPerColor);
+            hash.Add(IsFloat);
+            hash.Add(EncodingType);
+            hash.Add(ColorSpace);
+            hash.Add(ColorModel);
+            hash.Add(ColorPrimaries);
+            hash.Add(MaxBrightness);
+            hash.Add(MinBrightness);
+            return hash.ToHashCode();
+        }
     }
 
     /// <summary>
@@ -6556,7 +6584,17 @@ namespace IGCLWrapper
                NumBlocks == other.NumBlocks;
 
         public override bool Equals(object? obj) => obj is PixtxPipeGetConfigDto other && Equals(other);
-        public override int GetHashCode() => HashCode.Combine((int)QueryType, NumBlocks);
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(QueryType);
+            hash.Add(InputPixelFormat);
+            hash.Add(OutputPixelFormat);
+            hash.Add(NumBlocks);
+            return hash.ToHashCode();
+        }
 
         public static PixtxPipeGetConfigDto CreateCapabilityRequest()
             => new PixtxPipeGetConfigDto { QueryType = ctl_pixtx_config_query_type_t.CTL_PIXTX_CONFIG_QUERY_TYPE_CAPABILITY };
@@ -6588,7 +6626,7 @@ namespace IGCLWrapper
             => Size == other.Size && Version == other.Version && BlockId == other.BlockId && BlockType == other.BlockType;
 
         public override bool Equals(object? obj) => obj is PixtxBlockConfigDto other && Equals(other);
-        public override int GetHashCode() => HashCode.Combine(BlockId, (int)BlockType);
+        public override int GetHashCode() => HashCode.Combine(Size, Version, BlockId, (int)BlockType);
     }
 
     /// <summary>
@@ -6628,7 +6666,7 @@ namespace IGCLWrapper
                Flags == other.Flags && NumBlocks == other.NumBlocks;
 
         public override bool Equals(object? obj) => obj is PixtxPipeSetConfigDto other && Equals(other);
-        public override int GetHashCode() => HashCode.Combine((int)OpertaionType, Flags, NumBlocks);
+        public override int GetHashCode() => HashCode.Combine(Size, Version, (int)OpertaionType, Flags, NumBlocks);
     }
 
     /// <summary>

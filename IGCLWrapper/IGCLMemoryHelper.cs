@@ -183,6 +183,8 @@ namespace IGCLWrapper
         public override int GetHashCode()
         {
             var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
             hash.Add(Type);
             hash.Add(Location);
             hash.Add(PhysicalSize);
@@ -243,6 +245,8 @@ namespace IGCLWrapper
         public override int GetHashCode()
         {
             var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
             hash.Add(Free);
             hash.Add(TotalSize);
             return hash.ToHashCode();
@@ -298,6 +302,8 @@ namespace IGCLWrapper
         public override int GetHashCode()
         {
             var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
             hash.Add(MaxBandwidth);
             hash.Add(Timestamp);
             hash.Add(ReadCounter);

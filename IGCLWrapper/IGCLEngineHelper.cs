@@ -139,6 +139,8 @@ namespace IGCLWrapper
         public override int GetHashCode()
         {
             var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
             hash.Add(Type);
             return hash.ToHashCode();
         }
@@ -187,6 +189,8 @@ namespace IGCLWrapper
         public override int GetHashCode()
         {
             var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
             hash.Add(ActiveTime);
             hash.Add(Timestamp);
             return hash.ToHashCode();

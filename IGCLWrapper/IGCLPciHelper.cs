@@ -388,6 +388,8 @@ namespace IGCLWrapper
         public override int GetHashCode()
         {
             var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
             hash.Add(Speed);
             return hash.ToHashCode();
         }
