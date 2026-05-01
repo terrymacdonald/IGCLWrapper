@@ -2348,7 +2348,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for linked display adapters arguments.
     /// </summary>
-    public struct LinkedDisplayAdaptersArgsDto
+    public struct LinkedDisplayAdaptersArgsDto : IEquatable<LinkedDisplayAdaptersArgsDto>
     {
         public LinkedDisplayAdaptersArgsDto() {}
         public uint Size;
@@ -2382,6 +2382,18 @@ namespace IGCLWrapper
             return native;
         }
 
+        public bool Equals(LinkedDisplayAdaptersArgsDto other)
+        {
+            // Reserved is padding and is intentionally excluded.
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   NumAdapters == other.NumAdapters;
+        }
+
+        public override bool Equals(object? obj) => obj is LinkedDisplayAdaptersArgsDto other && Equals(other);
+
+        public override int GetHashCode() => HashCode.Combine(Size, Version, NumAdapters);
+
         private static unsafe List<ulong> ReadReserved(ctl_lda_args_t._Reserved_e__FixedBuffer buffer)
         {
             const int count = 4;
@@ -2411,7 +2423,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for linked display adapters query result.
     /// </summary>
-    public struct LinkedDisplayAdaptersResultDto
+    public struct LinkedDisplayAdaptersResultDto : IEquatable<LinkedDisplayAdaptersResultDto>
     {
         public LinkedDisplayAdaptersResultDto() {}
         public LinkedDisplayAdaptersArgsDto Args;
@@ -2429,6 +2441,16 @@ namespace IGCLWrapper
                 LinkedAdapters = adapters
             };
         }
+
+        public bool Equals(LinkedDisplayAdaptersResultDto other)
+        {
+            // LinkedAdapters contains native handles that change per-session and are intentionally excluded.
+            return Args.Equals(other.Args);
+        }
+
+        public override bool Equals(object? obj) => obj is LinkedDisplayAdaptersResultDto other && Equals(other);
+
+        public override int GetHashCode() => Args.GetHashCode();
     }
 
     /// <summary>

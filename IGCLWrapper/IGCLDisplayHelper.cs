@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -3444,12 +3445,13 @@ namespace IGCLWrapper
         /// <returns>True when equal; otherwise, false.</returns>
         public bool Equals(DceArgsDto other)
         {
-                 return Set == other.Set &&
+            return Set == other.Set &&
                    TargetBrightnessPercent == other.TargetBrightnessPercent &&
                    PhaseinSpeedMultiplier.Equals(other.PhaseinSpeedMultiplier) &&
                    NumBins == other.NumBins &&
                    Enable == other.Enable &&
-                   IsSupported == other.IsSupported;
+                   IsSupported == other.IsSupported &&
+                   Enumerable.SequenceEqual(Histogram ?? new List<uint>(), other.Histogram ?? new List<uint>());
         }
 
         /// <summary>
@@ -3472,6 +3474,7 @@ namespace IGCLWrapper
             hash.Add(NumBins);
             hash.Add(Enable);
             hash.Add(IsSupported);
+            hash.Add(Histogram?.Count ?? 0);
             return hash.ToHashCode();
         }
 
@@ -4047,7 +4050,8 @@ namespace IGCLWrapper
         public bool Equals(LaceLuxAggrMapDto other)
         {
             return MaxNumEntries == other.MaxNumEntries &&
-                   NumEntries == other.NumEntries;
+                   NumEntries == other.NumEntries &&
+                   Enumerable.SequenceEqual(LuxToAggrMappingTable ?? new List<LaceLuxAggrMapEntryDto>(), other.LuxToAggrMappingTable ?? new List<LaceLuxAggrMapEntryDto>());
         }
 
         public override bool Equals(object? obj) => obj is LaceLuxAggrMapDto other && Equals(other);
@@ -4057,6 +4061,7 @@ namespace IGCLWrapper
             var hash = new HashCode();
             hash.Add(MaxNumEntries);
             hash.Add(NumEntries);
+            hash.Add(LuxToAggrMappingTable?.Count ?? 0);
             return hash.ToHashCode();
         }
 
@@ -5268,7 +5273,7 @@ namespace IGCLWrapper
     /// <summary>
     /// DTO for brightness get arguments.
     /// </summary>
-    public struct BrightnessGetDto
+    public struct BrightnessGetDto : IEquatable<BrightnessGetDto>
     {
         public BrightnessGetDto() {}
         public uint Size;
@@ -5328,12 +5333,25 @@ namespace IGCLWrapper
             for (var i = 0; i < writeCount; i++)
                 pValues[i] = values[i];
         }
+
+        public bool Equals(BrightnessGetDto other)
+        {
+            // ReservedFields is padding and is intentionally excluded.
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   TargetBrightness == other.TargetBrightness &&
+                   CurrentBrightness == other.CurrentBrightness;
+        }
+
+        public override bool Equals(object? obj) => obj is BrightnessGetDto other && Equals(other);
+
+        public override int GetHashCode() => HashCode.Combine(Size, Version, TargetBrightness, CurrentBrightness);
     }
 
     /// <summary>
     /// DTO for brightness set arguments.
     /// </summary>
-    public struct BrightnessSetDto
+    public struct BrightnessSetDto : IEquatable<BrightnessSetDto>
     {
         public BrightnessSetDto() {}
         public uint Size;
@@ -5393,12 +5411,25 @@ namespace IGCLWrapper
             for (var i = 0; i < writeCount; i++)
                 pValues[i] = values[i];
         }
+
+        public bool Equals(BrightnessSetDto other)
+        {
+            // ReservedFields is padding and is intentionally excluded.
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   TargetBrightness == other.TargetBrightness &&
+                   SmoothTransitionTimeInMs == other.SmoothTransitionTimeInMs;
+        }
+
+        public override bool Equals(object? obj) => obj is BrightnessSetDto other && Equals(other);
+
+        public override int GetHashCode() => HashCode.Combine(Size, Version, TargetBrightness, SmoothTransitionTimeInMs);
     }
 
     /// <summary>
     /// DTO for scaling capabilities.
     /// </summary>
-    public struct ScalingCapsDto
+    public struct ScalingCapsDto : IEquatable<ScalingCapsDto>
     {
         public uint Size;
         public byte Version;
@@ -5423,12 +5454,19 @@ namespace IGCLWrapper
                 SupportedScaling = SupportedScaling
             };
         }
+
+        public bool Equals(ScalingCapsDto other) =>
+            Size == other.Size && Version == other.Version && SupportedScaling == other.SupportedScaling;
+
+        public override bool Equals(object? obj) => obj is ScalingCapsDto other && Equals(other);
+
+        public override int GetHashCode() => HashCode.Combine(Size, Version, SupportedScaling);
     }
 
     /// <summary>
     /// DTO for retro scaling capabilities.
     /// </summary>
-    public struct RetroScalingCapsDto
+    public struct RetroScalingCapsDto : IEquatable<RetroScalingCapsDto>
     {
         public uint Size;
         public byte Version;
@@ -5453,12 +5491,19 @@ namespace IGCLWrapper
                 SupportedRetroScaling = SupportedRetroScaling
             };
         }
+
+        public bool Equals(RetroScalingCapsDto other) =>
+            Size == other.Size && Version == other.Version && SupportedRetroScaling == other.SupportedRetroScaling;
+
+        public override bool Equals(object? obj) => obj is RetroScalingCapsDto other && Equals(other);
+
+        public override int GetHashCode() => HashCode.Combine(Size, Version, SupportedRetroScaling);
     }
 
     /// <summary>
     /// DTO for power optimization capabilities.
     /// </summary>
-    public struct PowerOptimizationCapsDto
+    public struct PowerOptimizationCapsDto : IEquatable<PowerOptimizationCapsDto>
     {
         public uint Size;
         public byte Version;
@@ -5483,12 +5528,19 @@ namespace IGCLWrapper
                 SupportedFeatures = SupportedFeatures
             };
         }
+
+        public bool Equals(PowerOptimizationCapsDto other) =>
+            Size == other.Size && Version == other.Version && SupportedFeatures == other.SupportedFeatures;
+
+        public override bool Equals(object? obj) => obj is PowerOptimizationCapsDto other && Equals(other);
+
+        public override int GetHashCode() => HashCode.Combine(Size, Version, SupportedFeatures);
     }
 
     /// <summary>
     /// DTO for property range information.
     /// </summary>
-    public struct PropertyRangeInfoDto
+    public struct PropertyRangeInfoDto : IEquatable<PropertyRangeInfoDto>
     {
         public float MinPossibleValue;
         public float MaxPossibleValue;
@@ -5516,12 +5568,22 @@ namespace IGCLWrapper
                 default_value = DefaultValue
             };
         }
+
+        public bool Equals(PropertyRangeInfoDto other) =>
+            MinPossibleValue.Equals(other.MinPossibleValue) &&
+            MaxPossibleValue.Equals(other.MaxPossibleValue) &&
+            StepSize.Equals(other.StepSize) &&
+            DefaultValue.Equals(other.DefaultValue);
+
+        public override bool Equals(object? obj) => obj is PropertyRangeInfoDto other && Equals(other);
+
+        public override int GetHashCode() => HashCode.Combine(MinPossibleValue, MaxPossibleValue, StepSize, DefaultValue);
     }
 
     /// <summary>
     /// DTO for sharpness filter properties.
     /// </summary>
-    public struct SharpnessFilterPropertiesDto
+    public struct SharpnessFilterPropertiesDto : IEquatable<SharpnessFilterPropertiesDto>
     {
         public uint FilterType;
         public PropertyRangeInfoDto FilterDetails;
@@ -5543,12 +5605,19 @@ namespace IGCLWrapper
                 FilterDetails = FilterDetails.ToNative()
             };
         }
+
+        public bool Equals(SharpnessFilterPropertiesDto other) =>
+            FilterType == other.FilterType && FilterDetails.Equals(other.FilterDetails);
+
+        public override bool Equals(object? obj) => obj is SharpnessFilterPropertiesDto other && Equals(other);
+
+        public override int GetHashCode() => HashCode.Combine(FilterType, FilterDetails);
     }
 
     /// <summary>
     /// DTO for sharpness capabilities and filter properties.
     /// </summary>
-    public struct SharpnessCapsDto
+    public struct SharpnessCapsDto : IEquatable<SharpnessCapsDto>
     {
         public SharpnessCapsDto() {}
         public uint Size;
@@ -5584,12 +5653,34 @@ namespace IGCLWrapper
                 pFilterProperty = null
             };
         }
+
+        public bool Equals(SharpnessCapsDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   SupportedFilterFlags == other.SupportedFilterFlags &&
+                   NumFilterTypes == other.NumFilterTypes &&
+                   Enumerable.SequenceEqual(FilterProperties ?? new List<SharpnessFilterPropertiesDto>(), other.FilterProperties ?? new List<SharpnessFilterPropertiesDto>());
+        }
+
+        public override bool Equals(object? obj) => obj is SharpnessCapsDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(SupportedFilterFlags);
+            hash.Add(NumFilterTypes);
+            hash.Add(FilterProperties?.Count ?? 0);
+            return hash.ToHashCode();
+        }
     }
 
     /// <summary>
     /// DTO for Intel Arc Sync profile params.
     /// </summary>
-    public struct IntelArcSyncProfileParamsDto
+    public struct IntelArcSyncProfileParamsDto : IEquatable<IntelArcSyncProfileParamsDto>
     {
         public uint Size;
         public byte Version;
@@ -5626,12 +5717,38 @@ namespace IGCLWrapper
                 MaxFrameTimeDecreaseInUs = MaxFrameTimeDecreaseInUs
             };
         }
+
+        public bool Equals(IntelArcSyncProfileParamsDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   IntelArcSyncProfile == other.IntelArcSyncProfile &&
+                   MaxRefreshRateInHz.Equals(other.MaxRefreshRateInHz) &&
+                   MinRefreshRateInHz.Equals(other.MinRefreshRateInHz) &&
+                   MaxFrameTimeIncreaseInUs == other.MaxFrameTimeIncreaseInUs &&
+                   MaxFrameTimeDecreaseInUs == other.MaxFrameTimeDecreaseInUs;
+        }
+
+        public override bool Equals(object? obj) => obj is IntelArcSyncProfileParamsDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(IntelArcSyncProfile);
+            hash.Add(MaxRefreshRateInHz);
+            hash.Add(MinRefreshRateInHz);
+            hash.Add(MaxFrameTimeIncreaseInUs);
+            hash.Add(MaxFrameTimeDecreaseInUs);
+            return hash.ToHashCode();
+        }
     }
 
     /// <summary>
     /// DTO for custom source mode.
     /// </summary>
-    public struct CustomSourceModeDto
+    public struct CustomSourceModeDto : IEquatable<CustomSourceModeDto>
     {
         public uint SourceX;
         public uint SourceY;
@@ -5653,12 +5770,18 @@ namespace IGCLWrapper
                 SourceY = SourceY
             };
         }
+
+        public bool Equals(CustomSourceModeDto other) => SourceX == other.SourceX && SourceY == other.SourceY;
+
+        public override bool Equals(object? obj) => obj is CustomSourceModeDto other && Equals(other);
+
+        public override int GetHashCode() => HashCode.Combine(SourceX, SourceY);
     }
 
     /// <summary>
     /// DTO for custom mode args.
     /// </summary>
-    public struct CustomModeArgsDto
+    public struct CustomModeArgsDto : IEquatable<CustomModeArgsDto>
     {
         public CustomModeArgsDto() {}
         public uint Size;
@@ -5689,12 +5812,34 @@ namespace IGCLWrapper
                 pCustomSrcModeList = null
             };
         }
+
+        public bool Equals(CustomModeArgsDto other)
+        {
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   CustomModeOpType == other.CustomModeOpType &&
+                   NumOfModes == other.NumOfModes &&
+                   Enumerable.SequenceEqual(Modes ?? new List<CustomSourceModeDto>(), other.Modes ?? new List<CustomSourceModeDto>());
+        }
+
+        public override bool Equals(object? obj) => obj is CustomModeArgsDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(CustomModeOpType);
+            hash.Add(NumOfModes);
+            hash.Add(Modes?.Count ?? 0);
+            return hash.ToHashCode();
+        }
     }
 
     /// <summary>
     /// DTO for custom mode get results.
     /// </summary>
-    public struct CustomModesResultDto
+    public struct CustomModesResultDto : IEquatable<CustomModesResultDto>
     {
         public CustomModesResultDto() {}
         public CustomModeArgsDto Args;
@@ -5715,12 +5860,28 @@ namespace IGCLWrapper
                 Modes = modeList
             };
         }
+
+        public bool Equals(CustomModesResultDto other)
+        {
+            return Args.Equals(other.Args) &&
+                   Enumerable.SequenceEqual(Modes ?? new List<CustomSourceModeDto>(), other.Modes ?? new List<CustomSourceModeDto>());
+        }
+
+        public override bool Equals(object? obj) => obj is CustomModesResultDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Args);
+            hash.Add(Modes?.Count ?? 0);
+            return hash.ToHashCode();
+        }
     }
 
     /// <summary>
     /// DTO for mux properties and display outputs.
     /// </summary>
-    public struct MuxPropertiesDto
+    public struct MuxPropertiesDto : IEquatable<MuxPropertiesDto>
     {
         public MuxPropertiesDto() {}
         public uint Size;
@@ -5759,12 +5920,35 @@ namespace IGCLWrapper
                 IndexOfDisplayOutputOwningMux = IndexOfDisplayOutputOwningMux
             };
         }
+
+        public bool Equals(MuxPropertiesDto other)
+        {
+            // DisplayOutputs contains native handles that change per-session and are intentionally excluded.
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   MuxId == other.MuxId &&
+                   Count == other.Count &&
+                   IndexOfDisplayOutputOwningMux == other.IndexOfDisplayOutputOwningMux;
+        }
+
+        public override bool Equals(object? obj) => obj is MuxPropertiesDto other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(MuxId);
+            hash.Add(Count);
+            hash.Add(IndexOfDisplayOutputOwningMux);
+            return hash.ToHashCode();
+        }
     }
 
     /// <summary>
     /// DTO for vblank timestamp args.
     /// </summary>
-    public struct VblankTimestampArgsDto
+    public struct VblankTimestampArgsDto : IEquatable<VblankTimestampArgsDto>
     {
         public VblankTimestampArgsDto() {}
         public uint Size;
@@ -5814,6 +5998,40 @@ namespace IGCLWrapper
             }
 
             return native;
+        }
+
+        /// <summary>
+        /// Compare vblank timestamp args while ignoring the timestamp list.
+        /// </summary>
+        /// <param name="other">Other instance.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public bool Equals(VblankTimestampArgsDto other)
+        {
+            // VblankTimestamps is intentionally excluded as i.
+            return Size == other.Size &&
+                   Version == other.Version &&
+                   NumOfTargets == other.NumOfTargets;
+        }
+
+        /// <summary>
+        /// Compare to another object.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>True when equal; otherwise, false.</returns>
+        public override bool Equals(object? obj) => obj is VblankTimestampArgsDto other && Equals(other);
+
+        /// <summary>
+        /// Get a hash code for this instance.
+        /// </summary>
+        /// <returns>Hash code value.</returns>
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(Size);
+            hash.Add(Version);
+            hash.Add(NumOfTargets);
+            hash.Add(VblankTimestamps?.Count ?? 0);
+            return hash.ToHashCode();
         }
     }
 
