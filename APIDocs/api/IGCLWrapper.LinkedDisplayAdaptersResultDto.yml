@@ -7,7 +7,10 @@ items:
   children:
   - IGCLWrapper.LinkedDisplayAdaptersResultDto.#ctor
   - IGCLWrapper.LinkedDisplayAdaptersResultDto.Args
+  - IGCLWrapper.LinkedDisplayAdaptersResultDto.Equals(IGCLWrapper.LinkedDisplayAdaptersResultDto)
+  - IGCLWrapper.LinkedDisplayAdaptersResultDto.Equals(System.Object)
   - IGCLWrapper.LinkedDisplayAdaptersResultDto.FromNative(IGCLWrapper.ctl_lda_args_t,System.IntPtr[])
+  - IGCLWrapper.LinkedDisplayAdaptersResultDto.GetHashCode
   - IGCLWrapper.LinkedDisplayAdaptersResultDto.LinkedAdapters
   langs:
   - csharp
@@ -23,18 +26,18 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LinkedDisplayAdaptersResultDto
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 2413
+    startLine: 2425
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: DTO for linked display adapters query result.
   example: []
   syntax:
-    content: public struct LinkedDisplayAdaptersResultDto
-    content.vb: Public Structure LinkedDisplayAdaptersResultDto
+    content: 'public struct LinkedDisplayAdaptersResultDto : IEquatable<LinkedDisplayAdaptersResultDto>'
+    content.vb: Public Structure LinkedDisplayAdaptersResultDto Implements IEquatable(Of LinkedDisplayAdaptersResultDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.LinkedDisplayAdaptersResultDto}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -57,7 +60,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: .ctor
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 2415
+    startLine: 2427
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -86,7 +89,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Args
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 2416
+    startLine: 2428
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -113,7 +116,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LinkedAdapters
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 2417
+    startLine: 2429
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -140,7 +143,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 2419
+    startLine: 2431
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -158,6 +161,114 @@ items:
   nameWithType.vb: LinkedDisplayAdaptersResultDto.FromNative(ctl_lda_args_t, IntPtr())
   fullName.vb: IGCLWrapper.LinkedDisplayAdaptersResultDto.FromNative(IGCLWrapper.ctl_lda_args_t, System.IntPtr())
   name.vb: FromNative(ctl_lda_args_t, IntPtr())
+- uid: IGCLWrapper.LinkedDisplayAdaptersResultDto.Equals(IGCLWrapper.LinkedDisplayAdaptersResultDto)
+  commentId: M:IGCLWrapper.LinkedDisplayAdaptersResultDto.Equals(IGCLWrapper.LinkedDisplayAdaptersResultDto)
+  id: Equals(IGCLWrapper.LinkedDisplayAdaptersResultDto)
+  parent: IGCLWrapper.LinkedDisplayAdaptersResultDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(LinkedDisplayAdaptersResultDto)
+  nameWithType: LinkedDisplayAdaptersResultDto.Equals(LinkedDisplayAdaptersResultDto)
+  fullName: IGCLWrapper.LinkedDisplayAdaptersResultDto.Equals(IGCLWrapper.LinkedDisplayAdaptersResultDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 2444
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(LinkedDisplayAdaptersResultDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.LinkedDisplayAdaptersResultDto
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As LinkedDisplayAdaptersResultDto) As Boolean
+  overload: IGCLWrapper.LinkedDisplayAdaptersResultDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.LinkedDisplayAdaptersResultDto}.Equals(IGCLWrapper.LinkedDisplayAdaptersResultDto)
+- uid: IGCLWrapper.LinkedDisplayAdaptersResultDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.LinkedDisplayAdaptersResultDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.LinkedDisplayAdaptersResultDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: LinkedDisplayAdaptersResultDto.Equals(object?)
+  fullName: IGCLWrapper.LinkedDisplayAdaptersResultDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 2450
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Indicates whether this instance and a specified object are equal.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.LinkedDisplayAdaptersResultDto.Equals*
+  nameWithType.vb: LinkedDisplayAdaptersResultDto.Equals(Object)
+  fullName.vb: IGCLWrapper.LinkedDisplayAdaptersResultDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.LinkedDisplayAdaptersResultDto.GetHashCode
+  commentId: M:IGCLWrapper.LinkedDisplayAdaptersResultDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.LinkedDisplayAdaptersResultDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: LinkedDisplayAdaptersResultDto.GetHashCode()
+  fullName: IGCLWrapper.LinkedDisplayAdaptersResultDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLApiHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLApiHelper.cs
+    startLine: 2452
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Returns the hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A 32-bit signed integer that is the hash code for this instance.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.LinkedDisplayAdaptersResultDto.GetHashCode*
 references:
 - uid: IGCLWrapper
   commentId: N:IGCLWrapper
@@ -165,60 +276,38 @@ references:
   name: IGCLWrapper
   nameWithType: IGCLWrapper
   fullName: IGCLWrapper
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{IGCLWrapper.LinkedDisplayAdaptersResultDto}
+  commentId: T:System.IEquatable{IGCLWrapper.LinkedDisplayAdaptersResultDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<LinkedDisplayAdaptersResultDto>
+  nameWithType: IEquatable<LinkedDisplayAdaptersResultDto>
+  fullName: System.IEquatable<IGCLWrapper.LinkedDisplayAdaptersResultDto>
+  nameWithType.vb: IEquatable(Of LinkedDisplayAdaptersResultDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.LinkedDisplayAdaptersResultDto)
+  name.vb: IEquatable(Of LinkedDisplayAdaptersResultDto)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.LinkedDisplayAdaptersResultDto
+    name: LinkedDisplayAdaptersResultDto
+    href: IGCLWrapper.LinkedDisplayAdaptersResultDto.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.LinkedDisplayAdaptersResultDto
+    name: LinkedDisplayAdaptersResultDto
+    href: IGCLWrapper.LinkedDisplayAdaptersResultDto.html
   - name: )
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
@@ -356,6 +445,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.ValueType
   commentId: T:System.ValueType
   parent: System
@@ -375,13 +499,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: IGCLWrapper.LinkedDisplayAdaptersResultDto.#ctor*
   commentId: Overload:IGCLWrapper.LinkedDisplayAdaptersResultDto.#ctor
   href: IGCLWrapper.LinkedDisplayAdaptersResultDto.html#IGCLWrapper_LinkedDisplayAdaptersResultDto__ctor
@@ -541,3 +658,147 @@ references:
   name: LinkedDisplayAdaptersResultDto
   nameWithType: LinkedDisplayAdaptersResultDto
   fullName: IGCLWrapper.LinkedDisplayAdaptersResultDto
+- uid: IGCLWrapper.LinkedDisplayAdaptersResultDto.Equals*
+  commentId: Overload:IGCLWrapper.LinkedDisplayAdaptersResultDto.Equals
+  href: IGCLWrapper.LinkedDisplayAdaptersResultDto.html#IGCLWrapper_LinkedDisplayAdaptersResultDto_Equals_IGCLWrapper_LinkedDisplayAdaptersResultDto_
+  name: Equals
+  nameWithType: LinkedDisplayAdaptersResultDto.Equals
+  fullName: IGCLWrapper.LinkedDisplayAdaptersResultDto.Equals
+- uid: System.IEquatable{IGCLWrapper.LinkedDisplayAdaptersResultDto}.Equals(IGCLWrapper.LinkedDisplayAdaptersResultDto)
+  commentId: M:System.IEquatable{IGCLWrapper.LinkedDisplayAdaptersResultDto}.Equals(IGCLWrapper.LinkedDisplayAdaptersResultDto)
+  parent: System.IEquatable{IGCLWrapper.LinkedDisplayAdaptersResultDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(LinkedDisplayAdaptersResultDto)
+  nameWithType: IEquatable<LinkedDisplayAdaptersResultDto>.Equals(LinkedDisplayAdaptersResultDto)
+  fullName: System.IEquatable<IGCLWrapper.LinkedDisplayAdaptersResultDto>.Equals(IGCLWrapper.LinkedDisplayAdaptersResultDto)
+  nameWithType.vb: IEquatable(Of LinkedDisplayAdaptersResultDto).Equals(LinkedDisplayAdaptersResultDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.LinkedDisplayAdaptersResultDto).Equals(IGCLWrapper.LinkedDisplayAdaptersResultDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.LinkedDisplayAdaptersResultDto}.Equals(IGCLWrapper.LinkedDisplayAdaptersResultDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.LinkedDisplayAdaptersResultDto
+    name: LinkedDisplayAdaptersResultDto
+    href: IGCLWrapper.LinkedDisplayAdaptersResultDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.LinkedDisplayAdaptersResultDto}.Equals(IGCLWrapper.LinkedDisplayAdaptersResultDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.LinkedDisplayAdaptersResultDto
+    name: LinkedDisplayAdaptersResultDto
+    href: IGCLWrapper.LinkedDisplayAdaptersResultDto.html
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.LinkedDisplayAdaptersResultDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.LinkedDisplayAdaptersResultDto.GetHashCode
+  href: IGCLWrapper.LinkedDisplayAdaptersResultDto.html#IGCLWrapper_LinkedDisplayAdaptersResultDto_GetHashCode
+  name: GetHashCode
+  nameWithType: LinkedDisplayAdaptersResultDto.GetHashCode
+  fullName: IGCLWrapper.LinkedDisplayAdaptersResultDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer

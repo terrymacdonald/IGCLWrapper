@@ -89,7 +89,7 @@
 
 
   <h1 id="IGCLWrapper_PropertyRangeInfoDto" data-uid="IGCLWrapper.PropertyRangeInfoDto" class="text-break">
-Struct PropertyRangeInfoDto  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L5491"><i class="bi bi-code-slash"></i></a>
+Struct PropertyRangeInfoDto  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L5543"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -102,24 +102,24 @@ Struct PropertyRangeInfoDto  <a class="header-action link-secondary" title="View
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public struct PropertyRangeInfoDto</code></pre>
+    <pre><code class="lang-csharp hljs">public struct PropertyRangeInfoDto : IEquatable&lt;PropertyRangeInfoDto&gt;</code></pre>
   </div>
 
 
 
 
 
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="IGCLWrapper.PropertyRangeInfoDto.html">PropertyRangeInfoDto</a>&gt;</div>
+    </dd>
+  </dl>
 
 
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.equals">ValueType.Equals(object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode">ValueType.GetHashCode()</a>
-    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.tostring">ValueType.ToString()</a>
     </div>
@@ -146,7 +146,7 @@ Struct PropertyRangeInfoDto  <a class="header-action link-secondary" title="View
 
   <h3 id="IGCLWrapper_PropertyRangeInfoDto_DefaultValue" data-uid="IGCLWrapper.PropertyRangeInfoDto.DefaultValue">
   DefaultValue
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L5496"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L5548"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -176,7 +176,7 @@ Struct PropertyRangeInfoDto  <a class="header-action link-secondary" title="View
 
   <h3 id="IGCLWrapper_PropertyRangeInfoDto_MaxPossibleValue" data-uid="IGCLWrapper.PropertyRangeInfoDto.MaxPossibleValue">
   MaxPossibleValue
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L5494"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L5546"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -206,7 +206,7 @@ Struct PropertyRangeInfoDto  <a class="header-action link-secondary" title="View
 
   <h3 id="IGCLWrapper_PropertyRangeInfoDto_MinPossibleValue" data-uid="IGCLWrapper.PropertyRangeInfoDto.MinPossibleValue">
   MinPossibleValue
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L5493"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L5545"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -236,7 +236,7 @@ Struct PropertyRangeInfoDto  <a class="header-action link-secondary" title="View
 
   <h3 id="IGCLWrapper_PropertyRangeInfoDto_StepSize" data-uid="IGCLWrapper.PropertyRangeInfoDto.StepSize">
   StepSize
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L5495"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L5547"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -267,11 +267,89 @@ Struct PropertyRangeInfoDto  <a class="header-action link-secondary" title="View
 </h2>
 
 
+  <a id="IGCLWrapper_PropertyRangeInfoDto_Equals_" data-uid="IGCLWrapper.PropertyRangeInfoDto.Equals*"></a>
+
+  <h3 id="IGCLWrapper_PropertyRangeInfoDto_Equals_IGCLWrapper_PropertyRangeInfoDto_" data-uid="IGCLWrapper.PropertyRangeInfoDto.Equals(IGCLWrapper.PropertyRangeInfoDto)">
+  Equals(PropertyRangeInfoDto)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L5572"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether the current object is equal to another object of the same type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(PropertyRangeInfoDto other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="IGCLWrapper.PropertyRangeInfoDto.html">PropertyRangeInfoDto</a></dt>
+    <dd><p>An object to compare with this object.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_PropertyRangeInfoDto_Equals_" data-uid="IGCLWrapper.PropertyRangeInfoDto.Equals*"></a>
+
+  <h3 id="IGCLWrapper_PropertyRangeInfoDto_Equals_System_Object_" data-uid="IGCLWrapper.PropertyRangeInfoDto.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L5578"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether this instance and a specified object are equal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>The object to compare with the current instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="IGCLWrapper_PropertyRangeInfoDto_FromNative_" data-uid="IGCLWrapper.PropertyRangeInfoDto.FromNative*"></a>
 
   <h3 id="IGCLWrapper_PropertyRangeInfoDto_FromNative_IGCLWrapper_ctl_property_range_info_t_" data-uid="IGCLWrapper.PropertyRangeInfoDto.FromNative(IGCLWrapper.ctl_property_range_info_t)">
   FromNative(ctl_property_range_info_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L5498"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L5550"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -303,11 +381,44 @@ Struct PropertyRangeInfoDto  <a class="header-action link-secondary" title="View
 
 
 
+  <a id="IGCLWrapper_PropertyRangeInfoDto_GetHashCode_" data-uid="IGCLWrapper.PropertyRangeInfoDto.GetHashCode*"></a>
+
+  <h3 id="IGCLWrapper_PropertyRangeInfoDto_GetHashCode" data-uid="IGCLWrapper.PropertyRangeInfoDto.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L5580"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A 32-bit signed integer that is the hash code for this instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="IGCLWrapper_PropertyRangeInfoDto_ToNative_" data-uid="IGCLWrapper.PropertyRangeInfoDto.ToNative*"></a>
 
   <h3 id="IGCLWrapper_PropertyRangeInfoDto_ToNative" data-uid="IGCLWrapper.PropertyRangeInfoDto.ToNative">
   ToNative()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L5509"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L5561"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -338,7 +449,7 @@ Struct PropertyRangeInfoDto  <a class="header-action link-secondary" title="View
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L5491" class="edit-link">Edit this page</a>
+          <a href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L5543" class="edit-link">Edit this page</a>
         </div>
 
 

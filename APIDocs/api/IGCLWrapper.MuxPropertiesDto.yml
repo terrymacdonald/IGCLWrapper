@@ -8,7 +8,10 @@ items:
   - IGCLWrapper.MuxPropertiesDto.#ctor
   - IGCLWrapper.MuxPropertiesDto.Count
   - IGCLWrapper.MuxPropertiesDto.DisplayOutputs
+  - IGCLWrapper.MuxPropertiesDto.Equals(IGCLWrapper.MuxPropertiesDto)
+  - IGCLWrapper.MuxPropertiesDto.Equals(System.Object)
   - IGCLWrapper.MuxPropertiesDto.FromNative(IGCLWrapper.ctl_mux_properties_t,System.IntPtr[])
+  - IGCLWrapper.MuxPropertiesDto.GetHashCode
   - IGCLWrapper.MuxPropertiesDto.IndexOfDisplayOutputOwningMux
   - IGCLWrapper.MuxPropertiesDto.MuxId
   - IGCLWrapper.MuxPropertiesDto.Size
@@ -28,18 +31,18 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: MuxPropertiesDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5722
+    startLine: 5883
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: DTO for mux properties and display outputs.
   example: []
   syntax:
-    content: public struct MuxPropertiesDto
-    content.vb: Public Structure MuxPropertiesDto
+    content: 'public struct MuxPropertiesDto : IEquatable<MuxPropertiesDto>'
+    content.vb: Public Structure MuxPropertiesDto Implements IEquatable(Of MuxPropertiesDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.MuxPropertiesDto}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -62,7 +65,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: .ctor
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5724
+    startLine: 5885
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -91,7 +94,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5725
+    startLine: 5886
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -118,7 +121,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5726
+    startLine: 5887
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -145,7 +148,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: MuxId
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5727
+    startLine: 5888
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -172,7 +175,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Count
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5728
+    startLine: 5889
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -199,7 +202,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IndexOfDisplayOutputOwningMux
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5729
+    startLine: 5890
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -226,7 +229,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: DisplayOutputs
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5730
+    startLine: 5891
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -253,7 +256,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5732
+    startLine: 5893
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -289,7 +292,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5749
+    startLine: 5910
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -299,6 +302,114 @@ items:
       type: IGCLWrapper.ctl_mux_properties_t
     content.vb: Public Function ToNative() As ctl_mux_properties_t
   overload: IGCLWrapper.MuxPropertiesDto.ToNative*
+- uid: IGCLWrapper.MuxPropertiesDto.Equals(IGCLWrapper.MuxPropertiesDto)
+  commentId: M:IGCLWrapper.MuxPropertiesDto.Equals(IGCLWrapper.MuxPropertiesDto)
+  id: Equals(IGCLWrapper.MuxPropertiesDto)
+  parent: IGCLWrapper.MuxPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(MuxPropertiesDto)
+  nameWithType: MuxPropertiesDto.Equals(MuxPropertiesDto)
+  fullName: IGCLWrapper.MuxPropertiesDto.Equals(IGCLWrapper.MuxPropertiesDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 5923
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(MuxPropertiesDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.MuxPropertiesDto
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As MuxPropertiesDto) As Boolean
+  overload: IGCLWrapper.MuxPropertiesDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.MuxPropertiesDto}.Equals(IGCLWrapper.MuxPropertiesDto)
+- uid: IGCLWrapper.MuxPropertiesDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.MuxPropertiesDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.MuxPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: MuxPropertiesDto.Equals(object?)
+  fullName: IGCLWrapper.MuxPropertiesDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 5933
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Indicates whether this instance and a specified object are equal.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.MuxPropertiesDto.Equals*
+  nameWithType.vb: MuxPropertiesDto.Equals(Object)
+  fullName.vb: IGCLWrapper.MuxPropertiesDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.MuxPropertiesDto.GetHashCode
+  commentId: M:IGCLWrapper.MuxPropertiesDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.MuxPropertiesDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: MuxPropertiesDto.GetHashCode()
+  fullName: IGCLWrapper.MuxPropertiesDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 5935
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Returns the hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A 32-bit signed integer that is the hash code for this instance.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.MuxPropertiesDto.GetHashCode*
 references:
 - uid: IGCLWrapper
   commentId: N:IGCLWrapper
@@ -306,60 +417,38 @@ references:
   name: IGCLWrapper
   nameWithType: IGCLWrapper
   fullName: IGCLWrapper
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{IGCLWrapper.MuxPropertiesDto}
+  commentId: T:System.IEquatable{IGCLWrapper.MuxPropertiesDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<MuxPropertiesDto>
+  nameWithType: IEquatable<MuxPropertiesDto>
+  fullName: System.IEquatable<IGCLWrapper.MuxPropertiesDto>
+  nameWithType.vb: IEquatable(Of MuxPropertiesDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.MuxPropertiesDto)
+  name.vb: IEquatable(Of MuxPropertiesDto)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.MuxPropertiesDto
+    name: MuxPropertiesDto
+    href: IGCLWrapper.MuxPropertiesDto.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.MuxPropertiesDto
+    name: MuxPropertiesDto
+    href: IGCLWrapper.MuxPropertiesDto.html
   - name: )
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
@@ -497,6 +586,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.ValueType
   commentId: T:System.ValueType
   parent: System
@@ -516,13 +640,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: IGCLWrapper.MuxPropertiesDto.#ctor*
   commentId: Overload:IGCLWrapper.MuxPropertiesDto.#ctor
   href: IGCLWrapper.MuxPropertiesDto.html#IGCLWrapper_MuxPropertiesDto__ctor
@@ -703,3 +820,147 @@ references:
   name: ToNative
   nameWithType: MuxPropertiesDto.ToNative
   fullName: IGCLWrapper.MuxPropertiesDto.ToNative
+- uid: IGCLWrapper.MuxPropertiesDto.Equals*
+  commentId: Overload:IGCLWrapper.MuxPropertiesDto.Equals
+  href: IGCLWrapper.MuxPropertiesDto.html#IGCLWrapper_MuxPropertiesDto_Equals_IGCLWrapper_MuxPropertiesDto_
+  name: Equals
+  nameWithType: MuxPropertiesDto.Equals
+  fullName: IGCLWrapper.MuxPropertiesDto.Equals
+- uid: System.IEquatable{IGCLWrapper.MuxPropertiesDto}.Equals(IGCLWrapper.MuxPropertiesDto)
+  commentId: M:System.IEquatable{IGCLWrapper.MuxPropertiesDto}.Equals(IGCLWrapper.MuxPropertiesDto)
+  parent: System.IEquatable{IGCLWrapper.MuxPropertiesDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(MuxPropertiesDto)
+  nameWithType: IEquatable<MuxPropertiesDto>.Equals(MuxPropertiesDto)
+  fullName: System.IEquatable<IGCLWrapper.MuxPropertiesDto>.Equals(IGCLWrapper.MuxPropertiesDto)
+  nameWithType.vb: IEquatable(Of MuxPropertiesDto).Equals(MuxPropertiesDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.MuxPropertiesDto).Equals(IGCLWrapper.MuxPropertiesDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.MuxPropertiesDto}.Equals(IGCLWrapper.MuxPropertiesDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.MuxPropertiesDto
+    name: MuxPropertiesDto
+    href: IGCLWrapper.MuxPropertiesDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.MuxPropertiesDto}.Equals(IGCLWrapper.MuxPropertiesDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.MuxPropertiesDto
+    name: MuxPropertiesDto
+    href: IGCLWrapper.MuxPropertiesDto.html
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.MuxPropertiesDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.MuxPropertiesDto.GetHashCode
+  href: IGCLWrapper.MuxPropertiesDto.html#IGCLWrapper_MuxPropertiesDto_GetHashCode
+  name: GetHashCode
+  nameWithType: MuxPropertiesDto.GetHashCode
+  fullName: IGCLWrapper.MuxPropertiesDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer

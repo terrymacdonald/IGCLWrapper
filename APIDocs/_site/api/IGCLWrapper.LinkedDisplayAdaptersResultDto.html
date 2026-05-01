@@ -89,7 +89,7 @@
 
 
   <h1 id="IGCLWrapper_LinkedDisplayAdaptersResultDto" data-uid="IGCLWrapper.LinkedDisplayAdaptersResultDto" class="text-break">
-Struct LinkedDisplayAdaptersResultDto  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L2414"><i class="bi bi-code-slash"></i></a>
+Struct LinkedDisplayAdaptersResultDto  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L2426"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -102,24 +102,24 @@ Struct LinkedDisplayAdaptersResultDto  <a class="header-action link-secondary" t
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public struct LinkedDisplayAdaptersResultDto</code></pre>
+    <pre><code class="lang-csharp hljs">public struct LinkedDisplayAdaptersResultDto : IEquatable&lt;LinkedDisplayAdaptersResultDto&gt;</code></pre>
   </div>
 
 
 
 
 
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="IGCLWrapper.LinkedDisplayAdaptersResultDto.html">LinkedDisplayAdaptersResultDto</a>&gt;</div>
+    </dd>
+  </dl>
 
 
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.equals">ValueType.Equals(object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode">ValueType.GetHashCode()</a>
-    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.tostring">ValueType.ToString()</a>
     </div>
@@ -147,7 +147,7 @@ Struct LinkedDisplayAdaptersResultDto  <a class="header-action link-secondary" t
 
   <h3 id="IGCLWrapper_LinkedDisplayAdaptersResultDto__ctor" data-uid="IGCLWrapper.LinkedDisplayAdaptersResultDto.#ctor">
   LinkedDisplayAdaptersResultDto()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L2416"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L2428"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -176,7 +176,7 @@ Struct LinkedDisplayAdaptersResultDto  <a class="header-action link-secondary" t
 
   <h3 id="IGCLWrapper_LinkedDisplayAdaptersResultDto_Args" data-uid="IGCLWrapper.LinkedDisplayAdaptersResultDto.Args">
   Args
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L2417"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L2429"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -206,7 +206,7 @@ Struct LinkedDisplayAdaptersResultDto  <a class="header-action link-secondary" t
 
   <h3 id="IGCLWrapper_LinkedDisplayAdaptersResultDto_LinkedAdapters" data-uid="IGCLWrapper.LinkedDisplayAdaptersResultDto.LinkedAdapters">
   LinkedAdapters
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L2418"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L2430"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -237,11 +237,89 @@ Struct LinkedDisplayAdaptersResultDto  <a class="header-action link-secondary" t
 </h2>
 
 
+  <a id="IGCLWrapper_LinkedDisplayAdaptersResultDto_Equals_" data-uid="IGCLWrapper.LinkedDisplayAdaptersResultDto.Equals*"></a>
+
+  <h3 id="IGCLWrapper_LinkedDisplayAdaptersResultDto_Equals_IGCLWrapper_LinkedDisplayAdaptersResultDto_" data-uid="IGCLWrapper.LinkedDisplayAdaptersResultDto.Equals(IGCLWrapper.LinkedDisplayAdaptersResultDto)">
+  Equals(LinkedDisplayAdaptersResultDto)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L2445"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether the current object is equal to another object of the same type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(LinkedDisplayAdaptersResultDto other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="IGCLWrapper.LinkedDisplayAdaptersResultDto.html">LinkedDisplayAdaptersResultDto</a></dt>
+    <dd><p>An object to compare with this object.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="IGCLWrapper_LinkedDisplayAdaptersResultDto_Equals_" data-uid="IGCLWrapper.LinkedDisplayAdaptersResultDto.Equals*"></a>
+
+  <h3 id="IGCLWrapper_LinkedDisplayAdaptersResultDto_Equals_System_Object_" data-uid="IGCLWrapper.LinkedDisplayAdaptersResultDto.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L2451"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether this instance and a specified object are equal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>The object to compare with the current instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="IGCLWrapper_LinkedDisplayAdaptersResultDto_FromNative_" data-uid="IGCLWrapper.LinkedDisplayAdaptersResultDto.FromNative*"></a>
 
   <h3 id="IGCLWrapper_LinkedDisplayAdaptersResultDto_FromNative_IGCLWrapper_ctl_lda_args_t_System_IntPtr___" data-uid="IGCLWrapper.LinkedDisplayAdaptersResultDto.FromNative(IGCLWrapper.ctl_lda_args_t,System.IntPtr[])">
   FromNative(ctl_lda_args_t, nint[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L2420"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L2432"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -275,11 +353,44 @@ Struct LinkedDisplayAdaptersResultDto  <a class="header-action link-secondary" t
 
 
 
+  <a id="IGCLWrapper_LinkedDisplayAdaptersResultDto_GetHashCode_" data-uid="IGCLWrapper.LinkedDisplayAdaptersResultDto.GetHashCode*"></a>
+
+  <h3 id="IGCLWrapper_LinkedDisplayAdaptersResultDto_GetHashCode" data-uid="IGCLWrapper.LinkedDisplayAdaptersResultDto.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L2453"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A 32-bit signed integer that is the hash code for this instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L2414" class="edit-link">Edit this page</a>
+          <a href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLApiHelper.cs/#L2426" class="edit-link">Edit this page</a>
         </div>
 
 

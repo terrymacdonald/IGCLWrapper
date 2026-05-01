@@ -5,7 +5,10 @@ items:
   id: ScalingCapsDto
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.ScalingCapsDto.Equals(IGCLWrapper.ScalingCapsDto)
+  - IGCLWrapper.ScalingCapsDto.Equals(System.Object)
   - IGCLWrapper.ScalingCapsDto.FromNative(IGCLWrapper.ctl_scaling_caps_t)
+  - IGCLWrapper.ScalingCapsDto.GetHashCode
   - IGCLWrapper.ScalingCapsDto.Size
   - IGCLWrapper.ScalingCapsDto.SupportedScaling
   - IGCLWrapper.ScalingCapsDto.ToNative
@@ -24,18 +27,18 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ScalingCapsDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5400
+    startLine: 5431
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: DTO for scaling capabilities.
   example: []
   syntax:
-    content: public struct ScalingCapsDto
-    content.vb: Public Structure ScalingCapsDto
+    content: 'public struct ScalingCapsDto : IEquatable<ScalingCapsDto>'
+    content.vb: Public Structure ScalingCapsDto Implements IEquatable(Of ScalingCapsDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.ScalingCapsDto}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -58,7 +61,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5402
+    startLine: 5433
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -85,7 +88,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5403
+    startLine: 5434
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -112,7 +115,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SupportedScaling
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5404
+    startLine: 5435
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -139,7 +142,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5406
+    startLine: 5437
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -170,7 +173,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5416
+    startLine: 5447
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -180,6 +183,114 @@ items:
       type: IGCLWrapper.ctl_scaling_caps_t
     content.vb: Public Function ToNative() As ctl_scaling_caps_t
   overload: IGCLWrapper.ScalingCapsDto.ToNative*
+- uid: IGCLWrapper.ScalingCapsDto.Equals(IGCLWrapper.ScalingCapsDto)
+  commentId: M:IGCLWrapper.ScalingCapsDto.Equals(IGCLWrapper.ScalingCapsDto)
+  id: Equals(IGCLWrapper.ScalingCapsDto)
+  parent: IGCLWrapper.ScalingCapsDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(ScalingCapsDto)
+  nameWithType: ScalingCapsDto.Equals(ScalingCapsDto)
+  fullName: IGCLWrapper.ScalingCapsDto.Equals(IGCLWrapper.ScalingCapsDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 5457
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(ScalingCapsDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.ScalingCapsDto
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As ScalingCapsDto) As Boolean
+  overload: IGCLWrapper.ScalingCapsDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.ScalingCapsDto}.Equals(IGCLWrapper.ScalingCapsDto)
+- uid: IGCLWrapper.ScalingCapsDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.ScalingCapsDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.ScalingCapsDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: ScalingCapsDto.Equals(object?)
+  fullName: IGCLWrapper.ScalingCapsDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 5460
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Indicates whether this instance and a specified object are equal.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.ScalingCapsDto.Equals*
+  nameWithType.vb: ScalingCapsDto.Equals(Object)
+  fullName.vb: IGCLWrapper.ScalingCapsDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.ScalingCapsDto.GetHashCode
+  commentId: M:IGCLWrapper.ScalingCapsDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.ScalingCapsDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: ScalingCapsDto.GetHashCode()
+  fullName: IGCLWrapper.ScalingCapsDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 5462
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Returns the hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A 32-bit signed integer that is the hash code for this instance.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.ScalingCapsDto.GetHashCode*
 references:
 - uid: IGCLWrapper
   commentId: N:IGCLWrapper
@@ -187,60 +298,38 @@ references:
   name: IGCLWrapper
   nameWithType: IGCLWrapper
   fullName: IGCLWrapper
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{IGCLWrapper.ScalingCapsDto}
+  commentId: T:System.IEquatable{IGCLWrapper.ScalingCapsDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<ScalingCapsDto>
+  nameWithType: IEquatable<ScalingCapsDto>
+  fullName: System.IEquatable<IGCLWrapper.ScalingCapsDto>
+  nameWithType.vb: IEquatable(Of ScalingCapsDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.ScalingCapsDto)
+  name.vb: IEquatable(Of ScalingCapsDto)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.ScalingCapsDto
+    name: ScalingCapsDto
+    href: IGCLWrapper.ScalingCapsDto.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.ScalingCapsDto
+    name: ScalingCapsDto
+    href: IGCLWrapper.ScalingCapsDto.html
   - name: )
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
@@ -378,6 +467,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.ValueType
   commentId: T:System.ValueType
   parent: System
@@ -397,13 +521,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System
@@ -452,3 +569,147 @@ references:
   name: ToNative
   nameWithType: ScalingCapsDto.ToNative
   fullName: IGCLWrapper.ScalingCapsDto.ToNative
+- uid: IGCLWrapper.ScalingCapsDto.Equals*
+  commentId: Overload:IGCLWrapper.ScalingCapsDto.Equals
+  href: IGCLWrapper.ScalingCapsDto.html#IGCLWrapper_ScalingCapsDto_Equals_IGCLWrapper_ScalingCapsDto_
+  name: Equals
+  nameWithType: ScalingCapsDto.Equals
+  fullName: IGCLWrapper.ScalingCapsDto.Equals
+- uid: System.IEquatable{IGCLWrapper.ScalingCapsDto}.Equals(IGCLWrapper.ScalingCapsDto)
+  commentId: M:System.IEquatable{IGCLWrapper.ScalingCapsDto}.Equals(IGCLWrapper.ScalingCapsDto)
+  parent: System.IEquatable{IGCLWrapper.ScalingCapsDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(ScalingCapsDto)
+  nameWithType: IEquatable<ScalingCapsDto>.Equals(ScalingCapsDto)
+  fullName: System.IEquatable<IGCLWrapper.ScalingCapsDto>.Equals(IGCLWrapper.ScalingCapsDto)
+  nameWithType.vb: IEquatable(Of ScalingCapsDto).Equals(ScalingCapsDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.ScalingCapsDto).Equals(IGCLWrapper.ScalingCapsDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.ScalingCapsDto}.Equals(IGCLWrapper.ScalingCapsDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.ScalingCapsDto
+    name: ScalingCapsDto
+    href: IGCLWrapper.ScalingCapsDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.ScalingCapsDto}.Equals(IGCLWrapper.ScalingCapsDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.ScalingCapsDto
+    name: ScalingCapsDto
+    href: IGCLWrapper.ScalingCapsDto.html
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.ScalingCapsDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.ScalingCapsDto.GetHashCode
+  href: IGCLWrapper.ScalingCapsDto.html#IGCLWrapper_ScalingCapsDto_GetHashCode
+  name: GetHashCode
+  nameWithType: ScalingCapsDto.GetHashCode
+  fullName: IGCLWrapper.ScalingCapsDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer

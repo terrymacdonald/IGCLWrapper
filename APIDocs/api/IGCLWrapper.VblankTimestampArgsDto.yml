@@ -6,7 +6,10 @@ items:
   parent: IGCLWrapper
   children:
   - IGCLWrapper.VblankTimestampArgsDto.#ctor
+  - IGCLWrapper.VblankTimestampArgsDto.Equals(IGCLWrapper.VblankTimestampArgsDto)
+  - IGCLWrapper.VblankTimestampArgsDto.Equals(System.Object)
   - IGCLWrapper.VblankTimestampArgsDto.FromNative(IGCLWrapper.ctl_vblank_ts_args_t)
+  - IGCLWrapper.VblankTimestampArgsDto.GetHashCode
   - IGCLWrapper.VblankTimestampArgsDto.NumOfTargets
   - IGCLWrapper.VblankTimestampArgsDto.Size
   - IGCLWrapper.VblankTimestampArgsDto.ToNative
@@ -26,18 +29,18 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VblankTimestampArgsDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5766
+    startLine: 5950
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: DTO for vblank timestamp args.
   example: []
   syntax:
-    content: public struct VblankTimestampArgsDto
-    content.vb: Public Structure VblankTimestampArgsDto
+    content: 'public struct VblankTimestampArgsDto : IEquatable<VblankTimestampArgsDto>'
+    content.vb: Public Structure VblankTimestampArgsDto Implements IEquatable(Of VblankTimestampArgsDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.VblankTimestampArgsDto}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -60,7 +63,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: .ctor
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5768
+    startLine: 5952
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -89,7 +92,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5769
+    startLine: 5953
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -116,7 +119,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5770
+    startLine: 5954
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -143,7 +146,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: NumOfTargets
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5771
+    startLine: 5955
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -170,7 +173,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VblankTimestamps
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5772
+    startLine: 5956
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -197,7 +200,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5774
+    startLine: 5958
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -228,7 +231,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5791
+    startLine: 5975
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -238,6 +241,114 @@ items:
       type: IGCLWrapper.ctl_vblank_ts_args_t
     content.vb: Public Function ToNative() As ctl_vblank_ts_args_t
   overload: IGCLWrapper.VblankTimestampArgsDto.ToNative*
+- uid: IGCLWrapper.VblankTimestampArgsDto.Equals(IGCLWrapper.VblankTimestampArgsDto)
+  commentId: M:IGCLWrapper.VblankTimestampArgsDto.Equals(IGCLWrapper.VblankTimestampArgsDto)
+  id: Equals(IGCLWrapper.VblankTimestampArgsDto)
+  parent: IGCLWrapper.VblankTimestampArgsDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(VblankTimestampArgsDto)
+  nameWithType: VblankTimestampArgsDto.Equals(VblankTimestampArgsDto)
+  fullName: IGCLWrapper.VblankTimestampArgsDto.Equals(IGCLWrapper.VblankTimestampArgsDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6007
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare vblank timestamp args while ignoring the timestamp list.
+  example: []
+  syntax:
+    content: public bool Equals(VblankTimestampArgsDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.VblankTimestampArgsDto
+      description: Other instance.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Function Equals(other As VblankTimestampArgsDto) As Boolean
+  overload: IGCLWrapper.VblankTimestampArgsDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.VblankTimestampArgsDto}.Equals(IGCLWrapper.VblankTimestampArgsDto)
+- uid: IGCLWrapper.VblankTimestampArgsDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.VblankTimestampArgsDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.VblankTimestampArgsDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: VblankTimestampArgsDto.Equals(object?)
+  fullName: IGCLWrapper.VblankTimestampArgsDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6020
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Compare to another object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: Object to compare.
+    return:
+      type: System.Boolean
+      description: True when equal; otherwise, false.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.VblankTimestampArgsDto.Equals*
+  nameWithType.vb: VblankTimestampArgsDto.Equals(Object)
+  fullName.vb: IGCLWrapper.VblankTimestampArgsDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.VblankTimestampArgsDto.GetHashCode
+  commentId: M:IGCLWrapper.VblankTimestampArgsDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.VblankTimestampArgsDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: VblankTimestampArgsDto.GetHashCode()
+  fullName: IGCLWrapper.VblankTimestampArgsDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6026
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Get a hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: Hash code value.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.VblankTimestampArgsDto.GetHashCode*
 references:
 - uid: IGCLWrapper
   commentId: N:IGCLWrapper
@@ -245,60 +356,38 @@ references:
   name: IGCLWrapper
   nameWithType: IGCLWrapper
   fullName: IGCLWrapper
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{IGCLWrapper.VblankTimestampArgsDto}
+  commentId: T:System.IEquatable{IGCLWrapper.VblankTimestampArgsDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<VblankTimestampArgsDto>
+  nameWithType: IEquatable<VblankTimestampArgsDto>
+  fullName: System.IEquatable<IGCLWrapper.VblankTimestampArgsDto>
+  nameWithType.vb: IEquatable(Of VblankTimestampArgsDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.VblankTimestampArgsDto)
+  name.vb: IEquatable(Of VblankTimestampArgsDto)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.VblankTimestampArgsDto
+    name: VblankTimestampArgsDto
+    href: IGCLWrapper.VblankTimestampArgsDto.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.VblankTimestampArgsDto
+    name: VblankTimestampArgsDto
+    href: IGCLWrapper.VblankTimestampArgsDto.html
   - name: )
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
@@ -436,6 +525,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.ValueType
   commentId: T:System.ValueType
   parent: System
@@ -455,13 +579,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: IGCLWrapper.VblankTimestampArgsDto.#ctor*
   commentId: Overload:IGCLWrapper.VblankTimestampArgsDto.#ctor
   href: IGCLWrapper.VblankTimestampArgsDto.html#IGCLWrapper_VblankTimestampArgsDto__ctor
@@ -619,3 +736,147 @@ references:
   name: ToNative
   nameWithType: VblankTimestampArgsDto.ToNative
   fullName: IGCLWrapper.VblankTimestampArgsDto.ToNative
+- uid: IGCLWrapper.VblankTimestampArgsDto.Equals*
+  commentId: Overload:IGCLWrapper.VblankTimestampArgsDto.Equals
+  href: IGCLWrapper.VblankTimestampArgsDto.html#IGCLWrapper_VblankTimestampArgsDto_Equals_IGCLWrapper_VblankTimestampArgsDto_
+  name: Equals
+  nameWithType: VblankTimestampArgsDto.Equals
+  fullName: IGCLWrapper.VblankTimestampArgsDto.Equals
+- uid: System.IEquatable{IGCLWrapper.VblankTimestampArgsDto}.Equals(IGCLWrapper.VblankTimestampArgsDto)
+  commentId: M:System.IEquatable{IGCLWrapper.VblankTimestampArgsDto}.Equals(IGCLWrapper.VblankTimestampArgsDto)
+  parent: System.IEquatable{IGCLWrapper.VblankTimestampArgsDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(VblankTimestampArgsDto)
+  nameWithType: IEquatable<VblankTimestampArgsDto>.Equals(VblankTimestampArgsDto)
+  fullName: System.IEquatable<IGCLWrapper.VblankTimestampArgsDto>.Equals(IGCLWrapper.VblankTimestampArgsDto)
+  nameWithType.vb: IEquatable(Of VblankTimestampArgsDto).Equals(VblankTimestampArgsDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.VblankTimestampArgsDto).Equals(IGCLWrapper.VblankTimestampArgsDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.VblankTimestampArgsDto}.Equals(IGCLWrapper.VblankTimestampArgsDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.VblankTimestampArgsDto
+    name: VblankTimestampArgsDto
+    href: IGCLWrapper.VblankTimestampArgsDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.VblankTimestampArgsDto}.Equals(IGCLWrapper.VblankTimestampArgsDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.VblankTimestampArgsDto
+    name: VblankTimestampArgsDto
+    href: IGCLWrapper.VblankTimestampArgsDto.html
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.VblankTimestampArgsDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.VblankTimestampArgsDto.GetHashCode
+  href: IGCLWrapper.VblankTimestampArgsDto.html#IGCLWrapper_VblankTimestampArgsDto_GetHashCode
+  name: GetHashCode
+  nameWithType: VblankTimestampArgsDto.GetHashCode
+  fullName: IGCLWrapper.VblankTimestampArgsDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer

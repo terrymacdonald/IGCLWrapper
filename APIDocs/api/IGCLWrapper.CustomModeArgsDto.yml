@@ -7,7 +7,10 @@ items:
   children:
   - IGCLWrapper.CustomModeArgsDto.#ctor
   - IGCLWrapper.CustomModeArgsDto.CustomModeOpType
+  - IGCLWrapper.CustomModeArgsDto.Equals(IGCLWrapper.CustomModeArgsDto)
+  - IGCLWrapper.CustomModeArgsDto.Equals(System.Object)
   - IGCLWrapper.CustomModeArgsDto.FromNative(IGCLWrapper.ctl_get_set_custom_mode_args_t)
+  - IGCLWrapper.CustomModeArgsDto.GetHashCode
   - IGCLWrapper.CustomModeArgsDto.Modes
   - IGCLWrapper.CustomModeArgsDto.NumOfModes
   - IGCLWrapper.CustomModeArgsDto.Size
@@ -27,18 +30,18 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CustomModeArgsDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5660
+    startLine: 5783
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: DTO for custom mode args.
   example: []
   syntax:
-    content: public struct CustomModeArgsDto
-    content.vb: Public Structure CustomModeArgsDto
+    content: 'public struct CustomModeArgsDto : IEquatable<CustomModeArgsDto>'
+    content.vb: Public Structure CustomModeArgsDto Implements IEquatable(Of CustomModeArgsDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.CustomModeArgsDto}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -61,7 +64,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: .ctor
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5662
+    startLine: 5785
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -90,7 +93,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5663
+    startLine: 5786
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -117,7 +120,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5664
+    startLine: 5787
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -144,7 +147,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CustomModeOpType
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5665
+    startLine: 5788
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -171,7 +174,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: NumOfModes
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5666
+    startLine: 5789
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -198,7 +201,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Modes
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5667
+    startLine: 5790
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -225,7 +228,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5669
+    startLine: 5792
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -256,7 +259,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 5680
+    startLine: 5803
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -266,6 +269,114 @@ items:
       type: IGCLWrapper.ctl_get_set_custom_mode_args_t
     content.vb: Public Function ToNative() As ctl_get_set_custom_mode_args_t
   overload: IGCLWrapper.CustomModeArgsDto.ToNative*
+- uid: IGCLWrapper.CustomModeArgsDto.Equals(IGCLWrapper.CustomModeArgsDto)
+  commentId: M:IGCLWrapper.CustomModeArgsDto.Equals(IGCLWrapper.CustomModeArgsDto)
+  id: Equals(IGCLWrapper.CustomModeArgsDto)
+  parent: IGCLWrapper.CustomModeArgsDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(CustomModeArgsDto)
+  nameWithType: CustomModeArgsDto.Equals(CustomModeArgsDto)
+  fullName: IGCLWrapper.CustomModeArgsDto.Equals(IGCLWrapper.CustomModeArgsDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 5815
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(CustomModeArgsDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.CustomModeArgsDto
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As CustomModeArgsDto) As Boolean
+  overload: IGCLWrapper.CustomModeArgsDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.CustomModeArgsDto}.Equals(IGCLWrapper.CustomModeArgsDto)
+- uid: IGCLWrapper.CustomModeArgsDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.CustomModeArgsDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.CustomModeArgsDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: CustomModeArgsDto.Equals(object?)
+  fullName: IGCLWrapper.CustomModeArgsDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 5824
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Indicates whether this instance and a specified object are equal.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.CustomModeArgsDto.Equals*
+  nameWithType.vb: CustomModeArgsDto.Equals(Object)
+  fullName.vb: IGCLWrapper.CustomModeArgsDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.CustomModeArgsDto.GetHashCode
+  commentId: M:IGCLWrapper.CustomModeArgsDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.CustomModeArgsDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: CustomModeArgsDto.GetHashCode()
+  fullName: IGCLWrapper.CustomModeArgsDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 5826
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Returns the hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A 32-bit signed integer that is the hash code for this instance.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.CustomModeArgsDto.GetHashCode*
 references:
 - uid: IGCLWrapper
   commentId: N:IGCLWrapper
@@ -273,60 +384,38 @@ references:
   name: IGCLWrapper
   nameWithType: IGCLWrapper
   fullName: IGCLWrapper
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{IGCLWrapper.CustomModeArgsDto}
+  commentId: T:System.IEquatable{IGCLWrapper.CustomModeArgsDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<CustomModeArgsDto>
+  nameWithType: IEquatable<CustomModeArgsDto>
+  fullName: System.IEquatable<IGCLWrapper.CustomModeArgsDto>
+  nameWithType.vb: IEquatable(Of CustomModeArgsDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.CustomModeArgsDto)
+  name.vb: IEquatable(Of CustomModeArgsDto)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.CustomModeArgsDto
+    name: CustomModeArgsDto
+    href: IGCLWrapper.CustomModeArgsDto.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.CustomModeArgsDto
+    name: CustomModeArgsDto
+    href: IGCLWrapper.CustomModeArgsDto.html
   - name: )
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
@@ -464,6 +553,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.ValueType
   commentId: T:System.ValueType
   parent: System
@@ -483,13 +607,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: IGCLWrapper.CustomModeArgsDto.#ctor*
   commentId: Overload:IGCLWrapper.CustomModeArgsDto.#ctor
   href: IGCLWrapper.CustomModeArgsDto.html#IGCLWrapper_CustomModeArgsDto__ctor
@@ -652,3 +769,147 @@ references:
   name: ToNative
   nameWithType: CustomModeArgsDto.ToNative
   fullName: IGCLWrapper.CustomModeArgsDto.ToNative
+- uid: IGCLWrapper.CustomModeArgsDto.Equals*
+  commentId: Overload:IGCLWrapper.CustomModeArgsDto.Equals
+  href: IGCLWrapper.CustomModeArgsDto.html#IGCLWrapper_CustomModeArgsDto_Equals_IGCLWrapper_CustomModeArgsDto_
+  name: Equals
+  nameWithType: CustomModeArgsDto.Equals
+  fullName: IGCLWrapper.CustomModeArgsDto.Equals
+- uid: System.IEquatable{IGCLWrapper.CustomModeArgsDto}.Equals(IGCLWrapper.CustomModeArgsDto)
+  commentId: M:System.IEquatable{IGCLWrapper.CustomModeArgsDto}.Equals(IGCLWrapper.CustomModeArgsDto)
+  parent: System.IEquatable{IGCLWrapper.CustomModeArgsDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(CustomModeArgsDto)
+  nameWithType: IEquatable<CustomModeArgsDto>.Equals(CustomModeArgsDto)
+  fullName: System.IEquatable<IGCLWrapper.CustomModeArgsDto>.Equals(IGCLWrapper.CustomModeArgsDto)
+  nameWithType.vb: IEquatable(Of CustomModeArgsDto).Equals(CustomModeArgsDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.CustomModeArgsDto).Equals(IGCLWrapper.CustomModeArgsDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.CustomModeArgsDto}.Equals(IGCLWrapper.CustomModeArgsDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.CustomModeArgsDto
+    name: CustomModeArgsDto
+    href: IGCLWrapper.CustomModeArgsDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.CustomModeArgsDto}.Equals(IGCLWrapper.CustomModeArgsDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.CustomModeArgsDto
+    name: CustomModeArgsDto
+    href: IGCLWrapper.CustomModeArgsDto.html
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.CustomModeArgsDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.CustomModeArgsDto.GetHashCode
+  href: IGCLWrapper.CustomModeArgsDto.html#IGCLWrapper_CustomModeArgsDto_GetHashCode
+  name: GetHashCode
+  nameWithType: CustomModeArgsDto.GetHashCode
+  fullName: IGCLWrapper.CustomModeArgsDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
