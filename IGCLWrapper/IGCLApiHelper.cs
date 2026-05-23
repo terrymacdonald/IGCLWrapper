@@ -901,7 +901,11 @@ namespace IGCLWrapper
                         var encoderFlags = encoderProps.EncoderConfigFlags;
                         var isCombinedAvailable = encoderFlags == 0 || (encoderFlags & combinedAllowedEncoderTypes) != 0;
 
-                        if (!isDisplayActive || !isDisplayAttached || !isCombinedAvailable)
+                        // Include attached displays even if not currently active in Windows.
+                        // The native IGCL API can enable them as part of creating the combined display.
+                        // Requiring isDisplayActive would fail when switching from a profile that has
+                        // one of the required source monitors disabled.
+                        if (!isDisplayAttached || !isCombinedAvailable)
                             continue;
 
                         var width = (int)props.Display_Timing_Info.HActive;
@@ -917,7 +921,7 @@ namespace IGCLWrapper
 
             if (activeOutputs.Count < numOutputs)
             {
-                throw new InvalidOperationException($"Combined display requires {numOutputs} active outputs but only {activeOutputs.Count} are available.");
+                throw new InvalidOperationException($"Combined display requires {numOutputs} attached outputs but only {activeOutputs.Count} are available.");
             }
 
             var activeEncoderIds = new HashSet<uint>();
