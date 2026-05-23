@@ -775,6 +775,18 @@ namespace IGCLWrapper
                 var dto = CombinedDisplayArgsDto.FromNative(query);
                 dto.IsSupported = false;
                 dto.ChildInfos = CopyCombinedDisplayChildInfos(pChildren, query.NumOutputs);
+                // Normalise child order to bottom-to-top then left-to-right so the returned
+                // DTO can be stored and passed directly to SetCombinedDisplay without any
+                // additional reordering by the caller.
+                // - Horizontal layouts (same Y for all): sorted left-to-right (ascending FbSrc.Left).
+                // - Vertical layouts (same X for all): sorted bottom-to-top (descending FbSrc.Top),
+                //   which matches the order the native IGCL API expects for SetCombinedDisplay.
+                dto.ChildInfos.Sort((a, b) =>
+                {
+                    var top = b.FbSrc.Top.CompareTo(a.FbSrc.Top); // descending Y = bottom-to-top
+                    if (top != 0) return top;
+                    return a.FbSrc.Left.CompareTo(b.FbSrc.Left);  // ascending X  = left-to-right
+                });
                 return dto;
             }
         }
