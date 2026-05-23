@@ -910,8 +910,8 @@ namespace IGCLWrapper
 
                         var width = (int)props.Display_Timing_Info.HActive;
                         var height = (int)props.Display_Timing_Info.VActive;
-                        if (width <= 0 || height <= 0)
-                            continue;
+                        // if (width <= 0 || height <= 0)
+                        //     continue;
 
                         var encoderId = encoderProps.Os_display_encoder_handle.WindowsDisplayEncoderID;
                         activeOutputs.Add((display, width, height, encoderId));
