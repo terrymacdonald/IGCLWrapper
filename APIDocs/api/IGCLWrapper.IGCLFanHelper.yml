@@ -29,7 +29,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFanHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IGCLFanHelper
     path: ../IGCLWrapper/IGCLFanHelper.cs
@@ -67,7 +67,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFanHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumFans
     path: ../IGCLWrapper/IGCLFanHelper.cs
@@ -98,7 +98,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFanHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FanGetProperties
     path: ../IGCLWrapper/IGCLFanHelper.cs
@@ -109,15 +109,15 @@ items:
   summary: Get fan properties as a DTO.
   example: []
   syntax:
-    content: public FanPropertiesDto FanGetProperties(nint fanHandle)
+    content: public FanPropertiesDto? FanGetProperties(nint fanHandle)
     parameters:
     - id: fanHandle
       type: System.IntPtr
       description: Fan handle.
     return:
-      type: IGCLWrapper.FanPropertiesDto
-      description: Fan properties DTO.
-    content.vb: Public Function FanGetProperties(fanHandle As IntPtr) As FanPropertiesDto
+      type: System.Nullable{IGCLWrapper.FanPropertiesDto}
+      description: Fan properties DTO, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function FanGetProperties(fanHandle As IntPtr) As FanPropertiesDto?
   overload: IGCLWrapper.IGCLFanHelper.FanGetProperties*
   nameWithType.vb: IGCLFanHelper.FanGetProperties(IntPtr)
   fullName.vb: IGCLWrapper.IGCLFanHelper.FanGetProperties(System.IntPtr)
@@ -136,26 +136,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFanHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FanGetConfig
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 51
+    startLine: 53
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get fan configuration as a DTO.
   example: []
   syntax:
-    content: public FanConfigDto FanGetConfig(nint fanHandle)
+    content: public FanConfigDto? FanGetConfig(nint fanHandle)
     parameters:
     - id: fanHandle
       type: System.IntPtr
       description: Fan handle.
     return:
-      type: IGCLWrapper.FanConfigDto
-      description: Fan config DTO.
-    content.vb: Public Function FanGetConfig(fanHandle As IntPtr) As FanConfigDto
+      type: System.Nullable{IGCLWrapper.FanConfigDto}
+      description: Fan config DTO, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function FanGetConfig(fanHandle As IntPtr) As FanConfigDto?
   overload: IGCLWrapper.IGCLFanHelper.FanGetConfig*
   nameWithType.vb: IGCLFanHelper.FanGetConfig(IntPtr)
   fullName.vb: IGCLWrapper.IGCLFanHelper.FanGetConfig(System.IntPtr)
@@ -174,23 +174,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFanHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FanSetDefaultMode
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 65
+    startLine: 70
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Set the fan to default control mode.
   example: []
   syntax:
-    content: public void FanSetDefaultMode(nint fanHandle)
+    content: public bool FanSetDefaultMode(nint fanHandle)
     parameters:
     - id: fanHandle
       type: System.IntPtr
       description: Fan handle.
-    content.vb: Public Sub FanSetDefaultMode(fanHandle As IntPtr)
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function FanSetDefaultMode(fanHandle As IntPtr) As Boolean
   overload: IGCLWrapper.IGCLFanHelper.FanSetDefaultMode*
   nameWithType.vb: IGCLFanHelper.FanSetDefaultMode(IntPtr)
   fullName.vb: IGCLWrapper.IGCLFanHelper.FanSetDefaultMode(System.IntPtr)
@@ -209,18 +212,18 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFanHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FanSetFixedSpeedMode
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 78
+    startLine: 87
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Set the fan to fixed speed mode using a DTO.
   example: []
   syntax:
-    content: public void FanSetFixedSpeedMode(nint fanHandle, FanSpeedDto speed)
+    content: public bool FanSetFixedSpeedMode(nint fanHandle, FanSpeedDto speed)
     parameters:
     - id: fanHandle
       type: System.IntPtr
@@ -228,7 +231,10 @@ items:
     - id: speed
       type: IGCLWrapper.FanSpeedDto
       description: Fan speed settings DTO.
-    content.vb: Public Sub FanSetFixedSpeedMode(fanHandle As IntPtr, speed As FanSpeedDto)
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function FanSetFixedSpeedMode(fanHandle As IntPtr, speed As FanSpeedDto) As Boolean
   overload: IGCLWrapper.IGCLFanHelper.FanSetFixedSpeedMode*
   nameWithType.vb: IGCLFanHelper.FanSetFixedSpeedMode(IntPtr, FanSpeedDto)
   fullName.vb: IGCLWrapper.IGCLFanHelper.FanSetFixedSpeedMode(System.IntPtr, IGCLWrapper.FanSpeedDto)
@@ -247,18 +253,18 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFanHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FanSetSpeedTableMode
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 92
+    startLine: 105
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Set the fan to speed table mode using a DTO.
   example: []
   syntax:
-    content: public void FanSetSpeedTableMode(nint fanHandle, FanSpeedTableDto table)
+    content: public bool FanSetSpeedTableMode(nint fanHandle, FanSpeedTableDto table)
     parameters:
     - id: fanHandle
       type: System.IntPtr
@@ -266,7 +272,10 @@ items:
     - id: table
       type: IGCLWrapper.FanSpeedTableDto
       description: Fan speed table DTO.
-    content.vb: Public Sub FanSetSpeedTableMode(fanHandle As IntPtr, table As FanSpeedTableDto)
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function FanSetSpeedTableMode(fanHandle As IntPtr, table As FanSpeedTableDto) As Boolean
   overload: IGCLWrapper.IGCLFanHelper.FanSetSpeedTableMode*
   nameWithType.vb: IGCLFanHelper.FanSetSpeedTableMode(IntPtr, FanSpeedTableDto)
   fullName.vb: IGCLWrapper.IGCLFanHelper.FanSetSpeedTableMode(System.IntPtr, IGCLWrapper.FanSpeedTableDto)
@@ -285,18 +294,18 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFanHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FanGetState
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 107
+    startLine: 123
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get the current fan speed.
   example: []
   syntax:
-    content: public int FanGetState(nint fanHandle, ctl_fan_speed_units_t units)
+    content: public int? FanGetState(nint fanHandle, ctl_fan_speed_units_t units)
     parameters:
     - id: fanHandle
       type: System.IntPtr
@@ -305,9 +314,9 @@ items:
       type: IGCLWrapper.ctl_fan_speed_units_t
       description: Speed units.
     return:
-      type: System.Int32
-      description: Fan speed value.
-    content.vb: Public Function FanGetState(fanHandle As IntPtr, units As ctl_fan_speed_units_t) As Integer
+      type: System.Nullable{System.Int32}
+      description: Fan speed value, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function FanGetState(fanHandle As IntPtr, units As ctl_fan_speed_units_t) As Integer?
   overload: IGCLWrapper.IGCLFanHelper.FanGetState*
   nameWithType.vb: IGCLFanHelper.FanGetState(IntPtr, ctl_fan_speed_units_t)
   fullName.vb: IGCLWrapper.IGCLFanHelper.FanGetState(System.IntPtr, IGCLWrapper.ctl_fan_speed_units_t)
@@ -326,11 +335,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFanHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateFanSpeed
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 147
+    startLine: 177
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -357,11 +366,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFanHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateFanSpeedTable
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 152
+    startLine: 182
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -388,11 +397,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFanHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreFanPropertiesEqual
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 160
+    startLine: 190
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -426,11 +435,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFanHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreFanConfigEqual
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 171
+    startLine: 201
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -464,11 +473,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFanHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreFanSpeedEqual
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 186
+    startLine: 216
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -502,11 +511,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFanHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreFanSpeedTableEqual
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 200
+    startLine: 230
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -540,11 +549,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLFanHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLFanHelper.cs
-    startLine: 236
+    startLine: 266
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -907,32 +916,93 @@ references:
   nameWithType.vb: IntPtr
   fullName.vb: System.IntPtr
   name.vb: IntPtr
-- uid: IGCLWrapper.FanPropertiesDto
-  commentId: T:IGCLWrapper.FanPropertiesDto
-  parent: IGCLWrapper
+- uid: System.Nullable{IGCLWrapper.FanPropertiesDto}
+  commentId: T:System.Nullable{IGCLWrapper.FanPropertiesDto}
+  parent: System
+  definition: System.Nullable`1
   href: IGCLWrapper.FanPropertiesDto.html
-  name: FanPropertiesDto
-  nameWithType: FanPropertiesDto
-  fullName: IGCLWrapper.FanPropertiesDto
+  name: FanPropertiesDto?
+  nameWithType: FanPropertiesDto?
+  fullName: IGCLWrapper.FanPropertiesDto?
+  spec.csharp:
+  - uid: IGCLWrapper.FanPropertiesDto
+    name: FanPropertiesDto
+    href: IGCLWrapper.FanPropertiesDto.html
+  - name: '?'
+  spec.vb:
+  - uid: IGCLWrapper.FanPropertiesDto
+    name: FanPropertiesDto
+    href: IGCLWrapper.FanPropertiesDto.html
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: IGCLWrapper.IGCLFanHelper.FanGetConfig*
   commentId: Overload:IGCLWrapper.IGCLFanHelper.FanGetConfig
   href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_FanGetConfig_System_IntPtr_
   name: FanGetConfig
   nameWithType: IGCLFanHelper.FanGetConfig
   fullName: IGCLWrapper.IGCLFanHelper.FanGetConfig
-- uid: IGCLWrapper.FanConfigDto
-  commentId: T:IGCLWrapper.FanConfigDto
-  parent: IGCLWrapper
+- uid: System.Nullable{IGCLWrapper.FanConfigDto}
+  commentId: T:System.Nullable{IGCLWrapper.FanConfigDto}
+  parent: System
+  definition: System.Nullable`1
   href: IGCLWrapper.FanConfigDto.html
-  name: FanConfigDto
-  nameWithType: FanConfigDto
-  fullName: IGCLWrapper.FanConfigDto
+  name: FanConfigDto?
+  nameWithType: FanConfigDto?
+  fullName: IGCLWrapper.FanConfigDto?
+  spec.csharp:
+  - uid: IGCLWrapper.FanConfigDto
+    name: FanConfigDto
+    href: IGCLWrapper.FanConfigDto.html
+  - name: '?'
+  spec.vb:
+  - uid: IGCLWrapper.FanConfigDto
+    name: FanConfigDto
+    href: IGCLWrapper.FanConfigDto.html
+  - name: '?'
 - uid: IGCLWrapper.IGCLFanHelper.FanSetDefaultMode*
   commentId: Overload:IGCLWrapper.IGCLFanHelper.FanSetDefaultMode
   href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_FanSetDefaultMode_System_IntPtr_
   name: FanSetDefaultMode
   nameWithType: IGCLFanHelper.FanSetDefaultMode
   fullName: IGCLWrapper.IGCLFanHelper.FanSetDefaultMode
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
 - uid: IGCLWrapper.IGCLFanHelper.FanSetFixedSpeedMode*
   commentId: Overload:IGCLWrapper.IGCLFanHelper.FanSetFixedSpeedMode
   href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_FanSetFixedSpeedMode_System_IntPtr_IGCLWrapper_FanSpeedDto_
@@ -972,17 +1042,29 @@ references:
   name: ctl_fan_speed_units_t
   nameWithType: ctl_fan_speed_units_t
   fullName: IGCLWrapper.ctl_fan_speed_units_t
-- uid: System.Int32
-  commentId: T:System.Int32
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
   parent: System
-  isExternal: true
+  definition: System.Nullable`1
   href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
 - uid: IGCLWrapper.IGCLFanHelper.CreateFanSpeed*
   commentId: Overload:IGCLWrapper.IGCLFanHelper.CreateFanSpeed
   href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_CreateFanSpeed
@@ -1022,17 +1104,6 @@ references:
   name: ctl_fan_properties_t
   nameWithType: ctl_fan_properties_t
   fullName: IGCLWrapper.ctl_fan_properties_t
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
 - uid: IGCLWrapper.IGCLFanHelper.AreFanConfigEqual*
   commentId: Overload:IGCLWrapper.IGCLFanHelper.AreFanConfigEqual
   href: IGCLWrapper.IGCLFanHelper.html#IGCLWrapper_IGCLFanHelper_AreFanConfigEqual_IGCLWrapper_ctl_fan_config_t_IGCLWrapper_ctl_fan_config_t_

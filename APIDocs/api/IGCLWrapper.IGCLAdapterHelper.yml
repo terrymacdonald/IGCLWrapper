@@ -42,7 +42,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IGCLAdapterHelper
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -80,7 +80,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateCombinedDisplayArgs
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -111,7 +111,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateGenlockArgs
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -142,7 +142,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateLinkedDisplayAdaptersArgs
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -173,7 +173,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreDeviceAdapterPropertiesEqual
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -211,7 +211,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreCombinedDisplayArgsEqual
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -249,7 +249,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreGenlockArgsEqual
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -287,7 +287,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreLinkedDisplayAdaptersArgsEqual
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -325,7 +325,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreWaitPropertyChangeArgsEqual
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -363,7 +363,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetProperties
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -394,7 +394,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumerateI2CPinPairs
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -425,7 +425,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetDeviceProperties
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -456,7 +456,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetZeDevice
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -487,7 +487,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumerateDisplayOutputs
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -518,7 +518,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Name
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -549,7 +549,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PciVendorId
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -580,7 +580,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetCombinedDisplay
     path: ../IGCLWrapper/IGCLApiHelper.cs
@@ -591,11 +591,11 @@ items:
   summary: Get combined display settings using the provided DTO.
   example: []
   syntax:
-    content: public CombinedDisplayArgsDto GetCombinedDisplay()
+    content: public CombinedDisplayArgsDto? GetCombinedDisplay()
     return:
-      type: IGCLWrapper.CombinedDisplayArgsDto
-      description: Updated combined display args DTO.
-    content.vb: Public Function GetCombinedDisplay() As CombinedDisplayArgsDto
+      type: System.Nullable{IGCLWrapper.CombinedDisplayArgsDto}
+      description: Updated combined display args DTO, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function GetCombinedDisplay() As CombinedDisplayArgsDto?
   overload: IGCLWrapper.IGCLAdapterHelper.GetCombinedDisplay*
 - uid: IGCLWrapper.IGCLAdapterHelper.SetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
   commentId: M:IGCLWrapper.IGCLAdapterHelper.SetCombinedDisplay(IGCLWrapper.CombinedDisplayArgsDto)
@@ -611,23 +611,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetCombinedDisplay
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 797
+    startLine: 798
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Set combined display settings using the provided DTO.
   example: []
   syntax:
-    content: public void SetCombinedDisplay(CombinedDisplayArgsDto args)
+    content: public bool SetCombinedDisplay(CombinedDisplayArgsDto args)
     parameters:
     - id: args
       type: IGCLWrapper.CombinedDisplayArgsDto
       description: Combined display args DTO.
-    content.vb: Public Sub SetCombinedDisplay(args As CombinedDisplayArgsDto)
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function SetCombinedDisplay(args As CombinedDisplayArgsDto) As Boolean
   overload: IGCLWrapper.IGCLAdapterHelper.SetCombinedDisplay*
 - uid: IGCLWrapper.IGCLAdapterHelper.GetDisplayGenlock(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)
   commentId: M:IGCLWrapper.IGCLAdapterHelper.GetDisplayGenlock(System.IntPtr[],IGCLWrapper.ctl_genlock_operation_t,IGCLWrapper.GenlockArgsDto,System.IntPtr@)
@@ -643,18 +646,18 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetDisplayGenlock
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1097
+    startLine: 1104
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get display genlock settings using a DTO.
   example: []
   syntax:
-    content: public GenlockArgsDto GetDisplayGenlock(nint[] adapters, ctl_genlock_operation_t operation, GenlockArgsDto args, out nint failureAdapter)
+    content: public GenlockArgsDto? GetDisplayGenlock(nint[] adapters, ctl_genlock_operation_t operation, GenlockArgsDto args, out nint failureAdapter)
     parameters:
     - id: adapters
       type: System.IntPtr[]
@@ -669,9 +672,9 @@ items:
       type: System.IntPtr
       description: Adapter handle that failed, if any.
     return:
-      type: IGCLWrapper.GenlockArgsDto
-      description: Updated genlock args DTO.
-    content.vb: Public Function GetDisplayGenlock(adapters As IntPtr(), operation As ctl_genlock_operation_t, args As GenlockArgsDto, failureAdapter As IntPtr) As GenlockArgsDto
+      type: System.Nullable{IGCLWrapper.GenlockArgsDto}
+      description: Updated genlock args DTO, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function GetDisplayGenlock(adapters As IntPtr(), operation As ctl_genlock_operation_t, args As GenlockArgsDto, failureAdapter As IntPtr) As GenlockArgsDto?
   overload: IGCLWrapper.IGCLAdapterHelper.GetDisplayGenlock*
   nameWithType.vb: IGCLAdapterHelper.GetDisplayGenlock(IntPtr(), ctl_genlock_operation_t, GenlockArgsDto, IntPtr)
   fullName.vb: IGCLWrapper.IGCLAdapterHelper.GetDisplayGenlock(System.IntPtr(), IGCLWrapper.ctl_genlock_operation_t, IGCLWrapper.GenlockArgsDto, System.IntPtr)
@@ -690,18 +693,18 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetDisplayGenlock
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1112
+    startLine: 1128
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Set display genlock settings using a DTO.
   example: []
   syntax:
-    content: public void SetDisplayGenlock(nint[] adapters, ctl_genlock_operation_t operation, GenlockArgsDto args, out nint failureAdapter)
+    content: public bool SetDisplayGenlock(nint[] adapters, ctl_genlock_operation_t operation, GenlockArgsDto args, out nint failureAdapter)
     parameters:
     - id: adapters
       type: System.IntPtr[]
@@ -715,7 +718,10 @@ items:
     - id: failureAdapter
       type: System.IntPtr
       description: Adapter handle that failed, if any.
-    content.vb: Public Sub SetDisplayGenlock(adapters As IntPtr(), operation As ctl_genlock_operation_t, args As GenlockArgsDto, failureAdapter As IntPtr)
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function SetDisplayGenlock(adapters As IntPtr(), operation As ctl_genlock_operation_t, args As GenlockArgsDto, failureAdapter As IntPtr) As Boolean
   overload: IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlock*
   nameWithType.vb: IGCLAdapterHelper.SetDisplayGenlock(IntPtr(), ctl_genlock_operation_t, GenlockArgsDto, IntPtr)
   fullName.vb: IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlock(System.IntPtr(), IGCLWrapper.ctl_genlock_operation_t, IGCLWrapper.GenlockArgsDto, System.IntPtr)
@@ -734,23 +740,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LinkDisplayAdapters
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1123
+    startLine: 1149
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Link display adapters using the provided args.
   example: []
   syntax:
-    content: public void LinkDisplayAdapters(ctl_lda_args_t args)
+    content: public bool LinkDisplayAdapters(ctl_lda_args_t args)
     parameters:
     - id: args
       type: IGCLWrapper.ctl_lda_args_t
       description: Linked display adapters args.
-    content.vb: Public Sub LinkDisplayAdapters(args As ctl_lda_args_t)
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function LinkDisplayAdapters(args As ctl_lda_args_t) As Boolean
   overload: IGCLWrapper.IGCLAdapterHelper.LinkDisplayAdapters*
 - uid: IGCLWrapper.IGCLAdapterHelper.LinkDisplayAdapters(IGCLWrapper.LinkedDisplayAdaptersArgsDto,System.Collections.Generic.IReadOnlyList{System.IntPtr})
   commentId: M:IGCLWrapper.IGCLAdapterHelper.LinkDisplayAdapters(IGCLWrapper.LinkedDisplayAdaptersArgsDto,System.Collections.Generic.IReadOnlyList{System.IntPtr})
@@ -766,18 +775,18 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LinkDisplayAdapters
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1137
+    startLine: 1167
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Link display adapters using a DTO request and managed adapter handle list.
   example: []
   syntax:
-    content: public void LinkDisplayAdapters(LinkedDisplayAdaptersArgsDto args, IReadOnlyList<nint> linkedAdapters)
+    content: public bool LinkDisplayAdapters(LinkedDisplayAdaptersArgsDto args, IReadOnlyList<nint> linkedAdapters)
     parameters:
     - id: args
       type: IGCLWrapper.LinkedDisplayAdaptersArgsDto
@@ -785,7 +794,10 @@ items:
     - id: linkedAdapters
       type: System.Collections.Generic.IReadOnlyList{System.IntPtr}
       description: Linked adapter handles to submit.
-    content.vb: Public Sub LinkDisplayAdapters(args As LinkedDisplayAdaptersArgsDto, linkedAdapters As IReadOnlyList(Of IntPtr))
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function LinkDisplayAdapters(args As LinkedDisplayAdaptersArgsDto, linkedAdapters As IReadOnlyList(Of IntPtr)) As Boolean
   overload: IGCLWrapper.IGCLAdapterHelper.LinkDisplayAdapters*
   nameWithType.vb: IGCLAdapterHelper.LinkDisplayAdapters(LinkedDisplayAdaptersArgsDto, IReadOnlyList(Of IntPtr))
   fullName.vb: IGCLWrapper.IGCLAdapterHelper.LinkDisplayAdapters(IGCLWrapper.LinkedDisplayAdaptersArgsDto, System.Collections.Generic.IReadOnlyList(Of System.IntPtr))
@@ -804,19 +816,22 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: UnlinkDisplayAdapters
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1165
+    startLine: 1199
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Unlink previously linked display adapters.
   example: []
   syntax:
-    content: public void UnlinkDisplayAdapters()
-    content.vb: Public Sub UnlinkDisplayAdapters()
+    content: public bool UnlinkDisplayAdapters()
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the operation succeeded; <code>false</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function UnlinkDisplayAdapters() As Boolean
   overload: IGCLWrapper.IGCLAdapterHelper.UnlinkDisplayAdapters*
 - uid: IGCLWrapper.IGCLAdapterHelper.GetLinkedDisplayAdapters
   commentId: M:IGCLWrapper.IGCLAdapterHelper.GetLinkedDisplayAdapters
@@ -832,22 +847,22 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetLinkedDisplayAdapters
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1177
+    startLine: 1214
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get linked display adapter information.
   example: []
   syntax:
-    content: public (ctl_lda_args_t args, nint[] adapters) GetLinkedDisplayAdapters()
+    content: public (ctl_lda_args_t args, nint[] adapters)? GetLinkedDisplayAdapters()
     return:
-      type: System.ValueTuple{IGCLWrapper.ctl_lda_args_t,System.IntPtr[]}
-      description: Tuple containing args and adapter handles.
-    content.vb: Public Function GetLinkedDisplayAdapters() As (args As ctl_lda_args_t, adapters As IntPtr())
+      type: System.Nullable{System.ValueTuple{IGCLWrapper.ctl_lda_args_t,System.IntPtr[]}}
+      description: Tuple containing args and adapter handles, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function GetLinkedDisplayAdapters() As (args As ctl_lda_args_t, adapters As IntPtr())?
   overload: IGCLWrapper.IGCLAdapterHelper.GetLinkedDisplayAdapters*
 - uid: IGCLWrapper.IGCLAdapterHelper.GetLinkedDisplayAdaptersDto
   commentId: M:IGCLWrapper.IGCLAdapterHelper.GetLinkedDisplayAdaptersDto
@@ -863,22 +878,22 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetLinkedDisplayAdaptersDto
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1205
+    startLine: 1250
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get linked display adapter information as a DTO.
   example: []
   syntax:
-    content: public LinkedDisplayAdaptersResultDto GetLinkedDisplayAdaptersDto()
+    content: public LinkedDisplayAdaptersResultDto? GetLinkedDisplayAdaptersDto()
     return:
-      type: IGCLWrapper.LinkedDisplayAdaptersResultDto
-      description: Linked display adapters result DTO.
-    content.vb: Public Function GetLinkedDisplayAdaptersDto() As LinkedDisplayAdaptersResultDto
+      type: System.Nullable{IGCLWrapper.LinkedDisplayAdaptersResultDto}
+      description: Linked display adapters result DTO, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function GetLinkedDisplayAdaptersDto() As LinkedDisplayAdaptersResultDto?
   overload: IGCLWrapper.IGCLAdapterHelper.GetLinkedDisplayAdaptersDto*
 - uid: IGCLWrapper.IGCLAdapterHelper.CreateWaitPropertyChangeRequest(System.UInt32,System.UInt32)
   commentId: M:IGCLWrapper.IGCLAdapterHelper.CreateWaitPropertyChangeRequest(System.UInt32,System.UInt32)
@@ -894,11 +909,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateWaitPropertyChangeRequest
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1219
+    startLine: 1266
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -935,26 +950,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: WaitForPropertyChange
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1235
+    startLine: 1282
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Wait for a property change event.
   example: []
   syntax:
-    content: public WaitPropertyChangeArgsDto WaitForPropertyChange(WaitPropertyChangeArgsDto args)
+    content: public WaitPropertyChangeArgsDto? WaitForPropertyChange(WaitPropertyChangeArgsDto args)
     parameters:
     - id: args
       type: IGCLWrapper.WaitPropertyChangeArgsDto
       description: Wait request DTO.
     return:
-      type: IGCLWrapper.WaitPropertyChangeArgsDto
-      description: Updated wait request DTO.
-    content.vb: Public Function WaitForPropertyChange(args As WaitPropertyChangeArgsDto) As WaitPropertyChangeArgsDto
+      type: System.Nullable{IGCLWrapper.WaitPropertyChangeArgsDto}
+      description: Updated wait request DTO, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function WaitForPropertyChange(args As WaitPropertyChangeArgsDto) As WaitPropertyChangeArgsDto?
   overload: IGCLWrapper.IGCLAdapterHelper.WaitForPropertyChange*
 - uid: IGCLWrapper.IGCLAdapterHelper.Dispose
   commentId: M:IGCLWrapper.IGCLAdapterHelper.Dispose
@@ -970,11 +985,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLApiHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLApiHelper.cs
-    startLine: 1259
+    startLine: 1320
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1571,6 +1586,58 @@ references:
   name: GetCombinedDisplay
   nameWithType: IGCLAdapterHelper.GetCombinedDisplay
   fullName: IGCLWrapper.IGCLAdapterHelper.GetCombinedDisplay
+- uid: System.Nullable{IGCLWrapper.CombinedDisplayArgsDto}
+  commentId: T:System.Nullable{IGCLWrapper.CombinedDisplayArgsDto}
+  parent: System
+  definition: System.Nullable`1
+  href: IGCLWrapper.CombinedDisplayArgsDto.html
+  name: CombinedDisplayArgsDto?
+  nameWithType: CombinedDisplayArgsDto?
+  fullName: IGCLWrapper.CombinedDisplayArgsDto?
+  spec.csharp:
+  - uid: IGCLWrapper.CombinedDisplayArgsDto
+    name: CombinedDisplayArgsDto
+    href: IGCLWrapper.CombinedDisplayArgsDto.html
+  - name: '?'
+  spec.vb:
+  - uid: IGCLWrapper.CombinedDisplayArgsDto
+    name: CombinedDisplayArgsDto
+    href: IGCLWrapper.CombinedDisplayArgsDto.html
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: IGCLWrapper.IGCLAdapterHelper.SetCombinedDisplay*
+  commentId: Overload:IGCLWrapper.IGCLAdapterHelper.SetCombinedDisplay
+  href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_SetCombinedDisplay_IGCLWrapper_CombinedDisplayArgsDto_
+  name: SetCombinedDisplay
+  nameWithType: IGCLAdapterHelper.SetCombinedDisplay
+  fullName: IGCLWrapper.IGCLAdapterHelper.SetCombinedDisplay
 - uid: IGCLWrapper.CombinedDisplayArgsDto
   commentId: T:IGCLWrapper.CombinedDisplayArgsDto
   parent: IGCLWrapper
@@ -1578,12 +1645,6 @@ references:
   name: CombinedDisplayArgsDto
   nameWithType: CombinedDisplayArgsDto
   fullName: IGCLWrapper.CombinedDisplayArgsDto
-- uid: IGCLWrapper.IGCLAdapterHelper.SetCombinedDisplay*
-  commentId: Overload:IGCLWrapper.IGCLAdapterHelper.SetCombinedDisplay
-  href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_SetCombinedDisplay_IGCLWrapper_CombinedDisplayArgsDto_
-  name: SetCombinedDisplay
-  nameWithType: IGCLAdapterHelper.SetCombinedDisplay
-  fullName: IGCLWrapper.IGCLAdapterHelper.SetCombinedDisplay
 - uid: IGCLWrapper.IGCLAdapterHelper.GetDisplayGenlock*
   commentId: Overload:IGCLWrapper.IGCLAdapterHelper.GetDisplayGenlock
   href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_GetDisplayGenlock_System_IntPtr___IGCLWrapper_ctl_genlock_operation_t_IGCLWrapper_GenlockArgsDto_System_IntPtr__
@@ -1615,6 +1676,24 @@ references:
   nameWithType.vb: IntPtr
   fullName.vb: System.IntPtr
   name.vb: IntPtr
+- uid: System.Nullable{IGCLWrapper.GenlockArgsDto}
+  commentId: T:System.Nullable{IGCLWrapper.GenlockArgsDto}
+  parent: System
+  definition: System.Nullable`1
+  href: IGCLWrapper.GenlockArgsDto.html
+  name: GenlockArgsDto?
+  nameWithType: GenlockArgsDto?
+  fullName: IGCLWrapper.GenlockArgsDto?
+  spec.csharp:
+  - uid: IGCLWrapper.GenlockArgsDto
+    name: GenlockArgsDto
+    href: IGCLWrapper.GenlockArgsDto.html
+  - name: '?'
+  spec.vb:
+  - uid: IGCLWrapper.GenlockArgsDto
+    name: GenlockArgsDto
+    href: IGCLWrapper.GenlockArgsDto.html
+  - name: '?'
 - uid: IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlock*
   commentId: Overload:IGCLWrapper.IGCLAdapterHelper.SetDisplayGenlock
   href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_SetDisplayGenlock_System_IntPtr___IGCLWrapper_ctl_genlock_operation_t_IGCLWrapper_GenlockArgsDto_System_IntPtr__
@@ -1681,17 +1760,17 @@ references:
   name: GetLinkedDisplayAdapters
   nameWithType: IGCLAdapterHelper.GetLinkedDisplayAdapters
   fullName: IGCLWrapper.IGCLAdapterHelper.GetLinkedDisplayAdapters
-- uid: System.ValueTuple{IGCLWrapper.ctl_lda_args_t,System.IntPtr[]}
-  commentId: T:System.ValueTuple{IGCLWrapper.ctl_lda_args_t,System.IntPtr[]}
+- uid: System.Nullable{System.ValueTuple{IGCLWrapper.ctl_lda_args_t,System.IntPtr[]}}
+  commentId: T:System.Nullable{System.ValueTuple{IGCLWrapper.ctl_lda_args_t,System.IntPtr[]}}
   parent: System
-  definition: System.ValueTuple`2
+  definition: System.Nullable`1
   href: IGCLWrapper.ctl_lda_args_t.html
-  name: (ctl_lda_args_t args, nint[] adapters)
-  nameWithType: (ctl_lda_args_t args, nint[] adapters)
-  fullName: (IGCLWrapper.ctl_lda_args_t args, nint[] adapters)
-  nameWithType.vb: (args As ctl_lda_args_t, adapters As IntPtr())
-  fullName.vb: (args As IGCLWrapper.ctl_lda_args_t, adapters As System.IntPtr())
-  name.vb: (args As ctl_lda_args_t, adapters As IntPtr())
+  name: (ctl_lda_args_t args, nint[] adapters)?
+  nameWithType: (ctl_lda_args_t args, nint[] adapters)?
+  fullName: (IGCLWrapper.ctl_lda_args_t args, nint[] adapters)?
+  nameWithType.vb: (args As ctl_lda_args_t, adapters As IntPtr())?
+  fullName.vb: (args As IGCLWrapper.ctl_lda_args_t, adapters As System.IntPtr())?
+  name.vb: (args As ctl_lda_args_t, adapters As IntPtr())?
   spec.csharp:
   - name: (
   - uid: IGCLWrapper.ctl_lda_args_t
@@ -1714,6 +1793,7 @@ references:
     name: adapters
     href: https://learn.microsoft.com/dotnet/api/system.valuetuple-igclwrapper.ctl_lda_args_t,system.intptr[]-.adapters
   - name: )
+  - name: '?'
   spec.vb:
   - name: (
   - uid: System.ValueTuple{IGCLWrapper.ctl_lda_args_t,System.IntPtr[]}.args
@@ -1740,19 +1820,31 @@ references:
   - name: (
   - name: )
   - name: )
+  - name: '?'
 - uid: IGCLWrapper.IGCLAdapterHelper.GetLinkedDisplayAdaptersDto*
   commentId: Overload:IGCLWrapper.IGCLAdapterHelper.GetLinkedDisplayAdaptersDto
   href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_GetLinkedDisplayAdaptersDto
   name: GetLinkedDisplayAdaptersDto
   nameWithType: IGCLAdapterHelper.GetLinkedDisplayAdaptersDto
   fullName: IGCLWrapper.IGCLAdapterHelper.GetLinkedDisplayAdaptersDto
-- uid: IGCLWrapper.LinkedDisplayAdaptersResultDto
-  commentId: T:IGCLWrapper.LinkedDisplayAdaptersResultDto
-  parent: IGCLWrapper
+- uid: System.Nullable{IGCLWrapper.LinkedDisplayAdaptersResultDto}
+  commentId: T:System.Nullable{IGCLWrapper.LinkedDisplayAdaptersResultDto}
+  parent: System
+  definition: System.Nullable`1
   href: IGCLWrapper.LinkedDisplayAdaptersResultDto.html
-  name: LinkedDisplayAdaptersResultDto
-  nameWithType: LinkedDisplayAdaptersResultDto
-  fullName: IGCLWrapper.LinkedDisplayAdaptersResultDto
+  name: LinkedDisplayAdaptersResultDto?
+  nameWithType: LinkedDisplayAdaptersResultDto?
+  fullName: IGCLWrapper.LinkedDisplayAdaptersResultDto?
+  spec.csharp:
+  - uid: IGCLWrapper.LinkedDisplayAdaptersResultDto
+    name: LinkedDisplayAdaptersResultDto
+    href: IGCLWrapper.LinkedDisplayAdaptersResultDto.html
+  - name: '?'
+  spec.vb:
+  - uid: IGCLWrapper.LinkedDisplayAdaptersResultDto
+    name: LinkedDisplayAdaptersResultDto
+    href: IGCLWrapper.LinkedDisplayAdaptersResultDto.html
+  - name: '?'
 - uid: IGCLWrapper.IGCLAdapterHelper.CreateWaitPropertyChangeRequest*
   commentId: Overload:IGCLWrapper.IGCLAdapterHelper.CreateWaitPropertyChangeRequest
   href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_CreateWaitPropertyChangeRequest_System_UInt32_System_UInt32_
@@ -1783,6 +1875,24 @@ references:
   name: WaitForPropertyChange
   nameWithType: IGCLAdapterHelper.WaitForPropertyChange
   fullName: IGCLWrapper.IGCLAdapterHelper.WaitForPropertyChange
+- uid: System.Nullable{IGCLWrapper.WaitPropertyChangeArgsDto}
+  commentId: T:System.Nullable{IGCLWrapper.WaitPropertyChangeArgsDto}
+  parent: System
+  definition: System.Nullable`1
+  href: IGCLWrapper.WaitPropertyChangeArgsDto.html
+  name: WaitPropertyChangeArgsDto?
+  nameWithType: WaitPropertyChangeArgsDto?
+  fullName: IGCLWrapper.WaitPropertyChangeArgsDto?
+  spec.csharp:
+  - uid: IGCLWrapper.WaitPropertyChangeArgsDto
+    name: WaitPropertyChangeArgsDto
+    href: IGCLWrapper.WaitPropertyChangeArgsDto.html
+  - name: '?'
+  spec.vb:
+  - uid: IGCLWrapper.WaitPropertyChangeArgsDto
+    name: WaitPropertyChangeArgsDto
+    href: IGCLWrapper.WaitPropertyChangeArgsDto.html
+  - name: '?'
 - uid: IGCLWrapper.IGCLAdapterHelper.Dispose*
   commentId: Overload:IGCLWrapper.IGCLAdapterHelper.Dispose
   href: IGCLWrapper.IGCLAdapterHelper.html#IGCLWrapper_IGCLAdapterHelper_Dispose

@@ -23,7 +23,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLMemoryHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IGCLMemoryHelper
     path: ../IGCLWrapper/IGCLMemoryHelper.cs
@@ -61,7 +61,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLMemoryHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumMemoryModules
     path: ../IGCLWrapper/IGCLMemoryHelper.cs
@@ -92,7 +92,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLMemoryHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: MemoryGetProperties
     path: ../IGCLWrapper/IGCLMemoryHelper.cs
@@ -103,15 +103,15 @@ items:
   summary: Get memory module properties as a DTO.
   example: []
   syntax:
-    content: public MemoryPropertiesDto MemoryGetProperties(nint memoryHandle)
+    content: public MemoryPropertiesDto? MemoryGetProperties(nint memoryHandle)
     parameters:
     - id: memoryHandle
       type: System.IntPtr
       description: Memory module handle.
     return:
-      type: IGCLWrapper.MemoryPropertiesDto
-      description: Memory properties DTO.
-    content.vb: Public Function MemoryGetProperties(memoryHandle As IntPtr) As MemoryPropertiesDto
+      type: System.Nullable{IGCLWrapper.MemoryPropertiesDto}
+      description: Memory properties DTO, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function MemoryGetProperties(memoryHandle As IntPtr) As MemoryPropertiesDto?
   overload: IGCLWrapper.IGCLMemoryHelper.MemoryGetProperties*
   nameWithType.vb: IGCLMemoryHelper.MemoryGetProperties(IntPtr)
   fullName.vb: IGCLWrapper.IGCLMemoryHelper.MemoryGetProperties(System.IntPtr)
@@ -130,26 +130,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLMemoryHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: MemoryGetState
     path: ../IGCLWrapper/IGCLMemoryHelper.cs
-    startLine: 50
+    startLine: 52
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get current memory module state as a DTO.
   example: []
   syntax:
-    content: public MemoryStateDto MemoryGetState(nint memoryHandle)
+    content: public MemoryStateDto? MemoryGetState(nint memoryHandle)
     parameters:
     - id: memoryHandle
       type: System.IntPtr
       description: Memory module handle.
     return:
-      type: IGCLWrapper.MemoryStateDto
-      description: Memory state DTO.
-    content.vb: Public Function MemoryGetState(memoryHandle As IntPtr) As MemoryStateDto
+      type: System.Nullable{IGCLWrapper.MemoryStateDto}
+      description: Memory state DTO, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function MemoryGetState(memoryHandle As IntPtr) As MemoryStateDto?
   overload: IGCLWrapper.IGCLMemoryHelper.MemoryGetState*
   nameWithType.vb: IGCLMemoryHelper.MemoryGetState(IntPtr)
   fullName.vb: IGCLWrapper.IGCLMemoryHelper.MemoryGetState(System.IntPtr)
@@ -168,26 +168,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLMemoryHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: MemoryGetBandwidth
     path: ../IGCLWrapper/IGCLMemoryHelper.cs
-    startLine: 65
+    startLine: 69
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get memory bandwidth information as a DTO.
   example: []
   syntax:
-    content: public MemoryBandwidthDto MemoryGetBandwidth(nint memoryHandle)
+    content: public MemoryBandwidthDto? MemoryGetBandwidth(nint memoryHandle)
     parameters:
     - id: memoryHandle
       type: System.IntPtr
       description: Memory module handle.
     return:
-      type: IGCLWrapper.MemoryBandwidthDto
-      description: Memory bandwidth DTO.
-    content.vb: Public Function MemoryGetBandwidth(memoryHandle As IntPtr) As MemoryBandwidthDto
+      type: System.Nullable{IGCLWrapper.MemoryBandwidthDto}
+      description: Memory bandwidth DTO, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function MemoryGetBandwidth(memoryHandle As IntPtr) As MemoryBandwidthDto?
   overload: IGCLWrapper.IGCLMemoryHelper.MemoryGetBandwidth*
   nameWithType.vb: IGCLMemoryHelper.MemoryGetBandwidth(IntPtr)
   fullName.vb: IGCLWrapper.IGCLMemoryHelper.MemoryGetBandwidth(System.IntPtr)
@@ -206,11 +206,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLMemoryHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreMemoryPropertiesEqual
     path: ../IGCLWrapper/IGCLMemoryHelper.cs
-    startLine: 109
+    startLine: 127
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -244,11 +244,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLMemoryHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreMemoryStatesEqual
     path: ../IGCLWrapper/IGCLMemoryHelper.cs
-    startLine: 126
+    startLine: 144
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -282,11 +282,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLMemoryHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreMemoryBandwidthEqual
     path: ../IGCLWrapper/IGCLMemoryHelper.cs
-    startLine: 140
+    startLine: 158
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -320,11 +320,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLMemoryHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLMemoryHelper.cs
-    startLine: 153
+    startLine: 171
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -687,39 +687,100 @@ references:
   nameWithType.vb: IntPtr
   fullName.vb: System.IntPtr
   name.vb: IntPtr
-- uid: IGCLWrapper.MemoryPropertiesDto
-  commentId: T:IGCLWrapper.MemoryPropertiesDto
-  parent: IGCLWrapper
+- uid: System.Nullable{IGCLWrapper.MemoryPropertiesDto}
+  commentId: T:System.Nullable{IGCLWrapper.MemoryPropertiesDto}
+  parent: System
+  definition: System.Nullable`1
   href: IGCLWrapper.MemoryPropertiesDto.html
-  name: MemoryPropertiesDto
-  nameWithType: MemoryPropertiesDto
-  fullName: IGCLWrapper.MemoryPropertiesDto
+  name: MemoryPropertiesDto?
+  nameWithType: MemoryPropertiesDto?
+  fullName: IGCLWrapper.MemoryPropertiesDto?
+  spec.csharp:
+  - uid: IGCLWrapper.MemoryPropertiesDto
+    name: MemoryPropertiesDto
+    href: IGCLWrapper.MemoryPropertiesDto.html
+  - name: '?'
+  spec.vb:
+  - uid: IGCLWrapper.MemoryPropertiesDto
+    name: MemoryPropertiesDto
+    href: IGCLWrapper.MemoryPropertiesDto.html
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: IGCLWrapper.IGCLMemoryHelper.MemoryGetState*
   commentId: Overload:IGCLWrapper.IGCLMemoryHelper.MemoryGetState
   href: IGCLWrapper.IGCLMemoryHelper.html#IGCLWrapper_IGCLMemoryHelper_MemoryGetState_System_IntPtr_
   name: MemoryGetState
   nameWithType: IGCLMemoryHelper.MemoryGetState
   fullName: IGCLWrapper.IGCLMemoryHelper.MemoryGetState
-- uid: IGCLWrapper.MemoryStateDto
-  commentId: T:IGCLWrapper.MemoryStateDto
-  parent: IGCLWrapper
+- uid: System.Nullable{IGCLWrapper.MemoryStateDto}
+  commentId: T:System.Nullable{IGCLWrapper.MemoryStateDto}
+  parent: System
+  definition: System.Nullable`1
   href: IGCLWrapper.MemoryStateDto.html
-  name: MemoryStateDto
-  nameWithType: MemoryStateDto
-  fullName: IGCLWrapper.MemoryStateDto
+  name: MemoryStateDto?
+  nameWithType: MemoryStateDto?
+  fullName: IGCLWrapper.MemoryStateDto?
+  spec.csharp:
+  - uid: IGCLWrapper.MemoryStateDto
+    name: MemoryStateDto
+    href: IGCLWrapper.MemoryStateDto.html
+  - name: '?'
+  spec.vb:
+  - uid: IGCLWrapper.MemoryStateDto
+    name: MemoryStateDto
+    href: IGCLWrapper.MemoryStateDto.html
+  - name: '?'
 - uid: IGCLWrapper.IGCLMemoryHelper.MemoryGetBandwidth*
   commentId: Overload:IGCLWrapper.IGCLMemoryHelper.MemoryGetBandwidth
   href: IGCLWrapper.IGCLMemoryHelper.html#IGCLWrapper_IGCLMemoryHelper_MemoryGetBandwidth_System_IntPtr_
   name: MemoryGetBandwidth
   nameWithType: IGCLMemoryHelper.MemoryGetBandwidth
   fullName: IGCLWrapper.IGCLMemoryHelper.MemoryGetBandwidth
-- uid: IGCLWrapper.MemoryBandwidthDto
-  commentId: T:IGCLWrapper.MemoryBandwidthDto
-  parent: IGCLWrapper
+- uid: System.Nullable{IGCLWrapper.MemoryBandwidthDto}
+  commentId: T:System.Nullable{IGCLWrapper.MemoryBandwidthDto}
+  parent: System
+  definition: System.Nullable`1
   href: IGCLWrapper.MemoryBandwidthDto.html
-  name: MemoryBandwidthDto
-  nameWithType: MemoryBandwidthDto
-  fullName: IGCLWrapper.MemoryBandwidthDto
+  name: MemoryBandwidthDto?
+  nameWithType: MemoryBandwidthDto?
+  fullName: IGCLWrapper.MemoryBandwidthDto?
+  spec.csharp:
+  - uid: IGCLWrapper.MemoryBandwidthDto
+    name: MemoryBandwidthDto
+    href: IGCLWrapper.MemoryBandwidthDto.html
+  - name: '?'
+  spec.vb:
+  - uid: IGCLWrapper.MemoryBandwidthDto
+    name: MemoryBandwidthDto
+    href: IGCLWrapper.MemoryBandwidthDto.html
+  - name: '?'
 - uid: IGCLWrapper.IGCLMemoryHelper.AreMemoryPropertiesEqual*
   commentId: Overload:IGCLWrapper.IGCLMemoryHelper.AreMemoryPropertiesEqual
   href: IGCLWrapper.IGCLMemoryHelper.html#IGCLWrapper_IGCLMemoryHelper_AreMemoryPropertiesEqual_IGCLWrapper_ctl_mem_properties_t_IGCLWrapper_ctl_mem_properties_t_

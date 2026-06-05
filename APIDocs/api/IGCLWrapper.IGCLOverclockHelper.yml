@@ -61,7 +61,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IGCLOverclockHelper
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
@@ -99,7 +99,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetProperties
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
@@ -110,11 +110,11 @@ items:
   summary: Get overclock properties as a DTO.
   example: []
   syntax:
-    content: public OverclockPropertiesDto GetProperties()
+    content: public OverclockPropertiesDto? GetProperties()
     return:
-      type: IGCLWrapper.OverclockPropertiesDto
-      description: Overclock properties DTO.
-    content.vb: Public Function GetProperties() As OverclockPropertiesDto
+      type: System.Nullable{IGCLWrapper.OverclockPropertiesDto}
+      description: Overclock properties DTO, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function GetProperties() As OverclockPropertiesDto?
   overload: IGCLWrapper.IGCLOverclockHelper.GetProperties*
 - uid: IGCLWrapper.IGCLOverclockHelper.SetWaiver
   commentId: M:IGCLWrapper.IGCLOverclockHelper.SetWaiver
@@ -130,19 +130,22 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetWaiver
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 39
+    startLine: 42
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Set the overclocking waiver for this adapter.
   example: []
   syntax:
-    content: public void SetWaiver()
-    content.vb: Public Sub SetWaiver()
+    content: public bool SetWaiver()
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function SetWaiver() As Boolean
   overload: IGCLWrapper.IGCLOverclockHelper.SetWaiver*
 - uid: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetGet
   commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetGet
@@ -158,22 +161,22 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockGpuFrequencyOffsetGet
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 52
+    startLine: 58
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get the GPU frequency offset.
   example: []
   syntax:
-    content: public double OverclockGpuFrequencyOffsetGet()
+    content: public double? OverclockGpuFrequencyOffsetGet()
     return:
-      type: System.Double
-      description: GPU frequency offset.
-    content.vb: Public Function OverclockGpuFrequencyOffsetGet() As Double
+      type: System.Nullable{System.Double}
+      description: GPU frequency offset, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function OverclockGpuFrequencyOffsetGet() As Double?
   overload: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetGet*
 - uid: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetSet(System.Double)
   commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetSet(System.Double)
@@ -189,23 +192,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockGpuFrequencyOffsetSet
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 66
+    startLine: 75
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Set the GPU frequency offset.
   example: []
   syntax:
-    content: public void OverclockGpuFrequencyOffsetSet(double offset)
+    content: public bool OverclockGpuFrequencyOffsetSet(double offset)
     parameters:
     - id: offset
       type: System.Double
       description: Frequency offset value.
-    content.vb: Public Sub OverclockGpuFrequencyOffsetSet(offset As Double)
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function OverclockGpuFrequencyOffsetSet(offset As Double) As Boolean
   overload: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetSet*
   nameWithType.vb: IGCLOverclockHelper.OverclockGpuFrequencyOffsetSet(Double)
   fullName.vb: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetSet(Double)
@@ -224,22 +230,22 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockGpuFrequencyOffsetGetV2
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 78
+    startLine: 90
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get the GPU frequency offset (V2).
   example: []
   syntax:
-    content: public double OverclockGpuFrequencyOffsetGetV2()
+    content: public double? OverclockGpuFrequencyOffsetGetV2()
     return:
-      type: System.Double
-      description: GPU frequency offset.
-    content.vb: Public Function OverclockGpuFrequencyOffsetGetV2() As Double
+      type: System.Nullable{System.Double}
+      description: GPU frequency offset, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function OverclockGpuFrequencyOffsetGetV2() As Double?
   overload: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetGetV2*
 - uid: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetSetV2(System.Double)
   commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetSetV2(System.Double)
@@ -255,23 +261,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockGpuFrequencyOffsetSetV2
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 92
+    startLine: 107
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Set the GPU frequency offset (V2).
   example: []
   syntax:
-    content: public void OverclockGpuFrequencyOffsetSetV2(double offset)
+    content: public bool OverclockGpuFrequencyOffsetSetV2(double offset)
     parameters:
     - id: offset
       type: System.Double
       description: Frequency offset value.
-    content.vb: Public Sub OverclockGpuFrequencyOffsetSetV2(offset As Double)
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function OverclockGpuFrequencyOffsetSetV2(offset As Double) As Boolean
   overload: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetSetV2*
   nameWithType.vb: IGCLOverclockHelper.OverclockGpuFrequencyOffsetSetV2(Double)
   fullName.vb: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetSetV2(Double)
@@ -290,22 +299,22 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockGpuVoltageOffsetGet
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 106
+    startLine: 124
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get the GPU voltage offset.
   example: []
   syntax:
-    content: public double OverclockGpuVoltageOffsetGet()
+    content: public double? OverclockGpuVoltageOffsetGet()
     return:
-      type: System.Double
-      description: GPU voltage offset.
-    content.vb: Public Function OverclockGpuVoltageOffsetGet() As Double
+      type: System.Nullable{System.Double}
+      description: GPU voltage offset, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function OverclockGpuVoltageOffsetGet() As Double?
   overload: IGCLWrapper.IGCLOverclockHelper.OverclockGpuVoltageOffsetGet*
 - uid: IGCLWrapper.IGCLOverclockHelper.OverclockGpuVoltageOffsetSet(System.Double)
   commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockGpuVoltageOffsetSet(System.Double)
@@ -321,23 +330,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockGpuVoltageOffsetSet
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 120
+    startLine: 141
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Set the GPU voltage offset.
   example: []
   syntax:
-    content: public void OverclockGpuVoltageOffsetSet(double offset)
+    content: public bool OverclockGpuVoltageOffsetSet(double offset)
     parameters:
     - id: offset
       type: System.Double
       description: Voltage offset value.
-    content.vb: Public Sub OverclockGpuVoltageOffsetSet(offset As Double)
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function OverclockGpuVoltageOffsetSet(offset As Double) As Boolean
   overload: IGCLWrapper.IGCLOverclockHelper.OverclockGpuVoltageOffsetSet*
   nameWithType.vb: IGCLOverclockHelper.OverclockGpuVoltageOffsetSet(Double)
   fullName.vb: IGCLWrapper.IGCLOverclockHelper.OverclockGpuVoltageOffsetSet(Double)
@@ -356,22 +368,22 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockGpuMaxVoltageOffsetGetV2
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 132
+    startLine: 156
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get the GPU max voltage offset (V2).
   example: []
   syntax:
-    content: public double OverclockGpuMaxVoltageOffsetGetV2()
+    content: public double? OverclockGpuMaxVoltageOffsetGetV2()
     return:
-      type: System.Double
-      description: GPU max voltage offset.
-    content.vb: Public Function OverclockGpuMaxVoltageOffsetGetV2() As Double
+      type: System.Nullable{System.Double}
+      description: GPU max voltage offset, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function OverclockGpuMaxVoltageOffsetGetV2() As Double?
   overload: IGCLWrapper.IGCLOverclockHelper.OverclockGpuMaxVoltageOffsetGetV2*
 - uid: IGCLWrapper.IGCLOverclockHelper.OverclockGpuMaxVoltageOffsetSetV2(System.Double)
   commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockGpuMaxVoltageOffsetSetV2(System.Double)
@@ -387,23 +399,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockGpuMaxVoltageOffsetSetV2
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 146
+    startLine: 173
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Set the GPU max voltage offset (V2).
   example: []
   syntax:
-    content: public void OverclockGpuMaxVoltageOffsetSetV2(double offset)
+    content: public bool OverclockGpuMaxVoltageOffsetSetV2(double offset)
     parameters:
     - id: offset
       type: System.Double
       description: Voltage offset value.
-    content.vb: Public Sub OverclockGpuMaxVoltageOffsetSetV2(offset As Double)
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function OverclockGpuMaxVoltageOffsetSetV2(offset As Double) As Boolean
   overload: IGCLWrapper.IGCLOverclockHelper.OverclockGpuMaxVoltageOffsetSetV2*
   nameWithType.vb: IGCLOverclockHelper.OverclockGpuMaxVoltageOffsetSetV2(Double)
   fullName.vb: IGCLWrapper.IGCLOverclockHelper.OverclockGpuMaxVoltageOffsetSetV2(Double)
@@ -422,22 +437,22 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockGpuLockGet
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 160
+    startLine: 190
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get the GPU lock voltage/frequency pair.
   example: []
   syntax:
-    content: public OcVfPairDto OverclockGpuLockGet()
+    content: public OcVfPairDto? OverclockGpuLockGet()
     return:
-      type: IGCLWrapper.OcVfPairDto
-      description: Voltage/frequency pair DTO.
-    content.vb: Public Function OverclockGpuLockGet() As OcVfPairDto
+      type: System.Nullable{IGCLWrapper.OcVfPairDto}
+      description: Voltage/frequency pair DTO, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function OverclockGpuLockGet() As OcVfPairDto?
   overload: IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockGet*
 - uid: IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockSet(IGCLWrapper.OcVfPairDto)
   commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockSet(IGCLWrapper.OcVfPairDto)
@@ -453,23 +468,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockGpuLockSet
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 174
+    startLine: 207
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Set the GPU lock voltage/frequency pair.
   example: []
   syntax:
-    content: public void OverclockGpuLockSet(OcVfPairDto pair)
+    content: public bool OverclockGpuLockSet(OcVfPairDto pair)
     parameters:
     - id: pair
       type: IGCLWrapper.OcVfPairDto
       description: Voltage/frequency pair DTO.
-    content.vb: Public Sub OverclockGpuLockSet(pair As OcVfPairDto)
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function OverclockGpuLockSet(pair As OcVfPairDto) As Boolean
   overload: IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockSet*
 - uid: IGCLWrapper.IGCLOverclockHelper.OverclockVramFrequencyOffsetGet
   commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockVramFrequencyOffsetGet
@@ -485,22 +503,22 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockVramFrequencyOffsetGet
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 196
+    startLine: 232
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get the VRAM frequency offset.
   example: []
   syntax:
-    content: public double OverclockVramFrequencyOffsetGet()
+    content: public double? OverclockVramFrequencyOffsetGet()
     return:
-      type: System.Double
-      description: VRAM frequency offset.
-    content.vb: Public Function OverclockVramFrequencyOffsetGet() As Double
+      type: System.Nullable{System.Double}
+      description: VRAM frequency offset, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function OverclockVramFrequencyOffsetGet() As Double?
   overload: IGCLWrapper.IGCLOverclockHelper.OverclockVramFrequencyOffsetGet*
 - uid: IGCLWrapper.IGCLOverclockHelper.OverclockVramFrequencyOffsetSet(System.Double)
   commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockVramFrequencyOffsetSet(System.Double)
@@ -516,23 +534,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockVramFrequencyOffsetSet
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 210
+    startLine: 249
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Set the VRAM frequency offset.
   example: []
   syntax:
-    content: public void OverclockVramFrequencyOffsetSet(double offset)
+    content: public bool OverclockVramFrequencyOffsetSet(double offset)
     parameters:
     - id: offset
       type: System.Double
       description: Frequency offset value.
-    content.vb: Public Sub OverclockVramFrequencyOffsetSet(offset As Double)
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function OverclockVramFrequencyOffsetSet(offset As Double) As Boolean
   overload: IGCLWrapper.IGCLOverclockHelper.OverclockVramFrequencyOffsetSet*
   nameWithType.vb: IGCLOverclockHelper.OverclockVramFrequencyOffsetSet(Double)
   fullName.vb: IGCLWrapper.IGCLOverclockHelper.OverclockVramFrequencyOffsetSet(Double)
@@ -551,22 +572,22 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockVramVoltageOffsetGet
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 222
+    startLine: 264
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get the VRAM voltage offset.
   example: []
   syntax:
-    content: public double OverclockVramVoltageOffsetGet()
+    content: public double? OverclockVramVoltageOffsetGet()
     return:
-      type: System.Double
-      description: VRAM voltage offset.
-    content.vb: Public Function OverclockVramVoltageOffsetGet() As Double
+      type: System.Nullable{System.Double}
+      description: VRAM voltage offset, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function OverclockVramVoltageOffsetGet() As Double?
   overload: IGCLWrapper.IGCLOverclockHelper.OverclockVramVoltageOffsetGet*
 - uid: IGCLWrapper.IGCLOverclockHelper.OverclockVramVoltageOffsetSet(System.Double)
   commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockVramVoltageOffsetSet(System.Double)
@@ -582,23 +603,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockVramVoltageOffsetSet
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 236
+    startLine: 281
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Set the VRAM voltage offset.
   example: []
   syntax:
-    content: public void OverclockVramVoltageOffsetSet(double voltage)
+    content: public bool OverclockVramVoltageOffsetSet(double voltage)
     parameters:
     - id: voltage
       type: System.Double
       description: Voltage offset value.
-    content.vb: Public Sub OverclockVramVoltageOffsetSet(voltage As Double)
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function OverclockVramVoltageOffsetSet(voltage As Double) As Boolean
   overload: IGCLWrapper.IGCLOverclockHelper.OverclockVramVoltageOffsetSet*
   nameWithType.vb: IGCLOverclockHelper.OverclockVramVoltageOffsetSet(Double)
   fullName.vb: IGCLWrapper.IGCLOverclockHelper.OverclockVramVoltageOffsetSet(Double)
@@ -617,22 +641,22 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockVramMemSpeedLimitGetV2
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 248
+    startLine: 296
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get the VRAM memory speed limit (V2).
   example: []
   syntax:
-    content: public double OverclockVramMemSpeedLimitGetV2()
+    content: public double? OverclockVramMemSpeedLimitGetV2()
     return:
-      type: System.Double
-      description: VRAM memory speed limit.
-    content.vb: Public Function OverclockVramMemSpeedLimitGetV2() As Double
+      type: System.Nullable{System.Double}
+      description: VRAM memory speed limit, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function OverclockVramMemSpeedLimitGetV2() As Double?
   overload: IGCLWrapper.IGCLOverclockHelper.OverclockVramMemSpeedLimitGetV2*
 - uid: IGCLWrapper.IGCLOverclockHelper.OverclockVramMemSpeedLimitSetV2(System.Double)
   commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockVramMemSpeedLimitSetV2(System.Double)
@@ -648,23 +672,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockVramMemSpeedLimitSetV2
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 262
+    startLine: 313
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Set the VRAM memory speed limit (V2).
   example: []
   syntax:
-    content: public void OverclockVramMemSpeedLimitSetV2(double speed)
+    content: public bool OverclockVramMemSpeedLimitSetV2(double speed)
     parameters:
     - id: speed
       type: System.Double
       description: Speed limit value.
-    content.vb: Public Sub OverclockVramMemSpeedLimitSetV2(speed As Double)
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function OverclockVramMemSpeedLimitSetV2(speed As Double) As Boolean
   overload: IGCLWrapper.IGCLOverclockHelper.OverclockVramMemSpeedLimitSetV2*
   nameWithType.vb: IGCLOverclockHelper.OverclockVramMemSpeedLimitSetV2(Double)
   fullName.vb: IGCLWrapper.IGCLOverclockHelper.OverclockVramMemSpeedLimitSetV2(Double)
@@ -683,22 +710,22 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockPowerLimitGet
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 276
+    startLine: 330
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get the overclock power limit.
   example: []
   syntax:
-    content: public double OverclockPowerLimitGet()
+    content: public double? OverclockPowerLimitGet()
     return:
-      type: System.Double
-      description: Power limit value.
-    content.vb: Public Function OverclockPowerLimitGet() As Double
+      type: System.Nullable{System.Double}
+      description: Power limit value, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function OverclockPowerLimitGet() As Double?
   overload: IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitGet*
 - uid: IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitSet(System.Double)
   commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitSet(System.Double)
@@ -714,23 +741,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockPowerLimitSet
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 290
+    startLine: 347
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Set the overclock power limit.
   example: []
   syntax:
-    content: public void OverclockPowerLimitSet(double limit)
+    content: public bool OverclockPowerLimitSet(double limit)
     parameters:
     - id: limit
       type: System.Double
       description: Power limit value.
-    content.vb: Public Sub OverclockPowerLimitSet(limit As Double)
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function OverclockPowerLimitSet(limit As Double) As Boolean
   overload: IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitSet*
   nameWithType.vb: IGCLOverclockHelper.OverclockPowerLimitSet(Double)
   fullName.vb: IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitSet(Double)
@@ -749,22 +779,22 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockPowerLimitGetV2
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 302
+    startLine: 362
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get the overclock power limit (V2).
   example: []
   syntax:
-    content: public double OverclockPowerLimitGetV2()
+    content: public double? OverclockPowerLimitGetV2()
     return:
-      type: System.Double
-      description: Power limit value.
-    content.vb: Public Function OverclockPowerLimitGetV2() As Double
+      type: System.Nullable{System.Double}
+      description: Power limit value, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function OverclockPowerLimitGetV2() As Double?
   overload: IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitGetV2*
 - uid: IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitSetV2(System.Double)
   commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitSetV2(System.Double)
@@ -780,23 +810,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockPowerLimitSetV2
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 316
+    startLine: 379
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Set the overclock power limit (V2).
   example: []
   syntax:
-    content: public void OverclockPowerLimitSetV2(double limit)
+    content: public bool OverclockPowerLimitSetV2(double limit)
     parameters:
     - id: limit
       type: System.Double
       description: Power limit value.
-    content.vb: Public Sub OverclockPowerLimitSetV2(limit As Double)
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function OverclockPowerLimitSetV2(limit As Double) As Boolean
   overload: IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitSetV2*
   nameWithType.vb: IGCLOverclockHelper.OverclockPowerLimitSetV2(Double)
   fullName.vb: IGCLWrapper.IGCLOverclockHelper.OverclockPowerLimitSetV2(Double)
@@ -815,22 +848,22 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockTemperatureLimitGet
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 330
+    startLine: 396
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get the overclock temperature limit.
   example: []
   syntax:
-    content: public double OverclockTemperatureLimitGet()
+    content: public double? OverclockTemperatureLimitGet()
     return:
-      type: System.Double
-      description: Temperature limit value.
-    content.vb: Public Function OverclockTemperatureLimitGet() As Double
+      type: System.Nullable{System.Double}
+      description: Temperature limit value, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function OverclockTemperatureLimitGet() As Double?
   overload: IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitGet*
 - uid: IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitSet(System.Double)
   commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitSet(System.Double)
@@ -846,23 +879,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockTemperatureLimitSet
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 344
+    startLine: 413
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Set the overclock temperature limit.
   example: []
   syntax:
-    content: public void OverclockTemperatureLimitSet(double value)
+    content: public bool OverclockTemperatureLimitSet(double value)
     parameters:
     - id: value
       type: System.Double
       description: Temperature limit value.
-    content.vb: Public Sub OverclockTemperatureLimitSet(value As Double)
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function OverclockTemperatureLimitSet(value As Double) As Boolean
   overload: IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitSet*
   nameWithType.vb: IGCLOverclockHelper.OverclockTemperatureLimitSet(Double)
   fullName.vb: IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitSet(Double)
@@ -881,22 +917,22 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockTemperatureLimitGetV2
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 356
+    startLine: 428
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get the overclock temperature limit (V2).
   example: []
   syntax:
-    content: public double OverclockTemperatureLimitGetV2()
+    content: public double? OverclockTemperatureLimitGetV2()
     return:
-      type: System.Double
-      description: Temperature limit value.
-    content.vb: Public Function OverclockTemperatureLimitGetV2() As Double
+      type: System.Nullable{System.Double}
+      description: Temperature limit value, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function OverclockTemperatureLimitGetV2() As Double?
   overload: IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitGetV2*
 - uid: IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitSetV2(System.Double)
   commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitSetV2(System.Double)
@@ -912,23 +948,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockTemperatureLimitSetV2
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 370
+    startLine: 445
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Set the overclock temperature limit (V2).
   example: []
   syntax:
-    content: public void OverclockTemperatureLimitSetV2(double value)
+    content: public bool OverclockTemperatureLimitSetV2(double value)
     parameters:
     - id: value
       type: System.Double
       description: Temperature limit value.
-    content.vb: Public Sub OverclockTemperatureLimitSetV2(value As Double)
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function OverclockTemperatureLimitSetV2(value As Double) As Boolean
   overload: IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitSetV2*
   nameWithType.vb: IGCLOverclockHelper.OverclockTemperatureLimitSetV2(Double)
   fullName.vb: IGCLWrapper.IGCLOverclockHelper.OverclockTemperatureLimitSetV2(Double)
@@ -947,22 +986,22 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetPowerTelemetry
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 383
+    startLine: 461
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get power telemetry as a DTO.
   example: []
   syntax:
-    content: public PowerTelemetryDto GetPowerTelemetry()
+    content: public PowerTelemetryDto? GetPowerTelemetry()
     return:
-      type: IGCLWrapper.PowerTelemetryDto
-      description: Power telemetry DTO.
-    content.vb: Public Function GetPowerTelemetry() As PowerTelemetryDto
+      type: System.Nullable{IGCLWrapper.PowerTelemetryDto}
+      description: Power telemetry DTO, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function GetPowerTelemetry() As PowerTelemetryDto?
   overload: IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry*
 - uid: IGCLWrapper.IGCLOverclockHelper.ResetToDefault
   commentId: M:IGCLWrapper.IGCLOverclockHelper.ResetToDefault
@@ -978,19 +1017,22 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ResetToDefault
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 396
+    startLine: 477
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Reset overclock settings to default.
   example: []
   syntax:
-    content: public void ResetToDefault()
-    content.vb: Public Sub ResetToDefault()
+    content: public bool ResetToDefault()
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the settings were reset successfully; <code>false</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function ResetToDefault() As Boolean
   overload: IGCLWrapper.IGCLOverclockHelper.ResetToDefault*
 - uid: IGCLWrapper.IGCLOverclockHelper.OverclockReadVFCurve(IGCLWrapper.ctl_vf_curve_type_t,IGCLWrapper.ctl_vf_curve_details_t)
   commentId: M:IGCLWrapper.IGCLOverclockHelper.OverclockReadVFCurve(IGCLWrapper.ctl_vf_curve_type_t,IGCLWrapper.ctl_vf_curve_details_t)
@@ -1006,18 +1048,18 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockReadVFCurve
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 411
+    startLine: 495
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Read the voltage/frequency curve.
   example: []
   syntax:
-    content: public ctl_voltage_frequency_point_t[] OverclockReadVFCurve(ctl_vf_curve_type_t curveType, ctl_vf_curve_details_t detail)
+    content: public ctl_voltage_frequency_point_t[]? OverclockReadVFCurve(ctl_vf_curve_type_t curveType, ctl_vf_curve_details_t detail)
     parameters:
     - id: curveType
       type: IGCLWrapper.ctl_vf_curve_type_t
@@ -1027,7 +1069,7 @@ items:
       description: Curve detail flags.
     return:
       type: IGCLWrapper.ctl_voltage_frequency_point_t[]
-      description: Array of voltage/frequency points.
+      description: Array of voltage/frequency points, or <code>null</code> if the feature is not supported on this hardware or driver.
     content.vb: Public Function OverclockReadVFCurve(curveType As ctl_vf_curve_type_t, detail As ctl_vf_curve_details_t) As ctl_voltage_frequency_point_t()
   overload: IGCLWrapper.IGCLOverclockHelper.OverclockReadVFCurve*
 - uid: IGCLWrapper.IGCLOverclockHelper.OverclockWriteCustomVFCurve(IGCLWrapper.ctl_voltage_frequency_point_t[])
@@ -1044,23 +1086,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: OverclockWriteCustomVFCurve
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 436
+    startLine: 529
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Write a custom voltage/frequency curve.
   example: []
   syntax:
-    content: public void OverclockWriteCustomVFCurve(ctl_voltage_frequency_point_t[] points)
+    content: public bool OverclockWriteCustomVFCurve(ctl_voltage_frequency_point_t[] points)
     parameters:
     - id: points
       type: IGCLWrapper.ctl_voltage_frequency_point_t[]
       description: Voltage/frequency points.
-    content.vb: Public Sub OverclockWriteCustomVFCurve(points As ctl_voltage_frequency_point_t())
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the curve was written successfully; <code>false</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function OverclockWriteCustomVFCurve(points As ctl_voltage_frequency_point_t()) As Boolean
   overload: IGCLWrapper.IGCLOverclockHelper.OverclockWriteCustomVFCurve*
   nameWithType.vb: IGCLOverclockHelper.OverclockWriteCustomVFCurve(ctl_voltage_frequency_point_t())
   fullName.vb: IGCLWrapper.IGCLOverclockHelper.OverclockWriteCustomVFCurve(IGCLWrapper.ctl_voltage_frequency_point_t())
@@ -1079,22 +1124,22 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetGpuFrequencyOffset
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 457
+    startLine: 553
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get the GPU frequency offset (V2 wrapper).
   example: []
   syntax:
-    content: public double GetGpuFrequencyOffset()
+    content: public double? GetGpuFrequencyOffset()
     return:
-      type: System.Double
-      description: GPU frequency offset.
-    content.vb: Public Function GetGpuFrequencyOffset() As Double
+      type: System.Nullable{System.Double}
+      description: GPU frequency offset, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function GetGpuFrequencyOffset() As Double?
   overload: IGCLWrapper.IGCLOverclockHelper.GetGpuFrequencyOffset*
 - uid: IGCLWrapper.IGCLOverclockHelper.SetGpuFrequencyOffset(System.Double)
   commentId: M:IGCLWrapper.IGCLOverclockHelper.SetGpuFrequencyOffset(System.Double)
@@ -1110,23 +1155,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetGpuFrequencyOffset
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 462
+    startLine: 559
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Set the GPU frequency offset (V2 wrapper).
   example: []
   syntax:
-    content: public void SetGpuFrequencyOffset(double offset)
+    content: public bool SetGpuFrequencyOffset(double offset)
     parameters:
     - id: offset
       type: System.Double
       description: Frequency offset value.
-    content.vb: Public Sub SetGpuFrequencyOffset(offset As Double)
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function SetGpuFrequencyOffset(offset As Double) As Boolean
   overload: IGCLWrapper.IGCLOverclockHelper.SetGpuFrequencyOffset*
   nameWithType.vb: IGCLOverclockHelper.SetGpuFrequencyOffset(Double)
   fullName.vb: IGCLWrapper.IGCLOverclockHelper.SetGpuFrequencyOffset(Double)
@@ -1145,22 +1193,22 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetGpuVoltageOffset
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 467
+    startLine: 564
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get the GPU voltage offset (V2 wrapper).
   example: []
   syntax:
-    content: public double GetGpuVoltageOffset()
+    content: public double? GetGpuVoltageOffset()
     return:
-      type: System.Double
-      description: GPU voltage offset.
-    content.vb: Public Function GetGpuVoltageOffset() As Double
+      type: System.Nullable{System.Double}
+      description: GPU voltage offset, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function GetGpuVoltageOffset() As Double?
   overload: IGCLWrapper.IGCLOverclockHelper.GetGpuVoltageOffset*
 - uid: IGCLWrapper.IGCLOverclockHelper.SetGpuVoltageOffset(System.Double)
   commentId: M:IGCLWrapper.IGCLOverclockHelper.SetGpuVoltageOffset(System.Double)
@@ -1176,23 +1224,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetGpuVoltageOffset
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 472
+    startLine: 570
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Set the GPU voltage offset (V2 wrapper).
   example: []
   syntax:
-    content: public void SetGpuVoltageOffset(double offset)
+    content: public bool SetGpuVoltageOffset(double offset)
     parameters:
     - id: offset
       type: System.Double
       description: Voltage offset value.
-    content.vb: Public Sub SetGpuVoltageOffset(offset As Double)
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function SetGpuVoltageOffset(offset As Double) As Boolean
   overload: IGCLWrapper.IGCLOverclockHelper.SetGpuVoltageOffset*
   nameWithType.vb: IGCLOverclockHelper.SetGpuVoltageOffset(Double)
   fullName.vb: IGCLWrapper.IGCLOverclockHelper.SetGpuVoltageOffset(Double)
@@ -1211,22 +1262,22 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetVramFrequencyOffset
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 477
+    startLine: 575
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get the VRAM frequency offset.
   example: []
   syntax:
-    content: public double GetVramFrequencyOffset()
+    content: public double? GetVramFrequencyOffset()
     return:
-      type: System.Double
-      description: VRAM frequency offset.
-    content.vb: Public Function GetVramFrequencyOffset() As Double
+      type: System.Nullable{System.Double}
+      description: VRAM frequency offset, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function GetVramFrequencyOffset() As Double?
   overload: IGCLWrapper.IGCLOverclockHelper.GetVramFrequencyOffset*
 - uid: IGCLWrapper.IGCLOverclockHelper.SetVramFrequencyOffset(System.Double)
   commentId: M:IGCLWrapper.IGCLOverclockHelper.SetVramFrequencyOffset(System.Double)
@@ -1242,23 +1293,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetVramFrequencyOffset
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 482
+    startLine: 581
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Set the VRAM frequency offset.
   example: []
   syntax:
-    content: public void SetVramFrequencyOffset(double offset)
+    content: public bool SetVramFrequencyOffset(double offset)
     parameters:
     - id: offset
       type: System.Double
       description: Frequency offset value.
-    content.vb: Public Sub SetVramFrequencyOffset(offset As Double)
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function SetVramFrequencyOffset(offset As Double) As Boolean
   overload: IGCLWrapper.IGCLOverclockHelper.SetVramFrequencyOffset*
   nameWithType.vb: IGCLOverclockHelper.SetVramFrequencyOffset(Double)
   fullName.vb: IGCLWrapper.IGCLOverclockHelper.SetVramFrequencyOffset(Double)
@@ -1277,22 +1331,22 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetPowerLimit
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 487
+    startLine: 586
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get the power limit (V2 wrapper).
   example: []
   syntax:
-    content: public double GetPowerLimit()
+    content: public double? GetPowerLimit()
     return:
-      type: System.Double
-      description: Power limit value.
-    content.vb: Public Function GetPowerLimit() As Double
+      type: System.Nullable{System.Double}
+      description: Power limit value, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function GetPowerLimit() As Double?
   overload: IGCLWrapper.IGCLOverclockHelper.GetPowerLimit*
 - uid: IGCLWrapper.IGCLOverclockHelper.SetPowerLimit(System.Double)
   commentId: M:IGCLWrapper.IGCLOverclockHelper.SetPowerLimit(System.Double)
@@ -1308,23 +1362,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetPowerLimit
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 492
+    startLine: 592
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Set the power limit (V2 wrapper).
   example: []
   syntax:
-    content: public void SetPowerLimit(double limit)
+    content: public bool SetPowerLimit(double limit)
     parameters:
     - id: limit
       type: System.Double
       description: Power limit value.
-    content.vb: Public Sub SetPowerLimit(limit As Double)
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function SetPowerLimit(limit As Double) As Boolean
   overload: IGCLWrapper.IGCLOverclockHelper.SetPowerLimit*
   nameWithType.vb: IGCLOverclockHelper.SetPowerLimit(Double)
   fullName.vb: IGCLWrapper.IGCLOverclockHelper.SetPowerLimit(Double)
@@ -1343,22 +1400,22 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetTemperatureLimit
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 497
+    startLine: 597
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get the temperature limit (V2 wrapper).
   example: []
   syntax:
-    content: public double GetTemperatureLimit()
+    content: public double? GetTemperatureLimit()
     return:
-      type: System.Double
-      description: Temperature limit value.
-    content.vb: Public Function GetTemperatureLimit() As Double
+      type: System.Nullable{System.Double}
+      description: Temperature limit value, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function GetTemperatureLimit() As Double?
   overload: IGCLWrapper.IGCLOverclockHelper.GetTemperatureLimit*
 - uid: IGCLWrapper.IGCLOverclockHelper.SetTemperatureLimit(System.Double)
   commentId: M:IGCLWrapper.IGCLOverclockHelper.SetTemperatureLimit(System.Double)
@@ -1374,23 +1431,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetTemperatureLimit
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 502
+    startLine: 603
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Set the temperature limit (V2 wrapper).
   example: []
   syntax:
-    content: public void SetTemperatureLimit(double value)
+    content: public bool SetTemperatureLimit(double value)
     parameters:
     - id: value
       type: System.Double
       description: Temperature limit value.
-    content.vb: Public Sub SetTemperatureLimit(value As Double)
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function SetTemperatureLimit(value As Double) As Boolean
   overload: IGCLWrapper.IGCLOverclockHelper.SetTemperatureLimit*
   nameWithType.vb: IGCLOverclockHelper.SetTemperatureLimit(Double)
   fullName.vb: IGCLWrapper.IGCLOverclockHelper.SetTemperatureLimit(Double)
@@ -1409,11 +1469,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateVfPair
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 516
+    startLine: 629
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1440,11 +1500,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreOverclockPropertiesEqual
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 525
+    startLine: 638
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1478,11 +1538,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreVfPairEqual
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 536
+    startLine: 649
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1516,11 +1576,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ArePowerTelemetryEqual
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 550
+    startLine: 663
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1554,11 +1614,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreVoltageFrequencyPointEqual
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 561
+    startLine: 674
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1592,11 +1652,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLOverclockHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLOverclockHelper.cs
-    startLine: 570
+    startLine: 683
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1842,25 +1902,104 @@ references:
   name: GetProperties
   nameWithType: IGCLOverclockHelper.GetProperties
   fullName: IGCLWrapper.IGCLOverclockHelper.GetProperties
-- uid: IGCLWrapper.OverclockPropertiesDto
-  commentId: T:IGCLWrapper.OverclockPropertiesDto
-  parent: IGCLWrapper
+- uid: System.Nullable{IGCLWrapper.OverclockPropertiesDto}
+  commentId: T:System.Nullable{IGCLWrapper.OverclockPropertiesDto}
+  parent: System
+  definition: System.Nullable`1
   href: IGCLWrapper.OverclockPropertiesDto.html
-  name: OverclockPropertiesDto
-  nameWithType: OverclockPropertiesDto
-  fullName: IGCLWrapper.OverclockPropertiesDto
+  name: OverclockPropertiesDto?
+  nameWithType: OverclockPropertiesDto?
+  fullName: IGCLWrapper.OverclockPropertiesDto?
+  spec.csharp:
+  - uid: IGCLWrapper.OverclockPropertiesDto
+    name: OverclockPropertiesDto
+    href: IGCLWrapper.OverclockPropertiesDto.html
+  - name: '?'
+  spec.vb:
+  - uid: IGCLWrapper.OverclockPropertiesDto
+    name: OverclockPropertiesDto
+    href: IGCLWrapper.OverclockPropertiesDto.html
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: IGCLWrapper.IGCLOverclockHelper.SetWaiver*
   commentId: Overload:IGCLWrapper.IGCLOverclockHelper.SetWaiver
   href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_SetWaiver
   name: SetWaiver
   nameWithType: IGCLOverclockHelper.SetWaiver
   fullName: IGCLWrapper.IGCLOverclockHelper.SetWaiver
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
 - uid: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetGet*
   commentId: Overload:IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetGet
   href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_OverclockGpuFrequencyOffsetGet
   name: OverclockGpuFrequencyOffsetGet
   nameWithType: IGCLOverclockHelper.OverclockGpuFrequencyOffsetGet
   fullName: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetGet
+- uid: System.Nullable{System.Double}
+  commentId: T:System.Nullable{System.Double}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double?
+  nameWithType: double?
+  fullName: double?
+  nameWithType.vb: Double?
+  fullName.vb: Double?
+  name.vb: Double?
+  spec.csharp:
+  - uid: System.Double
+    name: double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '?'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '?'
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetSet*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetSet
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_OverclockGpuFrequencyOffsetSet_System_Double_
+  name: OverclockGpuFrequencyOffsetSet
+  nameWithType: IGCLOverclockHelper.OverclockGpuFrequencyOffsetSet
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetSet
 - uid: System.Double
   commentId: T:System.Double
   parent: System
@@ -1872,12 +2011,6 @@ references:
   nameWithType.vb: Double
   fullName.vb: Double
   name.vb: Double
-- uid: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetSet*
-  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetSet
-  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_OverclockGpuFrequencyOffsetSet_System_Double_
-  name: OverclockGpuFrequencyOffsetSet
-  nameWithType: IGCLOverclockHelper.OverclockGpuFrequencyOffsetSet
-  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetSet
 - uid: IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetGetV2*
   commentId: Overload:IGCLWrapper.IGCLOverclockHelper.OverclockGpuFrequencyOffsetGetV2
   href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_OverclockGpuFrequencyOffsetGetV2
@@ -1920,6 +2053,30 @@ references:
   name: OverclockGpuLockGet
   nameWithType: IGCLOverclockHelper.OverclockGpuLockGet
   fullName: IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockGet
+- uid: System.Nullable{IGCLWrapper.OcVfPairDto}
+  commentId: T:System.Nullable{IGCLWrapper.OcVfPairDto}
+  parent: System
+  definition: System.Nullable`1
+  href: IGCLWrapper.OcVfPairDto.html
+  name: OcVfPairDto?
+  nameWithType: OcVfPairDto?
+  fullName: IGCLWrapper.OcVfPairDto?
+  spec.csharp:
+  - uid: IGCLWrapper.OcVfPairDto
+    name: OcVfPairDto
+    href: IGCLWrapper.OcVfPairDto.html
+  - name: '?'
+  spec.vb:
+  - uid: IGCLWrapper.OcVfPairDto
+    name: OcVfPairDto
+    href: IGCLWrapper.OcVfPairDto.html
+  - name: '?'
+- uid: IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockSet*
+  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockSet
+  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_OverclockGpuLockSet_IGCLWrapper_OcVfPairDto_
+  name: OverclockGpuLockSet
+  nameWithType: IGCLOverclockHelper.OverclockGpuLockSet
+  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockSet
 - uid: IGCLWrapper.OcVfPairDto
   commentId: T:IGCLWrapper.OcVfPairDto
   parent: IGCLWrapper
@@ -1927,12 +2084,6 @@ references:
   name: OcVfPairDto
   nameWithType: OcVfPairDto
   fullName: IGCLWrapper.OcVfPairDto
-- uid: IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockSet*
-  commentId: Overload:IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockSet
-  href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_OverclockGpuLockSet_IGCLWrapper_OcVfPairDto_
-  name: OverclockGpuLockSet
-  nameWithType: IGCLOverclockHelper.OverclockGpuLockSet
-  fullName: IGCLWrapper.IGCLOverclockHelper.OverclockGpuLockSet
 - uid: IGCLWrapper.IGCLOverclockHelper.OverclockVramFrequencyOffsetGet*
   commentId: Overload:IGCLWrapper.IGCLOverclockHelper.OverclockVramFrequencyOffsetGet
   href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_OverclockVramFrequencyOffsetGet
@@ -2023,13 +2174,24 @@ references:
   name: GetPowerTelemetry
   nameWithType: IGCLOverclockHelper.GetPowerTelemetry
   fullName: IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetry
-- uid: IGCLWrapper.PowerTelemetryDto
-  commentId: T:IGCLWrapper.PowerTelemetryDto
-  parent: IGCLWrapper
+- uid: System.Nullable{IGCLWrapper.PowerTelemetryDto}
+  commentId: T:System.Nullable{IGCLWrapper.PowerTelemetryDto}
+  parent: System
+  definition: System.Nullable`1
   href: IGCLWrapper.PowerTelemetryDto.html
-  name: PowerTelemetryDto
-  nameWithType: PowerTelemetryDto
-  fullName: IGCLWrapper.PowerTelemetryDto
+  name: PowerTelemetryDto?
+  nameWithType: PowerTelemetryDto?
+  fullName: IGCLWrapper.PowerTelemetryDto?
+  spec.csharp:
+  - uid: IGCLWrapper.PowerTelemetryDto
+    name: PowerTelemetryDto
+    href: IGCLWrapper.PowerTelemetryDto.html
+  - name: '?'
+  spec.vb:
+  - uid: IGCLWrapper.PowerTelemetryDto
+    name: PowerTelemetryDto
+    href: IGCLWrapper.PowerTelemetryDto.html
+  - name: '?'
 - uid: IGCLWrapper.IGCLOverclockHelper.ResetToDefault*
   commentId: Overload:IGCLWrapper.IGCLOverclockHelper.ResetToDefault
   href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_ResetToDefault
@@ -2169,17 +2331,6 @@ references:
   name: ctl_oc_properties_t
   nameWithType: ctl_oc_properties_t
   fullName: IGCLWrapper.ctl_oc_properties_t
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
 - uid: IGCLWrapper.IGCLOverclockHelper.AreVfPairEqual*
   commentId: Overload:IGCLWrapper.IGCLOverclockHelper.AreVfPairEqual
   href: IGCLWrapper.IGCLOverclockHelper.html#IGCLWrapper_IGCLOverclockHelper_AreVfPairEqual_IGCLWrapper_ctl_oc_vf_pair_t_IGCLWrapper_ctl_oc_vf_pair_t_

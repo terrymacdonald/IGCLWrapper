@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/terrymacdonald/IGCLWrapper/new/develop/apiSpec/new?filename=IGCLWrapper_IGCLDisplayHelper.md&amp;value=---%0Auid%3A%20IGCLWrapper.IGCLDisplayHelper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/terrymacdonald/IGCLWrapper/new/feature-reduced-exceptions/apiSpec/new?filename=IGCLWrapper_IGCLDisplayHelper.md&amp;value=---%0Auid%3A%20IGCLWrapper.IGCLDisplayHelper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -89,7 +89,7 @@
 
 
   <h1 id="IGCLWrapper_IGCLDisplayHelper" data-uid="IGCLWrapper.IGCLDisplayHelper" class="text-break">
-Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L12"><i class="bi bi-code-slash"></i></a>
+Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L12"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -160,7 +160,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_Name" data-uid="IGCLWrapper.IGCLDisplayHelper.Name">
   Name
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L953"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L953"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Friendly name for the display handle.</p>
@@ -196,7 +196,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_AUXAccess_IGCLWrapper_AuxAccessArgsDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.AUXAccess(IGCLWrapper.AuxAccessArgsDto)">
   AUXAccess(AuxAccessArgsDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1073"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1093"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Perform AUX channel access using a DTO.</p>
@@ -204,7 +204,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public AuxAccessArgsDto AUXAccess(AuxAccessArgsDto args)</code></pre>
+    <pre><code class="lang-csharp hljs">public AuxAccessArgsDto? AUXAccess(AuxAccessArgsDto args)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -216,8 +216,8 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.AuxAccessArgsDto.html">AuxAccessArgsDto</a></dt>
-    <dd><p>Updated AUX access arguments DTO.</p>
+    <dt><a class="xref" href="IGCLWrapper.AuxAccessArgsDto.html">AuxAccessArgsDto</a>?</dt>
+    <dd><p>Updated AUX access arguments DTO, or <code>null</code> if the feature is not supported on this hardware or driver.</p>
 </dd>
   </dl>
 
@@ -235,7 +235,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_AreAdapterDisplayEncoderPropertiesEqual_IGCLWrapper_ctl_adapter_display_encoder_properties_t_IGCLWrapper_ctl_adapter_display_encoder_properties_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.AreAdapterDisplayEncoderPropertiesEqual(IGCLWrapper.ctl_adapter_display_encoder_properties_t,IGCLWrapper.ctl_adapter_display_encoder_properties_t)">
   AreAdapterDisplayEncoderPropertiesEqual(ctl_adapter_display_encoder_properties_t, ctl_adapter_display_encoder_properties_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L176"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L176"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare adapter display encoder properties while ignoring native-only fields.</p>
@@ -277,7 +277,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_AreAuxAccessArgsEqual_IGCLWrapper_ctl_aux_access_args_t_IGCLWrapper_ctl_aux_access_args_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.AreAuxAccessArgsEqual(IGCLWrapper.ctl_aux_access_args_t,IGCLWrapper.ctl_aux_access_args_t)">
   AreAuxAccessArgsEqual(ctl_aux_access_args_t, ctl_aux_access_args_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L287"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L287"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare AUX access args while ignoring native-only fields.</p>
@@ -319,7 +319,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_AreCustomModeArgsEqual_IGCLWrapper_ctl_get_set_custom_mode_args_t_IGCLWrapper_ctl_get_set_custom_mode_args_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.AreCustomModeArgsEqual(IGCLWrapper.ctl_get_set_custom_mode_args_t,IGCLWrapper.ctl_get_set_custom_mode_args_t)">
   AreCustomModeArgsEqual(ctl_get_set_custom_mode_args_t, ctl_get_set_custom_mode_args_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L592"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L592"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare custom mode args while ignoring native-only fields.</p>
@@ -361,7 +361,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_AreCustomSrcModeEqual_IGCLWrapper_ctl_custom_src_mode_t_IGCLWrapper_ctl_custom_src_mode_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.AreCustomSrcModeEqual(IGCLWrapper.ctl_custom_src_mode_t,IGCLWrapper.ctl_custom_src_mode_t)">
   AreCustomSrcModeEqual(ctl_custom_src_mode_t, ctl_custom_src_mode_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L606"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L606"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare custom source modes while ignoring native-only fields.</p>
@@ -403,7 +403,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_AreDceArgsEqual_IGCLWrapper_ctl_dce_args_t_IGCLWrapper_ctl_dce_args_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.AreDceArgsEqual(IGCLWrapper.ctl_dce_args_t,IGCLWrapper.ctl_dce_args_t)">
   AreDceArgsEqual(ctl_dce_args_t, ctl_dce_args_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L641"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L641"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare DCE args while ignoring native-only fields.</p>
@@ -445,7 +445,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_AreDisplayPropertiesEqual_IGCLWrapper_ctl_display_properties_t_IGCLWrapper_ctl_display_properties_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.AreDisplayPropertiesEqual(IGCLWrapper.ctl_display_properties_t,IGCLWrapper.ctl_display_properties_t)">
   AreDisplayPropertiesEqual(ctl_display_properties_t, ctl_display_properties_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L128"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare display properties while ignoring native-only fields.</p>
@@ -487,7 +487,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_AreDisplaySettingsEqual_IGCLWrapper_ctl_display_settings_t_IGCLWrapper_ctl_display_settings_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.AreDisplaySettingsEqual(IGCLWrapper.ctl_display_settings_t,IGCLWrapper.ctl_display_settings_t)">
   AreDisplaySettingsEqual(ctl_display_settings_t, ctl_display_settings_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L674"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L674"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare display settings while ignoring native-only fields.</p>
@@ -529,7 +529,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_AreDisplayTimingEqual_IGCLWrapper_ctl_display_timing_t_IGCLWrapper_ctl_display_timing_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.AreDisplayTimingEqual(IGCLWrapper.ctl_display_timing_t,IGCLWrapper.ctl_display_timing_t)">
   AreDisplayTimingEqual(ctl_display_timing_t, ctl_display_timing_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L152"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L152"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare display timing while ignoring native-only fields.</p>
@@ -571,7 +571,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_AreEdidManagementArgsEqual_IGCLWrapper_ctl_edid_management_args_t_IGCLWrapper_ctl_edid_management_args_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.AreEdidManagementArgsEqual(IGCLWrapper.ctl_edid_management_args_t,IGCLWrapper.ctl_edid_management_args_t)">
   AreEdidManagementArgsEqual(ctl_edid_management_args_t, ctl_edid_management_args_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L576"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L576"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare EDID management args while ignoring native-only fields.</p>
@@ -613,7 +613,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_AreGetBrightnessEqual_IGCLWrapper_ctl_get_brightness_t_IGCLWrapper_ctl_get_brightness_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.AreGetBrightnessEqual(IGCLWrapper.ctl_get_brightness_t,IGCLWrapper.ctl_get_brightness_t)">
   AreGetBrightnessEqual(ctl_get_brightness_t, ctl_get_brightness_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L357"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L357"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare get brightness args while ignoring native-only fields.</p>
@@ -655,7 +655,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_AreI2CAccessArgsEqual_IGCLWrapper_ctl_i2c_access_args_t_IGCLWrapper_ctl_i2c_access_args_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.AreI2CAccessArgsEqual(IGCLWrapper.ctl_i2c_access_args_t,IGCLWrapper.ctl_i2c_access_args_t)">
   AreI2CAccessArgsEqual(ctl_i2c_access_args_t, ctl_i2c_access_args_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L236"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L236"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare I2C access args while ignoring native-only fields.</p>
@@ -697,7 +697,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_AreI2CAccessPinPairArgsEqual_IGCLWrapper_ctl_i2c_access_pinpair_args_t_IGCLWrapper_ctl_i2c_access_pinpair_args_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.AreI2CAccessPinPairArgsEqual(IGCLWrapper.ctl_i2c_access_pinpair_args_t,IGCLWrapper.ctl_i2c_access_pinpair_args_t)">
   AreI2CAccessPinPairArgsEqual(ctl_i2c_access_pinpair_args_t, ctl_i2c_access_pinpair_args_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L262"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L262"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare I2C pin-pair access args while ignoring native-only fields.</p>
@@ -739,7 +739,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_AreIntelArcSyncMonitorParamsEqual_IGCLWrapper_ctl_intel_arc_sync_monitor_params_t_IGCLWrapper_ctl_intel_arc_sync_monitor_params_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.AreIntelArcSyncMonitorParamsEqual(IGCLWrapper.ctl_intel_arc_sync_monitor_params_t,IGCLWrapper.ctl_intel_arc_sync_monitor_params_t)">
   AreIntelArcSyncMonitorParamsEqual(ctl_intel_arc_sync_monitor_params_t, ctl_intel_arc_sync_monitor_params_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L527"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L527"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare Intel Arc Sync monitor params while ignoring native-only fields.</p>
@@ -781,7 +781,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_AreIntelArcSyncProfileParamsEqual_IGCLWrapper_ctl_intel_arc_sync_profile_params_t_IGCLWrapper_ctl_intel_arc_sync_profile_params_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.AreIntelArcSyncProfileParamsEqual(IGCLWrapper.ctl_intel_arc_sync_profile_params_t,IGCLWrapper.ctl_intel_arc_sync_profile_params_t)">
   AreIntelArcSyncProfileParamsEqual(ctl_intel_arc_sync_profile_params_t, ctl_intel_arc_sync_profile_params_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L559"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L559"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare Intel Arc Sync profile params while ignoring native-only fields.</p>
@@ -823,7 +823,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_AreLaceConfigEqual_IGCLWrapper_ctl_lace_config_t_IGCLWrapper_ctl_lace_config_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.AreLaceConfigEqual(IGCLWrapper.ctl_lace_config_t,IGCLWrapper.ctl_lace_config_t)">
   AreLaceConfigEqual(ctl_lace_config_t, ctl_lace_config_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L495"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L495"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare LACE config while ignoring native-only fields.</p>
@@ -865,7 +865,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_AreMuxPropertiesEqual_IGCLWrapper_ctl_mux_properties_t_IGCLWrapper_ctl_mux_properties_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.AreMuxPropertiesEqual(IGCLWrapper.ctl_mux_properties_t,IGCLWrapper.ctl_mux_properties_t)">
   AreMuxPropertiesEqual(ctl_mux_properties_t, ctl_mux_properties_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L544"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L544"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare mux properties while ignoring native-only fields.</p>
@@ -907,7 +907,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_ArePanelDescriptorAccessArgsEqual_IGCLWrapper_ctl_panel_descriptor_access_args_t_IGCLWrapper_ctl_panel_descriptor_access_args_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.ArePanelDescriptorAccessArgsEqual(IGCLWrapper.ctl_panel_descriptor_access_args_t,IGCLWrapper.ctl_panel_descriptor_access_args_t)">
   ArePanelDescriptorAccessArgsEqual(ctl_panel_descriptor_access_args_t, ctl_panel_descriptor_access_args_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L421"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L421"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare panel descriptor access args while ignoring native-only fields.</p>
@@ -949,7 +949,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_ArePixtxBlockConfigEqual_IGCLWrapper_ctl_pixtx_block_config_t_IGCLWrapper_ctl_pixtx_block_config_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.ArePixtxBlockConfigEqual(IGCLWrapper.ctl_pixtx_block_config_t,IGCLWrapper.ctl_pixtx_block_config_t)">
   ArePixtxBlockConfigEqual(ctl_pixtx_block_config_t, ctl_pixtx_block_config_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L402"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L402"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare pixel transformation block configs while ignoring native-only fields.</p>
@@ -991,7 +991,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_ArePixtxPipeGetConfigEqual_IGCLWrapper_ctl_pixtx_pipe_get_config_t_IGCLWrapper_ctl_pixtx_pipe_get_config_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.ArePixtxPipeGetConfigEqual(IGCLWrapper.ctl_pixtx_pipe_get_config_t,IGCLWrapper.ctl_pixtx_pipe_get_config_t)">
   ArePixtxPipeGetConfigEqual(ctl_pixtx_pipe_get_config_t, ctl_pixtx_pipe_get_config_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L371"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L371"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare pixel transformation pipe get configs while ignoring native-only fields.</p>
@@ -1033,7 +1033,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_ArePixtxPipeSetConfigEqual_IGCLWrapper_ctl_pixtx_pipe_set_config_t_IGCLWrapper_ctl_pixtx_pipe_set_config_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.ArePixtxPipeSetConfigEqual(IGCLWrapper.ctl_pixtx_pipe_set_config_t,IGCLWrapper.ctl_pixtx_pipe_set_config_t)">
   ArePixtxPipeSetConfigEqual(ctl_pixtx_pipe_set_config_t, ctl_pixtx_pipe_set_config_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L387"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L387"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare pixel transformation pipe set configs while ignoring native-only fields.</p>
@@ -1075,7 +1075,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_ArePowerOptimizationCapsEqual_IGCLWrapper_ctl_power_optimization_caps_t_IGCLWrapper_ctl_power_optimization_caps_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.ArePowerOptimizationCapsEqual(IGCLWrapper.ctl_power_optimization_caps_t,IGCLWrapper.ctl_power_optimization_caps_t)">
   ArePowerOptimizationCapsEqual(ctl_power_optimization_caps_t, ctl_power_optimization_caps_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L313"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L313"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare power optimization capabilities while ignoring native-only fields.</p>
@@ -1117,7 +1117,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_ArePowerOptimizationSettingsEqual_IGCLWrapper_ctl_power_optimization_settings_t_IGCLWrapper_ctl_power_optimization_settings_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.ArePowerOptimizationSettingsEqual(IGCLWrapper.ctl_power_optimization_settings_t,IGCLWrapper.ctl_power_optimization_settings_t)">
   ArePowerOptimizationSettingsEqual(ctl_power_optimization_settings_t, ctl_power_optimization_settings_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L326"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L326"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare power optimization settings while ignoring native-only fields.</p>
@@ -1159,7 +1159,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_AreRetroScalingCapsEqual_IGCLWrapper_ctl_retro_scaling_caps_t_IGCLWrapper_ctl_retro_scaling_caps_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.AreRetroScalingCapsEqual(IGCLWrapper.ctl_retro_scaling_caps_t,IGCLWrapper.ctl_retro_scaling_caps_t)">
   AreRetroScalingCapsEqual(ctl_retro_scaling_caps_t, ctl_retro_scaling_caps_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L436"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L436"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare retro scaling capabilities while ignoring native-only fields.</p>
@@ -1201,7 +1201,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_AreRetroScalingSettingsEqual_IGCLWrapper_ctl_retro_scaling_settings_t_IGCLWrapper_ctl_retro_scaling_settings_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.AreRetroScalingSettingsEqual(IGCLWrapper.ctl_retro_scaling_settings_t,IGCLWrapper.ctl_retro_scaling_settings_t)">
   AreRetroScalingSettingsEqual(ctl_retro_scaling_settings_t, ctl_retro_scaling_settings_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L449"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L449"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare retro scaling settings while ignoring native-only fields.</p>
@@ -1243,7 +1243,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_AreScalingCapsEqual_IGCLWrapper_ctl_scaling_caps_t_IGCLWrapper_ctl_scaling_caps_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.AreScalingCapsEqual(IGCLWrapper.ctl_scaling_caps_t,IGCLWrapper.ctl_scaling_caps_t)">
   AreScalingCapsEqual(ctl_scaling_caps_t, ctl_scaling_caps_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L464"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L464"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare scaling capabilities while ignoring native-only fields.</p>
@@ -1285,7 +1285,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_AreScalingSettingsEqual_IGCLWrapper_ctl_scaling_settings_t_IGCLWrapper_ctl_scaling_settings_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.AreScalingSettingsEqual(IGCLWrapper.ctl_scaling_settings_t,IGCLWrapper.ctl_scaling_settings_t)">
   AreScalingSettingsEqual(ctl_scaling_settings_t, ctl_scaling_settings_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L477"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L477"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare scaling settings while ignoring native-only fields.</p>
@@ -1327,7 +1327,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_AreSetBrightnessEqual_IGCLWrapper_ctl_set_brightness_t_IGCLWrapper_ctl_set_brightness_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.AreSetBrightnessEqual(IGCLWrapper.ctl_set_brightness_t,IGCLWrapper.ctl_set_brightness_t)">
   AreSetBrightnessEqual(ctl_set_brightness_t, ctl_set_brightness_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L343"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L343"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare set brightness args while ignoring native-only fields.</p>
@@ -1369,7 +1369,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_AreSharpnessCapsEqual_IGCLWrapper_ctl_sharpness_caps_t_IGCLWrapper_ctl_sharpness_caps_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.AreSharpnessCapsEqual(IGCLWrapper.ctl_sharpness_caps_t,IGCLWrapper.ctl_sharpness_caps_t)">
   AreSharpnessCapsEqual(ctl_sharpness_caps_t, ctl_sharpness_caps_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L195"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L195"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare sharpness capabilities while ignoring native-only fields.</p>
@@ -1411,7 +1411,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_AreSharpnessFilterPropertiesEqual_IGCLWrapper_ctl_sharpness_filter_properties_t_IGCLWrapper_ctl_sharpness_filter_properties_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.AreSharpnessFilterPropertiesEqual(IGCLWrapper.ctl_sharpness_filter_properties_t,IGCLWrapper.ctl_sharpness_filter_properties_t)">
   AreSharpnessFilterPropertiesEqual(ctl_sharpness_filter_properties_t, ctl_sharpness_filter_properties_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L209"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L209"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare sharpness filter properties while ignoring native-only fields.</p>
@@ -1453,7 +1453,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_AreSharpnessSettingsEqual_IGCLWrapper_ctl_sharpness_settings_t_IGCLWrapper_ctl_sharpness_settings_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.AreSharpnessSettingsEqual(IGCLWrapper.ctl_sharpness_settings_t,IGCLWrapper.ctl_sharpness_settings_t)">
   AreSharpnessSettingsEqual(ctl_sharpness_settings_t, ctl_sharpness_settings_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L221"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L221"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare sharpness settings while ignoring native-only fields.</p>
@@ -1495,7 +1495,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_AreSoftwarePsrSettingsEqual_IGCLWrapper_ctl_sw_psr_settings_t_IGCLWrapper_ctl_sw_psr_settings_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.AreSoftwarePsrSettingsEqual(IGCLWrapper.ctl_sw_psr_settings_t,IGCLWrapper.ctl_sw_psr_settings_t)">
   AreSoftwarePsrSettingsEqual(ctl_sw_psr_settings_t, ctl_sw_psr_settings_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L512"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L512"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare software PSR settings while ignoring native-only fields.</p>
@@ -1537,7 +1537,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_AreVblankTimestampArgsEqual_IGCLWrapper_ctl_vblank_ts_args_t_IGCLWrapper_ctl_vblank_ts_args_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.AreVblankTimestampArgsEqual(IGCLWrapper.ctl_vblank_ts_args_t,IGCLWrapper.ctl_vblank_ts_args_t)">
   AreVblankTimestampArgsEqual(ctl_vblank_ts_args_t, ctl_vblank_ts_args_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L618"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L618"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare vblank timestamp args while ignoring native-only fields.</p>
@@ -1579,7 +1579,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_AreWireFormatConfigEqual_IGCLWrapper_ctl_get_set_wire_format_config_t_IGCLWrapper_ctl_get_set_wire_format_config_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.AreWireFormatConfigEqual(IGCLWrapper.ctl_get_set_wire_format_config_t,IGCLWrapper.ctl_get_set_wire_format_config_t)">
   AreWireFormatConfigEqual(ctl_get_set_wire_format_config_t, ctl_get_set_wire_format_config_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L659"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L659"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compare wire format config while ignoring native-only fields.</p>
@@ -1621,7 +1621,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_CheckDriverVersion_System_UInt32_" data-uid="IGCLWrapper.IGCLDisplayHelper.CheckDriverVersion(System.UInt32)">
   CheckDriverVersion(uint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L960"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L960"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Check the driver version against the provided version info.</p>
@@ -1660,7 +1660,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_CreateArcSyncProfileParams" data-uid="IGCLWrapper.IGCLDisplayHelper.CreateArcSyncProfileParams">
   CreateArcSyncProfileParams()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L60"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create an Arc Sync profile params struct with Size and Version initialized.</p>
@@ -1693,7 +1693,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_CreateCustomModeArgs" data-uid="IGCLWrapper.IGCLDisplayHelper.CreateCustomModeArgs">
   CreateCustomModeArgs()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L115"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a custom mode args struct with Size and Version initialized.</p>
@@ -1726,7 +1726,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_CreateDceArgs" data-uid="IGCLWrapper.IGCLDisplayHelper.CreateDceArgs">
   CreateDceArgs()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L120"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L120"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a dynamic contrast enhancement args struct with Size and Version initialized.</p>
@@ -1759,7 +1759,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_CreateDisplaySettings" data-uid="IGCLWrapper.IGCLDisplayHelper.CreateDisplaySettings">
   CreateDisplaySettings()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L85"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a display settings struct with Size and Version initialized.</p>
@@ -1792,7 +1792,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_CreateDisplaySettingsGetRequest" data-uid="IGCLWrapper.IGCLDisplayHelper.CreateDisplaySettingsGetRequest">
   CreateDisplaySettingsGetRequest()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2045"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L2240"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a DTO request for display-settings get operations.</p>
@@ -1825,7 +1825,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_CreateDisplaySettingsSetRequest_System_UInt32_" data-uid="IGCLWrapper.IGCLDisplayHelper.CreateDisplaySettingsSetRequest(System.UInt32)">
   CreateDisplaySettingsSetRequest(uint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2055"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L2250"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a DTO request for display-settings set operations.</p>
@@ -1864,7 +1864,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_CreateEdidManagementArgs" data-uid="IGCLWrapper.IGCLDisplayHelper.CreateEdidManagementArgs">
   CreateEdidManagementArgs()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L90"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create an EDID management args struct with Size and Version initialized.</p>
@@ -1897,7 +1897,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_CreateLaceConfig" data-uid="IGCLWrapper.IGCLDisplayHelper.CreateLaceConfig">
   CreateLaceConfig()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L54"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a LACE config struct with Size and Version initialized.</p>
@@ -1930,7 +1930,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_CreatePanelDescriptorArgs" data-uid="IGCLWrapper.IGCLDisplayHelper.CreatePanelDescriptorArgs">
   CreatePanelDescriptorArgs()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L95"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a panel descriptor access args struct with Size and Version initialized.</p>
@@ -1963,7 +1963,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_CreatePixtxPipeGetConfig" data-uid="IGCLWrapper.IGCLDisplayHelper.CreatePixtxPipeGetConfig">
   CreatePixtxPipeGetConfig()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L105"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a pixel transformation pipe get config struct with Size and Version initialized.</p>
@@ -1996,7 +1996,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_CreatePixtxPipeSetConfig" data-uid="IGCLWrapper.IGCLDisplayHelper.CreatePixtxPipeSetConfig">
   CreatePixtxPipeSetConfig()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L100"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a pixel transformation pipe set config struct with Size and Version initialized.</p>
@@ -2029,7 +2029,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_CreatePowerOptimizationSettings" data-uid="IGCLWrapper.IGCLDisplayHelper.CreatePowerOptimizationSettings">
   CreatePowerOptimizationSettings()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L48"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a power optimization settings struct with Size and Version initialized.</p>
@@ -2062,7 +2062,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_CreatePowerOptimizationSettingsGetRequest_System_UInt32_" data-uid="IGCLWrapper.IGCLDisplayHelper.CreatePowerOptimizationSettingsGetRequest(System.UInt32)">
   CreatePowerOptimizationSettingsGetRequest(uint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2069"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L2264"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a DTO request for power-optimization get operations.</p>
@@ -2101,7 +2101,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_CreatePowerOptimizationSettingsSetRequest_System_UInt32_" data-uid="IGCLWrapper.IGCLDisplayHelper.CreatePowerOptimizationSettingsSetRequest(System.UInt32)">
   CreatePowerOptimizationSettingsSetRequest(uint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2082"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L2277"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a DTO request for power-optimization set operations.</p>
@@ -2140,7 +2140,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_CreateRetroScalingSettings" data-uid="IGCLWrapper.IGCLDisplayHelper.CreateRetroScalingSettings">
   CreateRetroScalingSettings()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L70"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a retro scaling settings struct with Size and Version initialized.</p>
@@ -2173,7 +2173,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_CreateScalingSettings" data-uid="IGCLWrapper.IGCLDisplayHelper.CreateScalingSettings">
   CreateScalingSettings()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a scaling settings struct with Size and Version initialized.</p>
@@ -2206,7 +2206,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_CreateSetBrightness" data-uid="IGCLWrapper.IGCLDisplayHelper.CreateSetBrightness">
   CreateSetBrightness()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L65"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a set brightness struct with Size and Version initialized.</p>
@@ -2239,7 +2239,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_CreateSharpnessSettings" data-uid="IGCLWrapper.IGCLDisplayHelper.CreateSharpnessSettings">
   CreateSharpnessSettings()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L41"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a sharpness settings struct with Size and Version initialized.</p>
@@ -2272,7 +2272,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_CreateSoftwarePsrSettings" data-uid="IGCLWrapper.IGCLDisplayHelper.CreateSoftwarePsrSettings">
   CreateSoftwarePsrSettings()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L75"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a software PSR settings struct with Size and Version initialized.</p>
@@ -2305,7 +2305,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_CreateVblankTimestampArgs" data-uid="IGCLWrapper.IGCLDisplayHelper.CreateVblankTimestampArgs">
   CreateVblankTimestampArgs()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L110"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a vblank timestamp args struct with Size and Version initialized.</p>
@@ -2338,7 +2338,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_CreateWireFormatConfig" data-uid="IGCLWrapper.IGCLDisplayHelper.CreateWireFormatConfig">
   CreateWireFormatConfig()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L80"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a wire format config struct with Size and Version initialized.</p>
@@ -2371,7 +2371,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_Dispose" data-uid="IGCLWrapper.IGCLDisplayHelper.Dispose">
   Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2131"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L2338"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Mark the helper as disposed.</p>
@@ -2398,7 +2398,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_EdidManagement_IGCLWrapper_EdidManagementArgsDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.EdidManagement(IGCLWrapper.EdidManagementArgsDto)">
   EdidManagement(EdidManagementArgsDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1676"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1808"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Perform EDID management using a DTO.</p>
@@ -2406,7 +2406,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public EdidManagementArgsDto EdidManagement(EdidManagementArgsDto args)</code></pre>
+    <pre><code class="lang-csharp hljs">public EdidManagementArgsDto? EdidManagement(EdidManagementArgsDto args)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -2418,8 +2418,8 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.EdidManagementArgsDto.html">EdidManagementArgsDto</a></dt>
-    <dd><p>Updated EDID management arguments DTO.</p>
+    <dt><a class="xref" href="IGCLWrapper.EdidManagementArgsDto.html">EdidManagementArgsDto</a>?</dt>
+    <dd><p>Updated EDID management arguments DTO, or <code>null</code> if the feature is not supported on this hardware or driver.</p>
 </dd>
   </dl>
 
@@ -2437,7 +2437,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_EnumerateMuxDevices" data-uid="IGCLWrapper.IGCLDisplayHelper.EnumerateMuxDevices">
   EnumerateMuxDevices()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1566"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1672"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Enumerate mux device handles.</p>
@@ -2445,14 +2445,14 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public nint[] EnumerateMuxDevices()</code></pre>
+    <pre><code class="lang-csharp hljs">public nint[]? EnumerateMuxDevices()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a>[]</dt>
-    <dd><p>Array of mux handles.</p>
+    <dd><p>Array of mux handles, or <code>null</code> if the feature is not supported on this hardware or driver.</p>
 </dd>
   </dl>
 
@@ -2470,7 +2470,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetAdapterDisplayEncoderProperties" data-uid="IGCLWrapper.IGCLDisplayHelper.GetAdapterDisplayEncoderProperties">
   GetAdapterDisplayEncoderProperties()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L970"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L970"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get adapter display encoder properties as a DTO.</p>
@@ -2478,14 +2478,14 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public AdapterDisplayEncoderPropertiesDto GetAdapterDisplayEncoderProperties()</code></pre>
+    <pre><code class="lang-csharp hljs">public AdapterDisplayEncoderPropertiesDto? GetAdapterDisplayEncoderProperties()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html">AdapterDisplayEncoderPropertiesDto</a></dt>
-    <dd><p>Adapter display encoder properties DTO.</p>
+    <dt><a class="xref" href="IGCLWrapper.AdapterDisplayEncoderPropertiesDto.html">AdapterDisplayEncoderPropertiesDto</a>?</dt>
+    <dd><p>Adapter display encoder properties DTO, or <code>null</code> if the feature is not supported on this hardware or driver.</p>
 </dd>
   </dl>
 
@@ -2503,7 +2503,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetBrightnessSetting" data-uid="IGCLWrapper.IGCLDisplayHelper.GetBrightnessSetting">
   GetBrightnessSetting()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1147"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1181"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get display brightness as a DTO.</p>
@@ -2511,14 +2511,14 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public BrightnessGetDto GetBrightnessSetting()</code></pre>
+    <pre><code class="lang-csharp hljs">public BrightnessGetDto? GetBrightnessSetting()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.BrightnessGetDto.html">BrightnessGetDto</a></dt>
-    <dd><p>Brightness settings DTO.</p>
+    <dt><a class="xref" href="IGCLWrapper.BrightnessGetDto.html">BrightnessGetDto</a>?</dt>
+    <dd><p>Brightness settings DTO, or <code>null</code> if the feature is not supported on this hardware or driver.</p>
 </dd>
   </dl>
 
@@ -2536,7 +2536,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetCurrentScaling" data-uid="IGCLWrapper.IGCLDisplayHelper.GetCurrentScaling">
   GetCurrentScaling()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1482"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1572"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get current scaling settings as a DTO.</p>
@@ -2544,14 +2544,14 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ScalingSettingsDto GetCurrentScaling()</code></pre>
+    <pre><code class="lang-csharp hljs">public ScalingSettingsDto? GetCurrentScaling()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ScalingSettingsDto.html">ScalingSettingsDto</a></dt>
-    <dd><p>Scaling settings DTO.</p>
+    <dt><a class="xref" href="IGCLWrapper.ScalingSettingsDto.html">ScalingSettingsDto</a>?</dt>
+    <dd><p>Scaling settings DTO, or <code>null</code> if the feature is not supported on this hardware or driver.</p>
 </dd>
   </dl>
 
@@ -2569,7 +2569,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetCurrentSharpness" data-uid="IGCLWrapper.IGCLDisplayHelper.GetCurrentSharpness">
   GetCurrentSharpness()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1014"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1024"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get current sharpness settings as a DTO.</p>
@@ -2577,14 +2577,14 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SharpnessSettingsDto GetCurrentSharpness()</code></pre>
+    <pre><code class="lang-csharp hljs">public SharpnessSettingsDto? GetCurrentSharpness()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.SharpnessSettingsDto.html">SharpnessSettingsDto</a></dt>
-    <dd><p>Sharpness settings DTO.</p>
+    <dt><a class="xref" href="IGCLWrapper.SharpnessSettingsDto.html">SharpnessSettingsDto</a>?</dt>
+    <dd><p>Sharpness settings DTO, or <code>null</code> if the feature is not supported on this hardware or driver.</p>
 </dd>
   </dl>
 
@@ -2602,7 +2602,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetCustomModes" data-uid="IGCLWrapper.IGCLDisplayHelper.GetCustomModes">
   GetCustomModes()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1814"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1958"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get custom display modes as DTOs.</p>
@@ -2610,14 +2610,14 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public CustomModesResultDto GetCustomModes()</code></pre>
+    <pre><code class="lang-csharp hljs">public CustomModesResultDto? GetCustomModes()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.CustomModesResultDto.html">CustomModesResultDto</a></dt>
-    <dd><p>Custom mode result DTO.</p>
+    <dt><a class="xref" href="IGCLWrapper.CustomModesResultDto.html">CustomModesResultDto</a>?</dt>
+    <dd><p>Custom mode result DTO, or <code>null</code> if the feature is not supported on this hardware or driver.</p>
 </dd>
   </dl>
 
@@ -2635,7 +2635,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetDisplaySettings" data-uid="IGCLWrapper.IGCLDisplayHelper.GetDisplaySettings">
   GetDisplaySettings()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2022"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L2201"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get display settings as a DTO.</p>
@@ -2643,14 +2643,14 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DisplaySettingsDto GetDisplaySettings()</code></pre>
+    <pre><code class="lang-csharp hljs">public DisplaySettingsDto? GetDisplaySettings()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.DisplaySettingsDto.html">DisplaySettingsDto</a></dt>
-    <dd><p>Display settings DTO.</p>
+    <dt><a class="xref" href="IGCLWrapper.DisplaySettingsDto.html">DisplaySettingsDto</a>?</dt>
+    <dd><p>Display settings DTO, or <code>null</code> if the feature is not supported on this hardware or driver.</p>
 </dd>
   </dl>
 
@@ -2668,7 +2668,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetDynamicContrastEnhancement" data-uid="IGCLWrapper.IGCLDisplayHelper.GetDynamicContrastEnhancement">
   GetDynamicContrastEnhancement()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1944"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L2102"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get dynamic contrast enhancement settings as a DTO.</p>
@@ -2676,14 +2676,14 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public (DceArgsDto args, uint[] histogram) GetDynamicContrastEnhancement()</code></pre>
+    <pre><code class="lang-csharp hljs">public (DceArgsDto args, uint[] histogram)? GetDynamicContrastEnhancement()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt>(<a class="xref" href="IGCLWrapper.DceArgsDto.html">DceArgsDto</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-igclwrapper.dceargsdto,system.uint32[]-.args">args</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>[] <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-igclwrapper.dceargsdto,system.uint32[]-.histogram">histogram</a>)</dt>
-    <dd><p>Tuple containing args DTO and histogram.</p>
+    <dt>(<a class="xref" href="IGCLWrapper.DceArgsDto.html">DceArgsDto</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-igclwrapper.dceargsdto,system.uint32[]-.args">args</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>[] <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-igclwrapper.dceargsdto,system.uint32[]-.histogram">histogram</a>)?</dt>
+    <dd><p>Tuple containing args DTO and histogram, or <code>null</code> if the feature is not supported on this hardware or driver.</p>
 </dd>
   </dl>
 
@@ -2701,7 +2701,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetEdidManagement_IGCLWrapper_ctl_edid_type_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetEdidManagement(IGCLWrapper.ctl_edid_type_t)">
   GetEdidManagement(ctl_edid_type_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1719"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1862"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Read EDID bytes via the EDID management API.</p>
@@ -2709,7 +2709,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public byte[] GetEdidManagement(ctl_edid_type_t edidType = ctl_edid_type_t.CTL_EDID_TYPE_CURRENT)</code></pre>
+    <pre><code class="lang-csharp hljs">public byte[]? GetEdidManagement(ctl_edid_type_t edidType = ctl_edid_type_t.CTL_EDID_TYPE_CURRENT)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -2722,7 +2722,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
-    <dd><p>EDID bytes.</p>
+    <dd><p>EDID bytes, or <code>null</code> if the feature is not supported on this hardware or driver.</p>
 </dd>
   </dl>
 
@@ -2740,7 +2740,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetEdidManagementWithFlags_IGCLWrapper_ctl_edid_type_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetEdidManagementWithFlags(IGCLWrapper.ctl_edid_type_t)">
   GetEdidManagementWithFlags(ctl_edid_type_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1730"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1873"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Read EDID bytes via the EDID management API and return output flags.</p>
@@ -2748,7 +2748,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public (byte[] edid, uint outFlags) GetEdidManagementWithFlags(ctl_edid_type_t edidType = ctl_edid_type_t.CTL_EDID_TYPE_CURRENT)</code></pre>
+    <pre><code class="lang-csharp hljs">public (byte[] edid, uint outFlags)? GetEdidManagementWithFlags(ctl_edid_type_t edidType = ctl_edid_type_t.CTL_EDID_TYPE_CURRENT)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -2760,8 +2760,8 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[] <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.byte[],system.uint32-.edid">edid</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.byte[],system.uint32-.outflags">outFlags</a>)</dt>
-    <dd><p>Tuple containing EDID bytes and output flags.</p>
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[] <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.byte[],system.uint32-.edid">edid</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.byte[],system.uint32-.outflags">outFlags</a>)?</dt>
+    <dd><p>Tuple containing EDID bytes and output flags, or <code>null</code> if the feature is not supported on this hardware or driver.</p>
 </dd>
   </dl>
 
@@ -2779,7 +2779,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetIntelArcSyncInfoForMonitor" data-uid="IGCLWrapper.IGCLDisplayHelper.GetIntelArcSyncInfoForMonitor">
   GetIntelArcSyncInfoForMonitor()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1552"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1656"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get Intel Arc Sync info for a monitor as a DTO.</p>
@@ -2787,14 +2787,14 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IntelArcSyncMonitorParamsDto GetIntelArcSyncInfoForMonitor()</code></pre>
+    <pre><code class="lang-csharp hljs">public IntelArcSyncMonitorParamsDto? GetIntelArcSyncInfoForMonitor()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.IntelArcSyncMonitorParamsDto.html">IntelArcSyncMonitorParamsDto</a></dt>
-    <dd><p>Monitor params DTO.</p>
+    <dt><a class="xref" href="IGCLWrapper.IntelArcSyncMonitorParamsDto.html">IntelArcSyncMonitorParamsDto</a>?</dt>
+    <dd><p>Monitor params DTO, or <code>null</code> if the feature is not supported on this hardware or driver.</p>
 </dd>
   </dl>
 
@@ -2812,7 +2812,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetIntelArcSyncProfile" data-uid="IGCLWrapper.IGCLDisplayHelper.GetIntelArcSyncProfile">
   GetIntelArcSyncProfile()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1633"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1759"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get Intel Arc Sync profile parameters as a DTO.</p>
@@ -2820,14 +2820,14 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IntelArcSyncProfileParamsDto GetIntelArcSyncProfile()</code></pre>
+    <pre><code class="lang-csharp hljs">public IntelArcSyncProfileParamsDto? GetIntelArcSyncProfile()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.IntelArcSyncProfileParamsDto.html">IntelArcSyncProfileParamsDto</a></dt>
-    <dd><p>Arc Sync profile parameters DTO.</p>
+    <dt><a class="xref" href="IGCLWrapper.IntelArcSyncProfileParamsDto.html">IntelArcSyncProfileParamsDto</a>?</dt>
+    <dd><p>Arc Sync profile parameters DTO, or <code>null</code> if the feature is not supported on this hardware or driver.</p>
 </dd>
   </dl>
 
@@ -2845,7 +2845,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetLACEConfig" data-uid="IGCLWrapper.IGCLDisplayHelper.GetLACEConfig">
   GetLACEConfig()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1509"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1605"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get LACE configuration as a DTO.</p>
@@ -2853,14 +2853,14 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public LaceConfigDto GetLACEConfig()</code></pre>
+    <pre><code class="lang-csharp hljs">public LaceConfigDto? GetLACEConfig()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.LaceConfigDto.html">LaceConfigDto</a></dt>
-    <dd><p>LACE config DTO.</p>
+    <dt><a class="xref" href="IGCLWrapper.LaceConfigDto.html">LaceConfigDto</a>?</dt>
+    <dd><p>LACE config DTO, or <code>null</code> if the feature is not supported on this hardware or driver.</p>
 </dd>
   </dl>
 
@@ -2878,7 +2878,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetMuxProperties_System_IntPtr_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetMuxProperties(System.IntPtr)">
   GetMuxProperties(nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1591"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1705"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get mux properties and display outputs as a DTO.</p>
@@ -2886,7 +2886,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public MuxPropertiesDto GetMuxProperties(nint muxHandle)</code></pre>
+    <pre><code class="lang-csharp hljs">public MuxPropertiesDto? GetMuxProperties(nint muxHandle)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -2898,8 +2898,8 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.MuxPropertiesDto.html">MuxPropertiesDto</a></dt>
-    <dd><p>Mux properties DTO.</p>
+    <dt><a class="xref" href="IGCLWrapper.MuxPropertiesDto.html">MuxPropertiesDto</a>?</dt>
+    <dd><p>Mux properties DTO, or <code>null</code> if the feature is not supported on this hardware or driver.</p>
 </dd>
   </dl>
 
@@ -2917,7 +2917,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetPanelEdidData" data-uid="IGCLWrapper.IGCLDisplayHelper.GetPanelEdidData">
   GetPanelEdidData()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1326"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1395"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Read EDID via panel descriptor access as a single concatenated byte array.</p>
@@ -2925,14 +2925,14 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public byte[] GetPanelEdidData()</code></pre>
+    <pre><code class="lang-csharp hljs">public byte[]? GetPanelEdidData()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
-    <dd><p>Concatenated panel descriptor bytes.</p>
+    <dd><p>Concatenated panel descriptor bytes, or <code>null</code> if the feature is not supported on this hardware or driver.</p>
 </dd>
   </dl>
 
@@ -2950,7 +2950,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetPowerOptimizationCaps" data-uid="IGCLWrapper.IGCLDisplayHelper.GetPowerOptimizationCaps">
   GetPowerOptimizationCaps()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1087"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1109"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get power optimization capabilities as a DTO.</p>
@@ -2958,14 +2958,14 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public PowerOptimizationCapsDto GetPowerOptimizationCaps()</code></pre>
+    <pre><code class="lang-csharp hljs">public PowerOptimizationCapsDto? GetPowerOptimizationCaps()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.PowerOptimizationCapsDto.html">PowerOptimizationCapsDto</a></dt>
-    <dd><p>Power optimization capabilities DTO.</p>
+    <dt><a class="xref" href="IGCLWrapper.PowerOptimizationCapsDto.html">PowerOptimizationCapsDto</a>?</dt>
+    <dd><p>Power optimization capabilities DTO, or <code>null</code> if the feature is not supported on this hardware or driver.</p>
 </dd>
   </dl>
 
@@ -2983,7 +2983,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetPowerOptimizationSetting_IGCLWrapper_PowerOptimizationSettingsDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.GetPowerOptimizationSetting(IGCLWrapper.PowerOptimizationSettingsDto)">
   GetPowerOptimizationSetting(PowerOptimizationSettingsDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1102"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1126"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get power optimization settings using a DTO.</p>
@@ -2991,7 +2991,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public PowerOptimizationSettingsDto GetPowerOptimizationSetting(PowerOptimizationSettingsDto settings)</code></pre>
+    <pre><code class="lang-csharp hljs">public PowerOptimizationSettingsDto? GetPowerOptimizationSetting(PowerOptimizationSettingsDto settings)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -3003,8 +3003,8 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.PowerOptimizationSettingsDto.html">PowerOptimizationSettingsDto</a></dt>
-    <dd><p>Updated settings DTO.</p>
+    <dt><a class="xref" href="IGCLWrapper.PowerOptimizationSettingsDto.html">PowerOptimizationSettingsDto</a>?</dt>
+    <dd><p>Updated settings DTO, or <code>null</code> if the feature is not supported on this hardware or driver.</p>
 </dd>
   </dl>
 
@@ -3022,7 +3022,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetProperties" data-uid="IGCLWrapper.IGCLDisplayHelper.GetProperties">
   GetProperties()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L888"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L888"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get display properties for this display handle as a DTO.</p>
@@ -3055,7 +3055,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetRefreshRateHz" data-uid="IGCLWrapper.IGCLDisplayHelper.GetRefreshRateHz">
   GetRefreshRateHz()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L944"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L944"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get the display refresh rate in Hz.</p>
@@ -3088,7 +3088,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetResolution" data-uid="IGCLWrapper.IGCLDisplayHelper.GetResolution">
   GetResolution()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L934"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L934"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get the current display resolution.</p>
@@ -3121,7 +3121,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetRetroScalingSettings" data-uid="IGCLWrapper.IGCLDisplayHelper.GetRetroScalingSettings">
   GetRetroScalingSettings()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1439"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1511"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get retro scaling settings as a DTO.</p>
@@ -3129,14 +3129,14 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public RetroScalingSettingsDto GetRetroScalingSettings()</code></pre>
+    <pre><code class="lang-csharp hljs">public RetroScalingSettingsDto? GetRetroScalingSettings()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.RetroScalingSettingsDto.html">RetroScalingSettingsDto</a></dt>
-    <dd><p>Retro scaling settings DTO.</p>
+    <dt><a class="xref" href="IGCLWrapper.RetroScalingSettingsDto.html">RetroScalingSettingsDto</a>?</dt>
+    <dd><p>Retro scaling settings DTO, or <code>null</code> if the feature is not supported on this hardware or driver.</p>
 </dd>
   </dl>
 
@@ -3154,7 +3154,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetSharpnessCaps" data-uid="IGCLWrapper.IGCLDisplayHelper.GetSharpnessCaps">
   GetSharpnessCaps()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L984"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L986"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get sharpness capabilities and filter properties as a DTO.</p>
@@ -3162,14 +3162,14 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SharpnessCapsDto GetSharpnessCaps()</code></pre>
+    <pre><code class="lang-csharp hljs">public SharpnessCapsDto? GetSharpnessCaps()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.SharpnessCapsDto.html">SharpnessCapsDto</a></dt>
-    <dd><p>Sharpness capabilities DTO.</p>
+    <dt><a class="xref" href="IGCLWrapper.SharpnessCapsDto.html">SharpnessCapsDto</a>?</dt>
+    <dd><p>Sharpness capabilities DTO, or <code>null</code> if the feature is not supported on this hardware or driver.</p>
 </dd>
   </dl>
 
@@ -3187,7 +3187,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetSupportedRetroScalingCapability" data-uid="IGCLWrapper.IGCLDisplayHelper.GetSupportedRetroScalingCapability">
   GetSupportedRetroScalingCapability()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1406"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1476"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get supported retro scaling capabilities as a DTO.</p>
@@ -3195,14 +3195,14 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public RetroScalingCapsDto GetSupportedRetroScalingCapability()</code></pre>
+    <pre><code class="lang-csharp hljs">public RetroScalingCapsDto? GetSupportedRetroScalingCapability()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.RetroScalingCapsDto.html">RetroScalingCapsDto</a></dt>
-    <dd><p>Retro scaling capabilities DTO.</p>
+    <dt><a class="xref" href="IGCLWrapper.RetroScalingCapsDto.html">RetroScalingCapsDto</a>?</dt>
+    <dd><p>Retro scaling capabilities DTO, or <code>null</code> if the feature is not supported on this hardware or driver.</p>
 </dd>
   </dl>
 
@@ -3220,7 +3220,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetSupportedScalingCapability" data-uid="IGCLWrapper.IGCLDisplayHelper.GetSupportedScalingCapability">
   GetSupportedScalingCapability()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1468"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1556"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get supported scaling capabilities as a DTO.</p>
@@ -3228,14 +3228,14 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ScalingCapsDto GetSupportedScalingCapability()</code></pre>
+    <pre><code class="lang-csharp hljs">public ScalingCapsDto? GetSupportedScalingCapability()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.ScalingCapsDto.html">ScalingCapsDto</a></dt>
-    <dd><p>Scaling capabilities DTO.</p>
+    <dt><a class="xref" href="IGCLWrapper.ScalingCapsDto.html">ScalingCapsDto</a>?</dt>
+    <dd><p>Scaling capabilities DTO, or <code>null</code> if the feature is not supported on this hardware or driver.</p>
 </dd>
   </dl>
 
@@ -3253,7 +3253,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetTiming" data-uid="IGCLWrapper.IGCLDisplayHelper.GetTiming">
   GetTiming()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L915"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L915"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get display timing information as a DTO.</p>
@@ -3286,7 +3286,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetVblankTimestamp" data-uid="IGCLWrapper.IGCLDisplayHelper.GetVblankTimestamp">
   GetVblankTimestamp()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1871"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L2027"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get vblank timestamp information as a DTO.</p>
@@ -3294,14 +3294,14 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public VblankTimestampArgsDto GetVblankTimestamp()</code></pre>
+    <pre><code class="lang-csharp hljs">public VblankTimestampArgsDto? GetVblankTimestamp()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.VblankTimestampArgsDto.html">VblankTimestampArgsDto</a></dt>
-    <dd><p>Vblank timestamp DTO.</p>
+    <dt><a class="xref" href="IGCLWrapper.VblankTimestampArgsDto.html">VblankTimestampArgsDto</a>?</dt>
+    <dd><p>Vblank timestamp DTO, or <code>null</code> if the feature is not supported on this hardware or driver.</p>
 </dd>
   </dl>
 
@@ -3319,7 +3319,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_GetWireFormat" data-uid="IGCLWrapper.IGCLDisplayHelper.GetWireFormat">
   GetWireFormat()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1967"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L2141"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get wire format settings as a DTO.</p>
@@ -3327,14 +3327,14 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public WireFormatConfigDto GetWireFormat()</code></pre>
+    <pre><code class="lang-csharp hljs">public WireFormatConfigDto? GetWireFormat()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.WireFormatConfigDto.html">WireFormatConfigDto</a></dt>
-    <dd><p>Wire format settings DTO.</p>
+    <dt><a class="xref" href="IGCLWrapper.WireFormatConfigDto.html">WireFormatConfigDto</a>?</dt>
+    <dd><p>Wire format settings DTO, or <code>null</code> if the feature is not supported on this hardware or driver.</p>
 </dd>
   </dl>
 
@@ -3352,7 +3352,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_I2CAccess_IGCLWrapper_I2CAccessArgsDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.I2CAccess(IGCLWrapper.I2CAccessArgsDto)">
   I2CAccess(I2CAccessArgsDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1042"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1058"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Perform I2C access using a DTO.</p>
@@ -3360,7 +3360,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public I2CAccessArgsDto I2CAccess(I2CAccessArgsDto args)</code></pre>
+    <pre><code class="lang-csharp hljs">public I2CAccessArgsDto? I2CAccess(I2CAccessArgsDto args)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -3372,8 +3372,8 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.I2CAccessArgsDto.html">I2CAccessArgsDto</a></dt>
-    <dd><p>Updated I2C access arguments DTO.</p>
+    <dt><a class="xref" href="IGCLWrapper.I2CAccessArgsDto.html">I2CAccessArgsDto</a>?</dt>
+    <dd><p>Updated I2C access arguments DTO, or <code>null</code> if the feature is not supported on this hardware or driver.</p>
 </dd>
   </dl>
 
@@ -3391,7 +3391,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_I2CAccessOnPinPair_System_IntPtr_IGCLWrapper_I2CAccessPinPairArgsDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.I2CAccessOnPinPair(System.IntPtr,IGCLWrapper.I2CAccessPinPairArgsDto)">
   I2CAccessOnPinPair(nint, I2CAccessPinPairArgsDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1058"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1076"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Perform I2C access on a specific pin pair using a DTO.</p>
@@ -3399,7 +3399,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public I2CAccessPinPairArgsDto I2CAccessOnPinPair(nint pinPair, I2CAccessPinPairArgsDto args)</code></pre>
+    <pre><code class="lang-csharp hljs">public I2CAccessPinPairArgsDto? I2CAccessOnPinPair(nint pinPair, I2CAccessPinPairArgsDto args)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -3414,8 +3414,8 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.I2CAccessPinPairArgsDto.html">I2CAccessPinPairArgsDto</a></dt>
-    <dd><p>Updated I2C access pin pair arguments DTO.</p>
+    <dt><a class="xref" href="IGCLWrapper.I2CAccessPinPairArgsDto.html">I2CAccessPinPairArgsDto</a>?</dt>
+    <dd><p>Updated I2C access pin pair arguments DTO, or <code>null</code> if the feature is not supported on this hardware or driver.</p>
 </dd>
   </dl>
 
@@ -3433,7 +3433,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_IsActive" data-uid="IGCLWrapper.IGCLDisplayHelper.IsActive">
   IsActive()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L924"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L924"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Check whether the display is active.</p>
@@ -3466,7 +3466,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_PanelDescriptorAccess_IGCLWrapper_PanelDescriptorAccessArgsDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.PanelDescriptorAccess(IGCLWrapper.PanelDescriptorAccessArgsDto)">
   PanelDescriptorAccess(PanelDescriptorAccessArgsDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1284"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1342"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Access the panel descriptor using a DTO.</p>
@@ -3474,7 +3474,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public PanelDescriptorAccessArgsDto PanelDescriptorAccess(PanelDescriptorAccessArgsDto args)</code></pre>
+    <pre><code class="lang-csharp hljs">public PanelDescriptorAccessArgsDto? PanelDescriptorAccess(PanelDescriptorAccessArgsDto args)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -3486,8 +3486,8 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.PanelDescriptorAccessArgsDto.html">PanelDescriptorAccessArgsDto</a></dt>
-    <dd><p>Updated panel descriptor access arguments DTO.</p>
+    <dt><a class="xref" href="IGCLWrapper.PanelDescriptorAccessArgsDto.html">PanelDescriptorAccessArgsDto</a>?</dt>
+    <dd><p>Updated panel descriptor access arguments DTO, or <code>null</code> if the feature is not supported on this hardware or driver.</p>
 </dd>
   </dl>
 
@@ -3505,7 +3505,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_PixelTransformationGetConfig_IGCLWrapper_PixtxPipeGetConfigDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.PixelTransformationGetConfig(IGCLWrapper.PixtxPipeGetConfigDto)">
   PixelTransformationGetConfig(PixtxPipeGetConfigDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1232"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1280"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get pixel transformation configuration as DTOs (metadata only; LUT sample values require native methods).</p>
@@ -3513,7 +3513,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public PixelTransformationGetResultDto PixelTransformationGetConfig(PixtxPipeGetConfigDto args)</code></pre>
+    <pre><code class="lang-csharp hljs">public PixelTransformationGetResultDto? PixelTransformationGetConfig(PixtxPipeGetConfigDto args)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -3525,8 +3525,8 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.PixelTransformationGetResultDto.html">PixelTransformationGetResultDto</a></dt>
-    <dd><p>Pixel transformation get result DTO.</p>
+    <dt><a class="xref" href="IGCLWrapper.PixelTransformationGetResultDto.html">PixelTransformationGetResultDto</a>?</dt>
+    <dd><p>Pixel transformation get result DTO, or <code>null</code> if the feature is not supported on this hardware or driver.</p>
 </dd>
   </dl>
 
@@ -3544,7 +3544,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_PixelTransformationGetConfigNative_IGCLWrapper_ctl_pixtx_pipe_get_config_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.PixelTransformationGetConfigNative(IGCLWrapper.ctl_pixtx_pipe_get_config_t)">
   PixelTransformationGetConfigNative(ctl_pixtx_pipe_get_config_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1162"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1198"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get pixel transformation configuration using native structs.</p>
@@ -3552,7 +3552,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public (ctl_pixtx_pipe_get_config_t config, ctl_pixtx_block_config_t[] blocks) PixelTransformationGetConfigNative(ctl_pixtx_pipe_get_config_t args)</code></pre>
+    <pre><code class="lang-csharp hljs">public (ctl_pixtx_pipe_get_config_t config, ctl_pixtx_block_config_t[] blocks)? PixelTransformationGetConfigNative(ctl_pixtx_pipe_get_config_t args)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -3564,8 +3564,8 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt>(<a class="xref" href="IGCLWrapper.ctl_pixtx_pipe_get_config_t.html">ctl_pixtx_pipe_get_config_t</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-igclwrapper.ctl_pixtx_pipe_get_config_t,igclwrapper.ctl_pixtx_block_config_t[]-.config">config</a>, <a class="xref" href="IGCLWrapper.ctl_pixtx_block_config_t.html">ctl_pixtx_block_config_t</a>[] <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-igclwrapper.ctl_pixtx_pipe_get_config_t,igclwrapper.ctl_pixtx_block_config_t[]-.blocks">blocks</a>)</dt>
-    <dd><p>Tuple containing config and block array.</p>
+    <dt>(<a class="xref" href="IGCLWrapper.ctl_pixtx_pipe_get_config_t.html">ctl_pixtx_pipe_get_config_t</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-igclwrapper.ctl_pixtx_pipe_get_config_t,igclwrapper.ctl_pixtx_block_config_t[]-.config">config</a>, <a class="xref" href="IGCLWrapper.ctl_pixtx_block_config_t.html">ctl_pixtx_block_config_t</a>[] <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-igclwrapper.ctl_pixtx_pipe_get_config_t,igclwrapper.ctl_pixtx_block_config_t[]-.blocks">blocks</a>)?</dt>
+    <dd><p>Tuple containing config and block array, or <code>null</code> if the feature is not supported on this hardware or driver.</p>
 </dd>
   </dl>
 
@@ -3583,7 +3583,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_PixelTransformationGetConfigNative_IGCLWrapper_ctl_pixtx_pipe_get_config_t_IGCLWrapper_ctl_pixtx_block_config_t___" data-uid="IGCLWrapper.IGCLDisplayHelper.PixelTransformationGetConfigNative(IGCLWrapper.ctl_pixtx_pipe_get_config_t,IGCLWrapper.ctl_pixtx_block_config_t[])">
   PixelTransformationGetConfigNative(ctl_pixtx_pipe_get_config_t, ctl_pixtx_block_config_t[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1200"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1244"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get pixel transformation configuration using the provided blocks (native structs).</p>
@@ -3591,7 +3591,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public (ctl_pixtx_pipe_get_config_t config, ctl_pixtx_block_config_t[] blocks) PixelTransformationGetConfigNative(ctl_pixtx_pipe_get_config_t args, ctl_pixtx_block_config_t[] blocks)</code></pre>
+    <pre><code class="lang-csharp hljs">public (ctl_pixtx_pipe_get_config_t config, ctl_pixtx_block_config_t[] blocks)? PixelTransformationGetConfigNative(ctl_pixtx_pipe_get_config_t args, ctl_pixtx_block_config_t[] blocks)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -3606,8 +3606,8 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt>(<a class="xref" href="IGCLWrapper.ctl_pixtx_pipe_get_config_t.html">ctl_pixtx_pipe_get_config_t</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-igclwrapper.ctl_pixtx_pipe_get_config_t,igclwrapper.ctl_pixtx_block_config_t[]-.config">config</a>, <a class="xref" href="IGCLWrapper.ctl_pixtx_block_config_t.html">ctl_pixtx_block_config_t</a>[] <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-igclwrapper.ctl_pixtx_pipe_get_config_t,igclwrapper.ctl_pixtx_block_config_t[]-.blocks">blocks</a>)</dt>
-    <dd><p>Tuple containing config and block array.</p>
+    <dt>(<a class="xref" href="IGCLWrapper.ctl_pixtx_pipe_get_config_t.html">ctl_pixtx_pipe_get_config_t</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-igclwrapper.ctl_pixtx_pipe_get_config_t,igclwrapper.ctl_pixtx_block_config_t[]-.config">config</a>, <a class="xref" href="IGCLWrapper.ctl_pixtx_block_config_t.html">ctl_pixtx_block_config_t</a>[] <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-igclwrapper.ctl_pixtx_pipe_get_config_t,igclwrapper.ctl_pixtx_block_config_t[]-.blocks">blocks</a>)?</dt>
+    <dd><p>Tuple containing config and block array, or <code>null</code> if the feature is not supported on this hardware or driver.</p>
 </dd>
   </dl>
 
@@ -3625,7 +3625,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_PixelTransformationSetConfig_IGCLWrapper_PixtxPipeSetConfigDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.PixelTransformationSetConfig(IGCLWrapper.PixtxPipeSetConfigDto)">
   PixelTransformationSetConfig(PixtxPipeSetConfigDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1242"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1293"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Set pixel transformation configuration using a DTO (metadata only; LUT sample values require native methods).</p>
@@ -3633,7 +3633,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void PixelTransformationSetConfig(PixtxPipeSetConfigDto args)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool PixelTransformationSetConfig(PixtxPipeSetConfigDto args)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -3643,6 +3643,12 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 </dd>
   </dl>
 
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.</p>
+</dd>
+  </dl>
 
 
 
@@ -3658,7 +3664,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_PixelTransformationSetConfigNative_IGCLWrapper_ctl_pixtx_pipe_set_config_t_" data-uid="IGCLWrapper.IGCLDisplayHelper.PixelTransformationSetConfigNative(IGCLWrapper.ctl_pixtx_pipe_set_config_t)">
   PixelTransformationSetConfigNative(ctl_pixtx_pipe_set_config_t)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1255"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1310"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Set pixel transformation configuration using a native struct (for advanced use cases with raw pointer fields).</p>
@@ -3666,7 +3672,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void PixelTransformationSetConfigNative(ctl_pixtx_pipe_set_config_t args)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool PixelTransformationSetConfigNative(ctl_pixtx_pipe_set_config_t args)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -3676,6 +3682,12 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 </dd>
   </dl>
 
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.</p>
+</dd>
+  </dl>
 
 
 
@@ -3691,7 +3703,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_SetBrightnessSetting_IGCLWrapper_BrightnessSetDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetBrightnessSetting(IGCLWrapper.BrightnessSetDto)">
   SetBrightnessSetting(BrightnessSetDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1134"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1165"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Set display brightness using a DTO.</p>
@@ -3699,7 +3711,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SetBrightnessSetting(BrightnessSetDto brightness)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool SetBrightnessSetting(BrightnessSetDto brightness)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -3709,6 +3721,12 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 </dd>
   </dl>
 
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.</p>
+</dd>
+  </dl>
 
 
 
@@ -3724,7 +3742,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_SetCurrentScaling_IGCLWrapper_ScalingSettingsDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetCurrentScaling(IGCLWrapper.ScalingSettingsDto)">
   SetCurrentScaling(ScalingSettingsDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1496"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1589"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Set scaling settings using a DTO.</p>
@@ -3732,7 +3750,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SetCurrentScaling(ScalingSettingsDto settings)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool SetCurrentScaling(ScalingSettingsDto settings)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -3742,6 +3760,12 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 </dd>
   </dl>
 
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.</p>
+</dd>
+  </dl>
 
 
 
@@ -3757,7 +3781,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_SetCurrentSharpness_IGCLWrapper_SharpnessSettingsDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetCurrentSharpness(IGCLWrapper.SharpnessSettingsDto)">
   SetCurrentSharpness(SharpnessSettingsDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1028"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1041"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Set sharpness settings using a DTO.</p>
@@ -3765,7 +3789,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SetCurrentSharpness(SharpnessSettingsDto settings)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool SetCurrentSharpness(SharpnessSettingsDto settings)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -3775,6 +3799,12 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 </dd>
   </dl>
 
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.</p>
+</dd>
+  </dl>
 
 
 
@@ -3790,7 +3820,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_SetCustomModes_IGCLWrapper_CustomModeArgsDto_System_Collections_Generic_IReadOnlyList_IGCLWrapper_CustomSourceModeDto__" data-uid="IGCLWrapper.IGCLDisplayHelper.SetCustomModes(IGCLWrapper.CustomModeArgsDto,System.Collections.Generic.IReadOnlyList{IGCLWrapper.CustomSourceModeDto})">
   SetCustomModes(CustomModeArgsDto, IReadOnlyList&lt;CustomSourceModeDto&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1855"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L2011"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Set custom display modes using DTOs.</p>
@@ -3798,7 +3828,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SetCustomModes(CustomModeArgsDto args, IReadOnlyList&lt;CustomSourceModeDto&gt; modes)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool SetCustomModes(CustomModeArgsDto args, IReadOnlyList&lt;CustomSourceModeDto&gt; modes)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -3811,6 +3841,12 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 </dd>
   </dl>
 
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.</p>
+</dd>
+  </dl>
 
 
 
@@ -3826,7 +3862,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_SetCustomModes_IGCLWrapper_ctl_get_set_custom_mode_args_t_IGCLWrapper_ctl_custom_src_mode_t___" data-uid="IGCLWrapper.IGCLDisplayHelper.SetCustomModes(IGCLWrapper.ctl_get_set_custom_mode_args_t,IGCLWrapper.ctl_custom_src_mode_t[])">
   SetCustomModes(ctl_get_set_custom_mode_args_t, ctl_custom_src_mode_t[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1827"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1979"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Set custom display modes using the provided arguments and mode list.</p>
@@ -3834,7 +3870,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SetCustomModes(ctl_get_set_custom_mode_args_t args, ctl_custom_src_mode_t[] modes)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool SetCustomModes(ctl_get_set_custom_mode_args_t args, ctl_custom_src_mode_t[] modes)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -3847,6 +3883,12 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 </dd>
   </dl>
 
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.</p>
+</dd>
+  </dl>
 
 
 
@@ -3862,7 +3904,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_SetDisplaySettings_IGCLWrapper_DisplaySettingsDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetDisplaySettings(IGCLWrapper.DisplaySettingsDto)">
   SetDisplaySettings(DisplaySettingsDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2033"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L2220"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Set display settings using a DTO.</p>
@@ -3870,7 +3912,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SetDisplaySettings(DisplaySettingsDto settings)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool SetDisplaySettings(DisplaySettingsDto settings)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -3880,6 +3922,12 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 </dd>
   </dl>
 
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.</p>
+</dd>
+  </dl>
 
 
 
@@ -3895,7 +3943,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_SetDynamicContrastEnhancement_IGCLWrapper_DceArgsDto_System_UInt32___" data-uid="IGCLWrapper.IGCLDisplayHelper.SetDynamicContrastEnhancement(IGCLWrapper.DceArgsDto,System.UInt32[])">
   SetDynamicContrastEnhancement(DceArgsDto, uint[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1956"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L2122"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Set dynamic contrast enhancement settings using a DTO and histogram.</p>
@@ -3903,7 +3951,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SetDynamicContrastEnhancement(DceArgsDto args, uint[] histogram)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool SetDynamicContrastEnhancement(DceArgsDto args, uint[] histogram)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -3916,6 +3964,12 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 </dd>
   </dl>
 
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.</p>
+</dd>
+  </dl>
 
 
 
@@ -3931,7 +3985,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_SetIntelArcSyncProfile_IGCLWrapper_IntelArcSyncProfileParamsDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetIntelArcSyncProfile(IGCLWrapper.IntelArcSyncProfileParamsDto)">
   SetIntelArcSyncProfile(IntelArcSyncProfileParamsDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1647"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1776"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Set Intel Arc Sync profile parameters using a DTO.</p>
@@ -3939,7 +3993,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SetIntelArcSyncProfile(IntelArcSyncProfileParamsDto parameters)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool SetIntelArcSyncProfile(IntelArcSyncProfileParamsDto parameters)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -3949,6 +4003,12 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 </dd>
   </dl>
 
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.</p>
+</dd>
+  </dl>
 
 
 
@@ -3964,7 +4024,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_SetLACEConfig_IGCLWrapper_LaceConfigDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetLACEConfig(IGCLWrapper.LaceConfigDto)">
   SetLACEConfig(LaceConfigDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1524"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1623"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Set LACE configuration using a DTO.</p>
@@ -3972,7 +4032,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SetLACEConfig(LaceConfigDto config)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool SetLACEConfig(LaceConfigDto config)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -3982,6 +4042,12 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 </dd>
   </dl>
 
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.</p>
+</dd>
+  </dl>
 
 
 
@@ -3997,7 +4063,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_SetPowerOptimizationSetting_IGCLWrapper_PowerOptimizationSettingsDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetPowerOptimizationSetting(IGCLWrapper.PowerOptimizationSettingsDto)">
   SetPowerOptimizationSetting(PowerOptimizationSettingsDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1120"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1147"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Set power optimization settings using a DTO.</p>
@@ -4005,7 +4071,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SetPowerOptimizationSetting(PowerOptimizationSettingsDto settings)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool SetPowerOptimizationSetting(PowerOptimizationSettingsDto settings)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -4015,6 +4081,12 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 </dd>
   </dl>
 
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.</p>
+</dd>
+  </dl>
 
 
 
@@ -4030,7 +4102,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_SetRetroScalingSettings_IGCLWrapper_RetroScalingSettingsDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetRetroScalingSettings(IGCLWrapper.RetroScalingSettingsDto)">
   SetRetroScalingSettings(RetroScalingSettingsDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1457"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1537"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Set retro scaling settings using a DTO.</p>
@@ -4038,7 +4110,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SetRetroScalingSettings(RetroScalingSettingsDto settings)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool SetRetroScalingSettings(RetroScalingSettingsDto settings)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -4048,6 +4120,12 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 </dd>
   </dl>
 
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.</p>
+</dd>
+  </dl>
 
 
 
@@ -4063,7 +4141,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_SetWireFormat_IGCLWrapper_WireFormatConfigDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.SetWireFormat(IGCLWrapper.WireFormatConfigDto)">
   SetWireFormat(WireFormatConfigDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1988"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L2164"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Set wire format settings using a DTO.</p>
@@ -4071,7 +4149,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SetWireFormat(WireFormatConfigDto args)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool SetWireFormat(WireFormatConfigDto args)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -4081,6 +4159,12 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 </dd>
   </dl>
 
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.</p>
+</dd>
+  </dl>
 
 
 
@@ -4096,7 +4180,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_SoftwarePSR_IGCLWrapper_SwPsrSettingsDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.SoftwarePSR(IGCLWrapper.SwPsrSettingsDto)">
   SoftwarePSR(SwPsrSettingsDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1538"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1640"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Call the software PSR API using a DTO.</p>
@@ -4104,7 +4188,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SwPsrSettingsDto SoftwarePSR(SwPsrSettingsDto settings)</code></pre>
+    <pre><code class="lang-csharp hljs">public SwPsrSettingsDto? SoftwarePSR(SwPsrSettingsDto settings)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -4116,8 +4200,8 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IGCLWrapper.SwPsrSettingsDto.html">SwPsrSettingsDto</a></dt>
-    <dd><p>Updated software PSR settings DTO.</p>
+    <dt><a class="xref" href="IGCLWrapper.SwPsrSettingsDto.html">SwPsrSettingsDto</a>?</dt>
+    <dd><p>Updated software PSR settings DTO, or <code>null</code> if the feature is not supported on this hardware or driver.</p>
 </dd>
   </dl>
 
@@ -4135,7 +4219,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_SwitchMux_System_IntPtr_System_IntPtr_" data-uid="IGCLWrapper.IGCLDisplayHelper.SwitchMux(System.IntPtr,System.IntPtr)">
   SwitchMux(nint, nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L1621"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L1744"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Switch mux to the specified inactive display output.</p>
@@ -4143,7 +4227,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SwitchMux(nint muxHandle, nint inactiveDisplayOutput)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool SwitchMux(nint muxHandle, nint inactiveDisplayOutput)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -4156,6 +4240,12 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 </dd>
   </dl>
 
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the operation succeeded; <code>false</code> if the feature is not supported on this hardware or driver.</p>
+</dd>
+  </dl>
 
 
 
@@ -4171,7 +4261,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_ValidateSetDisplaySettingsRequest_IGCLWrapper_DisplaySettingsDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.ValidateSetDisplaySettingsRequest(IGCLWrapper.DisplaySettingsDto)">
   ValidateSetDisplaySettingsRequest(DisplaySettingsDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2096"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L2291"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Validate a display-settings set request.</p>
@@ -4210,7 +4300,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 
   <h3 id="IGCLWrapper_IGCLDisplayHelper_ValidateSetPowerOptimizationSettingsRequest_IGCLWrapper_PowerOptimizationSettingsDto_" data-uid="IGCLWrapper.IGCLDisplayHelper.ValidateSetPowerOptimizationSettingsRequest(IGCLWrapper.PowerOptimizationSettingsDto)">
   ValidateSetPowerOptimizationSettingsRequest(PowerOptimizationSettingsDto)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L2111"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L2306"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Validate a power-optimization set request.</p>
@@ -4249,7 +4339,7 @@ Class IGCLDisplayHelper  <a class="header-action link-secondary" title="View sou
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/terrymacdonald/IGCLWrapper/blob/develop/IGCLWrapper/IGCLDisplayHelper.cs/#L12" class="edit-link">Edit this page</a>
+          <a href="https://github.com/terrymacdonald/IGCLWrapper/blob/feature-reduced-exceptions/IGCLWrapper/IGCLDisplayHelper.cs/#L12" class="edit-link">Edit this page</a>
         </div>
 
 

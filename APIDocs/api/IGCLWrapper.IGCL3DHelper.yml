@@ -25,7 +25,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCL3DHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IGCL3DHelper
     path: ../IGCLWrapper/IGCL3DHelper.cs
@@ -63,7 +63,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCL3DHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSupported3DCapabilities
     path: ../IGCLWrapper/IGCL3DHelper.cs
@@ -74,11 +74,11 @@ items:
   summary: Get supported 3D feature capabilities for the adapter.
   example: []
   syntax:
-    content: public ThreeDFeatureCapsDto GetSupported3DCapabilities()
+    content: public ThreeDFeatureCapsDto? GetSupported3DCapabilities()
     return:
-      type: IGCLWrapper.ThreeDFeatureCapsDto
-      description: 3D feature capabilities DTO.
-    content.vb: Public Function GetSupported3DCapabilities() As ThreeDFeatureCapsDto
+      type: System.Nullable{IGCLWrapper.ThreeDFeatureCapsDto}
+      description: 3D feature capabilities DTO, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function GetSupported3DCapabilities() As ThreeDFeatureCapsDto?
   overload: IGCLWrapper.IGCL3DHelper.GetSupported3DCapabilities*
 - uid: IGCLWrapper.IGCL3DHelper.Get3DFeature(IGCLWrapper.ThreeDFeatureGetSetDto)
   commentId: M:IGCLWrapper.IGCL3DHelper.Get3DFeature(IGCLWrapper.ThreeDFeatureGetSetDto)
@@ -94,26 +94,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCL3DHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Get3DFeature
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 40
+    startLine: 42
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get a 3D feature using a DTO request.
   example: []
   syntax:
-    content: public ThreeDFeatureGetSetDto Get3DFeature(ThreeDFeatureGetSetDto feature)
+    content: public ThreeDFeatureGetSetDto? Get3DFeature(ThreeDFeatureGetSetDto feature)
     parameters:
     - id: feature
       type: IGCLWrapper.ThreeDFeatureGetSetDto
       description: 3D feature DTO.
     return:
-      type: IGCLWrapper.ThreeDFeatureGetSetDto
-      description: Updated 3D feature DTO.
-    content.vb: Public Function Get3DFeature(feature As ThreeDFeatureGetSetDto) As ThreeDFeatureGetSetDto
+      type: System.Nullable{IGCLWrapper.ThreeDFeatureGetSetDto}
+      description: Updated 3D feature DTO, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function Get3DFeature(feature As ThreeDFeatureGetSetDto) As ThreeDFeatureGetSetDto?
   overload: IGCLWrapper.IGCL3DHelper.Get3DFeature*
 - uid: IGCLWrapper.IGCL3DHelper.Set3DFeature(IGCLWrapper.ThreeDFeatureGetSetDto)
   commentId: M:IGCLWrapper.IGCL3DHelper.Set3DFeature(IGCLWrapper.ThreeDFeatureGetSetDto)
@@ -129,23 +129,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCL3DHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Set3DFeature
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 52
+    startLine: 62
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Set a 3D feature using a DTO request.
   example: []
   syntax:
-    content: public void Set3DFeature(ThreeDFeatureGetSetDto feature)
+    content: public bool Set3DFeature(ThreeDFeatureGetSetDto feature)
     parameters:
     - id: feature
       type: IGCLWrapper.ThreeDFeatureGetSetDto
       description: 3D feature DTO.
-    content.vb: Public Sub Set3DFeature(feature As ThreeDFeatureGetSetDto)
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function Set3DFeature(feature As ThreeDFeatureGetSetDto) As Boolean
   overload: IGCLWrapper.IGCL3DHelper.Set3DFeature*
 - uid: IGCLWrapper.IGCL3DHelper.Create3DFeatureGetSet
   commentId: M:IGCLWrapper.IGCL3DHelper.Create3DFeatureGetSet
@@ -161,11 +164,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCL3DHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Create3DFeatureGetSet
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 113
+    startLine: 143
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -192,11 +195,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCL3DHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Create3DFeatureGetRequest
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 121
+    startLine: 151
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -230,11 +233,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCL3DHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Create3DFeatureSetRequest
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 140
+    startLine: 170
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -280,11 +283,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCL3DHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ValidateSet3DFeatureRequest
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 163
+    startLine: 193
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -316,11 +319,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCL3DHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Are3dFeatureCapsEqual
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 179
+    startLine: 209
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -354,11 +357,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCL3DHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Are3dFeatureGetSetEqual
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 190
+    startLine: 220
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -392,11 +395,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCL3DHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCL3DHelper.cs
-    startLine: 198
+    startLine: 228
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -642,13 +645,52 @@ references:
   name: GetSupported3DCapabilities
   nameWithType: IGCL3DHelper.GetSupported3DCapabilities
   fullName: IGCLWrapper.IGCL3DHelper.GetSupported3DCapabilities
-- uid: IGCLWrapper.ThreeDFeatureCapsDto
-  commentId: T:IGCLWrapper.ThreeDFeatureCapsDto
-  parent: IGCLWrapper
+- uid: System.Nullable{IGCLWrapper.ThreeDFeatureCapsDto}
+  commentId: T:System.Nullable{IGCLWrapper.ThreeDFeatureCapsDto}
+  parent: System
+  definition: System.Nullable`1
   href: IGCLWrapper.ThreeDFeatureCapsDto.html
-  name: ThreeDFeatureCapsDto
-  nameWithType: ThreeDFeatureCapsDto
-  fullName: IGCLWrapper.ThreeDFeatureCapsDto
+  name: ThreeDFeatureCapsDto?
+  nameWithType: ThreeDFeatureCapsDto?
+  fullName: IGCLWrapper.ThreeDFeatureCapsDto?
+  spec.csharp:
+  - uid: IGCLWrapper.ThreeDFeatureCapsDto
+    name: ThreeDFeatureCapsDto
+    href: IGCLWrapper.ThreeDFeatureCapsDto.html
+  - name: '?'
+  spec.vb:
+  - uid: IGCLWrapper.ThreeDFeatureCapsDto
+    name: ThreeDFeatureCapsDto
+    href: IGCLWrapper.ThreeDFeatureCapsDto.html
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: IGCLWrapper.IGCL3DHelper.Get3DFeature*
   commentId: Overload:IGCLWrapper.IGCL3DHelper.Get3DFeature
   href: IGCLWrapper.IGCL3DHelper.html#IGCLWrapper_IGCL3DHelper_Get3DFeature_IGCLWrapper_ThreeDFeatureGetSetDto_
@@ -662,12 +704,41 @@ references:
   name: ThreeDFeatureGetSetDto
   nameWithType: ThreeDFeatureGetSetDto
   fullName: IGCLWrapper.ThreeDFeatureGetSetDto
+- uid: System.Nullable{IGCLWrapper.ThreeDFeatureGetSetDto}
+  commentId: T:System.Nullable{IGCLWrapper.ThreeDFeatureGetSetDto}
+  parent: System
+  definition: System.Nullable`1
+  href: IGCLWrapper.ThreeDFeatureGetSetDto.html
+  name: ThreeDFeatureGetSetDto?
+  nameWithType: ThreeDFeatureGetSetDto?
+  fullName: IGCLWrapper.ThreeDFeatureGetSetDto?
+  spec.csharp:
+  - uid: IGCLWrapper.ThreeDFeatureGetSetDto
+    name: ThreeDFeatureGetSetDto
+    href: IGCLWrapper.ThreeDFeatureGetSetDto.html
+  - name: '?'
+  spec.vb:
+  - uid: IGCLWrapper.ThreeDFeatureGetSetDto
+    name: ThreeDFeatureGetSetDto
+    href: IGCLWrapper.ThreeDFeatureGetSetDto.html
+  - name: '?'
 - uid: IGCLWrapper.IGCL3DHelper.Set3DFeature*
   commentId: Overload:IGCLWrapper.IGCL3DHelper.Set3DFeature
   href: IGCLWrapper.IGCL3DHelper.html#IGCLWrapper_IGCL3DHelper_Set3DFeature_IGCLWrapper_ThreeDFeatureGetSetDto_
   name: Set3DFeature
   nameWithType: IGCL3DHelper.Set3DFeature
   fullName: IGCLWrapper.IGCL3DHelper.Set3DFeature
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
 - uid: IGCLWrapper.IGCL3DHelper.Create3DFeatureGetSet*
   commentId: Overload:IGCLWrapper.IGCL3DHelper.Create3DFeatureGetSet
   href: IGCLWrapper.IGCL3DHelper.html#IGCLWrapper_IGCL3DHelper_Create3DFeatureGetSet
@@ -851,17 +922,6 @@ references:
   name: ctl_3d_feature_caps_t
   nameWithType: ctl_3d_feature_caps_t
   fullName: IGCLWrapper.ctl_3d_feature_caps_t
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
 - uid: IGCLWrapper.IGCL3DHelper.Are3dFeatureGetSetEqual*
   commentId: Overload:IGCLWrapper.IGCL3DHelper.Are3dFeatureGetSetEqual
   href: IGCLWrapper.IGCL3DHelper.html#IGCLWrapper_IGCL3DHelper_Are3dFeatureGetSetEqual_IGCLWrapper_ctl_3d_feature_getset_t_IGCLWrapper_ctl_3d_feature_getset_t_

@@ -25,7 +25,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLMediaHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IGCLMediaHelper
     path: ../IGCLWrapper/IGCLMediaHelper.cs
@@ -63,7 +63,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLMediaHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSupportedVideoProcessingCapabilities
     path: ../IGCLWrapper/IGCLMediaHelper.cs
@@ -74,11 +74,11 @@ items:
   summary: Get supported video processing feature capabilities for the adapter.
   example: []
   syntax:
-    content: public VideoProcessingFeatureCapsDto GetSupportedVideoProcessingCapabilities()
+    content: public VideoProcessingFeatureCapsDto? GetSupportedVideoProcessingCapabilities()
     return:
-      type: IGCLWrapper.VideoProcessingFeatureCapsDto
-      description: Video processing feature capabilities DTO.
-    content.vb: Public Function GetSupportedVideoProcessingCapabilities() As VideoProcessingFeatureCapsDto
+      type: System.Nullable{IGCLWrapper.VideoProcessingFeatureCapsDto}
+      description: Video processing feature capabilities DTO, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function GetSupportedVideoProcessingCapabilities() As VideoProcessingFeatureCapsDto?
   overload: IGCLWrapper.IGCLMediaHelper.GetSupportedVideoProcessingCapabilities*
 - uid: IGCLWrapper.IGCLMediaHelper.GetVideoProcessingFeature(IGCLWrapper.VideoProcessingFeatureGetSetDto)
   commentId: M:IGCLWrapper.IGCLMediaHelper.GetVideoProcessingFeature(IGCLWrapper.VideoProcessingFeatureGetSetDto)
@@ -94,26 +94,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLMediaHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetVideoProcessingFeature
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 40
+    startLine: 42
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get a video processing feature using a DTO request.
   example: []
   syntax:
-    content: public VideoProcessingFeatureGetSetDto GetVideoProcessingFeature(VideoProcessingFeatureGetSetDto featureGetSet)
+    content: public VideoProcessingFeatureGetSetDto? GetVideoProcessingFeature(VideoProcessingFeatureGetSetDto featureGetSet)
     parameters:
     - id: featureGetSet
       type: IGCLWrapper.VideoProcessingFeatureGetSetDto
       description: Video processing feature DTO.
     return:
-      type: IGCLWrapper.VideoProcessingFeatureGetSetDto
-      description: Updated video processing feature DTO.
-    content.vb: Public Function GetVideoProcessingFeature(featureGetSet As VideoProcessingFeatureGetSetDto) As VideoProcessingFeatureGetSetDto
+      type: System.Nullable{IGCLWrapper.VideoProcessingFeatureGetSetDto}
+      description: Updated video processing feature DTO, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function GetVideoProcessingFeature(featureGetSet As VideoProcessingFeatureGetSetDto) As VideoProcessingFeatureGetSetDto?
   overload: IGCLWrapper.IGCLMediaHelper.GetVideoProcessingFeature*
 - uid: IGCLWrapper.IGCLMediaHelper.SetVideoProcessingFeature(IGCLWrapper.VideoProcessingFeatureGetSetDto)
   commentId: M:IGCLWrapper.IGCLMediaHelper.SetVideoProcessingFeature(IGCLWrapper.VideoProcessingFeatureGetSetDto)
@@ -129,23 +129,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLMediaHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetVideoProcessingFeature
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 52
+    startLine: 62
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Set a video processing feature using a DTO request.
   example: []
   syntax:
-    content: public void SetVideoProcessingFeature(VideoProcessingFeatureGetSetDto featureGetSet)
+    content: public bool SetVideoProcessingFeature(VideoProcessingFeatureGetSetDto featureGetSet)
     parameters:
     - id: featureGetSet
       type: IGCLWrapper.VideoProcessingFeatureGetSetDto
       description: Video processing feature DTO.
-    content.vb: Public Sub SetVideoProcessingFeature(featureGetSet As VideoProcessingFeatureGetSetDto)
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function SetVideoProcessingFeature(featureGetSet As VideoProcessingFeatureGetSetDto) As Boolean
   overload: IGCLWrapper.IGCLMediaHelper.SetVideoProcessingFeature*
 - uid: IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureGetSet
   commentId: M:IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureGetSet
@@ -161,11 +164,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLMediaHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateVideoProcessingFeatureGetSet
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 113
+    startLine: 143
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -192,11 +195,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLMediaHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateVideoProcessingFeatureGetRequest
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 121
+    startLine: 151
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -230,11 +233,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLMediaHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateVideoProcessingFeatureSetRequest
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 140
+    startLine: 170
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -280,11 +283,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLMediaHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ValidateSetVideoProcessingFeatureRequest
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 163
+    startLine: 193
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -316,11 +319,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLMediaHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreVideoProcessingFeatureCapsEqual
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 179
+    startLine: 209
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -354,11 +357,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLMediaHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreVideoProcessingFeatureGetSetEqual
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 190
+    startLine: 220
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -392,11 +395,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLMediaHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 198
+    startLine: 228
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -642,13 +645,52 @@ references:
   name: GetSupportedVideoProcessingCapabilities
   nameWithType: IGCLMediaHelper.GetSupportedVideoProcessingCapabilities
   fullName: IGCLWrapper.IGCLMediaHelper.GetSupportedVideoProcessingCapabilities
-- uid: IGCLWrapper.VideoProcessingFeatureCapsDto
-  commentId: T:IGCLWrapper.VideoProcessingFeatureCapsDto
-  parent: IGCLWrapper
+- uid: System.Nullable{IGCLWrapper.VideoProcessingFeatureCapsDto}
+  commentId: T:System.Nullable{IGCLWrapper.VideoProcessingFeatureCapsDto}
+  parent: System
+  definition: System.Nullable`1
   href: IGCLWrapper.VideoProcessingFeatureCapsDto.html
-  name: VideoProcessingFeatureCapsDto
-  nameWithType: VideoProcessingFeatureCapsDto
-  fullName: IGCLWrapper.VideoProcessingFeatureCapsDto
+  name: VideoProcessingFeatureCapsDto?
+  nameWithType: VideoProcessingFeatureCapsDto?
+  fullName: IGCLWrapper.VideoProcessingFeatureCapsDto?
+  spec.csharp:
+  - uid: IGCLWrapper.VideoProcessingFeatureCapsDto
+    name: VideoProcessingFeatureCapsDto
+    href: IGCLWrapper.VideoProcessingFeatureCapsDto.html
+  - name: '?'
+  spec.vb:
+  - uid: IGCLWrapper.VideoProcessingFeatureCapsDto
+    name: VideoProcessingFeatureCapsDto
+    href: IGCLWrapper.VideoProcessingFeatureCapsDto.html
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: IGCLWrapper.IGCLMediaHelper.GetVideoProcessingFeature*
   commentId: Overload:IGCLWrapper.IGCLMediaHelper.GetVideoProcessingFeature
   href: IGCLWrapper.IGCLMediaHelper.html#IGCLWrapper_IGCLMediaHelper_GetVideoProcessingFeature_IGCLWrapper_VideoProcessingFeatureGetSetDto_
@@ -662,12 +704,41 @@ references:
   name: VideoProcessingFeatureGetSetDto
   nameWithType: VideoProcessingFeatureGetSetDto
   fullName: IGCLWrapper.VideoProcessingFeatureGetSetDto
+- uid: System.Nullable{IGCLWrapper.VideoProcessingFeatureGetSetDto}
+  commentId: T:System.Nullable{IGCLWrapper.VideoProcessingFeatureGetSetDto}
+  parent: System
+  definition: System.Nullable`1
+  href: IGCLWrapper.VideoProcessingFeatureGetSetDto.html
+  name: VideoProcessingFeatureGetSetDto?
+  nameWithType: VideoProcessingFeatureGetSetDto?
+  fullName: IGCLWrapper.VideoProcessingFeatureGetSetDto?
+  spec.csharp:
+  - uid: IGCLWrapper.VideoProcessingFeatureGetSetDto
+    name: VideoProcessingFeatureGetSetDto
+    href: IGCLWrapper.VideoProcessingFeatureGetSetDto.html
+  - name: '?'
+  spec.vb:
+  - uid: IGCLWrapper.VideoProcessingFeatureGetSetDto
+    name: VideoProcessingFeatureGetSetDto
+    href: IGCLWrapper.VideoProcessingFeatureGetSetDto.html
+  - name: '?'
 - uid: IGCLWrapper.IGCLMediaHelper.SetVideoProcessingFeature*
   commentId: Overload:IGCLWrapper.IGCLMediaHelper.SetVideoProcessingFeature
   href: IGCLWrapper.IGCLMediaHelper.html#IGCLWrapper_IGCLMediaHelper_SetVideoProcessingFeature_IGCLWrapper_VideoProcessingFeatureGetSetDto_
   name: SetVideoProcessingFeature
   nameWithType: IGCLMediaHelper.SetVideoProcessingFeature
   fullName: IGCLWrapper.IGCLMediaHelper.SetVideoProcessingFeature
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
 - uid: IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureGetSet*
   commentId: Overload:IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureGetSet
   href: IGCLWrapper.IGCLMediaHelper.html#IGCLWrapper_IGCLMediaHelper_CreateVideoProcessingFeatureGetSet
@@ -851,17 +922,6 @@ references:
   name: ctl_video_processing_feature_caps_t
   nameWithType: ctl_video_processing_feature_caps_t
   fullName: IGCLWrapper.ctl_video_processing_feature_caps_t
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
 - uid: IGCLWrapper.IGCLMediaHelper.AreVideoProcessingFeatureGetSetEqual*
   commentId: Overload:IGCLWrapper.IGCLMediaHelper.AreVideoProcessingFeatureGetSetEqual
   href: IGCLWrapper.IGCLMediaHelper.html#IGCLWrapper_IGCLMediaHelper_AreVideoProcessingFeatureGetSetEqual_IGCLWrapper_ctl_video_processing_feature_getset_t_IGCLWrapper_ctl_video_processing_feature_getset_t_

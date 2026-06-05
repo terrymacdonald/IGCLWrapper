@@ -25,7 +25,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLPowerHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IGCLPowerHelper
     path: ../IGCLWrapper/IGCLPowerHelper.cs
@@ -63,7 +63,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLPowerHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumPowerDomains
     path: ../IGCLWrapper/IGCLPowerHelper.cs
@@ -94,7 +94,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLPowerHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PowerGetProperties
     path: ../IGCLWrapper/IGCLPowerHelper.cs
@@ -105,15 +105,15 @@ items:
   summary: Get power domain properties as a DTO.
   example: []
   syntax:
-    content: public PowerPropertiesDto PowerGetProperties(nint powerHandle)
+    content: public PowerPropertiesDto? PowerGetProperties(nint powerHandle)
     parameters:
     - id: powerHandle
       type: System.IntPtr
       description: Power domain handle.
     return:
-      type: IGCLWrapper.PowerPropertiesDto
-      description: Power properties DTO.
-    content.vb: Public Function PowerGetProperties(powerHandle As IntPtr) As PowerPropertiesDto
+      type: System.Nullable{IGCLWrapper.PowerPropertiesDto}
+      description: Power properties DTO, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function PowerGetProperties(powerHandle As IntPtr) As PowerPropertiesDto?
   overload: IGCLWrapper.IGCLPowerHelper.PowerGetProperties*
   nameWithType.vb: IGCLPowerHelper.PowerGetProperties(IntPtr)
   fullName.vb: IGCLWrapper.IGCLPowerHelper.PowerGetProperties(System.IntPtr)
@@ -132,26 +132,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLPowerHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PowerGetEnergyCounter
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 50
+    startLine: 52
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get the power energy counter as a DTO.
   example: []
   syntax:
-    content: public PowerEnergyCounterDto PowerGetEnergyCounter(nint powerHandle)
+    content: public PowerEnergyCounterDto? PowerGetEnergyCounter(nint powerHandle)
     parameters:
     - id: powerHandle
       type: System.IntPtr
       description: Power domain handle.
     return:
-      type: IGCLWrapper.PowerEnergyCounterDto
-      description: Power energy counter DTO.
-    content.vb: Public Function PowerGetEnergyCounter(powerHandle As IntPtr) As PowerEnergyCounterDto
+      type: System.Nullable{IGCLWrapper.PowerEnergyCounterDto}
+      description: Power energy counter DTO, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function PowerGetEnergyCounter(powerHandle As IntPtr) As PowerEnergyCounterDto?
   overload: IGCLWrapper.IGCLPowerHelper.PowerGetEnergyCounter*
   nameWithType.vb: IGCLPowerHelper.PowerGetEnergyCounter(IntPtr)
   fullName.vb: IGCLWrapper.IGCLPowerHelper.PowerGetEnergyCounter(System.IntPtr)
@@ -170,26 +170,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLPowerHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PowerGetLimits
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 65
+    startLine: 69
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get power limits as a DTO.
   example: []
   syntax:
-    content: public PowerLimitsDto PowerGetLimits(nint powerHandle)
+    content: public PowerLimitsDto? PowerGetLimits(nint powerHandle)
     parameters:
     - id: powerHandle
       type: System.IntPtr
       description: Power domain handle.
     return:
-      type: IGCLWrapper.PowerLimitsDto
-      description: Power limits DTO.
-    content.vb: Public Function PowerGetLimits(powerHandle As IntPtr) As PowerLimitsDto
+      type: System.Nullable{IGCLWrapper.PowerLimitsDto}
+      description: Power limits DTO, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function PowerGetLimits(powerHandle As IntPtr) As PowerLimitsDto?
   overload: IGCLWrapper.IGCLPowerHelper.PowerGetLimits*
   nameWithType.vb: IGCLPowerHelper.PowerGetLimits(IntPtr)
   fullName.vb: IGCLWrapper.IGCLPowerHelper.PowerGetLimits(System.IntPtr)
@@ -208,18 +208,18 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLPowerHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PowerSetLimits
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 80
+    startLine: 87
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Set power limits using a DTO.
   example: []
   syntax:
-    content: public void PowerSetLimits(nint powerHandle, PowerLimitsDto limits)
+    content: public bool PowerSetLimits(nint powerHandle, PowerLimitsDto limits)
     parameters:
     - id: powerHandle
       type: System.IntPtr
@@ -227,7 +227,10 @@ items:
     - id: limits
       type: IGCLWrapper.PowerLimitsDto
       description: Power limits DTO.
-    content.vb: Public Sub PowerSetLimits(powerHandle As IntPtr, limits As PowerLimitsDto)
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function PowerSetLimits(powerHandle As IntPtr, limits As PowerLimitsDto) As Boolean
   overload: IGCLWrapper.IGCLPowerHelper.PowerSetLimits*
   nameWithType.vb: IGCLPowerHelper.PowerSetLimits(IntPtr, PowerLimitsDto)
   fullName.vb: IGCLWrapper.IGCLPowerHelper.PowerSetLimits(System.IntPtr, IGCLWrapper.PowerLimitsDto)
@@ -246,11 +249,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLPowerHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreatePowerLimitsStruct
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 120
+    startLine: 142
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -277,11 +280,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLPowerHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ArePowerPropertiesEqual
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 128
+    startLine: 150
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -315,11 +318,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLPowerHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ArePowerEnergyCounterEqual
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 144
+    startLine: 166
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -353,11 +356,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLPowerHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ArePowerLimitsEqual
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 158
+    startLine: 180
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -391,11 +394,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLPowerHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLPowerHelper.cs
-    startLine: 189
+    startLine: 211
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -758,32 +761,106 @@ references:
   nameWithType.vb: IntPtr
   fullName.vb: System.IntPtr
   name.vb: IntPtr
-- uid: IGCLWrapper.PowerPropertiesDto
-  commentId: T:IGCLWrapper.PowerPropertiesDto
-  parent: IGCLWrapper
+- uid: System.Nullable{IGCLWrapper.PowerPropertiesDto}
+  commentId: T:System.Nullable{IGCLWrapper.PowerPropertiesDto}
+  parent: System
+  definition: System.Nullable`1
   href: IGCLWrapper.PowerPropertiesDto.html
-  name: PowerPropertiesDto
-  nameWithType: PowerPropertiesDto
-  fullName: IGCLWrapper.PowerPropertiesDto
+  name: PowerPropertiesDto?
+  nameWithType: PowerPropertiesDto?
+  fullName: IGCLWrapper.PowerPropertiesDto?
+  spec.csharp:
+  - uid: IGCLWrapper.PowerPropertiesDto
+    name: PowerPropertiesDto
+    href: IGCLWrapper.PowerPropertiesDto.html
+  - name: '?'
+  spec.vb:
+  - uid: IGCLWrapper.PowerPropertiesDto
+    name: PowerPropertiesDto
+    href: IGCLWrapper.PowerPropertiesDto.html
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: IGCLWrapper.IGCLPowerHelper.PowerGetEnergyCounter*
   commentId: Overload:IGCLWrapper.IGCLPowerHelper.PowerGetEnergyCounter
   href: IGCLWrapper.IGCLPowerHelper.html#IGCLWrapper_IGCLPowerHelper_PowerGetEnergyCounter_System_IntPtr_
   name: PowerGetEnergyCounter
   nameWithType: IGCLPowerHelper.PowerGetEnergyCounter
   fullName: IGCLWrapper.IGCLPowerHelper.PowerGetEnergyCounter
-- uid: IGCLWrapper.PowerEnergyCounterDto
-  commentId: T:IGCLWrapper.PowerEnergyCounterDto
-  parent: IGCLWrapper
+- uid: System.Nullable{IGCLWrapper.PowerEnergyCounterDto}
+  commentId: T:System.Nullable{IGCLWrapper.PowerEnergyCounterDto}
+  parent: System
+  definition: System.Nullable`1
   href: IGCLWrapper.PowerEnergyCounterDto.html
-  name: PowerEnergyCounterDto
-  nameWithType: PowerEnergyCounterDto
-  fullName: IGCLWrapper.PowerEnergyCounterDto
+  name: PowerEnergyCounterDto?
+  nameWithType: PowerEnergyCounterDto?
+  fullName: IGCLWrapper.PowerEnergyCounterDto?
+  spec.csharp:
+  - uid: IGCLWrapper.PowerEnergyCounterDto
+    name: PowerEnergyCounterDto
+    href: IGCLWrapper.PowerEnergyCounterDto.html
+  - name: '?'
+  spec.vb:
+  - uid: IGCLWrapper.PowerEnergyCounterDto
+    name: PowerEnergyCounterDto
+    href: IGCLWrapper.PowerEnergyCounterDto.html
+  - name: '?'
 - uid: IGCLWrapper.IGCLPowerHelper.PowerGetLimits*
   commentId: Overload:IGCLWrapper.IGCLPowerHelper.PowerGetLimits
   href: IGCLWrapper.IGCLPowerHelper.html#IGCLWrapper_IGCLPowerHelper_PowerGetLimits_System_IntPtr_
   name: PowerGetLimits
   nameWithType: IGCLPowerHelper.PowerGetLimits
   fullName: IGCLWrapper.IGCLPowerHelper.PowerGetLimits
+- uid: System.Nullable{IGCLWrapper.PowerLimitsDto}
+  commentId: T:System.Nullable{IGCLWrapper.PowerLimitsDto}
+  parent: System
+  definition: System.Nullable`1
+  href: IGCLWrapper.PowerLimitsDto.html
+  name: PowerLimitsDto?
+  nameWithType: PowerLimitsDto?
+  fullName: IGCLWrapper.PowerLimitsDto?
+  spec.csharp:
+  - uid: IGCLWrapper.PowerLimitsDto
+    name: PowerLimitsDto
+    href: IGCLWrapper.PowerLimitsDto.html
+  - name: '?'
+  spec.vb:
+  - uid: IGCLWrapper.PowerLimitsDto
+    name: PowerLimitsDto
+    href: IGCLWrapper.PowerLimitsDto.html
+  - name: '?'
+- uid: IGCLWrapper.IGCLPowerHelper.PowerSetLimits*
+  commentId: Overload:IGCLWrapper.IGCLPowerHelper.PowerSetLimits
+  href: IGCLWrapper.IGCLPowerHelper.html#IGCLWrapper_IGCLPowerHelper_PowerSetLimits_System_IntPtr_IGCLWrapper_PowerLimitsDto_
+  name: PowerSetLimits
+  nameWithType: IGCLPowerHelper.PowerSetLimits
+  fullName: IGCLWrapper.IGCLPowerHelper.PowerSetLimits
 - uid: IGCLWrapper.PowerLimitsDto
   commentId: T:IGCLWrapper.PowerLimitsDto
   parent: IGCLWrapper
@@ -791,12 +868,17 @@ references:
   name: PowerLimitsDto
   nameWithType: PowerLimitsDto
   fullName: IGCLWrapper.PowerLimitsDto
-- uid: IGCLWrapper.IGCLPowerHelper.PowerSetLimits*
-  commentId: Overload:IGCLWrapper.IGCLPowerHelper.PowerSetLimits
-  href: IGCLWrapper.IGCLPowerHelper.html#IGCLWrapper_IGCLPowerHelper_PowerSetLimits_System_IntPtr_IGCLWrapper_PowerLimitsDto_
-  name: PowerSetLimits
-  nameWithType: IGCLPowerHelper.PowerSetLimits
-  fullName: IGCLWrapper.IGCLPowerHelper.PowerSetLimits
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
 - uid: IGCLWrapper.IGCLPowerHelper.CreatePowerLimitsStruct*
   commentId: Overload:IGCLWrapper.IGCLPowerHelper.CreatePowerLimitsStruct
   href: IGCLWrapper.IGCLPowerHelper.html#IGCLWrapper_IGCLPowerHelper_CreatePowerLimitsStruct
@@ -823,17 +905,6 @@ references:
   name: ctl_power_properties_t
   nameWithType: ctl_power_properties_t
   fullName: IGCLWrapper.ctl_power_properties_t
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
 - uid: IGCLWrapper.IGCLPowerHelper.ArePowerEnergyCounterEqual*
   commentId: Overload:IGCLWrapper.IGCLPowerHelper.ArePowerEnergyCounterEqual
   href: IGCLWrapper.IGCLPowerHelper.html#IGCLWrapper_IGCLPowerHelper_ArePowerEnergyCounterEqual_IGCLWrapper_ctl_power_energy_counter_t_IGCLWrapper_ctl_power_energy_counter_t_

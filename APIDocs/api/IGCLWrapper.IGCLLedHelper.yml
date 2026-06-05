@@ -23,7 +23,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLLedHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IGCLLedHelper
     path: ../IGCLWrapper/IGCLLedHelper.cs
@@ -61,7 +61,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLLedHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumLeds
     path: ../IGCLWrapper/IGCLLedHelper.cs
@@ -92,7 +92,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLLedHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LedGetProperties
     path: ../IGCLWrapper/IGCLLedHelper.cs
@@ -103,15 +103,15 @@ items:
   summary: Get LED properties as a DTO.
   example: []
   syntax:
-    content: public LedPropertiesDto LedGetProperties(nint ledHandle)
+    content: public LedPropertiesDto? LedGetProperties(nint ledHandle)
     parameters:
     - id: ledHandle
       type: System.IntPtr
       description: LED handle.
     return:
-      type: IGCLWrapper.LedPropertiesDto
-      description: LED properties DTO.
-    content.vb: Public Function LedGetProperties(ledHandle As IntPtr) As LedPropertiesDto
+      type: System.Nullable{IGCLWrapper.LedPropertiesDto}
+      description: LED properties DTO, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function LedGetProperties(ledHandle As IntPtr) As LedPropertiesDto?
   overload: IGCLWrapper.IGCLLedHelper.LedGetProperties*
   nameWithType.vb: IGCLLedHelper.LedGetProperties(IntPtr)
   fullName.vb: IGCLWrapper.IGCLLedHelper.LedGetProperties(System.IntPtr)
@@ -130,26 +130,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLLedHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LedGetState
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 50
+    startLine: 52
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get LED state as a DTO.
   example: []
   syntax:
-    content: public LedStateDto LedGetState(nint ledHandle)
+    content: public LedStateDto? LedGetState(nint ledHandle)
     parameters:
     - id: ledHandle
       type: System.IntPtr
       description: LED handle.
     return:
-      type: IGCLWrapper.LedStateDto
-      description: LED state DTO.
-    content.vb: Public Function LedGetState(ledHandle As IntPtr) As LedStateDto
+      type: System.Nullable{IGCLWrapper.LedStateDto}
+      description: LED state DTO, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function LedGetState(ledHandle As IntPtr) As LedStateDto?
   overload: IGCLWrapper.IGCLLedHelper.LedGetState*
   nameWithType.vb: IGCLLedHelper.LedGetState(IntPtr)
   fullName.vb: IGCLWrapper.IGCLLedHelper.LedGetState(System.IntPtr)
@@ -168,18 +168,18 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLLedHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: LedSetState
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 65
+    startLine: 70
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Set LED state using a DTO.
   example: []
   syntax:
-    content: public void LedSetState(nint ledHandle, LedStateDto state)
+    content: public bool LedSetState(nint ledHandle, LedStateDto state)
     parameters:
     - id: ledHandle
       type: System.IntPtr
@@ -187,7 +187,10 @@ items:
     - id: state
       type: IGCLWrapper.LedStateDto
       description: LED state DTO.
-    content.vb: Public Sub LedSetState(ledHandle As IntPtr, state As LedStateDto)
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function LedSetState(ledHandle As IntPtr, state As LedStateDto) As Boolean
   overload: IGCLWrapper.IGCLLedHelper.LedSetState*
   nameWithType.vb: IGCLLedHelper.LedSetState(IntPtr, LedStateDto)
   fullName.vb: IGCLWrapper.IGCLLedHelper.LedSetState(System.IntPtr, IGCLWrapper.LedStateDto)
@@ -206,11 +209,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLLedHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateLedStateStruct
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 104
+    startLine: 124
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -237,11 +240,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLLedHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreLedPropertiesEqual
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 112
+    startLine: 132
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -275,11 +278,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLLedHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreLedStateEqual
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 123
+    startLine: 143
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -313,11 +316,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLLedHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLLedHelper.cs
-    startLine: 131
+    startLine: 151
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -680,19 +683,82 @@ references:
   nameWithType.vb: IntPtr
   fullName.vb: System.IntPtr
   name.vb: IntPtr
-- uid: IGCLWrapper.LedPropertiesDto
-  commentId: T:IGCLWrapper.LedPropertiesDto
-  parent: IGCLWrapper
+- uid: System.Nullable{IGCLWrapper.LedPropertiesDto}
+  commentId: T:System.Nullable{IGCLWrapper.LedPropertiesDto}
+  parent: System
+  definition: System.Nullable`1
   href: IGCLWrapper.LedPropertiesDto.html
-  name: LedPropertiesDto
-  nameWithType: LedPropertiesDto
-  fullName: IGCLWrapper.LedPropertiesDto
+  name: LedPropertiesDto?
+  nameWithType: LedPropertiesDto?
+  fullName: IGCLWrapper.LedPropertiesDto?
+  spec.csharp:
+  - uid: IGCLWrapper.LedPropertiesDto
+    name: LedPropertiesDto
+    href: IGCLWrapper.LedPropertiesDto.html
+  - name: '?'
+  spec.vb:
+  - uid: IGCLWrapper.LedPropertiesDto
+    name: LedPropertiesDto
+    href: IGCLWrapper.LedPropertiesDto.html
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: IGCLWrapper.IGCLLedHelper.LedGetState*
   commentId: Overload:IGCLWrapper.IGCLLedHelper.LedGetState
   href: IGCLWrapper.IGCLLedHelper.html#IGCLWrapper_IGCLLedHelper_LedGetState_System_IntPtr_
   name: LedGetState
   nameWithType: IGCLLedHelper.LedGetState
   fullName: IGCLWrapper.IGCLLedHelper.LedGetState
+- uid: System.Nullable{IGCLWrapper.LedStateDto}
+  commentId: T:System.Nullable{IGCLWrapper.LedStateDto}
+  parent: System
+  definition: System.Nullable`1
+  href: IGCLWrapper.LedStateDto.html
+  name: LedStateDto?
+  nameWithType: LedStateDto?
+  fullName: IGCLWrapper.LedStateDto?
+  spec.csharp:
+  - uid: IGCLWrapper.LedStateDto
+    name: LedStateDto
+    href: IGCLWrapper.LedStateDto.html
+  - name: '?'
+  spec.vb:
+  - uid: IGCLWrapper.LedStateDto
+    name: LedStateDto
+    href: IGCLWrapper.LedStateDto.html
+  - name: '?'
+- uid: IGCLWrapper.IGCLLedHelper.LedSetState*
+  commentId: Overload:IGCLWrapper.IGCLLedHelper.LedSetState
+  href: IGCLWrapper.IGCLLedHelper.html#IGCLWrapper_IGCLLedHelper_LedSetState_System_IntPtr_IGCLWrapper_LedStateDto_
+  name: LedSetState
+  nameWithType: IGCLLedHelper.LedSetState
+  fullName: IGCLWrapper.IGCLLedHelper.LedSetState
 - uid: IGCLWrapper.LedStateDto
   commentId: T:IGCLWrapper.LedStateDto
   parent: IGCLWrapper
@@ -700,12 +766,17 @@ references:
   name: LedStateDto
   nameWithType: LedStateDto
   fullName: IGCLWrapper.LedStateDto
-- uid: IGCLWrapper.IGCLLedHelper.LedSetState*
-  commentId: Overload:IGCLWrapper.IGCLLedHelper.LedSetState
-  href: IGCLWrapper.IGCLLedHelper.html#IGCLWrapper_IGCLLedHelper_LedSetState_System_IntPtr_IGCLWrapper_LedStateDto_
-  name: LedSetState
-  nameWithType: IGCLLedHelper.LedSetState
-  fullName: IGCLWrapper.IGCLLedHelper.LedSetState
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
 - uid: IGCLWrapper.IGCLLedHelper.CreateLedStateStruct*
   commentId: Overload:IGCLWrapper.IGCLLedHelper.CreateLedStateStruct
   href: IGCLWrapper.IGCLLedHelper.html#IGCLWrapper_IGCLLedHelper_CreateLedStateStruct
@@ -732,17 +803,6 @@ references:
   name: ctl_led_properties_t
   nameWithType: ctl_led_properties_t
   fullName: IGCLWrapper.ctl_led_properties_t
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
 - uid: IGCLWrapper.IGCLLedHelper.AreLedStateEqual*
   commentId: Overload:IGCLWrapper.IGCLLedHelper.AreLedStateEqual
   href: IGCLWrapper.IGCLLedHelper.html#IGCLWrapper_IGCLLedHelper_AreLedStateEqual_IGCLWrapper_ctl_led_state_t_IGCLWrapper_ctl_led_state_t_

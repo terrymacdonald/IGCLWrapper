@@ -20,7 +20,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLTemperatureHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IGCLTemperatureHelper
     path: ../IGCLWrapper/IGCLTemperatureHelper.cs
@@ -58,7 +58,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLTemperatureHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumTemperatureSensors
     path: ../IGCLWrapper/IGCLTemperatureHelper.cs
@@ -89,7 +89,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLTemperatureHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: TemperatureGetProperties
     path: ../IGCLWrapper/IGCLTemperatureHelper.cs
@@ -100,15 +100,15 @@ items:
   summary: Get temperature sensor properties as a DTO.
   example: []
   syntax:
-    content: public TemperaturePropertiesDto TemperatureGetProperties(nint sensorHandle)
+    content: public TemperaturePropertiesDto? TemperatureGetProperties(nint sensorHandle)
     parameters:
     - id: sensorHandle
       type: System.IntPtr
       description: Temperature sensor handle.
     return:
-      type: IGCLWrapper.TemperaturePropertiesDto
-      description: Temperature properties DTO.
-    content.vb: Public Function TemperatureGetProperties(sensorHandle As IntPtr) As TemperaturePropertiesDto
+      type: System.Nullable{IGCLWrapper.TemperaturePropertiesDto}
+      description: Temperature properties DTO, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function TemperatureGetProperties(sensorHandle As IntPtr) As TemperaturePropertiesDto?
   overload: IGCLWrapper.IGCLTemperatureHelper.TemperatureGetProperties*
   nameWithType.vb: IGCLTemperatureHelper.TemperatureGetProperties(IntPtr)
   fullName.vb: IGCLWrapper.IGCLTemperatureHelper.TemperatureGetProperties(System.IntPtr)
@@ -127,26 +127,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLTemperatureHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: TemperatureGetState
     path: ../IGCLWrapper/IGCLTemperatureHelper.cs
-    startLine: 50
+    startLine: 52
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get current temperature for a sensor.
   example: []
   syntax:
-    content: public double TemperatureGetState(nint sensorHandle)
+    content: public double? TemperatureGetState(nint sensorHandle)
     parameters:
     - id: sensorHandle
       type: System.IntPtr
       description: Temperature sensor handle.
     return:
-      type: System.Double
-      description: Temperature value in degrees C.
-    content.vb: Public Function TemperatureGetState(sensorHandle As IntPtr) As Double
+      type: System.Nullable{System.Double}
+      description: Temperature value in degrees C, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function TemperatureGetState(sensorHandle As IntPtr) As Double?
   overload: IGCLWrapper.IGCLTemperatureHelper.TemperatureGetState*
   nameWithType.vb: IGCLTemperatureHelper.TemperatureGetState(IntPtr)
   fullName.vb: IGCLWrapper.IGCLTemperatureHelper.TemperatureGetState(System.IntPtr)
@@ -165,11 +165,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLTemperatureHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreTemperaturePropertiesEqual
     path: ../IGCLWrapper/IGCLTemperatureHelper.cs
-    startLine: 92
+    startLine: 108
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -203,11 +203,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLTemperatureHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLTemperatureHelper.cs
-    startLine: 103
+    startLine: 119
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -570,30 +570,81 @@ references:
   nameWithType.vb: IntPtr
   fullName.vb: System.IntPtr
   name.vb: IntPtr
-- uid: IGCLWrapper.TemperaturePropertiesDto
-  commentId: T:IGCLWrapper.TemperaturePropertiesDto
-  parent: IGCLWrapper
+- uid: System.Nullable{IGCLWrapper.TemperaturePropertiesDto}
+  commentId: T:System.Nullable{IGCLWrapper.TemperaturePropertiesDto}
+  parent: System
+  definition: System.Nullable`1
   href: IGCLWrapper.TemperaturePropertiesDto.html
-  name: TemperaturePropertiesDto
-  nameWithType: TemperaturePropertiesDto
-  fullName: IGCLWrapper.TemperaturePropertiesDto
+  name: TemperaturePropertiesDto?
+  nameWithType: TemperaturePropertiesDto?
+  fullName: IGCLWrapper.TemperaturePropertiesDto?
+  spec.csharp:
+  - uid: IGCLWrapper.TemperaturePropertiesDto
+    name: TemperaturePropertiesDto
+    href: IGCLWrapper.TemperaturePropertiesDto.html
+  - name: '?'
+  spec.vb:
+  - uid: IGCLWrapper.TemperaturePropertiesDto
+    name: TemperaturePropertiesDto
+    href: IGCLWrapper.TemperaturePropertiesDto.html
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: IGCLWrapper.IGCLTemperatureHelper.TemperatureGetState*
   commentId: Overload:IGCLWrapper.IGCLTemperatureHelper.TemperatureGetState
   href: IGCLWrapper.IGCLTemperatureHelper.html#IGCLWrapper_IGCLTemperatureHelper_TemperatureGetState_System_IntPtr_
   name: TemperatureGetState
   nameWithType: IGCLTemperatureHelper.TemperatureGetState
   fullName: IGCLWrapper.IGCLTemperatureHelper.TemperatureGetState
-- uid: System.Double
-  commentId: T:System.Double
+- uid: System.Nullable{System.Double}
+  commentId: T:System.Nullable{System.Double}
   parent: System
-  isExternal: true
+  definition: System.Nullable`1
   href: https://learn.microsoft.com/dotnet/api/system.double
-  name: double
-  nameWithType: double
-  fullName: double
-  nameWithType.vb: Double
-  fullName.vb: Double
-  name.vb: Double
+  name: double?
+  nameWithType: double?
+  fullName: double?
+  nameWithType.vb: Double?
+  fullName.vb: Double?
+  name.vb: Double?
+  spec.csharp:
+  - uid: System.Double
+    name: double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '?'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '?'
 - uid: IGCLWrapper.IGCLTemperatureHelper.AreTemperaturePropertiesEqual*
   commentId: Overload:IGCLWrapper.IGCLTemperatureHelper.AreTemperaturePropertiesEqual
   href: IGCLWrapper.IGCLTemperatureHelper.html#IGCLWrapper_IGCLTemperatureHelper_AreTemperaturePropertiesEqual_IGCLWrapper_ctl_temp_properties_t_IGCLWrapper_ctl_temp_properties_t_

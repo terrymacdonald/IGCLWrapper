@@ -20,7 +20,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLPciHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IGCLPciHelper
     path: ../IGCLWrapper/IGCLPciHelper.cs
@@ -58,7 +58,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLPciHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PciGetProperties
     path: ../IGCLWrapper/IGCLPciHelper.cs
@@ -69,11 +69,11 @@ items:
   summary: Get PCI properties as a DTO.
   example: []
   syntax:
-    content: public PciPropertiesDto PciGetProperties()
+    content: public PciPropertiesDto? PciGetProperties()
     return:
-      type: IGCLWrapper.PciPropertiesDto
-      description: PCI properties DTO.
-    content.vb: Public Function PciGetProperties() As PciPropertiesDto
+      type: System.Nullable{IGCLWrapper.PciPropertiesDto}
+      description: PCI properties DTO, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function PciGetProperties() As PciPropertiesDto?
   overload: IGCLWrapper.IGCLPciHelper.PciGetProperties*
 - uid: IGCLWrapper.IGCLPciHelper.PciGetState
   commentId: M:IGCLWrapper.IGCLPciHelper.PciGetState
@@ -89,22 +89,22 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLPciHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PciGetState
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 37
+    startLine: 39
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get PCI state as a DTO.
   example: []
   syntax:
-    content: public PciStateDto PciGetState()
+    content: public PciStateDto? PciGetState()
     return:
-      type: IGCLWrapper.PciStateDto
-      description: PCI state DTO.
-    content.vb: Public Function PciGetState() As PciStateDto
+      type: System.Nullable{IGCLWrapper.PciStateDto}
+      description: PCI state DTO, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function PciGetState() As PciStateDto?
   overload: IGCLWrapper.IGCLPciHelper.PciGetState*
 - uid: IGCLWrapper.IGCLPciHelper.ArePciPropertiesEqual(IGCLWrapper.ctl_pci_properties_t,IGCLWrapper.ctl_pci_properties_t)
   commentId: M:IGCLWrapper.IGCLPciHelper.ArePciPropertiesEqual(IGCLWrapper.ctl_pci_properties_t,IGCLWrapper.ctl_pci_properties_t)
@@ -120,11 +120,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLPciHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ArePciPropertiesEqual
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 59
+    startLine: 75
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -158,11 +158,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLPciHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ArePciStateEqual
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 75
+    startLine: 91
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -196,11 +196,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLPciHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLPciHelper.cs
-    startLine: 102
+    startLine: 118
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -446,26 +446,76 @@ references:
   name: PciGetProperties
   nameWithType: IGCLPciHelper.PciGetProperties
   fullName: IGCLWrapper.IGCLPciHelper.PciGetProperties
-- uid: IGCLWrapper.PciPropertiesDto
-  commentId: T:IGCLWrapper.PciPropertiesDto
-  parent: IGCLWrapper
+- uid: System.Nullable{IGCLWrapper.PciPropertiesDto}
+  commentId: T:System.Nullable{IGCLWrapper.PciPropertiesDto}
+  parent: System
+  definition: System.Nullable`1
   href: IGCLWrapper.PciPropertiesDto.html
-  name: PciPropertiesDto
-  nameWithType: PciPropertiesDto
-  fullName: IGCLWrapper.PciPropertiesDto
+  name: PciPropertiesDto?
+  nameWithType: PciPropertiesDto?
+  fullName: IGCLWrapper.PciPropertiesDto?
+  spec.csharp:
+  - uid: IGCLWrapper.PciPropertiesDto
+    name: PciPropertiesDto
+    href: IGCLWrapper.PciPropertiesDto.html
+  - name: '?'
+  spec.vb:
+  - uid: IGCLWrapper.PciPropertiesDto
+    name: PciPropertiesDto
+    href: IGCLWrapper.PciPropertiesDto.html
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: IGCLWrapper.IGCLPciHelper.PciGetState*
   commentId: Overload:IGCLWrapper.IGCLPciHelper.PciGetState
   href: IGCLWrapper.IGCLPciHelper.html#IGCLWrapper_IGCLPciHelper_PciGetState
   name: PciGetState
   nameWithType: IGCLPciHelper.PciGetState
   fullName: IGCLWrapper.IGCLPciHelper.PciGetState
-- uid: IGCLWrapper.PciStateDto
-  commentId: T:IGCLWrapper.PciStateDto
-  parent: IGCLWrapper
+- uid: System.Nullable{IGCLWrapper.PciStateDto}
+  commentId: T:System.Nullable{IGCLWrapper.PciStateDto}
+  parent: System
+  definition: System.Nullable`1
   href: IGCLWrapper.PciStateDto.html
-  name: PciStateDto
-  nameWithType: PciStateDto
-  fullName: IGCLWrapper.PciStateDto
+  name: PciStateDto?
+  nameWithType: PciStateDto?
+  fullName: IGCLWrapper.PciStateDto?
+  spec.csharp:
+  - uid: IGCLWrapper.PciStateDto
+    name: PciStateDto
+    href: IGCLWrapper.PciStateDto.html
+  - name: '?'
+  spec.vb:
+  - uid: IGCLWrapper.PciStateDto
+    name: PciStateDto
+    href: IGCLWrapper.PciStateDto.html
+  - name: '?'
 - uid: IGCLWrapper.IGCLPciHelper.ArePciPropertiesEqual*
   commentId: Overload:IGCLWrapper.IGCLPciHelper.ArePciPropertiesEqual
   href: IGCLWrapper.IGCLPciHelper.html#IGCLWrapper_IGCLPciHelper_ArePciPropertiesEqual_IGCLWrapper_ctl_pci_properties_t_IGCLWrapper_ctl_pci_properties_t_

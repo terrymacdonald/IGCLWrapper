@@ -21,7 +21,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLEngineHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IGCLEngineHelper
     path: ../IGCLWrapper/IGCLEngineHelper.cs
@@ -59,7 +59,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLEngineHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EnumEngineGroups
     path: ../IGCLWrapper/IGCLEngineHelper.cs
@@ -90,7 +90,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLEngineHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EngineGetProperties
     path: ../IGCLWrapper/IGCLEngineHelper.cs
@@ -101,15 +101,15 @@ items:
   summary: Get engine properties as a DTO.
   example: []
   syntax:
-    content: public EnginePropertiesDto EngineGetProperties(nint engineHandle)
+    content: public EnginePropertiesDto? EngineGetProperties(nint engineHandle)
     parameters:
     - id: engineHandle
       type: System.IntPtr
       description: Engine handle.
     return:
-      type: IGCLWrapper.EnginePropertiesDto
-      description: Engine properties DTO.
-    content.vb: Public Function EngineGetProperties(engineHandle As IntPtr) As EnginePropertiesDto
+      type: System.Nullable{IGCLWrapper.EnginePropertiesDto}
+      description: Engine properties DTO, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function EngineGetProperties(engineHandle As IntPtr) As EnginePropertiesDto?
   overload: IGCLWrapper.IGCLEngineHelper.EngineGetProperties*
   nameWithType.vb: IGCLEngineHelper.EngineGetProperties(IntPtr)
   fullName.vb: IGCLWrapper.IGCLEngineHelper.EngineGetProperties(System.IntPtr)
@@ -128,26 +128,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLEngineHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EngineGetActivity
     path: ../IGCLWrapper/IGCLEngineHelper.cs
-    startLine: 50
+    startLine: 52
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get engine activity stats as a DTO.
   example: []
   syntax:
-    content: public EngineStatsDto EngineGetActivity(nint engineHandle)
+    content: public EngineStatsDto? EngineGetActivity(nint engineHandle)
     parameters:
     - id: engineHandle
       type: System.IntPtr
       description: Engine handle.
     return:
-      type: IGCLWrapper.EngineStatsDto
-      description: Engine stats DTO.
-    content.vb: Public Function EngineGetActivity(engineHandle As IntPtr) As EngineStatsDto
+      type: System.Nullable{IGCLWrapper.EngineStatsDto}
+      description: Engine stats DTO, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function EngineGetActivity(engineHandle As IntPtr) As EngineStatsDto?
   overload: IGCLWrapper.IGCLEngineHelper.EngineGetActivity*
   nameWithType.vb: IGCLEngineHelper.EngineGetActivity(IntPtr)
   fullName.vb: IGCLWrapper.IGCLEngineHelper.EngineGetActivity(System.IntPtr)
@@ -166,11 +166,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLEngineHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreEnginePropertiesEqual
     path: ../IGCLWrapper/IGCLEngineHelper.cs
-    startLine: 93
+    startLine: 109
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -204,11 +204,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLEngineHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreEngineStatsEqual
     path: ../IGCLWrapper/IGCLEngineHelper.cs
-    startLine: 106
+    startLine: 122
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -242,11 +242,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLEngineHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLEngineHelper.cs
-    startLine: 117
+    startLine: 133
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -609,26 +609,76 @@ references:
   nameWithType.vb: IntPtr
   fullName.vb: System.IntPtr
   name.vb: IntPtr
-- uid: IGCLWrapper.EnginePropertiesDto
-  commentId: T:IGCLWrapper.EnginePropertiesDto
-  parent: IGCLWrapper
+- uid: System.Nullable{IGCLWrapper.EnginePropertiesDto}
+  commentId: T:System.Nullable{IGCLWrapper.EnginePropertiesDto}
+  parent: System
+  definition: System.Nullable`1
   href: IGCLWrapper.EnginePropertiesDto.html
-  name: EnginePropertiesDto
-  nameWithType: EnginePropertiesDto
-  fullName: IGCLWrapper.EnginePropertiesDto
+  name: EnginePropertiesDto?
+  nameWithType: EnginePropertiesDto?
+  fullName: IGCLWrapper.EnginePropertiesDto?
+  spec.csharp:
+  - uid: IGCLWrapper.EnginePropertiesDto
+    name: EnginePropertiesDto
+    href: IGCLWrapper.EnginePropertiesDto.html
+  - name: '?'
+  spec.vb:
+  - uid: IGCLWrapper.EnginePropertiesDto
+    name: EnginePropertiesDto
+    href: IGCLWrapper.EnginePropertiesDto.html
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: IGCLWrapper.IGCLEngineHelper.EngineGetActivity*
   commentId: Overload:IGCLWrapper.IGCLEngineHelper.EngineGetActivity
   href: IGCLWrapper.IGCLEngineHelper.html#IGCLWrapper_IGCLEngineHelper_EngineGetActivity_System_IntPtr_
   name: EngineGetActivity
   nameWithType: IGCLEngineHelper.EngineGetActivity
   fullName: IGCLWrapper.IGCLEngineHelper.EngineGetActivity
-- uid: IGCLWrapper.EngineStatsDto
-  commentId: T:IGCLWrapper.EngineStatsDto
-  parent: IGCLWrapper
+- uid: System.Nullable{IGCLWrapper.EngineStatsDto}
+  commentId: T:System.Nullable{IGCLWrapper.EngineStatsDto}
+  parent: System
+  definition: System.Nullable`1
   href: IGCLWrapper.EngineStatsDto.html
-  name: EngineStatsDto
-  nameWithType: EngineStatsDto
-  fullName: IGCLWrapper.EngineStatsDto
+  name: EngineStatsDto?
+  nameWithType: EngineStatsDto?
+  fullName: IGCLWrapper.EngineStatsDto?
+  spec.csharp:
+  - uid: IGCLWrapper.EngineStatsDto
+    name: EngineStatsDto
+    href: IGCLWrapper.EngineStatsDto.html
+  - name: '?'
+  spec.vb:
+  - uid: IGCLWrapper.EngineStatsDto
+    name: EngineStatsDto
+    href: IGCLWrapper.EngineStatsDto.html
+  - name: '?'
 - uid: IGCLWrapper.IGCLEngineHelper.AreEnginePropertiesEqual*
   commentId: Overload:IGCLWrapper.IGCLEngineHelper.AreEnginePropertiesEqual
   href: IGCLWrapper.IGCLEngineHelper.html#IGCLWrapper_IGCLEngineHelper_AreEnginePropertiesEqual_IGCLWrapper_ctl_engine_properties_t_IGCLWrapper_ctl_engine_properties_t_

@@ -21,7 +21,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLEccHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IGCLEccHelper
     path: ../IGCLWrapper/IGCLEccHelper.cs
@@ -59,7 +59,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLEccHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EccGetProperties
     path: ../IGCLWrapper/IGCLEccHelper.cs
@@ -70,11 +70,11 @@ items:
   summary: Get ECC properties as a DTO.
   example: []
   syntax:
-    content: public EccPropertiesDto EccGetProperties()
+    content: public EccPropertiesDto? EccGetProperties()
     return:
-      type: IGCLWrapper.EccPropertiesDto
-      description: ECC properties DTO.
-    content.vb: Public Function EccGetProperties() As EccPropertiesDto
+      type: System.Nullable{IGCLWrapper.EccPropertiesDto}
+      description: ECC properties DTO, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function EccGetProperties() As EccPropertiesDto?
   overload: IGCLWrapper.IGCLEccHelper.EccGetProperties*
 - uid: IGCLWrapper.IGCLEccHelper.EccGetState
   commentId: M:IGCLWrapper.IGCLEccHelper.EccGetState
@@ -90,22 +90,22 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLEccHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EccGetState
     path: ../IGCLWrapper/IGCLEccHelper.cs
-    startLine: 37
+    startLine: 39
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Get ECC state description as a DTO.
   example: []
   syntax:
-    content: public EccStateDescDto EccGetState()
+    content: public EccStateDescDto? EccGetState()
     return:
-      type: IGCLWrapper.EccStateDescDto
-      description: ECC state description DTO.
-    content.vb: Public Function EccGetState() As EccStateDescDto
+      type: System.Nullable{IGCLWrapper.EccStateDescDto}
+      description: ECC state description DTO, or <code>null</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function EccGetState() As EccStateDescDto?
   overload: IGCLWrapper.IGCLEccHelper.EccGetState*
 - uid: IGCLWrapper.IGCLEccHelper.EccSetState(IGCLWrapper.ctl_ecc_state_t)
   commentId: M:IGCLWrapper.IGCLEccHelper.EccSetState(IGCLWrapper.ctl_ecc_state_t)
@@ -121,23 +121,26 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLEccHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EccSetState
     path: ../IGCLWrapper/IGCLEccHelper.cs
-    startLine: 51
+    startLine: 56
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   summary: Set ECC state.
   example: []
   syntax:
-    content: public void EccSetState(ctl_ecc_state_t desiredState)
+    content: public bool EccSetState(ctl_ecc_state_t desiredState)
     parameters:
     - id: desiredState
       type: IGCLWrapper.ctl_ecc_state_t
       description: Desired ECC state.
-    content.vb: Public Sub EccSetState(desiredState As ctl_ecc_state_t)
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the setting was applied successfully; <code>false</code> if the feature is not supported on this hardware or driver.
+    content.vb: Public Function EccSetState(desiredState As ctl_ecc_state_t) As Boolean
   overload: IGCLWrapper.IGCLEccHelper.EccSetState*
 - uid: IGCLWrapper.IGCLEccHelper.AreEccPropertiesEqual(IGCLWrapper.ctl_ecc_properties_t,IGCLWrapper.ctl_ecc_properties_t)
   commentId: M:IGCLWrapper.IGCLEccHelper.AreEccPropertiesEqual(IGCLWrapper.ctl_ecc_properties_t,IGCLWrapper.ctl_ecc_properties_t)
@@ -153,11 +156,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLEccHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreEccPropertiesEqual
     path: ../IGCLWrapper/IGCLEccHelper.cs
-    startLine: 73
+    startLine: 93
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -191,11 +194,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLEccHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreEccStateDescriptionsEqual
     path: ../IGCLWrapper/IGCLEccHelper.cs
-    startLine: 84
+    startLine: 104
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -229,11 +232,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLEccHelper.cs
-      branch: develop
+      branch: feature-reduced-exceptions
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLEccHelper.cs
-    startLine: 95
+    startLine: 115
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -479,26 +482,76 @@ references:
   name: EccGetProperties
   nameWithType: IGCLEccHelper.EccGetProperties
   fullName: IGCLWrapper.IGCLEccHelper.EccGetProperties
-- uid: IGCLWrapper.EccPropertiesDto
-  commentId: T:IGCLWrapper.EccPropertiesDto
-  parent: IGCLWrapper
+- uid: System.Nullable{IGCLWrapper.EccPropertiesDto}
+  commentId: T:System.Nullable{IGCLWrapper.EccPropertiesDto}
+  parent: System
+  definition: System.Nullable`1
   href: IGCLWrapper.EccPropertiesDto.html
-  name: EccPropertiesDto
-  nameWithType: EccPropertiesDto
-  fullName: IGCLWrapper.EccPropertiesDto
+  name: EccPropertiesDto?
+  nameWithType: EccPropertiesDto?
+  fullName: IGCLWrapper.EccPropertiesDto?
+  spec.csharp:
+  - uid: IGCLWrapper.EccPropertiesDto
+    name: EccPropertiesDto
+    href: IGCLWrapper.EccPropertiesDto.html
+  - name: '?'
+  spec.vb:
+  - uid: IGCLWrapper.EccPropertiesDto
+    name: EccPropertiesDto
+    href: IGCLWrapper.EccPropertiesDto.html
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: IGCLWrapper.IGCLEccHelper.EccGetState*
   commentId: Overload:IGCLWrapper.IGCLEccHelper.EccGetState
   href: IGCLWrapper.IGCLEccHelper.html#IGCLWrapper_IGCLEccHelper_EccGetState
   name: EccGetState
   nameWithType: IGCLEccHelper.EccGetState
   fullName: IGCLWrapper.IGCLEccHelper.EccGetState
-- uid: IGCLWrapper.EccStateDescDto
-  commentId: T:IGCLWrapper.EccStateDescDto
-  parent: IGCLWrapper
+- uid: System.Nullable{IGCLWrapper.EccStateDescDto}
+  commentId: T:System.Nullable{IGCLWrapper.EccStateDescDto}
+  parent: System
+  definition: System.Nullable`1
   href: IGCLWrapper.EccStateDescDto.html
-  name: EccStateDescDto
-  nameWithType: EccStateDescDto
-  fullName: IGCLWrapper.EccStateDescDto
+  name: EccStateDescDto?
+  nameWithType: EccStateDescDto?
+  fullName: IGCLWrapper.EccStateDescDto?
+  spec.csharp:
+  - uid: IGCLWrapper.EccStateDescDto
+    name: EccStateDescDto
+    href: IGCLWrapper.EccStateDescDto.html
+  - name: '?'
+  spec.vb:
+  - uid: IGCLWrapper.EccStateDescDto
+    name: EccStateDescDto
+    href: IGCLWrapper.EccStateDescDto.html
+  - name: '?'
 - uid: IGCLWrapper.IGCLEccHelper.EccSetState*
   commentId: Overload:IGCLWrapper.IGCLEccHelper.EccSetState
   href: IGCLWrapper.IGCLEccHelper.html#IGCLWrapper_IGCLEccHelper_EccSetState_IGCLWrapper_ctl_ecc_state_t_
@@ -512,6 +565,17 @@ references:
   name: ctl_ecc_state_t
   nameWithType: ctl_ecc_state_t
   fullName: IGCLWrapper.ctl_ecc_state_t
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
 - uid: IGCLWrapper.IGCLEccHelper.AreEccPropertiesEqual*
   commentId: Overload:IGCLWrapper.IGCLEccHelper.AreEccPropertiesEqual
   href: IGCLWrapper.IGCLEccHelper.html#IGCLWrapper_IGCLEccHelper_AreEccPropertiesEqual_IGCLWrapper_ctl_ecc_properties_t_IGCLWrapper_ctl_ecc_properties_t_
@@ -525,17 +589,6 @@ references:
   name: ctl_ecc_properties_t
   nameWithType: ctl_ecc_properties_t
   fullName: IGCLWrapper.ctl_ecc_properties_t
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
 - uid: IGCLWrapper.IGCLEccHelper.AreEccStateDescriptionsEqual*
   commentId: Overload:IGCLWrapper.IGCLEccHelper.AreEccStateDescriptionsEqual
   href: IGCLWrapper.IGCLEccHelper.html#IGCLWrapper_IGCLEccHelper_AreEccStateDescriptionsEqual_IGCLWrapper_ctl_ecc_state_desc_t_IGCLWrapper_ctl_ecc_state_desc_t_
