@@ -47,13 +47,21 @@ namespace FanControl
             for (int i = 0; i < fans.Count; i++)
             {
                 var props = fanHelper.FanGetProperties(fans[i]);
+                if (!props.HasValue)
+                {
+                    Console.WriteLine($"Fan {i + 1}: properties not supported on this hardware.");
+                    continue;
+                }
 
                 Console.WriteLine($"Fan {i + 1}:");
-                Console.WriteLine($"  Max RPM    : {props.MaxRpm}");
-                Console.WriteLine($"  Can Control: {props.CanControl}");
+                Console.WriteLine($"  Max RPM    : {props.Value.MaxRpm}");
+                Console.WriteLine($"  Can Control: {props.Value.CanControl}");
 
                 var speed = fanHelper.FanGetState(fans[i], ctl_fan_speed_units_t.CTL_FAN_SPEED_UNITS_RPM);
-                Console.WriteLine($"  Current RPM: {speed:F0}\n");
+                if (speed.HasValue)
+                    Console.WriteLine($"  Current RPM: {speed.Value:F0}\n");
+                else
+                    Console.WriteLine($"  Current RPM: not supported\n");
             }
         }
     }

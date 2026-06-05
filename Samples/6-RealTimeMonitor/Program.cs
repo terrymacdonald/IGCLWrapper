@@ -74,21 +74,21 @@ namespace RealTimeMonitor
             if (tempSensors.Count > 0)
             {
                 var temp = tempHelper.TemperatureGetState(tempSensors[0]);
-                temperature = $"{temp:F1} C";
+                temperature = temp.HasValue ? $"{temp.Value:F1} C" : "not supported";
             }
 
             string energy = "n/a";
             if (powerDomains.Count > 0)
             {
                 var counter = powerHelper.PowerGetEnergyCounter(powerDomains[0]);
-                energy = $"{counter.Energy} uJ";
+                energy = counter.HasValue ? $"{counter.Value.Energy} uJ" : "not supported";
             }
 
             string frequency = "n/a";
             if (freqDomains.Count > 0)
             {
                 var state = freqHelper.FrequencyGetState(freqDomains[0]);
-                frequency = $"{state.Actual:F0} MHz";
+                frequency = state.HasValue ? $"{state.Value.Actual:F0} MHz" : "not supported";
             }
 
             Console.WriteLine($"GPU Temperature : {temperature,-10}");

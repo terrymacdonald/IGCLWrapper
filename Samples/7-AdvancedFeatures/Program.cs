@@ -51,9 +51,15 @@ namespace AdvancedFeatures
 
             var overclockHelper = api.GetOverclockHelper(adapter);
             var props = overclockHelper.GetProperties();
-            Console.WriteLine($"  Supported        : {props.IsSupported}");
-            Console.WriteLine($"  GPU OC Supported : {props.GpuFrequencyOffset.IsSupported}");
-            Console.WriteLine($"  VRAM OC Supported: {props.VramFrequencyOffset.IsSupported}");
+            if (!props.HasValue)
+            {
+                Console.WriteLine("  Not supported on this hardware.");
+                Console.WriteLine();
+                return;
+            }
+            Console.WriteLine($"  Supported        : {props.Value.IsSupported}");
+            Console.WriteLine($"  GPU OC Supported : {props.Value.GpuFrequencyOffset.IsSupported}");
+            Console.WriteLine($"  VRAM OC Supported: {props.Value.VramFrequencyOffset.IsSupported}");
             Console.WriteLine();
         }
 
@@ -63,7 +69,10 @@ namespace AdvancedFeatures
 
             var helper = api.Get3DHelper(adapter);
             var caps = helper.GetSupported3DCapabilities();
-            Console.WriteLine($"  Supported Features: {caps.NumSupportedFeatures}");
+            if (caps.HasValue)
+                Console.WriteLine($"  Supported Features: {caps.Value.NumSupportedFeatures}");
+            else
+                Console.WriteLine("  Not supported on this hardware.");
             Console.WriteLine();
         }
 
@@ -73,7 +82,10 @@ namespace AdvancedFeatures
 
             var helper = api.GetMediaHelper(adapter);
             var caps = helper.GetSupportedVideoProcessingCapabilities();
-            Console.WriteLine($"  Supported Features: {caps.NumSupportedFeatures}");
+            if (caps.HasValue)
+                Console.WriteLine($"  Supported Features: {caps.Value.NumSupportedFeatures}");
+            else
+                Console.WriteLine("  Not supported on this hardware.");
             Console.WriteLine();
         }
     }

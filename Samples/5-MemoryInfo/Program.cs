@@ -47,14 +47,27 @@ namespace MemoryInfo
             for (int i = 0; i < modules.Count; i++)
             {
                 var props = memoryHelper.MemoryGetProperties(modules[i]);
+                if (!props.HasValue)
+                {
+                    Console.WriteLine($"Module {i + 1}: properties not supported on this hardware.\n");
+                    continue;
+                }
+
                 Console.WriteLine($"Module {i + 1}:");
-                Console.WriteLine($"  Type       : {props.Type}");
-                Console.WriteLine($"  Bus Width  : {props.BusWidth} bits");
-                Console.WriteLine($"  Location   : {props.Location}");
+                Console.WriteLine($"  Type       : {props.Value.Type}");
+                Console.WriteLine($"  Bus Width  : {props.Value.BusWidth} bits");
+                Console.WriteLine($"  Location   : {props.Value.Location}");
 
                 var state = memoryHelper.MemoryGetState(modules[i]);
-                Console.WriteLine($"  Free       : {state.Free / (1024 * 1024)} MB");
-                Console.WriteLine($"  Total      : {state.TotalSize / (1024 * 1024)} MB\n");
+                if (state.HasValue)
+                {
+                    Console.WriteLine($"  Free       : {state.Value.Free / (1024 * 1024)} MB");
+                    Console.WriteLine($"  Total      : {state.Value.TotalSize / (1024 * 1024)} MB\n");
+                }
+                else
+                {
+                    Console.WriteLine($"  State      : not supported\n");
+                }
             }
         }
     }

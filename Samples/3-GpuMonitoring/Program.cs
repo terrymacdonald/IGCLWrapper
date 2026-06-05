@@ -62,7 +62,10 @@ namespace GpuMonitoring
             for (int i = 0; i < domains.Count; i++)
             {
                 var energy = powerHelper.PowerGetEnergyCounter(domains[i]);
-                Console.WriteLine($"  Domain {i + 1}     : {energy.Energy} uJ (timestamp {energy.Timestamp})");
+                if (energy.HasValue)
+                    Console.WriteLine($"  Domain {i + 1}     : {energy.Value.Energy} uJ (timestamp {energy.Value.Timestamp})");
+                else
+                    Console.WriteLine($"  Domain {i + 1}     : not supported");
             }
             Console.WriteLine();
         }
@@ -76,7 +79,10 @@ namespace GpuMonitoring
                 for (int i = 0; i < sensors.Count; i++)
                 {
                     var temperature = tempHelper.TemperatureGetState(sensors[i]);
-                    Console.WriteLine($"  Sensor {i + 1}      : {temperature:F1} C");
+                    if (temperature.HasValue)
+                        Console.WriteLine($"  Sensor {i + 1}      : {temperature.Value:F1} C");
+                    else
+                        Console.WriteLine($"  Sensor {i + 1}      : not supported");
                 }
                 Console.WriteLine();
             }
@@ -91,7 +97,10 @@ namespace GpuMonitoring
                 for (int i = 0; i < domains.Count; i++)
                 {
                     var state = freqHelper.FrequencyGetState(domains[i]);
-                    Console.WriteLine($"  Domain {i + 1}      : {state.Actual:F0} MHz (Request: {state.Request:F0} MHz)");
+                    if (state.HasValue)
+                        Console.WriteLine($"  Domain {i + 1}      : {state.Value.Actual:F0} MHz (Request: {state.Value.Request:F0} MHz)");
+                    else
+                        Console.WriteLine($"  Domain {i + 1}      : not supported");
                 }
             }
         }
