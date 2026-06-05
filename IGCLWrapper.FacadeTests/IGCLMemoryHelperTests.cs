@@ -18,7 +18,8 @@ namespace IGCLWrapper.FacadeTests
                 var modules = helper.EnumMemoryModules();
                 Skip.If(modules.Count == 0, "No memory modules.");
                 var props = helper.MemoryGetProperties(modules[0]);
-                Assert.True(props.Size > 0);
+                Skip.If(!props.HasValue, "Memory properties not supported on this hardware.");
+                Assert.True(props.Value.Size > 0);
                 helper.MemoryGetState(modules[0]);
                 FacadeTestUtils.InvokeOrSkip(() => helper.MemoryGetBandwidth(modules[0]), "Memory bandwidth unsupported");
             }

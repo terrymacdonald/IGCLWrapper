@@ -25,20 +25,11 @@ namespace IGCLWrapper.FacadeTests
                 if (displays == null || displays.Count == 0)
                     throw new SkipException("No display outputs available for combined display.");
 
-                CombinedDisplayArgsDto existing;
-                try
-                {
-                    existing = adapter.GetCombinedDisplay();
-                }
-                catch (IGCLException ex) when (ex.Result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
-                                               ex.Result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION ||
-                                               ex.Result == ctl_result_t.CTL_RESULT_ERROR_INVALID_OPERATION_TYPE ||
-                                               ex.Result == ctl_result_t.CTL_RESULT_ERROR_INVALID_ARGUMENT)
-                {
-                    throw new SkipException($"Combined display query unsupported: {ex.Result}");
-                }
+                var existing = adapter.GetCombinedDisplay();
+                if (!existing.HasValue)
+                    throw new SkipException("Combined display query unsupported.");
 
-                if (existing.NumOutputs > 0)
+                if (existing.Value.NumOutputs > 0)
                     throw new SkipException("Combined display already active; refusing to modify current layout.");
 
                 uint combinedAllowedEncoderTypes =
@@ -60,7 +51,10 @@ namespace IGCLWrapper.FacadeTests
                     try
                     {
                         props = display.GetProperties();
-                        encoderProps = display.GetAdapterDisplayEncoderProperties();
+                        var encoderPropsNullable = display.GetAdapterDisplayEncoderProperties();
+                        if (!encoderPropsNullable.HasValue)
+                            continue;
+                        encoderProps = encoderPropsNullable.Value;
                     }
                     catch (IGCLException)
                     {
@@ -157,10 +151,11 @@ namespace IGCLWrapper.FacadeTests
                     combinedEnabled = true;
 
                     var updated = adapter.GetCombinedDisplay();
-                    Assert.Equal(desiredOutputs, updated.NumOutputs);
-                    Assert.Equal((uint)combinedWidth, updated.CombinedDesktopWidth);
-                    Assert.Equal((uint)combinedHeight, updated.CombinedDesktopHeight);
-                    Assert.NotNull(updated.ChildInfos);
+                    Assert.True(updated.HasValue, "Combined display returned null after enable.");
+                    Assert.Equal(desiredOutputs, updated.Value.NumOutputs);
+                    Assert.Equal((uint)combinedWidth, updated.Value.CombinedDesktopWidth);
+                    Assert.Equal((uint)combinedHeight, updated.Value.CombinedDesktopHeight);
+                    Assert.NotNull(updated.Value.ChildInfos);
 
                     Console.WriteLine("Combined display enabled; waiting 10 seconds before disable.");
                     System.Threading.Thread.Sleep(10000);

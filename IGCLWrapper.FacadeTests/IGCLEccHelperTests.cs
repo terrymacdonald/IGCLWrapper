@@ -16,7 +16,7 @@ namespace IGCLWrapper.FacadeTests
             {
                 var helper = api.GetEccHelper(adapter);
                 var props = FacadeTestUtils.InvokeOrSkip(() => helper.EccGetProperties(), "ECC unsupported");
-                if (props.Size == 0) throw new SkipException("ECC unsupported (empty props).");
+                if (!props.HasValue || props.Value.Size == 0) throw new SkipException("ECC unsupported (empty props).");
                 FacadeTestUtils.InvokeOrSkip(() => helper.EccGetState(), "ECC state unsupported");
             }
         }

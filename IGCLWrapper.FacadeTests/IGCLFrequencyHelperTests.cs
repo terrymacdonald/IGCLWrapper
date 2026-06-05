@@ -18,7 +18,8 @@ namespace IGCLWrapper.FacadeTests
                 var domains = helper.EnumFrequencyDomains();
                 Skip.If(domains.Count == 0, "No frequency domains.");
                 var props = helper.FrequencyGetProperties(domains[0]);
-                Assert.True(props.Size > 0);
+                Skip.If(!props.HasValue, "Frequency properties not supported on this hardware.");
+                Assert.True(props.Value.Size > 0);
                 helper.FrequencyGetRange(domains[0]);
                 helper.FrequencyGetState(domains[0]);
                 FacadeTestUtils.InvokeOrSkip(() => helper.FrequencyGetThrottleTime(domains[0]), "Throttle time unsupported");

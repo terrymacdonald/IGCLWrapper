@@ -16,7 +16,8 @@ namespace IGCLWrapper.FacadeTests
             {
                 var helper = api.GetPciHelper(adapter);
                 var props = helper.PciGetProperties();
-                Assert.True(props.Size > 0);
+                Skip.If(!props.HasValue, "PCI properties not supported on this hardware.");
+                Assert.True(props.Value.Size > 0);
                 helper.PciGetState();
             }
         }

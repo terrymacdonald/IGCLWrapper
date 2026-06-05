@@ -18,9 +18,11 @@ namespace IGCLWrapper.FacadeTests
                 var domains = helper.EnumPowerDomains();
                 Skip.If(domains.Count == 0, "No power domains.");
                 var props = helper.PowerGetProperties(domains[0]);
-                Assert.True(props.Size > 0);
+                Skip.If(!props.HasValue, "Power properties not supported on this hardware.");
+                Assert.True(props.Value.Size > 0);
                 var energy = helper.PowerGetEnergyCounter(domains[0]);
-                Assert.True(energy.Timestamp >= 0);
+                Skip.If(!energy.HasValue, "Power energy counter not supported on this hardware.");
+                Assert.True(energy.Value.Timestamp >= 0);
                 helper.PowerGetLimits(domains[0]);
             }
         }

@@ -16,7 +16,7 @@ namespace IGCLWrapper.FacadeTests
             {
                 var helper = api.GetOverclockHelper(adapter);
                 var props = helper.GetProperties();
-                Skip.If(props.Size == 0, "Overclock unsupported.");
+                Skip.If(!props.HasValue || props.Value.Size == 0, "Overclock unsupported.");
                 FacadeTestUtils.InvokeOrSkip(() => helper.GetPowerTelemetry(), "Power telemetry unsupported");
 
                 FacadeTestUtils.InvokeOrSkip(() => helper.OverclockGpuFrequencyOffsetGet(), "GPU freq offset unsupported");

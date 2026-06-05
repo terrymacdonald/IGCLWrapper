@@ -107,31 +107,22 @@ namespace IGCLWrapper.FacadeTests
             var (api, adapter) = FacadeTestUtils.RequireAdapter();
             using (api)
             {
-                CombinedDisplayArgsDto combined;
-                try
-                {
-                    combined = adapter.GetCombinedDisplay();
-                }
-                catch (IGCLException ex) when (ex.Result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
-                                               ex.Result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION ||
-                                               ex.Result == ctl_result_t.CTL_RESULT_ERROR_INVALID_OPERATION_TYPE ||
-                                               ex.Result == ctl_result_t.CTL_RESULT_ERROR_INVALID_ARGUMENT)
-                {
-                    throw new SkipException($"Combined display query unsupported: {ex.Result}");
-                }
+                var combined = adapter.GetCombinedDisplay();
+                if (!combined.HasValue)
+                    throw new SkipException("Combined display query unsupported.");
 
-                if (combined.NumOutputs == 0 || combined.ChildInfos == null || combined.ChildInfos.Count == 0)
+                if (combined.Value.NumOutputs == 0 || combined.Value.ChildInfos == null || combined.Value.ChildInfos.Count == 0)
                 {
                     throw new SkipException("Combined display not configured.");
                 }
 
                 Console.WriteLine("Combined display detected.");
-                Console.WriteLine($" - NumOutputs={combined.NumOutputs} Width={combined.CombinedDesktopWidth} Height={combined.CombinedDesktopHeight}");
+                Console.WriteLine($" - NumOutputs={combined.Value.NumOutputs} Width={combined.Value.CombinedDesktopWidth} Height={combined.Value.CombinedDesktopHeight}");
 
-                Assert.True(combined.ChildInfos.Count >= combined.NumOutputs);
-                for (var i = 0; i < combined.NumOutputs; i++)
+                Assert.True(combined.Value.ChildInfos.Count >= combined.Value.NumOutputs);
+                for (var i = 0; i < combined.Value.NumOutputs; i++)
                 {
-                    var child = combined.ChildInfos[i];
+                    var child = combined.Value.ChildInfos[i];
 
                     Assert.True(child.TargetMode.Width >= 0);
                     Assert.True(child.TargetMode.Height >= 0);

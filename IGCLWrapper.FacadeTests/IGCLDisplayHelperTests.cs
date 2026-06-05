@@ -60,40 +60,36 @@ namespace IGCLWrapper.FacadeTests
                 FacadeTestUtils.InvokeOrSkip(() => display.GetCurrentSharpness(), "Sharpness settings unsupported");
 
                 var powerCaps = FacadeTestUtils.InvokeOrSkip(() => display.GetPowerOptimizationCaps(), "Power optimization caps unsupported");
-                if (powerCaps.SupportedFeatures != 0)
-                {
-                    var settings = new PowerOptimizationSettingsDto();
-                    if ((powerCaps.SupportedFeatures & (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_LRR) != 0)
-                    {
-                        settings.PowerOptimizationFeature = (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_LRR;
-                    }
-                    else if ((powerCaps.SupportedFeatures & (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_FBC) != 0)
-                    {
-                        settings.PowerOptimizationFeature = (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_FBC;
-                    }
-                    else if ((powerCaps.SupportedFeatures & (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_PSR) != 0)
-                    {
-                        settings.PowerOptimizationFeature = (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_PSR;
-                        settings.PowerSource = ctl_power_source_t.CTL_POWER_SOURCE_DC;
-                        settings.PowerOptimizationPlan = ctl_power_optimization_plan_t.CTL_POWER_OPTIMIZATION_PLAN_BALANCED;
-                    }
-                    else if ((powerCaps.SupportedFeatures & (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_DPST) != 0)
-                    {
-                        settings.PowerOptimizationFeature = (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_DPST;
-                        settings.PowerSource = ctl_power_source_t.CTL_POWER_SOURCE_DC;
-                        settings.PowerOptimizationPlan = ctl_power_optimization_plan_t.CTL_POWER_OPTIMIZATION_PLAN_BALANCED;
-                    }
-                    else
-                    {
-                        throw new SkipException("Power optimization settings unsupported (no supported features).");
-                    }
+                if (!powerCaps.HasValue || powerCaps.Value.SupportedFeatures == 0)
+                    throw new SkipException("Power optimization settings unsupported (no supported features).");
 
-                    FacadeTestUtils.InvokeOrSkip(() => display.GetPowerOptimizationSetting(settings), "Power optimization settings unsupported");
+                var settings = new PowerOptimizationSettingsDto();
+                if ((powerCaps.Value.SupportedFeatures & (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_LRR) != 0)
+                {
+                    settings.PowerOptimizationFeature = (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_LRR;
+                }
+                else if ((powerCaps.Value.SupportedFeatures & (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_FBC) != 0)
+                {
+                    settings.PowerOptimizationFeature = (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_FBC;
+                }
+                else if ((powerCaps.Value.SupportedFeatures & (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_PSR) != 0)
+                {
+                    settings.PowerOptimizationFeature = (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_PSR;
+                    settings.PowerSource = ctl_power_source_t.CTL_POWER_SOURCE_DC;
+                    settings.PowerOptimizationPlan = ctl_power_optimization_plan_t.CTL_POWER_OPTIMIZATION_PLAN_BALANCED;
+                }
+                else if ((powerCaps.Value.SupportedFeatures & (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_DPST) != 0)
+                {
+                    settings.PowerOptimizationFeature = (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_DPST;
+                    settings.PowerSource = ctl_power_source_t.CTL_POWER_SOURCE_DC;
+                    settings.PowerOptimizationPlan = ctl_power_optimization_plan_t.CTL_POWER_OPTIMIZATION_PLAN_BALANCED;
                 }
                 else
                 {
                     throw new SkipException("Power optimization settings unsupported (no supported features).");
                 }
+
+                FacadeTestUtils.InvokeOrSkip(() => display.GetPowerOptimizationSetting(settings), "Power optimization settings unsupported");
 
                 FacadeTestUtils.InvokeOrSkip(() => display.GetSupportedScalingCapability(), "Scaling caps unsupported");
                 FacadeTestUtils.InvokeOrSkip(() => display.GetCurrentScaling(), "Scaling settings unsupported");
@@ -102,7 +98,8 @@ namespace IGCLWrapper.FacadeTests
                 FacadeTestUtils.InvokeOrSkip(() => display.GetRetroScalingSettings(), "Retro scaling settings unsupported");
 
                 var encoderProps = FacadeTestUtils.InvokeOrSkip(() => display.GetAdapterDisplayEncoderProperties(), "Encoder properties unsupported");
-                var isCompanion = (encoderProps.EncoderConfigFlags & (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_COMPANION_DISPLAY) != 0;
+                Skip.If(!encoderProps.HasValue, "Encoder properties not supported on this hardware.");
+                var isCompanion = (encoderProps.Value.EncoderConfigFlags & (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_COMPANION_DISPLAY) != 0;
                 if (isCompanion)
                 {
                     try
@@ -137,7 +134,7 @@ namespace IGCLWrapper.FacadeTests
                 FacadeTestUtils.InvokeOrSkip(() => display.GetVblankTimestamp(), "Vblank unsupported");
 
                 var muxes = display.EnumerateMuxDevices();
-                if (muxes.Length > 0)
+                if (muxes != null && muxes.Length > 0)
                 {
                     FacadeTestUtils.InvokeOrSkip(() => display.GetMuxProperties(muxes[0]), "Mux properties unsupported");
                 }
@@ -154,11 +151,12 @@ namespace IGCLWrapper.FacadeTests
                 Skip.If(display == null, "No displays connected.");
 
                 var wireFormat = FacadeTestUtils.InvokeOrSkip(() => display!.GetWireFormat(), "Wire format unsupported");
-                Assert.True(wireFormat.Size > 0);
-                Assert.NotNull(wireFormat.SupportedWireFormat);
-                Assert.Equal(4, wireFormat.SupportedWireFormat!.Count);
-                Assert.True(wireFormat.Equals(wireFormat));
-                _ = wireFormat.GetHashCode();
+                Skip.If(!wireFormat.HasValue, "Wire format not supported on this hardware.");
+                Assert.True(wireFormat.Value.Size > 0);
+                Assert.NotNull(wireFormat.Value.SupportedWireFormat);
+                Assert.Equal(4, wireFormat.Value.SupportedWireFormat!.Count);
+                Assert.True(wireFormat.Value.Equals(wireFormat.Value));
+                _ = wireFormat.Value.GetHashCode();
             }
         }
 
@@ -174,11 +172,12 @@ namespace IGCLWrapper.FacadeTests
                 try
                 {
                     var edid = display.GetEdidManagement();
-                    if (edid.Length == 0)
+                    if (edid == null || edid.Length == 0)
                         throw new SkipException("EDID not available.");
 
-                    var (edidWithFlags, _) = display.GetEdidManagementWithFlags();
-                    Assert.True(edidWithFlags.Length > 0);
+                    var withFlagsResult = display.GetEdidManagementWithFlags();
+                    if (withFlagsResult.HasValue)
+                        Assert.True(withFlagsResult.Value.edid.Length > 0);
                 }
                 catch (IGCLException ex) when (ex.Result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
                                                ex.Result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION ||
@@ -200,7 +199,7 @@ namespace IGCLWrapper.FacadeTests
                 var display = adapter.EnumerateDisplayOutputs().FirstOrDefault();
                 Skip.If(display == null, "No displays connected.");
 
-                byte[] data;
+                byte[]? data;
                 try
                 {
                     data = display.GetPanelEdidData();
@@ -211,7 +210,7 @@ namespace IGCLWrapper.FacadeTests
                     throw new SkipException($"Panel descriptor access unsupported: {ex.Result}");
                 }
 
-                Skip.If(data.Length == 0, "Panel descriptor data unavailable.");
+                Skip.If(data == null || data.Length == 0, "Panel descriptor data unavailable.");
 
                 var edid = new EDID(data);
                 var manufacturerCode = edid.ManufacturerCode;

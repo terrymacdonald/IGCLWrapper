@@ -25,14 +25,16 @@ namespace IGCLWrapper.FacadeTests
             RunActiveDisplayTest(nameof(SetCurrentSharpness_ShouldApplyAndRevert_WhenSupported), display =>
             {
                 var capsInfo = FacadeTestUtils.InvokeOrSkip(() => display.GetSharpnessCaps(), "Sharpness caps unsupported");
-                if (capsInfo.SupportedFilterFlags == 0 || (capsInfo.FilterProperties?.Count ?? 0) == 0)
+                if (!capsInfo.HasValue || capsInfo.Value.SupportedFilterFlags == 0 || (capsInfo.Value.FilterProperties?.Count ?? 0) == 0)
                     return false;
 
                 var current = FacadeTestUtils.InvokeOrSkip(() => display.GetCurrentSharpness(), "Sharpness unsupported");
-                if (!TryBuildSharpnessUpdate(capsInfo, current, out var updated))
+                if (!current.HasValue)
+                    return false;
+                if (!TryBuildSharpnessUpdate(capsInfo.Value, current.Value, out var updated))
                     return false;
 
-                ApplyAndRevert(() => display.SetCurrentSharpness(updated), () => display.SetCurrentSharpness(current));
+                ApplyAndRevert(() => display.SetCurrentSharpness(updated), () => display.SetCurrentSharpness(current.Value));
                 return true;
             });
         }
@@ -44,16 +46,16 @@ namespace IGCLWrapper.FacadeTests
             RunActiveDisplayTest(nameof(SetPowerOptimizationSetting_ShouldApplyAndRevert_WhenSupported), display =>
             {
                 var caps = FacadeTestUtils.InvokeOrSkip(() => display.GetPowerOptimizationCaps(), "Power optimization caps unsupported");
-                if (caps.SupportedFeatures == 0)
+                if (!caps.HasValue || caps.Value.SupportedFeatures == 0)
                     return false;
 
-                if ((caps.SupportedFeatures & (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_PSR) != 0)
+                if ((caps.Value.SupportedFeatures & (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_PSR) != 0)
                     return TryApplyPowerOptimizationPsr(display);
 
-                if ((caps.SupportedFeatures & (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_LRR) != 0)
+                if ((caps.Value.SupportedFeatures & (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_LRR) != 0)
                     return TryApplyPowerOptimizationLrr(display);
 
-                if ((caps.SupportedFeatures & (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_DPST) != 0)
+                if ((caps.Value.SupportedFeatures & (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_DPST) != 0)
                     return TryApplyPowerOptimizationDpst(display);
 
                 return false;
@@ -67,13 +69,17 @@ namespace IGCLWrapper.FacadeTests
             RunActiveDisplayTest(nameof(SetBrightnessSetting_ShouldApplyAndRevert_WhenSupported), display =>
             {
                 var encoder = FacadeTestUtils.InvokeOrSkip(() => display.GetAdapterDisplayEncoderProperties(), "Encoder properties unsupported");
-                var isCompanion = (encoder.EncoderConfigFlags & (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_COMPANION_DISPLAY) != 0;
+                if (!encoder.HasValue)
+                    return false;
+                var isCompanion = (encoder.Value.EncoderConfigFlags & (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_COMPANION_DISPLAY) != 0;
                 if (!isCompanion)
                     return false;
 
                 var current = display.GetBrightnessSetting();
-                var newTarget = PickDifferentBrightness(current.CurrentBrightness);
-                if (newTarget == current.CurrentBrightness)
+                if (!current.HasValue)
+                    return false;
+                var newTarget = PickDifferentBrightness(current.Value.CurrentBrightness);
+                if (newTarget == current.Value.CurrentBrightness)
                     return false;
 
                 var setDto = new BrightnessSetDto
@@ -88,7 +94,7 @@ namespace IGCLWrapper.FacadeTests
                     {
                         var revert = new BrightnessSetDto
                         {
-                            TargetBrightness = current.CurrentBrightness,
+                            TargetBrightness = current.Value.CurrentBrightness,
                             SmoothTransitionTimeInMs = 200
                         };
                         display.SetBrightnessSetting(revert);
@@ -105,14 +111,16 @@ namespace IGCLWrapper.FacadeTests
             RunActiveDisplayTest(nameof(SetRetroScalingSettings_ShouldApplyAndRevert_WhenSupported), display =>
             {
                 var caps = FacadeTestUtils.InvokeOrSkip(() => display.GetSupportedRetroScalingCapability(), "Retro scaling caps unsupported");
-                if (caps.SupportedRetroScaling == 0)
+                if (!caps.HasValue || caps.Value.SupportedRetroScaling == 0)
                     return false;
 
                 var current = FacadeTestUtils.InvokeOrSkip(() => display.GetRetroScalingSettings(), "Retro scaling settings unsupported");
-                if (!TryBuildRetroScalingUpdate(caps, current, out var updated))
+                if (!current.HasValue)
+                    return false;
+                if (!TryBuildRetroScalingUpdate(caps.Value, current.Value, out var updated))
                     return false;
 
-                ApplyAndRevert(() => display.SetRetroScalingSettings(updated), () => display.SetRetroScalingSettings(current));
+                ApplyAndRevert(() => display.SetRetroScalingSettings(updated), () => display.SetRetroScalingSettings(current.Value));
                 return true;
             });
         }
@@ -124,14 +132,16 @@ namespace IGCLWrapper.FacadeTests
             RunActiveDisplayTest(nameof(SetCurrentScaling_ShouldApplyAndRevert_WhenSupported), display =>
             {
                 var caps = FacadeTestUtils.InvokeOrSkip(() => display.GetSupportedScalingCapability(), "Scaling caps unsupported");
-                if (caps.SupportedScaling == 0)
+                if (!caps.HasValue || caps.Value.SupportedScaling == 0)
                     return false;
 
                 var current = FacadeTestUtils.InvokeOrSkip(() => display.GetCurrentScaling(), "Scaling settings unsupported");
-                if (!TryBuildScalingUpdate(caps, current, out var updated))
+                if (!current.HasValue)
+                    return false;
+                if (!TryBuildScalingUpdate(caps.Value, current.Value, out var updated))
                     return false;
 
-                ApplyAndRevert(() => display.SetCurrentScaling(updated), () => display.SetCurrentScaling(current));
+                ApplyAndRevert(() => display.SetCurrentScaling(updated), () => display.SetCurrentScaling(current.Value));
                 return true;
             });
         }
@@ -143,18 +153,20 @@ namespace IGCLWrapper.FacadeTests
             RunActiveDisplayTest(nameof(SetLaceConfig_ShouldApplyAndRevert_WhenSupported), display =>
             {
                 var caps = FacadeTestUtils.InvokeOrSkip(() => display.GetPowerOptimizationCaps(), "Power optimization caps unsupported");
-                if ((caps.SupportedFeatures & (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_LACE) == 0)
+                if (!caps.HasValue || (caps.Value.SupportedFeatures & (uint)ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_LACE) == 0)
                     return false;
 
                 var current = FacadeTestUtils.InvokeOrSkip(() => display.GetLACEConfig(), "LACE config unsupported");
-
-                var updated = current;
+                if (!current.HasValue)
+                    return false;
+                var currentValue = current.Value;
+                var updated = currentValue;
                 updated.OpTypeSet = ctl_set_operation_t.CTL_SET_OPERATION_CUSTOM;
                 updated.Enabled = true;
                 updated.Trigger = (uint)ctl_lace_trigger_flag_t.CTL_LACE_TRIGGER_FLAG_FIXED_AGGRESSIVENESS;
 
-                var newAggressiveness = PickDifferentAggressiveness(current.LaceConfig.FixedAggressivenessLevelPercent);
-                if (newAggressiveness == current.LaceConfig.FixedAggressivenessLevelPercent)
+                var newAggressiveness = PickDifferentAggressiveness(currentValue.LaceConfig.FixedAggressivenessLevelPercent);
+                if (newAggressiveness == currentValue.LaceConfig.FixedAggressivenessLevelPercent)
                     return false;
 
                 updated.LaceConfig.FixedAggressivenessLevelPercent = newAggressiveness;
@@ -163,7 +175,7 @@ namespace IGCLWrapper.FacadeTests
                     () => display.SetLACEConfig(updated),
                     () =>
                     {
-                        var revert = current;
+                        var revert = currentValue;
                         revert.OpTypeSet = ctl_set_operation_t.CTL_SET_OPERATION_CUSTOM;
                         display.SetLACEConfig(revert);
                     });
@@ -179,19 +191,22 @@ namespace IGCLWrapper.FacadeTests
             RunActiveDisplayTest(nameof(SetIntelArcSyncProfile_ShouldApplyAndRevert_WhenSupported), display =>
             {
                 var monitorCaps = FacadeTestUtils.InvokeOrSkip(() => display.GetIntelArcSyncInfoForMonitor(), "Arc Sync info unsupported");
-                if (!monitorCaps.IsIntelArcSyncSupported)
+                if (!monitorCaps.HasValue || !monitorCaps.Value.IsIntelArcSyncSupported)
                     return false;
 
                 var current = FacadeTestUtils.InvokeOrSkip(() => display.GetIntelArcSyncProfile(), "Arc Sync profile unsupported");
-                var updated = current;
-                updated.IntelArcSyncProfile = current.IntelArcSyncProfile == ctl_intel_arc_sync_profile_t.CTL_INTEL_ARC_SYNC_PROFILE_OFF
+                if (!current.HasValue)
+                    return false;
+                var currentValue = current.Value;
+                var updated = currentValue;
+                updated.IntelArcSyncProfile = currentValue.IntelArcSyncProfile == ctl_intel_arc_sync_profile_t.CTL_INTEL_ARC_SYNC_PROFILE_OFF
                     ? ctl_intel_arc_sync_profile_t.CTL_INTEL_ARC_SYNC_PROFILE_RECOMMENDED
                     : ctl_intel_arc_sync_profile_t.CTL_INTEL_ARC_SYNC_PROFILE_OFF;
 
-                if (updated.IntelArcSyncProfile == current.IntelArcSyncProfile)
+                if (updated.IntelArcSyncProfile == currentValue.IntelArcSyncProfile)
                     return false;
 
-                ApplyAndRevert(() => display.SetIntelArcSyncProfile(updated), () => display.SetIntelArcSyncProfile(current));
+                ApplyAndRevert(() => display.SetIntelArcSyncProfile(updated), () => display.SetIntelArcSyncProfile(currentValue));
                 return true;
             });
         }
@@ -203,16 +218,20 @@ namespace IGCLWrapper.FacadeTests
             RunActiveDisplayTest(nameof(SetDynamicContrastEnhancement_ShouldApplyAndRevert_WhenSupported), display =>
             {
                 var encoder = FacadeTestUtils.InvokeOrSkip(() => display.GetAdapterDisplayEncoderProperties(), "Encoder properties unsupported");
-                var isInternal = (encoder.EncoderConfigFlags & (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_INTERNAL_DISPLAY) != 0;
+                if (!encoder.HasValue)
+                    return false;
+                var isInternal = (encoder.Value.EncoderConfigFlags & (uint)ctl_encoder_config_flag_t.CTL_ENCODER_CONFIG_FLAG_INTERNAL_DISPLAY) != 0;
                 if (!isInternal)
                     return false;
 
                 var currentResult = FacadeTestUtils.InvokeOrSkip(() => display.GetDynamicContrastEnhancement(), "DCE unsupported");
-                var current = currentResult.args;
+                if (!currentResult.HasValue)
+                    return false;
+                var current = currentResult.Value.args;
                 if (!current.IsSupported)
                     return false;
 
-                var histogram = currentResult.histogram;
+                var histogram = currentResult.Value.histogram;
 
                 if (!TryBuildDceUpdate(current, out var updated))
                     return false;
@@ -231,10 +250,12 @@ namespace IGCLWrapper.FacadeTests
             RunActiveDisplayTest(nameof(SetWireFormat_ShouldApplyAndRevert_WhenSupported), display =>
             {
                 var current = FacadeTestUtils.InvokeOrSkip(() => display.GetWireFormat(), "Wire format unsupported");
-                if (!TryBuildWireFormatUpdate(current, out var updated))
+                if (!current.HasValue)
+                    return false;
+                if (!TryBuildWireFormatUpdate(current.Value, out var updated))
                     return false;
 
-                ApplyAndRevert(() => display.SetWireFormat(updated), () => display.SetWireFormat(current));
+                ApplyAndRevert(() => display.SetWireFormat(updated), () => display.SetWireFormat(current.Value));
                 return true;
             });
         }
@@ -246,11 +267,13 @@ namespace IGCLWrapper.FacadeTests
             RunActiveDisplayTest(nameof(SetDisplaySettings_ShouldApplyAndRevert_WhenSupported), display =>
             {
                 var current = FacadeTestUtils.InvokeOrSkip(() => display.GetDisplaySettings(), "Display settings unsupported");
-                if (!TryBuildDisplaySettingsUpdate(current, out var updated, out var validFlags))
+                if (!current.HasValue)
+                    return false;
+                if (!TryBuildDisplaySettingsUpdate(current.Value, out var updated, out var validFlags))
                     return false;
 
                 updated.ValidFlags = validFlags;
-                var revert = current;
+                var revert = current.Value;
                 revert.ValidFlags = validFlags;
 
                 ApplyAndRevert(() => display.SetDisplaySettings(updated), () => display.SetDisplaySettings(revert));
@@ -268,14 +291,14 @@ namespace IGCLWrapper.FacadeTests
                 capabilityQuery.QueryType = ctl_pixtx_config_query_type_t.CTL_PIXTX_CONFIG_QUERY_TYPE_CAPABILITY;
 
                 var capability = FacadeTestUtils.InvokeOrSkip(() => display.PixelTransformationGetConfigNative(capabilityQuery), "Pixel transformation unsupported");
-                if (!TryPickPixTxMatrixBlock(capability.blocks, out var block))
+                if (!capability.HasValue || !TryPickPixTxMatrixBlock(capability.Value.blocks, out var block))
                     return false;
 
                 PrepareMatrixBlock(ref block);
                 var currentQuery = IGCLDisplayHelper.CreatePixtxPipeGetConfig();
                 currentQuery.QueryType = ctl_pixtx_config_query_type_t.CTL_PIXTX_CONFIG_QUERY_TYPE_CURRENT;
                 var current = FacadeTestUtils.InvokeOrSkip(() => display.PixelTransformationGetConfigNative(currentQuery, new[] { block }), "Pixel transformation unsupported");
-                if (!TryBuildPixTxMatrixUpdate(current.blocks, out var original, out var updated))
+                if (!current.HasValue || !TryBuildPixTxMatrixUpdate(current.Value.blocks, out var original, out var updated))
                     return false;
 
                 ApplyAndRevert(() => SetPixTxConfig(display, updated), () => SetPixTxConfig(display, original));
@@ -290,14 +313,15 @@ namespace IGCLWrapper.FacadeTests
             RunActiveDisplayTest(nameof(SoftwarePsr_ShouldApplyAndRevert_WhenSupported), display =>
             {
                 var current = FacadeTestUtils.InvokeOrSkip(() => display.SoftwarePSR(new SwPsrSettingsDto { Set = false }), "Software PSR unsupported");
-                if (!current.Supported)
+                if (!current.HasValue || !current.Value.Supported)
                     return false;
 
-                var updated = current;
+                var currentValue = current.Value;
+                var updated = currentValue;
                 updated.Set = true;
-                updated.Enable = !current.Enable;
+                updated.Enable = !currentValue.Enable;
 
-                var revert = current;
+                var revert = currentValue;
                 revert.Set = true;
 
                 ApplyAndRevert(() => display.SoftwarePSR(updated), () => display.SoftwarePSR(revert));
@@ -652,7 +676,13 @@ namespace IGCLWrapper.FacadeTests
         {
             try
             {
-                current = display.GetPowerOptimizationSetting(request);
+                var result = display.GetPowerOptimizationSetting(request);
+                if (!result.HasValue)
+                {
+                    current = default;
+                    return false;
+                }
+                current = result.Value;
                 return true;
             }
             catch (IGCLException ex) when (ex.Result == ctl_result_t.CTL_RESULT_ERROR_INVALID_POWERFEATURE_OPTIMIZATION_FLAG ||

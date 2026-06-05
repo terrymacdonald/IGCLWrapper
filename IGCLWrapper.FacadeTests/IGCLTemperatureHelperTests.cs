@@ -18,7 +18,8 @@ namespace IGCLWrapper.FacadeTests
                 var sensors = helper.EnumTemperatureSensors();
                 Skip.If(sensors.Count == 0, "No temperature sensors.");
                 var props = helper.TemperatureGetProperties(sensors[0]);
-                Assert.True(props.Size > 0);
+                Skip.If(!props.HasValue, "Temperature properties not supported on this hardware.");
+                Assert.True(props.Value.Size > 0);
                 helper.TemperatureGetState(sensors[0]);
             }
         }

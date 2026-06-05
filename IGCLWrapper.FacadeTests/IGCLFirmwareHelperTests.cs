@@ -22,7 +22,7 @@ namespace IGCLWrapper.FacadeTests
 
                 var helper = api.GetFirmwareHelper(discrete);
                 var props = FacadeTestUtils.InvokeOrSkip(() => helper.GetFirmwareProperties(), "Firmware properties unsupported");
-                if (props.Size == 0) throw new SkipException("Firmware properties unsupported (empty).");
+                if (!props.HasValue || props.Value.Size == 0) throw new SkipException("Firmware properties unsupported (empty).");
                 var components = helper.EnumerateFirmwareComponents();
                 if (components.Count > 0)
                 {
@@ -44,13 +44,14 @@ namespace IGCLWrapper.FacadeTests
 
                 var helper = api.GetFirmwareHelper(discrete);
                 var props = FacadeTestUtils.InvokeOrSkip(() => helper.GetFirmwareProperties(), "Firmware properties unsupported");
-                Assert.True(props.Size > 0);
-                Assert.NotNull(props.Name);
-                Assert.NotNull(props.FirmwareVersion);
-                Assert.NotNull(props.Reserved);
-                Assert.Equal(16, props.Reserved!.Count);
-                Assert.True(props.Equals(props));
-                _ = props.GetHashCode();
+                Skip.If(!props.HasValue, "Firmware properties not supported on this hardware.");
+                Assert.True(props.Value.Size > 0);
+                Assert.NotNull(props.Value.Name);
+                Assert.NotNull(props.Value.FirmwareVersion);
+                Assert.NotNull(props.Value.Reserved);
+                Assert.Equal(16, props.Value.Reserved!.Count);
+                Assert.True(props.Value.Equals(props.Value));
+                _ = props.Value.GetHashCode();
             }
         }
 
@@ -70,13 +71,14 @@ namespace IGCLWrapper.FacadeTests
                 Skip.If(components.Count == 0, "No firmware components reported.");
 
                 var props = FacadeTestUtils.InvokeOrSkip(() => helper.GetFirmwareComponentProperties(components[0]), "Firmware component properties unsupported");
-                Assert.True(props.Size > 0);
-                Assert.NotNull(props.Name);
-                Assert.NotNull(props.ComponentVersion);
-                Assert.NotNull(props.Reserved);
-                Assert.Equal(20, props.Reserved!.Count);
-                Assert.True(props.Equals(props));
-                _ = props.GetHashCode();
+                Skip.If(!props.HasValue, "Firmware component properties not supported on this hardware.");
+                Assert.True(props.Value.Size > 0);
+                Assert.NotNull(props.Value.Name);
+                Assert.NotNull(props.Value.ComponentVersion);
+                Assert.NotNull(props.Value.Reserved);
+                Assert.Equal(20, props.Value.Reserved!.Count);
+                Assert.True(props.Value.Equals(props.Value));
+                _ = props.Value.GetHashCode();
             }
         }
     }

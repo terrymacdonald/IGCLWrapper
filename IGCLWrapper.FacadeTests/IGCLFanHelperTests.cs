@@ -18,7 +18,8 @@ namespace IGCLWrapper.FacadeTests
                 var fans = helper.EnumFans();
                 Skip.If(fans.Count == 0, "No fans present.");
                 var props = FacadeTestUtils.InvokeOrSkip(() => helper.FanGetProperties(fans[0]), "Fan properties unsupported");
-                Assert.True(props.Size > 0);
+                Skip.If(!props.HasValue, "Fan properties not supported on this hardware.");
+                Assert.True(props.Value.Size > 0);
                 FacadeTestUtils.InvokeOrSkip(() => helper.FanGetConfig(fans[0]), "Fan config unsupported");
             }
         }

@@ -17,7 +17,8 @@ namespace IGCLWrapper.FacadeTests
             {
                 var helper = api.GetMediaHelper(adapter);
                 var caps = helper.GetSupportedVideoProcessingCapabilities();
-                Assert.True(caps.Size > 0);
+                Skip.If(!caps.HasValue, "Video processing capabilities not supported on this hardware.");
+                Assert.True(caps.Value.Size > 0);
             }
         }
 

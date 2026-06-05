@@ -18,7 +18,8 @@ namespace IGCLWrapper.FacadeTests
                 var engines = helper.EnumEngineGroups();
                 Skip.If(engines.Count == 0, "No engine groups.");
                 var props = helper.EngineGetProperties(engines[0]);
-                Assert.True(props.Size > 0);
+                Skip.If(!props.HasValue, "Engine properties not supported on this hardware.");
+                Assert.True(props.Value.Size > 0);
                 helper.EngineGetActivity(engines[0]);
             }
         }

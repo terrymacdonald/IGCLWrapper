@@ -17,7 +17,8 @@ namespace IGCLWrapper.FacadeTests
             {
                 var helper = api.Get3DHelper(adapter);
                 var caps = FacadeTestUtils.InvokeOrSkip(() => helper.GetSupported3DCapabilities(), "3D capabilities unsupported");
-                Assert.True(caps.Size > 0);
+                Skip.If(!caps.HasValue, "3D capabilities not supported on this hardware.");
+                Assert.True(caps.Value.Size > 0);
             }
         }
 
