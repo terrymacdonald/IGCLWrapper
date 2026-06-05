@@ -23,15 +23,17 @@ namespace IGCLWrapper
         /// <summary>
         /// Get firmware properties for the adapter as a DTO.
         /// </summary>
-        /// <returns>Firmware properties DTO.</returns>
-        public unsafe FirmwarePropertiesDto GetFirmwareProperties()
+        /// <returns>Firmware properties DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe FirmwarePropertiesDto? GetFirmwareProperties()
         {
             ThrowIfDisposed();
             var props = CreateFirmwareProperties();
             var result = IGCL.ctlGetFirmwareProperties((_ctl_device_adapter_handle_t*)_adapter, &props);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, $"Failed to get firmware properties: {result}");
-            return FirmwarePropertiesDto.FromNative(props);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return FirmwarePropertiesDto.FromNative(props);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, $"Failed to get firmware properties: {result}");
         }
 
         /// <summary>
@@ -48,27 +50,33 @@ namespace IGCLWrapper
         /// Get firmware component properties as a DTO.
         /// </summary>
         /// <param name="firmwareHandle">Firmware component handle.</param>
-        /// <returns>Firmware component properties DTO.</returns>
-        public unsafe FirmwareComponentPropertiesDto GetFirmwareComponentProperties(IntPtr firmwareHandle)
+        /// <returns>Firmware component properties DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe FirmwareComponentPropertiesDto? GetFirmwareComponentProperties(IntPtr firmwareHandle)
         {
             ThrowIfDisposed();
             var props = CreateFirmwareComponentProperties();
             var result = IGCL.ctlGetFirmwareComponentProperties((_ctl_firmware_component_handle_t*)firmwareHandle, &props);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get firmware component properties");
-            return FirmwareComponentPropertiesDto.FromNative(props);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return FirmwareComponentPropertiesDto.FromNative(props);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get firmware component properties");
         }
 
         /// <summary>
         /// Allow or disallow PCIe link speed updates.
         /// </summary>
         /// <param name="allow">True to allow updates; otherwise false.</param>
-        public unsafe void AllowPCIeLinkSpeedUpdate(bool allow)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool AllowPCIeLinkSpeedUpdate(bool allow)
         {
             ThrowIfDisposed();
             var result = IGCL.ctlAllowPCIeLinkSpeedUpdate((_ctl_device_adapter_handle_t*)_adapter, (byte)(allow ? 1 : 0));
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to update PCIe link speed allowance");
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, "Failed to update PCIe link speed allowance");
         }
 
         private static unsafe IReadOnlyList<IntPtr> EnumerateHandles(_ctl_device_adapter_handle_t* adapter)
@@ -87,6 +95,18 @@ namespace IGCLWrapper
                     throw new IGCLException(result, "Failed to enumerate firmware components");
             }
             return handles;
+        }
+
+        /// <summary>
+        /// Returns true when the result code indicates a feature is not available
+        /// on the current hardware or driver, rather than a genuine API failure.
+        /// </summary>
+        private static bool IsUnsupportedResult(ctl_result_t result)
+        {
+            return result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                || result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION
+                || result == ctl_result_t.CTL_RESULT_ERROR_INVALID_OPERATION_TYPE
+                || result == ctl_result_t.CTL_RESULT_ERROR_INVALID_ARGUMENT;
         }
 
         private void ThrowIfDisposed()

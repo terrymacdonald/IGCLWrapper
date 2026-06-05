@@ -22,41 +22,59 @@ namespace IGCLWrapper
         /// <summary>
         /// Get supported 3D feature capabilities for the adapter.
         /// </summary>
-        /// <returns>3D feature capabilities DTO.</returns>
-        public unsafe ThreeDFeatureCapsDto GetSupported3DCapabilities()
+        /// <returns>3D feature capabilities DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe ThreeDFeatureCapsDto? GetSupported3DCapabilities()
         {
             ThrowIfDisposed();
             var caps = Create3DFeatureCaps();
             var result = IGCL.ctlGetSupported3DCapabilities((_ctl_device_adapter_handle_t*)_adapter, &caps);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get 3D capabilities");
-            return ThreeDFeatureCapsDto.FromNative(caps);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return ThreeDFeatureCapsDto.FromNative(caps);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get 3D capabilities");
         }
 
         /// <summary>
         /// Get a 3D feature using a DTO request.
         /// </summary>
         /// <param name="feature">3D feature DTO.</param>
-        /// <returns>Updated 3D feature DTO.</returns>
-        public ThreeDFeatureGetSetDto Get3DFeature(ThreeDFeatureGetSetDto feature)
+        /// <returns>Updated 3D feature DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public ThreeDFeatureGetSetDto? Get3DFeature(ThreeDFeatureGetSetDto feature)
         {
             ThrowIfDisposed();
-            var request = feature;
-            request.Set = false;
-            return ExecuteGetSet3DFeature(request);
+            try
+            {
+                var request = feature;
+                request.Set = false;
+                return ExecuteGetSet3DFeature(request);
+            }
+            catch (IGCLException ex) when (IsUnsupportedResult(ex.Result))
+            {
+                return null;
+            }
         }
 
         /// <summary>
         /// Set a 3D feature using a DTO request.
         /// </summary>
         /// <param name="feature">3D feature DTO.</param>
-        public void Set3DFeature(ThreeDFeatureGetSetDto feature)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public bool Set3DFeature(ThreeDFeatureGetSetDto feature)
         {
             ThrowIfDisposed();
-            var request = feature;
-            request.Set = true;
-            ValidateSet3DFeatureRequest(request);
-            _ = ExecuteGetSet3DFeature(request);
+            try
+            {
+                var request = feature;
+                request.Set = true;
+                ValidateSet3DFeatureRequest(request);
+                _ = ExecuteGetSet3DFeature(request);
+                return true;
+            }
+            catch (IGCLException ex) when (IsUnsupportedResult(ex.Result))
+            {
+                return false;
+            }
         }
 
         private unsafe ThreeDFeatureGetSetDto ExecuteGetSet3DFeature(ThreeDFeatureGetSetDto request)
@@ -98,6 +116,18 @@ namespace IGCLWrapper
             if (result2 != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result2, $"Failed to get/set 3D feature {native.FeatureType}");
             return ThreeDFeatureGetSetDto.FromNative(native);
+        }
+
+        /// <summary>
+        /// Returns true when the result code indicates a feature is not available
+        /// on the current hardware or driver, rather than a genuine API failure.
+        /// </summary>
+        private static bool IsUnsupportedResult(ctl_result_t result)
+        {
+            return result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                || result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION
+                || result == ctl_result_t.CTL_RESULT_ERROR_INVALID_OPERATION_TYPE
+                || result == ctl_result_t.CTL_RESULT_ERROR_INVALID_ARGUMENT;
         }
 
         private void ThrowIfDisposed()

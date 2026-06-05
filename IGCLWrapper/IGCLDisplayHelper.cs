@@ -966,22 +966,24 @@ namespace IGCLWrapper
         /// <summary>
         /// Get adapter display encoder properties as a DTO.
         /// </summary>
-        /// <returns>Adapter display encoder properties DTO.</returns>
-        public unsafe AdapterDisplayEncoderPropertiesDto GetAdapterDisplayEncoderProperties()
+        /// <returns>Adapter display encoder properties DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe AdapterDisplayEncoderPropertiesDto? GetAdapterDisplayEncoderProperties()
         {
             ThrowIfDisposed();
             var props = new ctl_adapter_display_encoder_properties_t { Size = (uint)sizeof(ctl_adapter_display_encoder_properties_t), Version = 0 };
             var result = IGCL.ctlGetAdaperDisplayEncoderProperties((_ctl_display_output_handle_t*)DisplayHandle, &props);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get adapter display encoder properties");
-            return AdapterDisplayEncoderPropertiesDto.FromNative(props);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return AdapterDisplayEncoderPropertiesDto.FromNative(props);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get adapter display encoder properties");
         }
 
         /// <summary>
         /// Get sharpness capabilities and filter properties as a DTO.
         /// </summary>
-        /// <returns>Sharpness capabilities DTO.</returns>
-        public unsafe SharpnessCapsDto GetSharpnessCaps()
+        /// <returns>Sharpness capabilities DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe SharpnessCapsDto? GetSharpnessCaps()
         {
             ThrowIfDisposed();
             var caps = CreateSharpnessCaps();
@@ -989,7 +991,11 @@ namespace IGCLWrapper
             // First pass: get count
             var result = IGCL.ctlGetSharpnessCaps((_ctl_display_output_handle_t*)DisplayHandle, &caps);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS && caps.NumFilterTypes == 0)
+            {
+                if (IsUnsupportedResult(result))
+                    return null;
                 throw new IGCLException(result, "Failed to get sharpness caps");
+            }
 
             if (caps.NumFilterTypes == 0)
                 return SharpnessCapsDto.FromNative(caps, Array.Empty<ctl_sharpness_filter_properties_t>());
@@ -1001,7 +1007,11 @@ namespace IGCLWrapper
                 result = IGCL.ctlGetSharpnessCaps((_ctl_display_output_handle_t*)DisplayHandle, &caps);
                 caps.pFilterProperty = null;
                 if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                {
+                    if (IsUnsupportedResult(result))
+                        return null;
                     throw new IGCLException(result, "Failed to get sharpness caps");
+                }
             }
 
             return SharpnessCapsDto.FromNative(caps, filters);
@@ -1010,43 +1020,51 @@ namespace IGCLWrapper
         /// <summary>
         /// Get current sharpness settings as a DTO.
         /// </summary>
-        /// <returns>Sharpness settings DTO.</returns>
-        public unsafe SharpnessSettingsDto GetCurrentSharpness()
+        /// <returns>Sharpness settings DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe SharpnessSettingsDto? GetCurrentSharpness()
         {
             ThrowIfDisposed();
             var settings = CreateSharpnessSettings();
             var result = IGCL.ctlGetCurrentSharpness((_ctl_display_output_handle_t*)DisplayHandle, &settings);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get current sharpness");
-            return SharpnessSettingsDto.FromNative(settings);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return SharpnessSettingsDto.FromNative(settings);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get current sharpness");
         }
 
         /// <summary>
         /// Set sharpness settings using a DTO.
         /// </summary>
         /// <param name="settings">Sharpness settings DTO.</param>
-        public unsafe void SetCurrentSharpness(SharpnessSettingsDto settings)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool SetCurrentSharpness(SharpnessSettingsDto settings)
         {
             ThrowIfDisposed();
             var copy = settings.ToNative();
             var result = IGCL.ctlSetCurrentSharpness((_ctl_display_output_handle_t*)DisplayHandle, &copy);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to set sharpness");
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, "Failed to set sharpness");
         }
 
         /// <summary>
         /// Perform I2C access using a DTO.
         /// </summary>
         /// <param name="args">I2C access arguments DTO.</param>
-        /// <returns>Updated I2C access arguments DTO.</returns>
-        public unsafe I2CAccessArgsDto I2CAccess(I2CAccessArgsDto args)
+        /// <returns>Updated I2C access arguments DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe I2CAccessArgsDto? I2CAccess(I2CAccessArgsDto args)
         {
             ThrowIfDisposed();
             var native = args.ToNative();
             var result = IGCL.ctlI2CAccess((_ctl_display_output_handle_t*)DisplayHandle, &native);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "I2C access failed");
-            return I2CAccessArgsDto.FromNative(native);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return I2CAccessArgsDto.FromNative(native);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "I2C access failed");
         }
 
         /// <summary>
@@ -1054,52 +1072,58 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="pinPair">I2C pin pair handle.</param>
         /// <param name="args">I2C access arguments DTO.</param>
-        /// <returns>Updated I2C access pin pair arguments DTO.</returns>
-        public unsafe I2CAccessPinPairArgsDto I2CAccessOnPinPair(IntPtr pinPair, I2CAccessPinPairArgsDto args)
+        /// <returns>Updated I2C access pin pair arguments DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe I2CAccessPinPairArgsDto? I2CAccessOnPinPair(IntPtr pinPair, I2CAccessPinPairArgsDto args)
         {
             ThrowIfDisposed();
             var native = args.ToNative();
             var result = IGCL.ctlI2CAccessOnPinPair((_ctl_i2c_pin_pair_handle_t*)pinPair, &native);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "I2C access on pin pair failed");
-            return I2CAccessPinPairArgsDto.FromNative(native);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return I2CAccessPinPairArgsDto.FromNative(native);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "I2C access on pin pair failed");
         }
 
         /// <summary>
         /// Perform AUX channel access using a DTO.
         /// </summary>
         /// <param name="args">AUX access arguments DTO.</param>
-        /// <returns>Updated AUX access arguments DTO.</returns>
-        public unsafe AuxAccessArgsDto AUXAccess(AuxAccessArgsDto args)
+        /// <returns>Updated AUX access arguments DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe AuxAccessArgsDto? AUXAccess(AuxAccessArgsDto args)
         {
             ThrowIfDisposed();
             var native = args.ToNative();
             var result = IGCL.ctlAUXAccess((_ctl_display_output_handle_t*)DisplayHandle, &native);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "AUX access failed");
-            return AuxAccessArgsDto.FromNative(native);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return AuxAccessArgsDto.FromNative(native);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "AUX access failed");
         }
 
         /// <summary>
         /// Get power optimization capabilities as a DTO.
         /// </summary>
-        /// <returns>Power optimization capabilities DTO.</returns>
-        public unsafe PowerOptimizationCapsDto GetPowerOptimizationCaps()
+        /// <returns>Power optimization capabilities DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe PowerOptimizationCapsDto? GetPowerOptimizationCaps()
         {
             ThrowIfDisposed();
             var caps = CreatePowerOptimizationCaps();
             var result = IGCL.ctlGetPowerOptimizationCaps((_ctl_display_output_handle_t*)DisplayHandle, &caps);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get power optimization caps");
-            return PowerOptimizationCapsDto.FromNative(caps);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return PowerOptimizationCapsDto.FromNative(caps);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get power optimization caps");
         }
 
         /// <summary>
         /// Get power optimization settings using a DTO.
         /// </summary>
         /// <param name="settings">Settings request DTO.</param>
-        /// <returns>Updated settings DTO.</returns>
-        public unsafe PowerOptimizationSettingsDto GetPowerOptimizationSetting(PowerOptimizationSettingsDto settings)
+        /// <returns>Updated settings DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe PowerOptimizationSettingsDto? GetPowerOptimizationSetting(PowerOptimizationSettingsDto settings)
         {
             ThrowIfDisposed();
             var copy = settings.ToNative();
@@ -1108,58 +1132,70 @@ namespace IGCLWrapper
             if (copy.Version == 0)
                 copy.Version = 0;
             var result = IGCL.ctlGetPowerOptimizationSetting((_ctl_display_output_handle_t*)DisplayHandle, &copy);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get power optimization settings");
-            return PowerOptimizationSettingsDto.FromNative(copy);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return PowerOptimizationSettingsDto.FromNative(copy);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get power optimization settings");
         }
 
         /// <summary>
         /// Set power optimization settings using a DTO.
         /// </summary>
         /// <param name="settings">Settings DTO.</param>
-        public unsafe void SetPowerOptimizationSetting(PowerOptimizationSettingsDto settings)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool SetPowerOptimizationSetting(PowerOptimizationSettingsDto settings)
         {
             ValidateSetPowerOptimizationSettingsRequest(settings);
             ThrowIfDisposed();
             var copy = settings.ToNative();
             var result = IGCL.ctlSetPowerOptimizationSetting((_ctl_display_output_handle_t*)DisplayHandle, &copy);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to set power optimization settings");
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, "Failed to set power optimization settings");
         }
 
         /// <summary>
         /// Set display brightness using a DTO.
         /// </summary>
         /// <param name="brightness">Brightness settings DTO.</param>
-        public unsafe void SetBrightnessSetting(BrightnessSetDto brightness)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool SetBrightnessSetting(BrightnessSetDto brightness)
         {
             ThrowIfDisposed();
             var copy = brightness.ToNative();
             var result = IGCL.ctlSetBrightnessSetting((_ctl_display_output_handle_t*)DisplayHandle, &copy);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to set brightness");
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, "Failed to set brightness");
         }
 
         /// <summary>
         /// Get display brightness as a DTO.
         /// </summary>
-        /// <returns>Brightness settings DTO.</returns>
-        public unsafe BrightnessGetDto GetBrightnessSetting()
+        /// <returns>Brightness settings DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe BrightnessGetDto? GetBrightnessSetting()
         {
             ThrowIfDisposed();
             var brightness = CreateGetBrightness();
             var result = IGCL.ctlGetBrightnessSetting((_ctl_display_output_handle_t*)DisplayHandle, &brightness);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, $"Failed to get brightness: {result}");
-            return BrightnessGetDto.FromNative(brightness);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return BrightnessGetDto.FromNative(brightness);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, $"Failed to get brightness: {result}");
         }
 
         /// <summary>
         /// Get pixel transformation configuration using native structs.
         /// </summary>
         /// <param name="args">Pipe get config arguments.</param>
-        /// <returns>Tuple containing config and block array.</returns>
-        public unsafe (ctl_pixtx_pipe_get_config_t config, ctl_pixtx_block_config_t[] blocks) PixelTransformationGetConfigNative(ctl_pixtx_pipe_get_config_t args)
+        /// <returns>Tuple containing config and block array, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe (ctl_pixtx_pipe_get_config_t config, ctl_pixtx_block_config_t[] blocks)? PixelTransformationGetConfigNative(ctl_pixtx_pipe_get_config_t args)
         {
             ThrowIfDisposed();
             var config = args;
@@ -1167,7 +1203,11 @@ namespace IGCLWrapper
             // First pass: get NumBlocks
             var result = IGCL.ctlPixelTransformationGetConfig((_ctl_display_output_handle_t*)DisplayHandle, &config);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS && config.NumBlocks == 0)
+            {
+                if (IsUnsupportedResult(result))
+                    return null;
                 throw new IGCLException(result, "Failed to get pixel transformation config");
+            }
 
             if (config.NumBlocks == 0)
                 return (config, Array.Empty<ctl_pixtx_block_config_t>());
@@ -1185,7 +1225,11 @@ namespace IGCLWrapper
                 result = IGCL.ctlPixelTransformationGetConfig((_ctl_display_output_handle_t*)DisplayHandle, &config);
                 config.pBlockConfigs = null;
                 if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                {
+                    if (IsUnsupportedResult(result))
+                        return null;
                     throw new IGCLException(result, "Failed to get pixel transformation config");
+                }
             }
 
             return (config, blocks);
@@ -1196,8 +1240,8 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="args">Pipe get config arguments.</param>
         /// <param name="blocks">Block configs to query.</param>
-        /// <returns>Tuple containing config and block array.</returns>
-        public unsafe (ctl_pixtx_pipe_get_config_t config, ctl_pixtx_block_config_t[] blocks) PixelTransformationGetConfigNative(ctl_pixtx_pipe_get_config_t args, ctl_pixtx_block_config_t[] blocks)
+        /// <returns>Tuple containing config and block array, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe (ctl_pixtx_pipe_get_config_t config, ctl_pixtx_block_config_t[] blocks)? PixelTransformationGetConfigNative(ctl_pixtx_pipe_get_config_t args, ctl_pixtx_block_config_t[] blocks)
         {
             ThrowIfDisposed();
 
@@ -1218,7 +1262,11 @@ namespace IGCLWrapper
                 var result = IGCL.ctlPixelTransformationGetConfig((_ctl_display_output_handle_t*)DisplayHandle, &config);
                 config.pBlockConfigs = null;
                 if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                {
+                    if (IsUnsupportedResult(result))
+                        return null;
                     throw new IGCLException(result, "Failed to get pixel transformation config");
+                }
             }
 
             return (config, blocks);
@@ -1228,37 +1276,47 @@ namespace IGCLWrapper
         /// Get pixel transformation configuration as DTOs (metadata only; LUT sample values require native methods).
         /// </summary>
         /// <param name="args">Pipe get config DTO.</param>
-        /// <returns>Pixel transformation get result DTO.</returns>
-        public PixelTransformationGetResultDto PixelTransformationGetConfig(PixtxPipeGetConfigDto args)
+        /// <returns>Pixel transformation get result DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public PixelTransformationGetResultDto? PixelTransformationGetConfig(PixtxPipeGetConfigDto args)
         {
             var native = PixelTransformationGetConfigNative(args.ToNative());
-            return PixelTransformationGetResultDto.FromNative(native.config, native.blocks);
+            if (native == null)
+                return null;
+            return PixelTransformationGetResultDto.FromNative(native.Value.config, native.Value.blocks);
         }
 
         /// <summary>
         /// Set pixel transformation configuration using a DTO (metadata only; LUT sample values require native methods).
         /// </summary>
         /// <param name="args">Pipe set config DTO.</param>
-        public unsafe void PixelTransformationSetConfig(PixtxPipeSetConfigDto args)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool PixelTransformationSetConfig(PixtxPipeSetConfigDto args)
         {
             ThrowIfDisposed();
             var copy = args.ToNative();
             var result = IGCL.ctlPixelTransformationSetConfig((_ctl_display_output_handle_t*)DisplayHandle, &copy);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to set pixel transformation config");
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, "Failed to set pixel transformation config");
         }
 
         /// <summary>
         /// Set pixel transformation configuration using a native struct (for advanced use cases with raw pointer fields).
         /// </summary>
         /// <param name="args">Pipe set config native struct.</param>
-        public unsafe void PixelTransformationSetConfigNative(ctl_pixtx_pipe_set_config_t args)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool PixelTransformationSetConfigNative(ctl_pixtx_pipe_set_config_t args)
         {
             ThrowIfDisposed();
             var copy = args;
             var result = IGCL.ctlPixelTransformationSetConfig((_ctl_display_output_handle_t*)DisplayHandle, &copy);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to set pixel transformation config");
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, "Failed to set pixel transformation config");
         }
 
         /// <summary>
@@ -1280,8 +1338,8 @@ namespace IGCLWrapper
         /// Access the panel descriptor using a DTO.
         /// </summary>
         /// <param name="args">Panel descriptor access arguments DTO.</param>
-        /// <returns>Updated panel descriptor access arguments DTO.</returns>
-        public unsafe PanelDescriptorAccessArgsDto PanelDescriptorAccess(PanelDescriptorAccessArgsDto args)
+        /// <returns>Updated panel descriptor access arguments DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe PanelDescriptorAccessArgsDto? PanelDescriptorAccess(PanelDescriptorAccessArgsDto args)
         {
             var native = args.ToNativeMetadata();
             byte[]? dataBuffer = null;
@@ -1308,6 +1366,10 @@ namespace IGCLWrapper
                             Buffer.BlockCopy(dataBuffer, 0, copy, 0, readLength);
                         return PanelDescriptorAccessArgsDto.FromNative(resultWithData, copy);
                     }
+                    catch (IGCLException ex) when (IsUnsupportedResult(ex.Result))
+                    {
+                        return null;
+                    }
                     finally
                     {
                         native.pDescriptorData = null;
@@ -1315,15 +1377,22 @@ namespace IGCLWrapper
                 }
             }
 
-            var result = PanelDescriptorAccessNative(native);
-            return PanelDescriptorAccessArgsDto.FromNative(result);
+            try
+            {
+                var result = PanelDescriptorAccessNative(native);
+                return PanelDescriptorAccessArgsDto.FromNative(result);
+            }
+            catch (IGCLException ex) when (IsUnsupportedResult(ex.Result))
+            {
+                return null;
+            }
         }
 
         /// <summary>
         /// Read EDID via panel descriptor access as a single concatenated byte array.
         /// </summary>
-        /// <returns>Concatenated panel descriptor bytes.</returns>
-        public unsafe byte[] GetPanelEdidData()
+        /// <returns>Concatenated panel descriptor bytes, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe byte[]? GetPanelEdidData()
         {
             ThrowIfDisposed();
 
@@ -1333,7 +1402,8 @@ namespace IGCLWrapper
             sizeArgs.DescriptorDataSize = 0;
             sizeArgs.pDescriptorData = null;
 
-            sizeArgs = PanelDescriptorAccessNative(sizeArgs);
+            try { sizeArgs = PanelDescriptorAccessNative(sizeArgs); }
+            catch (IGCLException ex) when (IsUnsupportedResult(ex.Result)) { return null; }
 
             if (sizeArgs.DescriptorDataSize == 0)
                 return Array.Empty<byte>();
@@ -1402,15 +1472,17 @@ namespace IGCLWrapper
         /// <summary>
         /// Get supported retro scaling capabilities as a DTO.
         /// </summary>
-        /// <returns>Retro scaling capabilities DTO.</returns>
-        public unsafe RetroScalingCapsDto GetSupportedRetroScalingCapability()
+        /// <returns>Retro scaling capabilities DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe RetroScalingCapsDto? GetSupportedRetroScalingCapability()
         {
             ThrowIfDisposed();
             var caps = CreateRetroScalingCaps();
             var result = IGCL.ctlGetSupportedRetroScalingCapability((_ctl_device_adapter_handle_t*)AdapterHandle, &caps);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get retro scaling capability");
-            return RetroScalingCapsDto.FromNative(caps);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return RetroScalingCapsDto.FromNative(caps);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get retro scaling capability");
         }
 
         /// <summary>
@@ -1435,12 +1507,19 @@ namespace IGCLWrapper
         /// <summary>
         /// Get retro scaling settings as a DTO.
         /// </summary>
-        /// <returns>Retro scaling settings DTO.</returns>
-        public RetroScalingSettingsDto GetRetroScalingSettings()
+        /// <returns>Retro scaling settings DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public RetroScalingSettingsDto? GetRetroScalingSettings()
         {
-            var request = new RetroScalingSettingsDto { Get = true };
-            var native = GetSetRetroScalingNative(request.ToNative());
-            return RetroScalingSettingsDto.FromNative(native);
+            try
+            {
+                var request = new RetroScalingSettingsDto { Get = true };
+                var native = GetSetRetroScalingNative(request.ToNative());
+                return RetroScalingSettingsDto.FromNative(native);
+            }
+            catch (IGCLException ex) when (IsUnsupportedResult(ex.Result))
+            {
+                return null;
+            }
         }
 
         /// <summary>
@@ -1448,128 +1527,159 @@ namespace IGCLWrapper
         /// </summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         [Obsolete("Use GetSupportedRetroScalingCapability() instead.")]
-        public RetroScalingCapsDto GetSupportedRetroScalingCapabilityDto() => GetSupportedRetroScalingCapability();
+        public RetroScalingCapsDto? GetSupportedRetroScalingCapabilityDto() => GetSupportedRetroScalingCapability();
 
         /// <summary>
         /// Set retro scaling settings using a DTO.
         /// </summary>
         /// <param name="settings">Retro scaling settings DTO.</param>
-        public void SetRetroScalingSettings(RetroScalingSettingsDto settings)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public bool SetRetroScalingSettings(RetroScalingSettingsDto settings)
         {
-            var request = settings;
-            request.Get = false;
-            GetSetRetroScalingNative(request.ToNative());
+            try
+            {
+                var request = settings;
+                request.Get = false;
+                GetSetRetroScalingNative(request.ToNative());
+                return true;
+            }
+            catch (IGCLException ex) when (IsUnsupportedResult(ex.Result))
+            {
+                return false;
+            }
         }
 
         /// <summary>
         /// Get supported scaling capabilities as a DTO.
         /// </summary>
-        /// <returns>Scaling capabilities DTO.</returns>
-        public unsafe ScalingCapsDto GetSupportedScalingCapability()
+        /// <returns>Scaling capabilities DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe ScalingCapsDto? GetSupportedScalingCapability()
         {
             ThrowIfDisposed();
             var caps = CreateScalingCaps();
             var result = IGCL.ctlGetSupportedScalingCapability((_ctl_display_output_handle_t*)DisplayHandle, &caps);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get scaling capability");
-            return ScalingCapsDto.FromNative(caps);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return ScalingCapsDto.FromNative(caps);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get scaling capability");
         }
 
         /// <summary>
         /// Get current scaling settings as a DTO.
         /// </summary>
-        /// <returns>Scaling settings DTO.</returns>
-        public unsafe ScalingSettingsDto GetCurrentScaling()
+        /// <returns>Scaling settings DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe ScalingSettingsDto? GetCurrentScaling()
         {
             ThrowIfDisposed();
             var settings = CreateScalingSettings();
             var result = IGCL.ctlGetCurrentScaling((_ctl_display_output_handle_t*)DisplayHandle, &settings);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get current scaling");
-            return ScalingSettingsDto.FromNative(settings);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return ScalingSettingsDto.FromNative(settings);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get current scaling");
         }
 
         /// <summary>
         /// Set scaling settings using a DTO.
         /// </summary>
         /// <param name="settings">Scaling settings DTO.</param>
-        public unsafe void SetCurrentScaling(ScalingSettingsDto settings)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool SetCurrentScaling(ScalingSettingsDto settings)
         {
             ThrowIfDisposed();
             var copy = settings.ToNative();
             var result = IGCL.ctlSetCurrentScaling((_ctl_display_output_handle_t*)DisplayHandle, &copy);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to set scaling");
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, "Failed to set scaling");
         }
 
         /// <summary>
         /// Get LACE configuration as a DTO.
         /// </summary>
-        /// <returns>LACE config DTO.</returns>
-        public unsafe LaceConfigDto GetLACEConfig()
+        /// <returns>LACE config DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe LaceConfigDto? GetLACEConfig()
         {
             ThrowIfDisposed();
             var config = CreateLaceConfig();
             config.OpTypeGet = (uint)ctl_get_operation_flag_t.CTL_GET_OPERATION_FLAG_CURRENT;
             var result = IGCL.ctlGetLACEConfig((_ctl_display_output_handle_t*)DisplayHandle, &config);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get LACE config");
-            return LaceConfigDto.FromNative(config);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return LaceConfigDto.FromNative(config);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get LACE config");
         }
 
         /// <summary>
         /// Set LACE configuration using a DTO.
         /// </summary>
         /// <param name="config">LACE config DTO.</param>
-        public unsafe void SetLACEConfig(LaceConfigDto config)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool SetLACEConfig(LaceConfigDto config)
         {
             ThrowIfDisposed();
             var copy = config.ToNative();
             var result = IGCL.ctlSetLACEConfig((_ctl_display_output_handle_t*)DisplayHandle, &copy);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to set LACE config");
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, "Failed to set LACE config");
         }
 
         /// <summary>
         /// Call the software PSR API using a DTO.
         /// </summary>
         /// <param name="settings">Software PSR settings DTO.</param>
-        /// <returns>Updated software PSR settings DTO.</returns>
-        public unsafe SwPsrSettingsDto SoftwarePSR(SwPsrSettingsDto settings)
+        /// <returns>Updated software PSR settings DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe SwPsrSettingsDto? SoftwarePSR(SwPsrSettingsDto settings)
         {
             ThrowIfDisposed();
             var copy = settings.ToNative();
             var result = IGCL.ctlSoftwarePSR((_ctl_display_output_handle_t*)DisplayHandle, &copy);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get/set software PSR");
-            return SwPsrSettingsDto.FromNative(copy);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return SwPsrSettingsDto.FromNative(copy);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get/set software PSR");
         }
 
         /// <summary>
         /// Get Intel Arc Sync info for a monitor as a DTO.
         /// </summary>
-        /// <returns>Monitor params DTO.</returns>
-        public unsafe IntelArcSyncMonitorParamsDto GetIntelArcSyncInfoForMonitor()
+        /// <returns>Monitor params DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe IntelArcSyncMonitorParamsDto? GetIntelArcSyncInfoForMonitor()
         {
             ThrowIfDisposed();
             var parameters = CreateArcSyncMonitorParams();
             var result = IGCL.ctlGetIntelArcSyncInfoForMonitor((_ctl_display_output_handle_t*)DisplayHandle, &parameters);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get Intel Arc Sync info");
-            return IntelArcSyncMonitorParamsDto.FromNative(parameters);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return IntelArcSyncMonitorParamsDto.FromNative(parameters);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get Intel Arc Sync info");
         }
 
         /// <summary>
         /// Enumerate mux device handles.
         /// </summary>
-        /// <returns>Array of mux handles.</returns>
-        public unsafe IntPtr[] EnumerateMuxDevices()
+        /// <returns>Array of mux handles, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe IntPtr[]? EnumerateMuxDevices()
         {
             ThrowIfDisposed();
             uint count = 0;
             var result = IGCL.ctlEnumerateMuxDevices((_ctl_api_handle_t*)Api.ApiHandle, &count, null);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS && count == 0)
+            {
+                if (IsUnsupportedResult(result))
+                    return null;
                 throw new IGCLException(result, "Failed to get mux device count");
+            }
             if (count == 0)
                 return Array.Empty<IntPtr>();
 
@@ -1578,7 +1688,11 @@ namespace IGCLWrapper
             {
                 result = IGCL.ctlEnumerateMuxDevices((_ctl_api_handle_t*)Api.ApiHandle, &count, (_ctl_mux_output_handle_t**)pMuxes);
                 if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                {
+                    if (IsUnsupportedResult(result))
+                        return null;
                     throw new IGCLException(result, "Failed to enumerate mux devices");
+                }
             }
             return muxes;
         }
@@ -1587,14 +1701,18 @@ namespace IGCLWrapper
         /// Get mux properties and display outputs as a DTO.
         /// </summary>
         /// <param name="muxHandle">Mux handle.</param>
-        /// <returns>Mux properties DTO.</returns>
-        public unsafe MuxPropertiesDto GetMuxProperties(IntPtr muxHandle)
+        /// <returns>Mux properties DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe MuxPropertiesDto? GetMuxProperties(IntPtr muxHandle)
         {
             ThrowIfDisposed();
             var props = CreateMuxProperties();
             var result = IGCL.ctlGetMuxProperties((_ctl_mux_output_handle_t*)muxHandle, &props);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS && props.Count == 0)
+            {
+                if (IsUnsupportedResult(result))
+                    return null;
                 throw new IGCLException(result, "Failed to get mux properties");
+            }
 
             var outputs = Array.Empty<IntPtr>();
             if (props.Count > 0)
@@ -1606,7 +1724,11 @@ namespace IGCLWrapper
                     result = IGCL.ctlGetMuxProperties((_ctl_mux_output_handle_t*)muxHandle, &props);
                     props.phDisplayOutputs = null;
                     if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                    {
+                        if (IsUnsupportedResult(result))
+                            return null;
                         throw new IGCLException(result, "Failed to get mux properties");
+                    }
                 }
             }
 
@@ -1618,39 +1740,49 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="muxHandle">Mux handle.</param>
         /// <param name="inactiveDisplayOutput">Inactive display output handle.</param>
-        public unsafe void SwitchMux(IntPtr muxHandle, IntPtr inactiveDisplayOutput)
+        /// <returns><c>true</c> if the operation succeeded; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool SwitchMux(IntPtr muxHandle, IntPtr inactiveDisplayOutput)
         {
             ThrowIfDisposed();
             var result = IGCL.ctlSwitchMux((_ctl_mux_output_handle_t*)muxHandle, (_ctl_display_output_handle_t*)inactiveDisplayOutput);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to switch mux output");
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, "Failed to switch mux output");
         }
 
         /// <summary>
         /// Get Intel Arc Sync profile parameters as a DTO.
         /// </summary>
-        /// <returns>Arc Sync profile parameters DTO.</returns>
-        public unsafe IntelArcSyncProfileParamsDto GetIntelArcSyncProfile()
+        /// <returns>Arc Sync profile parameters DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe IntelArcSyncProfileParamsDto? GetIntelArcSyncProfile()
         {
             ThrowIfDisposed();
             var parameters = CreateArcSyncProfileParams();
             var result = IGCL.ctlGetIntelArcSyncProfile((_ctl_display_output_handle_t*)DisplayHandle, &parameters);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get Intel Arc Sync profile");
-            return IntelArcSyncProfileParamsDto.FromNative(parameters);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return IntelArcSyncProfileParamsDto.FromNative(parameters);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get Intel Arc Sync profile");
         }
 
         /// <summary>
         /// Set Intel Arc Sync profile parameters using a DTO.
         /// </summary>
         /// <param name="parameters">Arc Sync profile parameters DTO.</param>
-        public unsafe void SetIntelArcSyncProfile(IntelArcSyncProfileParamsDto parameters)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool SetIntelArcSyncProfile(IntelArcSyncProfileParamsDto parameters)
         {
             ThrowIfDisposed();
             var copy = parameters.ToNative();
             var result = IGCL.ctlSetIntelArcSyncProfile((_ctl_display_output_handle_t*)DisplayHandle, &copy);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to set Intel Arc Sync profile");
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, "Failed to set Intel Arc Sync profile");
         }
 
         /// <summary>
@@ -1672,8 +1804,8 @@ namespace IGCLWrapper
         /// Perform EDID management using a DTO.
         /// </summary>
         /// <param name="args">EDID management arguments DTO.</param>
-        /// <returns>Updated EDID management arguments DTO.</returns>
-        public unsafe EdidManagementArgsDto EdidManagement(EdidManagementArgsDto args)
+        /// <returns>Updated EDID management arguments DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe EdidManagementArgsDto? EdidManagement(EdidManagementArgsDto args)
         {
             var native = args.ToNativeMetadata();
             byte[]? edidBuffer = null;
@@ -1700,6 +1832,10 @@ namespace IGCLWrapper
                             Buffer.BlockCopy(edidBuffer, 0, copy, 0, readLength);
                         return EdidManagementArgsDto.FromNative(resultWithData, copy);
                     }
+                    catch (IGCLException ex) when (IsUnsupportedResult(ex.Result))
+                    {
+                        return null;
+                    }
                     finally
                     {
                         native.pEdidBuf = null;
@@ -1707,27 +1843,34 @@ namespace IGCLWrapper
                 }
             }
 
-            var result = EdidManagementNative(native);
-            return EdidManagementArgsDto.FromNative(result);
+            try
+            {
+                var result = EdidManagementNative(native);
+                return EdidManagementArgsDto.FromNative(result);
+            }
+            catch (IGCLException ex) when (IsUnsupportedResult(ex.Result))
+            {
+                return null;
+            }
         }
 
         /// <summary>
         /// Read EDID bytes via the EDID management API.
         /// </summary>
         /// <param name="edidType">EDID type to read.</param>
-        /// <returns>EDID bytes.</returns>
-        public byte[] GetEdidManagement(ctl_edid_type_t edidType = ctl_edid_type_t.CTL_EDID_TYPE_CURRENT)
+        /// <returns>EDID bytes, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public byte[]? GetEdidManagement(ctl_edid_type_t edidType = ctl_edid_type_t.CTL_EDID_TYPE_CURRENT)
         {
             var result = GetEdidManagementWithFlags(edidType);
-            return result.edid;
+            return result?.edid;
         }
 
         /// <summary>
         /// Read EDID bytes via the EDID management API and return output flags.
         /// </summary>
         /// <param name="edidType">EDID type to read.</param>
-        /// <returns>Tuple containing EDID bytes and output flags.</returns>
-        public unsafe (byte[] edid, uint outFlags) GetEdidManagementWithFlags(ctl_edid_type_t edidType = ctl_edid_type_t.CTL_EDID_TYPE_CURRENT)
+        /// <returns>Tuple containing EDID bytes and output flags, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe (byte[] edid, uint outFlags)? GetEdidManagementWithFlags(ctl_edid_type_t edidType = ctl_edid_type_t.CTL_EDID_TYPE_CURRENT)
         {
             ThrowIfDisposed();
 
@@ -1737,7 +1880,8 @@ namespace IGCLWrapper
             args.EdidSize = 0;
             args.pEdidBuf = null;
 
-            args = EdidManagementNative(args);
+            try { args = EdidManagementNative(args); }
+            catch (IGCLException ex) when (IsUnsupportedResult(ex.Result)) { return null; }
             var outFlags = args.OutFlags;
             if (args.EdidSize == 0)
                 return (Array.Empty<byte>(), outFlags);
@@ -1810,13 +1954,20 @@ namespace IGCLWrapper
         /// <summary>
         /// Get custom display modes as DTOs.
         /// </summary>
-        /// <returns>Custom mode result DTO.</returns>
-        public CustomModesResultDto GetCustomModes()
+        /// <returns>Custom mode result DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public CustomModesResultDto? GetCustomModes()
         {
-            var args = CreateCustomModeArgs();
-            args.CustomModeOpType = ctl_custom_mode_operation_types_t.CTL_CUSTOM_MODE_OPERATION_TYPES_GET_CUSTOM_SOURCE_MODES;
-            var native = GetCustomModesNative(args);
-            return CustomModesResultDto.FromNative(native.args, native.modes);
+            try
+            {
+                var args = CreateCustomModeArgs();
+                args.CustomModeOpType = ctl_custom_mode_operation_types_t.CTL_CUSTOM_MODE_OPERATION_TYPES_GET_CUSTOM_SOURCE_MODES;
+                var native = GetCustomModesNative(args);
+                return CustomModesResultDto.FromNative(native.args, native.modes);
+            }
+            catch (IGCLException ex) when (IsUnsupportedResult(ex.Result))
+            {
+                return null;
+            }
         }
 
         /// <summary>
@@ -1824,7 +1975,8 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="args">Custom mode args.</param>
         /// <param name="modes">Custom modes array.</param>
-        public unsafe void SetCustomModes(ctl_get_set_custom_mode_args_t args, ctl_custom_src_mode_t[] modes)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool SetCustomModes(ctl_get_set_custom_mode_args_t args, ctl_custom_src_mode_t[] modes)
         {
             ThrowIfDisposed();
             if (modes == null || modes.Length == 0)
@@ -1842,8 +1994,11 @@ namespace IGCLWrapper
                 request.pCustomSrcModeList = pModes;
                 var setResult = IGCL.ctlGetSetCustomMode((_ctl_display_output_handle_t*)DisplayHandle, &request);
                 request.pCustomSrcModeList = null;
-                if (setResult != ctl_result_t.CTL_RESULT_SUCCESS)
-                    throw new IGCLException(setResult, "Failed to set custom mode");
+                if (setResult == ctl_result_t.CTL_RESULT_SUCCESS)
+                    return true;
+                if (IsUnsupportedResult(setResult))
+                    return false;
+                throw new IGCLException(setResult, "Failed to set custom mode");
             }
         }
 
@@ -1852,7 +2007,8 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="args">Custom mode args DTO.</param>
         /// <param name="modes">Custom mode DTOs.</param>
-        public void SetCustomModes(CustomModeArgsDto args, IReadOnlyList<CustomSourceModeDto> modes)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public bool SetCustomModes(CustomModeArgsDto args, IReadOnlyList<CustomSourceModeDto> modes)
         {
             if (modes == null || modes.Count == 0)
                 throw new ArgumentException("At least one mode is required", nameof(modes));
@@ -1861,23 +2017,25 @@ namespace IGCLWrapper
             for (var i = 0; i < modes.Count; i++)
                 nativeModes[i] = modes[i].ToNative();
 
-            SetCustomModes(args.ToNative(), nativeModes);
+            return SetCustomModes(args.ToNative(), nativeModes);
         }
 
         /// <summary>
         /// Get vblank timestamp information as a DTO.
         /// </summary>
-        /// <returns>Vblank timestamp DTO.</returns>
-        public unsafe VblankTimestampArgsDto GetVblankTimestamp()
+        /// <returns>Vblank timestamp DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe VblankTimestampArgsDto? GetVblankTimestamp()
         {
             ThrowIfDisposed();
             var args = CreateVblankTimestampArgs();
             args.NumOfTargets = 16; // max entries in the fixed buffer
 
             var result = IGCL.ctlGetVblankTimestamp((_ctl_display_output_handle_t*)DisplayHandle, &args);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get vblank timestamp");
-            return VblankTimestampArgsDto.FromNative(args);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return VblankTimestampArgsDto.FromNative(args);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get vblank timestamp");
         }
 
         /// <summary>
@@ -1940,12 +2098,19 @@ namespace IGCLWrapper
         /// <summary>
         /// Get dynamic contrast enhancement settings as a DTO.
         /// </summary>
-        /// <returns>Tuple containing args DTO and histogram.</returns>
-        public (DceArgsDto args, uint[] histogram) GetDynamicContrastEnhancement()
+        /// <returns>Tuple containing args DTO and histogram, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public (DceArgsDto args, uint[] histogram)? GetDynamicContrastEnhancement()
         {
-            var request = new DceArgsDto { Set = false };
-            var result = GetSetDynamicContrastEnhancementNative(request.ToNative(), null);
-            return (DceArgsDto.FromNative(result.args), result.histogram);
+            try
+            {
+                var request = new DceArgsDto { Set = false };
+                var result = GetSetDynamicContrastEnhancementNative(request.ToNative(), null);
+                return (DceArgsDto.FromNative(result.args), result.histogram);
+            }
+            catch (IGCLException ex) when (IsUnsupportedResult(ex.Result))
+            {
+                return null;
+            }
         }
 
         /// <summary>
@@ -1953,18 +2118,27 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="args">DCE args DTO.</param>
         /// <param name="histogram">Histogram buffer.</param>
-        public void SetDynamicContrastEnhancement(DceArgsDto args, uint[] histogram)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public bool SetDynamicContrastEnhancement(DceArgsDto args, uint[] histogram)
         {
-            var request = args;
-            request.Set = true;
-            GetSetDynamicContrastEnhancementNative(request.ToNative(), histogram);
+            try
+            {
+                var request = args;
+                request.Set = true;
+                GetSetDynamicContrastEnhancementNative(request.ToNative(), histogram);
+                return true;
+            }
+            catch (IGCLException ex) when (IsUnsupportedResult(ex.Result))
+            {
+                return false;
+            }
         }
 
         /// <summary>
         /// Get wire format settings as a DTO.
         /// </summary>
-        /// <returns>Wire format settings DTO.</returns>
-        public unsafe WireFormatConfigDto GetWireFormat()
+        /// <returns>Wire format settings DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe WireFormatConfigDto? GetWireFormat()
         {
             ThrowIfDisposed();
             var request = new ctl_get_set_wire_format_config_t
@@ -1975,17 +2149,19 @@ namespace IGCLWrapper
             };
 
             var result = IGCL.ctlGetSetWireFormat((_ctl_display_output_handle_t*)DisplayHandle, &request);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get wire format");
-
-            return WireFormatConfigDto.FromNative(request);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return WireFormatConfigDto.FromNative(request);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get wire format");
         }
 
         /// <summary>
         /// Set wire format settings using a DTO.
         /// </summary>
         /// <param name="args">Wire format settings DTO.</param>
-        public unsafe void SetWireFormat(WireFormatConfigDto args)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool SetWireFormat(WireFormatConfigDto args)
         {
             ThrowIfDisposed();
             var request = args.ToNative();
@@ -1996,8 +2172,11 @@ namespace IGCLWrapper
             request.Operation = ctl_wire_format_operation_type_t.CTL_WIRE_FORMAT_OPERATION_TYPE_SET;
 
             var result = IGCL.ctlGetSetWireFormat((_ctl_display_output_handle_t*)DisplayHandle, &request);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to set wire format");
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, "Failed to set wire format");
         }
 
         /// <summary>
@@ -2018,24 +2197,40 @@ namespace IGCLWrapper
         /// <summary>
         /// Get display settings as a DTO.
         /// </summary>
-        /// <returns>Display settings DTO.</returns>
-        public DisplaySettingsDto GetDisplaySettings()
+        /// <returns>Display settings DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public DisplaySettingsDto? GetDisplaySettings()
         {
-            var request = new DisplaySettingsDto { Set = false };
-            var native = GetSetDisplaySettingsNative(request.ToNative());
-            return DisplaySettingsDto.FromNative(native);
+            try
+            {
+                var request = new DisplaySettingsDto { Set = false };
+                var native = GetSetDisplaySettingsNative(request.ToNative());
+                return DisplaySettingsDto.FromNative(native);
+            }
+            catch (IGCLException ex) when (IsUnsupportedResult(ex.Result))
+            {
+                return null;
+            }
         }
 
         /// <summary>
         /// Set display settings using a DTO.
         /// </summary>
         /// <param name="settings">Display settings DTO.</param>
-        public void SetDisplaySettings(DisplaySettingsDto settings)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public bool SetDisplaySettings(DisplaySettingsDto settings)
         {
             ValidateSetDisplaySettingsRequest(settings);
-            var request = settings;
-            request.Set = true;
-            GetSetDisplaySettingsNative(request.ToNative());
+            try
+            {
+                var request = settings;
+                request.Set = true;
+                GetSetDisplaySettingsNative(request.ToNative());
+                return true;
+            }
+            catch (IGCLException ex) when (IsUnsupportedResult(ex.Result))
+            {
+                return false;
+            }
         }
 
         /// <summary>
@@ -2118,6 +2313,18 @@ namespace IGCLWrapper
             }
         }
 
+
+        /// <summary>
+        /// Returns true when the result code indicates a feature is not available
+        /// on the current hardware or driver, rather than a genuine API failure.
+        /// </summary>
+        private static bool IsUnsupportedResult(ctl_result_t result)
+        {
+            return result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                || result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION
+                || result == ctl_result_t.CTL_RESULT_ERROR_INVALID_OPERATION_TYPE
+                || result == ctl_result_t.CTL_RESULT_ERROR_INVALID_ARGUMENT;
+        }
 
         internal void ThrowIfDisposed()
         {

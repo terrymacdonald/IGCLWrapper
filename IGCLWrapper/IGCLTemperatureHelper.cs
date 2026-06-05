@@ -32,30 +32,34 @@ namespace IGCLWrapper
         /// Get temperature sensor properties as a DTO.
         /// </summary>
         /// <param name="sensorHandle">Temperature sensor handle.</param>
-        /// <returns>Temperature properties DTO.</returns>
-        public unsafe TemperaturePropertiesDto TemperatureGetProperties(IntPtr sensorHandle)
+        /// <returns>Temperature properties DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe TemperaturePropertiesDto? TemperatureGetProperties(IntPtr sensorHandle)
         {
             ThrowIfDisposed();
             var props = CreateTemperatureProperties();
             var result = IGCL.ctlTemperatureGetProperties((_ctl_temp_handle_t*)sensorHandle, &props);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get temperature properties");
-            return TemperaturePropertiesDto.FromNative(props);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return TemperaturePropertiesDto.FromNative(props);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get temperature properties");
         }
 
         /// <summary>
         /// Get current temperature for a sensor.
         /// </summary>
         /// <param name="sensorHandle">Temperature sensor handle.</param>
-        /// <returns>Temperature value in degrees C.</returns>
-        public unsafe double TemperatureGetState(IntPtr sensorHandle)
+        /// <returns>Temperature value in degrees C, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe double? TemperatureGetState(IntPtr sensorHandle)
         {
             ThrowIfDisposed();
             double temp = 0;
             var result = IGCL.ctlTemperatureGetState((_ctl_temp_handle_t*)sensorHandle, &temp);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get temperature state");
-            return temp;
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return temp;
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get temperature state");
         }
 
         private static unsafe IReadOnlyList<IntPtr> EnumerateHandles(_ctl_device_adapter_handle_t* adapter)
@@ -74,6 +78,18 @@ namespace IGCLWrapper
                     throw new IGCLException(result, "Failed to enumerate temperature sensors");
             }
             return handles;
+        }
+
+        /// <summary>
+        /// Returns true when the result code indicates a feature is not available
+        /// on the current hardware or driver, rather than a genuine API failure.
+        /// </summary>
+        private static bool IsUnsupportedResult(ctl_result_t result)
+        {
+            return result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                || result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION
+                || result == ctl_result_t.CTL_RESULT_ERROR_INVALID_OPERATION_TYPE
+                || result == ctl_result_t.CTL_RESULT_ERROR_INVALID_ARGUMENT;
         }
 
         private void ThrowIfDisposed()

@@ -23,79 +23,97 @@ namespace IGCLWrapper
         /// <summary>
         /// Get overclock properties as a DTO.
         /// </summary>
-        /// <returns>Overclock properties DTO.</returns>
-        public unsafe OverclockPropertiesDto GetProperties()
+        /// <returns>Overclock properties DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe OverclockPropertiesDto? GetProperties()
         {
             ThrowIfDisposed();
             var props = CreateOverclockProperties();
             var result = IGCL.ctlOverclockGetProperties((_ctl_device_adapter_handle_t*)_adapter, &props);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get overclock properties");
-            return OverclockPropertiesDto.FromNative(props);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return OverclockPropertiesDto.FromNative(props);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get overclock properties");
         }
 
         /// <summary>
         /// Set the overclocking waiver for this adapter.
         /// </summary>
-        public unsafe void SetWaiver()
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool SetWaiver()
         {
             ThrowIfDisposed();
             var result = IGCL.ctlOverclockWaiverSet((_ctl_device_adapter_handle_t*)_adapter);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, OverclockError);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, OverclockError);
         }
 
         #region GPU frequency offset
         /// <summary>
         /// Get the GPU frequency offset.
         /// </summary>
-        /// <returns>GPU frequency offset.</returns>
-        public unsafe double OverclockGpuFrequencyOffsetGet()
+        /// <returns>GPU frequency offset, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe double? OverclockGpuFrequencyOffsetGet()
         {
             ThrowIfDisposed();
             double value = 0;
             var result = IGCL.ctlOverclockGpuFrequencyOffsetGet((_ctl_device_adapter_handle_t*)_adapter, &value);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, OverclockError);
-            return value;
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return value;
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, OverclockError);
         }
 
         /// <summary>
         /// Set the GPU frequency offset.
         /// </summary>
         /// <param name="offset">Frequency offset value.</param>
-        public unsafe void OverclockGpuFrequencyOffsetSet(double offset)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool OverclockGpuFrequencyOffsetSet(double offset)
         {
             ThrowIfDisposed();
             var result = IGCL.ctlOverclockGpuFrequencyOffsetSet((_ctl_device_adapter_handle_t*)_adapter, offset);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, OverclockError);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, OverclockError);
         }
 
         /// <summary>
         /// Get the GPU frequency offset (V2).
         /// </summary>
-        /// <returns>GPU frequency offset.</returns>
-        public unsafe double OverclockGpuFrequencyOffsetGetV2()
+        /// <returns>GPU frequency offset, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe double? OverclockGpuFrequencyOffsetGetV2()
         {
             ThrowIfDisposed();
             double value = 0;
             var result = IGCL.ctlOverclockGpuFrequencyOffsetGetV2((_ctl_device_adapter_handle_t*)_adapter, &value);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, OverclockError);
-            return value;
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return value;
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, OverclockError);
         }
 
         /// <summary>
         /// Set the GPU frequency offset (V2).
         /// </summary>
         /// <param name="offset">Frequency offset value.</param>
-        public unsafe void OverclockGpuFrequencyOffsetSetV2(double offset)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool OverclockGpuFrequencyOffsetSetV2(double offset)
         {
             ThrowIfDisposed();
             var result = IGCL.ctlOverclockGpuFrequencyOffsetSetV2((_ctl_device_adapter_handle_t*)_adapter, offset);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, OverclockError);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, OverclockError);
         }
         #endregion
 
@@ -103,53 +121,65 @@ namespace IGCLWrapper
         /// <summary>
         /// Get the GPU voltage offset.
         /// </summary>
-        /// <returns>GPU voltage offset.</returns>
-        public unsafe double OverclockGpuVoltageOffsetGet()
+        /// <returns>GPU voltage offset, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe double? OverclockGpuVoltageOffsetGet()
         {
             ThrowIfDisposed();
             double value = 0;
             var result = IGCL.ctlOverclockGpuVoltageOffsetGet((_ctl_device_adapter_handle_t*)_adapter, &value);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, OverclockError);
-            return value;
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return value;
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, OverclockError);
         }
 
         /// <summary>
         /// Set the GPU voltage offset.
         /// </summary>
         /// <param name="offset">Voltage offset value.</param>
-        public unsafe void OverclockGpuVoltageOffsetSet(double offset)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool OverclockGpuVoltageOffsetSet(double offset)
         {
             ThrowIfDisposed();
             var result = IGCL.ctlOverclockGpuVoltageOffsetSet((_ctl_device_adapter_handle_t*)_adapter, offset);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, OverclockError);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, OverclockError);
         }
 
         /// <summary>
         /// Get the GPU max voltage offset (V2).
         /// </summary>
-        /// <returns>GPU max voltage offset.</returns>
-        public unsafe double OverclockGpuMaxVoltageOffsetGetV2()
+        /// <returns>GPU max voltage offset, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe double? OverclockGpuMaxVoltageOffsetGetV2()
         {
             ThrowIfDisposed();
             double value = 0;
             var result = IGCL.ctlOverclockGpuMaxVoltageOffsetGetV2((_ctl_device_adapter_handle_t*)_adapter, &value);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, OverclockError);
-            return value;
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return value;
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, OverclockError);
         }
 
         /// <summary>
         /// Set the GPU max voltage offset (V2).
         /// </summary>
         /// <param name="offset">Voltage offset value.</param>
-        public unsafe void OverclockGpuMaxVoltageOffsetSetV2(double offset)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool OverclockGpuMaxVoltageOffsetSetV2(double offset)
         {
             ThrowIfDisposed();
             var result = IGCL.ctlOverclockGpuMaxVoltageOffsetSetV2((_ctl_device_adapter_handle_t*)_adapter, offset);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, OverclockError);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, OverclockError);
         }
         #endregion
 
@@ -157,22 +187,25 @@ namespace IGCLWrapper
         /// <summary>
         /// Get the GPU lock voltage/frequency pair.
         /// </summary>
-        /// <returns>Voltage/frequency pair DTO.</returns>
-        public unsafe OcVfPairDto OverclockGpuLockGet()
+        /// <returns>Voltage/frequency pair DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe OcVfPairDto? OverclockGpuLockGet()
         {
             ThrowIfDisposed();
             var pair = CreateVfPair();
             var result = IGCL.ctlOverclockGpuLockGet((_ctl_device_adapter_handle_t*)_adapter, &pair);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, OverclockError);
-            return OcVfPairDto.FromNative(pair);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return OcVfPairDto.FromNative(pair);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, OverclockError);
         }
 
         /// <summary>
         /// Set the GPU lock voltage/frequency pair.
         /// </summary>
         /// <param name="pair">Voltage/frequency pair DTO.</param>
-        public unsafe void OverclockGpuLockSet(OcVfPairDto pair)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool OverclockGpuLockSet(OcVfPairDto pair)
         {
             ThrowIfDisposed();
             var native = pair.ToNative();
@@ -184,8 +217,11 @@ namespace IGCLWrapper
                 native = init;
             }
             var result = IGCL.ctlOverclockGpuLockSet((_ctl_device_adapter_handle_t*)_adapter, native);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, OverclockError);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, OverclockError);
         }
         #endregion
 
@@ -193,79 +229,97 @@ namespace IGCLWrapper
         /// <summary>
         /// Get the VRAM frequency offset.
         /// </summary>
-        /// <returns>VRAM frequency offset.</returns>
-        public unsafe double OverclockVramFrequencyOffsetGet()
+        /// <returns>VRAM frequency offset, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe double? OverclockVramFrequencyOffsetGet()
         {
             ThrowIfDisposed();
             double value = 0;
             var result = IGCL.ctlOverclockVramFrequencyOffsetGet((_ctl_device_adapter_handle_t*)_adapter, &value);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, OverclockError);
-            return value;
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return value;
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, OverclockError);
         }
 
         /// <summary>
         /// Set the VRAM frequency offset.
         /// </summary>
         /// <param name="offset">Frequency offset value.</param>
-        public unsafe void OverclockVramFrequencyOffsetSet(double offset)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool OverclockVramFrequencyOffsetSet(double offset)
         {
             ThrowIfDisposed();
             var result = IGCL.ctlOverclockVramFrequencyOffsetSet((_ctl_device_adapter_handle_t*)_adapter, offset);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, OverclockError);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, OverclockError);
         }
 
         /// <summary>
         /// Get the VRAM voltage offset.
         /// </summary>
-        /// <returns>VRAM voltage offset.</returns>
-        public unsafe double OverclockVramVoltageOffsetGet()
+        /// <returns>VRAM voltage offset, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe double? OverclockVramVoltageOffsetGet()
         {
             ThrowIfDisposed();
             double value = 0;
             var result = IGCL.ctlOverclockVramVoltageOffsetGet((_ctl_device_adapter_handle_t*)_adapter, &value);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, OverclockError);
-            return value;
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return value;
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, OverclockError);
         }
 
         /// <summary>
         /// Set the VRAM voltage offset.
         /// </summary>
         /// <param name="voltage">Voltage offset value.</param>
-        public unsafe void OverclockVramVoltageOffsetSet(double voltage)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool OverclockVramVoltageOffsetSet(double voltage)
         {
             ThrowIfDisposed();
             var result = IGCL.ctlOverclockVramVoltageOffsetSet((_ctl_device_adapter_handle_t*)_adapter, voltage);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, OverclockError);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, OverclockError);
         }
 
         /// <summary>
         /// Get the VRAM memory speed limit (V2).
         /// </summary>
-        /// <returns>VRAM memory speed limit.</returns>
-        public unsafe double OverclockVramMemSpeedLimitGetV2()
+        /// <returns>VRAM memory speed limit, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe double? OverclockVramMemSpeedLimitGetV2()
         {
             ThrowIfDisposed();
             double value = 0;
             var result = IGCL.ctlOverclockVramMemSpeedLimitGetV2((_ctl_device_adapter_handle_t*)_adapter, &value);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, OverclockError);
-            return value;
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return value;
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, OverclockError);
         }
 
         /// <summary>
         /// Set the VRAM memory speed limit (V2).
         /// </summary>
         /// <param name="speed">Speed limit value.</param>
-        public unsafe void OverclockVramMemSpeedLimitSetV2(double speed)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool OverclockVramMemSpeedLimitSetV2(double speed)
         {
             ThrowIfDisposed();
             var result = IGCL.ctlOverclockVramMemSpeedLimitSetV2((_ctl_device_adapter_handle_t*)_adapter, speed);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, OverclockError);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, OverclockError);
         }
         #endregion
 
@@ -273,53 +327,65 @@ namespace IGCLWrapper
         /// <summary>
         /// Get the overclock power limit.
         /// </summary>
-        /// <returns>Power limit value.</returns>
-        public unsafe double OverclockPowerLimitGet()
+        /// <returns>Power limit value, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe double? OverclockPowerLimitGet()
         {
             ThrowIfDisposed();
             double value = 0;
             var result = IGCL.ctlOverclockPowerLimitGet((_ctl_device_adapter_handle_t*)_adapter, &value);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, OverclockError);
-            return value;
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return value;
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, OverclockError);
         }
 
         /// <summary>
         /// Set the overclock power limit.
         /// </summary>
         /// <param name="limit">Power limit value.</param>
-        public unsafe void OverclockPowerLimitSet(double limit)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool OverclockPowerLimitSet(double limit)
         {
             ThrowIfDisposed();
             var result = IGCL.ctlOverclockPowerLimitSet((_ctl_device_adapter_handle_t*)_adapter, limit);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, OverclockError);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, OverclockError);
         }
 
         /// <summary>
         /// Get the overclock power limit (V2).
         /// </summary>
-        /// <returns>Power limit value.</returns>
-        public unsafe double OverclockPowerLimitGetV2()
+        /// <returns>Power limit value, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe double? OverclockPowerLimitGetV2()
         {
             ThrowIfDisposed();
             double value = 0;
             var result = IGCL.ctlOverclockPowerLimitGetV2((_ctl_device_adapter_handle_t*)_adapter, &value);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, OverclockError);
-            return value;
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return value;
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, OverclockError);
         }
 
         /// <summary>
         /// Set the overclock power limit (V2).
         /// </summary>
         /// <param name="limit">Power limit value.</param>
-        public unsafe void OverclockPowerLimitSetV2(double limit)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool OverclockPowerLimitSetV2(double limit)
         {
             ThrowIfDisposed();
             var result = IGCL.ctlOverclockPowerLimitSetV2((_ctl_device_adapter_handle_t*)_adapter, limit);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, OverclockError);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, OverclockError);
         }
         #endregion
 
@@ -327,79 +393,97 @@ namespace IGCLWrapper
         /// <summary>
         /// Get the overclock temperature limit.
         /// </summary>
-        /// <returns>Temperature limit value.</returns>
-        public unsafe double OverclockTemperatureLimitGet()
+        /// <returns>Temperature limit value, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe double? OverclockTemperatureLimitGet()
         {
             ThrowIfDisposed();
             double value = 0;
             var result = IGCL.ctlOverclockTemperatureLimitGet((_ctl_device_adapter_handle_t*)_adapter, &value);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, OverclockError);
-            return value;
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return value;
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, OverclockError);
         }
 
         /// <summary>
         /// Set the overclock temperature limit.
         /// </summary>
         /// <param name="value">Temperature limit value.</param>
-        public unsafe void OverclockTemperatureLimitSet(double value)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool OverclockTemperatureLimitSet(double value)
         {
             ThrowIfDisposed();
             var result = IGCL.ctlOverclockTemperatureLimitSet((_ctl_device_adapter_handle_t*)_adapter, value);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, OverclockError);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, OverclockError);
         }
 
         /// <summary>
         /// Get the overclock temperature limit (V2).
         /// </summary>
-        /// <returns>Temperature limit value.</returns>
-        public unsafe double OverclockTemperatureLimitGetV2()
+        /// <returns>Temperature limit value, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe double? OverclockTemperatureLimitGetV2()
         {
             ThrowIfDisposed();
             double value = 0;
             var result = IGCL.ctlOverclockTemperatureLimitGetV2((_ctl_device_adapter_handle_t*)_adapter, &value);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, OverclockError);
-            return value;
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return value;
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, OverclockError);
         }
 
         /// <summary>
         /// Set the overclock temperature limit (V2).
         /// </summary>
         /// <param name="value">Temperature limit value.</param>
-        public unsafe void OverclockTemperatureLimitSetV2(double value)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool OverclockTemperatureLimitSetV2(double value)
         {
             ThrowIfDisposed();
             var result = IGCL.ctlOverclockTemperatureLimitSetV2((_ctl_device_adapter_handle_t*)_adapter, value);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, OverclockError);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, OverclockError);
         }
         #endregion
 
         /// <summary>
         /// Get power telemetry as a DTO.
         /// </summary>
-        /// <returns>Power telemetry DTO.</returns>
-        public unsafe PowerTelemetryDto GetPowerTelemetry()
+        /// <returns>Power telemetry DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe PowerTelemetryDto? GetPowerTelemetry()
         {
             ThrowIfDisposed();
             var telemetry = CreatePowerTelemetry();
             var result = IGCL.ctlPowerTelemetryGet((_ctl_device_adapter_handle_t*)_adapter, &telemetry);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, OverclockError);
-            return PowerTelemetryDto.FromNative(telemetry);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return PowerTelemetryDto.FromNative(telemetry);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, OverclockError);
         }
 
         /// <summary>
         /// Reset overclock settings to default.
         /// </summary>
-        public unsafe void ResetToDefault()
+        /// <returns><c>true</c> if the settings were reset successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool ResetToDefault()
         {
             ThrowIfDisposed();
             var result = IGCL.ctlOverclockResetToDefault((_ctl_device_adapter_handle_t*)_adapter);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, OverclockError);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, OverclockError);
         }
 
         #region VF curve
@@ -408,14 +492,18 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="curveType">Curve type.</param>
         /// <param name="detail">Curve detail flags.</param>
-        /// <returns>Array of voltage/frequency points.</returns>
-        public unsafe ctl_voltage_frequency_point_t[] OverclockReadVFCurve(ctl_vf_curve_type_t curveType, ctl_vf_curve_details_t detail)
+        /// <returns>Array of voltage/frequency points, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe ctl_voltage_frequency_point_t[]? OverclockReadVFCurve(ctl_vf_curve_type_t curveType, ctl_vf_curve_details_t detail)
         {
             ThrowIfDisposed();
             uint count = 0;
             var result = IGCL.ctlOverclockReadVFCurve((_ctl_device_adapter_handle_t*)_adapter, curveType, detail, &count, null);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS && count == 0)
+            {
+                if (IsUnsupportedResult(result))
+                    return null;
                 throw new IGCLException(result, OverclockError);
+            }
             if (count == 0)
                 return Array.Empty<ctl_voltage_frequency_point_t>();
 
@@ -424,7 +512,11 @@ namespace IGCLWrapper
             {
                 result = IGCL.ctlOverclockReadVFCurve((_ctl_device_adapter_handle_t*)_adapter, curveType, detail, &count, pPoints);
                 if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                {
+                    if (IsUnsupportedResult(result))
+                        return null;
                     throw new IGCLException(result, OverclockError);
+                }
             }
 
             return points;
@@ -434,7 +526,8 @@ namespace IGCLWrapper
         /// Write a custom voltage/frequency curve.
         /// </summary>
         /// <param name="points">Voltage/frequency points.</param>
-        public unsafe void OverclockWriteCustomVFCurve(ctl_voltage_frequency_point_t[] points)
+        /// <returns><c>true</c> if the curve was written successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool OverclockWriteCustomVFCurve(ctl_voltage_frequency_point_t[] points)
         {
             ThrowIfDisposed();
             if (points == null || points.Length == 0)
@@ -444,8 +537,11 @@ namespace IGCLWrapper
             fixed (ctl_voltage_frequency_point_t* pPoints = points)
             {
                 var result = IGCL.ctlOverclockWriteCustomVFCurve((_ctl_device_adapter_handle_t*)_adapter, numPoints, pPoints);
-                if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                    throw new IGCLException(result, OverclockError);
+                if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                    return true;
+                if (IsUnsupportedResult(result))
+                    return false;
+                throw new IGCLException(result, OverclockError);
             }
         }
         #endregion
@@ -454,54 +550,71 @@ namespace IGCLWrapper
         /// <summary>
         /// Get the GPU frequency offset (V2 wrapper).
         /// </summary>
-        /// <returns>GPU frequency offset.</returns>
-        public double GetGpuFrequencyOffset() => OverclockGpuFrequencyOffsetGetV2();
+        /// <returns>GPU frequency offset, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public double? GetGpuFrequencyOffset() => OverclockGpuFrequencyOffsetGetV2();
         /// <summary>
         /// Set the GPU frequency offset (V2 wrapper).
         /// </summary>
         /// <param name="offset">Frequency offset value.</param>
-        public void SetGpuFrequencyOffset(double offset) => OverclockGpuFrequencyOffsetSetV2(offset);
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public bool SetGpuFrequencyOffset(double offset) => OverclockGpuFrequencyOffsetSetV2(offset);
         /// <summary>
         /// Get the GPU voltage offset (V2 wrapper).
         /// </summary>
-        /// <returns>GPU voltage offset.</returns>
-        public double GetGpuVoltageOffset() => OverclockGpuMaxVoltageOffsetGetV2();
+        /// <returns>GPU voltage offset, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public double? GetGpuVoltageOffset() => OverclockGpuMaxVoltageOffsetGetV2();
         /// <summary>
         /// Set the GPU voltage offset (V2 wrapper).
         /// </summary>
         /// <param name="offset">Voltage offset value.</param>
-        public void SetGpuVoltageOffset(double offset) => OverclockGpuMaxVoltageOffsetSetV2(offset);
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public bool SetGpuVoltageOffset(double offset) => OverclockGpuMaxVoltageOffsetSetV2(offset);
         /// <summary>
         /// Get the VRAM frequency offset.
         /// </summary>
-        /// <returns>VRAM frequency offset.</returns>
-        public double GetVramFrequencyOffset() => OverclockVramFrequencyOffsetGet();
+        /// <returns>VRAM frequency offset, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public double? GetVramFrequencyOffset() => OverclockVramFrequencyOffsetGet();
         /// <summary>
         /// Set the VRAM frequency offset.
         /// </summary>
         /// <param name="offset">Frequency offset value.</param>
-        public void SetVramFrequencyOffset(double offset) => OverclockVramFrequencyOffsetSet(offset);
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public bool SetVramFrequencyOffset(double offset) => OverclockVramFrequencyOffsetSet(offset);
         /// <summary>
         /// Get the power limit (V2 wrapper).
         /// </summary>
-        /// <returns>Power limit value.</returns>
-        public double GetPowerLimit() => OverclockPowerLimitGetV2();
+        /// <returns>Power limit value, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public double? GetPowerLimit() => OverclockPowerLimitGetV2();
         /// <summary>
         /// Set the power limit (V2 wrapper).
         /// </summary>
         /// <param name="limit">Power limit value.</param>
-        public void SetPowerLimit(double limit) => OverclockPowerLimitSetV2(limit);
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public bool SetPowerLimit(double limit) => OverclockPowerLimitSetV2(limit);
         /// <summary>
         /// Get the temperature limit (V2 wrapper).
         /// </summary>
-        /// <returns>Temperature limit value.</returns>
-        public double GetTemperatureLimit() => OverclockTemperatureLimitGetV2();
+        /// <returns>Temperature limit value, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public double? GetTemperatureLimit() => OverclockTemperatureLimitGetV2();
         /// <summary>
         /// Set the temperature limit (V2 wrapper).
         /// </summary>
         /// <param name="value">Temperature limit value.</param>
-        public void SetTemperatureLimit(double value) => OverclockTemperatureLimitSetV2(value);
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public bool SetTemperatureLimit(double value) => OverclockTemperatureLimitSetV2(value);
         #endregion
+
+        /// <summary>
+        /// Returns true when the result code indicates a feature is not available
+        /// on the current hardware or driver, rather than a genuine API failure.
+        /// </summary>
+        private static bool IsUnsupportedResult(ctl_result_t result)
+        {
+            return result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                || result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION
+                || result == ctl_result_t.CTL_RESULT_ERROR_INVALID_OPERATION_TYPE
+                || result == ctl_result_t.CTL_RESULT_ERROR_INVALID_ARGUMENT;
+        }
 
         private void ThrowIfDisposed()
         {

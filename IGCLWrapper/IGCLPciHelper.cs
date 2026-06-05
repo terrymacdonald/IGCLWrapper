@@ -20,29 +20,45 @@ namespace IGCLWrapper
         /// <summary>
         /// Get PCI properties as a DTO.
         /// </summary>
-        /// <returns>PCI properties DTO.</returns>
-        public unsafe PciPropertiesDto PciGetProperties()
+        /// <returns>PCI properties DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe PciPropertiesDto? PciGetProperties()
         {
             ThrowIfDisposed();
             var props = new ctl_pci_properties_t { Size = (uint)sizeof(ctl_pci_properties_t), Version = 0 };
             var result = IGCL.ctlPciGetProperties((_ctl_device_adapter_handle_t*)_adapter, &props);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get PCI properties");
-            return PciPropertiesDto.FromNative(props);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return PciPropertiesDto.FromNative(props);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get PCI properties");
         }
 
         /// <summary>
         /// Get PCI state as a DTO.
         /// </summary>
-        /// <returns>PCI state DTO.</returns>
-        public unsafe PciStateDto PciGetState()
+        /// <returns>PCI state DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe PciStateDto? PciGetState()
         {
             ThrowIfDisposed();
             var state = new ctl_pci_state_t { Size = (uint)sizeof(ctl_pci_state_t), Version = 0 };
             var result = IGCL.ctlPciGetState((_ctl_device_adapter_handle_t*)_adapter, &state);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get PCI state");
-            return PciStateDto.FromNative(state);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return PciStateDto.FromNative(state);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get PCI state");
+        }
+
+        /// <summary>
+        /// Returns true when the result code indicates a feature is not available
+        /// on the current hardware or driver, rather than a genuine API failure.
+        /// </summary>
+        private static bool IsUnsupportedResult(ctl_result_t result)
+        {
+            return result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                || result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION
+                || result == ctl_result_t.CTL_RESULT_ERROR_INVALID_OPERATION_TYPE
+                || result == ctl_result_t.CTL_RESULT_ERROR_INVALID_ARGUMENT;
         }
 
         private void ThrowIfDisposed()

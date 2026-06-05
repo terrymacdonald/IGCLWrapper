@@ -32,30 +32,34 @@ namespace IGCLWrapper
         /// Get LED properties as a DTO.
         /// </summary>
         /// <param name="ledHandle">LED handle.</param>
-        /// <returns>LED properties DTO.</returns>
-        public unsafe LedPropertiesDto LedGetProperties(IntPtr ledHandle)
+        /// <returns>LED properties DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe LedPropertiesDto? LedGetProperties(IntPtr ledHandle)
         {
             ThrowIfDisposed();
             var props = CreateLedProperties();
             var result = IGCL.ctlLedGetProperties((_ctl_led_handle_t*)ledHandle, &props);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get LED properties");
-            return LedPropertiesDto.FromNative(props);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return LedPropertiesDto.FromNative(props);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get LED properties");
         }
 
         /// <summary>
         /// Get LED state as a DTO.
         /// </summary>
         /// <param name="ledHandle">LED handle.</param>
-        /// <returns>LED state DTO.</returns>
-        public unsafe LedStateDto LedGetState(IntPtr ledHandle)
+        /// <returns>LED state DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe LedStateDto? LedGetState(IntPtr ledHandle)
         {
             ThrowIfDisposed();
             var state = CreateLedState();
             var result = IGCL.ctlLedGetState((_ctl_led_handle_t*)ledHandle, &state);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get LED state");
-            return LedStateDto.FromNative(state);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return LedStateDto.FromNative(state);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get LED state");
         }
 
         /// <summary>
@@ -63,13 +67,17 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="ledHandle">LED handle.</param>
         /// <param name="state">LED state DTO.</param>
-        public unsafe void LedSetState(IntPtr ledHandle, LedStateDto state)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool LedSetState(IntPtr ledHandle, LedStateDto state)
         {
             ThrowIfDisposed();
             var native = state.ToNative();
             var result = IGCL.ctlLedSetState((_ctl_led_handle_t*)ledHandle, &native, (uint)sizeof(ctl_led_state_t));
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to set LED state");
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, "Failed to set LED state");
         }
 
         private static unsafe IReadOnlyList<IntPtr> EnumerateHandles(_ctl_device_adapter_handle_t* adapter)
@@ -88,6 +96,18 @@ namespace IGCLWrapper
                     throw new IGCLException(result, "Failed to enumerate LEDs");
             }
             return handles;
+        }
+
+        /// <summary>
+        /// Returns true when the result code indicates a feature is not available
+        /// on the current hardware or driver, rather than a genuine API failure.
+        /// </summary>
+        private static bool IsUnsupportedResult(ctl_result_t result)
+        {
+            return result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                || result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION
+                || result == ctl_result_t.CTL_RESULT_ERROR_INVALID_OPERATION_TYPE
+                || result == ctl_result_t.CTL_RESULT_ERROR_INVALID_ARGUMENT;
         }
 
         private void ThrowIfDisposed()

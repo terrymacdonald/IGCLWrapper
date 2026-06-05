@@ -20,43 +20,63 @@ namespace IGCLWrapper
         /// <summary>
         /// Get ECC properties as a DTO.
         /// </summary>
-        /// <returns>ECC properties DTO.</returns>
-        public unsafe EccPropertiesDto EccGetProperties()
+        /// <returns>ECC properties DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe EccPropertiesDto? EccGetProperties()
         {
             ThrowIfDisposed();
             var props = CreateEccProperties();
             var result = IGCL.ctlEccGetProperties((_ctl_device_adapter_handle_t*)_adapter, &props);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get ECC properties");
-            return EccPropertiesDto.FromNative(props);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return EccPropertiesDto.FromNative(props);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get ECC properties");
         }
 
         /// <summary>
         /// Get ECC state description as a DTO.
         /// </summary>
-        /// <returns>ECC state description DTO.</returns>
-        public unsafe EccStateDescDto EccGetState()
+        /// <returns>ECC state description DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe EccStateDescDto? EccGetState()
         {
             ThrowIfDisposed();
             var state = CreateEccState();
             var result = IGCL.ctlEccGetState((_ctl_device_adapter_handle_t*)_adapter, &state);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get ECC state");
-            return EccStateDescDto.FromNative(state);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return EccStateDescDto.FromNative(state);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get ECC state");
         }
 
         /// <summary>
         /// Set ECC state.
         /// </summary>
         /// <param name="desiredState">Desired ECC state.</param>
-        public unsafe void EccSetState(ctl_ecc_state_t desiredState)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool EccSetState(ctl_ecc_state_t desiredState)
         {
             ThrowIfDisposed();
             var state = CreateEccState();
             state.currentEccState = desiredState;
             var result = IGCL.ctlEccSetState((_ctl_device_adapter_handle_t*)_adapter, &state);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, $"Failed to set ECC state to {desiredState}");
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, $"Failed to set ECC state to {desiredState}");
+        }
+
+        /// <summary>
+        /// Returns true when the result code indicates a feature is not available
+        /// on the current hardware or driver, rather than a genuine API failure.
+        /// </summary>
+        private static bool IsUnsupportedResult(ctl_result_t result)
+        {
+            return result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                || result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION
+                || result == ctl_result_t.CTL_RESULT_ERROR_INVALID_OPERATION_TYPE
+                || result == ctl_result_t.CTL_RESULT_ERROR_INVALID_ARGUMENT;
         }
 
         private void ThrowIfDisposed()

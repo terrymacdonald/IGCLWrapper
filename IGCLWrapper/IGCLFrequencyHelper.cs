@@ -33,29 +33,35 @@ namespace IGCLWrapper
         /// Get frequency domain properties as a DTO.
         /// </summary>
         /// <param name="freqHandle">Frequency domain handle.</param>
-        /// <returns>Frequency properties DTO.</returns>
-        public unsafe FrequencyPropertiesDto FrequencyGetProperties(IntPtr freqHandle)
+        /// <returns>Frequency properties DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe FrequencyPropertiesDto? FrequencyGetProperties(IntPtr freqHandle)
         {
             ThrowIfDisposed();
             var props = CreateFrequencyProperties();
             var result = IGCL.ctlFrequencyGetProperties((_ctl_freq_handle_t*)freqHandle, &props);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get frequency properties");
-            return FrequencyPropertiesDto.FromNative(props);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return FrequencyPropertiesDto.FromNative(props);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get frequency properties");
         }
 
         /// <summary>
         /// Get available clocks for a frequency domain.
         /// </summary>
         /// <param name="freqHandle">Frequency domain handle.</param>
-        /// <returns>Array of available clock values.</returns>
-        public unsafe double[] FrequencyGetAvailableClocks(IntPtr freqHandle)
+        /// <returns>Array of available clock values, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe double[]? FrequencyGetAvailableClocks(IntPtr freqHandle)
         {
             ThrowIfDisposed();
             uint count = 0;
             var result = IGCL.ctlFrequencyGetAvailableClocks((_ctl_freq_handle_t*)freqHandle, &count, null);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS && count == 0)
+            {
+                if (IsUnsupportedResult(result))
+                    return null;
                 throw new IGCLException(result, "Failed to get available clocks count");
+            }
             if (count == 0)
                 return Array.Empty<double>();
             var freqs = new double[count];
@@ -63,7 +69,11 @@ namespace IGCLWrapper
             {
                 result = IGCL.ctlFrequencyGetAvailableClocks((_ctl_freq_handle_t*)freqHandle, &count, pFreqs);
                 if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                {
+                    if (IsUnsupportedResult(result))
+                        return null;
                     throw new IGCLException(result, "Failed to get available clocks");
+                }
             }
             return freqs;
         }
@@ -72,15 +82,17 @@ namespace IGCLWrapper
         /// Get the frequency range for a domain as a DTO.
         /// </summary>
         /// <param name="freqHandle">Frequency domain handle.</param>
-        /// <returns>Frequency range DTO.</returns>
-        public unsafe FrequencyRangeDto FrequencyGetRange(IntPtr freqHandle)
+        /// <returns>Frequency range DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe FrequencyRangeDto? FrequencyGetRange(IntPtr freqHandle)
         {
             ThrowIfDisposed();
             var range = CreateFrequencyRange();
             var result = IGCL.ctlFrequencyGetRange((_ctl_freq_handle_t*)freqHandle, &range);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get frequency range");
-            return FrequencyRangeDto.FromNative(range);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return FrequencyRangeDto.FromNative(range);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get frequency range");
         }
 
         /// <summary>
@@ -88,43 +100,51 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="freqHandle">Frequency domain handle.</param>
         /// <param name="range">Frequency range DTO.</param>
-        public unsafe void FrequencySetRange(IntPtr freqHandle, FrequencyRangeDto range)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool FrequencySetRange(IntPtr freqHandle, FrequencyRangeDto range)
         {
             ThrowIfDisposed();
             var native = range.ToNative();
             var result = IGCL.ctlFrequencySetRange((_ctl_freq_handle_t*)freqHandle, &native);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to set frequency range");
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, "Failed to set frequency range");
         }
 
         /// <summary>
         /// Get the current frequency state as a DTO.
         /// </summary>
         /// <param name="freqHandle">Frequency domain handle.</param>
-        /// <returns>Frequency state DTO.</returns>
-        public unsafe FrequencyStateDto FrequencyGetState(IntPtr freqHandle)
+        /// <returns>Frequency state DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe FrequencyStateDto? FrequencyGetState(IntPtr freqHandle)
         {
             ThrowIfDisposed();
             var state = CreateFrequencyState();
             var result = IGCL.ctlFrequencyGetState((_ctl_freq_handle_t*)freqHandle, &state);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get frequency state");
-            return FrequencyStateDto.FromNative(state);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return FrequencyStateDto.FromNative(state);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get frequency state");
         }
 
         /// <summary>
         /// Get the throttle time for a frequency domain as a DTO.
         /// </summary>
         /// <param name="freqHandle">Frequency domain handle.</param>
-        /// <returns>Throttle time DTO.</returns>
-        public unsafe FrequencyThrottleTimeDto FrequencyGetThrottleTime(IntPtr freqHandle)
+        /// <returns>Throttle time DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe FrequencyThrottleTimeDto? FrequencyGetThrottleTime(IntPtr freqHandle)
         {
             ThrowIfDisposed();
             var tt = CreateFrequencyThrottleTime();
             var result = IGCL.ctlFrequencyGetThrottleTime((_ctl_freq_handle_t*)freqHandle, &tt);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get throttle time");
-            return FrequencyThrottleTimeDto.FromNative(tt);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return FrequencyThrottleTimeDto.FromNative(tt);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get throttle time");
         }
 
         private static unsafe IReadOnlyList<IntPtr> EnumerateHandles(_ctl_device_adapter_handle_t* adapter)
@@ -143,6 +163,18 @@ namespace IGCLWrapper
                     throw new IGCLException(result, "Failed to enumerate frequency domains");
             }
             return handles;
+        }
+
+        /// <summary>
+        /// Returns true when the result code indicates a feature is not available
+        /// on the current hardware or driver, rather than a genuine API failure.
+        /// </summary>
+        private static bool IsUnsupportedResult(ctl_result_t result)
+        {
+            return result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                || result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION
+                || result == ctl_result_t.CTL_RESULT_ERROR_INVALID_OPERATION_TYPE
+                || result == ctl_result_t.CTL_RESULT_ERROR_INVALID_ARGUMENT;
         }
 
         private void ThrowIfDisposed()

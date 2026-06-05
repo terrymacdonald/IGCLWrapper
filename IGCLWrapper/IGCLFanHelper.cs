@@ -33,42 +33,50 @@ namespace IGCLWrapper
         /// Get fan properties as a DTO.
         /// </summary>
         /// <param name="fanHandle">Fan handle.</param>
-        /// <returns>Fan properties DTO.</returns>
-        public unsafe FanPropertiesDto FanGetProperties(IntPtr fanHandle)
+        /// <returns>Fan properties DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe FanPropertiesDto? FanGetProperties(IntPtr fanHandle)
         {
             ThrowIfDisposed();
             var props = CreateFanProperties();
             var result = IGCL.ctlFanGetProperties((_ctl_fan_handle_t*)fanHandle, &props);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get fan properties");
-            return FanPropertiesDto.FromNative(props);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return FanPropertiesDto.FromNative(props);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get fan properties");
         }
 
         /// <summary>
         /// Get fan configuration as a DTO.
         /// </summary>
         /// <param name="fanHandle">Fan handle.</param>
-        /// <returns>Fan config DTO.</returns>
-        public unsafe FanConfigDto FanGetConfig(IntPtr fanHandle)
+        /// <returns>Fan config DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe FanConfigDto? FanGetConfig(IntPtr fanHandle)
         {
             ThrowIfDisposed();
             var config = CreateFanConfig();
             var result = IGCL.ctlFanGetConfig((_ctl_fan_handle_t*)fanHandle, &config);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get fan config");
-            return FanConfigDto.FromNative(config);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return FanConfigDto.FromNative(config);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get fan config");
         }
 
         /// <summary>
         /// Set the fan to default control mode.
         /// </summary>
         /// <param name="fanHandle">Fan handle.</param>
-        public unsafe void FanSetDefaultMode(IntPtr fanHandle)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool FanSetDefaultMode(IntPtr fanHandle)
         {
             ThrowIfDisposed();
             var result = IGCL.ctlFanSetDefaultMode((_ctl_fan_handle_t*)fanHandle);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to set fan default mode");
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, "Failed to set fan default mode");
         }
 
         /// <summary>
@@ -76,13 +84,17 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="fanHandle">Fan handle.</param>
         /// <param name="speed">Fan speed settings DTO.</param>
-        public unsafe void FanSetFixedSpeedMode(IntPtr fanHandle, FanSpeedDto speed)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool FanSetFixedSpeedMode(IntPtr fanHandle, FanSpeedDto speed)
         {
             ThrowIfDisposed();
             var native = speed.ToNative();
             var result = IGCL.ctlFanSetFixedSpeedMode((_ctl_fan_handle_t*)fanHandle, &native);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to set fan fixed speed");
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, "Failed to set fan fixed speed");
         }
 
         /// <summary>
@@ -90,13 +102,17 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="fanHandle">Fan handle.</param>
         /// <param name="table">Fan speed table DTO.</param>
-        public unsafe void FanSetSpeedTableMode(IntPtr fanHandle, FanSpeedTableDto table)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool FanSetSpeedTableMode(IntPtr fanHandle, FanSpeedTableDto table)
         {
             ThrowIfDisposed();
             var native = table.ToNative();
             var result = IGCL.ctlFanSetSpeedTableMode((_ctl_fan_handle_t*)fanHandle, &native);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to set fan speed table");
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, "Failed to set fan speed table");
         }
 
         /// <summary>
@@ -104,15 +120,17 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="fanHandle">Fan handle.</param>
         /// <param name="units">Speed units.</param>
-        /// <returns>Fan speed value.</returns>
-        public unsafe int FanGetState(IntPtr fanHandle, ctl_fan_speed_units_t units)
+        /// <returns>Fan speed value, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe int? FanGetState(IntPtr fanHandle, ctl_fan_speed_units_t units)
         {
             ThrowIfDisposed();
             int speed = 0;
             var result = IGCL.ctlFanGetState((_ctl_fan_handle_t*)fanHandle, units, &speed);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get fan state");
-            return speed;
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return speed;
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get fan state");
         }
 
         private static unsafe IReadOnlyList<IntPtr> EnumerateHandles(_ctl_device_adapter_handle_t* adapter)
@@ -131,6 +149,18 @@ namespace IGCLWrapper
                     throw new IGCLException(result, "Failed to enumerate fans");
             }
             return handles;
+        }
+
+        /// <summary>
+        /// Returns true when the result code indicates a feature is not available
+        /// on the current hardware or driver, rather than a genuine API failure.
+        /// </summary>
+        private static bool IsUnsupportedResult(ctl_result_t result)
+        {
+            return result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                || result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION
+                || result == ctl_result_t.CTL_RESULT_ERROR_INVALID_OPERATION_TYPE
+                || result == ctl_result_t.CTL_RESULT_ERROR_INVALID_ARGUMENT;
         }
 
         private void ThrowIfDisposed()

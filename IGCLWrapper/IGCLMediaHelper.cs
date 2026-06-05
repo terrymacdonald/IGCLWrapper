@@ -22,41 +22,59 @@ namespace IGCLWrapper
         /// <summary>
         /// Get supported video processing feature capabilities for the adapter.
         /// </summary>
-        /// <returns>Video processing feature capabilities DTO.</returns>
-        public unsafe VideoProcessingFeatureCapsDto GetSupportedVideoProcessingCapabilities()
+        /// <returns>Video processing feature capabilities DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe VideoProcessingFeatureCapsDto? GetSupportedVideoProcessingCapabilities()
         {
             ThrowIfDisposed();
             var caps = CreateVideoProcessingCaps();
             var result = IGCL.ctlGetSupportedVideoProcessingCapabilities((_ctl_device_adapter_handle_t*)_adapter, &caps);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get video processing capabilities");
-            return VideoProcessingFeatureCapsDto.FromNative(caps);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return VideoProcessingFeatureCapsDto.FromNative(caps);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get video processing capabilities");
         }
 
         /// <summary>
         /// Get a video processing feature using a DTO request.
         /// </summary>
         /// <param name="featureGetSet">Video processing feature DTO.</param>
-        /// <returns>Updated video processing feature DTO.</returns>
-        public VideoProcessingFeatureGetSetDto GetVideoProcessingFeature(VideoProcessingFeatureGetSetDto featureGetSet)
+        /// <returns>Updated video processing feature DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public VideoProcessingFeatureGetSetDto? GetVideoProcessingFeature(VideoProcessingFeatureGetSetDto featureGetSet)
         {
             ThrowIfDisposed();
-            var request = featureGetSet;
-            request.Set = false;
-            return ExecuteGetSetVideoProcessingFeature(request);
+            try
+            {
+                var request = featureGetSet;
+                request.Set = false;
+                return ExecuteGetSetVideoProcessingFeature(request);
+            }
+            catch (IGCLException ex) when (IsUnsupportedResult(ex.Result))
+            {
+                return null;
+            }
         }
 
         /// <summary>
         /// Set a video processing feature using a DTO request.
         /// </summary>
         /// <param name="featureGetSet">Video processing feature DTO.</param>
-        public void SetVideoProcessingFeature(VideoProcessingFeatureGetSetDto featureGetSet)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public bool SetVideoProcessingFeature(VideoProcessingFeatureGetSetDto featureGetSet)
         {
             ThrowIfDisposed();
-            var request = featureGetSet;
-            request.Set = true;
-            ValidateSetVideoProcessingFeatureRequest(request);
-            _ = ExecuteGetSetVideoProcessingFeature(request);
+            try
+            {
+                var request = featureGetSet;
+                request.Set = true;
+                ValidateSetVideoProcessingFeatureRequest(request);
+                _ = ExecuteGetSetVideoProcessingFeature(request);
+                return true;
+            }
+            catch (IGCLException ex) when (IsUnsupportedResult(ex.Result))
+            {
+                return false;
+            }
         }
 
         private unsafe VideoProcessingFeatureGetSetDto ExecuteGetSetVideoProcessingFeature(VideoProcessingFeatureGetSetDto request)
@@ -98,6 +116,18 @@ namespace IGCLWrapper
             if (result2 != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result2, $"Failed to get/set video processing feature {native.FeatureType}");
             return VideoProcessingFeatureGetSetDto.FromNative(native);
+        }
+
+        /// <summary>
+        /// Returns true when the result code indicates a feature is not available
+        /// on the current hardware or driver, rather than a genuine API failure.
+        /// </summary>
+        private static bool IsUnsupportedResult(ctl_result_t result)
+        {
+            return result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                || result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION
+                || result == ctl_result_t.CTL_RESULT_ERROR_INVALID_OPERATION_TYPE
+                || result == ctl_result_t.CTL_RESULT_ERROR_INVALID_ARGUMENT;
         }
 
         private void ThrowIfDisposed()

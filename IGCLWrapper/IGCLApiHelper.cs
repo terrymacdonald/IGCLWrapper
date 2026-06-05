@@ -671,8 +671,8 @@ namespace IGCLWrapper
         /// <summary>
         /// Get combined display settings using the provided DTO.
         /// </summary>
-        /// <returns>Updated combined display args DTO.</returns>
-        public unsafe CombinedDisplayArgsDto GetCombinedDisplay()
+        /// <returns>Updated combined display args DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe CombinedDisplayArgsDto? GetCombinedDisplay()
         {
             ThrowIfDisposed();
             var probe = new ctl_combined_display_args_t
@@ -742,7 +742,7 @@ namespace IGCLWrapper
                 if (queryResult == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE ||
                     queryResult == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION)
                 {
-                    throw new IGCLException(queryResult, $"Combined display query unsupported: {queryResult}");
+                    return null;
                 }
                 if (queryResult == ctl_result_t.CTL_RESULT_ERROR_NULL_OS_DISPLAY_OUTPUT_HANDLE ||
                     queryResult == ctl_result_t.CTL_RESULT_ERROR_INVALID_NULL_HANDLE ||
@@ -795,7 +795,8 @@ namespace IGCLWrapper
         /// Set combined display settings using the provided DTO.
         /// </summary>
         /// <param name="args">Combined display args DTO.</param>
-        public void SetCombinedDisplay(CombinedDisplayArgsDto args)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public bool SetCombinedDisplay(CombinedDisplayArgsDto args)
         {
             ThrowIfDisposed();
             if (args.OpType == 0)
@@ -823,10 +824,11 @@ namespace IGCLWrapper
                             pChildInfo = pDisableChildren,
                             hCombinedDisplayOutput = (_ctl_display_output_handle_t*)combinedOutput
                         };
-                        GetSetCombinedDisplayNative(disableArgs);
+                        try { GetSetCombinedDisplayNative(disableArgs); }
+                        catch (IGCLException ex) when (IsUnsupportedResult(ex.Result)) { return false; }
                     }
                 }
-                return;
+                return true;
             }
 
             var opType = args.OpType;
@@ -1046,18 +1048,23 @@ namespace IGCLWrapper
                         hCombinedDisplayOutput = null
                     };
 
-                    var supportResult = GetSetCombinedDisplayNative(supportArgs);
+                    ctl_combined_display_args_t supportResult;
+                    try { supportResult = GetSetCombinedDisplayNative(supportArgs); }
+                    catch (IGCLException ex) when (IsUnsupportedResult(ex.Result)) { return false; }
+
                     if (supportResult.IsSupported == 0)
-                        throw new IGCLException(ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE, "Combined display configuration is not supported.");
+                        return false;
 
                     if (opType == ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_IS_SUPPORTED_CONFIG)
-                        return;
+                        return true;
 
                     var enableArgs = supportResult;
                     enableArgs.OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_ENABLE;
-                    GetSetCombinedDisplayNative(enableArgs);
+                    try { GetSetCombinedDisplayNative(enableArgs); }
+                    catch (IGCLException ex) when (IsUnsupportedResult(ex.Result)) { return false; }
                 }
             }
+            return true;
         }
 
         /// <summary>
@@ -1094,13 +1101,21 @@ namespace IGCLWrapper
         /// <param name="operation">Genlock operation.</param>
         /// <param name="args">Genlock args DTO.</param>
         /// <param name="failureAdapter">Adapter handle that failed, if any.</param>
-        /// <returns>Updated genlock args DTO.</returns>
-        public GenlockArgsDto GetDisplayGenlock(IntPtr[] adapters, ctl_genlock_operation_t operation, GenlockArgsDto args, out IntPtr failureAdapter)
+        /// <returns>Updated genlock args DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public GenlockArgsDto? GetDisplayGenlock(IntPtr[] adapters, ctl_genlock_operation_t operation, GenlockArgsDto args, out IntPtr failureAdapter)
         {
-            var request = args;
-            request.Operation = operation;
-            var native = GetSetDisplayGenlockNative(adapters, request.ToNative(), out failureAdapter);
-            return GenlockArgsDto.FromNative(native);
+            try
+            {
+                var request = args;
+                request.Operation = operation;
+                var native = GetSetDisplayGenlockNative(adapters, request.ToNative(), out failureAdapter);
+                return GenlockArgsDto.FromNative(native);
+            }
+            catch (IGCLException ex) when (IsUnsupportedResult(ex.Result))
+            {
+                failureAdapter = IntPtr.Zero;
+                return null;
+            }
         }
 
         /// <summary>
@@ -1110,24 +1125,38 @@ namespace IGCLWrapper
         /// <param name="operation">Genlock operation.</param>
         /// <param name="args">Genlock args DTO.</param>
         /// <param name="failureAdapter">Adapter handle that failed, if any.</param>
-        public void SetDisplayGenlock(IntPtr[] adapters, ctl_genlock_operation_t operation, GenlockArgsDto args, out IntPtr failureAdapter)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public bool SetDisplayGenlock(IntPtr[] adapters, ctl_genlock_operation_t operation, GenlockArgsDto args, out IntPtr failureAdapter)
         {
-            var request = args;
-            request.Operation = operation;
-            GetSetDisplayGenlockNative(adapters, request.ToNative(), out failureAdapter);
+            try
+            {
+                var request = args;
+                request.Operation = operation;
+                GetSetDisplayGenlockNative(adapters, request.ToNative(), out failureAdapter);
+                return true;
+            }
+            catch (IGCLException ex) when (IsUnsupportedResult(ex.Result))
+            {
+                failureAdapter = IntPtr.Zero;
+                return false;
+            }
         }
 
         /// <summary>
         /// Link display adapters using the provided args.
         /// </summary>
         /// <param name="args">Linked display adapters args.</param>
-        public unsafe void LinkDisplayAdapters(ctl_lda_args_t args)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool LinkDisplayAdapters(ctl_lda_args_t args)
         {
             ThrowIfDisposed();
             var copy = args;
             var result = IGCL.ctlLinkDisplayAdapters((_ctl_device_adapter_handle_t*)AdapterHandle, &copy);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to link display adapters");
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, "Failed to link display adapters");
         }
 
         /// <summary>
@@ -1135,7 +1164,8 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="args">Linked display adapters args DTO.</param>
         /// <param name="linkedAdapters">Linked adapter handles to submit.</param>
-        public unsafe void LinkDisplayAdapters(LinkedDisplayAdaptersArgsDto args, IReadOnlyList<nint> linkedAdapters)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool LinkDisplayAdapters(LinkedDisplayAdaptersArgsDto args, IReadOnlyList<nint> linkedAdapters)
         {
             ThrowIfDisposed();
 
@@ -1155,33 +1185,44 @@ namespace IGCLWrapper
                 native.hLinkedAdapters = (_ctl_device_adapter_handle_t**)pHandles;
                 var result = IGCL.ctlLinkDisplayAdapters((_ctl_device_adapter_handle_t*)AdapterHandle, &native);
                 native.hLinkedAdapters = null;
-                if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                    throw new IGCLException(result, "Failed to link display adapters");
+                if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                    return true;
+                if (IsUnsupportedResult(result))
+                    return false;
+                throw new IGCLException(result, "Failed to link display adapters");
             }
         }
 
         /// <summary>
         /// Unlink previously linked display adapters.
         /// </summary>
-        public unsafe void UnlinkDisplayAdapters()
+        /// <returns><c>true</c> if the operation succeeded; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool UnlinkDisplayAdapters()
         {
             ThrowIfDisposed();
             var result = IGCL.ctlUnlinkDisplayAdapters((_ctl_device_adapter_handle_t*)AdapterHandle);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to unlink display adapters");
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, "Failed to unlink display adapters");
         }
 
         /// <summary>
         /// Get linked display adapter information.
         /// </summary>
-        /// <returns>Tuple containing args and adapter handles.</returns>
-        public unsafe (ctl_lda_args_t args, IntPtr[] adapters) GetLinkedDisplayAdapters()
+        /// <returns>Tuple containing args and adapter handles, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe (ctl_lda_args_t args, IntPtr[] adapters)? GetLinkedDisplayAdapters()
         {
             ThrowIfDisposed();
             var args = CreateLinkedDisplayAdaptersArgs();
             var result = IGCL.ctlGetLinkedDisplayAdapters((_ctl_device_adapter_handle_t*)AdapterHandle, &args);
             if (result != ctl_result_t.CTL_RESULT_SUCCESS && args.NumAdapters == 0)
+            {
+                if (IsUnsupportedResult(result))
+                    return null;
                 throw new IGCLException(result, "Failed to get linked display adapter count");
+            }
 
             if (args.NumAdapters == 0)
                 return (args, Array.Empty<IntPtr>());
@@ -1193,7 +1234,11 @@ namespace IGCLWrapper
                 result = IGCL.ctlGetLinkedDisplayAdapters((_ctl_device_adapter_handle_t*)AdapterHandle, &args);
                 args.hLinkedAdapters = null;
                 if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                {
+                    if (IsUnsupportedResult(result))
+                        return null;
                     throw new IGCLException(result, "Failed to enumerate linked display adapters");
+                }
             }
 
             return (args, handles);
@@ -1202,11 +1247,13 @@ namespace IGCLWrapper
         /// <summary>
         /// Get linked display adapter information as a DTO.
         /// </summary>
-        /// <returns>Linked display adapters result DTO.</returns>
-        public LinkedDisplayAdaptersResultDto GetLinkedDisplayAdaptersDto()
+        /// <returns>Linked display adapters result DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public LinkedDisplayAdaptersResultDto? GetLinkedDisplayAdaptersDto()
         {
             var native = GetLinkedDisplayAdapters();
-            return LinkedDisplayAdaptersResultDto.FromNative(native.args, native.adapters);
+            if (native == null)
+                return null;
+            return LinkedDisplayAdaptersResultDto.FromNative(native.Value.args, native.Value.adapters);
         }
 
         private static unsafe ctl_wait_property_change_args_t CreateWaitPropertyChangeArgs() => new ctl_wait_property_change_args_t { Size = (uint)sizeof(ctl_wait_property_change_args_t), Version = 0 };
@@ -1232,17 +1279,31 @@ namespace IGCLWrapper
         /// Wait for a property change event.
         /// </summary>
         /// <param name="args">Wait request DTO.</param>
-        /// <returns>Updated wait request DTO.</returns>
-        public unsafe WaitPropertyChangeArgsDto WaitForPropertyChange(WaitPropertyChangeArgsDto args)
+        /// <returns>Updated wait request DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe WaitPropertyChangeArgsDto? WaitForPropertyChange(WaitPropertyChangeArgsDto args)
         {
             ThrowIfDisposed();
             var native = args.ToNative();
             if (native.Size == 0)
                 native.Size = (uint)sizeof(ctl_wait_property_change_args_t);
             var result = IGCL.ctlWaitForPropertyChange((_ctl_device_adapter_handle_t*)AdapterHandle, &native);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to wait for property change");
-            return WaitPropertyChangeArgsDto.FromNative(native);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return WaitPropertyChangeArgsDto.FromNative(native);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to wait for property change");
+        }
+
+        /// <summary>
+        /// Returns true when the result code indicates a feature is not available
+        /// on the current hardware or driver, rather than a genuine API failure.
+        /// </summary>
+        private static bool IsUnsupportedResult(ctl_result_t result)
+        {
+            return result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                || result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION
+                || result == ctl_result_t.CTL_RESULT_ERROR_INVALID_OPERATION_TYPE
+                || result == ctl_result_t.CTL_RESULT_ERROR_INVALID_ARGUMENT;
         }
 
         /// <summary>

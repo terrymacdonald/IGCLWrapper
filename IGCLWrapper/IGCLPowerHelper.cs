@@ -32,45 +32,51 @@ namespace IGCLWrapper
         /// Get power domain properties as a DTO.
         /// </summary>
         /// <param name="powerHandle">Power domain handle.</param>
-        /// <returns>Power properties DTO.</returns>
-        public unsafe PowerPropertiesDto PowerGetProperties(IntPtr powerHandle)
+        /// <returns>Power properties DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe PowerPropertiesDto? PowerGetProperties(IntPtr powerHandle)
         {
             ThrowIfDisposed();
             var props = CreatePowerProperties();
             var result = IGCL.ctlPowerGetProperties((_ctl_pwr_handle_t*)powerHandle, &props);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get power properties");
-            return PowerPropertiesDto.FromNative(props);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return PowerPropertiesDto.FromNative(props);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get power properties");
         }
 
         /// <summary>
         /// Get the power energy counter as a DTO.
         /// </summary>
         /// <param name="powerHandle">Power domain handle.</param>
-        /// <returns>Power energy counter DTO.</returns>
-        public unsafe PowerEnergyCounterDto PowerGetEnergyCounter(IntPtr powerHandle)
+        /// <returns>Power energy counter DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe PowerEnergyCounterDto? PowerGetEnergyCounter(IntPtr powerHandle)
         {
             ThrowIfDisposed();
             var counter = CreatePowerEnergyCounter();
             var result = IGCL.ctlPowerGetEnergyCounter((_ctl_pwr_handle_t*)powerHandle, &counter);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get power energy counter");
-            return PowerEnergyCounterDto.FromNative(counter);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return PowerEnergyCounterDto.FromNative(counter);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get power energy counter");
         }
 
         /// <summary>
         /// Get power limits as a DTO.
         /// </summary>
         /// <param name="powerHandle">Power domain handle.</param>
-        /// <returns>Power limits DTO.</returns>
-        public unsafe PowerLimitsDto PowerGetLimits(IntPtr powerHandle)
+        /// <returns>Power limits DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe PowerLimitsDto? PowerGetLimits(IntPtr powerHandle)
         {
             ThrowIfDisposed();
             var limits = CreatePowerLimits();
             var result = IGCL.ctlPowerGetLimits((_ctl_pwr_handle_t*)powerHandle, &limits);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get power limits");
-            return PowerLimitsDto.FromNative(limits);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return PowerLimitsDto.FromNative(limits);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get power limits");
         }
 
         /// <summary>
@@ -78,13 +84,17 @@ namespace IGCLWrapper
         /// </summary>
         /// <param name="powerHandle">Power domain handle.</param>
         /// <param name="limits">Power limits DTO.</param>
-        public unsafe void PowerSetLimits(IntPtr powerHandle, PowerLimitsDto limits)
+        /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe bool PowerSetLimits(IntPtr powerHandle, PowerLimitsDto limits)
         {
             ThrowIfDisposed();
             var native = limits.ToNative();
             var result = IGCL.ctlPowerSetLimits((_ctl_pwr_handle_t*)powerHandle, &native);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to set power limits");
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, "Failed to set power limits");
         }
 
         private static unsafe IReadOnlyList<IntPtr> EnumerateHandles(_ctl_device_adapter_handle_t* adapter)
@@ -103,6 +113,18 @@ namespace IGCLWrapper
                     throw new IGCLException(result, "Failed to enumerate power domains");
             }
             return handles;
+        }
+
+        /// <summary>
+        /// Returns true when the result code indicates a feature is not available
+        /// on the current hardware or driver, rather than a genuine API failure.
+        /// </summary>
+        private static bool IsUnsupportedResult(ctl_result_t result)
+        {
+            return result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                || result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION
+                || result == ctl_result_t.CTL_RESULT_ERROR_INVALID_OPERATION_TYPE
+                || result == ctl_result_t.CTL_RESULT_ERROR_INVALID_ARGUMENT;
         }
 
         private void ThrowIfDisposed()

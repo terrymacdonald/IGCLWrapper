@@ -32,45 +32,51 @@ namespace IGCLWrapper
         /// Get memory module properties as a DTO.
         /// </summary>
         /// <param name="memoryHandle">Memory module handle.</param>
-        /// <returns>Memory properties DTO.</returns>
-        public unsafe MemoryPropertiesDto MemoryGetProperties(IntPtr memoryHandle)
+        /// <returns>Memory properties DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe MemoryPropertiesDto? MemoryGetProperties(IntPtr memoryHandle)
         {
             ThrowIfDisposed();
             var props = CreateMemoryProperties();
             var result = IGCL.ctlMemoryGetProperties((_ctl_mem_handle_t*)memoryHandle, &props);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get memory properties");
-            return MemoryPropertiesDto.FromNative(props);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return MemoryPropertiesDto.FromNative(props);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get memory properties");
         }
 
         /// <summary>
         /// Get current memory module state as a DTO.
         /// </summary>
         /// <param name="memoryHandle">Memory module handle.</param>
-        /// <returns>Memory state DTO.</returns>
-        public unsafe MemoryStateDto MemoryGetState(IntPtr memoryHandle)
+        /// <returns>Memory state DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe MemoryStateDto? MemoryGetState(IntPtr memoryHandle)
         {
             ThrowIfDisposed();
             var state = CreateMemoryState();
             var result = IGCL.ctlMemoryGetState((_ctl_mem_handle_t*)memoryHandle, &state);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get memory state");
-            return MemoryStateDto.FromNative(state);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return MemoryStateDto.FromNative(state);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get memory state");
         }
 
         /// <summary>
         /// Get memory bandwidth information as a DTO.
         /// </summary>
         /// <param name="memoryHandle">Memory module handle.</param>
-        /// <returns>Memory bandwidth DTO.</returns>
-        public unsafe MemoryBandwidthDto MemoryGetBandwidth(IntPtr memoryHandle)
+        /// <returns>Memory bandwidth DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe MemoryBandwidthDto? MemoryGetBandwidth(IntPtr memoryHandle)
         {
             ThrowIfDisposed();
             var bw = CreateMemoryBandwidth();
             var result = IGCL.ctlMemoryGetBandwidth((_ctl_mem_handle_t*)memoryHandle, &bw);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, $"Failed to get memory bandwidth: {result}");
-            return MemoryBandwidthDto.FromNative(bw);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return MemoryBandwidthDto.FromNative(bw);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, $"Failed to get memory bandwidth: {result}");
         }
 
         private static unsafe IReadOnlyList<IntPtr> EnumerateHandles(_ctl_device_adapter_handle_t* adapter)
@@ -89,6 +95,18 @@ namespace IGCLWrapper
                     throw new IGCLException(result, "Failed to enumerate memory modules");
             }
             return handles;
+        }
+
+        /// <summary>
+        /// Returns true when the result code indicates a feature is not available
+        /// on the current hardware or driver, rather than a genuine API failure.
+        /// </summary>
+        private static bool IsUnsupportedResult(ctl_result_t result)
+        {
+            return result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                || result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION
+                || result == ctl_result_t.CTL_RESULT_ERROR_INVALID_OPERATION_TYPE
+                || result == ctl_result_t.CTL_RESULT_ERROR_INVALID_ARGUMENT;
         }
 
         private void ThrowIfDisposed()

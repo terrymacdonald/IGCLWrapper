@@ -32,30 +32,34 @@ namespace IGCLWrapper
         /// Get engine properties as a DTO.
         /// </summary>
         /// <param name="engineHandle">Engine handle.</param>
-        /// <returns>Engine properties DTO.</returns>
-        public unsafe EnginePropertiesDto EngineGetProperties(IntPtr engineHandle)
+        /// <returns>Engine properties DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe EnginePropertiesDto? EngineGetProperties(IntPtr engineHandle)
         {
             ThrowIfDisposed();
             var props = CreateEngineProperties();
             var result = IGCL.ctlEngineGetProperties((_ctl_engine_handle_t*)engineHandle, &props);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get engine properties");
-            return EnginePropertiesDto.FromNative(props);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return EnginePropertiesDto.FromNative(props);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get engine properties");
         }
 
         /// <summary>
         /// Get engine activity stats as a DTO.
         /// </summary>
         /// <param name="engineHandle">Engine handle.</param>
-        /// <returns>Engine stats DTO.</returns>
-        public unsafe EngineStatsDto EngineGetActivity(IntPtr engineHandle)
+        /// <returns>Engine stats DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        public unsafe EngineStatsDto? EngineGetActivity(IntPtr engineHandle)
         {
             ThrowIfDisposed();
             var stats = CreateEngineStats();
             var result = IGCL.ctlEngineGetActivity((_ctl_engine_handle_t*)engineHandle, &stats);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                throw new IGCLException(result, "Failed to get engine activity");
-            return EngineStatsDto.FromNative(stats);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return EngineStatsDto.FromNative(stats);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get engine activity");
         }
 
         private static unsafe IReadOnlyList<IntPtr> EnumerateHandles(_ctl_device_adapter_handle_t* adapter)
@@ -74,6 +78,18 @@ namespace IGCLWrapper
                     throw new IGCLException(result, "Failed to enumerate engines");
             }
             return handles;
+        }
+
+        /// <summary>
+        /// Returns true when the result code indicates a feature is not available
+        /// on the current hardware or driver, rather than a genuine API failure.
+        /// </summary>
+        private static bool IsUnsupportedResult(ctl_result_t result)
+        {
+            return result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
+                || result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION
+                || result == ctl_result_t.CTL_RESULT_ERROR_INVALID_OPERATION_TYPE
+                || result == ctl_result_t.CTL_RESULT_ERROR_INVALID_ARGUMENT;
         }
 
         private void ThrowIfDisposed()
