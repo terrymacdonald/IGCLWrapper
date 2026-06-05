@@ -83,6 +83,34 @@ Use the facade helpers to avoid manual struct sizing/handle management.
 DTO-returning helpers use `bool` properties instead of native `byte` fields.
 Get/Set operations are split into separate `Get*()` and `Set*()` helpers. For advanced use cases requiring raw IGCL structs (e.g. pixel transformation with pointer fields), use the `IGCLApi` native layer directly.
 
+### Nullable returns and unsupported features
+Facade getter methods return `T?` (nullable struct) instead of throwing when the hardware or driver does not support a feature. Setter methods return `bool` — `true` on success, `false` when the feature is not supported. Only genuinely unexpected errors throw `IGCLException`.
+
+The four IGCL result codes that map to `null`/`false` rather than an exception are:
+- `CTL_RESULT_ERROR_UNSUPPORTED_FEATURE`
+- `CTL_RESULT_ERROR_UNSUPPORTED_VERSION`
+- `CTL_RESULT_ERROR_INVALID_OPERATION_TYPE`
+- `CTL_RESULT_ERROR_INVALID_ARGUMENT`
+
+Example:
+```csharp
+using var api = IGCLApiHelper.Initialize();
+var tempHelper = api.GetTemperatureHelper(adapter);
+var sensor = tempHelper.EnumTemperatureSensors().FirstOrDefault();
+if (sensor != IntPtr.Zero)
+{
+    var props = tempHelper.TemperatureGetProperties(sensor);
+    if (props.HasValue)
+        Console.WriteLine($"Max temperature: {props.Value.MaxTemperature:F1} C");
+    else
+        Console.WriteLine("Temperature properties not supported on this hardware.");
+
+    var tempC = tempHelper.TemperatureGetState(sensor);
+    if (tempC.HasValue)
+        Console.WriteLine($"Current: {tempC.Value:F1} C");
+}
+```
+
 ### List active display resolutions
 ```csharp
 using IGCLWrapper;
@@ -103,15 +131,14 @@ foreach (var adapter in api.EnumerateAdapters())
 ### List only combined displays
 ```csharp
 using IGCLWrapper;
-using System.Linq;
 
 using var api = IGCLApiHelper.Initialize();
 foreach (var adapter in api.EnumerateAdapters())
 {
     var result = adapter.GetCombinedDisplay();
-    if (result.IsSupported && result.NumOutputs > 0)
+    if (result.HasValue && result.Value.IsSupported && result.Value.NumOutputs > 0)
     {
-        Console.WriteLine($"Adapter {adapter.Name} has a combined display with {result.NumOutputs} outputs.");
+        Console.WriteLine($"Adapter {adapter.Name} has a combined display with {result.Value.NumOutputs} outputs.");
     }
 }
 ```
@@ -125,16 +152,16 @@ using var api = IGCLApiHelper.Initialize();
 foreach (var adapter in api.EnumerateAdapters())
 {
     var combined = adapter.GetCombinedDisplay();
-    if (combined.NumOutputs == 0 || combined.ChildInfos == null)
+    if (!combined.HasValue || combined.Value.NumOutputs == 0 || combined.Value.ChildInfos == null)
     {
         Console.WriteLine($"Adapter {adapter.Name} has no combined display configured.");
         continue;
     }
 
-    Console.WriteLine($"Combined display: {combined.CombinedDesktopWidth}x{combined.CombinedDesktopHeight}");
-    for (var i = 0; i < combined.NumOutputs; i++)
+    Console.WriteLine($"Combined display: {combined.Value.CombinedDesktopWidth}x{combined.Value.CombinedDesktopHeight}");
+    for (var i = 0; i < combined.Value.NumOutputs; i++)
     {
-        var child = combined.ChildInfos[i];
+        var child = combined.Value.ChildInfos[i];
         Console.WriteLine(
             $"  Output {i}: handle={child.DisplayOutput}, " +
             $"FbSrc={child.FbSrc.Left},{child.FbSrc.Top},{child.FbSrc.Right},{child.FbSrc.Bottom}, " +
@@ -157,7 +184,8 @@ foreach (var adapter in api.EnumerateAdapters())
     if (sensor != IntPtr.Zero)
     {
         var tempC = tempHelper.TemperatureGetState(sensor);
-        Console.WriteLine($"{adapter.Name}: {tempC:F1} C");
+        if (tempC.HasValue)
+            Console.WriteLine($"{adapter.Name}: {tempC.Value:F1} C");
     }
 }
 ```
@@ -300,7 +328,7 @@ When Intel releases a new IGCL:
 ## Usage notes
 - Always dispose `IGCLApi` (use `using`); SafeHandle + finalizer backstops leaks.
 - Handles returned from enumerate calls are opaque; pass them back to IGCL or helper methods.
-- Facade helpers return DTOs with `bool` properties. For advanced native struct access, use `IGCLApi` directly.
+- Facade helpers return `T?` (nullable struct) from getter methods — check `.HasValue` before using the result. Setter methods return `bool`. For advanced native struct access, use `IGCLApi` directly.
 - Struct `Version` fields are bytes in native structs; use `(byte)0/1` in native code paths.
 
 ## Contributing

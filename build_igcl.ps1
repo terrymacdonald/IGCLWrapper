@@ -266,7 +266,7 @@ Write-Host "  - IGCLWrapper.FacadeTests (Test suite)" -ForegroundColor Green
 Write-Host ""
 Write-Host "Next steps:" -ForegroundColor Cyan
 Write-Host "  - Run tests: .\test_igcl.ps1" -ForegroundColor Gray
-Write-Host "  - Use in your project: Add reference to ADLXWrapper\ADLXWrapper.csproj" -ForegroundColor Gray
+Write-Host "  - Use in your project: Add reference to IGCLWrapper\IGCLWrapper.csproj" -ForegroundColor Gray
 Write-Host ""
 Write-Host "Press Enter to exit..."
 Read-Host
