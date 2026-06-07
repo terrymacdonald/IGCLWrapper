@@ -655,6 +655,34 @@ namespace IGCLWrapper
             return IntPtr.Zero;
         }
 
+        private static unsafe uint GetWindowsDisplayEncoderId(_ctl_display_output_handle_t* displayOutput)
+        {
+            if (displayOutput == null)
+                return 0;
+
+            var encoderProps = new ctl_adapter_display_encoder_properties_t
+            {
+                Size = (uint)sizeof(ctl_adapter_display_encoder_properties_t),
+                Version = 0
+            };
+
+            var result = IGCL.ctlGetAdaperDisplayEncoderProperties(displayOutput, &encoderProps);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return encoderProps.Os_display_encoder_handle.WindowsDisplayEncoderID;
+
+            var displayProps = new ctl_display_properties_t
+            {
+                Size = (uint)sizeof(ctl_display_properties_t),
+                Version = 0
+            };
+
+            result = IGCL.ctlGetDisplayProperties(displayOutput, &displayProps);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return displayProps.Os_display_encoder_handle.WindowsDisplayEncoderID;
+
+            return 0;
+        }
+
         private static unsafe List<CombinedDisplayChildInfoDto> CopyCombinedDisplayChildInfos(ctl_combined_display_child_info_t* childInfo, int count)
         {
             if (childInfo == null || count <= 0)
@@ -663,7 +691,9 @@ namespace IGCLWrapper
             var results = new List<CombinedDisplayChildInfoDto>(count);
             for (var i = 0; i < count; i++)
             {
-                results.Add(CombinedDisplayChildInfoDto.FromNative(childInfo[i]));
+                var child = CombinedDisplayChildInfoDto.FromNative(childInfo[i]);
+                child.DisplayOutputWindowsDisplayEncoderId = GetWindowsDisplayEncoderId(childInfo[i].hDisplayOutput);
+                results.Add(child);
             }
             return results;
         }
@@ -759,6 +789,10 @@ namespace IGCLWrapper
 
                 if (query.NumOutputs == 0)
                 {
+                    var combinedDisplayOutput = query.hCombinedDisplayOutput;
+                    if (combinedDisplayOutput == null && combinedHandle != IntPtr.Zero)
+                        combinedDisplayOutput = (_ctl_display_output_handle_t*)combinedHandle;
+
                     return new CombinedDisplayArgsDto
                     {
                         Size = query.Size,
@@ -767,12 +801,16 @@ namespace IGCLWrapper
                         NumOutputs = 0,
                         CombinedDesktopWidth = query.CombinedDesktopWidth,
                         CombinedDesktopHeight = query.CombinedDesktopHeight,
-                        CombinedDisplayOutputWindowsDisplayEncoderId = 0,
+                        CombinedDisplayOutputWindowsDisplayEncoderId = GetWindowsDisplayEncoderId(combinedDisplayOutput),
                         ChildInfos = new List<CombinedDisplayChildInfoDto>()
                     };
                 }
 
                 var dto = CombinedDisplayArgsDto.FromNative(query);
+                var dtoCombinedDisplayOutput = query.hCombinedDisplayOutput;
+                if (dtoCombinedDisplayOutput == null && combinedHandle != IntPtr.Zero)
+                    dtoCombinedDisplayOutput = (_ctl_display_output_handle_t*)combinedHandle;
+                dto.CombinedDisplayOutputWindowsDisplayEncoderId = GetWindowsDisplayEncoderId(dtoCombinedDisplayOutput);
                 dto.IsSupported = false;
                 dto.ChildInfos = CopyCombinedDisplayChildInfos(pChildren, query.NumOutputs);
                 // Child order is preserved exactly as the native API returned it.
@@ -2227,7 +2265,8 @@ namespace IGCLWrapper
         /// <returns>True when equal; otherwise, false.</returns>
         public bool Equals(CombinedDisplayChildInfoDto other)
         {
-            return FbSrc.Equals(other.FbSrc) &&
+            return DisplayOutputWindowsDisplayEncoderId == other.DisplayOutputWindowsDisplayEncoderId &&
+                   FbSrc.Equals(other.FbSrc) &&
                    FbPos.Equals(other.FbPos) &&
                    DisplayOrientation == other.DisplayOrientation &&
                    TargetMode.Width == other.TargetMode.Width &&
@@ -2249,6 +2288,7 @@ namespace IGCLWrapper
         public override int GetHashCode()
         {
             var hash = new HashCode();
+            hash.Add(DisplayOutputWindowsDisplayEncoderId);
             hash.Add(FbSrc);
             hash.Add(FbPos);
             hash.Add(DisplayOrientation);

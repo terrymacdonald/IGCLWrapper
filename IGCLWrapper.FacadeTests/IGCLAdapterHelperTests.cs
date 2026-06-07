@@ -126,6 +126,7 @@ namespace IGCLWrapper.FacadeTests
 
                     Assert.True(child.TargetMode.Width >= 0);
                     Assert.True(child.TargetMode.Height >= 0);
+                    Assert.True(child.DisplayOutputWindowsDisplayEncoderId != 0, $"Child {i} Windows display encoder ID was not populated.");
                     Console.WriteLine($" - Child {i}: encoderId={child.DisplayOutputWindowsDisplayEncoderId} orientation={child.DisplayOrientation}");
                 }
             }
@@ -172,6 +173,64 @@ namespace IGCLWrapper.FacadeTests
             Assert.True(childNative.hDisplayOutput == null);
             Assert.Equal(dto.ChildInfos[0].FbSrc.Left, childNative.FbSrc.Left);
             Assert.Equal(dto.ChildInfos[0].TargetMode.Width, childNative.TargetMode.Width);
+        }
+
+        [Fact]
+        public void CombinedDisplayChildInfoDto_Equals_ShouldIncludeEncoderId()
+        {
+            var left = CreateCombinedDisplayChild(100, 0);
+            var right = CreateCombinedDisplayChild(101, 0);
+
+            Assert.False(left.Equals(right));
+            Assert.NotEqual(left.GetHashCode(), right.GetHashCode());
+        }
+
+        [Fact]
+        public void CombinedDisplayArgsDto_Equals_ShouldDistinguishSwappedChildEncoderIds()
+        {
+            var firstLayout = new CombinedDisplayArgsDto
+            {
+                OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_ENABLE,
+                NumOutputs = 2,
+                CombinedDesktopWidth = 5120,
+                CombinedDesktopHeight = 1440,
+                ChildInfos = new List<CombinedDisplayChildInfoDto>
+                {
+                    CreateCombinedDisplayChild(100, 0),
+                    CreateCombinedDisplayChild(101, 2560)
+                }
+            };
+
+            var swappedLayout = new CombinedDisplayArgsDto
+            {
+                OpType = ctl_combined_display_optype_t.CTL_COMBINED_DISPLAY_OPTYPE_ENABLE,
+                NumOutputs = 2,
+                CombinedDesktopWidth = 5120,
+                CombinedDesktopHeight = 1440,
+                ChildInfos = new List<CombinedDisplayChildInfoDto>
+                {
+                    CreateCombinedDisplayChild(101, 0),
+                    CreateCombinedDisplayChild(100, 2560)
+                }
+            };
+
+            Assert.False(firstLayout.Equals(swappedLayout));
+            Assert.NotEqual(firstLayout.GetHashCode(), swappedLayout.GetHashCode());
+        }
+
+        private static CombinedDisplayChildInfoDto CreateCombinedDisplayChild(uint encoderId, int sourceLeft)
+        {
+            const int targetWidth = 2560;
+            const int targetHeight = 1440;
+
+            return new CombinedDisplayChildInfoDto
+            {
+                DisplayOutputWindowsDisplayEncoderId = encoderId,
+                FbSrc = new RectDto { Left = sourceLeft, Top = 0, Right = sourceLeft + targetWidth, Bottom = targetHeight },
+                FbPos = new RectDto { Left = 0, Top = 0, Right = targetWidth, Bottom = targetHeight },
+                DisplayOrientation = ctl_display_orientation_t.CTL_DISPLAY_ORIENTATION_0,
+                TargetMode = new ChildDisplayTargetModeDto { Width = targetWidth, Height = targetHeight, RefreshRate = 60.0f }
+            };
         }
 
         [Fact]
