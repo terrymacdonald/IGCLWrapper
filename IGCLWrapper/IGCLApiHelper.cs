@@ -775,18 +775,8 @@ namespace IGCLWrapper
                 var dto = CombinedDisplayArgsDto.FromNative(query);
                 dto.IsSupported = false;
                 dto.ChildInfos = CopyCombinedDisplayChildInfos(pChildren, query.NumOutputs);
-                // Normalise child order to bottom-to-top then left-to-right so the returned
-                // DTO can be stored and passed directly to SetCombinedDisplay without any
-                // additional reordering by the caller.
-                // - Horizontal layouts (same Y for all): sorted left-to-right (ascending FbSrc.Left).
-                // - Vertical layouts (same X for all): sorted bottom-to-top (descending FbSrc.Top),
-                //   which matches the order the native IGCL API expects for SetCombinedDisplay.
-                dto.ChildInfos.Sort((a, b) =>
-                {
-                    var top = b.FbSrc.Top.CompareTo(a.FbSrc.Top); // descending Y = bottom-to-top
-                    if (top != 0) return top;
-                    return a.FbSrc.Left.CompareTo(b.FbSrc.Left);  // ascending X  = left-to-right
-                });
+                // Child order is preserved exactly as the native API returned it.
+                // This order encodes the physical layout and must be passed back unchanged to SetCombinedDisplay.
                 return dto;
             }
         }
@@ -949,25 +939,9 @@ namespace IGCLWrapper
                 for (var i = 0; i < desiredChildren.Count; i++)
                     childIndexes.Add(i);
 
-                // Order children by intended src layout (bottom-to-top, left-to-right).
-                childIndexes.Sort((a, b) =>
-                {
-                    var aPos = desiredChildren[a].FbSrc;
-                    var bPos = desiredChildren[b].FbSrc;
-                    var top = bPos.Top.CompareTo(aPos.Top);
-                    if (top != 0) return top;
-                    var left = aPos.Left.CompareTo(bPos.Left);
-                    if (left != 0) return left;
-                    return a.CompareTo(b);
-                });
-
-                // Stable output order (encoder id, then handle).
-                remainingOutputs.Sort((a, b) =>
-                {
-                    var cmp = a.EncoderId.CompareTo(b.EncoderId);
-                    if (cmp != 0) return cmp;
-                    return a.Handle.ToInt64().CompareTo(b.Handle.ToInt64());
-                });
+                // childIndexes is iterated in DTO order (native order from GetCombinedDisplay).
+                // Do NOT sort by position here — that would collapse distinct physical configurations
+                // (e.g. M2-top vs M3-top) into the same assignment, ignoring the caller's intent.
 
                 foreach (var childIndex in childIndexes)
                 {
