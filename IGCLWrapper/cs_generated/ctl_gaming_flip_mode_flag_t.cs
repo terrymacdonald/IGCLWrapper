@@ -21,6 +21,9 @@ namespace IGCLWrapper
         /// <include file='ctl_gaming_flip_mode_flag_t.xml' path='doc/member[@name="ctl_gaming_flip_mode_flag_t.CTL_GAMING_FLIP_MODE_FLAG_CAPPED_FPS"]/*' />
         CTL_GAMING_FLIP_MODE_FLAG_CAPPED_FPS = (1 << 5),
 
+        /// <include file='ctl_gaming_flip_mode_flag_t.xml' path='doc/member[@name="ctl_gaming_flip_mode_flag_t.CTL_GAMING_FLIP_MODE_FLAG_VSYNC_OFF_IGNORE_ALLOW_LIST"]/*' />
+        CTL_GAMING_FLIP_MODE_FLAG_VSYNC_OFF_IGNORE_ALLOW_LIST = (1 << 6),
+
         /// <include file='ctl_gaming_flip_mode_flag_t.xml' path='doc/member[@name="ctl_gaming_flip_mode_flag_t.CTL_GAMING_FLIP_MODE_FLAG_MAX"]/*' />
         CTL_GAMING_FLIP_MODE_FLAG_MAX = unchecked((int)(0x80000000)),
     }

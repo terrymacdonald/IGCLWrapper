@@ -57,6 +57,15 @@ namespace IGCLWrapper
         /// <include file='ctl_3d_feature_t.xml' path='doc/member[@name="ctl_3d_feature_t.CTL_3D_FEATURE_FRAME_GENERATION"]/*' />
         CTL_3D_FEATURE_FRAME_GENERATION = 17,
 
+        /// <include file='ctl_3d_feature_t.xml' path='doc/member[@name="ctl_3d_feature_t.CTL_3D_FEATURE_PREBUILT_SHADER_DOWNLOAD"]/*' />
+        CTL_3D_FEATURE_PREBUILT_SHADER_DOWNLOAD = 18,
+
+        /// <include file='ctl_3d_feature_t.xml' path='doc/member[@name="ctl_3d_feature_t.CTL_3D_FEATURE_LIVE_STATE"]/*' />
+        CTL_3D_FEATURE_LIVE_STATE = 19,
+
+        /// <include file='ctl_3d_feature_t.xml' path='doc/member[@name="ctl_3d_feature_t.CTL_3D_FEATURE_FRAME_GENERATION_CONTROL"]/*' />
+        CTL_3D_FEATURE_FRAME_GENERATION_CONTROL = 20,
+
         /// <include file='ctl_3d_feature_t.xml' path='doc/member[@name="ctl_3d_feature_t.CTL_3D_FEATURE_MAX"]/*' />
         CTL_3D_FEATURE_MAX,
     }

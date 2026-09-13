@@ -1,5 +1,5 @@
 //===========================================================================
-// Copyright (C) 2022 Intel Corporation
+// Copyright (C) 2022-2026 Intel Corporation
 //
 //
 //
@@ -37,6 +37,7 @@ void CtlMemoryTest(ctl_device_adapter_handle_t hDAhandle);
 void CtlEngineTest(ctl_device_adapter_handle_t hDAhandle);
 void CtlLedTest(ctl_device_adapter_handle_t hDAhandle);
 void CtlEccTest(ctl_device_adapter_handle_t hDAhandle);
+void CtlDevPropTest(ctl_device_adapter_handle_t hDAhandle);
 void CtlPowerTelemetryTest(ctl_device_adapter_handle_t hDAhandle);
 
 std::string DecodeCtlDataType(ctl_data_type_t Type)
@@ -1171,13 +1172,150 @@ void CtlEccTest(ctl_device_adapter_handle_t hDAhandle)
     return;
 }
 
+/***************************************************************
+ * @brief Print device properties
+ * Prints generic device properties not covered in other APIs. Initially added to check if IsWorkstation SKU.
+ * @param hDAhandle Handle to the device adapter whose properties are to be printed.
+ * @return void
+ ***************************************************************/
+void CtlDevPropTest(ctl_device_adapter_handle_t hDAhandle)
+{
+    PRINT_LOGS("\n::::::::::::::Print Device Properties::::::::::::::\n");
+
+    ctl_result_t Result                         = CTL_RESULT_SUCCESS;
+    ctl_dev_prop_properties_t DevPropProperties = { 0 };
+    DevPropProperties.Size                      = sizeof(ctl_dev_prop_properties_t);
+
+    Result = ctlDevPropGetProperties(hDAhandle, &DevPropProperties);
+
+    PRINT_LOGS("\n[DevProp] Get Device properties:");
+    if (Result != CTL_RESULT_SUCCESS)
+    {
+        PRINT_LOGS("\nDevice property component not supported. Result: %s", DecodeRetCode(Result).c_str());
+        return;
+    }
+
+    PRINT_LOGS("\n[DevProp] Is Workstation SKU [%s]", DecodeBoolean(DevPropProperties.isWorkstation).c_str());
+}
+
+void CtlPowerTelemetryPrintVramAndMisc(ctl_power_telemetry_v2_t &pPowerTelemetry)
+{
+    if (pPowerTelemetry.vramVoltage.bSupported)
+    {
+        PRINT_LOGS("\nVRAM Voltage: %f (%s) Datatype:(%s)", pPowerTelemetry.vramVoltage.value.datadouble, DecodeCtlUnits(pPowerTelemetry.vramVoltage.units).c_str(),
+                   DecodeCtlDataType(pPowerTelemetry.vramVoltage.type).c_str());
+    }
+
+    if (pPowerTelemetry.vramCurrentClockFrequency.bSupported)
+    {
+        PRINT_LOGS("\nVRAM Frequency: %f (%s) Datatype:(%s)", pPowerTelemetry.vramCurrentClockFrequency.value.datadouble, DecodeCtlUnits(pPowerTelemetry.vramCurrentClockFrequency.units).c_str(),
+                   DecodeCtlDataType(pPowerTelemetry.vramCurrentClockFrequency.type).c_str());
+    }
+
+    if (pPowerTelemetry.vramReadBandwidthCounter.bSupported)
+    {
+        PRINT_LOGS("\nVRAM Read Bandwidth Counter: %llu (%s) Datatype:(%s)", pPowerTelemetry.vramReadBandwidthCounter.value.datau64,
+                   DecodeCtlUnits(pPowerTelemetry.vramReadBandwidthCounter.units).c_str(), DecodeCtlDataType(pPowerTelemetry.vramReadBandwidthCounter.type).c_str());
+    }
+
+    if (pPowerTelemetry.vramWriteBandwidthCounter.bSupported)
+    {
+        PRINT_LOGS("\nVRAM Write Bandwidth Counter: %llu (%s) Datatype:(%s)", pPowerTelemetry.vramWriteBandwidthCounter.value.datau64,
+                   DecodeCtlUnits(pPowerTelemetry.vramWriteBandwidthCounter.units).c_str(), DecodeCtlDataType(pPowerTelemetry.vramWriteBandwidthCounter.type).c_str());
+    }
+
+    if (pPowerTelemetry.vramCurrentEffectiveFrequency.bSupported)
+    {
+        PRINT_LOGS("\nVRAM Effective Frequency: %f (%s) Datatype:(%s)", pPowerTelemetry.vramCurrentEffectiveFrequency.value.datadouble,
+                   DecodeCtlUnits(pPowerTelemetry.vramCurrentEffectiveFrequency.units).c_str(), DecodeCtlDataType(pPowerTelemetry.vramCurrentEffectiveFrequency.type).c_str());
+    }
+
+    if (pPowerTelemetry.vramCurrentTemperature.bSupported)
+    {
+        PRINT_LOGS("\nVRAM Temperature: %f (%s) Datatype:(%s)", pPowerTelemetry.vramCurrentTemperature.value.datadouble, DecodeCtlUnits(pPowerTelemetry.vramCurrentTemperature.units).c_str(),
+                   DecodeCtlDataType(pPowerTelemetry.vramCurrentTemperature.type).c_str());
+    }
+
+    if (pPowerTelemetry.vramReadBandwidth.bSupported)
+    {
+        PRINT_LOGS("\nVRAM Read Bandwidth: %f (%s) Datatype:(%s)", pPowerTelemetry.vramReadBandwidth.value.datadouble, DecodeCtlUnits(pPowerTelemetry.vramReadBandwidth.units).c_str(),
+                   DecodeCtlDataType(pPowerTelemetry.vramReadBandwidth.type).c_str());
+    }
+
+    if (pPowerTelemetry.vramWriteBandwidth.bSupported)
+    {
+        PRINT_LOGS("\nVRAM Write Bandwidth: %f (%s) Datatype:(%s)", pPowerTelemetry.vramWriteBandwidth.value.datadouble, DecodeCtlUnits(pPowerTelemetry.vramWriteBandwidth.units).c_str(),
+                   DecodeCtlDataType(pPowerTelemetry.vramWriteBandwidth.type).c_str());
+    }
+
+    if (pPowerTelemetry.gpuVrTemp.bSupported)
+    {
+        PRINT_LOGS("\nGPU VR Temperature: %f (%s) Datatype:(%s)", pPowerTelemetry.gpuVrTemp.value.datadouble, DecodeCtlUnits(pPowerTelemetry.gpuVrTemp.units).c_str(),
+                   DecodeCtlDataType(pPowerTelemetry.gpuVrTemp.type).c_str());
+    }
+
+    if (pPowerTelemetry.vramVrTemp.bSupported)
+    {
+        PRINT_LOGS("\nVRAM VR Temperature: %f (%s) Datatype:(%s)", pPowerTelemetry.vramVrTemp.value.datadouble, DecodeCtlUnits(pPowerTelemetry.vramVrTemp.units).c_str(),
+                   DecodeCtlDataType(pPowerTelemetry.vramVrTemp.type).c_str());
+    }
+
+    if (pPowerTelemetry.saVrTemp.bSupported)
+    {
+        PRINT_LOGS("\nSA VR Temperature: %f (%s) Datatype:(%s)", pPowerTelemetry.saVrTemp.value.datadouble, DecodeCtlUnits(pPowerTelemetry.saVrTemp.units).c_str(),
+                   DecodeCtlDataType(pPowerTelemetry.saVrTemp.type).c_str());
+    }
+
+    if (pPowerTelemetry.gpuEffectiveClock.bSupported)
+    {
+        PRINT_LOGS("\nEffective frequency of the GPU: %f (%s) Datatype:(%s)", pPowerTelemetry.gpuEffectiveClock.value.datadouble, DecodeCtlUnits(pPowerTelemetry.gpuEffectiveClock.units).c_str(),
+                   DecodeCtlDataType(pPowerTelemetry.gpuEffectiveClock.type).c_str());
+    }
+
+    if (pPowerTelemetry.gpuOverVoltagePercent.bSupported)
+    {
+        PRINT_LOGS("\nGPU Overvoltage Percentage: %f (%s) Datatype:(%s)", pPowerTelemetry.gpuOverVoltagePercent.value.datadouble, DecodeCtlUnits(pPowerTelemetry.gpuOverVoltagePercent.units).c_str(),
+                   DecodeCtlDataType(pPowerTelemetry.gpuOverVoltagePercent.type).c_str());
+    }
+
+    if (pPowerTelemetry.gpuPowerPercent.bSupported)
+    {
+        PRINT_LOGS("\nGPU Power Percentage: %f (%s) Datatype:(%s)", pPowerTelemetry.gpuPowerPercent.value.datadouble, DecodeCtlUnits(pPowerTelemetry.gpuPowerPercent.units).c_str(),
+                   DecodeCtlDataType(pPowerTelemetry.gpuPowerPercent.type).c_str());
+    }
+
+    if (pPowerTelemetry.gpuTemperaturePercent.bSupported)
+    {
+        PRINT_LOGS("\nGPU Temperature Percentage: %f (%s) Datatype:(%s)", pPowerTelemetry.gpuTemperaturePercent.value.datadouble, DecodeCtlUnits(pPowerTelemetry.gpuTemperaturePercent.units).c_str(),
+                   DecodeCtlDataType(pPowerTelemetry.gpuTemperaturePercent.type).c_str());
+    }
+
+    for (int i = 0; i < CTL_FAN_COUNT; i++)
+    {
+        if (pPowerTelemetry.fanSpeed[i].bSupported)
+        {
+            PRINT_LOGS("\nFan[%d] Speed: %f (%s) Datatype:(%s)", i, pPowerTelemetry.fanSpeed[i].value.datadouble, DecodeCtlUnits(pPowerTelemetry.fanSpeed[i].units).c_str(),
+                       DecodeCtlDataType(pPowerTelemetry.fanSpeed[i].type).c_str());
+        }
+    }
+
+    PRINT_LOGS("\ngpuPowerLimited: %s", DecodeBoolean(pPowerTelemetry.gpuPowerLimited).c_str());
+    PRINT_LOGS("\ngpuTemperatureLimited: %s", DecodeBoolean(pPowerTelemetry.gpuTemperatureLimited).c_str());
+    PRINT_LOGS("\ngpuCurrentLimited: %s", DecodeBoolean(pPowerTelemetry.gpuCurrentLimited).c_str());
+    PRINT_LOGS("\ngpuVoltageLimited: %s", DecodeBoolean(pPowerTelemetry.gpuVoltageLimited).c_str());
+    PRINT_LOGS("\ngpuUtilizationLimited: %s", DecodeBoolean(pPowerTelemetry.gpuUtilizationLimited).c_str());
+}
+
 void CtlPowerTelemetryTest(ctl_device_adapter_handle_t hDAhandle)
 {
-    ctl_power_telemetry_t pPowerTelemetry = {};
-    pPowerTelemetry.Size                  = sizeof(ctl_power_telemetry_t);
-    pPowerTelemetry.Version               = 1;
+    ctl_power_telemetry_v2_t pPowerTelemetry = {};
+    pPowerTelemetry.Size                     = sizeof(ctl_power_telemetry_v2_t);
+    pPowerTelemetry.Version                  = 1;
 
-    ctl_result_t Status = ctlPowerTelemetryGet(hDAhandle, &pPowerTelemetry);
+    ctl_result_t Status = ctlPowerTelemetryGetV2(hDAhandle, &pPowerTelemetry);
+
+    static bool firstSample = true;
+    double timeDiff         = 0.0;
 
     if (Status == ctl_result_t::CTL_RESULT_SUCCESS)
     {
@@ -1187,24 +1325,71 @@ void CtlPowerTelemetryTest(ctl_device_adapter_handle_t hDAhandle)
         {
             PRINT_LOGS("\nTimeStamp: %f (%s) Datatype:(%s)", pPowerTelemetry.timeStamp.value.datadouble, DecodeCtlUnits(pPowerTelemetry.timeStamp.units).c_str(),
                        DecodeCtlDataType(pPowerTelemetry.timeStamp.type).c_str());
+
+            // Calculate time difference between current and previous timestamp
+            static double prevTimeStamp = 0.0;
+            if (firstSample == false)
+            {
+                timeDiff = pPowerTelemetry.timeStamp.value.datadouble - prevTimeStamp;
+            }
+            prevTimeStamp = pPowerTelemetry.timeStamp.value.datadouble;
         }
 
         if (pPowerTelemetry.gpuEnergyCounter.bSupported)
         {
             PRINT_LOGS("\nGpu Energy Counter: %f (%s) Datatype:(%s)", pPowerTelemetry.gpuEnergyCounter.value.datadouble, DecodeCtlUnits(pPowerTelemetry.gpuEnergyCounter.units).c_str(),
                        DecodeCtlDataType(pPowerTelemetry.gpuEnergyCounter.type).c_str());
+
+            // Calculate and display power based on energy counter if we have previous values
+            static double prevGpuEnergyCounter = 0.0;
+            if (firstSample == false && pPowerTelemetry.timeStamp.bSupported)
+            {
+                double energyDiff = pPowerTelemetry.gpuEnergyCounter.value.datadouble - prevGpuEnergyCounter;
+                if (timeDiff > 0.0)
+                {
+                    double powerWatts = energyDiff / timeDiff;
+                    PRINT_LOGS("GPU Power (calculated): %f Watts", powerWatts);
+                }
+            }
+            prevGpuEnergyCounter = pPowerTelemetry.gpuEnergyCounter.value.datadouble;
         }
 
         if (pPowerTelemetry.vramEnergyCounter.bSupported)
         {
             PRINT_LOGS("\nVRAM Energy Counter: %f (%s) Datatype:(%s)", pPowerTelemetry.vramEnergyCounter.value.datadouble, DecodeCtlUnits(pPowerTelemetry.vramEnergyCounter.units).c_str(),
                        DecodeCtlDataType(pPowerTelemetry.vramEnergyCounter.type).c_str());
+
+            // Calculate and display VRAM power based on energy counter if we have previous values
+            static double prevVramEnergyCounter = 0.0;
+            if (firstSample == false && pPowerTelemetry.timeStamp.bSupported)
+            {
+                double energyDiff = pPowerTelemetry.vramEnergyCounter.value.datadouble - prevVramEnergyCounter;
+                if (timeDiff > 0.0)
+                {
+                    double powerWatts = energyDiff / timeDiff;
+                    PRINT_LOGS("VRAM Power (calculated): %f Watts", powerWatts);
+                }
+            }
+            prevVramEnergyCounter = pPowerTelemetry.vramEnergyCounter.value.datadouble;
         }
 
         if (pPowerTelemetry.totalCardEnergyCounter.bSupported)
         {
             PRINT_LOGS("\nCard Energy Counter: %f (%s) Datatype:(%s)", pPowerTelemetry.totalCardEnergyCounter.value.datadouble, DecodeCtlUnits(pPowerTelemetry.totalCardEnergyCounter.units).c_str(),
                        DecodeCtlDataType(pPowerTelemetry.totalCardEnergyCounter.type).c_str());
+
+            // Calculate and display total card power based on energy counter if we have previous values
+            static double prevTotalCardEnergyCounter = 0.0;
+            if (firstSample == false && pPowerTelemetry.timeStamp.bSupported)
+            {
+                double energyDiff = pPowerTelemetry.totalCardEnergyCounter.value.datadouble - prevTotalCardEnergyCounter;
+                if (timeDiff > 0.0)
+                {
+                    double powerWatts = energyDiff / timeDiff;
+                    PRINT_LOGS("Total Card Power (calculated): %f Watts", powerWatts);
+                }
+            }
+            prevTotalCardEnergyCounter = pPowerTelemetry.totalCardEnergyCounter.value.datadouble;
         }
 
         if (pPowerTelemetry.gpuVoltage.bSupported)
@@ -1229,128 +1414,67 @@ void CtlPowerTelemetryTest(ctl_device_adapter_handle_t hDAhandle)
         {
             PRINT_LOGS("\nGpu Activity Counter: %f (%s) Datatype:(%s)", pPowerTelemetry.globalActivityCounter.value.datadouble, DecodeCtlUnits(pPowerTelemetry.globalActivityCounter.units).c_str(),
                        DecodeCtlDataType(pPowerTelemetry.globalActivityCounter.type).c_str());
+
+            // Calculate and display GPU utilization based on global activity counter
+            static double prevGlobalActivityCounter = 0.0;
+            if (firstSample == false && pPowerTelemetry.timeStamp.bSupported)
+            {
+                double activityDiff = pPowerTelemetry.globalActivityCounter.value.datadouble - prevGlobalActivityCounter;
+                if (timeDiff > 0.0)
+                {
+                    double utilization = (activityDiff / timeDiff) * 100.0; // Convert to percentage
+                    PRINT_LOGS("GPU Utilization (calculated): %f%%", utilization);
+                }
+            }
+            prevGlobalActivityCounter = pPowerTelemetry.globalActivityCounter.value.datadouble;
         }
 
         if (pPowerTelemetry.renderComputeActivityCounter.bSupported)
         {
             PRINT_LOGS("\nRender Activity Counter: %f (%s) Datatype:(%s)", pPowerTelemetry.renderComputeActivityCounter.value.datadouble,
                        DecodeCtlUnits(pPowerTelemetry.renderComputeActivityCounter.units).c_str(), DecodeCtlDataType(pPowerTelemetry.renderComputeActivityCounter.type).c_str());
+
+            // Calculate and display renderCompute utilization based on renderCompute activity counter
+            static double prevRenderComputeActivityCounter = 0.0;
+            if (firstSample == false && pPowerTelemetry.timeStamp.bSupported)
+            {
+                double activityDiff = pPowerTelemetry.renderComputeActivityCounter.value.datadouble - prevRenderComputeActivityCounter;
+                if (timeDiff > 0.0)
+                {
+                    double utilization = (activityDiff / timeDiff) * 100.0; // Convert to percentage
+                    PRINT_LOGS("RenderCompute Utilization (calculated): %f%%", utilization);
+                }
+            }
+            prevRenderComputeActivityCounter = pPowerTelemetry.renderComputeActivityCounter.value.datadouble;
         }
 
         if (pPowerTelemetry.mediaActivityCounter.bSupported)
         {
             PRINT_LOGS("\nMedia Activity Counter: %f (%s) Datatype:(%s)", pPowerTelemetry.mediaActivityCounter.value.datadouble, DecodeCtlUnits(pPowerTelemetry.mediaActivityCounter.units).c_str(),
                        DecodeCtlDataType(pPowerTelemetry.mediaActivityCounter.type).c_str());
-        }
 
-        if (pPowerTelemetry.vramVoltage.bSupported)
-        {
-            PRINT_LOGS("\nVRAM Voltage: %f (%s) Datatype:(%s)", pPowerTelemetry.vramVoltage.value.datadouble, DecodeCtlUnits(pPowerTelemetry.vramVoltage.units).c_str(),
-                       DecodeCtlDataType(pPowerTelemetry.vramVoltage.type).c_str());
-        }
-
-        if (pPowerTelemetry.vramCurrentClockFrequency.bSupported)
-        {
-            PRINT_LOGS("\nVRAM Frequency: %f (%s) Datatype:(%s)", pPowerTelemetry.vramCurrentClockFrequency.value.datadouble, DecodeCtlUnits(pPowerTelemetry.vramCurrentClockFrequency.units).c_str(),
-                       DecodeCtlDataType(pPowerTelemetry.vramCurrentClockFrequency.type).c_str());
-        }
-
-        if (pPowerTelemetry.vramReadBandwidthCounter.bSupported)
-        {
-            PRINT_LOGS("\nVRAM Read Bandwidth Counter: %llu (%s) Datatype:(%s)", pPowerTelemetry.vramReadBandwidthCounter.value.datau64,
-                       DecodeCtlUnits(pPowerTelemetry.vramReadBandwidthCounter.units).c_str(), DecodeCtlDataType(pPowerTelemetry.vramReadBandwidthCounter.type).c_str());
-        }
-
-        if (pPowerTelemetry.vramWriteBandwidthCounter.bSupported)
-        {
-            PRINT_LOGS("\nVRAM Write Bandwidth Counter: %llu (%s) Datatype:(%s)", pPowerTelemetry.vramWriteBandwidthCounter.value.datau64,
-                       DecodeCtlUnits(pPowerTelemetry.vramWriteBandwidthCounter.units).c_str(), DecodeCtlDataType(pPowerTelemetry.vramWriteBandwidthCounter.type).c_str());
-        }
-
-        if (pPowerTelemetry.vramCurrentEffectiveFrequency.bSupported)
-        {
-            PRINT_LOGS("\nVRAM Effective Frequency: %f (%s) Datatype:(%s)", pPowerTelemetry.vramCurrentEffectiveFrequency.value.datadouble,
-                       DecodeCtlUnits(pPowerTelemetry.vramCurrentEffectiveFrequency.units).c_str(), DecodeCtlDataType(pPowerTelemetry.vramCurrentEffectiveFrequency.type).c_str());
-        }
-
-        if (pPowerTelemetry.vramCurrentTemperature.bSupported)
-        {
-            PRINT_LOGS("\nVRAM Temperature: %f (%s) Datatype:(%s)", pPowerTelemetry.vramCurrentTemperature.value.datadouble, DecodeCtlUnits(pPowerTelemetry.vramCurrentTemperature.units).c_str(),
-                       DecodeCtlDataType(pPowerTelemetry.vramCurrentTemperature.type).c_str());
-        }
-
-        if (pPowerTelemetry.vramReadBandwidth.bSupported)
-        {
-            PRINT_LOGS("\nVRAM Read Bandwidth: %f (%s) Datatype:(%s)", pPowerTelemetry.vramReadBandwidth.value.datadouble, DecodeCtlUnits(pPowerTelemetry.vramReadBandwidth.units).c_str(),
-                       DecodeCtlDataType(pPowerTelemetry.vramReadBandwidth.type).c_str());
-        }
-
-        if (pPowerTelemetry.vramWriteBandwidth.bSupported)
-        {
-            PRINT_LOGS("\nVRAM Write Bandwidth: %f (%s) Datatype:(%s)", pPowerTelemetry.vramWriteBandwidth.value.datadouble, DecodeCtlUnits(pPowerTelemetry.vramWriteBandwidth.units).c_str(),
-                       DecodeCtlDataType(pPowerTelemetry.vramWriteBandwidth.type).c_str());
-        }
-
-        if (pPowerTelemetry.gpuVrTemp.bSupported)
-        {
-            PRINT_LOGS("\nGPU VR Temperature: %f (%s) Datatype:(%s)", pPowerTelemetry.gpuVrTemp.value.datadouble, DecodeCtlUnits(pPowerTelemetry.gpuVrTemp.units).c_str(),
-                       DecodeCtlDataType(pPowerTelemetry.gpuVrTemp.type).c_str());
-        }
-
-        if (pPowerTelemetry.vramVrTemp.bSupported)
-        {
-            PRINT_LOGS("\nVRAM VR Temperature: %f (%s) Datatype:(%s)", pPowerTelemetry.vramVrTemp.value.datadouble, DecodeCtlUnits(pPowerTelemetry.vramVrTemp.units).c_str(),
-                       DecodeCtlDataType(pPowerTelemetry.vramVrTemp.type).c_str());
-        }
-
-        if (pPowerTelemetry.saVrTemp.bSupported)
-        {
-            PRINT_LOGS("\nSA VR Temperature: %f (%s) Datatype:(%s)", pPowerTelemetry.saVrTemp.value.datadouble, DecodeCtlUnits(pPowerTelemetry.saVrTemp.units).c_str(),
-                       DecodeCtlDataType(pPowerTelemetry.saVrTemp.type).c_str());
-        }
-
-        if (pPowerTelemetry.gpuEffectiveClock.bSupported)
-        {
-            PRINT_LOGS("\nEffective frequency of the GPU: %f (%s) Datatype:(%s)", pPowerTelemetry.gpuEffectiveClock.value.datadouble, DecodeCtlUnits(pPowerTelemetry.gpuEffectiveClock.units).c_str(),
-                       DecodeCtlDataType(pPowerTelemetry.gpuEffectiveClock.type).c_str());
-        }
-
-        if (pPowerTelemetry.gpuOverVoltagePercent.bSupported)
-        {
-            PRINT_LOGS("\nGPU Overvoltage Percentage: %f (%s) Datatype:(%s)", pPowerTelemetry.gpuOverVoltagePercent.value.datadouble,
-                       DecodeCtlUnits(pPowerTelemetry.gpuOverVoltagePercent.units).c_str(), DecodeCtlDataType(pPowerTelemetry.gpuOverVoltagePercent.type).c_str());
-        }
-
-        if (pPowerTelemetry.gpuPowerPercent.bSupported)
-        {
-            PRINT_LOGS("\nGPU Power Percentage: %f (%s) Datatype:(%s)", pPowerTelemetry.gpuPowerPercent.value.datadouble, DecodeCtlUnits(pPowerTelemetry.gpuPowerPercent.units).c_str(),
-                       DecodeCtlDataType(pPowerTelemetry.gpuPowerPercent.type).c_str());
-        }
-
-        if (pPowerTelemetry.gpuTemperaturePercent.bSupported)
-        {
-            PRINT_LOGS("\nGPU Temperature Percentage: %f (%s) Datatype:(%s)", pPowerTelemetry.gpuTemperaturePercent.value.datadouble,
-                       DecodeCtlUnits(pPowerTelemetry.gpuTemperaturePercent.units).c_str(), DecodeCtlDataType(pPowerTelemetry.gpuTemperaturePercent.type).c_str());
-        }
-
-        for (int i = 0; i < CTL_FAN_COUNT; i++)
-        {
-            if (pPowerTelemetry.fanSpeed[i].bSupported)
+            // Calculate and display media utilization based on media activity counter
+            static double prevMediaActivityCounter = 0.0;
+            if (firstSample == false && pPowerTelemetry.timeStamp.bSupported)
             {
-                PRINT_LOGS("\nFan[%d] Speed: %f (%s) Datatype:(%s)", i, pPowerTelemetry.fanSpeed[i].value.datadouble, DecodeCtlUnits(pPowerTelemetry.fanSpeed[i].units).c_str(),
-                           DecodeCtlDataType(pPowerTelemetry.fanSpeed[i].type).c_str());
+                double activityDiff = pPowerTelemetry.mediaActivityCounter.value.datadouble - prevMediaActivityCounter;
+                if (timeDiff > 0.0)
+                {
+                    double utilization = (activityDiff / timeDiff) * 100.0; // Convert to percentage
+                    PRINT_LOGS("Media Utilization (calculated): %f%%", utilization);
+                }
             }
+            prevMediaActivityCounter = pPowerTelemetry.mediaActivityCounter.value.datadouble;
         }
 
-        PRINT_LOGS("\ngpuPowerLimited: %s", DecodeBoolean(pPowerTelemetry.gpuPowerLimited).c_str());
-        PRINT_LOGS("\ngpuTemperatureLimited: %s", DecodeBoolean(pPowerTelemetry.gpuTemperatureLimited).c_str());
-        PRINT_LOGS("\ngpuCurrentLimited: %s", DecodeBoolean(pPowerTelemetry.gpuCurrentLimited).c_str());
-        PRINT_LOGS("\ngpuVoltageLimited: %s", DecodeBoolean(pPowerTelemetry.gpuVoltageLimited).c_str());
-        PRINT_LOGS("\ngpuUtilizationLimited: %s", DecodeBoolean(pPowerTelemetry.gpuUtilizationLimited).c_str());
+        // Helper function as the syntax checker now requires functions with less than 120 lines.
+        CtlPowerTelemetryPrintVramAndMisc(pPowerTelemetry);
+
+        firstSample = false;
     }
     else
     {
-        PRINT_LOGS("\nCtlPowerTelemetryTest => ctlPowerTelemetryGet Result Error: %s, ErrorCode: 0x%x \n \n", DecodeRetCode(Status).c_str(), Status);
+        PRINT_LOGS("\nCtlPowerTelemetryTest => ctlPowerTelemetryGetV2 Result Error: %s, ErrorCode: 0x%x \n \n", DecodeRetCode(Status).c_str(), Status);
     }
 }
 
@@ -1428,6 +1552,14 @@ void PerComponentTest(ctl_device_adapter_handle_t hDAhandle)
     {
         printf("%s \n", e.what());
     }
+    try
+    {
+        CtlDevPropTest(hDAhandle);
+    }
+    catch (const std::bad_array_new_length &e)
+    {
+        printf("%s \n", e.what());
+    }
 }
 
 /***************************************************************
@@ -1453,7 +1585,7 @@ int main()
     ctl_init_args_t CtlInitArgs;
     ctl_api_handle_t hAPIHandle;
     CtlInitArgs.AppVersion = CTL_MAKE_VERSION(CTL_IMPL_MAJOR_VERSION, CTL_IMPL_MINOR_VERSION);
-    CtlInitArgs.flags      = CTL_INIT_FLAG_USE_LEVEL_ZERO;
+    CtlInitArgs.flags      = CTL_INIT_FLAG_USE_LEVEL_ZERO | CTL_INIT_FLAG_IGSC_FUL;
     CtlInitArgs.Size       = sizeof(CtlInitArgs);
     CtlInitArgs.Version    = 0;
     ZeroMemory(&CtlInitArgs.ApplicationUID, sizeof(ctl_application_id_t));

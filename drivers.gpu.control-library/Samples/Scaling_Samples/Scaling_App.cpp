@@ -74,6 +74,24 @@ ctl_result_t ScalingTest(ctl_device_adapter_handle_t hDevices, uint8_t ScaleType
 
     APP_LOG_INFO("ctlGetSetRetroScaling returned Enable: 0x%X type:0x%x", RetroScalingSettings.Enable, RetroScalingSettings.RetroScalingType);
 
+    // Disable retro scaling
+    RetroScalingSettings                  = { 0 };
+    RetroScalingSettings.Enable           = false;
+    RetroScalingSettings.RetroScalingType = RetroScalingSettings.RetroScalingType | CTL_RETRO_SCALING_TYPE_FLAG_INTEGER;
+    RetroScalingSettings.Size             = sizeof(ctl_retro_scaling_settings_t);
+
+    Result = ctlGetSetRetroScaling(hDevices, &RetroScalingSettings);
+    LOG_AND_EXIT_ON_ERROR(Result, "ctlGetSetRetroScaling");
+
+    // Check if disabled correctly
+    RetroScalingSettings                  = { 0 };
+    RetroScalingSettings.Get              = true;
+    RetroScalingSettings.RetroScalingType = RetroScalingSettings.RetroScalingType | CTL_RETRO_SCALING_TYPE_FLAG_INTEGER;
+    RetroScalingSettings.Size             = sizeof(ctl_retro_scaling_settings_t);
+    Result                                = ctlGetSetRetroScaling(hDevices, &RetroScalingSettings);
+    LOG_AND_EXIT_ON_ERROR(Result, "ctlGetSetRetroScaling");
+    APP_LOG_INFO("ctlGetSetRetroScaling returned Enable: 0x%X type:0x%x", RetroScalingSettings.Enable, RetroScalingSettings.RetroScalingType);
+
     // Enumerate all the possible target display's for the adapters
     Result = ctlEnumerateDisplayOutputs(hDevices, &DisplayCount, hDisplayOutput);
     LOG_AND_EXIT_ON_ERROR(Result, "ctlEnumerateDisplayOutputs");

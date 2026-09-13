@@ -133,11 +133,6 @@ namespace IGCLWrapper.FacadeTests
 
                 FacadeTestUtils.InvokeOrSkip(() => display.GetVblankTimestamp(), "Vblank unsupported");
 
-                var muxes = display.EnumerateMuxDevices();
-                if (muxes != null && muxes.Length > 0)
-                {
-                    FacadeTestUtils.InvokeOrSkip(() => display.GetMuxProperties(muxes[0]), "Mux properties unsupported");
-                }
             }
         }
 
@@ -726,12 +721,6 @@ namespace IGCLWrapper.FacadeTests
                 });
             Assert.NotNull(customResult.Modes);
             Assert.Equal(2, customResult.Modes!.Count);
-
-            var muxDto = MuxPropertiesDto.FromNative(
-                new ctl_mux_properties_t { Size = 4, Version = 0, MuxId = 1, Count = 2, IndexOfDisplayOutputOwningMux = 1 },
-                new[] { (IntPtr)10, (IntPtr)20 });
-            Assert.NotNull(muxDto.DisplayOutputs);
-            Assert.Equal(2, muxDto.DisplayOutputs!.Count);
 
             var vblank = new VblankTimestampArgsDto
             {

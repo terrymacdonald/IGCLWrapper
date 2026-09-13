@@ -45,12 +45,15 @@ ctl_result_t TestPSRPowerFeature(ctl_display_output_handle_t hDisplayOutput)
     ctl_power_optimization_settings_t NewPowerSettings     = { 0 };
 
     PowerCaps.Size                                = sizeof(ctl_power_optimization_caps_t);
+    PowerCaps.Version                             = 1;
     AppliedPowerSettings.Size                     = sizeof(ctl_power_optimization_settings_t);
+    AppliedPowerSettings.Version                  = 1;
     AppliedPowerSettings.PowerOptimizationFeature = CTL_POWER_OPTIMIZATION_FLAG_PSR;
     AppliedPowerSettings.PowerSource              = CTL_POWER_SOURCE_DC;
     AppliedPowerSettings.PowerOptimizationPlan    = CTL_POWER_OPTIMIZATION_PLAN_BALANCED;
 
     NewPowerSettings.Size                     = sizeof(ctl_power_optimization_settings_t);
+    NewPowerSettings.Version                  = 1;
     NewPowerSettings.PowerOptimizationFeature = CTL_POWER_OPTIMIZATION_FLAG_PSR;
     NewPowerSettings.Enable                   = TRUE;
     NewPowerSettings.PowerSource              = CTL_POWER_SOURCE_DC;
@@ -84,6 +87,59 @@ Exit:
 
 /***************************************************************
  * @brief
+ * Power feature Test for SPH
+ * @param hDisplayOutput
+ * @return ctl_result_t
+ ***************************************************************/
+ctl_result_t TestSPHPowerFeature(ctl_display_output_handle_t hDisplayOutput)
+{
+    ctl_result_t Result                                    = CTL_RESULT_SUCCESS;
+    ctl_power_optimization_caps_t PowerCaps                = { 0 };
+    ctl_power_optimization_settings_t AppliedPowerSettings = { 0 };
+    ctl_power_optimization_settings_t NewPowerSettings     = { 0 };
+
+    PowerCaps.Size                                = sizeof(ctl_power_optimization_caps_t);
+    PowerCaps.Version                             = 1;
+    AppliedPowerSettings.Size                     = sizeof(ctl_power_optimization_settings_t);
+    AppliedPowerSettings.PowerOptimizationFeature = CTL_POWER_OPTIMIZATION_FLAG_SPH;
+    AppliedPowerSettings.PowerSource              = CTL_POWER_SOURCE_AC;
+    AppliedPowerSettings.PowerOptimizationPlan    = CTL_POWER_OPTIMIZATION_PLAN_BALANCED;
+    AppliedPowerSettings.Version                  = 1;
+
+    NewPowerSettings.Size                     = sizeof(ctl_power_optimization_settings_t);
+    NewPowerSettings.PowerOptimizationFeature = CTL_POWER_OPTIMIZATION_FLAG_SPH;
+    NewPowerSettings.Enable                   = TRUE;
+    NewPowerSettings.PowerSource              = CTL_POWER_SOURCE_AC;
+    NewPowerSettings.PowerOptimizationPlan    = CTL_POWER_OPTIMIZATION_PLAN_BALANCED;
+    NewPowerSettings.Version                  = 1;
+
+    // Get Applied PowerFeature Cap
+    Result = ctlGetPowerOptimizationCaps(hDisplayOutput, &PowerCaps);
+    LOG_AND_EXIT_ON_ERROR(Result, "ctlGetPowerOptimizationCaps (SPH)");
+
+    if (CTL_POWER_OPTIMIZATION_FLAG_SPH != (PowerCaps.SupportedFeatures & CTL_POWER_OPTIMIZATION_FLAG_SPH))
+    {
+        APP_LOG_WARN("SPH is not supported");
+        Result = CTL_RESULT_ERROR_UNSUPPORTED_FEATURE;
+        goto Exit;
+    }
+
+    APP_LOG_INFO("SPH is supported");
+
+    // Set Current PowerFeature
+    Result = ctlSetPowerOptimizationSetting(hDisplayOutput, &NewPowerSettings);
+    LOG_AND_EXIT_ON_ERROR(Result, "ctlSetPowerOptimizationSetting (SPH)");
+
+    // Get Applied PowerFeature
+    Result = ctlGetPowerOptimizationSetting(hDisplayOutput, &AppliedPowerSettings);
+    LOG_AND_EXIT_ON_ERROR(Result, "ctlGetPowerOptimizationSetting (SPH)");
+    APP_LOG_INFO("SPH Enable = %d", AppliedPowerSettings.Enable);
+
+Exit:
+    return Result;
+}
+/***************************************************************
+ * @brief
  * Power feature Test for DPST
  * @param hDisplayOutput
  * @return ctl_result_t
@@ -96,7 +152,9 @@ ctl_result_t TestDPSTPowerFeature(ctl_display_output_handle_t hDisplayOutput)
     ctl_power_optimization_caps_t PowerCaps                = { 0 };
 
     PowerCaps.Size                                = sizeof(ctl_power_optimization_caps_t);
+    PowerCaps.Version                             = 1;
     AppliedPowerSettings.Size                     = sizeof(ctl_power_optimization_settings_t);
+    AppliedPowerSettings.Version                  = 1;
     AppliedPowerSettings.PowerOptimizationFeature = CTL_POWER_OPTIMIZATION_FLAG_DPST;
     AppliedPowerSettings.PowerSource              = CTL_POWER_SOURCE_DC;
     AppliedPowerSettings.PowerOptimizationPlan    = CTL_POWER_OPTIMIZATION_PLAN_BALANCED;
@@ -133,6 +191,7 @@ ctl_result_t TestDPSTPowerFeature(ctl_display_output_handle_t hDisplayOutput)
 
     uint8_t Levels[2]                                             = { AppliedPowerSettings.FeatureSpecificData.DPSTInfo.MinLevel, AppliedPowerSettings.FeatureSpecificData.DPSTInfo.MaxLevel };
     NewPowerSettings.Size                                         = sizeof(ctl_power_optimization_settings_t);
+    NewPowerSettings.Version                                      = 1;
     NewPowerSettings.PowerOptimizationFeature                     = CTL_POWER_OPTIMIZATION_FLAG_DPST;
     NewPowerSettings.Enable                                       = TRUE;
     NewPowerSettings.FeatureSpecificData.DPSTInfo.EnabledFeatures = CTL_POWER_OPTIMIZATION_DPST_FLAG_EPSM | CTL_POWER_OPTIMIZATION_DPST_FLAG_BKLT; // BKLT bit should be set to enable Intel DPST
@@ -175,7 +234,9 @@ ctl_result_t TestOPSTPowerFeature(ctl_display_output_handle_t hDisplayOutput)
     ctl_power_optimization_caps_t PowerCaps                = { 0 };
 
     PowerCaps.Size                                = sizeof(ctl_power_optimization_caps_t);
+    PowerCaps.Version                             = 1;
     AppliedPowerSettings.Size                     = sizeof(ctl_power_optimization_settings_t);
+    AppliedPowerSettings.Version                  = 1;
     AppliedPowerSettings.PowerOptimizationFeature = CTL_POWER_OPTIMIZATION_FLAG_DPST;
     AppliedPowerSettings.PowerSource              = CTL_POWER_SOURCE_DC;
     AppliedPowerSettings.PowerOptimizationPlan    = CTL_POWER_OPTIMIZATION_PLAN_BALANCED;
@@ -200,6 +261,7 @@ ctl_result_t TestOPSTPowerFeature(ctl_display_output_handle_t hDisplayOutput)
     APP_LOG_INFO("OPST MaxLevel = %d", AppliedPowerSettings.FeatureSpecificData.DPSTInfo.MaxLevel);
 
     NewPowerSettings.Size                                         = sizeof(ctl_power_optimization_settings_t);
+    NewPowerSettings.Version                                      = 1;
     NewPowerSettings.PowerOptimizationFeature                     = CTL_POWER_OPTIMIZATION_FLAG_DPST;
     NewPowerSettings.Enable                                       = TRUE;
     NewPowerSettings.FeatureSpecificData.DPSTInfo.EnabledFeatures = CTL_POWER_OPTIMIZATION_DPST_FLAG_OPST;
@@ -244,7 +306,9 @@ ctl_result_t TestELPPowerFeature(ctl_display_output_handle_t hDisplayOutput)
     ctl_power_optimization_caps_t PowerCaps                = { 0 };
 
     PowerCaps.Size                                = sizeof(ctl_power_optimization_caps_t);
+    PowerCaps.Version                             = 1;
     AppliedPowerSettings.Size                     = sizeof(ctl_power_optimization_settings_t);
+    AppliedPowerSettings.Version                  = 1;
     AppliedPowerSettings.PowerOptimizationFeature = CTL_POWER_OPTIMIZATION_FLAG_DPST;
     AppliedPowerSettings.PowerSource              = CTL_POWER_SOURCE_DC;
     AppliedPowerSettings.PowerOptimizationPlan    = CTL_POWER_OPTIMIZATION_PLAN_BALANCED;
@@ -269,6 +333,7 @@ ctl_result_t TestELPPowerFeature(ctl_display_output_handle_t hDisplayOutput)
 
     uint8_t Levels[2]                                             = { AppliedPowerSettings.FeatureSpecificData.DPSTInfo.MinLevel, AppliedPowerSettings.FeatureSpecificData.DPSTInfo.MaxLevel };
     NewPowerSettings.Size                                         = sizeof(ctl_power_optimization_settings_t);
+    NewPowerSettings.Version                                      = 1;
     NewPowerSettings.PowerOptimizationFeature                     = CTL_POWER_OPTIMIZATION_FLAG_DPST;
     NewPowerSettings.Enable                                       = TRUE;
     NewPowerSettings.FeatureSpecificData.DPSTInfo.EnabledFeatures = CTL_POWER_OPTIMIZATION_DPST_FLAG_ELP;
@@ -378,7 +443,9 @@ ctl_result_t TestApdPowerFeature(ctl_display_output_handle_t hDisplayOutput)
     ctl_power_optimization_caps_t PowerCaps                = { 0 };
 
     PowerCaps.Size                                = sizeof(ctl_power_optimization_caps_t);
+    PowerCaps.Version                             = 1;
     AppliedPowerSettings.Size                     = sizeof(ctl_power_optimization_settings_t);
+    AppliedPowerSettings.Version                  = 1;
     AppliedPowerSettings.PowerOptimizationFeature = CTL_POWER_OPTIMIZATION_FLAG_DPST;
     AppliedPowerSettings.PowerSource              = CTL_POWER_SOURCE_DC;
 
@@ -402,6 +469,7 @@ ctl_result_t TestApdPowerFeature(ctl_display_output_handle_t hDisplayOutput)
     uint8_t Levels[2] = { AppliedPowerSettings.FeatureSpecificData.DPSTInfo.MinLevel, AppliedPowerSettings.FeatureSpecificData.DPSTInfo.MaxLevel };
 
     NewPowerSettings.Size                                         = sizeof(ctl_power_optimization_settings_t);
+    NewPowerSettings.Version                                      = 1;
     NewPowerSettings.PowerOptimizationFeature                     = CTL_POWER_OPTIMIZATION_FLAG_DPST;
     NewPowerSettings.Enable                                       = TRUE;
     NewPowerSettings.FeatureSpecificData.DPSTInfo.EnabledFeatures = CTL_POWER_OPTIMIZATION_DPST_FLAG_APD;
@@ -442,7 +510,9 @@ ctl_result_t TestPixOptixPowerFeature(ctl_display_output_handle_t hDisplayOutput
     ctl_power_optimization_caps_t PowerCaps                = { 0 };
 
     PowerCaps.Size                                = sizeof(ctl_power_optimization_caps_t);
+    PowerCaps.Version                             = 1;
     AppliedPowerSettings.Size                     = sizeof(ctl_power_optimization_settings_t);
+    AppliedPowerSettings.Version                  = 1;
     AppliedPowerSettings.PowerOptimizationFeature = CTL_POWER_OPTIMIZATION_FLAG_DPST;
     AppliedPowerSettings.PowerSource              = CTL_POWER_SOURCE_DC;
 
@@ -461,6 +531,7 @@ ctl_result_t TestPixOptixPowerFeature(ctl_display_output_handle_t hDisplayOutput
     }
 
     NewPowerSettings.Size                                         = sizeof(ctl_power_optimization_settings_t);
+    NewPowerSettings.Version                                      = 1;
     NewPowerSettings.PowerOptimizationFeature                     = CTL_POWER_OPTIMIZATION_FLAG_DPST;
     NewPowerSettings.Enable                                       = TRUE;
     NewPowerSettings.FeatureSpecificData.DPSTInfo.EnabledFeatures = CTL_POWER_OPTIMIZATION_DPST_FLAG_PIXOPTIX;
@@ -497,8 +568,9 @@ ctl_result_t TestAlrrFeature(ctl_display_output_handle_t hDisplayOutput)
     ctl_power_optimization_caps_t PowerOptimizationCaps        = { 0 };
     ctl_power_optimization_settings_t PowerOptimizationSetting = { 0 };
 
-    PowerOptimizationCaps.Size = sizeof(ctl_pfnGetPowerOptimizationCaps_t);
-    Result                     = ctlGetPowerOptimizationCaps(hDisplayOutput, &PowerOptimizationCaps);
+    PowerOptimizationCaps.Size    = sizeof(ctl_pfnGetPowerOptimizationCaps_t);
+    PowerOptimizationCaps.Version = 1;
+    Result                        = ctlGetPowerOptimizationCaps(hDisplayOutput, &PowerOptimizationCaps);
 
     LOG_AND_EXIT_ON_ERROR(Result, "ctlGetPowerOptimizationCaps (ALRR)");
 
@@ -536,8 +608,9 @@ ctl_result_t TestFbcPowerFeature(ctl_display_output_handle_t hDisplayOutput)
     ctl_power_optimization_caps_t PowerOptimizationCaps        = { 0 };
     ctl_power_optimization_settings_t PowerOptimizationSetting = { 0 };
 
-    PowerOptimizationCaps.Size = sizeof(ctl_pfnGetPowerOptimizationCaps_t);
-    Result                     = ctlGetPowerOptimizationCaps(hDisplayOutput, &PowerOptimizationCaps);
+    PowerOptimizationCaps.Size    = sizeof(ctl_pfnGetPowerOptimizationCaps_t);
+    PowerOptimizationCaps.Version = 1;
+    Result                        = ctlGetPowerOptimizationCaps(hDisplayOutput, &PowerOptimizationCaps);
     LOG_AND_EXIT_ON_ERROR(Result, "ctlGetPowerOptimizationCaps (FBC)");
 
     if (CTL_POWER_OPTIMIZATION_FLAG_FBC != (PowerOptimizationCaps.SupportedFeatures & CTL_POWER_OPTIMIZATION_FLAG_FBC))
@@ -555,6 +628,7 @@ ctl_result_t TestFbcPowerFeature(ctl_display_output_handle_t hDisplayOutput)
     {
         PowerOptimizationSetting.PowerOptimizationFeature = CTL_POWER_OPTIMIZATION_FLAG_FBC;
         PowerOptimizationSetting.Size                     = sizeof(ctl_power_optimization_settings_t);
+        PowerOptimizationSetting.Version                  = 1;
         Result                                            = ctlGetPowerOptimizationSetting(hDisplayOutput, &PowerOptimizationSetting);
         LOG_AND_EXIT_ON_ERROR(Result, "ctlGetPowerOptimizationSetting");
 
@@ -579,7 +653,9 @@ ctl_result_t TestCABCPowerFeature(ctl_display_output_handle_t hDisplayOutput)
     ctl_power_optimization_caps_t PowerCaps                = { 0 };
 
     PowerCaps.Size                                = sizeof(ctl_power_optimization_caps_t);
+    PowerCaps.Version                             = 1;
     AppliedPowerSettings.Size                     = sizeof(ctl_power_optimization_settings_t);
+    AppliedPowerSettings.Version                  = 1;
     AppliedPowerSettings.PowerOptimizationFeature = CTL_POWER_OPTIMIZATION_FLAG_DPST;
     AppliedPowerSettings.PowerSource              = CTL_POWER_SOURCE_DC;
     AppliedPowerSettings.PowerOptimizationPlan    = CTL_POWER_OPTIMIZATION_PLAN_BALANCED;
@@ -604,6 +680,7 @@ ctl_result_t TestCABCPowerFeature(ctl_display_output_handle_t hDisplayOutput)
 
     uint8_t Levels[2]                                             = { AppliedPowerSettings.FeatureSpecificData.DPSTInfo.MinLevel, AppliedPowerSettings.FeatureSpecificData.DPSTInfo.MaxLevel };
     NewPowerSettings.Size                                         = sizeof(ctl_power_optimization_settings_t);
+    NewPowerSettings.Version                                      = 1;
     NewPowerSettings.PowerOptimizationFeature                     = CTL_POWER_OPTIMIZATION_FLAG_DPST;
     NewPowerSettings.Enable                                       = TRUE;
     NewPowerSettings.FeatureSpecificData.DPSTInfo.EnabledFeatures = CTL_POWER_OPTIMIZATION_DPST_FLAG_PANEL_CABC;
@@ -703,6 +780,10 @@ ctl_result_t EnumerateDisplayHandles(ctl_display_output_handle_t *hDisplayOutput
         STORE_AND_RESET_ERROR(Result);
 
         Result = TestCABCPowerFeature(hDisplayOutput[DisplayIndex]);
+
+        STORE_AND_RESET_ERROR(Result);
+
+        Result = TestSPHPowerFeature(hDisplayOutput[DisplayIndex]);
 
         STORE_AND_RESET_ERROR(Result);
     }

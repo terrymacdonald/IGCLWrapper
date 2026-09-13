@@ -420,6 +420,46 @@ ctlGetSet3DFeature(
 
 
 /**
+* @brief Get device properties.
+* 
+* @details
+*     - The application may call this function from simultaneous threads.
+*     - The implementation of this function should be lock-free.
+* 
+* @returns
+*     - CTL_RESULT_SUCCESS
+*     - CTL_RESULT_ERROR_UNINITIALIZED
+*     - CTL_RESULT_ERROR_DEVICE_LOST
+*     - CTL_RESULT_ERROR_INVALID_NULL_HANDLE
+*         + `nullptr == hDAhandle`
+*     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
+*         + `nullptr == pProperties`
+*/
+ctl_result_t CTL_APICALL
+ctlDevPropGetProperties(
+    ctl_device_adapter_handle_t hDAhandle,          ///< [in][release] Handle to display adapter
+    ctl_dev_prop_properties_t* pProperties          ///< [in,out] Output with the device properties.
+    )
+{
+    ctl_result_t result = CTL_RESULT_ERROR_NOT_INITIALIZED;
+    
+
+    HINSTANCE hinstLibPtr = GetLoaderHandle();
+
+    if (NULL != hinstLibPtr)
+    {
+        ctl_pfnDevPropGetProperties_t pfnDevPropGetProperties = (ctl_pfnDevPropGetProperties_t)GetProcAddress(hinstLibPtr, "ctlDevPropGetProperties");
+        if (pfnDevPropGetProperties)
+        {
+            result = pfnDevPropGetProperties(hDAhandle, pProperties);
+        }
+    }
+
+    return result;
+}
+
+
+/**
 * @brief Check Driver version
 * 
 * @details
@@ -890,7 +930,8 @@ ctlSetCurrentSharpness(
 * @brief I2C Access
 * 
 * @details
-*     - Interface to access I2C using display handle as identifier.
+*     - Interface to access I2C using display handle as identifier.  I2C
+*       driver override flags are supported only for HDMI displays.
 * 
 * @returns
 *     - CTL_RESULT_SUCCESS
@@ -1054,7 +1095,8 @@ ctlAUXAccess(
 ctl_result_t CTL_APICALL
 ctlGetPowerOptimizationCaps(
     ctl_display_output_handle_t hDisplayOutput,     ///< [in][release] Handle to display output
-    ctl_power_optimization_caps_t* pPowerOptimizationCaps   ///< [in,out][release] Query result for power optimization features
+    ctl_power_optimization_caps_t* pPowerOptimizationCaps   ///< [in,out][release] Query result for power optimization features.
+                                                    ///< Version 1 returns caps per display output, else its adapter caps
     )
 {
     ctl_result_t result = CTL_RESULT_ERROR_NOT_INITIALIZED;
@@ -1096,7 +1138,8 @@ ctlGetPowerOptimizationCaps(
 ctl_result_t CTL_APICALL
 ctlGetPowerOptimizationSetting(
     ctl_display_output_handle_t hDisplayOutput,     ///< [in][release] Handle to display output
-    ctl_power_optimization_settings_t* pPowerOptimizationSettings   ///< [in,out][release] Power optimization data to be fetched
+    ctl_power_optimization_settings_t* pPowerOptimizationSettings   ///< [in,out][release] Power optimization settings. Version 1 returns caps
+                                                    ///< per display output, else its adapter settings
     )
 {
     ctl_result_t result = CTL_RESULT_ERROR_NOT_INITIALIZED;
@@ -1139,7 +1182,9 @@ ctlGetPowerOptimizationSetting(
 ctl_result_t CTL_APICALL
 ctlSetPowerOptimizationSetting(
     ctl_display_output_handle_t hDisplayOutput,     ///< [in][release] Handle to display output
-    ctl_power_optimization_settings_t* pPowerOptimizationSettings   ///< [in][release] Power optimization data to be applied
+    ctl_power_optimization_settings_t* pPowerOptimizationSettings   ///< [in][release] Power optimization settings to be applied. Version 1
+                                                    ///< applies settings per display, else settings are applied on all
+                                                    ///< displays on this adapter
     )
 {
     ctl_result_t result = CTL_RESULT_ERROR_NOT_INITIALIZED;
@@ -1624,7 +1669,8 @@ ctlSetCurrentScaling(
 ctl_result_t CTL_APICALL
 ctlGetLACEConfig(
     ctl_display_output_handle_t hDisplayOutput,     ///< [in] Handle to display output
-    ctl_lace_config_t* pLaceConfig                  ///< [out]Lace configuration
+    ctl_lace_config_t* pLaceConfig                  ///< [out] Lace configuration. Version 1 returns lace configuration per
+                                                    ///< display output, else its adapter's lace configuration
     )
 {
     ctl_result_t result = CTL_RESULT_ERROR_NOT_INITIALIZED;
@@ -1665,7 +1711,8 @@ ctlGetLACEConfig(
 ctl_result_t CTL_APICALL
 ctlSetLACEConfig(
     ctl_display_output_handle_t hDisplayOutput,     ///< [in]Handle to display output
-    ctl_lace_config_t* pLaceConfig                  ///< [in]Lace configuration
+    ctl_lace_config_t* pLaceConfig                  ///< [in] Update Lace configuration. Version 1 updates lace configuration
+                                                    ///< per display output, else its adapter's lace configuration update
     )
 {
     ctl_result_t result = CTL_RESULT_ERROR_NOT_INITIALIZED;
@@ -1763,135 +1810,6 @@ ctlGetIntelArcSyncInfoForMonitor(
         if (pfnGetIntelArcSyncInfoForMonitor)
         {
             result = pfnGetIntelArcSyncInfoForMonitor(hDisplayOutput, pIntelArcSyncMonitorParams);
-        }
-    }
-
-    return result;
-}
-
-
-/**
-* @brief Enumerate Display MUX Devices on this system across adapters
-* 
-* @details
-*     - The application enumerates all MUX devices in the system
-* 
-* @returns
-*     - CTL_RESULT_SUCCESS
-*     - CTL_RESULT_ERROR_UNINITIALIZED
-*     - CTL_RESULT_ERROR_DEVICE_LOST
-*     - CTL_RESULT_ERROR_INVALID_NULL_HANDLE
-*         + `nullptr == hAPIHandle`
-*     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
-*         + `nullptr == pCount`
-*         + `nullptr == phMuxDevices`
-*     - ::CTL_RESULT_ERROR_UNSUPPORTED_VERSION - "Unsupported version"
-*/
-ctl_result_t CTL_APICALL
-ctlEnumerateMuxDevices(
-    ctl_api_handle_t hAPIHandle,                    ///< [in][release] Applications should pass the Control API handle returned
-                                                    ///< by the CtlInit function 
-    uint32_t* pCount,                               ///< [in,out][release] pointer to the number of MUX device instances. If
-                                                    ///< input count is zero, then the api will update the value with the total
-                                                    ///< number of MUX devices available and return the Count value. If input
-                                                    ///< count is non-zero, then the api will only retrieve the number of MUX Devices.
-                                                    ///< If count is larger than the number of MUX devices available, then the
-                                                    ///< api will update the value with the correct number of MUX devices available.
-    ctl_mux_output_handle_t* phMuxDevices           ///< [out][range(0, *pCount)] array of MUX device instance handles
-    )
-{
-    ctl_result_t result = CTL_RESULT_ERROR_NOT_INITIALIZED;
-    
-
-    HINSTANCE hinstLibPtr = GetLoaderHandle();
-
-    if (NULL != hinstLibPtr)
-    {
-        ctl_pfnEnumerateMuxDevices_t pfnEnumerateMuxDevices = (ctl_pfnEnumerateMuxDevices_t)GetProcAddress(hinstLibPtr, "ctlEnumerateMuxDevices");
-        if (pfnEnumerateMuxDevices)
-        {
-            result = pfnEnumerateMuxDevices(hAPIHandle, pCount, phMuxDevices);
-        }
-    }
-
-    return result;
-}
-
-
-/**
-* @brief Get Display Mux properties
-* 
-* @details
-*     - Get the propeties of the Mux device
-* 
-* @returns
-*     - CTL_RESULT_SUCCESS
-*     - CTL_RESULT_ERROR_UNINITIALIZED
-*     - CTL_RESULT_ERROR_DEVICE_LOST
-*     - CTL_RESULT_ERROR_INVALID_NULL_HANDLE
-*         + `nullptr == hMuxDevice`
-*     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
-*         + `nullptr == pMuxProperties`
-*     - ::CTL_RESULT_ERROR_UNSUPPORTED_VERSION - "Unsupported version"
-*/
-ctl_result_t CTL_APICALL
-ctlGetMuxProperties(
-    ctl_mux_output_handle_t hMuxDevice,             ///< [in] MUX device instance handle
-    ctl_mux_properties_t* pMuxProperties            ///< [in,out] MUX device properties
-    )
-{
-    ctl_result_t result = CTL_RESULT_ERROR_NOT_INITIALIZED;
-    
-
-    HINSTANCE hinstLibPtr = GetLoaderHandle();
-
-    if (NULL != hinstLibPtr)
-    {
-        ctl_pfnGetMuxProperties_t pfnGetMuxProperties = (ctl_pfnGetMuxProperties_t)GetProcAddress(hinstLibPtr, "ctlGetMuxProperties");
-        if (pfnGetMuxProperties)
-        {
-            result = pfnGetMuxProperties(hMuxDevice, pMuxProperties);
-        }
-    }
-
-    return result;
-}
-
-
-/**
-* @brief Switch Mux output
-* 
-* @details
-*     - Switches the MUX output
-* 
-* @returns
-*     - CTL_RESULT_SUCCESS
-*     - CTL_RESULT_ERROR_UNINITIALIZED
-*     - CTL_RESULT_ERROR_DEVICE_LOST
-*     - CTL_RESULT_ERROR_INVALID_NULL_HANDLE
-*         + `nullptr == hMuxDevice`
-*         + `nullptr == hInactiveDisplayOutput`
-*     - ::CTL_RESULT_ERROR_UNSUPPORTED_VERSION - "Unsupported version"
-*/
-ctl_result_t CTL_APICALL
-ctlSwitchMux(
-    ctl_mux_output_handle_t hMuxDevice,             ///< [in] MUX device instance handle
-    ctl_display_output_handle_t hInactiveDisplayOutput  ///< [out] Input selection for this MUX, which if active will drive the
-                                                    ///< output of this MUX device. This should be one of the display output
-                                                    ///< handles reported under this MUX device's properties.
-    )
-{
-    ctl_result_t result = CTL_RESULT_ERROR_NOT_INITIALIZED;
-    
-
-    HINSTANCE hinstLibPtr = GetLoaderHandle();
-
-    if (NULL != hinstLibPtr)
-    {
-        ctl_pfnSwitchMux_t pfnSwitchMux = (ctl_pfnSwitchMux_t)GetProcAddress(hinstLibPtr, "ctlSwitchMux");
-        if (pfnSwitchMux)
-        {
-            result = pfnSwitchMux(hMuxDevice, hInactiveDisplayOutput);
         }
     }
 
@@ -2374,7 +2292,10 @@ ctlGetLinkedDisplayAdapters(
 * 
 * @details
 *     - To get the DCE feature status and, if feature is enabled, returns the
-*       current histogram, or to set the brightness at the phase-in speed
+*       current histogram, or to set the brightness at the phase-in speed.
+*       This is a reserved capability. By default, DCE is not supported/will
+*       not be enabled, need application to activate it, please contact Intel
+*       for activation.
 * 
 * @returns
 *     - CTL_RESULT_SUCCESS
@@ -2514,6 +2435,54 @@ ctlGetSetDisplaySettings(
 
 
 /**
+* @brief Display feature reset
+* 
+* @details
+*     - Resets specified display features for a given display
+* 
+* @returns
+*     - CTL_RESULT_SUCCESS
+*     - CTL_RESULT_ERROR_UNINITIALIZED
+*     - CTL_RESULT_ERROR_DEVICE_LOST
+*     - CTL_RESULT_ERROR_INVALID_NULL_HANDLE
+*         + `nullptr == hDisplayOutput`
+*     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
+*         + `nullptr == pResetFeature`
+*     - ::CTL_RESULT_ERROR_UNSUPPORTED_VERSION - "Unsupported version"
+*     - ::CTL_RESULT_ERROR_NULL_OS_DISPLAY_OUTPUT_HANDLE - "Null OS display output handle"
+*     - ::CTL_RESULT_ERROR_NULL_OS_INTERFACE - "Null OS interface"
+*     - ::CTL_RESULT_ERROR_NULL_OS_ADAPATER_HANDLE - "Null OS adapter handle"
+*     - ::CTL_RESULT_ERROR_KMD_CALL - "Kernel mode driver call failure"
+*     - ::CTL_RESULT_ERROR_INVALID_NULL_HANDLE - "Invalid or Null handle passed"
+*     - ::CTL_RESULT_ERROR_INVALID_NULL_POINTER - "Invalid null pointer"
+*     - ::CTL_RESULT_ERROR_INVALID_OPERATION_TYPE - "Invalid operation type"
+*     - ::CTL_RESULT_ERROR_INVALID_ARGUMENT - "Invalid combination of parameters"
+*/
+ctl_result_t CTL_APICALL
+ctlDisplayFeatureReset(
+    ctl_display_output_handle_t hDisplayOutput,     ///< [in][release] Handle to display output
+    ctl_display_feature_reset_t* pResetFeature      ///< [in] Indicates Features to be reset
+    )
+{
+    ctl_result_t result = CTL_RESULT_ERROR_NOT_INITIALIZED;
+    
+
+    HINSTANCE hinstLibPtr = GetLoaderHandle();
+
+    if (NULL != hinstLibPtr)
+    {
+        ctl_pfnDisplayFeatureReset_t pfnDisplayFeatureReset = (ctl_pfnDisplayFeatureReset_t)GetProcAddress(hinstLibPtr, "ctlDisplayFeatureReset");
+        if (pfnDisplayFeatureReset)
+        {
+            result = pfnDisplayFeatureReset(hDisplayOutput, pResetFeature);
+        }
+    }
+
+    return result;
+}
+
+
+/**
 * @brief Get ECC properties.
 * 
 * @details
@@ -2528,6 +2497,8 @@ ctlGetSetDisplaySettings(
 *         + `nullptr == hDAhandle`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pProperties`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlEccGetProperties(
@@ -2571,6 +2542,8 @@ ctlEccGetProperties(
 *     - CTL_RESULT_ERROR_INVALID_ENUMERATION
 *         + `::CTL_ECC_STATE_ECC_DISABLED_STATE < pState->currentEccState`
 *         + `::CTL_ECC_STATE_ECC_DISABLED_STATE < pState->pendingEccState`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlEccGetState(
@@ -2616,6 +2589,8 @@ ctlEccGetState(
 *     - CTL_RESULT_ERROR_INVALID_ENUMERATION
 *         + `::CTL_ECC_STATE_ECC_DISABLED_STATE < pState->currentEccState`
 *         + `::CTL_ECC_STATE_ECC_DISABLED_STATE < pState->pendingEccState`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlEccSetState(
@@ -2661,6 +2636,8 @@ ctlEccSetState(
 *         + `nullptr == hDAhandle`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pCount`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlEnumEngineGroups(
@@ -2711,6 +2688,8 @@ ctlEnumEngineGroups(
 *         + `nullptr == hEngine`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pProperties`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlEngineGetProperties(
@@ -2751,6 +2730,8 @@ ctlEngineGetProperties(
 *         + `nullptr == hEngine`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pStats`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlEngineGetActivity(
@@ -2792,6 +2773,8 @@ ctlEngineGetActivity(
 *         + `nullptr == hDAhandle`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pCount`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlEnumFans(
@@ -2842,6 +2825,8 @@ ctlEnumFans(
 *         + `nullptr == hFan`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pProperties`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlFanGetProperties(
@@ -2883,6 +2868,8 @@ ctlFanGetProperties(
 *         + `nullptr == hFan`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pConfig`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlFanGetConfig(
@@ -2924,6 +2911,8 @@ ctlFanGetConfig(
 *         + `nullptr == hFan`
 *     - ::CTL_RESULT_ERROR_INSUFFICIENT_PERMISSIONS
 *         + User does not have permissions to make these modifications.
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlFanSetDefaultMode(
@@ -2968,6 +2957,8 @@ ctlFanSetDefaultMode(
 *         + User does not have permissions to make these modifications.
 *     - ::CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
 *         + Fixing the fan speed not supported by the hardware or the fan speed units are not supported. See ::ctl_fan_properties_t.supportedModes and ::ctl_fan_properties_t.supportedUnits.
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlFanSetFixedSpeedMode(
@@ -3015,6 +3006,8 @@ ctlFanSetFixedSpeedMode(
 *         + The temperature/speed pairs in the array are not sorted on temperature from lowest to highest.
 *     - ::CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
 *         + Fan speed table not supported by the hardware or the fan speed units are not supported. See ::ctl_fan_properties_t.supportedModes and ::ctl_fan_properties_t.supportedUnits.
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlFanSetSpeedTableMode(
@@ -3059,6 +3052,8 @@ ctlFanSetSpeedTableMode(
 *         + `nullptr == pSpeed`
 *     - ::CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
 *         + The requested fan speed units are not supported. See ::ctl_fan_properties_t.supportedUnits.
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlFanGetState(
@@ -3291,6 +3286,8 @@ ctlAllowPCIeLinkSpeedUpdate(
 *         + `nullptr == hDAhandle`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pCount`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlEnumFrequencyDomains(
@@ -3341,6 +3338,8 @@ ctlEnumFrequencyDomains(
 *         + `nullptr == hFrequency`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pProperties`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlFrequencyGetProperties(
@@ -3384,6 +3383,8 @@ ctlFrequencyGetProperties(
 *         + `nullptr == hFrequency`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pCount`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlFrequencyGetAvailableClocks(
@@ -3432,6 +3433,8 @@ ctlFrequencyGetAvailableClocks(
 *         + `nullptr == hFrequency`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pLimits`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlFrequencyGetRange(
@@ -3475,6 +3478,8 @@ ctlFrequencyGetRange(
 *         + `nullptr == pLimits`
 *     - ::CTL_RESULT_ERROR_INSUFFICIENT_PERMISSIONS
 *         + User does not have permissions to make these modifications.
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlFrequencySetRange(
@@ -3517,6 +3522,8 @@ ctlFrequencySetRange(
 *         + `nullptr == hFrequency`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pState`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlFrequencyGetState(
@@ -3557,6 +3564,8 @@ ctlFrequencyGetState(
 *         + `nullptr == hFrequency`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pThrottleTime`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlFrequencyGetThrottleTime(
@@ -3598,6 +3607,8 @@ ctlFrequencyGetThrottleTime(
 *         + `nullptr == hDAhandle`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pCount`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlEnumLeds(
@@ -3648,6 +3659,8 @@ ctlEnumLeds(
 *         + `nullptr == hLed`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pProperties`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlLedGetProperties(
@@ -3688,6 +3701,8 @@ ctlLedGetProperties(
 *         + `nullptr == hLed`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pState`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlLedGetState(
@@ -3734,6 +3749,8 @@ ctlLedGetState(
 *         + `nullptr == hLed`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pBuffer`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlLedSetState(
@@ -3862,6 +3879,8 @@ ctlGetSetVideoProcessingFeature(
 *         + `nullptr == hDAhandle`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pCount`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlEnumMemoryModules(
@@ -3912,6 +3931,8 @@ ctlEnumMemoryModules(
 *         + `nullptr == hMemory`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pProperties`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlMemoryGetProperties(
@@ -3952,6 +3973,8 @@ ctlMemoryGetProperties(
 *         + `nullptr == hMemory`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pState`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlMemoryGetState(
@@ -3994,6 +4017,8 @@ ctlMemoryGetState(
 *         + `nullptr == pBandwidth`
 *     - ::CTL_RESULT_ERROR_INSUFFICIENT_PERMISSIONS
 *         + User does not have permissions to query this telemetry.
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlMemoryGetBandwidth(
@@ -4031,6 +4056,8 @@ ctlMemoryGetBandwidth(
 *         + `nullptr == hDeviceHandle`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pOcProperties`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlOverclockGetProperties(
@@ -4078,6 +4105,8 @@ ctlOverclockGetProperties(
 *     - CTL_RESULT_ERROR_DEVICE_LOST
 *     - CTL_RESULT_ERROR_INVALID_NULL_HANDLE
 *         + `nullptr == hDeviceHandle`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlOverclockWaiverSet(
@@ -4121,6 +4150,8 @@ ctlOverclockWaiverSet(
 *         + `nullptr == hDeviceHandle`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pOcFrequencyOffset`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlOverclockGpuFrequencyOffsetGet(
@@ -4181,6 +4212,8 @@ ctlOverclockGpuFrequencyOffsetGet(
 *     - CTL_RESULT_ERROR_DEVICE_LOST
 *     - CTL_RESULT_ERROR_INVALID_NULL_HANDLE
 *         + `nullptr == hDeviceHandle`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlOverclockGpuFrequencyOffsetSet(
@@ -4225,6 +4258,8 @@ ctlOverclockGpuFrequencyOffsetSet(
 *         + `nullptr == hDeviceHandle`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pOcVoltageOffset`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlOverclockGpuVoltageOffsetGet(
@@ -4273,6 +4308,8 @@ ctlOverclockGpuVoltageOffsetGet(
 *     - CTL_RESULT_ERROR_DEVICE_LOST
 *     - CTL_RESULT_ERROR_INVALID_NULL_HANDLE
 *         + `nullptr == hDeviceHandle`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlOverclockGpuVoltageOffsetSet(
@@ -4317,6 +4354,8 @@ ctlOverclockGpuVoltageOffsetSet(
 *         + `nullptr == hDeviceHandle`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pVfPair`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlOverclockGpuLockGet(
@@ -4365,6 +4404,8 @@ ctlOverclockGpuLockGet(
 *     - CTL_RESULT_ERROR_DEVICE_LOST
 *     - CTL_RESULT_ERROR_INVALID_NULL_HANDLE
 *         + `nullptr == hDeviceHandle`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlOverclockGpuLockSet(
@@ -4405,6 +4446,8 @@ ctlOverclockGpuLockSet(
 *         + `nullptr == hDeviceHandle`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pOcFrequencyOffset`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlOverclockVramFrequencyOffsetGet(
@@ -4480,6 +4523,8 @@ ctlOverclockVramFrequencyOffsetGet(
 *     - CTL_RESULT_ERROR_DEVICE_LOST
 *     - CTL_RESULT_ERROR_INVALID_NULL_HANDLE
 *         + `nullptr == hDeviceHandle`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlOverclockVramFrequencyOffsetSet(
@@ -4555,6 +4600,8 @@ ctlOverclockVramFrequencyOffsetSet(
 *         + `nullptr == hDeviceHandle`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pVoltage`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlOverclockVramVoltageOffsetGet(
@@ -4597,6 +4644,8 @@ ctlOverclockVramVoltageOffsetGet(
 *     - CTL_RESULT_ERROR_DEVICE_LOST
 *     - CTL_RESULT_ERROR_INVALID_NULL_HANDLE
 *         + `nullptr == hDeviceHandle`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlOverclockVramVoltageOffsetSet(
@@ -4639,6 +4688,8 @@ ctlOverclockVramVoltageOffsetSet(
 *         + `nullptr == hDeviceHandle`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pSustainedPowerLimit`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlOverclockPowerLimitGet(
@@ -4681,6 +4732,8 @@ ctlOverclockPowerLimitGet(
 *     - CTL_RESULT_ERROR_DEVICE_LOST
 *     - CTL_RESULT_ERROR_INVALID_NULL_HANDLE
 *         + `nullptr == hDeviceHandle`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlOverclockPowerLimitSet(
@@ -4720,6 +4773,8 @@ ctlOverclockPowerLimitSet(
 *         + `nullptr == hDeviceHandle`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pTemperatureLimit`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlOverclockTemperatureLimitGet(
@@ -4759,6 +4814,8 @@ ctlOverclockTemperatureLimitGet(
 *     - CTL_RESULT_ERROR_DEVICE_LOST
 *     - CTL_RESULT_ERROR_INVALID_NULL_HANDLE
 *         + `nullptr == hDeviceHandle`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlOverclockTemperatureLimitSet(
@@ -4799,6 +4856,8 @@ ctlOverclockTemperatureLimitSet(
 *         + `nullptr == hDeviceHandle`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pTelemetryInfo`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlPowerTelemetryGet(
@@ -4825,6 +4884,54 @@ ctlPowerTelemetryGet(
 
 
 /**
+* @brief Get Power Telemetry V2.
+* 
+* @details
+*     - The purpose of this function is to retrieve multiple power and
+*       performance telemetry metrics from the adapter in a single efficient
+*       call.
+*     - Telemetry items include GPU/VRAM energy counters, voltage, clock
+*       frequency, temperature, activity counters, fan speed, VR temperatures,
+*       bandwidth, and throttling indicators.
+*     - Each telemetry item has a bSupported field indicating whether the
+*       value is available on the current hardware.
+*     - Limited rate of 50 ms, any call under 50 ms will return the same
+*       information.
+* 
+* @returns
+*     - CTL_RESULT_SUCCESS
+*     - CTL_RESULT_ERROR_UNINITIALIZED
+*     - CTL_RESULT_ERROR_DEVICE_LOST
+*     - CTL_RESULT_ERROR_INVALID_NULL_HANDLE
+*         + `nullptr == hDeviceHandle`
+*     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
+*         + `nullptr == pTelemetryInfo`
+*/
+ctl_result_t CTL_APICALL
+ctlPowerTelemetryGetV2(
+    ctl_device_adapter_handle_t hDeviceHandle,      ///< [in][release] Handle to display adapter
+    ctl_power_telemetry_v2_t* pTelemetryInfo        ///< [out] The power telemetry data for the specified device.
+    )
+{
+    ctl_result_t result = CTL_RESULT_ERROR_NOT_INITIALIZED;
+    
+
+    HINSTANCE hinstLibPtr = GetLoaderHandle();
+
+    if (NULL != hinstLibPtr)
+    {
+        ctl_pfnPowerTelemetryGetV2_t pfnPowerTelemetryGetV2 = (ctl_pfnPowerTelemetryGetV2_t)GetProcAddress(hinstLibPtr, "ctlPowerTelemetryGetV2");
+        if (pfnPowerTelemetryGetV2)
+        {
+            result = pfnPowerTelemetryGetV2(hDeviceHandle, pTelemetryInfo);
+        }
+    }
+
+    return result;
+}
+
+
+/**
 * @brief Reset all Overclock Settings to stock
 * 
 * @details
@@ -4840,6 +4947,8 @@ ctlPowerTelemetryGet(
 *     - CTL_RESULT_ERROR_DEVICE_LOST
 *     - CTL_RESULT_ERROR_INVALID_NULL_HANDLE
 *         + `nullptr == hDeviceHandle`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlOverclockResetToDefault(
@@ -4884,6 +4993,8 @@ ctlOverclockResetToDefault(
 *         + `nullptr == hDeviceHandle`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pOcFrequencyOffset`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlOverclockGpuFrequencyOffsetGetV2(
@@ -4945,6 +5056,8 @@ ctlOverclockGpuFrequencyOffsetGetV2(
 *     - CTL_RESULT_ERROR_DEVICE_LOST
 *     - CTL_RESULT_ERROR_INVALID_NULL_HANDLE
 *         + `nullptr == hDeviceHandle`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlOverclockGpuFrequencyOffsetSetV2(
@@ -4992,6 +5105,8 @@ ctlOverclockGpuFrequencyOffsetSetV2(
 *         + `nullptr == hDeviceHandle`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pOcMaxVoltageOffset`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlOverclockGpuMaxVoltageOffsetGetV2(
@@ -5043,6 +5158,8 @@ ctlOverclockGpuMaxVoltageOffsetGetV2(
 *     - CTL_RESULT_ERROR_DEVICE_LOST
 *     - CTL_RESULT_ERROR_INVALID_NULL_HANDLE
 *         + `nullptr == hDeviceHandle`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlOverclockGpuMaxVoltageOffsetSetV2(
@@ -5090,6 +5207,8 @@ ctlOverclockGpuMaxVoltageOffsetSetV2(
 *         + `nullptr == hDeviceHandle`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pOcVramMemSpeedLimit`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlOverclockVramMemSpeedLimitGetV2(
@@ -5168,6 +5287,8 @@ ctlOverclockVramMemSpeedLimitGetV2(
 *     - CTL_RESULT_ERROR_DEVICE_LOST
 *     - CTL_RESULT_ERROR_INVALID_NULL_HANDLE
 *         + `nullptr == hDeviceHandle`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlOverclockVramMemSpeedLimitSetV2(
@@ -5215,6 +5336,8 @@ ctlOverclockVramMemSpeedLimitSetV2(
 *         + `nullptr == hDeviceHandle`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pSustainedPowerLimit`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlOverclockPowerLimitGetV2(
@@ -5264,6 +5387,8 @@ ctlOverclockPowerLimitGetV2(
 *     - CTL_RESULT_ERROR_DEVICE_LOST
 *     - CTL_RESULT_ERROR_INVALID_NULL_HANDLE
 *         + `nullptr == hDeviceHandle`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlOverclockPowerLimitSetV2(
@@ -5311,6 +5436,8 @@ ctlOverclockPowerLimitSetV2(
 *         + `nullptr == hDeviceHandle`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pTemperatureLimit`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlOverclockTemperatureLimitGetV2(
@@ -5355,6 +5482,8 @@ ctlOverclockTemperatureLimitGetV2(
 *     - CTL_RESULT_ERROR_DEVICE_LOST
 *     - CTL_RESULT_ERROR_INVALID_NULL_HANDLE
 *         + `nullptr == hDeviceHandle`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlOverclockTemperatureLimitSetV2(
@@ -5398,6 +5527,8 @@ ctlOverclockTemperatureLimitSetV2(
 *         + `::CTL_VF_CURVE_TYPE_LIVE < VFCurveType`
 *         + `::CTL_VF_CURVE_DETAILS_ELABORATE < VFCurveDetail`
 *     - CTL_RESULT_ERROR_UNKNOWN - "Unknown Error"
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlOverclockReadVFCurve(
@@ -5457,6 +5588,8 @@ ctlOverclockReadVFCurve(
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pCustomVFCurveTable`
 *     - CTL_RESULT_ERROR_UNKNOWN - "Unknown Error"
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlOverclockWriteCustomVFCurve(
@@ -5499,6 +5632,8 @@ ctlOverclockWriteCustomVFCurve(
 *         + `nullptr == hDAhandle`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pProperties`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlPciGetProperties(
@@ -5539,6 +5674,8 @@ ctlPciGetProperties(
 *         + `nullptr == hDAhandle`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pState`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlPciGetState(
@@ -5579,6 +5716,8 @@ ctlPciGetState(
 *         + `nullptr == hDAhandle`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pCount`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlEnumPowerDomains(
@@ -5629,6 +5768,8 @@ ctlEnumPowerDomains(
 *         + `nullptr == hPower`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pProperties`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlPowerGetProperties(
@@ -5669,6 +5810,8 @@ ctlPowerGetProperties(
 *         + `nullptr == hPower`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pEnergy`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlPowerGetEnergyCounter(
@@ -5708,6 +5851,8 @@ ctlPowerGetEnergyCounter(
 *     - CTL_RESULT_ERROR_DEVICE_LOST
 *     - CTL_RESULT_ERROR_INVALID_NULL_HANDLE
 *         + `nullptr == hPower`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlPowerGetLimits(
@@ -5750,6 +5895,8 @@ ctlPowerGetLimits(
 *         + User does not have permissions to make these modifications.
 *     - ::CTL_RESULT_ERROR_NOT_AVAILABLE
 *         + The device is in use, meaning that the GPU is under Over clocking, applying power limits under overclocking is not supported.
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlPowerSetLimits(
@@ -5790,6 +5937,8 @@ ctlPowerSetLimits(
 *         + `nullptr == hDAhandle`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pCount`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlEnumTemperatureSensors(
@@ -5840,6 +5989,8 @@ ctlEnumTemperatureSensors(
 *         + `nullptr == hTemperature`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pProperties`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlTemperatureGetProperties(
@@ -5880,6 +6031,8 @@ ctlTemperatureGetProperties(
 *         + `nullptr == hTemperature`
 *     - CTL_RESULT_ERROR_INVALID_NULL_POINTER
 *         + `nullptr == pTemperature`
+*     - ::CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+*         + Device is unavailable due to loading, unloading, low power state (D3), or recovery (TDR/FLR)
 */
 ctl_result_t CTL_APICALL
 ctlTemperatureGetState(

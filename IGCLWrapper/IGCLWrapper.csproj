@@ -109,7 +109,7 @@
 		<Message Text="-&gt; IGCLWrapper Version: $(AppVersion) (Major/Minor from file, Patch is commits since change)" Importance="high" />
 	</Target>
 
-	<Target Name="GenerateFromClangSharp" BeforeTargets="CoreCompile" Inputs="@(ClangSharpPInvokeGenerator)" Outputs="$(BaseIntermediateOutputPath)ClangSharp.stamp">
+	<Target Name="GenerateFromClangSharp" BeforeTargets="CoreCompile" Inputs="@(ClangSharpPInvokeGenerator);..\drivers.gpu.control-library\include\igcl_api.h" Outputs="$(BaseIntermediateOutputPath)ClangSharp.stamp">
 		<Exec Command="ClangSharpPInvokeGenerator %40&quot;@(ClangSharpPInvokeGenerator)&quot;" />
 		<ItemGroup>
 			<Compile Include="$(ClangSharpGeneratedDir)\**\*.cs" />

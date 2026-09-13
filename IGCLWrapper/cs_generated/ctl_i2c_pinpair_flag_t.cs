@@ -24,6 +24,18 @@ namespace IGCLWrapper
         /// <include file='ctl_i2c_pinpair_flag_t.xml' path='doc/member[@name="ctl_i2c_pinpair_flag_t.CTL_I2C_PINPAIR_FLAG_SPEED_BIT_BASH"]/*' />
         CTL_I2C_PINPAIR_FLAG_SPEED_BIT_BASH = (1 << 6),
 
+        /// <include file='ctl_i2c_pinpair_flag_t.xml' path='doc/member[@name="ctl_i2c_pinpair_flag_t.CTL_I2C_PINPAIR_FLAG_DRIVER_OVERRIDE"]/*' />
+        CTL_I2C_PINPAIR_FLAG_DRIVER_OVERRIDE = (1 << 7),
+
+        /// <include file='ctl_i2c_pinpair_flag_t.xml' path='doc/member[@name="ctl_i2c_pinpair_flag_t.CTL_I2C_PINPAIR_FLAG_START"]/*' />
+        CTL_I2C_PINPAIR_FLAG_START = (1 << 8),
+
+        /// <include file='ctl_i2c_pinpair_flag_t.xml' path='doc/member[@name="ctl_i2c_pinpair_flag_t.CTL_I2C_PINPAIR_FLAG_STOP"]/*' />
+        CTL_I2C_PINPAIR_FLAG_STOP = (1 << 9),
+
+        /// <include file='ctl_i2c_pinpair_flag_t.xml' path='doc/member[@name="ctl_i2c_pinpair_flag_t.CTL_I2C_PINPAIR_FLAG_RESTART"]/*' />
+        CTL_I2C_PINPAIR_FLAG_RESTART = (1 << 10),
+
         /// <include file='ctl_i2c_pinpair_flag_t.xml' path='doc/member[@name="ctl_i2c_pinpair_flag_t.CTL_I2C_PINPAIR_FLAG_MAX"]/*' />
         CTL_I2C_PINPAIR_FLAG_MAX = unchecked((int)(0x80000000)),
     }

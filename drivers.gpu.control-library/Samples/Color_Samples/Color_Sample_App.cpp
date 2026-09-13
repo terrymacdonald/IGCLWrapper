@@ -1951,8 +1951,9 @@ ctl_result_t TestLaceGetSetConfigForFixedAgressiveness(ctl_display_output_handle
     ctl_lace_config_t NewLaceConfigSettings     = { 0 };
     ctl_power_optimization_caps_t PowerCaps     = { 0 };
 
-    PowerCaps.Size = sizeof(ctl_power_optimization_caps_t);
-    Result         = ctlGetPowerOptimizationCaps(hDisplayOutput, &PowerCaps);
+    PowerCaps.Size    = sizeof(ctl_power_optimization_caps_t);
+    PowerCaps.Version = 1;
+    Result            = ctlGetPowerOptimizationCaps(hDisplayOutput, &PowerCaps);
     LOG_AND_EXIT_ON_ERROR(Result, "ctlGetPowerOptimizationCaps (LACE)");
 
     if (CTL_POWER_OPTIMIZATION_FLAG_LACE != (PowerCaps.SupportedFeatures & CTL_POWER_OPTIMIZATION_FLAG_LACE))
@@ -1962,7 +1963,7 @@ ctl_result_t TestLaceGetSetConfigForFixedAgressiveness(ctl_display_output_handle
         goto Exit;
     }
 
-    NewLaceConfigSettings.Version                                    = 0;
+    NewLaceConfigSettings.Version                                    = 1;
     NewLaceConfigSettings.Size                                       = sizeof(ctl_lace_config_t);
     NewLaceConfigSettings.Enabled                                    = TRUE;
     NewLaceConfigSettings.OpTypeSet                                  = CTL_SET_OPERATION_CUSTOM;
@@ -1974,7 +1975,7 @@ ctl_result_t TestLaceGetSetConfigForFixedAgressiveness(ctl_display_output_handle
 
     // Get Lace Config Call for current flag
     AppliedLaceConfigSettings           = { 0 };
-    AppliedLaceConfigSettings.Version   = 0;
+    AppliedLaceConfigSettings.Version   = 1;
     AppliedLaceConfigSettings.Size      = sizeof(ctl_lace_config_t);
     AppliedLaceConfigSettings.OpTypeGet = CTL_GET_OPERATION_FLAG_CURRENT;
 
@@ -1997,13 +1998,14 @@ ctl_result_t TestLaceGetSetConfigForALS(ctl_display_output_handle_t hDisplayOutp
     ctl_lace_config_t AppliedLaceConfigSettings = { 0 };
     ctl_lace_config_t NewLaceConfigSettings     = { 0 };
     ctl_power_optimization_caps_t PowerCaps     = { 0 };
-    AppliedLaceConfigSettings.Version           = 0;
+    AppliedLaceConfigSettings.Version           = 1;
     AppliedLaceConfigSettings.Size              = sizeof(ctl_lace_config_t);
     AppliedLaceConfigSettings.OpTypeGet         = CTL_GET_OPERATION_FLAG_CAPABILITY;
     uint32_t MaxNumEntries                      = 0;
 
-    PowerCaps.Size = sizeof(ctl_power_optimization_caps_t);
-    Result         = ctlGetPowerOptimizationCaps(hDisplayOutput, &PowerCaps);
+    PowerCaps.Size    = sizeof(ctl_power_optimization_caps_t);
+    PowerCaps.Version = 1;
+    Result            = ctlGetPowerOptimizationCaps(hDisplayOutput, &PowerCaps);
     LOG_AND_EXIT_ON_ERROR(Result, "ctlGetPowerOptimizationCaps (LACE)");
 
     if (CTL_POWER_OPTIMIZATION_FLAG_LACE != (PowerCaps.SupportedFeatures & CTL_POWER_OPTIMIZATION_FLAG_LACE))
@@ -2019,7 +2021,7 @@ ctl_result_t TestLaceGetSetConfigForALS(ctl_display_output_handle_t hDisplayOutp
 
     MaxNumEntries = AppliedLaceConfigSettings.LaceConfig.AggrLevelMap.MaxNumEntries;
 
-    NewLaceConfigSettings.Version   = 0;
+    NewLaceConfigSettings.Version   = 1;
     NewLaceConfigSettings.Size      = sizeof(ctl_lace_config_t);
     NewLaceConfigSettings.Enabled   = TRUE;
     NewLaceConfigSettings.OpTypeSet = CTL_SET_OPERATION_CUSTOM;
@@ -2041,7 +2043,7 @@ ctl_result_t TestLaceGetSetConfigForALS(ctl_display_output_handle_t hDisplayOutp
 
     // Get Lace Config Call for current flag
     AppliedLaceConfigSettings                                                = { 0 };
-    AppliedLaceConfigSettings.Version                                        = 0;
+    AppliedLaceConfigSettings.Version                                        = 1;
     AppliedLaceConfigSettings.Size                                           = sizeof(ctl_lace_config_t);
     AppliedLaceConfigSettings.OpTypeGet                                      = CTL_GET_OPERATION_FLAG_CURRENT;
     AppliedLaceConfigSettings.LaceConfig.AggrLevelMap.NumEntries             = MaxNumEntries;

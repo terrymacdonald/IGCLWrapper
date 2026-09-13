@@ -32,6 +32,10 @@ namespace IGCLWrapper
         [DllImport("ControlLib", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern ctl_result_t ctlGetSet3DFeature([NativeTypeName("ctl_device_adapter_handle_t")] _ctl_device_adapter_handle_t* hDAhandle, ctl_3d_feature_getset_t* pFeature);
 
+        /// <include file='IGCL.xml' path='doc/member[@name="IGCL.ctlDevPropGetProperties"]/*' />
+        [DllImport("ControlLib", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern ctl_result_t ctlDevPropGetProperties([NativeTypeName("ctl_device_adapter_handle_t")] _ctl_device_adapter_handle_t* hDAhandle, ctl_dev_prop_properties_t* pProperties);
+
         /// <include file='IGCL.xml' path='doc/member[@name="IGCL.ctlCheckDriverVersion"]/*' />
         [DllImport("ControlLib", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern ctl_result_t ctlCheckDriverVersion([NativeTypeName("ctl_device_adapter_handle_t")] _ctl_device_adapter_handle_t* hDeviceAdapter, [NativeTypeName("ctl_version_info_t")] uint version_info);
@@ -156,18 +160,6 @@ namespace IGCLWrapper
         [DllImport("ControlLib", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern ctl_result_t ctlGetIntelArcSyncInfoForMonitor([NativeTypeName("ctl_display_output_handle_t")] _ctl_display_output_handle_t* hDisplayOutput, ctl_intel_arc_sync_monitor_params_t* pIntelArcSyncMonitorParams);
 
-        /// <include file='IGCL.xml' path='doc/member[@name="IGCL.ctlEnumerateMuxDevices"]/*' />
-        [DllImport("ControlLib", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern ctl_result_t ctlEnumerateMuxDevices([NativeTypeName("ctl_api_handle_t")] _ctl_api_handle_t* hAPIHandle, [NativeTypeName("uint32_t *")] uint* pCount, [NativeTypeName("ctl_mux_output_handle_t *")] _ctl_mux_output_handle_t** phMuxDevices);
-
-        /// <include file='IGCL.xml' path='doc/member[@name="IGCL.ctlGetMuxProperties"]/*' />
-        [DllImport("ControlLib", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern ctl_result_t ctlGetMuxProperties([NativeTypeName("ctl_mux_output_handle_t")] _ctl_mux_output_handle_t* hMuxDevice, ctl_mux_properties_t* pMuxProperties);
-
-        /// <include file='IGCL.xml' path='doc/member[@name="IGCL.ctlSwitchMux"]/*' />
-        [DllImport("ControlLib", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern ctl_result_t ctlSwitchMux([NativeTypeName("ctl_mux_output_handle_t")] _ctl_mux_output_handle_t* hMuxDevice, [NativeTypeName("ctl_display_output_handle_t")] _ctl_display_output_handle_t* hInactiveDisplayOutput);
-
         /// <include file='IGCL.xml' path='doc/member[@name="IGCL.ctlGetIntelArcSyncProfile"]/*' />
         [DllImport("ControlLib", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern ctl_result_t ctlGetIntelArcSyncProfile([NativeTypeName("ctl_display_output_handle_t")] _ctl_display_output_handle_t* hDisplayOutput, ctl_intel_arc_sync_profile_params_t* pIntelArcSyncProfileParams);
@@ -219,6 +211,10 @@ namespace IGCLWrapper
         /// <include file='IGCL.xml' path='doc/member[@name="IGCL.ctlGetSetDisplaySettings"]/*' />
         [DllImport("ControlLib", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern ctl_result_t ctlGetSetDisplaySettings([NativeTypeName("ctl_display_output_handle_t")] _ctl_display_output_handle_t* hDisplayOutput, ctl_display_settings_t* pDisplaySettings);
+
+        /// <include file='IGCL.xml' path='doc/member[@name="IGCL.ctlDisplayFeatureReset"]/*' />
+        [DllImport("ControlLib", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern ctl_result_t ctlDisplayFeatureReset([NativeTypeName("ctl_display_output_handle_t")] _ctl_display_output_handle_t* hDisplayOutput, ctl_display_feature_reset_t* pResetFeature);
 
         /// <include file='IGCL.xml' path='doc/member[@name="IGCL.ctlEccGetProperties"]/*' />
         [DllImport("ControlLib", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -423,6 +419,10 @@ namespace IGCLWrapper
         /// <include file='IGCL.xml' path='doc/member[@name="IGCL.ctlPowerTelemetryGet"]/*' />
         [DllImport("ControlLib", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern ctl_result_t ctlPowerTelemetryGet([NativeTypeName("ctl_device_adapter_handle_t")] _ctl_device_adapter_handle_t* hDeviceHandle, ctl_power_telemetry_t* pTelemetryInfo);
+
+        /// <include file='IGCL.xml' path='doc/member[@name="IGCL.ctlPowerTelemetryGetV2"]/*' />
+        [DllImport("ControlLib", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern ctl_result_t ctlPowerTelemetryGetV2([NativeTypeName("ctl_device_adapter_handle_t")] _ctl_device_adapter_handle_t* hDeviceHandle, ctl_power_telemetry_v2_t* pTelemetryInfo);
 
         /// <include file='IGCL.xml' path='doc/member[@name="IGCL.ctlOverclockResetToDefault"]/*' />
         [DllImport("ControlLib", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]

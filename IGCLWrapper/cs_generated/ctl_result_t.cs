@@ -129,6 +129,9 @@ namespace IGCLWrapper
         /// <include file='ctl_result_t.xml' path='doc/member[@name="ctl_result_t.CTL_RESULT_ERROR_LOAD"]/*' />
         CTL_RESULT_ERROR_LOAD = 0x40000026,
 
+        /// <include file='ctl_result_t.xml' path='doc/member[@name="ctl_result_t.CTL_RESULT_ERROR_DEVICE_UNAVAILABLE"]/*' />
+        CTL_RESULT_ERROR_DEVICE_UNAVAILABLE = 0x40000027,
+
         /// <include file='ctl_result_t.xml' path='doc/member[@name="ctl_result_t.CTL_RESULT_ERROR_UNKNOWN"]/*' />
         CTL_RESULT_ERROR_UNKNOWN = 0x4000FFFF,
 
@@ -137,6 +140,9 @@ namespace IGCLWrapper
 
         /// <include file='ctl_result_t.xml' path='doc/member[@name="ctl_result_t.CTL_RESULT_ERROR_IGSC_LOADER"]/*' />
         CTL_RESULT_ERROR_IGSC_LOADER = 0x40010001,
+
+        /// <include file='ctl_result_t.xml' path='doc/member[@name="ctl_result_t.CTL_RESULT_ERROR_RESTRICTED_APPLICATION"]/*' />
+        CTL_RESULT_ERROR_RESTRICTED_APPLICATION = 0x40010002,
 
         /// <include file='ctl_result_t.xml' path='doc/member[@name="ctl_result_t.CTL_RESULT_ERROR_GENERIC_END"]/*' />
         CTL_RESULT_ERROR_GENERIC_END = 0x4000FFFF,

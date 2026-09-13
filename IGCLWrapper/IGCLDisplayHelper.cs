@@ -26,7 +26,6 @@ namespace IGCLWrapper
         }
 
         private static unsafe ctl_display_properties_t CreateDisplayProperties() => new ctl_display_properties_t { Size = (uint)sizeof(ctl_display_properties_t), Version = 0 };
-        private static unsafe ctl_mux_properties_t CreateMuxProperties() => new ctl_mux_properties_t { Size = (uint)sizeof(ctl_mux_properties_t), Version = 0 };
         private static unsafe ctl_retro_scaling_caps_t CreateRetroScalingCaps() => new ctl_retro_scaling_caps_t { Size = (uint)sizeof(ctl_retro_scaling_caps_t), Version = 0 };
         private static unsafe ctl_scaling_caps_t CreateScalingCaps() => new ctl_scaling_caps_t { Size = (uint)sizeof(ctl_scaling_caps_t), Version = 0 };
         /// <summary>
@@ -533,21 +532,6 @@ namespace IGCLWrapper
                    left.MaximumRefreshRateInHz.Equals(right.MaximumRefreshRateInHz) &&
                    left.MaxFrameTimeIncreaseInUs == right.MaxFrameTimeIncreaseInUs &&
                    left.MaxFrameTimeDecreaseInUs == right.MaxFrameTimeDecreaseInUs;
-        }
-
-        /// <summary>
-        /// Compare mux properties while ignoring native-only fields.
-        /// </summary>
-        /// <param name="left">Left properties struct.</param>
-        /// <param name="right">Right properties struct.</param>
-        /// <returns>True when equal; otherwise, false.</returns>
-        public static bool AreMuxPropertiesEqual(ctl_mux_properties_t left, ctl_mux_properties_t right)
-        {
-            return left.Size == right.Size &&
-                   left.Version == right.Version &&
-                   left.MuxId == right.MuxId &&
-                   left.Count == right.Count &&
-                   left.IndexOfDisplayOutputOwningMux == right.IndexOfDisplayOutputOwningMux;
         }
 
         /// <summary>
@@ -1663,93 +1647,6 @@ namespace IGCLWrapper
             if (IsUnsupportedResult(result))
                 return null;
             throw new IGCLException(result, "Failed to get Intel Arc Sync info");
-        }
-
-        /// <summary>
-        /// Enumerate mux device handles.
-        /// </summary>
-        /// <returns>Array of mux handles, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
-        public unsafe IntPtr[]? EnumerateMuxDevices()
-        {
-            ThrowIfDisposed();
-            uint count = 0;
-            var result = IGCL.ctlEnumerateMuxDevices((_ctl_api_handle_t*)Api.ApiHandle, &count, null);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS && count == 0)
-            {
-                if (IsUnsupportedResult(result))
-                    return null;
-                throw new IGCLException(result, "Failed to get mux device count");
-            }
-            if (count == 0)
-                return Array.Empty<IntPtr>();
-
-            var muxes = new IntPtr[count];
-            fixed (IntPtr* pMuxes = muxes)
-            {
-                result = IGCL.ctlEnumerateMuxDevices((_ctl_api_handle_t*)Api.ApiHandle, &count, (_ctl_mux_output_handle_t**)pMuxes);
-                if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                {
-                    if (IsUnsupportedResult(result))
-                        return null;
-                    throw new IGCLException(result, "Failed to enumerate mux devices");
-                }
-            }
-            return muxes;
-        }
-
-        /// <summary>
-        /// Get mux properties and display outputs as a DTO.
-        /// </summary>
-        /// <param name="muxHandle">Mux handle.</param>
-        /// <returns>Mux properties DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
-        public unsafe MuxPropertiesDto? GetMuxProperties(IntPtr muxHandle)
-        {
-            ThrowIfDisposed();
-            var props = CreateMuxProperties();
-            var result = IGCL.ctlGetMuxProperties((_ctl_mux_output_handle_t*)muxHandle, &props);
-            if (result != ctl_result_t.CTL_RESULT_SUCCESS && props.Count == 0)
-            {
-                if (IsUnsupportedResult(result))
-                    return null;
-                throw new IGCLException(result, "Failed to get mux properties");
-            }
-
-            var outputs = Array.Empty<IntPtr>();
-            if (props.Count > 0)
-            {
-                outputs = new IntPtr[props.Count];
-                fixed (IntPtr* pOutputs = outputs)
-                {
-                    props.phDisplayOutputs = (_ctl_display_output_handle_t**)pOutputs;
-                    result = IGCL.ctlGetMuxProperties((_ctl_mux_output_handle_t*)muxHandle, &props);
-                    props.phDisplayOutputs = null;
-                    if (result != ctl_result_t.CTL_RESULT_SUCCESS)
-                    {
-                        if (IsUnsupportedResult(result))
-                            return null;
-                        throw new IGCLException(result, "Failed to get mux properties");
-                    }
-                }
-            }
-
-            return MuxPropertiesDto.FromNative(props, outputs);
-        }
-
-        /// <summary>
-        /// Switch mux to the specified inactive display output.
-        /// </summary>
-        /// <param name="muxHandle">Mux handle.</param>
-        /// <param name="inactiveDisplayOutput">Inactive display output handle.</param>
-        /// <returns><c>true</c> if the operation succeeded; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
-        public unsafe bool SwitchMux(IntPtr muxHandle, IntPtr inactiveDisplayOutput)
-        {
-            ThrowIfDisposed();
-            var result = IGCL.ctlSwitchMux((_ctl_mux_output_handle_t*)muxHandle, (_ctl_display_output_handle_t*)inactiveDisplayOutput);
-            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
-                return true;
-            if (IsUnsupportedResult(result))
-                return false;
-            throw new IGCLException(result, "Failed to switch mux output");
         }
 
         /// <summary>
@@ -6081,73 +5978,6 @@ namespace IGCLWrapper
             var hash = new HashCode();
             hash.Add(Args);
             hash.Add(Modes?.Count ?? 0);
-            return hash.ToHashCode();
-        }
-    }
-
-    /// <summary>
-    /// DTO for mux properties and display outputs.
-    /// </summary>
-    public struct MuxPropertiesDto : IEquatable<MuxPropertiesDto>
-    {
-        public MuxPropertiesDto() {}
-        public uint Size;
-        public byte Version;
-        public byte MuxId;
-        public uint Count;
-        public byte IndexOfDisplayOutputOwningMux;
-        public List<nint> DisplayOutputs = new();
-
-        public static MuxPropertiesDto FromNative(ctl_mux_properties_t native, IntPtr[] outputs)
-        {
-            var list = new List<nint>(outputs.Length);
-            for (var i = 0; i < outputs.Length; i++)
-                list.Add(outputs[i]);
-
-            return new MuxPropertiesDto
-            {
-                Size = native.Size,
-                Version = native.Version,
-                MuxId = native.MuxId,
-                Count = native.Count,
-                IndexOfDisplayOutputOwningMux = native.IndexOfDisplayOutputOwningMux,
-                DisplayOutputs = list
-            };
-        }
-
-        public unsafe ctl_mux_properties_t ToNative()
-        {
-            return new ctl_mux_properties_t
-            {
-                Size = Size == 0 ? (uint)sizeof(ctl_mux_properties_t) : Size,
-                Version = Version,
-                MuxId = MuxId,
-                Count = Count == 0 && DisplayOutputs != null ? (uint)DisplayOutputs.Count : Count,
-                phDisplayOutputs = null,
-                IndexOfDisplayOutputOwningMux = IndexOfDisplayOutputOwningMux
-            };
-        }
-
-        public bool Equals(MuxPropertiesDto other)
-        {
-            // DisplayOutputs contains native handles that change per-session and are intentionally excluded.
-            return Size == other.Size &&
-                   Version == other.Version &&
-                   MuxId == other.MuxId &&
-                   Count == other.Count &&
-                   IndexOfDisplayOutputOwningMux == other.IndexOfDisplayOutputOwningMux;
-        }
-
-        public override bool Equals(object? obj) => obj is MuxPropertiesDto other && Equals(other);
-
-        public override int GetHashCode()
-        {
-            var hash = new HashCode();
-            hash.Add(Size);
-            hash.Add(Version);
-            hash.Add(MuxId);
-            hash.Add(Count);
-            hash.Add(IndexOfDisplayOutputOwningMux);
             return hash.ToHashCode();
         }
     }

@@ -18,6 +18,9 @@ namespace IGCLWrapper
         /// <include file='ctl_power_optimization_flag_t.xml' path='doc/member[@name="ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_LACE"]/*' />
         CTL_POWER_OPTIMIZATION_FLAG_LACE = (1 << 4),
 
+        /// <include file='ctl_power_optimization_flag_t.xml' path='doc/member[@name="ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_SPH"]/*' />
+        CTL_POWER_OPTIMIZATION_FLAG_SPH = (1 << 5),
+
         /// <include file='ctl_power_optimization_flag_t.xml' path='doc/member[@name="ctl_power_optimization_flag_t.CTL_POWER_OPTIMIZATION_FLAG_MAX"]/*' />
         CTL_POWER_OPTIMIZATION_FLAG_MAX = unchecked((int)(0x80000000)),
     }

@@ -582,7 +582,7 @@ void OverclockTemperatureLimit(ctl_device_adapter_handle_t hDAhandle)
 
     // Step 3: Writing New Temperature Limit by increasing it by (Step * 5.0) from min value
     // Input Temperature Limit units are given in ctl_oc_properties_t::temperatureLimit::units returned from ctlOverclockGetProperties()
-    // Currently ctl_oc_properties_t::temperatureLimit::units for Alchemist are CTL_UNITS_TEMPERATURE_CELSIUS units, for Battlemage are CTL_UNITS_PERCENT units
+    // Currently ctl_oc_properties_t::temperatureLimit::units for Alchemist and BMG G31 are CTL_UNITS_TEMPERATURE_CELSIUS units, for Battlemage (excluding G31) are CTL_UNITS_PERCENT units
     CurrentTemperatureLimit = OcProperties.temperatureLimit.min + (OcProperties.temperatureLimit.step * 5.0);
     Status                  = ctlOverclockTemperatureLimitSetV2(hDAhandle, CurrentTemperatureLimit);
     if (Status != ctl_result_t::CTL_RESULT_SUCCESS)
@@ -870,7 +870,7 @@ Exit:
 /***************************************************************
  * @brief OverclockPowerTelemetry
  *
- * Overclock Power Temeletry: The function ctlPowerTelemetryGet allows
+ * Overclock Power Telemetry: The function ctlPowerTelemetryGetV2 allows
  * to retrieve all the available metrics from the adapter in one
  * single and efficient call.
  * @param
@@ -878,11 +878,11 @@ Exit:
  ***************************************************************/
 void OverclockPowerTelemetry(ctl_device_adapter_handle_t hDAhandle)
 {
-    ctl_power_telemetry_t pPowerTelemetry = {};
-    pPowerTelemetry.Size                  = sizeof(ctl_power_telemetry_t);
-    pPowerTelemetry.Version               = 1;
+    ctl_power_telemetry_v2_t pPowerTelemetry = {};
+    pPowerTelemetry.Size                     = sizeof(ctl_power_telemetry_v2_t);
+    pPowerTelemetry.Version                  = 1;
 
-    ctl_result_t Status = ctlPowerTelemetryGet(hDAhandle, &pPowerTelemetry);
+    ctl_result_t Status = ctlPowerTelemetryGetV2(hDAhandle, &pPowerTelemetry);
 
     if (Status == ctl_result_t::CTL_RESULT_SUCCESS)
     {
@@ -1055,7 +1055,7 @@ void OverclockPowerTelemetry(ctl_device_adapter_handle_t hDAhandle)
     }
     else
     {
-        PRINT_LOGS("\nOverclockPowerTelemetry => ctlPowerTelemetryGet Result Error: %s, ErrorCode: 0x%x \n \n", DecodeRetCode(Status).c_str(), Status);
+        PRINT_LOGS("\nOverclockPowerTelemetry => ctlPowerTelemetryGetV2 Result Error: %s, ErrorCode: 0x%x \n \n", DecodeRetCode(Status).c_str(), Status);
     }
 }
 
