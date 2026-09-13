@@ -354,6 +354,7 @@ namespace IGCLWrapper
         }
 
         private static unsafe ctl_device_adapter_properties_t CreateAdapterProperties() => new ctl_device_adapter_properties_t { Size = (uint)sizeof(ctl_device_adapter_properties_t), Version = 1 };
+        private static unsafe ctl_dev_prop_properties_t CreateDevProps() => new ctl_dev_prop_properties_t { Size = (uint)sizeof(ctl_dev_prop_properties_t), Version = 0 };
         /// <summary>
         /// Create a combined display args struct with Size and Version initialized.
         /// </summary>
@@ -533,6 +534,20 @@ namespace IGCLWrapper
             if (result != ctl_result_t.CTL_RESULT_SUCCESS)
                 throw new IGCLException(result, "Failed to get device properties");
             return DeviceAdapterPropertiesDto.FromNative(props);
+        }
+
+        /// <summary>Get additional device properties exposed by IGCL.</summary>
+        /// <returns>Device property details, or <c>null</c> if unsupported.</returns>
+        public unsafe DevPropsDto? GetDevProps()
+        {
+            ThrowIfDisposed();
+            var props = CreateDevProps();
+            var result = IGCL.ctlDevPropGetProperties((_ctl_device_adapter_handle_t*)AdapterHandle, &props);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return DevPropsDto.FromNative(props);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get device properties details");
         }
 
         /// <summary>
@@ -2745,6 +2760,18 @@ namespace IGCLWrapper
         }
     }
 
+    /// <summary>DTO for additional IGCL device properties.</summary>
+    public struct DevPropsDto : IEquatable<DevPropsDto>
+    {
+        public uint Size;
+        public byte Version;
+        public bool IsWorkstation;
+        public static DevPropsDto FromNative(ctl_dev_prop_properties_t native) => new() { Size = native.Size, Version = native.Version, IsWorkstation = native.isWorkstation != 0 };
+        public unsafe ctl_dev_prop_properties_t ToNative() => new() { Size = Size == 0 ? (uint)sizeof(ctl_dev_prop_properties_t) : Size, Version = Version, isWorkstation = IsWorkstation ? (byte)1 : (byte)0 };
+        public bool Equals(DevPropsDto other) => Size == other.Size && Version == other.Version && IsWorkstation == other.IsWorkstation;
+        public override bool Equals(object? obj) => obj is DevPropsDto other && Equals(other);
+        public override int GetHashCode() => HashCode.Combine(Size, Version, IsWorkstation);
+    }
 }
 
 

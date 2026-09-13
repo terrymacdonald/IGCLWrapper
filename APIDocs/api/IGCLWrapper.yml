@@ -18,7 +18,9 @@ items:
   - IGCLWrapper.CustomSourceModeDto
   - IGCLWrapper.DataValueDto
   - IGCLWrapper.DceArgsDto
+  - IGCLWrapper.DevPropsDto
   - IGCLWrapper.DeviceAdapterPropertiesDto
+  - IGCLWrapper.DisplayFeatureResetDto
   - IGCLWrapper.DisplayPropertiesDto
   - IGCLWrapper.DisplaySettingsDto
   - IGCLWrapper.DisplayTimingDto
@@ -80,7 +82,6 @@ items:
   - IGCLWrapper.MemoryBandwidthDto
   - IGCLWrapper.MemoryPropertiesDto
   - IGCLWrapper.MemoryStateDto
-  - IGCLWrapper.MuxPropertiesDto
   - IGCLWrapper.OcControlInfoDto
   - IGCLWrapper.OcTelemetryItemDto
   - IGCLWrapper.OcVfPairDto
@@ -110,6 +111,7 @@ items:
   - IGCLWrapper.PowerPropertiesDto
   - IGCLWrapper.PowerSustainedLimitDto
   - IGCLWrapper.PowerTelemetryDto
+  - IGCLWrapper.PowerTelemetryV2Dto
   - IGCLWrapper.PropertyBooleanDto
   - IGCLWrapper.PropertyDto
   - IGCLWrapper.PropertyEnumDto
@@ -148,7 +150,6 @@ items:
   - IGCLWrapper._ctl_i2c_pin_pair_handle_t
   - IGCLWrapper._ctl_led_handle_t
   - IGCLWrapper._ctl_mem_handle_t
-  - IGCLWrapper._ctl_mux_output_handle_t
   - IGCLWrapper._ctl_pwr_handle_t
   - IGCLWrapper._ctl_temp_handle_t
   - IGCLWrapper.ctl_3d_adaptive_tessellation_types_t
@@ -163,8 +164,12 @@ items:
   - IGCLWrapper.ctl_3d_feature_getset_t
   - IGCLWrapper.ctl_3d_feature_misc_flag_t
   - IGCLWrapper.ctl_3d_feature_t
+  - IGCLWrapper.ctl_3d_frame_generation_override_t
   - IGCLWrapper.ctl_3d_frame_pacing_types_t
   - IGCLWrapper.ctl_3d_global_or_per_app_types_t
+  - IGCLWrapper.ctl_3d_live_state_frame_pacing_types_t
+  - IGCLWrapper.ctl_3d_live_state_t
+  - IGCLWrapper.ctl_3d_live_state_t._Reserved_e__FixedBuffer
   - IGCLWrapper.ctl_3d_low_latency_types_t
   - IGCLWrapper.ctl_3d_msaa_types_t
   - IGCLWrapper.ctl_3d_sharpening_filter_types_t
@@ -198,11 +203,14 @@ items:
   - IGCLWrapper.ctl_data_type_t
   - IGCLWrapper.ctl_data_value_t
   - IGCLWrapper.ctl_dce_args_t
+  - IGCLWrapper.ctl_dev_prop_properties_t
   - IGCLWrapper.ctl_device_adapter_properties_t
   - IGCLWrapper.ctl_device_adapter_properties_t._name_e__FixedBuffer
   - IGCLWrapper.ctl_device_adapter_properties_t._reserved_e__FixedBuffer
   - IGCLWrapper.ctl_device_type_t
   - IGCLWrapper.ctl_display_config_flag_t
+  - IGCLWrapper.ctl_display_feature_reset_flag_t
+  - IGCLWrapper.ctl_display_feature_reset_t
   - IGCLWrapper.ctl_display_orientation_t
   - IGCLWrapper.ctl_display_output_types_t
   - IGCLWrapper.ctl_display_properties_t
@@ -301,7 +309,6 @@ items:
   - IGCLWrapper.ctl_mem_properties_t
   - IGCLWrapper.ctl_mem_state_t
   - IGCLWrapper.ctl_mem_type_t
-  - IGCLWrapper.ctl_mux_properties_t
   - IGCLWrapper.ctl_oc_control_info_t
   - IGCLWrapper.ctl_oc_properties_t
   - IGCLWrapper.ctl_oc_telemetry_item_t
@@ -355,6 +362,9 @@ items:
   - IGCLWrapper.ctl_power_telemetry_t
   - IGCLWrapper.ctl_power_telemetry_t._fanSpeed_e__FixedBuffer
   - IGCLWrapper.ctl_power_telemetry_t._psu_e__FixedBuffer
+  - IGCLWrapper.ctl_power_telemetry_v2_t
+  - IGCLWrapper.ctl_power_telemetry_v2_t._fanSpeed_e__FixedBuffer
+  - IGCLWrapper.ctl_power_telemetry_v2_t._psu_e__FixedBuffer
   - IGCLWrapper.ctl_property_boolean_t
   - IGCLWrapper.ctl_property_enum_t
   - IGCLWrapper.ctl_property_float_t
@@ -652,6 +662,13 @@ references:
   name: WaitPropertyChangeArgsDto
   nameWithType: WaitPropertyChangeArgsDto
   fullName: IGCLWrapper.WaitPropertyChangeArgsDto
+- uid: IGCLWrapper.DevPropsDto
+  commentId: T:IGCLWrapper.DevPropsDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.DevPropsDto.html
+  name: DevPropsDto
+  nameWithType: DevPropsDto
+  fullName: IGCLWrapper.DevPropsDto
 - uid: IGCLWrapper.IGCLDisplayHelper
   commentId: T:IGCLWrapper.IGCLDisplayHelper
   href: IGCLWrapper.IGCLDisplayHelper.html
@@ -910,13 +927,13 @@ references:
   name: CustomModesResultDto
   nameWithType: CustomModesResultDto
   fullName: IGCLWrapper.CustomModesResultDto
-- uid: IGCLWrapper.MuxPropertiesDto
-  commentId: T:IGCLWrapper.MuxPropertiesDto
+- uid: IGCLWrapper.DisplayFeatureResetDto
+  commentId: T:IGCLWrapper.DisplayFeatureResetDto
   parent: IGCLWrapper
-  href: IGCLWrapper.MuxPropertiesDto.html
-  name: MuxPropertiesDto
-  nameWithType: MuxPropertiesDto
-  fullName: IGCLWrapper.MuxPropertiesDto
+  href: IGCLWrapper.DisplayFeatureResetDto.html
+  name: DisplayFeatureResetDto
+  nameWithType: DisplayFeatureResetDto
+  fullName: IGCLWrapper.DisplayFeatureResetDto
 - uid: IGCLWrapper.VblankTimestampArgsDto
   commentId: T:IGCLWrapper.VblankTimestampArgsDto
   parent: IGCLWrapper
@@ -1231,6 +1248,13 @@ references:
   name: IGCLOverclockHelper
   nameWithType: IGCLOverclockHelper
   fullName: IGCLWrapper.IGCLOverclockHelper
+- uid: IGCLWrapper.PowerTelemetryV2Dto
+  commentId: T:IGCLWrapper.PowerTelemetryV2Dto
+  parent: IGCLWrapper
+  href: IGCLWrapper.PowerTelemetryV2Dto.html
+  name: PowerTelemetryV2Dto
+  nameWithType: PowerTelemetryV2Dto
+  fullName: IGCLWrapper.PowerTelemetryV2Dto
 - uid: IGCLWrapper.DataValueDto
   commentId: T:IGCLWrapper.DataValueDto
   parent: IGCLWrapper
@@ -1459,6 +1483,13 @@ references:
   name: ctl_3d_feature_t
   nameWithType: ctl_3d_feature_t
   fullName: IGCLWrapper.ctl_3d_feature_t
+- uid: IGCLWrapper.ctl_3d_frame_generation_override_t
+  commentId: T:IGCLWrapper.ctl_3d_frame_generation_override_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_3d_frame_generation_override_t.html
+  name: ctl_3d_frame_generation_override_t
+  nameWithType: ctl_3d_frame_generation_override_t
+  fullName: IGCLWrapper.ctl_3d_frame_generation_override_t
 - uid: IGCLWrapper.ctl_3d_frame_pacing_types_t
   commentId: T:IGCLWrapper.ctl_3d_frame_pacing_types_t
   parent: IGCLWrapper
@@ -1473,6 +1504,42 @@ references:
   name: ctl_3d_global_or_per_app_types_t
   nameWithType: ctl_3d_global_or_per_app_types_t
   fullName: IGCLWrapper.ctl_3d_global_or_per_app_types_t
+- uid: IGCLWrapper.ctl_3d_live_state_frame_pacing_types_t
+  commentId: T:IGCLWrapper.ctl_3d_live_state_frame_pacing_types_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_3d_live_state_frame_pacing_types_t.html
+  name: ctl_3d_live_state_frame_pacing_types_t
+  nameWithType: ctl_3d_live_state_frame_pacing_types_t
+  fullName: IGCLWrapper.ctl_3d_live_state_frame_pacing_types_t
+- uid: IGCLWrapper.ctl_3d_live_state_t
+  commentId: T:IGCLWrapper.ctl_3d_live_state_t
+  href: IGCLWrapper.ctl_3d_live_state_t.html
+  name: ctl_3d_live_state_t
+  nameWithType: ctl_3d_live_state_t
+  fullName: IGCLWrapper.ctl_3d_live_state_t
+- uid: IGCLWrapper.ctl_3d_live_state_t._Reserved_e__FixedBuffer
+  commentId: T:IGCLWrapper.ctl_3d_live_state_t._Reserved_e__FixedBuffer
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_3d_live_state_t.html
+  name: ctl_3d_live_state_t._Reserved_e__FixedBuffer
+  nameWithType: ctl_3d_live_state_t._Reserved_e__FixedBuffer
+  fullName: IGCLWrapper.ctl_3d_live_state_t._Reserved_e__FixedBuffer
+  spec.csharp:
+  - uid: IGCLWrapper.ctl_3d_live_state_t
+    name: ctl_3d_live_state_t
+    href: IGCLWrapper.ctl_3d_live_state_t.html
+  - name: .
+  - uid: IGCLWrapper.ctl_3d_live_state_t._Reserved_e__FixedBuffer
+    name: _Reserved_e__FixedBuffer
+    href: IGCLWrapper.ctl_3d_live_state_t._Reserved_e__FixedBuffer.html
+  spec.vb:
+  - uid: IGCLWrapper.ctl_3d_live_state_t
+    name: ctl_3d_live_state_t
+    href: IGCLWrapper.ctl_3d_live_state_t.html
+  - name: .
+  - uid: IGCLWrapper.ctl_3d_live_state_t._Reserved_e__FixedBuffer
+    name: _Reserved_e__FixedBuffer
+    href: IGCLWrapper.ctl_3d_live_state_t._Reserved_e__FixedBuffer.html
 - uid: IGCLWrapper.ctl_3d_low_latency_types_t
   commentId: T:IGCLWrapper.ctl_3d_low_latency_types_t
   parent: IGCLWrapper
@@ -1839,6 +1906,13 @@ references:
   name: ctl_device_type_t
   nameWithType: ctl_device_type_t
   fullName: IGCLWrapper.ctl_device_type_t
+- uid: IGCLWrapper.ctl_dev_prop_properties_t
+  commentId: T:IGCLWrapper.ctl_dev_prop_properties_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_dev_prop_properties_t.html
+  name: ctl_dev_prop_properties_t
+  nameWithType: ctl_dev_prop_properties_t
+  fullName: IGCLWrapper.ctl_dev_prop_properties_t
 - uid: IGCLWrapper.ctl_display_config_flag_t
   commentId: T:IGCLWrapper.ctl_display_config_flag_t
   parent: IGCLWrapper
@@ -1846,6 +1920,20 @@ references:
   name: ctl_display_config_flag_t
   nameWithType: ctl_display_config_flag_t
   fullName: IGCLWrapper.ctl_display_config_flag_t
+- uid: IGCLWrapper.ctl_display_feature_reset_flag_t
+  commentId: T:IGCLWrapper.ctl_display_feature_reset_flag_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_display_feature_reset_flag_t.html
+  name: ctl_display_feature_reset_flag_t
+  nameWithType: ctl_display_feature_reset_flag_t
+  fullName: IGCLWrapper.ctl_display_feature_reset_flag_t
+- uid: IGCLWrapper.ctl_display_feature_reset_t
+  commentId: T:IGCLWrapper.ctl_display_feature_reset_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_display_feature_reset_t.html
+  name: ctl_display_feature_reset_t
+  nameWithType: ctl_display_feature_reset_t
+  fullName: IGCLWrapper.ctl_display_feature_reset_t
 - uid: IGCLWrapper.ctl_display_orientation_t
   commentId: T:IGCLWrapper.ctl_display_orientation_t
   parent: IGCLWrapper
@@ -2798,13 +2886,6 @@ references:
   name: ctl_mem_type_t
   nameWithType: ctl_mem_type_t
   fullName: IGCLWrapper.ctl_mem_type_t
-- uid: IGCLWrapper.ctl_mux_properties_t
-  commentId: T:IGCLWrapper.ctl_mux_properties_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_mux_properties_t.html
-  name: ctl_mux_properties_t
-  nameWithType: ctl_mux_properties_t
-  fullName: IGCLWrapper.ctl_mux_properties_t
 - uid: IGCLWrapper.ctl_oc_control_info_t
   commentId: T:IGCLWrapper.ctl_oc_control_info_t
   parent: IGCLWrapper
@@ -3255,6 +3336,59 @@ references:
   - uid: IGCLWrapper.ctl_power_telemetry_t._fanSpeed_e__FixedBuffer
     name: _fanSpeed_e__FixedBuffer
     href: IGCLWrapper.ctl_power_telemetry_t._fanSpeed_e__FixedBuffer.html
+- uid: IGCLWrapper.ctl_power_telemetry_v2_t
+  commentId: T:IGCLWrapper.ctl_power_telemetry_v2_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_power_telemetry_v2_t.html
+  name: ctl_power_telemetry_v2_t
+  nameWithType: ctl_power_telemetry_v2_t
+  fullName: IGCLWrapper.ctl_power_telemetry_v2_t
+- uid: IGCLWrapper.ctl_power_telemetry_v2_t._psu_e__FixedBuffer
+  commentId: T:IGCLWrapper.ctl_power_telemetry_v2_t._psu_e__FixedBuffer
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_power_telemetry_v2_t.html
+  name: ctl_power_telemetry_v2_t._psu_e__FixedBuffer
+  nameWithType: ctl_power_telemetry_v2_t._psu_e__FixedBuffer
+  fullName: IGCLWrapper.ctl_power_telemetry_v2_t._psu_e__FixedBuffer
+  spec.csharp:
+  - uid: IGCLWrapper.ctl_power_telemetry_v2_t
+    name: ctl_power_telemetry_v2_t
+    href: IGCLWrapper.ctl_power_telemetry_v2_t.html
+  - name: .
+  - uid: IGCLWrapper.ctl_power_telemetry_v2_t._psu_e__FixedBuffer
+    name: _psu_e__FixedBuffer
+    href: IGCLWrapper.ctl_power_telemetry_v2_t._psu_e__FixedBuffer.html
+  spec.vb:
+  - uid: IGCLWrapper.ctl_power_telemetry_v2_t
+    name: ctl_power_telemetry_v2_t
+    href: IGCLWrapper.ctl_power_telemetry_v2_t.html
+  - name: .
+  - uid: IGCLWrapper.ctl_power_telemetry_v2_t._psu_e__FixedBuffer
+    name: _psu_e__FixedBuffer
+    href: IGCLWrapper.ctl_power_telemetry_v2_t._psu_e__FixedBuffer.html
+- uid: IGCLWrapper.ctl_power_telemetry_v2_t._fanSpeed_e__FixedBuffer
+  commentId: T:IGCLWrapper.ctl_power_telemetry_v2_t._fanSpeed_e__FixedBuffer
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_power_telemetry_v2_t.html
+  name: ctl_power_telemetry_v2_t._fanSpeed_e__FixedBuffer
+  nameWithType: ctl_power_telemetry_v2_t._fanSpeed_e__FixedBuffer
+  fullName: IGCLWrapper.ctl_power_telemetry_v2_t._fanSpeed_e__FixedBuffer
+  spec.csharp:
+  - uid: IGCLWrapper.ctl_power_telemetry_v2_t
+    name: ctl_power_telemetry_v2_t
+    href: IGCLWrapper.ctl_power_telemetry_v2_t.html
+  - name: .
+  - uid: IGCLWrapper.ctl_power_telemetry_v2_t._fanSpeed_e__FixedBuffer
+    name: _fanSpeed_e__FixedBuffer
+    href: IGCLWrapper.ctl_power_telemetry_v2_t._fanSpeed_e__FixedBuffer.html
+  spec.vb:
+  - uid: IGCLWrapper.ctl_power_telemetry_v2_t
+    name: ctl_power_telemetry_v2_t
+    href: IGCLWrapper.ctl_power_telemetry_v2_t.html
+  - name: .
+  - uid: IGCLWrapper.ctl_power_telemetry_v2_t._fanSpeed_e__FixedBuffer
+    name: _fanSpeed_e__FixedBuffer
+    href: IGCLWrapper.ctl_power_telemetry_v2_t._fanSpeed_e__FixedBuffer.html
 - uid: IGCLWrapper.ctl_property_boolean_t
   commentId: T:IGCLWrapper.ctl_property_boolean_t
   parent: IGCLWrapper
@@ -4158,12 +4292,6 @@ references:
   name: _ctl_mem_handle_t
   nameWithType: _ctl_mem_handle_t
   fullName: IGCLWrapper._ctl_mem_handle_t
-- uid: IGCLWrapper._ctl_mux_output_handle_t
-  commentId: T:IGCLWrapper._ctl_mux_output_handle_t
-  href: IGCLWrapper._ctl_mux_output_handle_t.html
-  name: _ctl_mux_output_handle_t
-  nameWithType: _ctl_mux_output_handle_t
-  fullName: IGCLWrapper._ctl_mux_output_handle_t
 - uid: IGCLWrapper._ctl_pwr_handle_t
   commentId: T:IGCLWrapper._ctl_pwr_handle_t
   href: IGCLWrapper._ctl_pwr_handle_t.html

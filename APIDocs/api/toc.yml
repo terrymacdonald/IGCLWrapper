@@ -46,8 +46,14 @@ items:
   - uid: IGCLWrapper.DceArgsDto
     name: DceArgsDto
     type: Struct
+  - uid: IGCLWrapper.DevPropsDto
+    name: DevPropsDto
+    type: Struct
   - uid: IGCLWrapper.DeviceAdapterPropertiesDto
     name: DeviceAdapterPropertiesDto
+    type: Struct
+  - uid: IGCLWrapper.DisplayFeatureResetDto
+    name: DisplayFeatureResetDto
     type: Struct
   - uid: IGCLWrapper.DisplayPropertiesDto
     name: DisplayPropertiesDto
@@ -232,9 +238,6 @@ items:
   - uid: IGCLWrapper.MemoryStateDto
     name: MemoryStateDto
     type: Struct
-  - uid: IGCLWrapper.MuxPropertiesDto
-    name: MuxPropertiesDto
-    type: Struct
   - uid: IGCLWrapper.OcControlInfoDto
     name: OcControlInfoDto
     type: Struct
@@ -321,6 +324,9 @@ items:
     type: Struct
   - uid: IGCLWrapper.PowerTelemetryDto
     name: PowerTelemetryDto
+    type: Struct
+  - uid: IGCLWrapper.PowerTelemetryV2Dto
+    name: PowerTelemetryV2Dto
     type: Struct
   - uid: IGCLWrapper.PropertyBooleanDto
     name: PropertyBooleanDto
@@ -436,9 +442,6 @@ items:
   - uid: IGCLWrapper._ctl_mem_handle_t
     name: _ctl_mem_handle_t
     type: Struct
-  - uid: IGCLWrapper._ctl_mux_output_handle_t
-    name: _ctl_mux_output_handle_t
-    type: Struct
   - uid: IGCLWrapper._ctl_pwr_handle_t
     name: _ctl_pwr_handle_t
     type: Struct
@@ -481,12 +484,24 @@ items:
   - uid: IGCLWrapper.ctl_3d_feature_t
     name: ctl_3d_feature_t
     type: Enum
+  - uid: IGCLWrapper.ctl_3d_frame_generation_override_t
+    name: ctl_3d_frame_generation_override_t
+    type: Enum
   - uid: IGCLWrapper.ctl_3d_frame_pacing_types_t
     name: ctl_3d_frame_pacing_types_t
     type: Enum
   - uid: IGCLWrapper.ctl_3d_global_or_per_app_types_t
     name: ctl_3d_global_or_per_app_types_t
     type: Enum
+  - uid: IGCLWrapper.ctl_3d_live_state_frame_pacing_types_t
+    name: ctl_3d_live_state_frame_pacing_types_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_3d_live_state_t
+    name: ctl_3d_live_state_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_3d_live_state_t._Reserved_e__FixedBuffer
+    name: ctl_3d_live_state_t._Reserved_e__FixedBuffer
+    type: Struct
   - uid: IGCLWrapper.ctl_3d_low_latency_types_t
     name: ctl_3d_low_latency_types_t
     type: Enum
@@ -586,6 +601,9 @@ items:
   - uid: IGCLWrapper.ctl_dce_args_t
     name: ctl_dce_args_t
     type: Struct
+  - uid: IGCLWrapper.ctl_dev_prop_properties_t
+    name: ctl_dev_prop_properties_t
+    type: Struct
   - uid: IGCLWrapper.ctl_device_adapter_properties_t
     name: ctl_device_adapter_properties_t
     type: Struct
@@ -601,6 +619,12 @@ items:
   - uid: IGCLWrapper.ctl_display_config_flag_t
     name: ctl_display_config_flag_t
     type: Enum
+  - uid: IGCLWrapper.ctl_display_feature_reset_flag_t
+    name: ctl_display_feature_reset_flag_t
+    type: Enum
+  - uid: IGCLWrapper.ctl_display_feature_reset_t
+    name: ctl_display_feature_reset_t
+    type: Struct
   - uid: IGCLWrapper.ctl_display_orientation_t
     name: ctl_display_orientation_t
     type: Enum
@@ -895,9 +919,6 @@ items:
   - uid: IGCLWrapper.ctl_mem_type_t
     name: ctl_mem_type_t
     type: Enum
-  - uid: IGCLWrapper.ctl_mux_properties_t
-    name: ctl_mux_properties_t
-    type: Struct
   - uid: IGCLWrapper.ctl_oc_control_info_t
     name: ctl_oc_control_info_t
     type: Struct
@@ -1056,6 +1077,15 @@ items:
     type: Struct
   - uid: IGCLWrapper.ctl_power_telemetry_t._psu_e__FixedBuffer
     name: ctl_power_telemetry_t._psu_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_power_telemetry_v2_t
+    name: ctl_power_telemetry_v2_t
+    type: Struct
+  - uid: IGCLWrapper.ctl_power_telemetry_v2_t._fanSpeed_e__FixedBuffer
+    name: ctl_power_telemetry_v2_t._fanSpeed_e__FixedBuffer
+    type: Struct
+  - uid: IGCLWrapper.ctl_power_telemetry_v2_t._psu_e__FixedBuffer
+    name: ctl_power_telemetry_v2_t._psu_e__FixedBuffer
     type: Struct
   - uid: IGCLWrapper.ctl_property_boolean_t
     name: ctl_property_boolean_t

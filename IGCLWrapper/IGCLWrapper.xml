@@ -695,6 +695,10 @@
             </summary>
             <returns>Adapter properties DTO.</returns>
         </member>
+        <member name="M:IGCLWrapper.IGCLAdapterHelper.GetDevProps">
+            <summary>Get additional device properties exposed by IGCL.</summary>
+            <returns>Device property details, or <c>null</c> if unsupported.</returns>
+        </member>
         <member name="M:IGCLWrapper.IGCLAdapterHelper.GetZeDevice">
             <summary>
             Get the Level Zero device and instance for this adapter.
@@ -1382,6 +1386,9 @@
             DTO for wait property change arguments.
             </summary>
         </member>
+        <member name="T:IGCLWrapper.DevPropsDto">
+            <summary>DTO for additional IGCL device properties.</summary>
+        </member>
         <member name="T:IGCLWrapper.IGCLDisplayHelper">
             <summary>
             Display helper facade for IGCL display handles.
@@ -2010,6 +2017,11 @@
             Get Intel Arc Sync info for a monitor as a DTO.
             </summary>
             <returns>Monitor params DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
+        </member>
+        <member name="M:IGCLWrapper.IGCLDisplayHelper.ResetFeatures(IGCLWrapper.DisplayFeatureResetDto)">
+            <summary>Reset the selected display features to their driver defaults.</summary>
+            <param name="request">Features to reset.</param>
+            <returns><c>true</c> on success; <c>false</c> if unsupported.</returns>
         </member>
         <member name="M:IGCLWrapper.IGCLDisplayHelper.GetIntelArcSyncProfile">
             <summary>
@@ -3524,6 +3536,9 @@
             <summary>
             DTO for custom mode get results.
             </summary>
+        </member>
+        <member name="T:IGCLWrapper.DisplayFeatureResetDto">
+            <summary>DTO for a display-feature reset request.</summary>
         </member>
         <member name="T:IGCLWrapper.VblankTimestampArgsDto">
             <summary>
@@ -5425,6 +5440,10 @@
             </summary>
             <returns>Power telemetry DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
         </member>
+        <member name="M:IGCLWrapper.IGCLOverclockHelper.GetPowerTelemetryV2">
+            <summary>Get version 2 power telemetry as a DTO.</summary>
+            <returns>Power telemetry v2, or <c>null</c> if unsupported.</returns>
+        </member>
         <member name="M:IGCLWrapper.IGCLOverclockHelper.ResetToDefault">
             <summary>
             Reset overclock settings to default.
@@ -5559,6 +5578,12 @@
             <summary>
             Mark the helper as disposed.
             </summary>
+        </member>
+        <member name="T:IGCLWrapper.PowerTelemetryV2Dto">
+            <summary>DTO for version 2 power telemetry.</summary>
+        </member>
+        <member name="F:IGCLWrapper.PowerTelemetryV2Dto.Telemetry">
+            <summary>All telemetry items reported by the version 2 API.</summary>
         </member>
         <member name="T:IGCLWrapper.DataValueDto">
             <summary>

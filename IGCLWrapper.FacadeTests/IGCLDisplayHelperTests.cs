@@ -11,6 +11,16 @@ namespace IGCLWrapper.FacadeTests
     [Trait("Category", "Passive")]
     public class IGCLDisplayHelperTests
     {
+        [Fact]
+        public void DisplayFeatureResetDto_ShouldExposeFeatureFlags()
+        {
+            var dto = new DisplayFeatureResetDto { Scaling = true, Audio = true };
+            Assert.True(dto.Scaling);
+            Assert.True(dto.Audio);
+            var native = dto.ToNative();
+            Assert.Equal(dto.ResetFeatures, native.ResetFeature);
+        }
+
         [SkippableFact]
         public void GetDisplayProperties_WhenPresent()
         {

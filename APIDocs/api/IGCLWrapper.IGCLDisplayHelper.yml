@@ -21,7 +21,6 @@ items:
   - IGCLWrapper.IGCLDisplayHelper.AreIntelArcSyncMonitorParamsEqual(IGCLWrapper.ctl_intel_arc_sync_monitor_params_t,IGCLWrapper.ctl_intel_arc_sync_monitor_params_t)
   - IGCLWrapper.IGCLDisplayHelper.AreIntelArcSyncProfileParamsEqual(IGCLWrapper.ctl_intel_arc_sync_profile_params_t,IGCLWrapper.ctl_intel_arc_sync_profile_params_t)
   - IGCLWrapper.IGCLDisplayHelper.AreLaceConfigEqual(IGCLWrapper.ctl_lace_config_t,IGCLWrapper.ctl_lace_config_t)
-  - IGCLWrapper.IGCLDisplayHelper.AreMuxPropertiesEqual(IGCLWrapper.ctl_mux_properties_t,IGCLWrapper.ctl_mux_properties_t)
   - IGCLWrapper.IGCLDisplayHelper.ArePanelDescriptorAccessArgsEqual(IGCLWrapper.ctl_panel_descriptor_access_args_t,IGCLWrapper.ctl_panel_descriptor_access_args_t)
   - IGCLWrapper.IGCLDisplayHelper.ArePixtxBlockConfigEqual(IGCLWrapper.ctl_pixtx_block_config_t,IGCLWrapper.ctl_pixtx_block_config_t)
   - IGCLWrapper.IGCLDisplayHelper.ArePixtxPipeGetConfigEqual(IGCLWrapper.ctl_pixtx_pipe_get_config_t,IGCLWrapper.ctl_pixtx_pipe_get_config_t)
@@ -43,6 +42,7 @@ items:
   - IGCLWrapper.IGCLDisplayHelper.CreateArcSyncProfileParams
   - IGCLWrapper.IGCLDisplayHelper.CreateCustomModeArgs
   - IGCLWrapper.IGCLDisplayHelper.CreateDceArgs
+  - IGCLWrapper.IGCLDisplayHelper.CreateDisplayFeatureReset
   - IGCLWrapper.IGCLDisplayHelper.CreateDisplaySettings
   - IGCLWrapper.IGCLDisplayHelper.CreateDisplaySettingsGetRequest
   - IGCLWrapper.IGCLDisplayHelper.CreateDisplaySettingsSetRequest(System.UInt32)
@@ -63,7 +63,6 @@ items:
   - IGCLWrapper.IGCLDisplayHelper.CreateWireFormatConfig
   - IGCLWrapper.IGCLDisplayHelper.Dispose
   - IGCLWrapper.IGCLDisplayHelper.EdidManagement(IGCLWrapper.EdidManagementArgsDto)
-  - IGCLWrapper.IGCLDisplayHelper.EnumerateMuxDevices
   - IGCLWrapper.IGCLDisplayHelper.GetAdapterDisplayEncoderProperties
   - IGCLWrapper.IGCLDisplayHelper.GetBrightnessSetting
   - IGCLWrapper.IGCLDisplayHelper.GetCurrentScaling
@@ -76,7 +75,6 @@ items:
   - IGCLWrapper.IGCLDisplayHelper.GetIntelArcSyncInfoForMonitor
   - IGCLWrapper.IGCLDisplayHelper.GetIntelArcSyncProfile
   - IGCLWrapper.IGCLDisplayHelper.GetLACEConfig
-  - IGCLWrapper.IGCLDisplayHelper.GetMuxProperties(System.IntPtr)
   - IGCLWrapper.IGCLDisplayHelper.GetPanelEdidData
   - IGCLWrapper.IGCLDisplayHelper.GetPowerOptimizationCaps
   - IGCLWrapper.IGCLDisplayHelper.GetPowerOptimizationSetting(IGCLWrapper.PowerOptimizationSettingsDto)
@@ -100,6 +98,7 @@ items:
   - IGCLWrapper.IGCLDisplayHelper.PixelTransformationGetConfigNative(IGCLWrapper.ctl_pixtx_pipe_get_config_t,IGCLWrapper.ctl_pixtx_block_config_t[])
   - IGCLWrapper.IGCLDisplayHelper.PixelTransformationSetConfig(IGCLWrapper.PixtxPipeSetConfigDto)
   - IGCLWrapper.IGCLDisplayHelper.PixelTransformationSetConfigNative(IGCLWrapper.ctl_pixtx_pipe_set_config_t)
+  - IGCLWrapper.IGCLDisplayHelper.ResetFeatures(IGCLWrapper.DisplayFeatureResetDto)
   - IGCLWrapper.IGCLDisplayHelper.SetBrightnessSetting(IGCLWrapper.BrightnessSetDto)
   - IGCLWrapper.IGCLDisplayHelper.SetCurrentScaling(IGCLWrapper.ScalingSettingsDto)
   - IGCLWrapper.IGCLDisplayHelper.SetCurrentSharpness(IGCLWrapper.SharpnessSettingsDto)
@@ -113,7 +112,6 @@ items:
   - IGCLWrapper.IGCLDisplayHelper.SetRetroScalingSettings(IGCLWrapper.RetroScalingSettingsDto)
   - IGCLWrapper.IGCLDisplayHelper.SetWireFormat(IGCLWrapper.WireFormatConfigDto)
   - IGCLWrapper.IGCLDisplayHelper.SoftwarePSR(IGCLWrapper.SwPsrSettingsDto)
-  - IGCLWrapper.IGCLDisplayHelper.SwitchMux(System.IntPtr,System.IntPtr)
   - IGCLWrapper.IGCLDisplayHelper.ValidateSetDisplaySettingsRequest(IGCLWrapper.DisplaySettingsDto)
   - IGCLWrapper.IGCLDisplayHelper.ValidateSetPowerOptimizationSettingsRequest(IGCLWrapper.PowerOptimizationSettingsDto)
   langs:
@@ -126,7 +124,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IGCLDisplayHelper
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -150,6 +148,34 @@ items:
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+- uid: IGCLWrapper.IGCLDisplayHelper.CreateDisplayFeatureReset
+  commentId: M:IGCLWrapper.IGCLDisplayHelper.CreateDisplayFeatureReset
+  id: CreateDisplayFeatureReset
+  parent: IGCLWrapper.IGCLDisplayHelper
+  langs:
+  - csharp
+  - vb
+  name: CreateDisplayFeatureReset()
+  nameWithType: IGCLDisplayHelper.CreateDisplayFeatureReset()
+  fullName: IGCLWrapper.IGCLDisplayHelper.CreateDisplayFeatureReset()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: CreateDisplayFeatureReset
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 28
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public static ctl_display_feature_reset_t CreateDisplayFeatureReset()
+    return:
+      type: IGCLWrapper.ctl_display_feature_reset_t
+    content.vb: Public Shared Function CreateDisplayFeatureReset() As ctl_display_feature_reset_t
+  overload: IGCLWrapper.IGCLDisplayHelper.CreateDisplayFeatureReset*
 - uid: IGCLWrapper.IGCLDisplayHelper.CreateScalingSettings
   commentId: M:IGCLWrapper.IGCLDisplayHelper.CreateScalingSettings
   id: CreateScalingSettings
@@ -164,7 +190,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateScalingSettings
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -195,7 +221,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateSharpnessSettings
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -226,7 +252,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreatePowerOptimizationSettings
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -257,7 +283,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateLaceConfig
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -288,7 +314,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateArcSyncProfileParams
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -319,7 +345,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateSetBrightness
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -350,7 +376,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateRetroScalingSettings
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -381,7 +407,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateSoftwarePsrSettings
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -412,7 +438,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateWireFormatConfig
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -443,7 +469,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateDisplaySettings
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -474,7 +500,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateEdidManagementArgs
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -505,7 +531,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreatePanelDescriptorArgs
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -536,7 +562,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreatePixtxPipeSetConfig
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -567,7 +593,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreatePixtxPipeGetConfig
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -598,7 +624,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateVblankTimestampArgs
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -629,7 +655,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateCustomModeArgs
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -660,7 +686,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateDceArgs
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -691,7 +717,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreDisplayPropertiesEqual
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -729,7 +755,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreDisplayTimingEqual
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -767,7 +793,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreAdapterDisplayEncoderPropertiesEqual
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -805,7 +831,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreSharpnessCapsEqual
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -843,7 +869,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreSharpnessFilterPropertiesEqual
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -881,7 +907,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreSharpnessSettingsEqual
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -919,7 +945,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreI2CAccessArgsEqual
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -957,7 +983,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreI2CAccessPinPairArgsEqual
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -995,7 +1021,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreAuxAccessArgsEqual
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1033,7 +1059,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ArePowerOptimizationCapsEqual
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1071,7 +1097,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ArePowerOptimizationSettingsEqual
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1109,7 +1135,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreSetBrightnessEqual
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1147,7 +1173,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreGetBrightnessEqual
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1185,7 +1211,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ArePixtxPipeGetConfigEqual
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1223,7 +1249,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ArePixtxPipeSetConfigEqual
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1261,7 +1287,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ArePixtxBlockConfigEqual
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1299,7 +1325,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ArePanelDescriptorAccessArgsEqual
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1337,7 +1363,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreRetroScalingCapsEqual
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1375,7 +1401,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreRetroScalingSettingsEqual
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1413,7 +1439,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreScalingCapsEqual
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1451,7 +1477,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreScalingSettingsEqual
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1489,7 +1515,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreLaceConfigEqual
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1527,7 +1553,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreSoftwarePsrSettingsEqual
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1565,7 +1591,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreIntelArcSyncMonitorParamsEqual
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
@@ -1589,44 +1615,6 @@ items:
       description: True when equal; otherwise, false.
     content.vb: Public Shared Function AreIntelArcSyncMonitorParamsEqual(left As ctl_intel_arc_sync_monitor_params_t, right As ctl_intel_arc_sync_monitor_params_t) As Boolean
   overload: IGCLWrapper.IGCLDisplayHelper.AreIntelArcSyncMonitorParamsEqual*
-- uid: IGCLWrapper.IGCLDisplayHelper.AreMuxPropertiesEqual(IGCLWrapper.ctl_mux_properties_t,IGCLWrapper.ctl_mux_properties_t)
-  commentId: M:IGCLWrapper.IGCLDisplayHelper.AreMuxPropertiesEqual(IGCLWrapper.ctl_mux_properties_t,IGCLWrapper.ctl_mux_properties_t)
-  id: AreMuxPropertiesEqual(IGCLWrapper.ctl_mux_properties_t,IGCLWrapper.ctl_mux_properties_t)
-  parent: IGCLWrapper.IGCLDisplayHelper
-  langs:
-  - csharp
-  - vb
-  name: AreMuxPropertiesEqual(ctl_mux_properties_t, ctl_mux_properties_t)
-  nameWithType: IGCLDisplayHelper.AreMuxPropertiesEqual(ctl_mux_properties_t, ctl_mux_properties_t)
-  fullName: IGCLWrapper.IGCLDisplayHelper.AreMuxPropertiesEqual(IGCLWrapper.ctl_mux_properties_t, IGCLWrapper.ctl_mux_properties_t)
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: AreMuxPropertiesEqual
-    path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 543
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  summary: Compare mux properties while ignoring native-only fields.
-  example: []
-  syntax:
-    content: public static bool AreMuxPropertiesEqual(ctl_mux_properties_t left, ctl_mux_properties_t right)
-    parameters:
-    - id: left
-      type: IGCLWrapper.ctl_mux_properties_t
-      description: Left properties struct.
-    - id: right
-      type: IGCLWrapper.ctl_mux_properties_t
-      description: Right properties struct.
-    return:
-      type: System.Boolean
-      description: True when equal; otherwise, false.
-    content.vb: Public Shared Function AreMuxPropertiesEqual(left As ctl_mux_properties_t, right As ctl_mux_properties_t) As Boolean
-  overload: IGCLWrapper.IGCLDisplayHelper.AreMuxPropertiesEqual*
 - uid: IGCLWrapper.IGCLDisplayHelper.AreIntelArcSyncProfileParamsEqual(IGCLWrapper.ctl_intel_arc_sync_profile_params_t,IGCLWrapper.ctl_intel_arc_sync_profile_params_t)
   commentId: M:IGCLWrapper.IGCLDisplayHelper.AreIntelArcSyncProfileParamsEqual(IGCLWrapper.ctl_intel_arc_sync_profile_params_t,IGCLWrapper.ctl_intel_arc_sync_profile_params_t)
   id: AreIntelArcSyncProfileParamsEqual(IGCLWrapper.ctl_intel_arc_sync_profile_params_t,IGCLWrapper.ctl_intel_arc_sync_profile_params_t)
@@ -1641,11 +1629,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreIntelArcSyncProfileParamsEqual
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 558
+    startLine: 543
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1679,11 +1667,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreEdidManagementArgsEqual
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 575
+    startLine: 560
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1717,11 +1705,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreCustomModeArgsEqual
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 591
+    startLine: 576
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1755,11 +1743,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreCustomSrcModeEqual
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 605
+    startLine: 590
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1793,11 +1781,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreVblankTimestampArgsEqual
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 617
+    startLine: 602
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1831,11 +1819,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreDceArgsEqual
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 640
+    startLine: 625
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1869,11 +1857,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreWireFormatConfigEqual
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 658
+    startLine: 643
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1907,11 +1895,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreDisplaySettingsEqual
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 673
+    startLine: 658
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1945,11 +1933,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetProperties
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 887
+    startLine: 872
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1976,11 +1964,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetTiming
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 914
+    startLine: 899
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2007,11 +1995,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IsActive
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 923
+    startLine: 908
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2038,11 +2026,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetResolution
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 933
+    startLine: 918
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2069,11 +2057,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetRefreshRateHz
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 943
+    startLine: 928
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2100,11 +2088,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Name
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 952
+    startLine: 937
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2131,11 +2119,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CheckDriverVersion
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 959
+    startLine: 944
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2169,11 +2157,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetAdapterDisplayEncoderProperties
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 969
+    startLine: 954
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2200,11 +2188,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSharpnessCaps
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 985
+    startLine: 970
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2231,11 +2219,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetCurrentSharpness
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1023
+    startLine: 1008
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2262,11 +2250,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetCurrentSharpness
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1040
+    startLine: 1025
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2297,11 +2285,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: I2CAccess
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1057
+    startLine: 1042
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2332,11 +2320,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: I2CAccessOnPinPair
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1075
+    startLine: 1060
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2373,11 +2361,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AUXAccess
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1092
+    startLine: 1077
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2408,11 +2396,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetPowerOptimizationCaps
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1108
+    startLine: 1093
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2439,11 +2427,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetPowerOptimizationSetting
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1125
+    startLine: 1110
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2474,11 +2462,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetPowerOptimizationSetting
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1146
+    startLine: 1131
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2509,11 +2497,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetBrightnessSetting
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1164
+    startLine: 1149
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2544,11 +2532,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetBrightnessSetting
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1180
+    startLine: 1165
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2575,11 +2563,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PixelTransformationGetConfigNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1197
+    startLine: 1182
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2610,11 +2598,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PixelTransformationGetConfigNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1243
+    startLine: 1228
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2651,11 +2639,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PixelTransformationGetConfig
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1279
+    startLine: 1264
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2686,11 +2674,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PixelTransformationSetConfig
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1292
+    startLine: 1277
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2721,11 +2709,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PixelTransformationSetConfigNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1309
+    startLine: 1294
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2756,11 +2744,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PanelDescriptorAccess
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1341
+    startLine: 1326
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2791,11 +2779,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetPanelEdidData
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1394
+    startLine: 1379
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2822,11 +2810,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSupportedRetroScalingCapability
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1475
+    startLine: 1460
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2853,11 +2841,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetRetroScalingSettings
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1510
+    startLine: 1495
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2884,11 +2872,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetRetroScalingSettings
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1536
+    startLine: 1521
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2919,11 +2907,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSupportedScalingCapability
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1555
+    startLine: 1540
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2950,11 +2938,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetCurrentScaling
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1571
+    startLine: 1556
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2981,11 +2969,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetCurrentScaling
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1588
+    startLine: 1573
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3016,11 +3004,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetLACEConfig
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1604
+    startLine: 1589
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3047,11 +3035,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetLACEConfig
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1622
+    startLine: 1607
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3082,11 +3070,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SoftwarePSR
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1639
+    startLine: 1624
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3117,11 +3105,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetIntelArcSyncInfoForMonitor
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1655
+    startLine: 1640
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3134,116 +3122,41 @@ items:
       description: Monitor params DTO, or <code>null</code> if the feature is not supported on this hardware or driver.
     content.vb: Public Function GetIntelArcSyncInfoForMonitor() As IntelArcSyncMonitorParamsDto?
   overload: IGCLWrapper.IGCLDisplayHelper.GetIntelArcSyncInfoForMonitor*
-- uid: IGCLWrapper.IGCLDisplayHelper.EnumerateMuxDevices
-  commentId: M:IGCLWrapper.IGCLDisplayHelper.EnumerateMuxDevices
-  id: EnumerateMuxDevices
+- uid: IGCLWrapper.IGCLDisplayHelper.ResetFeatures(IGCLWrapper.DisplayFeatureResetDto)
+  commentId: M:IGCLWrapper.IGCLDisplayHelper.ResetFeatures(IGCLWrapper.DisplayFeatureResetDto)
+  id: ResetFeatures(IGCLWrapper.DisplayFeatureResetDto)
   parent: IGCLWrapper.IGCLDisplayHelper
   langs:
   - csharp
   - vb
-  name: EnumerateMuxDevices()
-  nameWithType: IGCLDisplayHelper.EnumerateMuxDevices()
-  fullName: IGCLWrapper.IGCLDisplayHelper.EnumerateMuxDevices()
+  name: ResetFeatures(DisplayFeatureResetDto)
+  nameWithType: IGCLDisplayHelper.ResetFeatures(DisplayFeatureResetDto)
+  fullName: IGCLWrapper.IGCLDisplayHelper.ResetFeatures(IGCLWrapper.DisplayFeatureResetDto)
   type: Method
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: EnumerateMuxDevices
+    id: ResetFeatures
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1671
+    startLine: 1655
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: Enumerate mux device handles.
+  summary: Reset the selected display features to their driver defaults.
   example: []
   syntax:
-    content: public nint[]? EnumerateMuxDevices()
-    return:
-      type: System.IntPtr[]
-      description: Array of mux handles, or <code>null</code> if the feature is not supported on this hardware or driver.
-    content.vb: Public Function EnumerateMuxDevices() As IntPtr()
-  overload: IGCLWrapper.IGCLDisplayHelper.EnumerateMuxDevices*
-- uid: IGCLWrapper.IGCLDisplayHelper.GetMuxProperties(System.IntPtr)
-  commentId: M:IGCLWrapper.IGCLDisplayHelper.GetMuxProperties(System.IntPtr)
-  id: GetMuxProperties(System.IntPtr)
-  parent: IGCLWrapper.IGCLDisplayHelper
-  langs:
-  - csharp
-  - vb
-  name: GetMuxProperties(nint)
-  nameWithType: IGCLDisplayHelper.GetMuxProperties(nint)
-  fullName: IGCLWrapper.IGCLDisplayHelper.GetMuxProperties(nint)
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: GetMuxProperties
-    path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1704
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  summary: Get mux properties and display outputs as a DTO.
-  example: []
-  syntax:
-    content: public MuxPropertiesDto? GetMuxProperties(nint muxHandle)
+    content: public bool ResetFeatures(DisplayFeatureResetDto request)
     parameters:
-    - id: muxHandle
-      type: System.IntPtr
-      description: Mux handle.
-    return:
-      type: System.Nullable{IGCLWrapper.MuxPropertiesDto}
-      description: Mux properties DTO, or <code>null</code> if the feature is not supported on this hardware or driver.
-    content.vb: Public Function GetMuxProperties(muxHandle As IntPtr) As MuxPropertiesDto?
-  overload: IGCLWrapper.IGCLDisplayHelper.GetMuxProperties*
-  nameWithType.vb: IGCLDisplayHelper.GetMuxProperties(IntPtr)
-  fullName.vb: IGCLWrapper.IGCLDisplayHelper.GetMuxProperties(System.IntPtr)
-  name.vb: GetMuxProperties(IntPtr)
-- uid: IGCLWrapper.IGCLDisplayHelper.SwitchMux(System.IntPtr,System.IntPtr)
-  commentId: M:IGCLWrapper.IGCLDisplayHelper.SwitchMux(System.IntPtr,System.IntPtr)
-  id: SwitchMux(System.IntPtr,System.IntPtr)
-  parent: IGCLWrapper.IGCLDisplayHelper
-  langs:
-  - csharp
-  - vb
-  name: SwitchMux(nint, nint)
-  nameWithType: IGCLDisplayHelper.SwitchMux(nint, nint)
-  fullName: IGCLWrapper.IGCLDisplayHelper.SwitchMux(nint, nint)
-  type: Method
-  source:
-    remote:
-      path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
-      repo: https://github.com/terrymacdonald/IGCLWrapper.git
-    id: SwitchMux
-    path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1743
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  summary: Switch mux to the specified inactive display output.
-  example: []
-  syntax:
-    content: public bool SwitchMux(nint muxHandle, nint inactiveDisplayOutput)
-    parameters:
-    - id: muxHandle
-      type: System.IntPtr
-      description: Mux handle.
-    - id: inactiveDisplayOutput
-      type: System.IntPtr
-      description: Inactive display output handle.
+    - id: request
+      type: IGCLWrapper.DisplayFeatureResetDto
+      description: Features to reset.
     return:
       type: System.Boolean
-      description: <code>true</code> if the operation succeeded; <code>false</code> if the feature is not supported on this hardware or driver.
-    content.vb: Public Function SwitchMux(muxHandle As IntPtr, inactiveDisplayOutput As IntPtr) As Boolean
-  overload: IGCLWrapper.IGCLDisplayHelper.SwitchMux*
-  nameWithType.vb: IGCLDisplayHelper.SwitchMux(IntPtr, IntPtr)
-  fullName.vb: IGCLWrapper.IGCLDisplayHelper.SwitchMux(System.IntPtr, System.IntPtr)
-  name.vb: SwitchMux(IntPtr, IntPtr)
+      description: <code>true</code> on success; <code>false</code> if unsupported.
+    content.vb: Public Function ResetFeatures(request As DisplayFeatureResetDto) As Boolean
+  overload: IGCLWrapper.IGCLDisplayHelper.ResetFeatures*
 - uid: IGCLWrapper.IGCLDisplayHelper.GetIntelArcSyncProfile
   commentId: M:IGCLWrapper.IGCLDisplayHelper.GetIntelArcSyncProfile
   id: GetIntelArcSyncProfile
@@ -3258,11 +3171,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetIntelArcSyncProfile
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1758
+    startLine: 1674
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3289,11 +3202,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetIntelArcSyncProfile
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1775
+    startLine: 1691
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3324,11 +3237,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: EdidManagement
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1807
+    startLine: 1723
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3359,11 +3272,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetEdidManagement
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1861
+    startLine: 1777
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3394,11 +3307,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetEdidManagementWithFlags
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1872
+    startLine: 1788
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3429,11 +3342,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetCustomModes
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1957
+    startLine: 1873
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3460,11 +3373,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetCustomModes
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 1978
+    startLine: 1894
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3501,11 +3414,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetCustomModes
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2010
+    startLine: 1926
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3542,11 +3455,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetVblankTimestamp
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2026
+    startLine: 1942
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3573,11 +3486,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetDynamicContrastEnhancement
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2101
+    startLine: 2017
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3604,11 +3517,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetDynamicContrastEnhancement
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2121
+    startLine: 2037
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3645,11 +3558,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetWireFormat
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2140
+    startLine: 2056
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3676,11 +3589,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetWireFormat
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2163
+    startLine: 2079
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3711,11 +3624,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetDisplaySettings
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2200
+    startLine: 2116
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3742,11 +3655,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetDisplaySettings
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2219
+    startLine: 2135
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3777,11 +3690,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateDisplaySettingsGetRequest
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2239
+    startLine: 2155
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3808,11 +3721,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateDisplaySettingsSetRequest
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2249
+    startLine: 2165
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3846,11 +3759,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreatePowerOptimizationSettingsGetRequest
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2263
+    startLine: 2179
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3884,11 +3797,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreatePowerOptimizationSettingsSetRequest
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2276
+    startLine: 2192
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3922,11 +3835,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ValidateSetDisplaySettingsRequest
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2290
+    startLine: 2206
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3958,11 +3871,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ValidateSetPowerOptimizationSettingsRequest
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2305
+    startLine: 2221
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -3994,11 +3907,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/IGCLDisplayHelper.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 2337
+    startLine: 2253
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -4238,6 +4151,19 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: IGCLWrapper.IGCLDisplayHelper.CreateDisplayFeatureReset*
+  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.CreateDisplayFeatureReset
+  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_CreateDisplayFeatureReset
+  name: CreateDisplayFeatureReset
+  nameWithType: IGCLDisplayHelper.CreateDisplayFeatureReset
+  fullName: IGCLWrapper.IGCLDisplayHelper.CreateDisplayFeatureReset
+- uid: IGCLWrapper.ctl_display_feature_reset_t
+  commentId: T:IGCLWrapper.ctl_display_feature_reset_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_display_feature_reset_t.html
+  name: ctl_display_feature_reset_t
+  nameWithType: ctl_display_feature_reset_t
+  fullName: IGCLWrapper.ctl_display_feature_reset_t
 - uid: IGCLWrapper.IGCLDisplayHelper.CreateScalingSettings*
   commentId: Overload:IGCLWrapper.IGCLDisplayHelper.CreateScalingSettings
   href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_CreateScalingSettings
@@ -4712,19 +4638,6 @@ references:
   name: ctl_intel_arc_sync_monitor_params_t
   nameWithType: ctl_intel_arc_sync_monitor_params_t
   fullName: IGCLWrapper.ctl_intel_arc_sync_monitor_params_t
-- uid: IGCLWrapper.IGCLDisplayHelper.AreMuxPropertiesEqual*
-  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.AreMuxPropertiesEqual
-  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_AreMuxPropertiesEqual_IGCLWrapper_ctl_mux_properties_t_IGCLWrapper_ctl_mux_properties_t_
-  name: AreMuxPropertiesEqual
-  nameWithType: IGCLDisplayHelper.AreMuxPropertiesEqual
-  fullName: IGCLWrapper.IGCLDisplayHelper.AreMuxPropertiesEqual
-- uid: IGCLWrapper.ctl_mux_properties_t
-  commentId: T:IGCLWrapper.ctl_mux_properties_t
-  parent: IGCLWrapper
-  href: IGCLWrapper.ctl_mux_properties_t.html
-  name: ctl_mux_properties_t
-  nameWithType: ctl_mux_properties_t
-  fullName: IGCLWrapper.ctl_mux_properties_t
 - uid: IGCLWrapper.IGCLDisplayHelper.AreIntelArcSyncProfileParamsEqual*
   commentId: Overload:IGCLWrapper.IGCLDisplayHelper.AreIntelArcSyncProfileParamsEqual
   href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_AreIntelArcSyncProfileParamsEqual_IGCLWrapper_ctl_intel_arc_sync_profile_params_t_IGCLWrapper_ctl_intel_arc_sync_profile_params_t_
@@ -5677,65 +5590,19 @@ references:
     name: IntelArcSyncMonitorParamsDto
     href: IGCLWrapper.IntelArcSyncMonitorParamsDto.html
   - name: '?'
-- uid: IGCLWrapper.IGCLDisplayHelper.EnumerateMuxDevices*
-  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.EnumerateMuxDevices
-  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_EnumerateMuxDevices
-  name: EnumerateMuxDevices
-  nameWithType: IGCLDisplayHelper.EnumerateMuxDevices
-  fullName: IGCLWrapper.IGCLDisplayHelper.EnumerateMuxDevices
-- uid: System.IntPtr[]
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.intptr
-  name: nint[]
-  nameWithType: nint[]
-  fullName: nint[]
-  nameWithType.vb: IntPtr()
-  fullName.vb: System.IntPtr()
-  name.vb: IntPtr()
-  spec.csharp:
-  - uid: System.IntPtr
-    name: nint
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.intptr
-  - name: '['
-  - name: ']'
-  spec.vb:
-  - uid: System.IntPtr
-    name: IntPtr
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.intptr
-  - name: (
-  - name: )
-- uid: IGCLWrapper.IGCLDisplayHelper.GetMuxProperties*
-  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.GetMuxProperties
-  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetMuxProperties_System_IntPtr_
-  name: GetMuxProperties
-  nameWithType: IGCLDisplayHelper.GetMuxProperties
-  fullName: IGCLWrapper.IGCLDisplayHelper.GetMuxProperties
-- uid: System.Nullable{IGCLWrapper.MuxPropertiesDto}
-  commentId: T:System.Nullable{IGCLWrapper.MuxPropertiesDto}
-  parent: System
-  definition: System.Nullable`1
-  href: IGCLWrapper.MuxPropertiesDto.html
-  name: MuxPropertiesDto?
-  nameWithType: MuxPropertiesDto?
-  fullName: IGCLWrapper.MuxPropertiesDto?
-  spec.csharp:
-  - uid: IGCLWrapper.MuxPropertiesDto
-    name: MuxPropertiesDto
-    href: IGCLWrapper.MuxPropertiesDto.html
-  - name: '?'
-  spec.vb:
-  - uid: IGCLWrapper.MuxPropertiesDto
-    name: MuxPropertiesDto
-    href: IGCLWrapper.MuxPropertiesDto.html
-  - name: '?'
-- uid: IGCLWrapper.IGCLDisplayHelper.SwitchMux*
-  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.SwitchMux
-  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_SwitchMux_System_IntPtr_System_IntPtr_
-  name: SwitchMux
-  nameWithType: IGCLDisplayHelper.SwitchMux
-  fullName: IGCLWrapper.IGCLDisplayHelper.SwitchMux
+- uid: IGCLWrapper.IGCLDisplayHelper.ResetFeatures*
+  commentId: Overload:IGCLWrapper.IGCLDisplayHelper.ResetFeatures
+  href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_ResetFeatures_IGCLWrapper_DisplayFeatureResetDto_
+  name: ResetFeatures
+  nameWithType: IGCLDisplayHelper.ResetFeatures
+  fullName: IGCLWrapper.IGCLDisplayHelper.ResetFeatures
+- uid: IGCLWrapper.DisplayFeatureResetDto
+  commentId: T:IGCLWrapper.DisplayFeatureResetDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.DisplayFeatureResetDto.html
+  name: DisplayFeatureResetDto
+  nameWithType: DisplayFeatureResetDto
+  fullName: IGCLWrapper.DisplayFeatureResetDto
 - uid: IGCLWrapper.IGCLDisplayHelper.GetIntelArcSyncProfile*
   commentId: Overload:IGCLWrapper.IGCLDisplayHelper.GetIntelArcSyncProfile
   href: IGCLWrapper.IGCLDisplayHelper.html#IGCLWrapper_IGCLDisplayHelper_GetIntelArcSyncProfile

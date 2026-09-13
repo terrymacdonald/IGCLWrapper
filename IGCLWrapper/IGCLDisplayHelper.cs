@@ -26,6 +26,7 @@ namespace IGCLWrapper
         }
 
         private static unsafe ctl_display_properties_t CreateDisplayProperties() => new ctl_display_properties_t { Size = (uint)sizeof(ctl_display_properties_t), Version = 0 };
+        public static unsafe ctl_display_feature_reset_t CreateDisplayFeatureReset() => new ctl_display_feature_reset_t { Size = (uint)sizeof(ctl_display_feature_reset_t), Version = 0 };
         private static unsafe ctl_retro_scaling_caps_t CreateRetroScalingCaps() => new ctl_retro_scaling_caps_t { Size = (uint)sizeof(ctl_retro_scaling_caps_t), Version = 0 };
         private static unsafe ctl_scaling_caps_t CreateScalingCaps() => new ctl_scaling_caps_t { Size = (uint)sizeof(ctl_scaling_caps_t), Version = 0 };
         /// <summary>
@@ -1647,6 +1648,24 @@ namespace IGCLWrapper
             if (IsUnsupportedResult(result))
                 return null;
             throw new IGCLException(result, "Failed to get Intel Arc Sync info");
+        }
+
+        /// <summary>Reset the selected display features to their driver defaults.</summary>
+        /// <param name="request">Features to reset.</param>
+        /// <returns><c>true</c> on success; <c>false</c> if unsupported.</returns>
+        public unsafe bool ResetFeatures(DisplayFeatureResetDto request)
+        {
+            ThrowIfDisposed();
+            var native = CreateDisplayFeatureReset();
+            native.ResetFeature = request.ResetFeatures;
+            if (native.ResetFeature == 0)
+                throw new ArgumentException("At least one display feature must be selected for reset.", nameof(request));
+            var result = IGCL.ctlDisplayFeatureReset((_ctl_display_output_handle_t*)DisplayHandle, &native);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, "Failed to reset display features");
         }
 
         /// <summary>
@@ -5979,6 +5998,31 @@ namespace IGCLWrapper
             hash.Add(Args);
             hash.Add(Modes?.Count ?? 0);
             return hash.ToHashCode();
+        }
+    }
+
+    /// <summary>DTO for a display-feature reset request.</summary>
+    public struct DisplayFeatureResetDto
+    {
+        public uint ResetFeatures;
+        public bool Scaling { get => Has(0); set => Set(0, value); }
+        public bool WireFormat { get => Has(1); set => Set(1, value); }
+        public bool Lace { get => Has(2); set => Set(2, value); }
+        public bool Color { get => Has(3); set => Set(3, value); }
+        public bool Vrr { get => Has(4); set => Set(4, value); }
+        public bool QuantizationRange { get => Has(5); set => Set(5, value); }
+        public bool ContentType { get => Has(6); set => Set(6, value); }
+        public bool Psr { get => Has(7); set => Set(7, value); }
+        public bool Audio { get => Has(8); set => Set(8, value); }
+        public bool All { get => Has(30); set => Set(30, value); }
+        private bool Has(int bit) => (ResetFeatures & (1u << bit)) != 0;
+        private void Set(int bit, bool value) => ResetFeatures = value ? ResetFeatures | (1u << bit) : ResetFeatures & ~(1u << bit);
+        public static DisplayFeatureResetDto FromNative(ctl_display_feature_reset_t native) => new() { ResetFeatures = native.ResetFeature };
+        public ctl_display_feature_reset_t ToNative()
+        {
+            var native = IGCLDisplayHelper.CreateDisplayFeatureReset();
+            native.ResetFeature = ResetFeatures;
+            return native;
         }
     }
 

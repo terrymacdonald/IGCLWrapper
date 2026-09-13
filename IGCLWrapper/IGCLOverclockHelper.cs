@@ -471,6 +471,20 @@ namespace IGCLWrapper
             throw new IGCLException(result, OverclockError);
         }
 
+        /// <summary>Get version 2 power telemetry as a DTO.</summary>
+        /// <returns>Power telemetry v2, or <c>null</c> if unsupported.</returns>
+        public unsafe PowerTelemetryV2Dto? GetPowerTelemetryV2()
+        {
+            ThrowIfDisposed();
+            var telemetry = CreatePowerTelemetryV2();
+            var result = IGCL.ctlPowerTelemetryGetV2((_ctl_device_adapter_handle_t*)_adapter, &telemetry);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return PowerTelemetryV2Dto.FromNative(telemetry);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, OverclockError);
+        }
+
         /// <summary>
         /// Reset overclock settings to default.
         /// </summary>
@@ -629,6 +643,7 @@ namespace IGCLWrapper
         /// <returns>Initialized voltage/frequency pair struct.</returns>
         public static unsafe ctl_oc_vf_pair_t CreateVfPair() => new ctl_oc_vf_pair_t { Size = (uint)sizeof(ctl_oc_vf_pair_t), Version = 0 };
         private static unsafe ctl_power_telemetry_t CreatePowerTelemetry() => new ctl_power_telemetry_t { Size = (uint)sizeof(ctl_power_telemetry_t), Version = 0 };
+        private static unsafe ctl_power_telemetry_v2_t CreatePowerTelemetryV2() => new ctl_power_telemetry_v2_t { Size = (uint)sizeof(ctl_power_telemetry_v2_t), Version = 0 };
 
         /// <summary>
         /// Compare overclock properties while ignoring native-only fields.
@@ -684,6 +699,41 @@ namespace IGCLWrapper
         public void Dispose()
         {
             _disposed = true;
+        }
+    }
+
+    /// <summary>DTO for version 2 power telemetry.</summary>
+    public struct PowerTelemetryV2Dto
+    {
+        /// <summary>All telemetry items reported by the version 2 API.</summary>
+        public PowerTelemetryDto Telemetry;
+
+        public static unsafe PowerTelemetryV2Dto FromNative(ctl_power_telemetry_v2_t native)
+        {
+            var compatible = new ctl_power_telemetry_t
+            {
+                Size = native.Size, Version = native.Version,
+                timeStamp = native.timeStamp, gpuEnergyCounter = native.gpuEnergyCounter, gpuVoltage = native.gpuVoltage,
+                gpuCurrentClockFrequency = native.gpuCurrentClockFrequency, gpuCurrentTemperature = native.gpuCurrentTemperature,
+                globalActivityCounter = native.globalActivityCounter, renderComputeActivityCounter = native.renderComputeActivityCounter,
+                mediaActivityCounter = native.mediaActivityCounter, gpuPowerLimited = native.gpuPowerLimited,
+                gpuTemperatureLimited = native.gpuTemperatureLimited, gpuCurrentLimited = native.gpuCurrentLimited,
+                gpuVoltageLimited = native.gpuVoltageLimited, gpuUtilizationLimited = native.gpuUtilizationLimited,
+                vramEnergyCounter = native.vramEnergyCounter, vramVoltage = native.vramVoltage,
+                vramCurrentClockFrequency = native.vramCurrentClockFrequency, vramCurrentEffectiveFrequency = native.vramCurrentEffectiveFrequency,
+                vramReadBandwidthCounter = native.vramReadBandwidthCounter, vramWriteBandwidthCounter = native.vramWriteBandwidthCounter,
+                vramCurrentTemperature = native.vramCurrentTemperature, totalCardEnergyCounter = native.totalCardEnergyCounter,
+                gpuVrTemp = native.gpuVrTemp, vramVrTemp = native.vramVrTemp, saVrTemp = native.saVrTemp,
+                gpuEffectiveClock = native.gpuEffectiveClock, gpuOverVoltagePercent = native.gpuOverVoltagePercent,
+                gpuPowerPercent = native.gpuPowerPercent, gpuTemperaturePercent = native.gpuTemperaturePercent,
+                vramReadBandwidth = native.vramReadBandwidth, vramWriteBandwidth = native.vramWriteBandwidth
+            };
+            var sourcePsu = (ctl_psu_info_t*)Unsafe.AsPointer(ref native.psu.e0);
+            var destinationPsu = (ctl_psu_info_t*)Unsafe.AsPointer(ref compatible.psu.e0);
+            var sourceFans = (ctl_oc_telemetry_item_t*)Unsafe.AsPointer(ref native.fanSpeed.e0);
+            var destinationFans = (ctl_oc_telemetry_item_t*)Unsafe.AsPointer(ref compatible.fanSpeed.e0);
+            for (var i = 0; i < 5; i++) { destinationPsu[i] = sourcePsu[i]; destinationFans[i] = sourceFans[i]; }
+            return new PowerTelemetryV2Dto { Telemetry = PowerTelemetryDto.FromNative(compatible) };
         }
     }
 

@@ -9,10 +9,14 @@ items:
   - IGCLWrapper.ctl_i2c_flag_t.CTL_I2C_FLAG_2BYTE_INDEX
   - IGCLWrapper.ctl_i2c_flag_t.CTL_I2C_FLAG_4BYTE_INDEX
   - IGCLWrapper.ctl_i2c_flag_t.CTL_I2C_FLAG_ATOMICI2C
+  - IGCLWrapper.ctl_i2c_flag_t.CTL_I2C_FLAG_DRIVER_OVERRIDE
   - IGCLWrapper.ctl_i2c_flag_t.CTL_I2C_FLAG_MAX
+  - IGCLWrapper.ctl_i2c_flag_t.CTL_I2C_FLAG_RESTART
   - IGCLWrapper.ctl_i2c_flag_t.CTL_I2C_FLAG_SPEED_BIT_BASH
   - IGCLWrapper.ctl_i2c_flag_t.CTL_I2C_FLAG_SPEED_FAST
   - IGCLWrapper.ctl_i2c_flag_t.CTL_I2C_FLAG_SPEED_SLOW
+  - IGCLWrapper.ctl_i2c_flag_t.CTL_I2C_FLAG_START
+  - IGCLWrapper.ctl_i2c_flag_t.CTL_I2C_FLAG_STOP
   langs:
   - csharp
   - vb
@@ -23,7 +27,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_i2c_flag_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ctl_i2c_flag_t
     path: ../IGCLWrapper/cs_generated/ctl_i2c_flag_t.cs
@@ -49,7 +53,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_i2c_flag_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_I2C_FLAG_ATOMICI2C
     path: ../IGCLWrapper/cs_generated/ctl_i2c_flag_t.cs
@@ -76,7 +80,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_i2c_flag_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_I2C_FLAG_1BYTE_INDEX
     path: ../IGCLWrapper/cs_generated/ctl_i2c_flag_t.cs
@@ -103,7 +107,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_i2c_flag_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_I2C_FLAG_2BYTE_INDEX
     path: ../IGCLWrapper/cs_generated/ctl_i2c_flag_t.cs
@@ -130,7 +134,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_i2c_flag_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_I2C_FLAG_4BYTE_INDEX
     path: ../IGCLWrapper/cs_generated/ctl_i2c_flag_t.cs
@@ -157,7 +161,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_i2c_flag_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_I2C_FLAG_SPEED_SLOW
     path: ../IGCLWrapper/cs_generated/ctl_i2c_flag_t.cs
@@ -184,7 +188,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_i2c_flag_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_I2C_FLAG_SPEED_FAST
     path: ../IGCLWrapper/cs_generated/ctl_i2c_flag_t.cs
@@ -211,7 +215,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_i2c_flag_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_I2C_FLAG_SPEED_BIT_BASH
     path: ../IGCLWrapper/cs_generated/ctl_i2c_flag_t.cs
@@ -222,6 +226,114 @@ items:
   example: []
   syntax:
     content: CTL_I2C_FLAG_SPEED_BIT_BASH = 64
+    return:
+      type: IGCLWrapper.ctl_i2c_flag_t
+- uid: IGCLWrapper.ctl_i2c_flag_t.CTL_I2C_FLAG_DRIVER_OVERRIDE
+  commentId: F:IGCLWrapper.ctl_i2c_flag_t.CTL_I2C_FLAG_DRIVER_OVERRIDE
+  id: CTL_I2C_FLAG_DRIVER_OVERRIDE
+  parent: IGCLWrapper.ctl_i2c_flag_t
+  langs:
+  - csharp
+  - vb
+  name: CTL_I2C_FLAG_DRIVER_OVERRIDE
+  nameWithType: ctl_i2c_flag_t.CTL_I2C_FLAG_DRIVER_OVERRIDE
+  fullName: IGCLWrapper.ctl_i2c_flag_t.CTL_I2C_FLAG_DRIVER_OVERRIDE
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/cs_generated/ctl_i2c_flag_t.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: CTL_I2C_FLAG_DRIVER_OVERRIDE
+    path: ../IGCLWrapper/cs_generated/ctl_i2c_flag_t.cs
+    startLine: 27
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  example: []
+  syntax:
+    content: CTL_I2C_FLAG_DRIVER_OVERRIDE = 128
+    return:
+      type: IGCLWrapper.ctl_i2c_flag_t
+- uid: IGCLWrapper.ctl_i2c_flag_t.CTL_I2C_FLAG_START
+  commentId: F:IGCLWrapper.ctl_i2c_flag_t.CTL_I2C_FLAG_START
+  id: CTL_I2C_FLAG_START
+  parent: IGCLWrapper.ctl_i2c_flag_t
+  langs:
+  - csharp
+  - vb
+  name: CTL_I2C_FLAG_START
+  nameWithType: ctl_i2c_flag_t.CTL_I2C_FLAG_START
+  fullName: IGCLWrapper.ctl_i2c_flag_t.CTL_I2C_FLAG_START
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/cs_generated/ctl_i2c_flag_t.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: CTL_I2C_FLAG_START
+    path: ../IGCLWrapper/cs_generated/ctl_i2c_flag_t.cs
+    startLine: 30
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  example: []
+  syntax:
+    content: CTL_I2C_FLAG_START = 256
+    return:
+      type: IGCLWrapper.ctl_i2c_flag_t
+- uid: IGCLWrapper.ctl_i2c_flag_t.CTL_I2C_FLAG_STOP
+  commentId: F:IGCLWrapper.ctl_i2c_flag_t.CTL_I2C_FLAG_STOP
+  id: CTL_I2C_FLAG_STOP
+  parent: IGCLWrapper.ctl_i2c_flag_t
+  langs:
+  - csharp
+  - vb
+  name: CTL_I2C_FLAG_STOP
+  nameWithType: ctl_i2c_flag_t.CTL_I2C_FLAG_STOP
+  fullName: IGCLWrapper.ctl_i2c_flag_t.CTL_I2C_FLAG_STOP
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/cs_generated/ctl_i2c_flag_t.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: CTL_I2C_FLAG_STOP
+    path: ../IGCLWrapper/cs_generated/ctl_i2c_flag_t.cs
+    startLine: 33
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  example: []
+  syntax:
+    content: CTL_I2C_FLAG_STOP = 512
+    return:
+      type: IGCLWrapper.ctl_i2c_flag_t
+- uid: IGCLWrapper.ctl_i2c_flag_t.CTL_I2C_FLAG_RESTART
+  commentId: F:IGCLWrapper.ctl_i2c_flag_t.CTL_I2C_FLAG_RESTART
+  id: CTL_I2C_FLAG_RESTART
+  parent: IGCLWrapper.ctl_i2c_flag_t
+  langs:
+  - csharp
+  - vb
+  name: CTL_I2C_FLAG_RESTART
+  nameWithType: ctl_i2c_flag_t.CTL_I2C_FLAG_RESTART
+  fullName: IGCLWrapper.ctl_i2c_flag_t.CTL_I2C_FLAG_RESTART
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/cs_generated/ctl_i2c_flag_t.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: CTL_I2C_FLAG_RESTART
+    path: ../IGCLWrapper/cs_generated/ctl_i2c_flag_t.cs
+    startLine: 36
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  example: []
+  syntax:
+    content: CTL_I2C_FLAG_RESTART = 1024
     return:
       type: IGCLWrapper.ctl_i2c_flag_t
 - uid: IGCLWrapper.ctl_i2c_flag_t.CTL_I2C_FLAG_MAX
@@ -238,11 +350,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_i2c_flag_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_I2C_FLAG_MAX
     path: ../IGCLWrapper/cs_generated/ctl_i2c_flag_t.cs
-    startLine: 27
+    startLine: 39
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper

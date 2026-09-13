@@ -5,6 +5,7 @@ items:
   id: ctl_init_flag_t
   parent: IGCLWrapper
   children:
+  - IGCLWrapper.ctl_init_flag_t.CTL_INIT_FLAG_IGSC_FUL
   - IGCLWrapper.ctl_init_flag_t.CTL_INIT_FLAG_MAX
   - IGCLWrapper.ctl_init_flag_t.CTL_INIT_FLAG_USE_LEVEL_ZERO
   langs:
@@ -17,7 +18,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_init_flag_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ctl_init_flag_t
     path: ../IGCLWrapper/cs_generated/ctl_init_flag_t.cs
@@ -43,7 +44,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_init_flag_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_INIT_FLAG_USE_LEVEL_ZERO
     path: ../IGCLWrapper/cs_generated/ctl_init_flag_t.cs
@@ -54,6 +55,33 @@ items:
   example: []
   syntax:
     content: CTL_INIT_FLAG_USE_LEVEL_ZERO = 1
+    return:
+      type: IGCLWrapper.ctl_init_flag_t
+- uid: IGCLWrapper.ctl_init_flag_t.CTL_INIT_FLAG_IGSC_FUL
+  commentId: F:IGCLWrapper.ctl_init_flag_t.CTL_INIT_FLAG_IGSC_FUL
+  id: CTL_INIT_FLAG_IGSC_FUL
+  parent: IGCLWrapper.ctl_init_flag_t
+  langs:
+  - csharp
+  - vb
+  name: CTL_INIT_FLAG_IGSC_FUL
+  nameWithType: ctl_init_flag_t.CTL_INIT_FLAG_IGSC_FUL
+  fullName: IGCLWrapper.ctl_init_flag_t.CTL_INIT_FLAG_IGSC_FUL
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/cs_generated/ctl_init_flag_t.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: CTL_INIT_FLAG_IGSC_FUL
+    path: ../IGCLWrapper/cs_generated/ctl_init_flag_t.cs
+    startLine: 9
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  example: []
+  syntax:
+    content: CTL_INIT_FLAG_IGSC_FUL = 2
     return:
       type: IGCLWrapper.ctl_init_flag_t
 - uid: IGCLWrapper.ctl_init_flag_t.CTL_INIT_FLAG_MAX
@@ -70,11 +98,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_init_flag_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_INIT_FLAG_MAX
     path: ../IGCLWrapper/cs_generated/ctl_init_flag_t.cs
-    startLine: 9
+    startLine: 12
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper

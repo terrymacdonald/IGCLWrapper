@@ -40,6 +40,26 @@ namespace IGCLWrapper.FacadeTests
         }
 
         [SkippableFact]
+        public void GetDevProps_ShouldSucceedOrSkip()
+        {
+            var (api, adapter) = FacadeTestUtils.RequireAdapter();
+            using (api)
+            {
+                FacadeTestUtils.InvokeOrSkip(() => adapter.GetDevProps(), "Device properties details unsupported");
+            }
+        }
+
+        [Fact]
+        public void DevPropsDto_ShouldRoundTrip()
+        {
+            var dto = new DevPropsDto { IsWorkstation = true };
+            var native = dto.ToNative();
+            Assert.True(native.Size > 0);
+            Assert.Equal((byte)1, native.isWorkstation);
+            Assert.True(DevPropsDto.FromNative(native).IsWorkstation);
+        }
+
+        [SkippableFact]
         public void GetPropertiesDto_ShouldBeSafeToConsume()
         {
             var (api, adapter) = FacadeTestUtils.RequireAdapter();

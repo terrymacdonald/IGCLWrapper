@@ -25,6 +25,8 @@ items:
   - IGCLWrapper.IGCL.ctlAllowPCIeLinkSpeedUpdate(IGCLWrapper._ctl_device_adapter_handle_t*,System.Byte)
   - IGCLWrapper.IGCL.ctlCheckDriverVersion(IGCLWrapper._ctl_device_adapter_handle_t*,System.UInt32)
   - IGCLWrapper.IGCL.ctlClose(IGCLWrapper._ctl_api_handle_t*)
+  - IGCLWrapper.IGCL.ctlDevPropGetProperties(IGCLWrapper._ctl_device_adapter_handle_t*,IGCLWrapper.ctl_dev_prop_properties_t*)
+  - IGCLWrapper.IGCL.ctlDisplayFeatureReset(IGCLWrapper._ctl_display_output_handle_t*,IGCLWrapper.ctl_display_feature_reset_t*)
   - IGCLWrapper.IGCL.ctlEccGetProperties(IGCLWrapper._ctl_device_adapter_handle_t*,IGCLWrapper.ctl_ecc_properties_t*)
   - IGCLWrapper.IGCL.ctlEccGetState(IGCLWrapper._ctl_device_adapter_handle_t*,IGCLWrapper.ctl_ecc_state_desc_t*)
   - IGCLWrapper.IGCL.ctlEccSetState(IGCLWrapper._ctl_device_adapter_handle_t*,IGCLWrapper.ctl_ecc_state_desc_t*)
@@ -42,7 +44,6 @@ items:
   - IGCLWrapper.IGCL.ctlEnumerateDisplayOutputs(IGCLWrapper._ctl_device_adapter_handle_t*,System.UInt32*,IGCLWrapper._ctl_display_output_handle_t**)
   - IGCLWrapper.IGCL.ctlEnumerateFirmwareComponents(IGCLWrapper._ctl_device_adapter_handle_t*,System.UInt32*,IGCLWrapper._ctl_firmware_component_handle_t**)
   - IGCLWrapper.IGCL.ctlEnumerateI2CPinPairs(IGCLWrapper._ctl_device_adapter_handle_t*,System.UInt32*,IGCLWrapper._ctl_i2c_pin_pair_handle_t**)
-  - IGCLWrapper.IGCL.ctlEnumerateMuxDevices(IGCLWrapper._ctl_api_handle_t*,System.UInt32*,IGCLWrapper._ctl_mux_output_handle_t**)
   - IGCLWrapper.IGCL.ctlFanGetConfig(IGCLWrapper._ctl_fan_handle_t*,IGCLWrapper.ctl_fan_config_t*)
   - IGCLWrapper.IGCL.ctlFanGetProperties(IGCLWrapper._ctl_fan_handle_t*,IGCLWrapper.ctl_fan_properties_t*)
   - IGCLWrapper.IGCL.ctlFanGetState(IGCLWrapper._ctl_fan_handle_t*,IGCLWrapper.ctl_fan_speed_units_t,System.Int32*)
@@ -67,7 +68,6 @@ items:
   - IGCLWrapper.IGCL.ctlGetIntelArcSyncProfile(IGCLWrapper._ctl_display_output_handle_t*,IGCLWrapper.ctl_intel_arc_sync_profile_params_t*)
   - IGCLWrapper.IGCL.ctlGetLACEConfig(IGCLWrapper._ctl_display_output_handle_t*,IGCLWrapper.ctl_lace_config_t*)
   - IGCLWrapper.IGCL.ctlGetLinkedDisplayAdapters(IGCLWrapper._ctl_device_adapter_handle_t*,IGCLWrapper.ctl_lda_args_t*)
-  - IGCLWrapper.IGCL.ctlGetMuxProperties(IGCLWrapper._ctl_mux_output_handle_t*,IGCLWrapper.ctl_mux_properties_t*)
   - IGCLWrapper.IGCL.ctlGetPowerOptimizationCaps(IGCLWrapper._ctl_display_output_handle_t*,IGCLWrapper.ctl_power_optimization_caps_t*)
   - IGCLWrapper.IGCL.ctlGetPowerOptimizationSetting(IGCLWrapper._ctl_display_output_handle_t*,IGCLWrapper.ctl_power_optimization_settings_t*)
   - IGCLWrapper.IGCL.ctlGetSet3DFeature(IGCLWrapper._ctl_device_adapter_handle_t*,IGCLWrapper.ctl_3d_feature_getset_t*)
@@ -135,6 +135,7 @@ items:
   - IGCLWrapper.IGCL.ctlPowerGetProperties(IGCLWrapper._ctl_pwr_handle_t*,IGCLWrapper.ctl_power_properties_t*)
   - IGCLWrapper.IGCL.ctlPowerSetLimits(IGCLWrapper._ctl_pwr_handle_t*,IGCLWrapper.ctl_power_limits_t*)
   - IGCLWrapper.IGCL.ctlPowerTelemetryGet(IGCLWrapper._ctl_device_adapter_handle_t*,IGCLWrapper.ctl_power_telemetry_t*)
+  - IGCLWrapper.IGCL.ctlPowerTelemetryGetV2(IGCLWrapper._ctl_device_adapter_handle_t*,IGCLWrapper.ctl_power_telemetry_v2_t*)
   - IGCLWrapper.IGCL.ctlReservedCall(IGCLWrapper._ctl_device_adapter_handle_t*,IGCLWrapper.ctl_reserved_args_t*)
   - IGCLWrapper.IGCL.ctlSetBrightnessSetting(IGCLWrapper._ctl_display_output_handle_t*,IGCLWrapper.ctl_set_brightness_t*)
   - IGCLWrapper.IGCL.ctlSetCurrentScaling(IGCLWrapper._ctl_display_output_handle_t*,IGCLWrapper.ctl_scaling_settings_t*)
@@ -144,7 +145,6 @@ items:
   - IGCLWrapper.IGCL.ctlSetPowerOptimizationSetting(IGCLWrapper._ctl_display_output_handle_t*,IGCLWrapper.ctl_power_optimization_settings_t*)
   - IGCLWrapper.IGCL.ctlSetRuntimePath(IGCLWrapper.ctl_runtime_path_args_t*)
   - IGCLWrapper.IGCL.ctlSoftwarePSR(IGCLWrapper._ctl_display_output_handle_t*,IGCLWrapper.ctl_sw_psr_settings_t*)
-  - IGCLWrapper.IGCL.ctlSwitchMux(IGCLWrapper._ctl_mux_output_handle_t*,IGCLWrapper._ctl_display_output_handle_t*)
   - IGCLWrapper.IGCL.ctlTemperatureGetProperties(IGCLWrapper._ctl_temp_handle_t*,IGCLWrapper.ctl_temp_properties_t*)
   - IGCLWrapper.IGCL.ctlTemperatureGetState(IGCLWrapper._ctl_temp_handle_t*,System.Double*)
   - IGCLWrapper.IGCL.ctlUnlinkDisplayAdapters(IGCLWrapper._ctl_device_adapter_handle_t*)
@@ -159,7 +159,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/IGCL.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IGCL
     path: ../IGCLWrapper/cs_generated/IGCL.cs
@@ -358,6 +358,32 @@ items:
       type: IGCLWrapper.ctl_result_t
     content.vb: Public Shared Function ctlGetSet3DFeature(hDAhandle As _ctl_device_adapter_handle_t*, pFeature As ctl_3d_feature_getset_t*) As ctl_result_t
   overload: IGCLWrapper.IGCL.ctlGetSet3DFeature*
+- uid: IGCLWrapper.IGCL.ctlDevPropGetProperties(IGCLWrapper._ctl_device_adapter_handle_t*,IGCLWrapper.ctl_dev_prop_properties_t*)
+  commentId: M:IGCLWrapper.IGCL.ctlDevPropGetProperties(IGCLWrapper._ctl_device_adapter_handle_t*,IGCLWrapper.ctl_dev_prop_properties_t*)
+  id: ctlDevPropGetProperties(IGCLWrapper._ctl_device_adapter_handle_t*,IGCLWrapper.ctl_dev_prop_properties_t*)
+  parent: IGCLWrapper.IGCL
+  langs:
+  - csharp
+  - vb
+  name: ctlDevPropGetProperties(_ctl_device_adapter_handle_t*, ctl_dev_prop_properties_t*)
+  nameWithType: IGCL.ctlDevPropGetProperties(_ctl_device_adapter_handle_t*, ctl_dev_prop_properties_t*)
+  fullName: IGCLWrapper.IGCL.ctlDevPropGetProperties(IGCLWrapper._ctl_device_adapter_handle_t*, IGCLWrapper.ctl_dev_prop_properties_t*)
+  type: Method
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  example: []
+  syntax:
+    content: public static extern ctl_result_t ctlDevPropGetProperties(_ctl_device_adapter_handle_t* hDAhandle, ctl_dev_prop_properties_t* pProperties)
+    parameters:
+    - id: hDAhandle
+      type: IGCLWrapper._ctl_device_adapter_handle_t*
+    - id: pProperties
+      type: IGCLWrapper.ctl_dev_prop_properties_t*
+    return:
+      type: IGCLWrapper.ctl_result_t
+    content.vb: Public Shared Function ctlDevPropGetProperties(hDAhandle As _ctl_device_adapter_handle_t*, pProperties As ctl_dev_prop_properties_t*) As ctl_result_t
+  overload: IGCLWrapper.IGCL.ctlDevPropGetProperties*
 - uid: IGCLWrapper.IGCL.ctlCheckDriverVersion(IGCLWrapper._ctl_device_adapter_handle_t*,System.UInt32)
   commentId: M:IGCLWrapper.IGCL.ctlCheckDriverVersion(IGCLWrapper._ctl_device_adapter_handle_t*,System.UInt32)
   id: ctlCheckDriverVersion(IGCLWrapper._ctl_device_adapter_handle_t*,System.UInt32)
@@ -1187,89 +1213,6 @@ items:
       type: IGCLWrapper.ctl_result_t
     content.vb: Public Shared Function ctlGetIntelArcSyncInfoForMonitor(hDisplayOutput As _ctl_display_output_handle_t*, pIntelArcSyncMonitorParams As ctl_intel_arc_sync_monitor_params_t*) As ctl_result_t
   overload: IGCLWrapper.IGCL.ctlGetIntelArcSyncInfoForMonitor*
-- uid: IGCLWrapper.IGCL.ctlEnumerateMuxDevices(IGCLWrapper._ctl_api_handle_t*,System.UInt32*,IGCLWrapper._ctl_mux_output_handle_t**)
-  commentId: M:IGCLWrapper.IGCL.ctlEnumerateMuxDevices(IGCLWrapper._ctl_api_handle_t*,System.UInt32*,IGCLWrapper._ctl_mux_output_handle_t**)
-  id: ctlEnumerateMuxDevices(IGCLWrapper._ctl_api_handle_t*,System.UInt32*,IGCLWrapper._ctl_mux_output_handle_t**)
-  parent: IGCLWrapper.IGCL
-  langs:
-  - csharp
-  - vb
-  name: ctlEnumerateMuxDevices(_ctl_api_handle_t*, uint*, _ctl_mux_output_handle_t**)
-  nameWithType: IGCL.ctlEnumerateMuxDevices(_ctl_api_handle_t*, uint*, _ctl_mux_output_handle_t**)
-  fullName: IGCLWrapper.IGCL.ctlEnumerateMuxDevices(IGCLWrapper._ctl_api_handle_t*, uint*, IGCLWrapper._ctl_mux_output_handle_t**)
-  type: Method
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  example: []
-  syntax:
-    content: public static extern ctl_result_t ctlEnumerateMuxDevices(_ctl_api_handle_t* hAPIHandle, uint* pCount, _ctl_mux_output_handle_t** phMuxDevices)
-    parameters:
-    - id: hAPIHandle
-      type: IGCLWrapper._ctl_api_handle_t*
-    - id: pCount
-      type: System.UInt32*
-    - id: phMuxDevices
-      type: IGCLWrapper._ctl_mux_output_handle_t**
-    return:
-      type: IGCLWrapper.ctl_result_t
-    content.vb: Public Shared Function ctlEnumerateMuxDevices(hAPIHandle As _ctl_api_handle_t*, pCount As UInteger*, phMuxDevices As _ctl_mux_output_handle_t**) As ctl_result_t
-  overload: IGCLWrapper.IGCL.ctlEnumerateMuxDevices*
-  nameWithType.vb: IGCL.ctlEnumerateMuxDevices(_ctl_api_handle_t*, UInteger*, _ctl_mux_output_handle_t**)
-  fullName.vb: IGCLWrapper.IGCL.ctlEnumerateMuxDevices(IGCLWrapper._ctl_api_handle_t*, UInteger*, IGCLWrapper._ctl_mux_output_handle_t**)
-  name.vb: ctlEnumerateMuxDevices(_ctl_api_handle_t*, UInteger*, _ctl_mux_output_handle_t**)
-- uid: IGCLWrapper.IGCL.ctlGetMuxProperties(IGCLWrapper._ctl_mux_output_handle_t*,IGCLWrapper.ctl_mux_properties_t*)
-  commentId: M:IGCLWrapper.IGCL.ctlGetMuxProperties(IGCLWrapper._ctl_mux_output_handle_t*,IGCLWrapper.ctl_mux_properties_t*)
-  id: ctlGetMuxProperties(IGCLWrapper._ctl_mux_output_handle_t*,IGCLWrapper.ctl_mux_properties_t*)
-  parent: IGCLWrapper.IGCL
-  langs:
-  - csharp
-  - vb
-  name: ctlGetMuxProperties(_ctl_mux_output_handle_t*, ctl_mux_properties_t*)
-  nameWithType: IGCL.ctlGetMuxProperties(_ctl_mux_output_handle_t*, ctl_mux_properties_t*)
-  fullName: IGCLWrapper.IGCL.ctlGetMuxProperties(IGCLWrapper._ctl_mux_output_handle_t*, IGCLWrapper.ctl_mux_properties_t*)
-  type: Method
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  example: []
-  syntax:
-    content: public static extern ctl_result_t ctlGetMuxProperties(_ctl_mux_output_handle_t* hMuxDevice, ctl_mux_properties_t* pMuxProperties)
-    parameters:
-    - id: hMuxDevice
-      type: IGCLWrapper._ctl_mux_output_handle_t*
-    - id: pMuxProperties
-      type: IGCLWrapper.ctl_mux_properties_t*
-    return:
-      type: IGCLWrapper.ctl_result_t
-    content.vb: Public Shared Function ctlGetMuxProperties(hMuxDevice As _ctl_mux_output_handle_t*, pMuxProperties As ctl_mux_properties_t*) As ctl_result_t
-  overload: IGCLWrapper.IGCL.ctlGetMuxProperties*
-- uid: IGCLWrapper.IGCL.ctlSwitchMux(IGCLWrapper._ctl_mux_output_handle_t*,IGCLWrapper._ctl_display_output_handle_t*)
-  commentId: M:IGCLWrapper.IGCL.ctlSwitchMux(IGCLWrapper._ctl_mux_output_handle_t*,IGCLWrapper._ctl_display_output_handle_t*)
-  id: ctlSwitchMux(IGCLWrapper._ctl_mux_output_handle_t*,IGCLWrapper._ctl_display_output_handle_t*)
-  parent: IGCLWrapper.IGCL
-  langs:
-  - csharp
-  - vb
-  name: ctlSwitchMux(_ctl_mux_output_handle_t*, _ctl_display_output_handle_t*)
-  nameWithType: IGCL.ctlSwitchMux(_ctl_mux_output_handle_t*, _ctl_display_output_handle_t*)
-  fullName: IGCLWrapper.IGCL.ctlSwitchMux(IGCLWrapper._ctl_mux_output_handle_t*, IGCLWrapper._ctl_display_output_handle_t*)
-  type: Method
-  assemblies:
-  - IGCLWrapper
-  namespace: IGCLWrapper
-  example: []
-  syntax:
-    content: public static extern ctl_result_t ctlSwitchMux(_ctl_mux_output_handle_t* hMuxDevice, _ctl_display_output_handle_t* hInactiveDisplayOutput)
-    parameters:
-    - id: hMuxDevice
-      type: IGCLWrapper._ctl_mux_output_handle_t*
-    - id: hInactiveDisplayOutput
-      type: IGCLWrapper._ctl_display_output_handle_t*
-    return:
-      type: IGCLWrapper.ctl_result_t
-    content.vb: Public Shared Function ctlSwitchMux(hMuxDevice As _ctl_mux_output_handle_t*, hInactiveDisplayOutput As _ctl_display_output_handle_t*) As ctl_result_t
-  overload: IGCLWrapper.IGCL.ctlSwitchMux*
 - uid: IGCLWrapper.IGCL.ctlGetIntelArcSyncProfile(IGCLWrapper._ctl_display_output_handle_t*,IGCLWrapper.ctl_intel_arc_sync_profile_params_t*)
   commentId: M:IGCLWrapper.IGCL.ctlGetIntelArcSyncProfile(IGCLWrapper._ctl_display_output_handle_t*,IGCLWrapper.ctl_intel_arc_sync_profile_params_t*)
   id: ctlGetIntelArcSyncProfile(IGCLWrapper._ctl_display_output_handle_t*,IGCLWrapper.ctl_intel_arc_sync_profile_params_t*)
@@ -1613,6 +1556,32 @@ items:
       type: IGCLWrapper.ctl_result_t
     content.vb: Public Shared Function ctlGetSetDisplaySettings(hDisplayOutput As _ctl_display_output_handle_t*, pDisplaySettings As ctl_display_settings_t*) As ctl_result_t
   overload: IGCLWrapper.IGCL.ctlGetSetDisplaySettings*
+- uid: IGCLWrapper.IGCL.ctlDisplayFeatureReset(IGCLWrapper._ctl_display_output_handle_t*,IGCLWrapper.ctl_display_feature_reset_t*)
+  commentId: M:IGCLWrapper.IGCL.ctlDisplayFeatureReset(IGCLWrapper._ctl_display_output_handle_t*,IGCLWrapper.ctl_display_feature_reset_t*)
+  id: ctlDisplayFeatureReset(IGCLWrapper._ctl_display_output_handle_t*,IGCLWrapper.ctl_display_feature_reset_t*)
+  parent: IGCLWrapper.IGCL
+  langs:
+  - csharp
+  - vb
+  name: ctlDisplayFeatureReset(_ctl_display_output_handle_t*, ctl_display_feature_reset_t*)
+  nameWithType: IGCL.ctlDisplayFeatureReset(_ctl_display_output_handle_t*, ctl_display_feature_reset_t*)
+  fullName: IGCLWrapper.IGCL.ctlDisplayFeatureReset(IGCLWrapper._ctl_display_output_handle_t*, IGCLWrapper.ctl_display_feature_reset_t*)
+  type: Method
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  example: []
+  syntax:
+    content: public static extern ctl_result_t ctlDisplayFeatureReset(_ctl_display_output_handle_t* hDisplayOutput, ctl_display_feature_reset_t* pResetFeature)
+    parameters:
+    - id: hDisplayOutput
+      type: IGCLWrapper._ctl_display_output_handle_t*
+    - id: pResetFeature
+      type: IGCLWrapper.ctl_display_feature_reset_t*
+    return:
+      type: IGCLWrapper.ctl_result_t
+    content.vb: Public Shared Function ctlDisplayFeatureReset(hDisplayOutput As _ctl_display_output_handle_t*, pResetFeature As ctl_display_feature_reset_t*) As ctl_result_t
+  overload: IGCLWrapper.IGCL.ctlDisplayFeatureReset*
 - uid: IGCLWrapper.IGCL.ctlEccGetProperties(IGCLWrapper._ctl_device_adapter_handle_t*,IGCLWrapper.ctl_ecc_properties_t*)
   commentId: M:IGCLWrapper.IGCL.ctlEccGetProperties(IGCLWrapper._ctl_device_adapter_handle_t*,IGCLWrapper.ctl_ecc_properties_t*)
   id: ctlEccGetProperties(IGCLWrapper._ctl_device_adapter_handle_t*,IGCLWrapper.ctl_ecc_properties_t*)
@@ -3019,6 +2988,32 @@ items:
       type: IGCLWrapper.ctl_result_t
     content.vb: Public Shared Function ctlPowerTelemetryGet(hDeviceHandle As _ctl_device_adapter_handle_t*, pTelemetryInfo As ctl_power_telemetry_t*) As ctl_result_t
   overload: IGCLWrapper.IGCL.ctlPowerTelemetryGet*
+- uid: IGCLWrapper.IGCL.ctlPowerTelemetryGetV2(IGCLWrapper._ctl_device_adapter_handle_t*,IGCLWrapper.ctl_power_telemetry_v2_t*)
+  commentId: M:IGCLWrapper.IGCL.ctlPowerTelemetryGetV2(IGCLWrapper._ctl_device_adapter_handle_t*,IGCLWrapper.ctl_power_telemetry_v2_t*)
+  id: ctlPowerTelemetryGetV2(IGCLWrapper._ctl_device_adapter_handle_t*,IGCLWrapper.ctl_power_telemetry_v2_t*)
+  parent: IGCLWrapper.IGCL
+  langs:
+  - csharp
+  - vb
+  name: ctlPowerTelemetryGetV2(_ctl_device_adapter_handle_t*, ctl_power_telemetry_v2_t*)
+  nameWithType: IGCL.ctlPowerTelemetryGetV2(_ctl_device_adapter_handle_t*, ctl_power_telemetry_v2_t*)
+  fullName: IGCLWrapper.IGCL.ctlPowerTelemetryGetV2(IGCLWrapper._ctl_device_adapter_handle_t*, IGCLWrapper.ctl_power_telemetry_v2_t*)
+  type: Method
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  example: []
+  syntax:
+    content: public static extern ctl_result_t ctlPowerTelemetryGetV2(_ctl_device_adapter_handle_t* hDeviceHandle, ctl_power_telemetry_v2_t* pTelemetryInfo)
+    parameters:
+    - id: hDeviceHandle
+      type: IGCLWrapper._ctl_device_adapter_handle_t*
+    - id: pTelemetryInfo
+      type: IGCLWrapper.ctl_power_telemetry_v2_t*
+    return:
+      type: IGCLWrapper.ctl_result_t
+    content.vb: Public Shared Function ctlPowerTelemetryGetV2(hDeviceHandle As _ctl_device_adapter_handle_t*, pTelemetryInfo As ctl_power_telemetry_v2_t*) As ctl_result_t
+  overload: IGCLWrapper.IGCL.ctlPowerTelemetryGetV2*
 - uid: IGCLWrapper.IGCL.ctlOverclockResetToDefault(IGCLWrapper._ctl_device_adapter_handle_t*)
   commentId: M:IGCLWrapper.IGCL.ctlOverclockResetToDefault(IGCLWrapper._ctl_device_adapter_handle_t*)
   id: ctlOverclockResetToDefault(IGCLWrapper._ctl_device_adapter_handle_t*)
@@ -3686,7 +3681,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/IGCL.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_IMPL_MAJOR_VERSION
     path: ../IGCLWrapper/cs_generated/IGCL.cs
@@ -3713,7 +3708,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/IGCL.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_IMPL_MINOR_VERSION
     path: ../IGCLWrapper/cs_generated/IGCL.cs
@@ -3740,7 +3735,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/IGCL.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_IMPL_VERSION
     path: ../IGCLWrapper/cs_generated/IGCL.cs
@@ -3767,7 +3762,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/IGCL.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_MAX_DEVICE_NAME_LEN
     path: ../IGCLWrapper/cs_generated/IGCL.cs
@@ -3794,7 +3789,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/IGCL.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_MAX_RESERVED_SIZE
     path: ../IGCLWrapper/cs_generated/IGCL.cs
@@ -3821,7 +3816,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/IGCL.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_I2C_MAX_DATA_SIZE
     path: ../IGCLWrapper/cs_generated/IGCL.cs
@@ -3848,7 +3843,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/IGCL.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_AUX_MAX_DATA_SIZE
     path: ../IGCLWrapper/cs_generated/IGCL.cs
@@ -3875,7 +3870,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/IGCL.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_MAX_NUM_SAMPLES_PER_CHANNEL_1D_LUT
     path: ../IGCLWrapper/cs_generated/IGCL.cs
@@ -3902,7 +3897,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/IGCL.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_MAX_DISPLAYS_FOR_MGPU_COLLAGE
     path: ../IGCLWrapper/cs_generated/IGCL.cs
@@ -3929,7 +3924,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/IGCL.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_MAX_WIREFORMAT_COLOR_MODELS_SUPPORTED
     path: ../IGCLWrapper/cs_generated/IGCL.cs
@@ -3956,7 +3951,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/IGCL.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_FAN_TEMP_SPEED_PAIR_COUNT
     path: ../IGCLWrapper/cs_generated/IGCL.cs
@@ -3983,7 +3978,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/IGCL.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_FIRMWARE_PROPERTY_STR_SIZE
     path: ../IGCLWrapper/cs_generated/IGCL.cs
@@ -4010,7 +4005,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/IGCL.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_MAX_FIRMWARE_PROPERTIES_RESERVED_SIZE
     path: ../IGCLWrapper/cs_generated/IGCL.cs
@@ -4037,7 +4032,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/IGCL.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_MAX_FIRMWARE_COMPONENT_PROPERTIES_RESERVED_SIZE
     path: ../IGCLWrapper/cs_generated/IGCL.cs
@@ -4064,7 +4059,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/IGCL.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_PSU_COUNT
     path: ../IGCLWrapper/cs_generated/IGCL.cs
@@ -4091,7 +4086,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/IGCL.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_FAN_COUNT
     path: ../IGCLWrapper/cs_generated/IGCL.cs
@@ -4549,6 +4544,29 @@ references:
   - uid: IGCLWrapper.ctl_3d_feature_getset_t
     name: ctl_3d_feature_getset_t
     href: IGCLWrapper.ctl_3d_feature_getset_t.html
+  - name: '*'
+- uid: IGCLWrapper.IGCL.ctlDevPropGetProperties*
+  commentId: Overload:IGCLWrapper.IGCL.ctlDevPropGetProperties
+  isExternal: true
+  href: IGCLWrapper.IGCL.html#IGCLWrapper_IGCL_ctlDevPropGetProperties_IGCLWrapper__ctl_device_adapter_handle_t__IGCLWrapper_ctl_dev_prop_properties_t__
+  name: ctlDevPropGetProperties
+  nameWithType: IGCL.ctlDevPropGetProperties
+  fullName: IGCLWrapper.IGCL.ctlDevPropGetProperties
+- uid: IGCLWrapper.ctl_dev_prop_properties_t*
+  isExternal: true
+  href: IGCLWrapper.ctl_dev_prop_properties_t.html
+  name: ctl_dev_prop_properties_t*
+  nameWithType: ctl_dev_prop_properties_t*
+  fullName: IGCLWrapper.ctl_dev_prop_properties_t*
+  spec.csharp:
+  - uid: IGCLWrapper.ctl_dev_prop_properties_t
+    name: ctl_dev_prop_properties_t
+    href: IGCLWrapper.ctl_dev_prop_properties_t.html
+  - name: '*'
+  spec.vb:
+  - uid: IGCLWrapper.ctl_dev_prop_properties_t
+    name: ctl_dev_prop_properties_t
+    href: IGCLWrapper.ctl_dev_prop_properties_t.html
   - name: '*'
 - uid: IGCLWrapper.IGCL.ctlCheckDriverVersion*
   commentId: Overload:IGCLWrapper.IGCL.ctlCheckDriverVersion
@@ -5281,77 +5299,6 @@ references:
     name: ctl_intel_arc_sync_monitor_params_t
     href: IGCLWrapper.ctl_intel_arc_sync_monitor_params_t.html
   - name: '*'
-- uid: IGCLWrapper.IGCL.ctlEnumerateMuxDevices*
-  commentId: Overload:IGCLWrapper.IGCL.ctlEnumerateMuxDevices
-  isExternal: true
-  href: IGCLWrapper.IGCL.html#IGCLWrapper_IGCL_ctlEnumerateMuxDevices_IGCLWrapper__ctl_api_handle_t__System_UInt32__IGCLWrapper__ctl_mux_output_handle_t___
-  name: ctlEnumerateMuxDevices
-  nameWithType: IGCL.ctlEnumerateMuxDevices
-  fullName: IGCLWrapper.IGCL.ctlEnumerateMuxDevices
-- uid: IGCLWrapper._ctl_mux_output_handle_t**
-  isExternal: true
-  href: IGCLWrapper._ctl_mux_output_handle_t.html
-  name: _ctl_mux_output_handle_t**
-  nameWithType: _ctl_mux_output_handle_t**
-  fullName: IGCLWrapper._ctl_mux_output_handle_t**
-  spec.csharp:
-  - uid: IGCLWrapper._ctl_mux_output_handle_t
-    name: _ctl_mux_output_handle_t
-    href: IGCLWrapper._ctl_mux_output_handle_t.html
-  - name: '*'
-  - name: '*'
-  spec.vb:
-  - uid: IGCLWrapper._ctl_mux_output_handle_t
-    name: _ctl_mux_output_handle_t
-    href: IGCLWrapper._ctl_mux_output_handle_t.html
-  - name: '*'
-  - name: '*'
-- uid: IGCLWrapper.IGCL.ctlGetMuxProperties*
-  commentId: Overload:IGCLWrapper.IGCL.ctlGetMuxProperties
-  isExternal: true
-  href: IGCLWrapper.IGCL.html#IGCLWrapper_IGCL_ctlGetMuxProperties_IGCLWrapper__ctl_mux_output_handle_t__IGCLWrapper_ctl_mux_properties_t__
-  name: ctlGetMuxProperties
-  nameWithType: IGCL.ctlGetMuxProperties
-  fullName: IGCLWrapper.IGCL.ctlGetMuxProperties
-- uid: IGCLWrapper._ctl_mux_output_handle_t*
-  isExternal: true
-  href: IGCLWrapper._ctl_mux_output_handle_t.html
-  name: _ctl_mux_output_handle_t*
-  nameWithType: _ctl_mux_output_handle_t*
-  fullName: IGCLWrapper._ctl_mux_output_handle_t*
-  spec.csharp:
-  - uid: IGCLWrapper._ctl_mux_output_handle_t
-    name: _ctl_mux_output_handle_t
-    href: IGCLWrapper._ctl_mux_output_handle_t.html
-  - name: '*'
-  spec.vb:
-  - uid: IGCLWrapper._ctl_mux_output_handle_t
-    name: _ctl_mux_output_handle_t
-    href: IGCLWrapper._ctl_mux_output_handle_t.html
-  - name: '*'
-- uid: IGCLWrapper.ctl_mux_properties_t*
-  isExternal: true
-  href: IGCLWrapper.ctl_mux_properties_t.html
-  name: ctl_mux_properties_t*
-  nameWithType: ctl_mux_properties_t*
-  fullName: IGCLWrapper.ctl_mux_properties_t*
-  spec.csharp:
-  - uid: IGCLWrapper.ctl_mux_properties_t
-    name: ctl_mux_properties_t
-    href: IGCLWrapper.ctl_mux_properties_t.html
-  - name: '*'
-  spec.vb:
-  - uid: IGCLWrapper.ctl_mux_properties_t
-    name: ctl_mux_properties_t
-    href: IGCLWrapper.ctl_mux_properties_t.html
-  - name: '*'
-- uid: IGCLWrapper.IGCL.ctlSwitchMux*
-  commentId: Overload:IGCLWrapper.IGCL.ctlSwitchMux
-  isExternal: true
-  href: IGCLWrapper.IGCL.html#IGCLWrapper_IGCL_ctlSwitchMux_IGCLWrapper__ctl_mux_output_handle_t__IGCLWrapper__ctl_display_output_handle_t__
-  name: ctlSwitchMux
-  nameWithType: IGCL.ctlSwitchMux
-  fullName: IGCLWrapper.IGCL.ctlSwitchMux
 - uid: IGCLWrapper.IGCL.ctlGetIntelArcSyncProfile*
   commentId: Overload:IGCLWrapper.IGCL.ctlGetIntelArcSyncProfile
   isExternal: true
@@ -5602,6 +5549,29 @@ references:
   - uid: IGCLWrapper.ctl_display_settings_t
     name: ctl_display_settings_t
     href: IGCLWrapper.ctl_display_settings_t.html
+  - name: '*'
+- uid: IGCLWrapper.IGCL.ctlDisplayFeatureReset*
+  commentId: Overload:IGCLWrapper.IGCL.ctlDisplayFeatureReset
+  isExternal: true
+  href: IGCLWrapper.IGCL.html#IGCLWrapper_IGCL_ctlDisplayFeatureReset_IGCLWrapper__ctl_display_output_handle_t__IGCLWrapper_ctl_display_feature_reset_t__
+  name: ctlDisplayFeatureReset
+  nameWithType: IGCL.ctlDisplayFeatureReset
+  fullName: IGCLWrapper.IGCL.ctlDisplayFeatureReset
+- uid: IGCLWrapper.ctl_display_feature_reset_t*
+  isExternal: true
+  href: IGCLWrapper.ctl_display_feature_reset_t.html
+  name: ctl_display_feature_reset_t*
+  nameWithType: ctl_display_feature_reset_t*
+  fullName: IGCLWrapper.ctl_display_feature_reset_t*
+  spec.csharp:
+  - uid: IGCLWrapper.ctl_display_feature_reset_t
+    name: ctl_display_feature_reset_t
+    href: IGCLWrapper.ctl_display_feature_reset_t.html
+  - name: '*'
+  spec.vb:
+  - uid: IGCLWrapper.ctl_display_feature_reset_t
+    name: ctl_display_feature_reset_t
+    href: IGCLWrapper.ctl_display_feature_reset_t.html
   - name: '*'
 - uid: IGCLWrapper.IGCL.ctlEccGetProperties*
   commentId: Overload:IGCLWrapper.IGCL.ctlEccGetProperties
@@ -6625,6 +6595,29 @@ references:
   - uid: IGCLWrapper.ctl_power_telemetry_t
     name: ctl_power_telemetry_t
     href: IGCLWrapper.ctl_power_telemetry_t.html
+  - name: '*'
+- uid: IGCLWrapper.IGCL.ctlPowerTelemetryGetV2*
+  commentId: Overload:IGCLWrapper.IGCL.ctlPowerTelemetryGetV2
+  isExternal: true
+  href: IGCLWrapper.IGCL.html#IGCLWrapper_IGCL_ctlPowerTelemetryGetV2_IGCLWrapper__ctl_device_adapter_handle_t__IGCLWrapper_ctl_power_telemetry_v2_t__
+  name: ctlPowerTelemetryGetV2
+  nameWithType: IGCL.ctlPowerTelemetryGetV2
+  fullName: IGCLWrapper.IGCL.ctlPowerTelemetryGetV2
+- uid: IGCLWrapper.ctl_power_telemetry_v2_t*
+  isExternal: true
+  href: IGCLWrapper.ctl_power_telemetry_v2_t.html
+  name: ctl_power_telemetry_v2_t*
+  nameWithType: ctl_power_telemetry_v2_t*
+  fullName: IGCLWrapper.ctl_power_telemetry_v2_t*
+  spec.csharp:
+  - uid: IGCLWrapper.ctl_power_telemetry_v2_t
+    name: ctl_power_telemetry_v2_t
+    href: IGCLWrapper.ctl_power_telemetry_v2_t.html
+  - name: '*'
+  spec.vb:
+  - uid: IGCLWrapper.ctl_power_telemetry_v2_t
+    name: ctl_power_telemetry_v2_t
+    href: IGCLWrapper.ctl_power_telemetry_v2_t.html
   - name: '*'
 - uid: IGCLWrapper.IGCL.ctlOverclockResetToDefault*
   commentId: Overload:IGCLWrapper.IGCL.ctlOverclockResetToDefault

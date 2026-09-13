@@ -42,6 +42,7 @@ items:
   - IGCLWrapper.ctl_result_t.CTL_RESULT_ERROR_DATA_READ
   - IGCLWrapper.ctl_result_t.CTL_RESULT_ERROR_DATA_WRITE
   - IGCLWrapper.ctl_result_t.CTL_RESULT_ERROR_DEVICE_LOST
+  - IGCLWrapper.ctl_result_t.CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
   - IGCLWrapper.ctl_result_t.CTL_RESULT_ERROR_DISPLAY_END
   - IGCLWrapper.ctl_result_t.CTL_RESULT_ERROR_DISPLAY_NOT_ACTIVE
   - IGCLWrapper.ctl_result_t.CTL_RESULT_ERROR_DISPLAY_NOT_ATTACHED
@@ -90,6 +91,7 @@ items:
   - IGCLWrapper.ctl_result_t.CTL_RESULT_ERROR_PERSISTANCE_NOT_SUPPORTED
   - IGCLWrapper.ctl_result_t.CTL_RESULT_ERROR_PLATFORM_NOT_SUPPORTED
   - IGCLWrapper.ctl_result_t.CTL_RESULT_ERROR_RESET_DEVICE_REQUIRED
+  - IGCLWrapper.ctl_result_t.CTL_RESULT_ERROR_RESTRICTED_APPLICATION
   - IGCLWrapper.ctl_result_t.CTL_RESULT_ERROR_RETRY_OPERATION
   - IGCLWrapper.ctl_result_t.CTL_RESULT_ERROR_SET_FBC_FEATURE_NOT_SUPPORTED
   - IGCLWrapper.ctl_result_t.CTL_RESULT_ERROR_SUCCESS_END
@@ -116,7 +118,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ctl_result_t
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -142,7 +144,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_SUCCESS
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -169,7 +171,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_SUCCESS_STILL_OPEN_BY_ANOTHER_CALLER
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -196,7 +198,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_SUCCESS_END
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -223,7 +225,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_GENERIC_START
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -250,7 +252,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_NOT_INITIALIZED
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -277,7 +279,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_ALREADY_INITIALIZED
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -304,7 +306,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_DEVICE_LOST
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -331,7 +333,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_OUT_OF_HOST_MEMORY
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -358,7 +360,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_OUT_OF_DEVICE_MEMORY
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -385,7 +387,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_INSUFFICIENT_PERMISSIONS
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -412,7 +414,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_NOT_AVAILABLE
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -439,7 +441,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_UNINITIALIZED
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -466,7 +468,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_UNSUPPORTED_VERSION
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -493,7 +495,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_UNSUPPORTED_FEATURE
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -520,7 +522,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_INVALID_ARGUMENT
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -547,7 +549,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_INVALID_API_HANDLE
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -574,7 +576,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_INVALID_NULL_HANDLE
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -601,7 +603,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_INVALID_NULL_POINTER
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -628,7 +630,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_INVALID_SIZE
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -655,7 +657,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_UNSUPPORTED_SIZE
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -682,7 +684,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_UNSUPPORTED_IMAGE_FORMAT
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -709,7 +711,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_DATA_READ
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -736,7 +738,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_DATA_WRITE
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -763,7 +765,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_DATA_NOT_FOUND
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -790,7 +792,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_NOT_IMPLEMENTED
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -817,7 +819,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_OS_CALL
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -844,7 +846,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_KMD_CALL
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -871,7 +873,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_UNLOAD
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -898,7 +900,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_ZE_LOADER
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -925,7 +927,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_INVALID_OPERATION_TYPE
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -952,7 +954,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_NULL_OS_INTERFACE
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -979,7 +981,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_NULL_OS_ADAPATER_HANDLE
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -1006,7 +1008,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_NULL_OS_DISPLAY_OUTPUT_HANDLE
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -1033,7 +1035,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_WAIT_TIMEOUT
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -1060,7 +1062,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_PERSISTANCE_NOT_SUPPORTED
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -1087,7 +1089,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_PLATFORM_NOT_SUPPORTED
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -1114,7 +1116,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_UNKNOWN_APPLICATION_UID
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -1141,7 +1143,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_INVALID_ENUMERATION
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -1168,7 +1170,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_FILE_DELETE
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -1195,7 +1197,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_RESET_DEVICE_REQUIRED
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -1222,7 +1224,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_FULL_REBOOT_REQUIRED
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -1249,7 +1251,7 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_LOAD
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
@@ -1260,6 +1262,33 @@ items:
   example: []
   syntax:
     content: CTL_RESULT_ERROR_LOAD = 1073741862
+    return:
+      type: IGCLWrapper.ctl_result_t
+- uid: IGCLWrapper.ctl_result_t.CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+  commentId: F:IGCLWrapper.ctl_result_t.CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+  id: CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+  parent: IGCLWrapper.ctl_result_t
+  langs:
+  - csharp
+  - vb
+  name: CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+  nameWithType: ctl_result_t.CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+  fullName: IGCLWrapper.ctl_result_t.CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/cs_generated/ctl_result_t.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: CTL_RESULT_ERROR_DEVICE_UNAVAILABLE
+    path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
+    startLine: 132
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  example: []
+  syntax:
+    content: CTL_RESULT_ERROR_DEVICE_UNAVAILABLE = 1073741863
     return:
       type: IGCLWrapper.ctl_result_t
 - uid: IGCLWrapper.ctl_result_t.CTL_RESULT_ERROR_UNKNOWN
@@ -1276,11 +1305,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_UNKNOWN
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 132
+    startLine: 135
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1303,11 +1332,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_RETRY_OPERATION
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 135
+    startLine: 138
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1330,17 +1359,44 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_IGSC_LOADER
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 138
+    startLine: 141
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
   example: []
   syntax:
     content: CTL_RESULT_ERROR_IGSC_LOADER = 1073807361
+    return:
+      type: IGCLWrapper.ctl_result_t
+- uid: IGCLWrapper.ctl_result_t.CTL_RESULT_ERROR_RESTRICTED_APPLICATION
+  commentId: F:IGCLWrapper.ctl_result_t.CTL_RESULT_ERROR_RESTRICTED_APPLICATION
+  id: CTL_RESULT_ERROR_RESTRICTED_APPLICATION
+  parent: IGCLWrapper.ctl_result_t
+  langs:
+  - csharp
+  - vb
+  name: CTL_RESULT_ERROR_RESTRICTED_APPLICATION
+  nameWithType: ctl_result_t.CTL_RESULT_ERROR_RESTRICTED_APPLICATION
+  fullName: IGCLWrapper.ctl_result_t.CTL_RESULT_ERROR_RESTRICTED_APPLICATION
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/cs_generated/ctl_result_t.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: CTL_RESULT_ERROR_RESTRICTED_APPLICATION
+    path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
+    startLine: 144
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  example: []
+  syntax:
+    content: CTL_RESULT_ERROR_RESTRICTED_APPLICATION = 1073807362
     return:
       type: IGCLWrapper.ctl_result_t
 - uid: IGCLWrapper.ctl_result_t.CTL_RESULT_ERROR_GENERIC_END
@@ -1357,11 +1413,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_GENERIC_END
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 141
+    startLine: 147
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1384,11 +1440,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_CORE_START
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 144
+    startLine: 150
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1411,11 +1467,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_CORE_OVERCLOCK_NOT_SUPPORTED
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 147
+    startLine: 153
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1438,11 +1494,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_CORE_OVERCLOCK_VOLTAGE_OUTSIDE_RANGE
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 150
+    startLine: 156
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1465,11 +1521,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_CORE_OVERCLOCK_FREQUENCY_OUTSIDE_RANGE
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 153
+    startLine: 159
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1492,11 +1548,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_CORE_OVERCLOCK_POWER_OUTSIDE_RANGE
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 156
+    startLine: 162
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1519,11 +1575,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_CORE_OVERCLOCK_TEMPERATURE_OUTSIDE_RANGE
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 159
+    startLine: 165
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1546,11 +1602,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_CORE_OVERCLOCK_IN_VOLTAGE_LOCKED_MODE
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 162
+    startLine: 168
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1573,11 +1629,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_CORE_OVERCLOCK_RESET_REQUIRED
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 165
+    startLine: 171
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1600,11 +1656,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_CORE_OVERCLOCK_WAIVER_NOT_SET
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 168
+    startLine: 174
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1627,11 +1683,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_CORE_OVERCLOCK_DEPRECATED_API
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 171
+    startLine: 177
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1654,11 +1710,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_CORE_LED_GET_STATE_NOT_SUPPORTED_FOR_I2C_LED
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 174
+    startLine: 180
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1681,11 +1737,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_CORE_LED_SET_STATE_NOT_SUPPORTED_FOR_I2C_LED
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 177
+    startLine: 183
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1708,11 +1764,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_CORE_LED_TOO_FREQUENT_SET_REQUESTS
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 180
+    startLine: 186
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1735,11 +1791,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_CORE_OVERCLOCK_VRAM_MEMORY_SPEED_OUTSIDE_RANGE
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 183
+    startLine: 189
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1762,11 +1818,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_CORE_OVERCLOCK_INVALID_CUSTOM_VF_CURVE
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 186
+    startLine: 192
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1789,11 +1845,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_CORE_END
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 189
+    startLine: 195
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1816,11 +1872,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_3D_START
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 192
+    startLine: 198
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1843,11 +1899,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_3D_END
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 195
+    startLine: 201
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1870,11 +1926,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_MEDIA_START
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 198
+    startLine: 204
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1897,11 +1953,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_MEDIA_END
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 201
+    startLine: 207
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1924,11 +1980,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_DISPLAY_START
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 204
+    startLine: 210
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1951,11 +2007,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_INVALID_AUX_ACCESS_FLAG
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 207
+    startLine: 213
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -1978,11 +2034,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_INVALID_SHARPNESS_FILTER_FLAG
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 210
+    startLine: 216
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2005,11 +2061,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_DISPLAY_NOT_ATTACHED
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 213
+    startLine: 219
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2032,11 +2088,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_DISPLAY_NOT_ACTIVE
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 216
+    startLine: 222
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2059,11 +2115,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_INVALID_POWERFEATURE_OPTIMIZATION_FLAG
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 219
+    startLine: 225
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2086,11 +2142,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_INVALID_POWERSOURCE_TYPE_FOR_DPST
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 222
+    startLine: 228
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2113,11 +2169,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_INVALID_PIXTX_GET_CONFIG_QUERY_TYPE
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 225
+    startLine: 231
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2140,11 +2196,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_INVALID_PIXTX_SET_CONFIG_OPERATION_TYPE
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 228
+    startLine: 234
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2167,11 +2223,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_INVALID_SET_CONFIG_NUMBER_OF_SAMPLES
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 231
+    startLine: 237
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2194,11 +2250,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_INVALID_PIXTX_BLOCK_ID
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 234
+    startLine: 240
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2221,11 +2277,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_INVALID_PIXTX_BLOCK_TYPE
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 237
+    startLine: 243
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2248,11 +2304,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_INVALID_PIXTX_BLOCK_NUMBER
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 240
+    startLine: 246
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2275,11 +2331,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_INSUFFICIENT_PIXTX_BLOCK_CONFIG_MEMORY
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 243
+    startLine: 249
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2302,11 +2358,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_3DLUT_INVALID_PIPE
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 246
+    startLine: 252
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2329,11 +2385,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_3DLUT_INVALID_DATA
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 249
+    startLine: 255
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2356,11 +2412,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_3DLUT_NOT_SUPPORTED_IN_HDR
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 252
+    startLine: 258
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2383,11 +2439,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_3DLUT_INVALID_OPERATION
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 255
+    startLine: 261
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2410,11 +2466,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_3DLUT_UNSUCCESSFUL
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 258
+    startLine: 264
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2437,11 +2493,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_AUX_DEFER
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 261
+    startLine: 267
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2464,11 +2520,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_AUX_TIMEOUT
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 264
+    startLine: 270
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2491,11 +2547,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_AUX_INCOMPLETE_WRITE
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 267
+    startLine: 273
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2518,11 +2574,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_I2C_AUX_STATUS_UNKNOWN
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 270
+    startLine: 276
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2545,11 +2601,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_I2C_AUX_UNSUCCESSFUL
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 273
+    startLine: 279
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2572,11 +2628,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_LACE_INVALID_DATA_ARGUMENT_PASSED
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 276
+    startLine: 282
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2599,11 +2655,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_EXTERNAL_DISPLAY_ATTACHED
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 279
+    startLine: 285
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2626,11 +2682,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_CUSTOM_MODE_STANDARD_CUSTOM_MODE_EXISTS
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 282
+    startLine: 288
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2653,11 +2709,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_CUSTOM_MODE_NON_CUSTOM_MATCHING_MODE_EXISTS
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 285
+    startLine: 291
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2680,11 +2736,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_CUSTOM_MODE_INSUFFICIENT_MEMORY
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 288
+    startLine: 294
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2707,11 +2763,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_ADAPTER_ALREADY_LINKED
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 291
+    startLine: 297
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2734,11 +2790,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_ADAPTER_NOT_IDENTICAL
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 294
+    startLine: 300
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2761,11 +2817,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_ADAPTER_NOT_SUPPORTED_ON_LDA_SECONDARY
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 297
+    startLine: 303
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2788,11 +2844,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_SET_FBC_FEATURE_NOT_SUPPORTED
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 300
+    startLine: 306
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2815,11 +2871,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_ERROR_DISPLAY_END
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 303
+    startLine: 309
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -2842,11 +2898,11 @@ items:
   source:
     remote:
       path: IGCLWrapper/cs_generated/ctl_result_t.cs
-      branch: feature-reduced-exceptions
+      branch: develop
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CTL_RESULT_MAX
     path: ../IGCLWrapper/cs_generated/ctl_result_t.cs
-    startLine: 306
+    startLine: 312
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
