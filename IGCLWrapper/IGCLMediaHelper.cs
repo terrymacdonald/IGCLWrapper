@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
 
 namespace IGCLWrapper
@@ -28,11 +29,29 @@ namespace IGCLWrapper
             ThrowIfDisposed();
             var caps = CreateVideoProcessingCaps();
             var result = IGCL.ctlGetSupportedVideoProcessingCapabilities((_ctl_device_adapter_handle_t*)_adapter, &caps);
-            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
-                return VideoProcessingFeatureCapsDto.FromNative(caps);
             if (IsUnsupportedResult(result))
                 return null;
-            throw new IGCLException(result, "Failed to get video processing capabilities");
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, "Failed to get video processing capabilities");
+
+            if (caps.NumSupportedFeatures == 0)
+                return VideoProcessingFeatureCapsDto.FromNative(caps);
+
+            var nativeDetails = new ctl_video_processing_feature_details_t[caps.NumSupportedFeatures];
+            for (var i = 0; i < nativeDetails.Length; i++)
+                nativeDetails[i].Size = (uint)sizeof(ctl_video_processing_feature_details_t);
+
+            fixed (ctl_video_processing_feature_details_t* pDetails = nativeDetails)
+            {
+                caps.pFeatureDetails = pDetails;
+                result = IGCL.ctlGetSupportedVideoProcessingCapabilities((_ctl_device_adapter_handle_t*)_adapter, &caps);
+            }
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(result, "Failed to retrieve video processing feature details");
+
+            var dto = VideoProcessingFeatureCapsDto.FromNative(caps);
+            dto.Features = nativeDetails.Select(VideoProcessingFeatureDetailDto.FromNative).ToList();
+            return dto;
         }
 
         /// <summary>
@@ -516,6 +535,8 @@ namespace IGCLWrapper
         /// Number of supported features.
         /// </summary>
         public uint NumSupportedFeatures;
+        /// <summary>Details for the media features reported by the driver.</summary>
+        public List<VideoProcessingFeatureDetailDto> Features = new();
         /// <summary>
         /// Reserved fields.
         /// </summary>
@@ -648,6 +669,24 @@ namespace IGCLWrapper
             native.hue = Hue;
             native.saturation = Saturation;
             return native;
+        }
+    }
+
+    /// <summary>Driver-reported media feature type and required value type.</summary>
+    public struct VideoProcessingFeatureDetailDto
+    {
+        public ctl_video_processing_feature_t FeatureType;
+        public ctl_property_value_type_t ValueType;
+        public int CustomValueSize;
+
+        internal static VideoProcessingFeatureDetailDto FromNative(ctl_video_processing_feature_details_t native)
+        {
+            return new VideoProcessingFeatureDetailDto
+            {
+                FeatureType = native.FeatureType,
+                ValueType = native.ValueType,
+                CustomValueSize = native.CustomValueSize
+            };
         }
     }
 }
