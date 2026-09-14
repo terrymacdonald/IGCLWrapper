@@ -11,7 +11,10 @@ items:
   - IGCLWrapper.PixtxBlockConfigDto.Equals(System.Object)
   - IGCLWrapper.PixtxBlockConfigDto.FromNative(IGCLWrapper.ctl_pixtx_block_config_t)
   - IGCLWrapper.PixtxBlockConfigDto.GetHashCode
+  - IGCLWrapper.PixtxBlockConfigDto.MatrixConfig
+  - IGCLWrapper.PixtxBlockConfigDto.OneDLutConfig
   - IGCLWrapper.PixtxBlockConfigDto.Size
+  - IGCLWrapper.PixtxBlockConfigDto.ThreeDLutConfig
   - IGCLWrapper.PixtxBlockConfigDto.Version
   langs:
   - csharp
@@ -27,11 +30,14 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: PixtxBlockConfigDto
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6689
+    startLine: 6940
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
-  summary: DTO for pixel transformation block config (metadata only; LUT sample values require native methods).
+  summary: >-
+    DTO for pixel transformation block config.
+
+    Only the payload matching <xref href="IGCLWrapper.PixtxBlockConfigDto.BlockType" data-throw-if-not-resolved="false"></xref> is used.
   example: []
   syntax:
     content: 'public struct PixtxBlockConfigDto : IEquatable<PixtxBlockConfigDto>'
@@ -61,7 +67,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6691
+    startLine: 6942
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -88,7 +94,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6692
+    startLine: 6943
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -115,7 +121,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: BlockId
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6693
+    startLine: 6944
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -142,7 +148,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: BlockType
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6694
+    startLine: 6945
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -151,6 +157,87 @@ items:
     return:
       type: IGCLWrapper.ctl_pixtx_block_type_t
     content.vb: Public BlockType As ctl_pixtx_block_type_t
+- uid: IGCLWrapper.PixtxBlockConfigDto.OneDLutConfig
+  commentId: F:IGCLWrapper.PixtxBlockConfigDto.OneDLutConfig
+  id: OneDLutConfig
+  parent: IGCLWrapper.PixtxBlockConfigDto
+  langs:
+  - csharp
+  - vb
+  name: OneDLutConfig
+  nameWithType: PixtxBlockConfigDto.OneDLutConfig
+  fullName: IGCLWrapper.PixtxBlockConfigDto.OneDLutConfig
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: OneDLutConfig
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6946
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public PixtxOneDLutConfigDto OneDLutConfig
+    return:
+      type: IGCLWrapper.PixtxOneDLutConfigDto
+    content.vb: Public OneDLutConfig As PixtxOneDLutConfigDto
+- uid: IGCLWrapper.PixtxBlockConfigDto.ThreeDLutConfig
+  commentId: F:IGCLWrapper.PixtxBlockConfigDto.ThreeDLutConfig
+  id: ThreeDLutConfig
+  parent: IGCLWrapper.PixtxBlockConfigDto
+  langs:
+  - csharp
+  - vb
+  name: ThreeDLutConfig
+  nameWithType: PixtxBlockConfigDto.ThreeDLutConfig
+  fullName: IGCLWrapper.PixtxBlockConfigDto.ThreeDLutConfig
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: ThreeDLutConfig
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6947
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public PixtxThreeDLutConfigDto ThreeDLutConfig
+    return:
+      type: IGCLWrapper.PixtxThreeDLutConfigDto
+    content.vb: Public ThreeDLutConfig As PixtxThreeDLutConfigDto
+- uid: IGCLWrapper.PixtxBlockConfigDto.MatrixConfig
+  commentId: F:IGCLWrapper.PixtxBlockConfigDto.MatrixConfig
+  id: MatrixConfig
+  parent: IGCLWrapper.PixtxBlockConfigDto
+  langs:
+  - csharp
+  - vb
+  name: MatrixConfig
+  nameWithType: PixtxBlockConfigDto.MatrixConfig
+  fullName: IGCLWrapper.PixtxBlockConfigDto.MatrixConfig
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLDisplayHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: MatrixConfig
+    path: ../IGCLWrapper/IGCLDisplayHelper.cs
+    startLine: 6948
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public PixtxMatrixConfigDto MatrixConfig
+    return:
+      type: IGCLWrapper.PixtxMatrixConfigDto
+    content.vb: Public MatrixConfig As PixtxMatrixConfigDto
 - uid: IGCLWrapper.PixtxBlockConfigDto.FromNative(IGCLWrapper.ctl_pixtx_block_config_t)
   commentId: M:IGCLWrapper.PixtxBlockConfigDto.FromNative(IGCLWrapper.ctl_pixtx_block_config_t)
   id: FromNative(IGCLWrapper.ctl_pixtx_block_config_t)
@@ -169,7 +256,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6696
+    startLine: 6950
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -200,7 +287,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6705
+    startLine: 6989
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -237,7 +324,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6708
+    startLine: 6992
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -276,7 +363,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetHashCode
     path: ../IGCLWrapper/IGCLDisplayHelper.cs
-    startLine: 6709
+    startLine: 6993
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -291,6 +378,12 @@ items:
   overridden: System.ValueType.GetHashCode
   overload: IGCLWrapper.PixtxBlockConfigDto.GetHashCode*
 references:
+- uid: IGCLWrapper.PixtxBlockConfigDto.BlockType
+  commentId: F:IGCLWrapper.PixtxBlockConfigDto.BlockType
+  href: IGCLWrapper.PixtxBlockConfigDto.html#IGCLWrapper_PixtxBlockConfigDto_BlockType
+  name: BlockType
+  nameWithType: PixtxBlockConfigDto.BlockType
+  fullName: IGCLWrapper.PixtxBlockConfigDto.BlockType
 - uid: IGCLWrapper
   commentId: N:IGCLWrapper
   href: IGCLWrapper.html
@@ -549,6 +642,27 @@ references:
   name: ctl_pixtx_block_type_t
   nameWithType: ctl_pixtx_block_type_t
   fullName: IGCLWrapper.ctl_pixtx_block_type_t
+- uid: IGCLWrapper.PixtxOneDLutConfigDto
+  commentId: T:IGCLWrapper.PixtxOneDLutConfigDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.PixtxOneDLutConfigDto.html
+  name: PixtxOneDLutConfigDto
+  nameWithType: PixtxOneDLutConfigDto
+  fullName: IGCLWrapper.PixtxOneDLutConfigDto
+- uid: IGCLWrapper.PixtxThreeDLutConfigDto
+  commentId: T:IGCLWrapper.PixtxThreeDLutConfigDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.PixtxThreeDLutConfigDto.html
+  name: PixtxThreeDLutConfigDto
+  nameWithType: PixtxThreeDLutConfigDto
+  fullName: IGCLWrapper.PixtxThreeDLutConfigDto
+- uid: IGCLWrapper.PixtxMatrixConfigDto
+  commentId: T:IGCLWrapper.PixtxMatrixConfigDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.PixtxMatrixConfigDto.html
+  name: PixtxMatrixConfigDto
+  nameWithType: PixtxMatrixConfigDto
+  fullName: IGCLWrapper.PixtxMatrixConfigDto
 - uid: IGCLWrapper.PixtxBlockConfigDto.FromNative*
   commentId: Overload:IGCLWrapper.PixtxBlockConfigDto.FromNative
   href: IGCLWrapper.PixtxBlockConfigDto.html#IGCLWrapper_PixtxBlockConfigDto_FromNative_IGCLWrapper_ctl_pixtx_block_config_t_
