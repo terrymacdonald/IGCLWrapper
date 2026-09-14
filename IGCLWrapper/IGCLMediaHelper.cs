@@ -404,12 +404,17 @@ namespace IGCLWrapper
             hash.Add(ApplicationName, StringComparer.Ordinal);
             hash.Add(Set);
             hash.Add(ValueType);
-            hash.Add(Value);
+            if (ValueType != ctl_property_value_type_t.CTL_PROPERTY_VALUE_TYPE_CUSTOM)
+                hash.Add(Value);
+            // Custom payload reserved bytes and the Value union are excluded by Equals().
             if (CustomValue != null)
             {
-                hash.Add(CustomValue.Count);
-                for (var i = 0; i < CustomValue.Count; i++)
-                    hash.Add(CustomValue[i]);
+                if (ValueType != ctl_property_value_type_t.CTL_PROPERTY_VALUE_TYPE_CUSTOM)
+                {
+                    hash.Add(CustomValue.Count);
+                    for (var i = 0; i < CustomValue.Count; i++)
+                        hash.Add(CustomValue[i]);
+                }
             }
             return hash.ToHashCode();
         }
@@ -696,7 +701,9 @@ namespace IGCLWrapper
 
         public override bool Equals(object? obj) => obj is StandardColorCorrectionDto other && Equals(other);
 
-        public override int GetHashCode() => (Enable, Brightness, Contrast, Hue, Saturation).GetHashCode();
+        public override int GetHashCode() => (Enable, Quantize(Brightness), Quantize(Contrast), Quantize(Hue), Quantize(Saturation)).GetHashCode();
+
+        private static int Quantize(float value) => (int)MathF.Round(value / ComparisonTolerance, MidpointRounding.AwayFromZero);
 
         public static unsafe StandardColorCorrectionDto FromNative(ctl_video_processing_standard_color_correction_t native)
         {
