@@ -146,15 +146,19 @@ namespace IGCLWrapper
             }
 
             var customValue = request.CustomValue;
-            if (customValue != null && customValue.Count > 0)
+            var customValueSize = customValue?.Count ?? 0;
+            if (customValueSize == 0 && request.ValueType == ctl_property_value_type_t.CTL_PROPERTY_VALUE_TYPE_CUSTOM)
+                customValueSize = GetCustomValueSize(request.FeatureType);
+
+            if (customValueSize > 0)
             {
                 unsafe
                 {
-                    byte* pCustomValue = stackalloc byte[customValue.Count];
-                    for (var i = 0; i < customValue.Count; i++)
-                        pCustomValue[i] = customValue[i];
+                    byte* pCustomValue = stackalloc byte[customValueSize];
+                    for (var i = 0; i < customValueSize; i++)
+                        pCustomValue[i] = customValue != null && i < customValue.Count ? customValue[i] : (byte)0;
                     native.pCustomValue = pCustomValue;
-                    native.CustomValueSize = customValue.Count;
+                    native.CustomValueSize = customValueSize;
                 }
             }
 
@@ -174,6 +178,19 @@ namespace IGCLWrapper
                 || result == ctl_result_t.CTL_RESULT_ERROR_UNSUPPORTED_VERSION
                 || result == ctl_result_t.CTL_RESULT_ERROR_INVALID_OPERATION_TYPE
                 || result == ctl_result_t.CTL_RESULT_ERROR_INVALID_ARGUMENT;
+        }
+
+        private static unsafe int GetCustomValueSize(ctl_video_processing_feature_t featureType)
+        {
+            return featureType switch
+            {
+                ctl_video_processing_feature_t.CTL_VIDEO_PROCESSING_FEATURE_NOISE_REDUCTION => sizeof(ctl_video_processing_noise_reduction_t),
+                ctl_video_processing_feature_t.CTL_VIDEO_PROCESSING_FEATURE_ADAPTIVE_CONTRAST_ENHANCEMENT => sizeof(ctl_video_processing_adaptive_contrast_enhancement_t),
+                ctl_video_processing_feature_t.CTL_VIDEO_PROCESSING_FEATURE_SUPER_RESOLUTION => sizeof(ctl_video_processing_super_resolution_t),
+                ctl_video_processing_feature_t.CTL_VIDEO_PROCESSING_FEATURE_STANDARD_COLOR_CORRECTION => sizeof(ctl_video_processing_standard_color_correction_t),
+                ctl_video_processing_feature_t.CTL_VIDEO_PROCESSING_FEATURE_TOTAL_COLOR_CORRECTION => sizeof(ctl_video_processing_total_color_correction_t),
+                _ => 0
+            };
         }
 
         private void ThrowIfDisposed()
