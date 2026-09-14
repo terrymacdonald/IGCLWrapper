@@ -371,12 +371,19 @@ namespace IGCLWrapper
         /// <returns>True when equal; otherwise, false.</returns>
         public bool Equals(VideoProcessingFeatureGetSetDto other)
         {
-            return FeatureType == other.FeatureType &&
-                   Set == other.Set &&
-                   ValueType == other.ValueType &&
-                   Value.Equals(other.Value) &&
-                   string.Equals(ApplicationName, other.ApplicationName, StringComparison.Ordinal) &&
-                   AreByteListsEqual(CustomValue, other.CustomValue);
+            if (FeatureType != other.FeatureType ||
+                Set != other.Set ||
+                ValueType != other.ValueType ||
+                !string.Equals(ApplicationName, other.ApplicationName, StringComparison.Ordinal))
+            {
+                return false;
+            }
+
+            // IGCL documents Value as invalid for custom media features; only the custom payload is meaningful.
+            if (ValueType == ctl_property_value_type_t.CTL_PROPERTY_VALUE_TYPE_CUSTOM)
+                return AreCustomValuesEqual(FeatureType, CustomValue, other.CustomValue);
+
+            return Value.Equals(other.Value) && AreByteListsEqual(CustomValue, other.CustomValue);
         }
 
         /// <summary>
@@ -490,6 +497,55 @@ namespace IGCLWrapper
                     return false;
             }
             return true;
+        }
+
+        private static unsafe bool AreCustomValuesEqual(ctl_video_processing_feature_t featureType, List<byte>? left, List<byte>? right)
+        {
+            if (left == null || right == null)
+                return AreByteListsEqual(left, right);
+
+            var leftBytes = left.ToArray();
+            var rightBytes = right.ToArray();
+            fixed (byte* pLeft = leftBytes)
+            fixed (byte* pRight = rightBytes)
+            {
+                switch (featureType)
+                {
+                    case ctl_video_processing_feature_t.CTL_VIDEO_PROCESSING_FEATURE_NOISE_REDUCTION:
+                        if (leftBytes.Length >= sizeof(ctl_video_processing_noise_reduction_t) && rightBytes.Length >= sizeof(ctl_video_processing_noise_reduction_t))
+                        {
+                            var a = (ctl_video_processing_noise_reduction_t*)pLeft;
+                            var b = (ctl_video_processing_noise_reduction_t*)pRight;
+                            return a->noise_reduction.Enable == b->noise_reduction.Enable && a->noise_reduction.Value == b->noise_reduction.Value && a->noise_reduction_auto_detect.Enable == b->noise_reduction_auto_detect.Enable;
+                        }
+                        break;
+                    case ctl_video_processing_feature_t.CTL_VIDEO_PROCESSING_FEATURE_ADAPTIVE_CONTRAST_ENHANCEMENT:
+                        if (leftBytes.Length >= sizeof(ctl_video_processing_adaptive_contrast_enhancement_t) && rightBytes.Length >= sizeof(ctl_video_processing_adaptive_contrast_enhancement_t))
+                        {
+                            var a = (ctl_video_processing_adaptive_contrast_enhancement_t*)pLeft;
+                            var b = (ctl_video_processing_adaptive_contrast_enhancement_t*)pRight;
+                            return a->adaptive_contrast_enhancement.Enable == b->adaptive_contrast_enhancement.Enable && a->adaptive_contrast_enhancement.Value == b->adaptive_contrast_enhancement.Value && a->adaptive_contrast_enhancement_coexistence.Enable == b->adaptive_contrast_enhancement_coexistence.Enable;
+                        }
+                        break;
+                    case ctl_video_processing_feature_t.CTL_VIDEO_PROCESSING_FEATURE_SUPER_RESOLUTION:
+                        if (leftBytes.Length >= sizeof(ctl_video_processing_super_resolution_t) && rightBytes.Length >= sizeof(ctl_video_processing_super_resolution_t))
+                        {
+                            var a = (ctl_video_processing_super_resolution_t*)pLeft;
+                            var b = (ctl_video_processing_super_resolution_t*)pRight;
+                            return a->super_resolution_flag == b->super_resolution_flag && a->super_resolution_max_in_enabled == b->super_resolution_max_in_enabled && a->super_resolution_max_in_width == b->super_resolution_max_in_width && a->super_resolution_max_in_height == b->super_resolution_max_in_height && a->super_resolution_reboot_reset == b->super_resolution_reboot_reset;
+                        }
+                        break;
+                    case ctl_video_processing_feature_t.CTL_VIDEO_PROCESSING_FEATURE_TOTAL_COLOR_CORRECTION:
+                        if (leftBytes.Length >= sizeof(ctl_video_processing_total_color_correction_t) && rightBytes.Length >= sizeof(ctl_video_processing_total_color_correction_t))
+                        {
+                            var a = (ctl_video_processing_total_color_correction_t*)pLeft;
+                            var b = (ctl_video_processing_total_color_correction_t*)pRight;
+                            return a->total_color_correction_enable == b->total_color_correction_enable && a->red == b->red && a->green == b->green && a->blue == b->blue && a->yellow == b->yellow && a->cyan == b->cyan && a->magenta == b->magenta;
+                        }
+                        break;
+                }
+            }
+            return AreByteListsEqual(left, right);
         }
 
         private static unsafe List<uint> ReadReservedFields(ctl_video_processing_feature_getset_t._ReservedFields_e__FixedBuffer buffer)
@@ -615,6 +671,7 @@ namespace IGCLWrapper
     /// </summary>
     public struct StandardColorCorrectionDto : IEquatable<StandardColorCorrectionDto>
     {
+        private const float ComparisonTolerance = 0.0001f;
         /// <summary>Whether standard colour correction is enabled.</summary>
         public bool Enable;
         /// <summary>Brightness adjustment.</summary>
@@ -629,11 +686,13 @@ namespace IGCLWrapper
         public bool Equals(StandardColorCorrectionDto other)
         {
             return Enable == other.Enable &&
-                Brightness.Equals(other.Brightness) &&
-                Contrast.Equals(other.Contrast) &&
-                Hue.Equals(other.Hue) &&
-                Saturation.Equals(other.Saturation);
+                NearlyEqual(Brightness, other.Brightness) &&
+                NearlyEqual(Contrast, other.Contrast) &&
+                NearlyEqual(Hue, other.Hue) &&
+                NearlyEqual(Saturation, other.Saturation);
         }
+
+        private static bool NearlyEqual(float left, float right) => MathF.Abs(left - right) <= ComparisonTolerance;
 
         public override bool Equals(object? obj) => obj is StandardColorCorrectionDto other && Equals(other);
 
