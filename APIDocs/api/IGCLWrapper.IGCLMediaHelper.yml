@@ -11,8 +11,10 @@ items:
   - IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureGetSet
   - IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureSetRequest(IGCLWrapper.ctl_video_processing_feature_t,IGCLWrapper.ctl_property_value_type_t,IGCLWrapper.PropertyDto,System.String,System.Collections.Generic.List{System.Byte})
   - IGCLWrapper.IGCLMediaHelper.Dispose
+  - IGCLWrapper.IGCLMediaHelper.GetStandardColorCorrection
   - IGCLWrapper.IGCLMediaHelper.GetSupportedVideoProcessingCapabilities
   - IGCLWrapper.IGCLMediaHelper.GetVideoProcessingFeature(IGCLWrapper.VideoProcessingFeatureGetSetDto)
+  - IGCLWrapper.IGCLMediaHelper.SetStandardColorCorrection(IGCLWrapper.StandardColorCorrectionDto)
   - IGCLWrapper.IGCLMediaHelper.SetVideoProcessingFeature(IGCLWrapper.VideoProcessingFeatureGetSetDto)
   - IGCLWrapper.IGCLMediaHelper.ValidateSetVideoProcessingFeatureRequest(IGCLWrapper.VideoProcessingFeatureGetSetDto)
   langs:
@@ -29,7 +31,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: IGCLMediaHelper
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 9
+    startLine: 10
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -67,7 +69,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetSupportedVideoProcessingCapabilities
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 25
+    startLine: 26
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -98,7 +100,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetVideoProcessingFeature
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 42
+    startLine: 61
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -115,6 +117,72 @@ items:
       description: Updated video processing feature DTO, or <code>null</code> if the feature is not supported on this hardware or driver.
     content.vb: Public Function GetVideoProcessingFeature(featureGetSet As VideoProcessingFeatureGetSetDto) As VideoProcessingFeatureGetSetDto?
   overload: IGCLWrapper.IGCLMediaHelper.GetVideoProcessingFeature*
+- uid: IGCLWrapper.IGCLMediaHelper.GetStandardColorCorrection
+  commentId: M:IGCLWrapper.IGCLMediaHelper.GetStandardColorCorrection
+  id: GetStandardColorCorrection
+  parent: IGCLWrapper.IGCLMediaHelper
+  langs:
+  - csharp
+  - vb
+  name: GetStandardColorCorrection()
+  nameWithType: IGCLMediaHelper.GetStandardColorCorrection()
+  fullName: IGCLWrapper.IGCLMediaHelper.GetStandardColorCorrection()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLMediaHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetStandardColorCorrection
+    path: ../IGCLWrapper/IGCLMediaHelper.cs
+    startLine: 80
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Gets the adapter-wide standard colour-correction settings.
+  example: []
+  syntax:
+    content: public StandardColorCorrectionDto? GetStandardColorCorrection()
+    return:
+      type: System.Nullable{IGCLWrapper.StandardColorCorrectionDto}
+      description: The colour-correction settings, or <code>null</code> when unsupported.
+    content.vb: Public Function GetStandardColorCorrection() As StandardColorCorrectionDto?
+  overload: IGCLWrapper.IGCLMediaHelper.GetStandardColorCorrection*
+- uid: IGCLWrapper.IGCLMediaHelper.SetStandardColorCorrection(IGCLWrapper.StandardColorCorrectionDto)
+  commentId: M:IGCLWrapper.IGCLMediaHelper.SetStandardColorCorrection(IGCLWrapper.StandardColorCorrectionDto)
+  id: SetStandardColorCorrection(IGCLWrapper.StandardColorCorrectionDto)
+  parent: IGCLWrapper.IGCLMediaHelper
+  langs:
+  - csharp
+  - vb
+  name: SetStandardColorCorrection(StandardColorCorrectionDto)
+  nameWithType: IGCLMediaHelper.SetStandardColorCorrection(StandardColorCorrectionDto)
+  fullName: IGCLWrapper.IGCLMediaHelper.SetStandardColorCorrection(IGCLWrapper.StandardColorCorrectionDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLMediaHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: SetStandardColorCorrection
+    path: ../IGCLWrapper/IGCLMediaHelper.cs
+    startLine: 103
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Sets the adapter-wide standard colour-correction settings.
+  example: []
+  syntax:
+    content: public bool SetStandardColorCorrection(StandardColorCorrectionDto settings)
+    parameters:
+    - id: settings
+      type: IGCLWrapper.StandardColorCorrectionDto
+      description: The colour-correction settings to apply.
+    return:
+      type: System.Boolean
+      description: <code>true</code> when applied; <code>false</code> when unsupported.
+    content.vb: Public Function SetStandardColorCorrection(settings As StandardColorCorrectionDto) As Boolean
+  overload: IGCLWrapper.IGCLMediaHelper.SetStandardColorCorrection*
 - uid: IGCLWrapper.IGCLMediaHelper.SetVideoProcessingFeature(IGCLWrapper.VideoProcessingFeatureGetSetDto)
   commentId: M:IGCLWrapper.IGCLMediaHelper.SetVideoProcessingFeature(IGCLWrapper.VideoProcessingFeatureGetSetDto)
   id: SetVideoProcessingFeature(IGCLWrapper.VideoProcessingFeatureGetSetDto)
@@ -133,7 +201,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: SetVideoProcessingFeature
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 62
+    startLine: 127
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -168,7 +236,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateVideoProcessingFeatureGetSet
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 143
+    startLine: 225
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -199,7 +267,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateVideoProcessingFeatureGetRequest
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 151
+    startLine: 233
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -237,7 +305,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: CreateVideoProcessingFeatureSetRequest
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 170
+    startLine: 252
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -287,7 +355,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ValidateSetVideoProcessingFeatureRequest
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 193
+    startLine: 275
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -323,7 +391,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreVideoProcessingFeatureCapsEqual
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 209
+    startLine: 291
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -361,7 +429,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: AreVideoProcessingFeatureGetSetEqual
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 220
+    startLine: 302
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -399,7 +467,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Dispose
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 228
+    startLine: 310
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -722,12 +790,43 @@ references:
     name: VideoProcessingFeatureGetSetDto
     href: IGCLWrapper.VideoProcessingFeatureGetSetDto.html
   - name: '?'
-- uid: IGCLWrapper.IGCLMediaHelper.SetVideoProcessingFeature*
-  commentId: Overload:IGCLWrapper.IGCLMediaHelper.SetVideoProcessingFeature
-  href: IGCLWrapper.IGCLMediaHelper.html#IGCLWrapper_IGCLMediaHelper_SetVideoProcessingFeature_IGCLWrapper_VideoProcessingFeatureGetSetDto_
-  name: SetVideoProcessingFeature
-  nameWithType: IGCLMediaHelper.SetVideoProcessingFeature
-  fullName: IGCLWrapper.IGCLMediaHelper.SetVideoProcessingFeature
+- uid: IGCLWrapper.IGCLMediaHelper.GetStandardColorCorrection*
+  commentId: Overload:IGCLWrapper.IGCLMediaHelper.GetStandardColorCorrection
+  href: IGCLWrapper.IGCLMediaHelper.html#IGCLWrapper_IGCLMediaHelper_GetStandardColorCorrection
+  name: GetStandardColorCorrection
+  nameWithType: IGCLMediaHelper.GetStandardColorCorrection
+  fullName: IGCLWrapper.IGCLMediaHelper.GetStandardColorCorrection
+- uid: System.Nullable{IGCLWrapper.StandardColorCorrectionDto}
+  commentId: T:System.Nullable{IGCLWrapper.StandardColorCorrectionDto}
+  parent: System
+  definition: System.Nullable`1
+  href: IGCLWrapper.StandardColorCorrectionDto.html
+  name: StandardColorCorrectionDto?
+  nameWithType: StandardColorCorrectionDto?
+  fullName: IGCLWrapper.StandardColorCorrectionDto?
+  spec.csharp:
+  - uid: IGCLWrapper.StandardColorCorrectionDto
+    name: StandardColorCorrectionDto
+    href: IGCLWrapper.StandardColorCorrectionDto.html
+  - name: '?'
+  spec.vb:
+  - uid: IGCLWrapper.StandardColorCorrectionDto
+    name: StandardColorCorrectionDto
+    href: IGCLWrapper.StandardColorCorrectionDto.html
+  - name: '?'
+- uid: IGCLWrapper.IGCLMediaHelper.SetStandardColorCorrection*
+  commentId: Overload:IGCLWrapper.IGCLMediaHelper.SetStandardColorCorrection
+  href: IGCLWrapper.IGCLMediaHelper.html#IGCLWrapper_IGCLMediaHelper_SetStandardColorCorrection_IGCLWrapper_StandardColorCorrectionDto_
+  name: SetStandardColorCorrection
+  nameWithType: IGCLMediaHelper.SetStandardColorCorrection
+  fullName: IGCLWrapper.IGCLMediaHelper.SetStandardColorCorrection
+- uid: IGCLWrapper.StandardColorCorrectionDto
+  commentId: T:IGCLWrapper.StandardColorCorrectionDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.StandardColorCorrectionDto.html
+  name: StandardColorCorrectionDto
+  nameWithType: StandardColorCorrectionDto
+  fullName: IGCLWrapper.StandardColorCorrectionDto
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System
@@ -739,6 +838,12 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: IGCLWrapper.IGCLMediaHelper.SetVideoProcessingFeature*
+  commentId: Overload:IGCLWrapper.IGCLMediaHelper.SetVideoProcessingFeature
+  href: IGCLWrapper.IGCLMediaHelper.html#IGCLWrapper_IGCLMediaHelper_SetVideoProcessingFeature_IGCLWrapper_VideoProcessingFeatureGetSetDto_
+  name: SetVideoProcessingFeature
+  nameWithType: IGCLMediaHelper.SetVideoProcessingFeature
+  fullName: IGCLWrapper.IGCLMediaHelper.SetVideoProcessingFeature
 - uid: IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureGetSet*
   commentId: Overload:IGCLWrapper.IGCLMediaHelper.CreateVideoProcessingFeatureGetSet
   href: IGCLWrapper.IGCLMediaHelper.html#IGCLWrapper_IGCLMediaHelper_CreateVideoProcessingFeatureGetSet

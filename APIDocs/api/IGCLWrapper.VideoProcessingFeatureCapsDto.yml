@@ -8,6 +8,7 @@ items:
   - IGCLWrapper.VideoProcessingFeatureCapsDto.#ctor
   - IGCLWrapper.VideoProcessingFeatureCapsDto.Equals(IGCLWrapper.VideoProcessingFeatureCapsDto)
   - IGCLWrapper.VideoProcessingFeatureCapsDto.Equals(System.Object)
+  - IGCLWrapper.VideoProcessingFeatureCapsDto.Features
   - IGCLWrapper.VideoProcessingFeatureCapsDto.FromNative(IGCLWrapper.ctl_video_processing_feature_caps_t)
   - IGCLWrapper.VideoProcessingFeatureCapsDto.GetHashCode
   - IGCLWrapper.VideoProcessingFeatureCapsDto.NumSupportedFeatures
@@ -29,7 +30,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: VideoProcessingFeatureCapsDto
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 439
+    startLine: 521
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -63,7 +64,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: .ctor
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 441
+    startLine: 523
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -92,7 +93,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Size
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 446
+    startLine: 528
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -121,7 +122,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Version
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 450
+    startLine: 532
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -150,7 +151,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: NumSupportedFeatures
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 454
+    startLine: 536
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -161,6 +162,35 @@ items:
     return:
       type: System.UInt32
     content.vb: Public NumSupportedFeatures As UInteger
+- uid: IGCLWrapper.VideoProcessingFeatureCapsDto.Features
+  commentId: F:IGCLWrapper.VideoProcessingFeatureCapsDto.Features
+  id: Features
+  parent: IGCLWrapper.VideoProcessingFeatureCapsDto
+  langs:
+  - csharp
+  - vb
+  name: Features
+  nameWithType: VideoProcessingFeatureCapsDto.Features
+  fullName: IGCLWrapper.VideoProcessingFeatureCapsDto.Features
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLMediaHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Features
+    path: ../IGCLWrapper/IGCLMediaHelper.cs
+    startLine: 538
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Details for the media features reported by the driver.
+  example: []
+  syntax:
+    content: public List<VideoProcessingFeatureDetailDto> Features
+    return:
+      type: System.Collections.Generic.List{IGCLWrapper.VideoProcessingFeatureDetailDto}
+    content.vb: Public Features As List(Of VideoProcessingFeatureDetailDto)
 - uid: IGCLWrapper.VideoProcessingFeatureCapsDto.ReservedFields
   commentId: F:IGCLWrapper.VideoProcessingFeatureCapsDto.ReservedFields
   id: ReservedFields
@@ -179,7 +209,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ReservedFields
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 458
+    startLine: 542
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -208,7 +238,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 460
+    startLine: 544
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -245,7 +275,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: Equals
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 467
+    startLine: 551
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -284,7 +314,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: GetHashCode
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 469
+    startLine: 553
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -316,7 +346,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: FromNative
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 478
+    startLine: 562
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -347,7 +377,7 @@ items:
       repo: https://github.com/terrymacdonald/IGCLWrapper.git
     id: ToNative
     path: ../IGCLWrapper/IGCLMediaHelper.cs
-    startLine: 489
+    startLine: 573
   assemblies:
   - IGCLWrapper
   namespace: IGCLWrapper
@@ -618,27 +648,26 @@ references:
   nameWithType.vb: Byte
   fullName.vb: Byte
   name.vb: Byte
-- uid: System.Collections.Generic.List{System.UInt32}
-  commentId: T:System.Collections.Generic.List{System.UInt32}
+- uid: System.Collections.Generic.List{IGCLWrapper.VideoProcessingFeatureDetailDto}
+  commentId: T:System.Collections.Generic.List{IGCLWrapper.VideoProcessingFeatureDetailDto}
   parent: System.Collections.Generic
   definition: System.Collections.Generic.List`1
   href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<uint>
-  nameWithType: List<uint>
-  fullName: System.Collections.Generic.List<uint>
-  nameWithType.vb: List(Of UInteger)
-  fullName.vb: System.Collections.Generic.List(Of UInteger)
-  name.vb: List(Of UInteger)
+  name: List<VideoProcessingFeatureDetailDto>
+  nameWithType: List<VideoProcessingFeatureDetailDto>
+  fullName: System.Collections.Generic.List<IGCLWrapper.VideoProcessingFeatureDetailDto>
+  nameWithType.vb: List(Of VideoProcessingFeatureDetailDto)
+  fullName.vb: System.Collections.Generic.List(Of IGCLWrapper.VideoProcessingFeatureDetailDto)
+  name.vb: List(Of VideoProcessingFeatureDetailDto)
   spec.csharp:
   - uid: System.Collections.Generic.List`1
     name: List
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
   - name: <
-  - uid: System.UInt32
-    name: uint
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - uid: IGCLWrapper.VideoProcessingFeatureDetailDto
+    name: VideoProcessingFeatureDetailDto
+    href: IGCLWrapper.VideoProcessingFeatureDetailDto.html
   - name: '>'
   spec.vb:
   - uid: System.Collections.Generic.List`1
@@ -648,10 +677,9 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: System.UInt32
-    name: UInteger
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - uid: IGCLWrapper.VideoProcessingFeatureDetailDto
+    name: VideoProcessingFeatureDetailDto
+    href: IGCLWrapper.VideoProcessingFeatureDetailDto.html
   - name: )
 - uid: System.Collections.Generic.List`1
   commentId: T:System.Collections.Generic.List`1
@@ -718,6 +746,41 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections.Generic.List{System.UInt32}
+  commentId: T:System.Collections.Generic.List{System.UInt32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<uint>
+  nameWithType: List<uint>
+  fullName: System.Collections.Generic.List<uint>
+  nameWithType.vb: List(Of UInteger)
+  fullName.vb: System.Collections.Generic.List(Of UInteger)
+  name.vb: List(Of UInteger)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.UInt32
+    name: uint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.UInt32
+    name: UInteger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: )
 - uid: IGCLWrapper.VideoProcessingFeatureCapsDto.Equals*
   commentId: Overload:IGCLWrapper.VideoProcessingFeatureCapsDto.Equals
   href: IGCLWrapper.VideoProcessingFeatureCapsDto.html#IGCLWrapper_VideoProcessingFeatureCapsDto_Equals_IGCLWrapper_VideoProcessingFeatureCapsDto_

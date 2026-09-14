@@ -1,0 +1,735 @@
+### YamlMime:ManagedReference
+items:
+- uid: IGCLWrapper.StandardColorCorrectionDto
+  commentId: T:IGCLWrapper.StandardColorCorrectionDto
+  id: StandardColorCorrectionDto
+  parent: IGCLWrapper
+  children:
+  - IGCLWrapper.StandardColorCorrectionDto.Brightness
+  - IGCLWrapper.StandardColorCorrectionDto.Contrast
+  - IGCLWrapper.StandardColorCorrectionDto.Enable
+  - IGCLWrapper.StandardColorCorrectionDto.Equals(IGCLWrapper.StandardColorCorrectionDto)
+  - IGCLWrapper.StandardColorCorrectionDto.Equals(System.Object)
+  - IGCLWrapper.StandardColorCorrectionDto.FromNative(IGCLWrapper.ctl_video_processing_standard_color_correction_t)
+  - IGCLWrapper.StandardColorCorrectionDto.GetHashCode
+  - IGCLWrapper.StandardColorCorrectionDto.Hue
+  - IGCLWrapper.StandardColorCorrectionDto.Saturation
+  langs:
+  - csharp
+  - vb
+  name: StandardColorCorrectionDto
+  nameWithType: StandardColorCorrectionDto
+  fullName: IGCLWrapper.StandardColorCorrectionDto
+  type: Struct
+  source:
+    remote:
+      path: IGCLWrapper/IGCLMediaHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: StandardColorCorrectionDto
+    path: ../IGCLWrapper/IGCLMediaHelper.cs
+    startLine: 615
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Adapter-wide hue, saturation, contrast, and brightness settings.
+  example: []
+  syntax:
+    content: 'public struct StandardColorCorrectionDto : IEquatable<StandardColorCorrectionDto>'
+    content.vb: Public Structure StandardColorCorrectionDto Implements IEquatable(Of StandardColorCorrectionDto)
+  implements:
+  - System.IEquatable{IGCLWrapper.StandardColorCorrectionDto}
+  inheritedMembers:
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: IGCLWrapper.StandardColorCorrectionDto.Enable
+  commentId: F:IGCLWrapper.StandardColorCorrectionDto.Enable
+  id: Enable
+  parent: IGCLWrapper.StandardColorCorrectionDto
+  langs:
+  - csharp
+  - vb
+  name: Enable
+  nameWithType: StandardColorCorrectionDto.Enable
+  fullName: IGCLWrapper.StandardColorCorrectionDto.Enable
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLMediaHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Enable
+    path: ../IGCLWrapper/IGCLMediaHelper.cs
+    startLine: 618
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Whether standard colour correction is enabled.
+  example: []
+  syntax:
+    content: public bool Enable
+    return:
+      type: System.Boolean
+    content.vb: Public Enable As Boolean
+- uid: IGCLWrapper.StandardColorCorrectionDto.Brightness
+  commentId: F:IGCLWrapper.StandardColorCorrectionDto.Brightness
+  id: Brightness
+  parent: IGCLWrapper.StandardColorCorrectionDto
+  langs:
+  - csharp
+  - vb
+  name: Brightness
+  nameWithType: StandardColorCorrectionDto.Brightness
+  fullName: IGCLWrapper.StandardColorCorrectionDto.Brightness
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLMediaHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Brightness
+    path: ../IGCLWrapper/IGCLMediaHelper.cs
+    startLine: 620
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Brightness adjustment.
+  example: []
+  syntax:
+    content: public float Brightness
+    return:
+      type: System.Single
+    content.vb: Public Brightness As Single
+- uid: IGCLWrapper.StandardColorCorrectionDto.Contrast
+  commentId: F:IGCLWrapper.StandardColorCorrectionDto.Contrast
+  id: Contrast
+  parent: IGCLWrapper.StandardColorCorrectionDto
+  langs:
+  - csharp
+  - vb
+  name: Contrast
+  nameWithType: StandardColorCorrectionDto.Contrast
+  fullName: IGCLWrapper.StandardColorCorrectionDto.Contrast
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLMediaHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Contrast
+    path: ../IGCLWrapper/IGCLMediaHelper.cs
+    startLine: 622
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Contrast adjustment.
+  example: []
+  syntax:
+    content: public float Contrast
+    return:
+      type: System.Single
+    content.vb: Public Contrast As Single
+- uid: IGCLWrapper.StandardColorCorrectionDto.Hue
+  commentId: F:IGCLWrapper.StandardColorCorrectionDto.Hue
+  id: Hue
+  parent: IGCLWrapper.StandardColorCorrectionDto
+  langs:
+  - csharp
+  - vb
+  name: Hue
+  nameWithType: StandardColorCorrectionDto.Hue
+  fullName: IGCLWrapper.StandardColorCorrectionDto.Hue
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLMediaHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Hue
+    path: ../IGCLWrapper/IGCLMediaHelper.cs
+    startLine: 624
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Hue adjustment.
+  example: []
+  syntax:
+    content: public float Hue
+    return:
+      type: System.Single
+    content.vb: Public Hue As Single
+- uid: IGCLWrapper.StandardColorCorrectionDto.Saturation
+  commentId: F:IGCLWrapper.StandardColorCorrectionDto.Saturation
+  id: Saturation
+  parent: IGCLWrapper.StandardColorCorrectionDto
+  langs:
+  - csharp
+  - vb
+  name: Saturation
+  nameWithType: StandardColorCorrectionDto.Saturation
+  fullName: IGCLWrapper.StandardColorCorrectionDto.Saturation
+  type: Field
+  source:
+    remote:
+      path: IGCLWrapper/IGCLMediaHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Saturation
+    path: ../IGCLWrapper/IGCLMediaHelper.cs
+    startLine: 626
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Saturation adjustment.
+  example: []
+  syntax:
+    content: public float Saturation
+    return:
+      type: System.Single
+    content.vb: Public Saturation As Single
+- uid: IGCLWrapper.StandardColorCorrectionDto.Equals(IGCLWrapper.StandardColorCorrectionDto)
+  commentId: M:IGCLWrapper.StandardColorCorrectionDto.Equals(IGCLWrapper.StandardColorCorrectionDto)
+  id: Equals(IGCLWrapper.StandardColorCorrectionDto)
+  parent: IGCLWrapper.StandardColorCorrectionDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(StandardColorCorrectionDto)
+  nameWithType: StandardColorCorrectionDto.Equals(StandardColorCorrectionDto)
+  fullName: IGCLWrapper.StandardColorCorrectionDto.Equals(IGCLWrapper.StandardColorCorrectionDto)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLMediaHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLMediaHelper.cs
+    startLine: 628
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(StandardColorCorrectionDto other)
+    parameters:
+    - id: other
+      type: IGCLWrapper.StandardColorCorrectionDto
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As StandardColorCorrectionDto) As Boolean
+  overload: IGCLWrapper.StandardColorCorrectionDto.Equals*
+  implements:
+  - System.IEquatable{IGCLWrapper.StandardColorCorrectionDto}.Equals(IGCLWrapper.StandardColorCorrectionDto)
+- uid: IGCLWrapper.StandardColorCorrectionDto.Equals(System.Object)
+  commentId: M:IGCLWrapper.StandardColorCorrectionDto.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: IGCLWrapper.StandardColorCorrectionDto
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: StandardColorCorrectionDto.Equals(object?)
+  fullName: IGCLWrapper.StandardColorCorrectionDto.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLMediaHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: Equals
+    path: ../IGCLWrapper/IGCLMediaHelper.cs
+    startLine: 637
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Indicates whether this instance and a specified object are equal.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: IGCLWrapper.StandardColorCorrectionDto.Equals*
+  nameWithType.vb: StandardColorCorrectionDto.Equals(Object)
+  fullName.vb: IGCLWrapper.StandardColorCorrectionDto.Equals(Object)
+  name.vb: Equals(Object)
+- uid: IGCLWrapper.StandardColorCorrectionDto.GetHashCode
+  commentId: M:IGCLWrapper.StandardColorCorrectionDto.GetHashCode
+  id: GetHashCode
+  parent: IGCLWrapper.StandardColorCorrectionDto
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: StandardColorCorrectionDto.GetHashCode()
+  fullName: IGCLWrapper.StandardColorCorrectionDto.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLMediaHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: GetHashCode
+    path: ../IGCLWrapper/IGCLMediaHelper.cs
+    startLine: 639
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  summary: Returns the hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A 32-bit signed integer that is the hash code for this instance.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: IGCLWrapper.StandardColorCorrectionDto.GetHashCode*
+- uid: IGCLWrapper.StandardColorCorrectionDto.FromNative(IGCLWrapper.ctl_video_processing_standard_color_correction_t)
+  commentId: M:IGCLWrapper.StandardColorCorrectionDto.FromNative(IGCLWrapper.ctl_video_processing_standard_color_correction_t)
+  id: FromNative(IGCLWrapper.ctl_video_processing_standard_color_correction_t)
+  parent: IGCLWrapper.StandardColorCorrectionDto
+  langs:
+  - csharp
+  - vb
+  name: FromNative(ctl_video_processing_standard_color_correction_t)
+  nameWithType: StandardColorCorrectionDto.FromNative(ctl_video_processing_standard_color_correction_t)
+  fullName: IGCLWrapper.StandardColorCorrectionDto.FromNative(IGCLWrapper.ctl_video_processing_standard_color_correction_t)
+  type: Method
+  source:
+    remote:
+      path: IGCLWrapper/IGCLMediaHelper.cs
+      branch: develop
+      repo: https://github.com/terrymacdonald/IGCLWrapper.git
+    id: FromNative
+    path: ../IGCLWrapper/IGCLMediaHelper.cs
+    startLine: 641
+  assemblies:
+  - IGCLWrapper
+  namespace: IGCLWrapper
+  syntax:
+    content: public static StandardColorCorrectionDto FromNative(ctl_video_processing_standard_color_correction_t native)
+    parameters:
+    - id: native
+      type: IGCLWrapper.ctl_video_processing_standard_color_correction_t
+    return:
+      type: IGCLWrapper.StandardColorCorrectionDto
+    content.vb: Public Shared Function FromNative(native As ctl_video_processing_standard_color_correction_t) As StandardColorCorrectionDto
+  overload: IGCLWrapper.StandardColorCorrectionDto.FromNative*
+references:
+- uid: IGCLWrapper
+  commentId: N:IGCLWrapper
+  href: IGCLWrapper.html
+  name: IGCLWrapper
+  nameWithType: IGCLWrapper
+  fullName: IGCLWrapper
+- uid: System.IEquatable{IGCLWrapper.StandardColorCorrectionDto}
+  commentId: T:System.IEquatable{IGCLWrapper.StandardColorCorrectionDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<StandardColorCorrectionDto>
+  nameWithType: IEquatable<StandardColorCorrectionDto>
+  fullName: System.IEquatable<IGCLWrapper.StandardColorCorrectionDto>
+  nameWithType.vb: IEquatable(Of StandardColorCorrectionDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.StandardColorCorrectionDto)
+  name.vb: IEquatable(Of StandardColorCorrectionDto)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: IGCLWrapper.StandardColorCorrectionDto
+    name: StandardColorCorrectionDto
+    href: IGCLWrapper.StandardColorCorrectionDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: IGCLWrapper.StandardColorCorrectionDto
+    name: StandardColorCorrectionDto
+    href: IGCLWrapper.StandardColorCorrectionDto.html
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: IGCLWrapper.StandardColorCorrectionDto.Equals*
+  commentId: Overload:IGCLWrapper.StandardColorCorrectionDto.Equals
+  href: IGCLWrapper.StandardColorCorrectionDto.html#IGCLWrapper_StandardColorCorrectionDto_Equals_IGCLWrapper_StandardColorCorrectionDto_
+  name: Equals
+  nameWithType: StandardColorCorrectionDto.Equals
+  fullName: IGCLWrapper.StandardColorCorrectionDto.Equals
+- uid: System.IEquatable{IGCLWrapper.StandardColorCorrectionDto}.Equals(IGCLWrapper.StandardColorCorrectionDto)
+  commentId: M:System.IEquatable{IGCLWrapper.StandardColorCorrectionDto}.Equals(IGCLWrapper.StandardColorCorrectionDto)
+  parent: System.IEquatable{IGCLWrapper.StandardColorCorrectionDto}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(StandardColorCorrectionDto)
+  nameWithType: IEquatable<StandardColorCorrectionDto>.Equals(StandardColorCorrectionDto)
+  fullName: System.IEquatable<IGCLWrapper.StandardColorCorrectionDto>.Equals(IGCLWrapper.StandardColorCorrectionDto)
+  nameWithType.vb: IEquatable(Of StandardColorCorrectionDto).Equals(StandardColorCorrectionDto)
+  fullName.vb: System.IEquatable(Of IGCLWrapper.StandardColorCorrectionDto).Equals(IGCLWrapper.StandardColorCorrectionDto)
+  spec.csharp:
+  - uid: System.IEquatable{IGCLWrapper.StandardColorCorrectionDto}.Equals(IGCLWrapper.StandardColorCorrectionDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.StandardColorCorrectionDto
+    name: StandardColorCorrectionDto
+    href: IGCLWrapper.StandardColorCorrectionDto.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{IGCLWrapper.StandardColorCorrectionDto}.Equals(IGCLWrapper.StandardColorCorrectionDto)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: IGCLWrapper.StandardColorCorrectionDto
+    name: StandardColorCorrectionDto
+    href: IGCLWrapper.StandardColorCorrectionDto.html
+  - name: )
+- uid: IGCLWrapper.StandardColorCorrectionDto
+  commentId: T:IGCLWrapper.StandardColorCorrectionDto
+  parent: IGCLWrapper
+  href: IGCLWrapper.StandardColorCorrectionDto.html
+  name: StandardColorCorrectionDto
+  nameWithType: StandardColorCorrectionDto
+  fullName: IGCLWrapper.StandardColorCorrectionDto
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: IGCLWrapper.StandardColorCorrectionDto.GetHashCode*
+  commentId: Overload:IGCLWrapper.StandardColorCorrectionDto.GetHashCode
+  href: IGCLWrapper.StandardColorCorrectionDto.html#IGCLWrapper_StandardColorCorrectionDto_GetHashCode
+  name: GetHashCode
+  nameWithType: StandardColorCorrectionDto.GetHashCode
+  fullName: IGCLWrapper.StandardColorCorrectionDto.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: IGCLWrapper.StandardColorCorrectionDto.FromNative*
+  commentId: Overload:IGCLWrapper.StandardColorCorrectionDto.FromNative
+  href: IGCLWrapper.StandardColorCorrectionDto.html#IGCLWrapper_StandardColorCorrectionDto_FromNative_IGCLWrapper_ctl_video_processing_standard_color_correction_t_
+  name: FromNative
+  nameWithType: StandardColorCorrectionDto.FromNative
+  fullName: IGCLWrapper.StandardColorCorrectionDto.FromNative
+- uid: IGCLWrapper.ctl_video_processing_standard_color_correction_t
+  commentId: T:IGCLWrapper.ctl_video_processing_standard_color_correction_t
+  parent: IGCLWrapper
+  href: IGCLWrapper.ctl_video_processing_standard_color_correction_t.html
+  name: ctl_video_processing_standard_color_correction_t
+  nameWithType: ctl_video_processing_standard_color_correction_t
+  fullName: IGCLWrapper.ctl_video_processing_standard_color_correction_t
