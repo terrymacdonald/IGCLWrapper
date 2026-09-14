@@ -1258,62 +1258,131 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get pixel transformation configuration as DTOs. Current queries retrieve matrix blocks; LUT sample values require native methods.
+        /// Get pixel transformation configuration as DTOs.
         /// </summary>
         /// <param name="args">Pipe get config DTO.</param>
         /// <returns>Pixel transformation get result DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
         public PixelTransformationGetResultDto? PixelTransformationGetConfig(PixtxPipeGetConfigDto args)
         {
-            (ctl_pixtx_pipe_get_config_t config, ctl_pixtx_block_config_t[] blocks)? native;
             if (args.QueryType == ctl_pixtx_config_query_type_t.CTL_PIXTX_CONFIG_QUERY_TYPE_CURRENT)
-            {
-                // IGCL requires the caller to identify the desired block and initialize the
-                // corresponding payload header before it returns a current matrix value.
-                // Discover the supported blocks first, then request only the matrix blocks
-                // that this managed API can fully marshal.
-                var capability = PixelTransformationGetConfigNative(PixtxPipeGetConfigDto.CreateCapabilityRequest().ToNative());
-                if (capability == null)
-                    return null;
+                return PixelTransformationGetCurrentConfig(args);
 
-                var matrixBlocks = capability.Value.blocks
-                    .Where(block => block.BlockType == ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX ||
-                                    block.BlockType == ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX_AND_OFFSETS)
-                    .Take(1)
-                    .ToArray();
-                if (matrixBlocks.Length == 0)
-                    return PixelTransformationGetResultDto.FromNative(capability.Value.config, Array.Empty<ctl_pixtx_block_config_t>());
-
-                foreach (ref var block in matrixBlocks.AsSpan())
-                {
-                    block.Size = (uint)Unsafe.SizeOf<ctl_pixtx_block_config_t>();
-                    block.Version = 0;
-                    block.Config.MatrixConfig.Size = (uint)Unsafe.SizeOf<ctl_pixtx_matrix_config_t>();
-                    block.Config.MatrixConfig.Version = 0;
-                }
-
-                try
-                {
-                    native = PixelTransformationGetConfigNative(args.ToNative(), matrixBlocks);
-                }
-                catch (IGCLException ex) when (ex.Result == ctl_result_t.CTL_RESULT_ERROR_INVALID_PIXTX_BLOCK_TYPE)
-                {
-                    // Some drivers advertise a matrix block but do not expose a current
-                    // custom configuration for it. Without an original value, a managed
-                    // apply-and-revert operation cannot be performed safely.
-                    return null;
-                }
-            }
-            else
-            {
-                native = PixelTransformationGetConfigNative(args.ToNative());
-            }
+            var native = PixelTransformationGetConfigNative(args.ToNative());
             if (native == null)
                 return null;
             return PixelTransformationGetResultDto.FromNative(native.Value.config, native.Value.blocks);
         }
 
+        private unsafe PixelTransformationGetResultDto? PixelTransformationGetCurrentConfig(PixtxPipeGetConfigDto args)
+        {
+            var capability = PixelTransformationGetConfigNative(PixtxPipeGetConfigDto.CreateCapabilityRequest().ToNative());
+            if (capability == null)
+                return null;
+
+            if (capability.Value.blocks.Length == 0)
+            {
+                var emptyCurrent = PixelTransformationGetConfigNative(args.ToNative());
+                return emptyCurrent == null ? null : PixelTransformationGetResultDto.FromNative(emptyCurrent.Value.config, emptyCurrent.Value.blocks);
+            }
+
+            var blocks = new List<PixtxBlockConfigDto>(capability.Value.blocks.Length);
+            var pipeConfig = default(PixtxPipeGetConfigDto);
+            foreach (var capabilityBlock in capability.Value.blocks)
+            {
+                var block = capabilityBlock;
+                var pins = new List<GCHandle>();
+                try
+                {
+                    if (!PreparePixelTransformationCurrentBlock(ref block, pins))
+                        return null;
+
+                    var current = PixelTransformationGetConfigNative(args.ToNative(), new[] { block });
+                    if (current == null)
+                        return null;
+
+                    pipeConfig = PixtxPipeGetConfigDto.FromNative(current.Value.config);
+                    blocks.Add(PixtxBlockConfigDto.FromNative(current.Value.blocks[0]));
+                }
+                catch (IGCLException ex) when (IsCurrentPixelTransformationUnavailable(ex.Result))
+                {
+                    // The driver does not expose a current custom configuration for this
+                    // block. A partial result cannot be safely restored.
+                    return null;
+                }
+                finally
+                {
+                    foreach (var pin in pins)
+                        if (pin.IsAllocated)
+                            pin.Free();
+                }
+            }
+
+            return new PixelTransformationGetResultDto { PipeConfig = pipeConfig, Blocks = blocks };
+        }
+
+        private static bool IsCurrentPixelTransformationUnavailable(ctl_result_t result)
+        {
+            return result == ctl_result_t.CTL_RESULT_ERROR_INVALID_PIXTX_BLOCK_TYPE ||
+                   result == ctl_result_t.CTL_RESULT_ERROR_3DLUT_INVALID_PIPE ||
+                   result == ctl_result_t.CTL_RESULT_ERROR_3DLUT_INVALID_DATA ||
+                   result == ctl_result_t.CTL_RESULT_ERROR_3DLUT_NOT_SUPPORTED_IN_HDR ||
+                   result == ctl_result_t.CTL_RESULT_ERROR_3DLUT_INVALID_OPERATION ||
+                   result == ctl_result_t.CTL_RESULT_ERROR_3DLUT_UNSUCCESSFUL ||
+                   result == ctl_result_t.CTL_RESULT_ERROR_KMD_CALL;
+        }
+
+        private static unsafe bool PreparePixelTransformationCurrentBlock(ref ctl_pixtx_block_config_t block, List<GCHandle> pins)
+        {
+            block.Size = (uint)sizeof(ctl_pixtx_block_config_t);
+            block.Version = 0;
+            switch (block.BlockType)
+            {
+                case ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_1D_LUT:
+                {
+                    var sampleCount = checked((int)checked(block.Config.OneDLutConfig.NumSamplesPerChannel * block.Config.OneDLutConfig.NumChannels));
+                    if (sampleCount == 0)
+                        return false;
+                    var sampleValues = new double[sampleCount];
+                    pins.Add(GCHandle.Alloc(sampleValues, GCHandleType.Pinned));
+                    block.Config.OneDLutConfig.Size = (uint)sizeof(ctl_pixtx_1dlut_config_t);
+                    block.Config.OneDLutConfig.Version = 0;
+                    block.Config.OneDLutConfig.pSampleValues = (double*)pins[^1].AddrOfPinnedObject();
+                    if (block.Config.OneDLutConfig.SamplingType == ctl_pixtx_lut_sampling_type_t.CTL_PIXTX_LUT_SAMPLING_TYPE_NONUNIFORM)
+                    {
+                        var positions = new double[block.Config.OneDLutConfig.NumSamplesPerChannel];
+                        pins.Add(GCHandle.Alloc(positions, GCHandleType.Pinned));
+                        block.Config.OneDLutConfig.pSamplePositions = (double*)pins[^1].AddrOfPinnedObject();
+                    }
+                    return true;
+                }
+
+                case ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3D_LUT:
+                {
+                    var dimension = checked((int)block.Config.ThreeDLutConfig.NumSamplesPerChannel);
+                    var sampleCount = checked(checked(dimension * dimension) * dimension);
+                    if (sampleCount == 0)
+                        return false;
+                    var sampleValues = new ctl_pixtx_3dlut_sample_t[sampleCount];
+                    pins.Add(GCHandle.Alloc(sampleValues, GCHandleType.Pinned));
+                    block.Config.ThreeDLutConfig.Size = (uint)sizeof(ctl_pixtx_3dlut_config_t);
+                    block.Config.ThreeDLutConfig.Version = 0;
+                    block.Config.ThreeDLutConfig.pSampleValues = (ctl_pixtx_3dlut_sample_t*)pins[^1].AddrOfPinnedObject();
+                    return true;
+                }
+
+                case ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX:
+                case ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX_AND_OFFSETS:
+                    block.Config.MatrixConfig.Size = (uint)sizeof(ctl_pixtx_matrix_config_t);
+                    block.Config.MatrixConfig.Version = 0;
+                    return true;
+
+                default:
+                    return false;
+            }
+        }
+
         /// <summary>
-        /// Set pixel transformation configuration using a DTO (metadata only; LUT sample values require native methods).
+        /// Set pixel transformation configuration using DTOs.
         /// </summary>
         /// <param name="args">Pipe set config DTO.</param>
         /// <returns><c>true</c> if the setting was applied successfully; <c>false</c> if the feature is not supported on this hardware or driver.</returns>
@@ -1333,10 +1402,40 @@ namespace IGCLWrapper
                     native.Version = dto.Version;
                     native.BlockId = dto.BlockId;
                     native.BlockType = dto.BlockType;
-                    native.Config.MatrixConfig.Size = (uint)sizeof(ctl_pixtx_matrix_config_t);
-                    dto.MatrixConfig.PreOffsets.AsSpan().CopyTo(MemoryMarshal.CreateSpan(ref native.Config.MatrixConfig.PreOffsets.e0, 3));
-                    dto.MatrixConfig.PostOffsets.AsSpan().CopyTo(MemoryMarshal.CreateSpan(ref native.Config.MatrixConfig.PostOffsets.e0, 3));
-                    dto.MatrixConfig.Matrix.AsSpan().CopyTo(MemoryMarshal.CreateSpan(ref native.Config.MatrixConfig.Matrix.e0_0, 9));
+                    switch (dto.BlockType)
+                    {
+                        case ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_1D_LUT:
+                            native.Config.OneDLutConfig.Size = (uint)sizeof(ctl_pixtx_1dlut_config_t);
+                            native.Config.OneDLutConfig.Version = 0;
+                            native.Config.OneDLutConfig.SamplingType = dto.OneDLutConfig.SamplingType;
+                            native.Config.OneDLutConfig.NumSamplesPerChannel = dto.OneDLutConfig.NumSamplesPerChannel;
+                            native.Config.OneDLutConfig.NumChannels = dto.OneDLutConfig.NumChannels;
+                            pins.Add(GCHandle.Alloc(dto.OneDLutConfig.SampleValues, GCHandleType.Pinned));
+                            native.Config.OneDLutConfig.pSampleValues = (double*)pins[^1].AddrOfPinnedObject();
+                            if (dto.OneDLutConfig.SamplePositions is { Length: > 0 })
+                            {
+                                pins.Add(GCHandle.Alloc(dto.OneDLutConfig.SamplePositions, GCHandleType.Pinned));
+                                native.Config.OneDLutConfig.pSamplePositions = (double*)pins[^1].AddrOfPinnedObject();
+                            }
+                            break;
+
+                        case ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3D_LUT:
+                            var samples = dto.ThreeDLutConfig.SampleValues.Select(sample => new ctl_pixtx_3dlut_sample_t { Red = sample.Red, Green = sample.Green, Blue = sample.Blue }).ToArray();
+                            native.Config.ThreeDLutConfig.Size = (uint)sizeof(ctl_pixtx_3dlut_config_t);
+                            native.Config.ThreeDLutConfig.Version = 0;
+                            native.Config.ThreeDLutConfig.NumSamplesPerChannel = dto.ThreeDLutConfig.NumSamplesPerChannel;
+                            pins.Add(GCHandle.Alloc(samples, GCHandleType.Pinned));
+                            native.Config.ThreeDLutConfig.pSampleValues = (ctl_pixtx_3dlut_sample_t*)pins[^1].AddrOfPinnedObject();
+                            break;
+
+                        default:
+                            native.Config.MatrixConfig.Size = (uint)sizeof(ctl_pixtx_matrix_config_t);
+                            native.Config.MatrixConfig.Version = 0;
+                            dto.MatrixConfig.PreOffsets.AsSpan().CopyTo(MemoryMarshal.CreateSpan(ref native.Config.MatrixConfig.PreOffsets.e0, 3));
+                            dto.MatrixConfig.PostOffsets.AsSpan().CopyTo(MemoryMarshal.CreateSpan(ref native.Config.MatrixConfig.PostOffsets.e0, 3));
+                            dto.MatrixConfig.Matrix.AsSpan().CopyTo(MemoryMarshal.CreateSpan(ref native.Config.MatrixConfig.Matrix.e0_0, 9));
+                            break;
+                    }
                 }
 
                 var copy = args.ToNative();
@@ -1368,6 +1467,21 @@ namespace IGCLWrapper
             {
                 switch (block.BlockType)
                 {
+                    case ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_1D_LUT:
+                        var oneDValueCount = checked((int)checked(block.OneDLutConfig.NumSamplesPerChannel * block.OneDLutConfig.NumChannels));
+                        if (oneDValueCount == 0 || block.OneDLutConfig.SampleValues == null || block.OneDLutConfig.SampleValues.Length != oneDValueCount ||
+                            (block.OneDLutConfig.SamplingType == ctl_pixtx_lut_sampling_type_t.CTL_PIXTX_LUT_SAMPLING_TYPE_NONUNIFORM &&
+                             (block.OneDLutConfig.SamplePositions == null || block.OneDLutConfig.SamplePositions.Length != block.OneDLutConfig.NumSamplesPerChannel)))
+                            throw new ArgumentException("A 1D LUT block has invalid sample arrays.", nameof(args));
+                        break;
+
+                    case ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3D_LUT:
+                        var dimension = checked((int)block.ThreeDLutConfig.NumSamplesPerChannel);
+                        var threeDValueCount = checked(checked(dimension * dimension) * dimension);
+                        if (threeDValueCount == 0 || block.ThreeDLutConfig.SampleValues == null || block.ThreeDLutConfig.SampleValues.Length != threeDValueCount)
+                            throw new ArgumentException("A 3D LUT block has an invalid sample-value array.", nameof(args));
+                        break;
+
                     case ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX:
                     case ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX_AND_OFFSETS:
                         if (block.MatrixConfig.Matrix == null || block.MatrixConfig.Matrix.Length != 9 ||
@@ -1377,7 +1491,7 @@ namespace IGCLWrapper
                         break;
 
                     default:
-                        throw new ArgumentException("The managed pixel transformation API supports only 3x3 matrix blocks.", nameof(args));
+                        throw new ArgumentException("The pixel transformation request contains an unsupported block type.", nameof(args));
                 }
             }
         }
@@ -6780,6 +6894,37 @@ namespace IGCLWrapper
     }
 
     /// <summary>
+    /// Managed 1D LUT payload for a pixel transformation block.
+    /// </summary>
+    public struct PixtxOneDLutConfigDto
+    {
+        public ctl_pixtx_lut_sampling_type_t SamplingType;
+        public uint NumSamplesPerChannel;
+        public uint NumChannels;
+        public double[] SampleValues;
+        public double[]? SamplePositions;
+    }
+
+    /// <summary>
+    /// Managed RGB sample for a 3D LUT pixel transformation block.
+    /// </summary>
+    public struct PixtxThreeDLutSampleDto
+    {
+        public double Red;
+        public double Green;
+        public double Blue;
+    }
+
+    /// <summary>
+    /// Managed 3D LUT payload for a pixel transformation block.
+    /// </summary>
+    public struct PixtxThreeDLutConfigDto
+    {
+        public uint NumSamplesPerChannel;
+        public PixtxThreeDLutSampleDto[] SampleValues;
+    }
+
+    /// <summary>
     /// Managed matrix payload for a pixel transformation block.
     /// </summary>
     public struct PixtxMatrixConfigDto
@@ -6799,18 +6944,46 @@ namespace IGCLWrapper
         public byte Version;
         public uint BlockId;
         public ctl_pixtx_block_type_t BlockType;
+        public PixtxOneDLutConfigDto OneDLutConfig;
+        public PixtxThreeDLutConfigDto ThreeDLutConfig;
         public PixtxMatrixConfigDto MatrixConfig;
 
-        public static PixtxBlockConfigDto FromNative(ctl_pixtx_block_config_t native)
+        public static unsafe PixtxBlockConfigDto FromNative(ctl_pixtx_block_config_t native)
         {
             var result = new PixtxBlockConfigDto { Size = native.Size, Version = native.Version, BlockId = native.BlockId, BlockType = native.BlockType };
-            if (native.BlockType == ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX || native.BlockType == ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX_AND_OFFSETS)
-                result.MatrixConfig = new PixtxMatrixConfigDto
-                {
-                    PreOffsets = MemoryMarshal.CreateReadOnlySpan(ref native.Config.MatrixConfig.PreOffsets.e0, 3).ToArray(),
-                    PostOffsets = MemoryMarshal.CreateReadOnlySpan(ref native.Config.MatrixConfig.PostOffsets.e0, 3).ToArray(),
-                    Matrix = MemoryMarshal.CreateReadOnlySpan(ref native.Config.MatrixConfig.Matrix.e0_0, 9).ToArray()
-                };
+            switch (native.BlockType)
+            {
+                case ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_1D_LUT:
+                    var oneD = native.Config.OneDLutConfig;
+                    result.OneDLutConfig = new PixtxOneDLutConfigDto
+                    {
+                        SamplingType = oneD.SamplingType,
+                        NumSamplesPerChannel = oneD.NumSamplesPerChannel,
+                        NumChannels = oneD.NumChannels,
+                        SampleValues = oneD.pSampleValues == null ? Array.Empty<double>() : new ReadOnlySpan<double>(oneD.pSampleValues, checked((int)checked(oneD.NumSamplesPerChannel * oneD.NumChannels))).ToArray(),
+                        SamplePositions = oneD.pSamplePositions == null ? null : new ReadOnlySpan<double>(oneD.pSamplePositions, checked((int)oneD.NumSamplesPerChannel)).ToArray()
+                    };
+                    break;
+
+                case ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3D_LUT:
+                    var threeD = native.Config.ThreeDLutConfig;
+                    var sampleCount = checked(checked((int)threeD.NumSamplesPerChannel * (int)threeD.NumSamplesPerChannel) * (int)threeD.NumSamplesPerChannel);
+                    var samples = new PixtxThreeDLutSampleDto[threeD.pSampleValues == null ? 0 : sampleCount];
+                    for (var i = 0; i < samples.Length; i++)
+                        samples[i] = new PixtxThreeDLutSampleDto { Red = threeD.pSampleValues[i].Red, Green = threeD.pSampleValues[i].Green, Blue = threeD.pSampleValues[i].Blue };
+                    result.ThreeDLutConfig = new PixtxThreeDLutConfigDto { NumSamplesPerChannel = threeD.NumSamplesPerChannel, SampleValues = samples };
+                    break;
+
+                case ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX:
+                case ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX_AND_OFFSETS:
+                    result.MatrixConfig = new PixtxMatrixConfigDto
+                    {
+                        PreOffsets = MemoryMarshal.CreateReadOnlySpan(ref native.Config.MatrixConfig.PreOffsets.e0, 3).ToArray(),
+                        PostOffsets = MemoryMarshal.CreateReadOnlySpan(ref native.Config.MatrixConfig.PostOffsets.e0, 3).ToArray(),
+                        Matrix = MemoryMarshal.CreateReadOnlySpan(ref native.Config.MatrixConfig.Matrix.e0_0, 9).ToArray()
+                    };
+                    break;
+            }
             return result;
         }
 

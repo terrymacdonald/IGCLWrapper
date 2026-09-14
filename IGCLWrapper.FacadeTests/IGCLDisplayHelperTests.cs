@@ -929,6 +929,76 @@ namespace IGCLWrapper.FacadeTests
             Assert.Equal((uint)1, dto.Blocks[0].BlockId);
             Assert.Equal(ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3D_LUT, dto.Blocks[1].BlockType);
         }
+
+        [Fact]
+        public unsafe void PixtxOneDLutBlockDto_ShouldCopyPayload()
+        {
+            var values = new[] { 0.0, 0.5, 1.0, 0.0, 0.4, 1.0 };
+            var positions = new[] { 0.0, 0.5, 1.0 };
+            fixed (double* valuePointer = values)
+            fixed (double* positionPointer = positions)
+            {
+                var native = new ctl_pixtx_block_config_t
+                {
+                    BlockId = 1,
+                    BlockType = ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_1D_LUT,
+                    Config = new ctl_pixtx_config_t
+                    {
+                        OneDLutConfig = new ctl_pixtx_1dlut_config_t
+                        {
+                            SamplingType = ctl_pixtx_lut_sampling_type_t.CTL_PIXTX_LUT_SAMPLING_TYPE_NONUNIFORM,
+                            NumSamplesPerChannel = 3,
+                            NumChannels = 2,
+                            pSampleValues = valuePointer,
+                            pSamplePositions = positionPointer
+                        }
+                    }
+                };
+
+                var dto = PixtxBlockConfigDto.FromNative(native);
+                Assert.Equal(values, dto.OneDLutConfig.SampleValues);
+                Assert.Equal(positions, dto.OneDLutConfig.SamplePositions);
+                Assert.Equal((uint)2, dto.OneDLutConfig.NumChannels);
+            }
+        }
+
+        [Fact]
+        public unsafe void PixtxThreeDLutBlockDto_ShouldCopyPayload()
+        {
+            var values = new[]
+            {
+                new ctl_pixtx_3dlut_sample_t { Red = 0.1, Green = 0.2, Blue = 0.3 },
+                new ctl_pixtx_3dlut_sample_t { Red = 0.4, Green = 0.5, Blue = 0.6 },
+                new ctl_pixtx_3dlut_sample_t { Red = 0.7, Green = 0.8, Blue = 0.9 },
+                new ctl_pixtx_3dlut_sample_t { Red = 1.0, Green = 1.0, Blue = 1.0 },
+                new ctl_pixtx_3dlut_sample_t { Red = 0.0, Green = 0.0, Blue = 0.0 },
+                new ctl_pixtx_3dlut_sample_t { Red = 0.2, Green = 0.3, Blue = 0.4 },
+                new ctl_pixtx_3dlut_sample_t { Red = 0.5, Green = 0.6, Blue = 0.7 },
+                new ctl_pixtx_3dlut_sample_t { Red = 0.8, Green = 0.9, Blue = 1.0 }
+            };
+            fixed (ctl_pixtx_3dlut_sample_t* valuePointer = values)
+            {
+                var native = new ctl_pixtx_block_config_t
+                {
+                    BlockId = 2,
+                    BlockType = ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3D_LUT,
+                    Config = new ctl_pixtx_config_t
+                    {
+                        ThreeDLutConfig = new ctl_pixtx_3dlut_config_t
+                        {
+                            NumSamplesPerChannel = 2,
+                            pSampleValues = valuePointer
+                        }
+                    }
+                };
+
+                var dto = PixtxBlockConfigDto.FromNative(native);
+                Assert.Equal((uint)2, dto.ThreeDLutConfig.NumSamplesPerChannel);
+                Assert.Equal(8, dto.ThreeDLutConfig.SampleValues.Length);
+                Assert.Equal(0.1, dto.ThreeDLutConfig.SampleValues[0].Red);
+                Assert.Equal(1.0, dto.ThreeDLutConfig.SampleValues[7].Blue);
+            }
+        }
         
     }
 }

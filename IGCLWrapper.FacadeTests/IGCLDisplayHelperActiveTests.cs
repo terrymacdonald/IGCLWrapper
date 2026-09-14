@@ -288,28 +288,16 @@ namespace IGCLWrapper.FacadeTests
             RunActiveDisplayTest(nameof(PixelTransformationSetConfig_ShouldApplyAndRevert_WhenSupported), display =>
             {
                 var capability = FacadeTestUtils.InvokeOrSkip(() => display.PixelTransformationGetConfig(PixtxPipeGetConfigDto.CreateCapabilityRequest()), "Pixel transformation unsupported");
-                if (!capability.HasValue || !capability.Value.Blocks.Any(block =>
-                    block.BlockType == ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX ||
-                    block.BlockType == ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX_AND_OFFSETS))
-                    throw new SkipException("No matrix pixel-transformation block was returned by the capability query.");
+                if (!capability.HasValue || capability.Value.Blocks.Count == 0)
+                    throw new SkipException("No pixel-transformation block was returned by the capability query.");
 
                 var current = FacadeTestUtils.InvokeOrSkip(() => display.PixelTransformationGetConfig(PixtxPipeGetConfigDto.CreateCurrentRequest()), "Pixel transformation unsupported");
                 if (!current.HasValue)
                     throw new SkipException("The current pixel-transformation query returned no configuration.");
 
-                var original = current.Value.Blocks.FirstOrDefault(block =>
-                    block.BlockType == ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX ||
-                    block.BlockType == ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX_AND_OFFSETS);
-                if (original.MatrixConfig.Matrix == null || original.MatrixConfig.Matrix.Length != 9 ||
-                    original.MatrixConfig.PreOffsets == null || original.MatrixConfig.PreOffsets.Length != 3 ||
-                    original.MatrixConfig.PostOffsets == null || original.MatrixConfig.PostOffsets.Length != 3)
-                    throw new SkipException("The current matrix block did not contain a complete managed matrix payload.");
-
-                var updated = original;
-                updated.MatrixConfig.Matrix = original.MatrixConfig.Matrix.ToArray();
-                updated.MatrixConfig.PreOffsets = original.MatrixConfig.PreOffsets.ToArray();
-                updated.MatrixConfig.PostOffsets = original.MatrixConfig.PostOffsets.ToArray();
-                updated.MatrixConfig.Matrix[0] += 0.01;
+                var original = current.Value.Blocks.FirstOrDefault();
+                if (!TryBuildPixelTransformationUpdate(original, out var updated))
+                    throw new SkipException("The current pixel-transformation block did not contain a complete managed payload.");
 
                 ApplyAndRevert(
                     () =>
@@ -962,6 +950,43 @@ namespace IGCLWrapper.FacadeTests
         private static Span<double> GetMatrixSpan(ref ctl_pixtx_block_config_t block)
         {
             return MemoryMarshal.CreateSpan(ref block.Config.MatrixConfig.Matrix.e0_0, 9);
+        }
+
+        private static bool TryBuildPixelTransformationUpdate(PixtxBlockConfigDto original, out PixtxBlockConfigDto updated)
+        {
+            updated = original;
+            switch (original.BlockType)
+            {
+                case ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_1D_LUT:
+                    if (original.OneDLutConfig.SampleValues == null || original.OneDLutConfig.SampleValues.Length == 0)
+                        return false;
+                    updated.OneDLutConfig.SampleValues = original.OneDLutConfig.SampleValues.ToArray();
+                    updated.OneDLutConfig.SamplePositions = original.OneDLutConfig.SamplePositions?.ToArray();
+                    updated.OneDLutConfig.SampleValues[0] += 0.01;
+                    return true;
+
+                case ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3D_LUT:
+                    if (original.ThreeDLutConfig.SampleValues == null || original.ThreeDLutConfig.SampleValues.Length == 0)
+                        return false;
+                    updated.ThreeDLutConfig.SampleValues = original.ThreeDLutConfig.SampleValues.ToArray();
+                    updated.ThreeDLutConfig.SampleValues[0].Red += 0.01;
+                    return true;
+
+                case ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX:
+                case ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX_AND_OFFSETS:
+                    if (original.MatrixConfig.Matrix == null || original.MatrixConfig.Matrix.Length != 9 ||
+                        original.MatrixConfig.PreOffsets == null || original.MatrixConfig.PreOffsets.Length != 3 ||
+                        original.MatrixConfig.PostOffsets == null || original.MatrixConfig.PostOffsets.Length != 3)
+                        return false;
+                    updated.MatrixConfig.Matrix = original.MatrixConfig.Matrix.ToArray();
+                    updated.MatrixConfig.PreOffsets = original.MatrixConfig.PreOffsets.ToArray();
+                    updated.MatrixConfig.PostOffsets = original.MatrixConfig.PostOffsets.ToArray();
+                    updated.MatrixConfig.Matrix[0] += 0.01;
+                    return true;
+
+                default:
+                    return false;
+            }
         }
 
         private static void PrepareMatrixBlock(ref ctl_pixtx_block_config_t block)
