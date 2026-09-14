@@ -56,6 +56,52 @@ namespace IGCLWrapper
         }
 
         /// <summary>
+        /// Gets the adapter-wide standard colour-correction settings.
+        /// </summary>
+        /// <returns>The colour-correction settings, or <c>null</c> when unsupported.</returns>
+        public unsafe StandardColorCorrectionDto? GetStandardColorCorrection()
+        {
+            ThrowIfDisposed();
+            var request = CreateVideoProcessingFeatureGetSet();
+            var nativeSettings = StandardColorCorrectionDto.CreateNative();
+            request.FeatureType = ctl_video_processing_feature_t.CTL_VIDEO_PROCESSING_FEATURE_STANDARD_COLOR_CORRECTION;
+            request.ValueType = ctl_property_value_type_t.CTL_PROPERTY_VALUE_TYPE_CUSTOM;
+            request.CustomValueSize = sizeof(ctl_video_processing_standard_color_correction_t);
+            request.pCustomValue = &nativeSettings;
+
+            var result = IGCL.ctlGetSetVideoProcessingFeature((_ctl_device_adapter_handle_t*)_adapter, &request);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return StandardColorCorrectionDto.FromNative(nativeSettings);
+            if (IsUnsupportedResult(result))
+                return null;
+            throw new IGCLException(result, "Failed to get standard colour correction");
+        }
+
+        /// <summary>
+        /// Sets the adapter-wide standard colour-correction settings.
+        /// </summary>
+        /// <param name="settings">The colour-correction settings to apply.</param>
+        /// <returns><c>true</c> when applied; <c>false</c> when unsupported.</returns>
+        public unsafe bool SetStandardColorCorrection(StandardColorCorrectionDto settings)
+        {
+            ThrowIfDisposed();
+            var request = CreateVideoProcessingFeatureGetSet();
+            var nativeSettings = settings.ToNative();
+            request.FeatureType = ctl_video_processing_feature_t.CTL_VIDEO_PROCESSING_FEATURE_STANDARD_COLOR_CORRECTION;
+            request.bSet = 1;
+            request.ValueType = ctl_property_value_type_t.CTL_PROPERTY_VALUE_TYPE_CUSTOM;
+            request.CustomValueSize = sizeof(ctl_video_processing_standard_color_correction_t);
+            request.pCustomValue = &nativeSettings;
+
+            var result = IGCL.ctlGetSetVideoProcessingFeature((_ctl_device_adapter_handle_t*)_adapter, &request);
+            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                return true;
+            if (IsUnsupportedResult(result))
+                return false;
+            throw new IGCLException(result, "Failed to set standard colour correction");
+        }
+
+        /// <summary>
         /// Set a video processing feature using a DTO request.
         /// </summary>
         /// <param name="featureGetSet">Video processing feature DTO.</param>
@@ -523,6 +569,68 @@ namespace IGCLWrapper
             var count = Math.Min(values.Count, ReservedFieldCount);
             for (var i = 0; i < count; i++)
                 pValues[i] = values[i];
+        }
+    }
+
+    /// <summary>
+    /// Adapter-wide hue, saturation, contrast, and brightness settings.
+    /// </summary>
+    public struct StandardColorCorrectionDto : IEquatable<StandardColorCorrectionDto>
+    {
+        /// <summary>Whether standard colour correction is enabled.</summary>
+        public bool Enable;
+        /// <summary>Brightness adjustment.</summary>
+        public float Brightness;
+        /// <summary>Contrast adjustment.</summary>
+        public float Contrast;
+        /// <summary>Hue adjustment.</summary>
+        public float Hue;
+        /// <summary>Saturation adjustment.</summary>
+        public float Saturation;
+
+        public bool Equals(StandardColorCorrectionDto other)
+        {
+            return Enable == other.Enable &&
+                Brightness.Equals(other.Brightness) &&
+                Contrast.Equals(other.Contrast) &&
+                Hue.Equals(other.Hue) &&
+                Saturation.Equals(other.Saturation);
+        }
+
+        public override bool Equals(object? obj) => obj is StandardColorCorrectionDto other && Equals(other);
+
+        public override int GetHashCode() => (Enable, Brightness, Contrast, Hue, Saturation).GetHashCode();
+
+        public static unsafe StandardColorCorrectionDto FromNative(ctl_video_processing_standard_color_correction_t native)
+        {
+            return new StandardColorCorrectionDto
+            {
+                Enable = native.standard_color_correction_enable != 0,
+                Brightness = native.brightness,
+                Contrast = native.contrast,
+                Hue = native.hue,
+                Saturation = native.saturation
+            };
+        }
+
+        internal static unsafe ctl_video_processing_standard_color_correction_t CreateNative()
+        {
+            return new ctl_video_processing_standard_color_correction_t
+            {
+                Size = (uint)sizeof(ctl_video_processing_standard_color_correction_t),
+                Version = 0
+            };
+        }
+
+        internal unsafe ctl_video_processing_standard_color_correction_t ToNative()
+        {
+            var native = CreateNative();
+            native.standard_color_correction_enable = Enable ? (byte)1 : (byte)0;
+            native.brightness = Brightness;
+            native.contrast = Contrast;
+            native.hue = Hue;
+            native.saturation = Saturation;
+            return native;
         }
     }
 }
