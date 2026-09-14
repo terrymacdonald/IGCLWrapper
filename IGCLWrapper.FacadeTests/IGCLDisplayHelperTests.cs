@@ -908,7 +908,7 @@ namespace IGCLWrapper.FacadeTests
             };
             var dto = PixtxPipeSetConfigDto.FromNative(native);
             Assert.Equal(ctl_pixtx_config_opertaion_type_t.CTL_PIXTX_CONFIG_OPERTAION_TYPE_RESTORE_DEFAULT, dto.OpertaionType);
-            Assert.Equal((uint)2, dto.NumBlocks);
+            Assert.Equal((uint)0, dto.NumBlocks);
             var roundTrip = dto.ToNative();
             Assert.Equal(ctl_pixtx_config_opertaion_type_t.CTL_PIXTX_CONFIG_OPERTAION_TYPE_RESTORE_DEFAULT, roundTrip.OpertaionType);
         }

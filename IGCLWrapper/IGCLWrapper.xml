@@ -1903,7 +1903,7 @@
         </member>
         <member name="M:IGCLWrapper.IGCLDisplayHelper.PixelTransformationGetConfig(IGCLWrapper.PixtxPipeGetConfigDto)">
             <summary>
-            Get pixel transformation configuration as DTOs (metadata only; LUT sample values require native methods).
+            Get pixel transformation configuration as DTOs. Current queries retrieve matrix blocks; LUT sample values require native methods.
             </summary>
             <param name="args">Pipe get config DTO.</param>
             <returns>Pixel transformation get result DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
@@ -3605,14 +3605,25 @@
             DTO for pixel transformation pipe get config (metadata only; LUT sample values require native methods).
             </summary>
         </member>
+        <member name="T:IGCLWrapper.PixtxMatrixConfigDto">
+            <summary>
+            Managed matrix payload for a pixel transformation block.
+            </summary>
+        </member>
         <member name="T:IGCLWrapper.PixtxBlockConfigDto">
             <summary>
-            DTO for pixel transformation block config (metadata only; LUT sample values require native methods).
+            DTO for pixel transformation block config.
+            Only the payload matching <see cref="F:IGCLWrapper.PixtxBlockConfigDto.BlockType"/> is used.
             </summary>
         </member>
         <member name="T:IGCLWrapper.PixtxPipeSetConfigDto">
             <summary>
             DTO for pixel transformation pipe set config.
+            </summary>
+        </member>
+        <member name="P:IGCLWrapper.PixtxPipeSetConfigDto.NumBlocks">
+            <summary>
+            Gets the number of managed block configurations in this request.
             </summary>
         </member>
         <member name="T:IGCLWrapper.PixelTransformationGetResultDto">

@@ -114,6 +114,51 @@ namespace IGCLWrapper.Tests
         }
 
         [SkippableFact]
+        [Trait("Category", "Passive")]
+        public unsafe void CtlPixelTransformationGetConfig_ShouldDiscoverBlockDescriptors()
+        {
+            Skip.If(!_hasHardware || !_hasDll || _api == null || _displays == null || _displays.Length == 0 || _noDisplaysAvailable, _skipReason);
+
+            var args = new ctl_pixtx_pipe_get_config_t
+            {
+                Size = (uint)sizeof(ctl_pixtx_pipe_get_config_t),
+                Version = 0,
+                QueryType = ctl_pixtx_config_query_type_t.CTL_PIXTX_CONFIG_QUERY_TYPE_CAPABILITY
+            };
+
+            var result = IGCL.ctlPixelTransformationGetConfig((_ctl_display_output_handle_t*)_displays[0], &args);
+            if (result != ctl_result_t.CTL_RESULT_SUCCESS && args.NumBlocks == 0)
+                throw new SkipException($"Pixel transformation capability query is unavailable: {result}");
+
+            if (args.NumBlocks == 0)
+                return;
+
+            var blocks = new ctl_pixtx_block_config_t[args.NumBlocks];
+            for (var index = 0; index < blocks.Length; index++)
+            {
+                blocks[index].Size = (uint)sizeof(ctl_pixtx_block_config_t);
+                blocks[index].Version = 0;
+            }
+
+            fixed (ctl_pixtx_block_config_t* blockPointer = blocks)
+            {
+                args.pBlockConfigs = blockPointer;
+                result = IGCL.ctlPixelTransformationGetConfig((_ctl_display_output_handle_t*)_displays[0], &args);
+                args.pBlockConfigs = null;
+            }
+
+            Assert.Equal(ctl_result_t.CTL_RESULT_SUCCESS, result);
+            Assert.Equal((uint)blocks.Length, args.NumBlocks);
+            Assert.All(blocks, block => Assert.Contains(block.BlockType, new[]
+            {
+                ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_1D_LUT,
+                ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3D_LUT,
+                ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX,
+                ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX_AND_OFFSETS
+            }));
+        }
+
+        [SkippableFact]
         public void CtlGetAdaperDisplayEncoderProperties_ShouldReturnValidProperties()
         {
             // Arrange

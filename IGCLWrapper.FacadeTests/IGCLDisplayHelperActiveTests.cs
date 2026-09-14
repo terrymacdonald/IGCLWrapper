@@ -287,21 +287,41 @@ namespace IGCLWrapper.FacadeTests
         {
             RunActiveDisplayTest(nameof(PixelTransformationSetConfig_ShouldApplyAndRevert_WhenSupported), display =>
             {
-                var capabilityQuery = IGCLDisplayHelper.CreatePixtxPipeGetConfig();
-                capabilityQuery.QueryType = ctl_pixtx_config_query_type_t.CTL_PIXTX_CONFIG_QUERY_TYPE_CAPABILITY;
+                var capability = FacadeTestUtils.InvokeOrSkip(() => display.PixelTransformationGetConfig(PixtxPipeGetConfigDto.CreateCapabilityRequest()), "Pixel transformation unsupported");
+                if (!capability.HasValue || !capability.Value.Blocks.Any(block =>
+                    block.BlockType == ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX ||
+                    block.BlockType == ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX_AND_OFFSETS))
+                    throw new SkipException("No matrix pixel-transformation block was returned by the capability query.");
 
-                var capability = FacadeTestUtils.InvokeOrSkip(() => display.PixelTransformationGetConfigNative(capabilityQuery), "Pixel transformation unsupported");
-                if (!capability.HasValue || !TryPickPixTxMatrixBlock(capability.Value.blocks, out var block))
-                    return false;
+                var current = FacadeTestUtils.InvokeOrSkip(() => display.PixelTransformationGetConfig(PixtxPipeGetConfigDto.CreateCurrentRequest()), "Pixel transformation unsupported");
+                if (!current.HasValue)
+                    throw new SkipException("The current pixel-transformation query returned no configuration.");
 
-                PrepareMatrixBlock(ref block);
-                var currentQuery = IGCLDisplayHelper.CreatePixtxPipeGetConfig();
-                currentQuery.QueryType = ctl_pixtx_config_query_type_t.CTL_PIXTX_CONFIG_QUERY_TYPE_CURRENT;
-                var current = FacadeTestUtils.InvokeOrSkip(() => display.PixelTransformationGetConfigNative(currentQuery, new[] { block }), "Pixel transformation unsupported");
-                if (!current.HasValue || !TryBuildPixTxMatrixUpdate(current.Value.blocks, out var original, out var updated))
-                    return false;
+                var original = current.Value.Blocks.FirstOrDefault(block =>
+                    block.BlockType == ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX ||
+                    block.BlockType == ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX_AND_OFFSETS);
+                if (original.MatrixConfig.Matrix == null || original.MatrixConfig.Matrix.Length != 9 ||
+                    original.MatrixConfig.PreOffsets == null || original.MatrixConfig.PreOffsets.Length != 3 ||
+                    original.MatrixConfig.PostOffsets == null || original.MatrixConfig.PostOffsets.Length != 3)
+                    throw new SkipException("The current matrix block did not contain a complete managed matrix payload.");
 
-                ApplyAndRevert(() => SetPixTxConfig(display, updated), () => SetPixTxConfig(display, original));
+                var updated = original;
+                updated.MatrixConfig.Matrix = original.MatrixConfig.Matrix.ToArray();
+                updated.MatrixConfig.PreOffsets = original.MatrixConfig.PreOffsets.ToArray();
+                updated.MatrixConfig.PostOffsets = original.MatrixConfig.PostOffsets.ToArray();
+                updated.MatrixConfig.Matrix[0] += 0.01;
+
+                ApplyAndRevert(
+                    () =>
+                    {
+                        if (!display.PixelTransformationSetConfig(new PixtxPipeSetConfigDto { OpertaionType = ctl_pixtx_config_opertaion_type_t.CTL_PIXTX_CONFIG_OPERTAION_TYPE_SET_CUSTOM, Blocks = new List<PixtxBlockConfigDto> { updated } }))
+                            throw new SkipException("The pixel-transformation update was not supported by this display.");
+                    },
+                    () =>
+                    {
+                        if (!display.PixelTransformationSetConfig(new PixtxPipeSetConfigDto { OpertaionType = ctl_pixtx_config_opertaion_type_t.CTL_PIXTX_CONFIG_OPERTAION_TYPE_SET_CUSTOM, Blocks = new List<PixtxBlockConfigDto> { original } }))
+                            throw new XunitException("The pixel-transformation update was applied, but the original matrix could not be restored.");
+                    });
                 return true;
             });
         }
@@ -343,6 +363,7 @@ namespace IGCLWrapper.FacadeTests
                 throw new SkipException("No adapters returned from IGCL.");
 
             var failures = new List<string>();
+            var unsupportedReasons = new List<string>();
             var activeDisplays = 0;
             var executedDisplays = 0;
 
@@ -386,13 +407,13 @@ namespace IGCLWrapper.FacadeTests
                         if (action(display))
                             executedDisplays++;
                     }
-                    catch (SkipException)
+                    catch (SkipException ex)
                     {
-                        // Unsupported on this display.
+                        unsupportedReasons.Add($"{adapterLabel}/{display.Name}: {ex.Message}");
                     }
                     catch (IGCLException ex) when (IsUnsupportedResult(ex.Result))
                     {
-                        // Unsupported on this display.
+                        unsupportedReasons.Add($"{adapterLabel}/{display.Name}: {ex.Result} {ex.Message}");
                     }
                     catch (EntryPointNotFoundException)
                     {
@@ -415,11 +436,11 @@ namespace IGCLWrapper.FacadeTests
             if (activeDisplays == 0)
                 throw new SkipException("No active displays connected.");
 
-            if (executedDisplays == 0)
-                throw new SkipException($"{testName} unsupported on active displays.");
-
             if (failures.Count > 0)
                 throw new XunitException($"{testName} failures:{Environment.NewLine}{string.Join(Environment.NewLine, failures)}");
+
+            if (executedDisplays == 0)
+                throw new SkipException($"{testName} unsupported on active displays.{(unsupportedReasons.Count > 0 ? " " + string.Join(" | ", unsupportedReasons) : string.Empty)}");
         }
 
         private static string SafeAdapterLabel(IGCLAdapterHelper adapter, int index)

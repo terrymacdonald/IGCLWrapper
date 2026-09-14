@@ -1258,13 +1258,55 @@ namespace IGCLWrapper
         }
 
         /// <summary>
-        /// Get pixel transformation configuration as DTOs (metadata only; LUT sample values require native methods).
+        /// Get pixel transformation configuration as DTOs. Current queries retrieve matrix blocks; LUT sample values require native methods.
         /// </summary>
         /// <param name="args">Pipe get config DTO.</param>
         /// <returns>Pixel transformation get result DTO, or <c>null</c> if the feature is not supported on this hardware or driver.</returns>
         public PixelTransformationGetResultDto? PixelTransformationGetConfig(PixtxPipeGetConfigDto args)
         {
-            var native = PixelTransformationGetConfigNative(args.ToNative());
+            (ctl_pixtx_pipe_get_config_t config, ctl_pixtx_block_config_t[] blocks)? native;
+            if (args.QueryType == ctl_pixtx_config_query_type_t.CTL_PIXTX_CONFIG_QUERY_TYPE_CURRENT)
+            {
+                // IGCL requires the caller to identify the desired block and initialize the
+                // corresponding payload header before it returns a current matrix value.
+                // Discover the supported blocks first, then request only the matrix blocks
+                // that this managed API can fully marshal.
+                var capability = PixelTransformationGetConfigNative(PixtxPipeGetConfigDto.CreateCapabilityRequest().ToNative());
+                if (capability == null)
+                    return null;
+
+                var matrixBlocks = capability.Value.blocks
+                    .Where(block => block.BlockType == ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX ||
+                                    block.BlockType == ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX_AND_OFFSETS)
+                    .Take(1)
+                    .ToArray();
+                if (matrixBlocks.Length == 0)
+                    return PixelTransformationGetResultDto.FromNative(capability.Value.config, Array.Empty<ctl_pixtx_block_config_t>());
+
+                foreach (ref var block in matrixBlocks.AsSpan())
+                {
+                    block.Size = (uint)Unsafe.SizeOf<ctl_pixtx_block_config_t>();
+                    block.Version = 0;
+                    block.Config.MatrixConfig.Size = (uint)Unsafe.SizeOf<ctl_pixtx_matrix_config_t>();
+                    block.Config.MatrixConfig.Version = 0;
+                }
+
+                try
+                {
+                    native = PixelTransformationGetConfigNative(args.ToNative(), matrixBlocks);
+                }
+                catch (IGCLException ex) when (ex.Result == ctl_result_t.CTL_RESULT_ERROR_INVALID_PIXTX_BLOCK_TYPE)
+                {
+                    // Some drivers advertise a matrix block but do not expose a current
+                    // custom configuration for it. Without an original value, a managed
+                    // apply-and-revert operation cannot be performed safely.
+                    return null;
+                }
+            }
+            else
+            {
+                native = PixelTransformationGetConfigNative(args.ToNative());
+            }
             if (native == null)
                 return null;
             return PixelTransformationGetResultDto.FromNative(native.Value.config, native.Value.blocks);
@@ -1278,13 +1320,66 @@ namespace IGCLWrapper
         public unsafe bool PixelTransformationSetConfig(PixtxPipeSetConfigDto args)
         {
             ThrowIfDisposed();
-            var copy = args.ToNative();
-            var result = IGCL.ctlPixelTransformationSetConfig((_ctl_display_output_handle_t*)DisplayHandle, &copy);
-            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
-                return true;
-            if (IsUnsupportedResult(result))
-                return false;
-            throw new IGCLException(result, "Failed to set pixel transformation config");
+            ValidatePixelTransformationSetRequest(args);
+            var nativeBlocks = new ctl_pixtx_block_config_t[args.Blocks?.Count ?? 0];
+            var pins = new List<GCHandle>();
+            try
+            {
+                for (var index = 0; index < nativeBlocks.Length; index++)
+                {
+                    var dto = args.Blocks![index];
+                    ref var native = ref nativeBlocks[index];
+                    native.Size = (uint)sizeof(ctl_pixtx_block_config_t);
+                    native.Version = dto.Version;
+                    native.BlockId = dto.BlockId;
+                    native.BlockType = dto.BlockType;
+                    native.Config.MatrixConfig.Size = (uint)sizeof(ctl_pixtx_matrix_config_t);
+                    dto.MatrixConfig.PreOffsets.AsSpan().CopyTo(MemoryMarshal.CreateSpan(ref native.Config.MatrixConfig.PreOffsets.e0, 3));
+                    dto.MatrixConfig.PostOffsets.AsSpan().CopyTo(MemoryMarshal.CreateSpan(ref native.Config.MatrixConfig.PostOffsets.e0, 3));
+                    dto.MatrixConfig.Matrix.AsSpan().CopyTo(MemoryMarshal.CreateSpan(ref native.Config.MatrixConfig.Matrix.e0_0, 9));
+                }
+
+                var copy = args.ToNative();
+                if (nativeBlocks.Length > 0)
+                {
+                    pins.Add(GCHandle.Alloc(nativeBlocks, GCHandleType.Pinned));
+                    copy.pBlockConfigs = (ctl_pixtx_block_config_t*)pins[^1].AddrOfPinnedObject();
+                }
+                var result = IGCL.ctlPixelTransformationSetConfig((_ctl_display_output_handle_t*)DisplayHandle, &copy);
+                if (result == ctl_result_t.CTL_RESULT_SUCCESS) return true;
+                if (IsUnsupportedResult(result)) return false;
+                throw new IGCLException(result, "Failed to set pixel transformation config");
+            }
+            finally
+            {
+                foreach (var pin in pins) if (pin.IsAllocated) pin.Free();
+            }
+        }
+
+        private static void ValidatePixelTransformationSetRequest(PixtxPipeSetConfigDto args)
+        {
+            if (args.OpertaionType != ctl_pixtx_config_opertaion_type_t.CTL_PIXTX_CONFIG_OPERTAION_TYPE_SET_CUSTOM)
+                return;
+
+            if (args.Blocks == null || args.Blocks.Count == 0)
+                throw new ArgumentException("A custom pixel transformation request must contain at least one block.", nameof(args));
+
+            foreach (var block in args.Blocks)
+            {
+                switch (block.BlockType)
+                {
+                    case ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX:
+                    case ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX_AND_OFFSETS:
+                        if (block.MatrixConfig.Matrix == null || block.MatrixConfig.Matrix.Length != 9 ||
+                            block.MatrixConfig.PreOffsets == null || block.MatrixConfig.PreOffsets.Length != 3 ||
+                            block.MatrixConfig.PostOffsets == null || block.MatrixConfig.PostOffsets.Length != 3)
+                            throw new ArgumentException("A matrix block must contain a 3x3 matrix and three pre/post offsets.", nameof(args));
+                        break;
+
+                    default:
+                        throw new ArgumentException("The managed pixel transformation API supports only 3x3 matrix blocks.", nameof(args));
+                }
+            }
         }
 
         /// <summary>
@@ -6685,7 +6780,18 @@ namespace IGCLWrapper
     }
 
     /// <summary>
-    /// DTO for pixel transformation block config (metadata only; LUT sample values require native methods).
+    /// Managed matrix payload for a pixel transformation block.
+    /// </summary>
+    public struct PixtxMatrixConfigDto
+    {
+        public double[] Matrix;
+        public double[] PreOffsets;
+        public double[] PostOffsets;
+    }
+
+    /// <summary>
+    /// DTO for pixel transformation block config.
+    /// Only the payload matching <see cref="BlockType"/> is used.
     /// </summary>
     public struct PixtxBlockConfigDto : IEquatable<PixtxBlockConfigDto>
     {
@@ -6693,15 +6799,20 @@ namespace IGCLWrapper
         public byte Version;
         public uint BlockId;
         public ctl_pixtx_block_type_t BlockType;
+        public PixtxMatrixConfigDto MatrixConfig;
 
         public static PixtxBlockConfigDto FromNative(ctl_pixtx_block_config_t native)
-            => new PixtxBlockConfigDto
-            {
-                Size = native.Size,
-                Version = native.Version,
-                BlockId = native.BlockId,
-                BlockType = native.BlockType
-            };
+        {
+            var result = new PixtxBlockConfigDto { Size = native.Size, Version = native.Version, BlockId = native.BlockId, BlockType = native.BlockType };
+            if (native.BlockType == ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX || native.BlockType == ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX_AND_OFFSETS)
+                result.MatrixConfig = new PixtxMatrixConfigDto
+                {
+                    PreOffsets = MemoryMarshal.CreateReadOnlySpan(ref native.Config.MatrixConfig.PreOffsets.e0, 3).ToArray(),
+                    PostOffsets = MemoryMarshal.CreateReadOnlySpan(ref native.Config.MatrixConfig.PostOffsets.e0, 3).ToArray(),
+                    Matrix = MemoryMarshal.CreateReadOnlySpan(ref native.Config.MatrixConfig.Matrix.e0_0, 9).ToArray()
+                };
+            return result;
+        }
 
         public bool Equals(PixtxBlockConfigDto other)
             => Size == other.Size && Version == other.Version && BlockId == other.BlockId && BlockType == other.BlockType;
@@ -6719,7 +6830,12 @@ namespace IGCLWrapper
         public byte Version;
         public ctl_pixtx_config_opertaion_type_t OpertaionType;
         public uint Flags;
-        public uint NumBlocks;
+        public List<PixtxBlockConfigDto> Blocks;
+
+        /// <summary>
+        /// Gets the number of managed block configurations in this request.
+        /// </summary>
+        public uint NumBlocks => (uint)(Blocks?.Count ?? 0);
 
         public static PixtxPipeSetConfigDto FromNative(ctl_pixtx_pipe_set_config_t native)
             => new PixtxPipeSetConfigDto
@@ -6728,7 +6844,7 @@ namespace IGCLWrapper
                 Version = native.Version,
                 OpertaionType = native.OpertaionType,
                 Flags = native.Flags,
-                NumBlocks = native.NumBlocks
+                Blocks = new List<PixtxBlockConfigDto>()
             };
 
         public unsafe ctl_pixtx_pipe_set_config_t ToNative()
