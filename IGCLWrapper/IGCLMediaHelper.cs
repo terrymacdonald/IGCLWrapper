@@ -804,6 +804,12 @@ namespace IGCLWrapper
 
         public bool Equals(StandardColorCorrectionDto other)
         {
+            // IGCL only reliably returns the enable state when SCC is disabled.
+            // Its inactive colour values must not cause a profile mismatch or a
+            // redundant SET operation.
+            if (!Enable || !other.Enable)
+                return Enable == other.Enable;
+
             return Enable == other.Enable &&
                 Brightness.Equals(other.Brightness) &&
                 Contrast.Equals(other.Contrast) &&
@@ -813,13 +819,23 @@ namespace IGCLWrapper
 
         public override bool Equals(object? obj) => obj is StandardColorCorrectionDto other && Equals(other);
 
-        public override int GetHashCode() => (Enable, Brightness, Contrast, Hue, Saturation).GetHashCode();
+        public override int GetHashCode() => Enable
+            ? (Enable, Brightness, Contrast, Hue, Saturation).GetHashCode()
+            : false.GetHashCode();
 
         public static unsafe StandardColorCorrectionDto FromNative(ctl_video_processing_standard_color_correction_t native)
         {
+            var enabled = native.standard_color_correction_enable != 0;
+            if (!enabled)
+            {
+                // The driver leaves the remaining fields undefined while SCC is
+                // disabled. Store a deterministic inactive representation.
+                return new StandardColorCorrectionDto { Enable = false };
+            }
+
             return new StandardColorCorrectionDto
             {
-                Enable = native.standard_color_correction_enable != 0,
+                Enable = true,
                 Brightness = native.brightness,
                 Contrast = native.contrast,
                 Hue = native.hue,
