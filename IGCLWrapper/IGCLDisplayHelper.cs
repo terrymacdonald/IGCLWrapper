@@ -1338,7 +1338,14 @@ namespace IGCLWrapper
                     var sampleValues = new double[sampleCount];
                     pins.Add(GCHandle.Alloc(sampleValues, GCHandleType.Pinned));
                     block.Config.OneDLutConfig.pSampleValues = (double*)pins[^1].AddrOfPinnedObject();
-                    if (block.Config.OneDLutConfig.SamplingType == ctl_pixtx_lut_sampling_type_t.CTL_PIXTX_LUT_SAMPLING_TYPE_NONUNIFORM)
+                    if (block.Config.OneDLutConfig.SamplingType == ctl_pixtx_lut_sampling_type_t.CTL_PIXTX_LUT_SAMPLING_TYPE_UNIFORM)
+                    {
+                        // Intel's 1D-LUT samples explicitly pass NULL for a uniform
+                        // LUT. A capability query can otherwise leave a stale native
+                        // pointer in this copied block structure.
+                        block.Config.OneDLutConfig.pSamplePositions = null;
+                    }
+                    else
                     {
                         var positions = new double[block.Config.OneDLutConfig.NumSamplesPerChannel];
                         pins.Add(GCHandle.Alloc(positions, GCHandleType.Pinned));
@@ -1403,7 +1410,13 @@ namespace IGCLWrapper
                             EnsureMatchingOneDLutCapability(dto, native.Config.OneDLutConfig);
                             pins.Add(GCHandle.Alloc(dto.OneDLutConfig.SampleValues, GCHandleType.Pinned));
                             native.Config.OneDLutConfig.pSampleValues = (double*)pins[^1].AddrOfPinnedObject();
-                            if (dto.OneDLutConfig.SamplePositions is { Length: > 0 })
+                            if (native.Config.OneDLutConfig.SamplingType == ctl_pixtx_lut_sampling_type_t.CTL_PIXTX_LUT_SAMPLING_TYPE_UNIFORM)
+                            {
+                                // Match SetGammaLut and SetDeGammaLut in Intel's
+                                // Color sample: uniform LUTs must send no positions.
+                                native.Config.OneDLutConfig.pSamplePositions = null;
+                            }
+                            else
                             {
                                 pins.Add(GCHandle.Alloc(dto.OneDLutConfig.SamplePositions, GCHandleType.Pinned));
                                 native.Config.OneDLutConfig.pSamplePositions = (double*)pins[^1].AddrOfPinnedObject();
@@ -6957,7 +6970,9 @@ namespace IGCLWrapper
                         NumSamplesPerChannel = oneD.NumSamplesPerChannel,
                         NumChannels = oneD.NumChannels,
                         SampleValues = oneD.pSampleValues == null ? Array.Empty<double>() : new ReadOnlySpan<double>(oneD.pSampleValues, checked((int)checked(oneD.NumSamplesPerChannel * oneD.NumChannels))).ToArray(),
-                        SamplePositions = oneD.pSamplePositions == null ? null : new ReadOnlySpan<double>(oneD.pSamplePositions, checked((int)oneD.NumSamplesPerChannel)).ToArray()
+                        SamplePositions = oneD.SamplingType == ctl_pixtx_lut_sampling_type_t.CTL_PIXTX_LUT_SAMPLING_TYPE_UNIFORM || oneD.pSamplePositions == null
+                            ? null
+                            : new ReadOnlySpan<double>(oneD.pSamplePositions, checked((int)oneD.NumSamplesPerChannel)).ToArray()
                     };
                     break;
 
