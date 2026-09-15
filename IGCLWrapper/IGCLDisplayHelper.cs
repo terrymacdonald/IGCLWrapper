@@ -11,6 +11,10 @@ namespace IGCLWrapper
     /// </summary>
     public sealed class IGCLDisplayHelper : IDisposable
     {
+        // The current IGCL driver returns a complete uniform 1D LUT when queried
+        // with this bounded representation. The actual returned count is retained
+        // in the DTO, so this is a query capacity rather than a persisted setting.
+        private const uint UniformCurrentLutQuerySamplesPerChannel = 256;
         private readonly object _lock = new();
         private ctl_display_properties_t? _properties;
         private bool _disposed;
@@ -1332,10 +1336,12 @@ namespace IGCLWrapper
             {
                 case ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_1D_LUT:
                 {
-                    var sampleCount = checked((int)checked(block.Config.OneDLutConfig.NumSamplesPerChannel * block.Config.OneDLutConfig.NumChannels));
-                    if (sampleCount == 0)
+                    var capabilitySampleCount = block.Config.OneDLutConfig.NumSamplesPerChannel;
+                    var channels = block.Config.OneDLutConfig.NumChannels;
+                    if (capabilitySampleCount == 0 || channels == 0)
                         return false;
-                    var sampleValues = new double[sampleCount];
+                    var sampleCapacity = checked((int)checked(capabilitySampleCount * channels));
+                    var sampleValues = new double[sampleCapacity];
                     pins.Add(GCHandle.Alloc(sampleValues, GCHandleType.Pinned));
                     block.Config.OneDLutConfig.pSampleValues = (double*)pins[^1].AddrOfPinnedObject();
                     if (block.Config.OneDLutConfig.SamplingType == ctl_pixtx_lut_sampling_type_t.CTL_PIXTX_LUT_SAMPLING_TYPE_UNIFORM)
@@ -1344,6 +1350,7 @@ namespace IGCLWrapper
                         // LUT. A capability query can otherwise leave a stale native
                         // pointer in this copied block structure.
                         block.Config.OneDLutConfig.pSamplePositions = null;
+                        block.Config.OneDLutConfig.NumSamplesPerChannel = Math.Min(capabilitySampleCount, UniformCurrentLutQuerySamplesPerChannel);
                     }
                     else
                     {
@@ -1399,15 +1406,19 @@ namespace IGCLWrapper
                         throw new ArgumentException($"Pixel transformation block {dto.BlockId} is not available with the expected type on this display.", nameof(args));
 
                     ref var native = ref nativeBlocks[index];
-                    // Start from the capability-returned block, as Intel's sample
-                    // does, so the driver-provided dimensions and sampling metadata
-                    // accompany every SET_CUSTOM call.
-                    native = matchingCapabilityBlocks[0];
+                    var capabilityBlock = matchingCapabilityBlocks[0];
+                    // Match Intel's single-1D-LUT SetGammaLut sample: start with the
+                    // capability block, then replace its outgoing payload pointers.
+                    // This retains the driver-issued nested headers and metadata.
+                    native = capabilityBlock;
                     native.Size = (uint)sizeof(ctl_pixtx_block_config_t);
                     switch (dto.BlockType)
                     {
                         case ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_1D_LUT:
-                            EnsureMatchingOneDLutCapability(dto, native.Config.OneDLutConfig);
+                            EnsureMatchingOneDLutCapability(dto, capabilityBlock.Config.OneDLutConfig);
+                            native.Config.OneDLutConfig.SamplingType = capabilityBlock.Config.OneDLutConfig.SamplingType;
+                            native.Config.OneDLutConfig.NumSamplesPerChannel = dto.OneDLutConfig.NumSamplesPerChannel;
+                            native.Config.OneDLutConfig.NumChannels = capabilityBlock.Config.OneDLutConfig.NumChannels;
                             pins.Add(GCHandle.Alloc(dto.OneDLutConfig.SampleValues, GCHandleType.Pinned));
                             native.Config.OneDLutConfig.pSampleValues = (double*)pins[^1].AddrOfPinnedObject();
                             if (native.Config.OneDLutConfig.SamplingType == ctl_pixtx_lut_sampling_type_t.CTL_PIXTX_LUT_SAMPLING_TYPE_UNIFORM)
@@ -1425,8 +1436,9 @@ namespace IGCLWrapper
 
                         case ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3D_LUT:
                             var samples = dto.ThreeDLutConfig.SampleValues.Select(sample => new ctl_pixtx_3dlut_sample_t { Red = sample.Red, Green = sample.Green, Blue = sample.Blue }).ToArray();
-                            if (native.Config.ThreeDLutConfig.NumSamplesPerChannel != dto.ThreeDLutConfig.NumSamplesPerChannel)
+                            if (capabilityBlock.Config.ThreeDLutConfig.NumSamplesPerChannel != dto.ThreeDLutConfig.NumSamplesPerChannel)
                                 throw new ArgumentException($"3D LUT block {dto.BlockId} does not match this display's capability.", nameof(args));
+                            native.Config.ThreeDLutConfig.NumSamplesPerChannel = capabilityBlock.Config.ThreeDLutConfig.NumSamplesPerChannel;
                             pins.Add(GCHandle.Alloc(samples, GCHandleType.Pinned));
                             native.Config.ThreeDLutConfig.pSampleValues = (ctl_pixtx_3dlut_sample_t*)pins[^1].AddrOfPinnedObject();
                             break;
@@ -1459,9 +1471,13 @@ namespace IGCLWrapper
         private static void EnsureMatchingOneDLutCapability(PixtxBlockConfigDto dto, ctl_pixtx_1dlut_config_t capability)
         {
             if (capability.SamplingType != dto.OneDLutConfig.SamplingType ||
-                capability.NumSamplesPerChannel != dto.OneDLutConfig.NumSamplesPerChannel ||
                 capability.NumChannels != dto.OneDLutConfig.NumChannels)
                 throw new ArgumentException($"1D LUT block {dto.BlockId} does not match this display's capability.");
+
+            if (dto.OneDLutConfig.NumSamplesPerChannel == 0 || dto.OneDLutConfig.NumSamplesPerChannel > capability.NumSamplesPerChannel ||
+                (dto.OneDLutConfig.SamplingType == ctl_pixtx_lut_sampling_type_t.CTL_PIXTX_LUT_SAMPLING_TYPE_NONUNIFORM &&
+                 dto.OneDLutConfig.NumSamplesPerChannel != capability.NumSamplesPerChannel))
+                throw new ArgumentException($"1D LUT block {dto.BlockId} has an unsupported sample count for this display.");
         }
 
         private static void ValidatePixelTransformationSetRequest(PixtxPipeSetConfigDto args)

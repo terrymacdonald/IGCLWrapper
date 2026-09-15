@@ -176,7 +176,16 @@ namespace IGCLWrapper.Tests
 
                     // This is a GET-only query. A null result denotes an unsupported or
                     // unavailable current transformation and must not be treated as a setting change.
-                    _ = display.PixelTransformationGetConfig(PixtxPipeGetConfigDto.CreateCurrentRequest());
+                    var current = display.PixelTransformationGetConfig(PixtxPipeGetConfigDto.CreateCurrentRequest());
+                    if (current?.Blocks != null)
+                    {
+                        foreach (var block in current.Value.Blocks.Where(block => block.BlockType == ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_1D_LUT))
+                        {
+                            Assert.Equal(
+                                checked((int)checked(block.OneDLutConfig.NumSamplesPerChannel * block.OneDLutConfig.NumChannels)),
+                                block.OneDLutConfig.SampleValues.Length);
+                        }
+                    }
                     queriedDisplayCount++;
                 }
             }
