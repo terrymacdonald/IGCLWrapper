@@ -999,6 +999,87 @@ namespace IGCLWrapper.FacadeTests
                 Assert.Equal(1.0, dto.ThreeDLutConfig.SampleValues[7].Blue);
             }
         }
+
+        [Fact]
+        public void PixtxBlockConfigDto_EqualityAndHash_ShouldIncludeEveryActivePayloadValue()
+        {
+            var baseline = new PixtxBlockConfigDto
+            {
+                Size = 1,
+                Version = 1,
+                BlockId = 7,
+                BlockType = ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_1D_LUT,
+                OneDLutConfig = new PixtxOneDLutConfigDto
+                {
+                    SamplingType = ctl_pixtx_lut_sampling_type_t.CTL_PIXTX_LUT_SAMPLING_TYPE_UNIFORM,
+                    NumSamplesPerChannel = 2,
+                    NumChannels = 3,
+                    SampleValues = new[] { 0.0, 1.0, 0.0, 1.0, 0.0, 1.0 },
+                    SamplePositions = null
+                }
+            };
+            var sameTransformation = baseline;
+            sameTransformation.Size = 99;
+            sameTransformation.Version = 0;
+            sameTransformation.OneDLutConfig.SampleValues = baseline.OneDLutConfig.SampleValues.ToArray();
+
+            Assert.Equal(baseline, sameTransformation);
+            Assert.Equal(baseline.GetHashCode(), sameTransformation.GetHashCode());
+
+            sameTransformation.OneDLutConfig.SampleValues[4] = 0.25;
+            Assert.NotEqual(baseline, sameTransformation);
+
+            var matrix = new PixtxBlockConfigDto
+            {
+                BlockId = 8,
+                BlockType = ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX_AND_OFFSETS,
+                MatrixConfig = new PixtxMatrixConfigDto
+                {
+                    Matrix = new[] { 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0 },
+                    PreOffsets = new[] { 0.0, 0.0, 0.0 },
+                    PostOffsets = new[] { 0.0, 0.0, 0.0 }
+                }
+            };
+            var changedMatrix = matrix;
+            changedMatrix.MatrixConfig.Matrix = matrix.MatrixConfig.Matrix.ToArray();
+            changedMatrix.MatrixConfig.PreOffsets = matrix.MatrixConfig.PreOffsets.ToArray();
+            changedMatrix.MatrixConfig.PostOffsets = matrix.MatrixConfig.PostOffsets.ToArray();
+            changedMatrix.MatrixConfig.PostOffsets[2] = 0.01;
+
+            Assert.NotEqual(matrix, changedMatrix);
+        }
+
+        [Fact]
+        public void PixelTransformationGetResultDto_Equality_ShouldIgnoreQueryMetadataAndIncludeBlockPayload()
+        {
+            var block = new PixtxBlockConfigDto
+            {
+                BlockId = 1,
+                BlockType = ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3D_LUT,
+                ThreeDLutConfig = new PixtxThreeDLutConfigDto
+                {
+                    NumSamplesPerChannel = 1,
+                    SampleValues = new[] { new PixtxThreeDLutSampleDto { Red = 0.1, Green = 0.2, Blue = 0.3 } }
+                }
+            };
+            var first = new PixelTransformationGetResultDto
+            {
+                PipeConfig = PixtxPipeGetConfigDto.CreateCurrentRequest(),
+                Blocks = new List<PixtxBlockConfigDto> { block }
+            };
+            var second = first;
+            second.PipeConfig = PixtxPipeGetConfigDto.CreateCapabilityRequest();
+            second.Blocks = new List<PixtxBlockConfigDto> { block };
+
+            Assert.Equal(first, second);
+            Assert.Equal(first.GetHashCode(), second.GetHashCode());
+
+            var changedBlock = block;
+            changedBlock.ThreeDLutConfig.SampleValues = block.ThreeDLutConfig.SampleValues.ToArray();
+            changedBlock.ThreeDLutConfig.SampleValues[0].Blue = 0.4;
+            second.Blocks = new List<PixtxBlockConfigDto> { changedBlock };
+            Assert.NotEqual(first, second);
+        }
         
     }
 }

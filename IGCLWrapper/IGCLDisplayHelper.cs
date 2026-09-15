@@ -1197,12 +1197,10 @@ namespace IGCLWrapper
             if (config.NumBlocks == 0)
                 return (config, Array.Empty<ctl_pixtx_block_config_t>());
 
+            // Match the Intel Color sample: capability blocks are supplied as a
+            // zeroed array. The driver populates their headers and block-specific
+            // configuration during this second capability call.
             var blocks = new ctl_pixtx_block_config_t[config.NumBlocks];
-            for (int i = 0; i < blocks.Length; i++)
-            {
-                blocks[i].Size = (uint)sizeof(ctl_pixtx_block_config_t);
-                blocks[i].Version = 0;
-            }
 
             fixed (ctl_pixtx_block_config_t* pBlocks = blocks)
             {
@@ -1234,12 +1232,6 @@ namespace IGCLWrapper
                 return PixelTransformationGetConfigNative(args);
 
             var config = args;
-            for (var i = 0; i < blocks.Length; i++)
-            {
-                blocks[i].Size = (uint)sizeof(ctl_pixtx_block_config_t);
-                blocks[i].Version = 0;
-            }
-
             fixed (ctl_pixtx_block_config_t* pBlocks = blocks)
             {
                 config.NumBlocks = (uint)blocks.Length;
@@ -1294,20 +1286,21 @@ namespace IGCLWrapper
                 try
                 {
                     if (!PreparePixelTransformationCurrentBlock(ref block, pins))
-                        return null;
+                        continue;
 
                     var current = PixelTransformationGetConfigNative(args.ToNative(), new[] { block });
                     if (current == null)
-                        return null;
+                        continue;
 
                     pipeConfig = PixtxPipeGetConfigDto.FromNative(current.Value.config);
                     blocks.Add(PixtxBlockConfigDto.FromNative(current.Value.blocks[0]));
                 }
                 catch (IGCLException ex) when (IsCurrentPixelTransformationUnavailable(ex.Result))
                 {
-                    // The driver does not expose a current custom configuration for this
-                    // block. A partial result cannot be safely restored.
-                    return null;
+                    // The Intel sample queries every supported block independently.
+                    // Some drivers cannot return a current value for a particular
+                    // block (notably a 3D LUT); retain values returned by other blocks.
+                    continue;
                 }
                 finally
                 {
@@ -1333,8 +1326,8 @@ namespace IGCLWrapper
 
         private static unsafe bool PreparePixelTransformationCurrentBlock(ref ctl_pixtx_block_config_t block, List<GCHandle> pins)
         {
-            block.Size = (uint)sizeof(ctl_pixtx_block_config_t);
-            block.Version = 0;
+            // The block is copied from the capability query exactly as in Intel's
+            // sample. Do not overwrite its capability-provided headers.
             switch (block.BlockType)
             {
                 case ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_1D_LUT:
@@ -1344,8 +1337,6 @@ namespace IGCLWrapper
                         return false;
                     var sampleValues = new double[sampleCount];
                     pins.Add(GCHandle.Alloc(sampleValues, GCHandleType.Pinned));
-                    block.Config.OneDLutConfig.Size = (uint)sizeof(ctl_pixtx_1dlut_config_t);
-                    block.Config.OneDLutConfig.Version = 0;
                     block.Config.OneDLutConfig.pSampleValues = (double*)pins[^1].AddrOfPinnedObject();
                     if (block.Config.OneDLutConfig.SamplingType == ctl_pixtx_lut_sampling_type_t.CTL_PIXTX_LUT_SAMPLING_TYPE_NONUNIFORM)
                     {
@@ -1364,16 +1355,12 @@ namespace IGCLWrapper
                         return false;
                     var sampleValues = new ctl_pixtx_3dlut_sample_t[sampleCount];
                     pins.Add(GCHandle.Alloc(sampleValues, GCHandleType.Pinned));
-                    block.Config.ThreeDLutConfig.Size = (uint)sizeof(ctl_pixtx_3dlut_config_t);
-                    block.Config.ThreeDLutConfig.Version = 0;
                     block.Config.ThreeDLutConfig.pSampleValues = (ctl_pixtx_3dlut_sample_t*)pins[^1].AddrOfPinnedObject();
                     return true;
                 }
 
                 case ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX:
                 case ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX_AND_OFFSETS:
-                    block.Config.MatrixConfig.Size = (uint)sizeof(ctl_pixtx_matrix_config_t);
-                    block.Config.MatrixConfig.Version = 0;
                     return true;
 
                 default:
@@ -1391,25 +1378,29 @@ namespace IGCLWrapper
             ThrowIfDisposed();
             ValidatePixelTransformationSetRequest(args);
             var nativeBlocks = new ctl_pixtx_block_config_t[args.Blocks?.Count ?? 0];
+            var capability = PixelTransformationGetConfigNative(PixtxPipeGetConfigDto.CreateCapabilityRequest().ToNative());
+            if (capability == null)
+                return false;
             var pins = new List<GCHandle>();
             try
             {
                 for (var index = 0; index < nativeBlocks.Length; index++)
                 {
                     var dto = args.Blocks![index];
+                    var matchingCapabilityBlocks = capability.Value.blocks.Where(block => block.BlockId == dto.BlockId).ToArray();
+                    if (matchingCapabilityBlocks.Length != 1 || matchingCapabilityBlocks[0].BlockType != dto.BlockType)
+                        throw new ArgumentException($"Pixel transformation block {dto.BlockId} is not available with the expected type on this display.", nameof(args));
+
                     ref var native = ref nativeBlocks[index];
+                    // Start from the capability-returned block, as Intel's sample
+                    // does, so the driver-provided dimensions and sampling metadata
+                    // accompany every SET_CUSTOM call.
+                    native = matchingCapabilityBlocks[0];
                     native.Size = (uint)sizeof(ctl_pixtx_block_config_t);
-                    native.Version = dto.Version;
-                    native.BlockId = dto.BlockId;
-                    native.BlockType = dto.BlockType;
                     switch (dto.BlockType)
                     {
                         case ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_1D_LUT:
-                            native.Config.OneDLutConfig.Size = (uint)sizeof(ctl_pixtx_1dlut_config_t);
-                            native.Config.OneDLutConfig.Version = 0;
-                            native.Config.OneDLutConfig.SamplingType = dto.OneDLutConfig.SamplingType;
-                            native.Config.OneDLutConfig.NumSamplesPerChannel = dto.OneDLutConfig.NumSamplesPerChannel;
-                            native.Config.OneDLutConfig.NumChannels = dto.OneDLutConfig.NumChannels;
+                            EnsureMatchingOneDLutCapability(dto, native.Config.OneDLutConfig);
                             pins.Add(GCHandle.Alloc(dto.OneDLutConfig.SampleValues, GCHandleType.Pinned));
                             native.Config.OneDLutConfig.pSampleValues = (double*)pins[^1].AddrOfPinnedObject();
                             if (dto.OneDLutConfig.SamplePositions is { Length: > 0 })
@@ -1421,16 +1412,13 @@ namespace IGCLWrapper
 
                         case ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3D_LUT:
                             var samples = dto.ThreeDLutConfig.SampleValues.Select(sample => new ctl_pixtx_3dlut_sample_t { Red = sample.Red, Green = sample.Green, Blue = sample.Blue }).ToArray();
-                            native.Config.ThreeDLutConfig.Size = (uint)sizeof(ctl_pixtx_3dlut_config_t);
-                            native.Config.ThreeDLutConfig.Version = 0;
-                            native.Config.ThreeDLutConfig.NumSamplesPerChannel = dto.ThreeDLutConfig.NumSamplesPerChannel;
+                            if (native.Config.ThreeDLutConfig.NumSamplesPerChannel != dto.ThreeDLutConfig.NumSamplesPerChannel)
+                                throw new ArgumentException($"3D LUT block {dto.BlockId} does not match this display's capability.", nameof(args));
                             pins.Add(GCHandle.Alloc(samples, GCHandleType.Pinned));
                             native.Config.ThreeDLutConfig.pSampleValues = (ctl_pixtx_3dlut_sample_t*)pins[^1].AddrOfPinnedObject();
                             break;
 
                         default:
-                            native.Config.MatrixConfig.Size = (uint)sizeof(ctl_pixtx_matrix_config_t);
-                            native.Config.MatrixConfig.Version = 0;
                             dto.MatrixConfig.PreOffsets.AsSpan().CopyTo(MemoryMarshal.CreateSpan(ref native.Config.MatrixConfig.PreOffsets.e0, 3));
                             dto.MatrixConfig.PostOffsets.AsSpan().CopyTo(MemoryMarshal.CreateSpan(ref native.Config.MatrixConfig.PostOffsets.e0, 3));
                             dto.MatrixConfig.Matrix.AsSpan().CopyTo(MemoryMarshal.CreateSpan(ref native.Config.MatrixConfig.Matrix.e0_0, 9));
@@ -1453,6 +1441,14 @@ namespace IGCLWrapper
             {
                 foreach (var pin in pins) if (pin.IsAllocated) pin.Free();
             }
+        }
+
+        private static void EnsureMatchingOneDLutCapability(PixtxBlockConfigDto dto, ctl_pixtx_1dlut_config_t capability)
+        {
+            if (capability.SamplingType != dto.OneDLutConfig.SamplingType ||
+                capability.NumSamplesPerChannel != dto.OneDLutConfig.NumSamplesPerChannel ||
+                capability.NumChannels != dto.OneDLutConfig.NumChannels)
+                throw new ArgumentException($"1D LUT block {dto.BlockId} does not match this display's capability.");
         }
 
         private static void ValidatePixelTransformationSetRequest(PixtxPipeSetConfigDto args)
@@ -6987,11 +6983,120 @@ namespace IGCLWrapper
             return result;
         }
 
+        /// <summary>
+        /// Compares the active transformation represented by this block. Native Size and Version
+        /// fields are transport headers, not part of the transformation applied to a display.
+        /// </summary>
         public bool Equals(PixtxBlockConfigDto other)
-            => Size == other.Size && Version == other.Version && BlockId == other.BlockId && BlockType == other.BlockType;
+        {
+            if (BlockId != other.BlockId || BlockType != other.BlockType)
+                return false;
+
+            return BlockType switch
+            {
+                ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_1D_LUT =>
+                    OneDLutConfig.SamplingType == other.OneDLutConfig.SamplingType &&
+                    OneDLutConfig.NumSamplesPerChannel == other.OneDLutConfig.NumSamplesPerChannel &&
+                    OneDLutConfig.NumChannels == other.OneDLutConfig.NumChannels &&
+                    AreDoubleArraysEqual(OneDLutConfig.SampleValues, other.OneDLutConfig.SampleValues) &&
+                    AreDoubleArraysEqual(OneDLutConfig.SamplePositions, other.OneDLutConfig.SamplePositions),
+                ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3D_LUT =>
+                    ThreeDLutConfig.NumSamplesPerChannel == other.ThreeDLutConfig.NumSamplesPerChannel &&
+                    AreThreeDLutSamplesEqual(ThreeDLutConfig.SampleValues, other.ThreeDLutConfig.SampleValues),
+                ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX or
+                ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX_AND_OFFSETS =>
+                    AreDoubleArraysEqual(MatrixConfig.Matrix, other.MatrixConfig.Matrix) &&
+                    AreDoubleArraysEqual(MatrixConfig.PreOffsets, other.MatrixConfig.PreOffsets) &&
+                    AreDoubleArraysEqual(MatrixConfig.PostOffsets, other.MatrixConfig.PostOffsets),
+                _ => false
+            };
+        }
 
         public override bool Equals(object? obj) => obj is PixtxBlockConfigDto other && Equals(other);
-        public override int GetHashCode() => HashCode.Combine(Size, Version, BlockId, (int)BlockType);
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(BlockId);
+            hash.Add(BlockType);
+            switch (BlockType)
+            {
+                case ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_1D_LUT:
+                    hash.Add(OneDLutConfig.SamplingType);
+                    hash.Add(OneDLutConfig.NumSamplesPerChannel);
+                    hash.Add(OneDLutConfig.NumChannels);
+                    AddDoubleArrayHash(ref hash, OneDLutConfig.SampleValues);
+                    AddDoubleArrayHash(ref hash, OneDLutConfig.SamplePositions);
+                    break;
+                case ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3D_LUT:
+                    hash.Add(ThreeDLutConfig.NumSamplesPerChannel);
+                    AddThreeDLutSamplesHash(ref hash, ThreeDLutConfig.SampleValues);
+                    break;
+                case ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX:
+                case ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3X3_MATRIX_AND_OFFSETS:
+                    AddDoubleArrayHash(ref hash, MatrixConfig.Matrix);
+                    AddDoubleArrayHash(ref hash, MatrixConfig.PreOffsets);
+                    AddDoubleArrayHash(ref hash, MatrixConfig.PostOffsets);
+                    break;
+            }
+            return hash.ToHashCode();
+        }
+
+        private static bool AreDoubleArraysEqual(double[]? left, double[]? right)
+        {
+            if (ReferenceEquals(left, right))
+                return true;
+            if (left == null || right == null || left.Length != right.Length)
+                return false;
+            for (var index = 0; index < left.Length; index++)
+                if (!left[index].Equals(right[index]))
+                    return false;
+            return true;
+        }
+
+        private static bool AreThreeDLutSamplesEqual(PixtxThreeDLutSampleDto[]? left, PixtxThreeDLutSampleDto[]? right)
+        {
+            if (ReferenceEquals(left, right))
+                return true;
+            if (left == null || right == null || left.Length != right.Length)
+                return false;
+            for (var index = 0; index < left.Length; index++)
+            {
+                if (!left[index].Red.Equals(right[index].Red) ||
+                    !left[index].Green.Equals(right[index].Green) ||
+                    !left[index].Blue.Equals(right[index].Blue))
+                    return false;
+            }
+            return true;
+        }
+
+        private static void AddDoubleArrayHash(ref HashCode hash, double[]? values)
+        {
+            if (values == null)
+            {
+                hash.Add(-1);
+                return;
+            }
+            hash.Add(values.Length);
+            foreach (var value in values)
+                hash.Add(value);
+        }
+
+        private static void AddThreeDLutSamplesHash(ref HashCode hash, PixtxThreeDLutSampleDto[]? values)
+        {
+            if (values == null)
+            {
+                hash.Add(-1);
+                return;
+            }
+            hash.Add(values.Length);
+            foreach (var value in values)
+            {
+                hash.Add(value.Red);
+                hash.Add(value.Green);
+                hash.Add(value.Blue);
+            }
+        }
+
     }
 
     /// <summary>
@@ -7032,11 +7137,27 @@ namespace IGCLWrapper
             };
 
         public bool Equals(PixtxPipeSetConfigDto other)
-            => Size == other.Size && Version == other.Version && OpertaionType == other.OpertaionType &&
-               Flags == other.Flags && NumBlocks == other.NumBlocks;
+        {
+            if (OpertaionType != other.OpertaionType || Flags != other.Flags)
+                return false;
+            if (Blocks == null || other.Blocks == null)
+                return Blocks == other.Blocks;
+            return Blocks.SequenceEqual(other.Blocks);
+        }
 
         public override bool Equals(object? obj) => obj is PixtxPipeSetConfigDto other && Equals(other);
-        public override int GetHashCode() => HashCode.Combine(Size, Version, (int)OpertaionType, Flags, NumBlocks);
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(OpertaionType);
+            hash.Add(Flags);
+            if (Blocks == null)
+                hash.Add(-1);
+            else
+                foreach (var block in Blocks)
+                    hash.Add(block);
+            return hash.ToHashCode();
+        }
     }
 
     /// <summary>
@@ -7063,7 +7184,6 @@ namespace IGCLWrapper
 
         public bool Equals(PixelTransformationGetResultDto other)
         {
-            if (!PipeConfig.Equals(other.PipeConfig)) return false;
             if (Blocks == null && other.Blocks == null) return true;
             if (Blocks == null || other.Blocks == null) return false;
             if (Blocks.Count != other.Blocks.Count) return false;
@@ -7073,7 +7193,16 @@ namespace IGCLWrapper
         }
 
         public override bool Equals(object? obj) => obj is PixelTransformationGetResultDto other && Equals(other);
-        public override int GetHashCode() => HashCode.Combine(PipeConfig, Blocks?.Count ?? 0);
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            if (Blocks == null)
+                hash.Add(-1);
+            else
+                foreach (var block in Blocks)
+                    hash.Add(block);
+            return hash.ToHashCode();
+        }
     }
 }
 

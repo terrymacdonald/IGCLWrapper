@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
 namespace IGCLWrapper
 {
@@ -81,19 +82,37 @@ namespace IGCLWrapper
         public unsafe StandardColorCorrectionDto? GetStandardColorCorrection()
         {
             ThrowIfDisposed();
-            var request = CreateVideoProcessingFeatureGetSet();
-            var nativeSettings = StandardColorCorrectionDto.CreateNative();
-            request.FeatureType = ctl_video_processing_feature_t.CTL_VIDEO_PROCESSING_FEATURE_STANDARD_COLOR_CORRECTION;
-            request.ValueType = ctl_property_value_type_t.CTL_PROPERTY_VALUE_TYPE_CUSTOM;
-            request.CustomValueSize = sizeof(ctl_video_processing_standard_color_correction_t);
-            request.pCustomValue = &nativeSettings;
-
-            var result = IGCL.ctlGetSetVideoProcessingFeature((_ctl_device_adapter_handle_t*)_adapter, &request);
-            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
-                return StandardColorCorrectionDto.FromNative(nativeSettings);
-            if (IsUnsupportedResult(result))
+            var capabilityResult = GetStandardColorCorrectionCapabilities(out _);
+            if (IsUnsupportedResult(capabilityResult))
                 return null;
-            throw new IGCLException(result, "Failed to get standard colour correction");
+            if (capabilityResult != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(capabilityResult, "Failed to get standard colour-correction capabilities");
+
+            // Deliberately follows Intel's ControlSCCFeature sample: the outer request
+            // is initialized, while the separately allocated custom payload is supplied
+            // directly to the driver for the GET operation.
+            var request = new ctl_video_processing_feature_getset_t
+            {
+                Size = (uint)sizeof(ctl_video_processing_feature_getset_t),
+                FeatureType = ctl_video_processing_feature_t.CTL_VIDEO_PROCESSING_FEATURE_STANDARD_COLOR_CORRECTION,
+                ValueType = ctl_property_value_type_t.CTL_PROPERTY_VALUE_TYPE_CUSTOM,
+                CustomValueSize = sizeof(ctl_video_processing_standard_color_correction_t)
+            };
+            var pSettings = NativeMemory.Alloc((nuint)request.CustomValueSize);
+            try
+            {
+                request.pCustomValue = pSettings;
+                var result = IGCL.ctlGetSetVideoProcessingFeature((_ctl_device_adapter_handle_t*)_adapter, &request);
+                if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                    return StandardColorCorrectionDto.FromNative(*(ctl_video_processing_standard_color_correction_t*)pSettings);
+                if (IsUnsupportedResult(result))
+                    return null;
+                throw new IGCLException(result, "Failed to get standard colour correction");
+            }
+            finally
+            {
+                NativeMemory.Free(pSettings);
+            }
         }
 
         /// <summary>
@@ -104,21 +123,80 @@ namespace IGCLWrapper
         public unsafe bool SetStandardColorCorrection(StandardColorCorrectionDto settings)
         {
             ThrowIfDisposed();
-            var request = CreateVideoProcessingFeatureGetSet();
-            var nativeSettings = settings.ToNative();
-            request.FeatureType = ctl_video_processing_feature_t.CTL_VIDEO_PROCESSING_FEATURE_STANDARD_COLOR_CORRECTION;
-            request.bSet = 1;
-            request.ValueType = ctl_property_value_type_t.CTL_PROPERTY_VALUE_TYPE_CUSTOM;
-            request.CustomValueSize = sizeof(ctl_video_processing_standard_color_correction_t);
-            request.pCustomValue = &nativeSettings;
-
-            var result = IGCL.ctlGetSetVideoProcessingFeature((_ctl_device_adapter_handle_t*)_adapter, &request);
-            if (result == ctl_result_t.CTL_RESULT_SUCCESS)
-                return true;
-            if (IsUnsupportedResult(result))
+            var capabilityResult = GetStandardColorCorrectionCapabilities(out var capabilities);
+            if (IsUnsupportedResult(capabilityResult))
                 return false;
-            throw new IGCLException(result, "Failed to set standard colour correction");
+            if (capabilityResult != ctl_result_t.CTL_RESULT_SUCCESS)
+                throw new IGCLException(capabilityResult, "Failed to get standard colour-correction capabilities");
+
+            var request = new ctl_video_processing_feature_getset_t
+            {
+                Size = (uint)sizeof(ctl_video_processing_feature_getset_t),
+                FeatureType = ctl_video_processing_feature_t.CTL_VIDEO_PROCESSING_FEATURE_STANDARD_COLOR_CORRECTION,
+                bSet = 1,
+                ValueType = ctl_property_value_type_t.CTL_PROPERTY_VALUE_TYPE_CUSTOM,
+                CustomValueSize = sizeof(ctl_video_processing_standard_color_correction_t)
+            };
+            var pSettings = NativeMemory.Alloc((nuint)request.CustomValueSize);
+            try
+            {
+                var nativeSettings = (ctl_video_processing_standard_color_correction_t*)pSettings;
+                nativeSettings->standard_color_correction_enable = settings.Enable ? (byte)1 : (byte)0;
+                nativeSettings->brightness = ValueWithinRange(settings.Brightness, capabilities.brightness) ? settings.Brightness : capabilities.brightness.RangeInfo.default_value;
+                nativeSettings->contrast = ValueWithinRange(settings.Contrast, capabilities.contrast) ? settings.Contrast : capabilities.contrast.RangeInfo.default_value;
+                nativeSettings->hue = ValueWithinRange(settings.Hue, capabilities.hue) ? settings.Hue : capabilities.hue.RangeInfo.default_value;
+                nativeSettings->saturation = ValueWithinRange(settings.Saturation, capabilities.saturation) ? settings.Saturation : capabilities.saturation.RangeInfo.default_value;
+                request.pCustomValue = pSettings;
+
+                var result = IGCL.ctlGetSetVideoProcessingFeature((_ctl_device_adapter_handle_t*)_adapter, &request);
+                if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                    return true;
+                if (IsUnsupportedResult(result))
+                    return false;
+                throw new IGCLException(result, "Failed to set standard colour correction");
+            }
+            finally
+            {
+                NativeMemory.Free(pSettings);
+            }
         }
+
+        /// <summary>
+        /// Queries the Standard Color Correction capabilities using the same one-feature
+        /// capability request that Intel's Media Sample uses before every SCC get or set.
+        /// </summary>
+        private unsafe ctl_result_t GetStandardColorCorrectionCapabilities(out ctl_video_processing_standard_color_correction_info_t capabilities)
+        {
+            capabilities = default;
+            var pCustomValue = NativeMemory.Alloc((nuint)sizeof(ctl_video_processing_standard_color_correction_info_t));
+            try
+            {
+                var details = new ctl_video_processing_feature_details_t
+                {
+                    Size = (uint)sizeof(ctl_video_processing_feature_details_t),
+                    FeatureType = ctl_video_processing_feature_t.CTL_VIDEO_PROCESSING_FEATURE_STANDARD_COLOR_CORRECTION,
+                    CustomValueSize = sizeof(ctl_video_processing_standard_color_correction_info_t),
+                    pCustomValue = pCustomValue
+                };
+                var caps = new ctl_video_processing_feature_caps_t
+                {
+                    Size = (uint)sizeof(ctl_video_processing_feature_caps_t),
+                    NumSupportedFeatures = 1,
+                    pFeatureDetails = &details
+                };
+                var result = IGCL.ctlGetSupportedVideoProcessingCapabilities((_ctl_device_adapter_handle_t*)_adapter, &caps);
+                if (result == ctl_result_t.CTL_RESULT_SUCCESS)
+                    capabilities = *(ctl_video_processing_standard_color_correction_info_t*)pCustomValue;
+                return result;
+            }
+            finally
+            {
+                NativeMemory.Free(pCustomValue);
+            }
+        }
+
+        private static bool ValueWithinRange(float value, ctl_property_info_float_t property) =>
+            value >= property.RangeInfo.min_possible_value && value <= property.RangeInfo.max_possible_value;
 
         /// <summary>
         /// Set a video processing feature using a DTO request.

@@ -159,6 +159,32 @@ namespace IGCLWrapper.Tests
         }
 
         [SkippableFact]
+        [Trait("Category", "Passive")]
+        public void PixelTransformationCurrentConfig_ShouldQueryEveryActiveDisplayWithoutChangingSettings()
+        {
+            Skip.If(!_hasHardware || !_hasDll || _noDisplaysAvailable, _skipReason);
+
+            using var helper = IGCLApiHelper.Initialize();
+            var queriedDisplayCount = 0;
+            foreach (var adapter in helper.EnumerateAdapters())
+            {
+                foreach (var display in adapter.EnumerateDisplayOutputs())
+                {
+                    var properties = display.GetProperties();
+                    if (((uint)properties.DisplayConfigFlags & (uint)ctl_display_config_flag_t.CTL_DISPLAY_CONFIG_FLAG_DISPLAY_ACTIVE) == 0)
+                        continue;
+
+                    // This is a GET-only query. A null result denotes an unsupported or
+                    // unavailable current transformation and must not be treated as a setting change.
+                    _ = display.PixelTransformationGetConfig(PixtxPipeGetConfigDto.CreateCurrentRequest());
+                    queriedDisplayCount++;
+                }
+            }
+
+            Assert.True(queriedDisplayCount > 0, "At least one active Intel display should be queried.");
+        }
+
+        [SkippableFact]
         public void CtlGetAdaperDisplayEncoderProperties_ShouldReturnValidProperties()
         {
             // Arrange
