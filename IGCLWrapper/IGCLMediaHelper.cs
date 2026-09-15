@@ -176,6 +176,15 @@ namespace IGCLWrapper
                     byte* pCustomValue = stackalloc byte[customValueSize];
                     for (var i = 0; i < customValueSize; i++)
                         pCustomValue[i] = customValue != null && i < customValue.Count ? customValue[i] : (byte)0;
+
+                    // A CUSTOM video-processing GET requires the nested custom structure's
+                    // Size and Version fields to be initialised. Without that header IGCL
+                    // accepts the request but returns the zero-initialised buffer unchanged.
+                    // Do not replace a supplied payload: SET calls must preserve the values
+                    // captured from a previous GET.
+                    if (!request.Set && (customValue == null || customValue.Count == 0))
+                        InitializeCustomValueForGet(request.FeatureType, pCustomValue, customValueSize);
+
                     native.pCustomValue = pCustomValue;
                     native.CustomValueSize = customValueSize;
                 }
@@ -210,6 +219,34 @@ namespace IGCLWrapper
                 ctl_video_processing_feature_t.CTL_VIDEO_PROCESSING_FEATURE_TOTAL_COLOR_CORRECTION => sizeof(ctl_video_processing_total_color_correction_t),
                 _ => 0
             };
+        }
+
+        /// <summary>
+        /// Initializes the header required by IGCL when querying a CUSTOM video-processing value.
+        /// </summary>
+        /// <param name="featureType">The feature associated with the custom payload.</param>
+        /// <param name="pCustomValue">Pointer to the allocated custom payload.</param>
+        /// <param name="customValueSize">Allocated payload size.</param>
+        private static unsafe void InitializeCustomValueForGet(ctl_video_processing_feature_t featureType, byte* pCustomValue, int customValueSize)
+        {
+            switch (featureType)
+            {
+                case ctl_video_processing_feature_t.CTL_VIDEO_PROCESSING_FEATURE_NOISE_REDUCTION when customValueSize >= sizeof(ctl_video_processing_noise_reduction_t):
+                    *(ctl_video_processing_noise_reduction_t*)pCustomValue = new ctl_video_processing_noise_reduction_t { Size = (uint)sizeof(ctl_video_processing_noise_reduction_t), Version = 0 };
+                    break;
+                case ctl_video_processing_feature_t.CTL_VIDEO_PROCESSING_FEATURE_ADAPTIVE_CONTRAST_ENHANCEMENT when customValueSize >= sizeof(ctl_video_processing_adaptive_contrast_enhancement_t):
+                    *(ctl_video_processing_adaptive_contrast_enhancement_t*)pCustomValue = new ctl_video_processing_adaptive_contrast_enhancement_t { Size = (uint)sizeof(ctl_video_processing_adaptive_contrast_enhancement_t), Version = 0 };
+                    break;
+                case ctl_video_processing_feature_t.CTL_VIDEO_PROCESSING_FEATURE_SUPER_RESOLUTION when customValueSize >= sizeof(ctl_video_processing_super_resolution_t):
+                    *(ctl_video_processing_super_resolution_t*)pCustomValue = new ctl_video_processing_super_resolution_t { Size = (uint)sizeof(ctl_video_processing_super_resolution_t), Version = 0 };
+                    break;
+                case ctl_video_processing_feature_t.CTL_VIDEO_PROCESSING_FEATURE_STANDARD_COLOR_CORRECTION when customValueSize >= sizeof(ctl_video_processing_standard_color_correction_t):
+                    *(ctl_video_processing_standard_color_correction_t*)pCustomValue = StandardColorCorrectionDto.CreateNative();
+                    break;
+                case ctl_video_processing_feature_t.CTL_VIDEO_PROCESSING_FEATURE_TOTAL_COLOR_CORRECTION when customValueSize >= sizeof(ctl_video_processing_total_color_correction_t):
+                    *(ctl_video_processing_total_color_correction_t*)pCustomValue = new ctl_video_processing_total_color_correction_t { Size = (uint)sizeof(ctl_video_processing_total_color_correction_t), Version = 0 };
+                    break;
+            }
         }
 
         private void ThrowIfDisposed()
