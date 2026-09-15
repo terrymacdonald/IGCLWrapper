@@ -676,7 +676,6 @@ namespace IGCLWrapper
     /// </summary>
     public struct StandardColorCorrectionDto : IEquatable<StandardColorCorrectionDto>
     {
-        private const float ComparisonTolerance = 0.0001f;
         /// <summary>Whether standard colour correction is enabled.</summary>
         public bool Enable;
         /// <summary>Brightness adjustment.</summary>
@@ -691,19 +690,15 @@ namespace IGCLWrapper
         public bool Equals(StandardColorCorrectionDto other)
         {
             return Enable == other.Enable &&
-                NearlyEqual(Brightness, other.Brightness) &&
-                NearlyEqual(Contrast, other.Contrast) &&
-                NearlyEqual(Hue, other.Hue) &&
-                NearlyEqual(Saturation, other.Saturation);
+                Brightness.Equals(other.Brightness) &&
+                Contrast.Equals(other.Contrast) &&
+                Hue.Equals(other.Hue) &&
+                Saturation.Equals(other.Saturation);
         }
-
-        private static bool NearlyEqual(float left, float right) => MathF.Abs(left - right) <= ComparisonTolerance;
 
         public override bool Equals(object? obj) => obj is StandardColorCorrectionDto other && Equals(other);
 
-        public override int GetHashCode() => (Enable, Quantize(Brightness), Quantize(Contrast), Quantize(Hue), Quantize(Saturation)).GetHashCode();
-
-        private static int Quantize(float value) => (int)MathF.Round(value / ComparisonTolerance, MidpointRounding.AwayFromZero);
+        public override int GetHashCode() => (Enable, Brightness, Contrast, Hue, Saturation).GetHashCode();
 
         public static unsafe StandardColorCorrectionDto FromNative(ctl_video_processing_standard_color_correction_t native)
         {
