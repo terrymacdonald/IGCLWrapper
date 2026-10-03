@@ -18,7 +18,7 @@ if (-not (Test-Path $IGCLHeader)) {
 }
 
 # ---------------------------------------------------------------------------
-# Versioning (match build_IGCL.ps1: MAJOR/MINOR from VERSION, PATCH = git rev-list --count HEAD)
+# Versioning (match build_IGCL.ps1: MAJOR/MINOR from VERSION, PATCH = commits since VERSION changed)
 # ---------------------------------------------------------------------------
 $versionFile = Join-Path $scriptRoot "VERSION"
 $major = 1
@@ -33,7 +33,13 @@ $patch = 0
 try {
     $gitPath = Get-Command git -ErrorAction SilentlyContinue
     if ($gitPath) {
-        $commitCount = & git rev-list --count HEAD 2>$null
+        $lastVersionChangeHash = & git log -n 1 --format=%H -- VERSION 2>$null
+        if ($LASTEXITCODE -eq 0 -and $lastVersionChangeHash -match "^[0-9a-fA-F]+$") {
+            $commitCount = & git rev-list --count "${lastVersionChangeHash}..HEAD" 2>$null
+        }
+        else {
+            $commitCount = & git rev-list --count HEAD 2>$null
+        }
         if ($LASTEXITCODE -eq 0 -and $commitCount -match "^\d+$") {
             $patch = [int]$commitCount
         }

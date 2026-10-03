@@ -42,14 +42,19 @@ if (-not (Test-Path $versionFile)) {
         }
     }
 
-    # Get git commit count for PATCH/build number
+    # Get commits since the last VERSION change for PATCH/build number
     $patch = "0"
     try {
         # Check if git is available
         $gitPath = Get-Command git -ErrorAction SilentlyContinue
         if ($gitPath) {
-            # Get the commit count
-            $commitCount = & git rev-list --count HEAD 2>&1
+            $lastVersionChangeHash = & git log -n 1 --format=%H -- VERSION 2>&1
+            if ($LASTEXITCODE -eq 0 -and $lastVersionChangeHash -match "^[0-9a-fA-F]+$") {
+                $commitCount = & git rev-list --count "${lastVersionChangeHash}..HEAD" 2>&1
+            }
+            else {
+                $commitCount = & git rev-list --count HEAD 2>&1
+            }
             if ($LASTEXITCODE -eq 0 -and $commitCount -match "^\d+$") {
                 $patch = $commitCount
             }
