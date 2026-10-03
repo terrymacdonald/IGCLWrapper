@@ -1080,6 +1080,94 @@ namespace IGCLWrapper.FacadeTests
             second.Blocks = new List<PixtxBlockConfigDto> { changedBlock };
             Assert.NotEqual(first, second);
         }
+
+        [Fact]
+        public void PixtxBlockConfigDto_UniformNullAndEmptySamplePositions_ShouldBeEqual()
+        {
+            var nullPositions = new PixtxBlockConfigDto
+            {
+                BlockId = 1,
+                BlockType = ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_1D_LUT,
+                OneDLutConfig = new PixtxOneDLutConfigDto
+                {
+                    SamplingType = ctl_pixtx_lut_sampling_type_t.CTL_PIXTX_LUT_SAMPLING_TYPE_UNIFORM,
+                    NumSamplesPerChannel = 2,
+                    NumChannels = 1,
+                    SampleValues = new[] { 0.0, 1.0 },
+                    SamplePositions = null
+                }
+            };
+            var emptyPositions = nullPositions;
+            emptyPositions.OneDLutConfig.SamplePositions = Array.Empty<double>();
+
+            Assert.Equal(nullPositions, emptyPositions);
+            Assert.Equal(nullPositions.GetHashCode(), emptyPositions.GetHashCode());
+        }
+
+        [Fact]
+        public void PixelTransformationGetResultDto_NullAndEmptyBlocks_ShouldBeEqual()
+        {
+            var nullBlocks = new PixelTransformationGetResultDto { Blocks = null! };
+            var emptyBlocks = new PixelTransformationGetResultDto { Blocks = new List<PixtxBlockConfigDto>() };
+
+            Assert.Equal(nullBlocks, emptyBlocks);
+            Assert.Equal(nullBlocks.GetHashCode(), emptyBlocks.GetHashCode());
+        }
+
+        [Fact]
+        public void PixtxPipeSetConfigDto_NullAndEmptyBlocks_ShouldBeEqual()
+        {
+            var nullBlocks = new PixtxPipeSetConfigDto
+            {
+                OpertaionType = ctl_pixtx_config_opertaion_type_t.CTL_PIXTX_CONFIG_OPERTAION_TYPE_RESTORE_DEFAULT,
+                Blocks = null!
+            };
+            var emptyBlocks = nullBlocks;
+            emptyBlocks.Blocks = new List<PixtxBlockConfigDto>();
+
+            Assert.Equal(nullBlocks, emptyBlocks);
+            Assert.Equal(nullBlocks.GetHashCode(), emptyBlocks.GetHashCode());
+        }
+
+        [Fact]
+        public void PixtxBlockConfigDto_UnknownBlockType_ShouldBeReflexive()
+        {
+            var block = new PixtxBlockConfigDto
+            {
+                BlockId = 1,
+                BlockType = ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_MAX
+            };
+
+            Assert.Equal(block, block);
+            Assert.Equal(block.GetHashCode(), block.GetHashCode());
+        }
+
+        [SkippableFact]
+        public void PixelTransformationGetCurrentConfig_UniformLutShouldUseEquivalentMissingPositions()
+        {
+            var (api, adapter) = FacadeTestUtils.RequireAdapter();
+            using (api)
+            {
+                var display = adapter.EnumerateDisplayOutputs().FirstOrDefault();
+                Skip.If(display == null, "No displays connected.");
+
+                var current = FacadeTestUtils.InvokeOrSkip(
+                    () => display!.PixelTransformationGetConfig(PixtxPipeGetConfigDto.CreateCurrentRequest()),
+                    "Pixel transformation unsupported");
+                Skip.If(!current.HasValue, "Current pixel transformation unavailable.");
+
+                var uniformBlock = current.Value.Blocks.FirstOrDefault(block =>
+                    block.BlockType == ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_1D_LUT &&
+                    block.OneDLutConfig.SamplingType == ctl_pixtx_lut_sampling_type_t.CTL_PIXTX_LUT_SAMPLING_TYPE_UNIFORM);
+                if (uniformBlock.BlockType != ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_1D_LUT)
+                    throw new SkipException("No current uniform 1D LUT block was returned.");
+
+                var persistedShape = uniformBlock;
+                persistedShape.OneDLutConfig.SamplePositions = Array.Empty<double>();
+                Assert.Equal(uniformBlock, persistedShape);
+                Assert.Equal(uniformBlock.GetHashCode(), persistedShape.GetHashCode());
+            }
+        }
         
     }
 }

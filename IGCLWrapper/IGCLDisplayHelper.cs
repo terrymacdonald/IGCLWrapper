@@ -7030,7 +7030,7 @@ namespace IGCLWrapper
                     OneDLutConfig.NumSamplesPerChannel == other.OneDLutConfig.NumSamplesPerChannel &&
                     OneDLutConfig.NumChannels == other.OneDLutConfig.NumChannels &&
                     AreDoubleArraysEqual(OneDLutConfig.SampleValues, other.OneDLutConfig.SampleValues) &&
-                    AreDoubleArraysEqual(OneDLutConfig.SamplePositions, other.OneDLutConfig.SamplePositions),
+                    AreOptionalDoubleArraysEqual(OneDLutConfig.SamplePositions, other.OneDLutConfig.SamplePositions),
                 ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3D_LUT =>
                     ThreeDLutConfig.NumSamplesPerChannel == other.ThreeDLutConfig.NumSamplesPerChannel &&
                     AreThreeDLutSamplesEqual(ThreeDLutConfig.SampleValues, other.ThreeDLutConfig.SampleValues),
@@ -7039,7 +7039,7 @@ namespace IGCLWrapper
                     AreDoubleArraysEqual(MatrixConfig.Matrix, other.MatrixConfig.Matrix) &&
                     AreDoubleArraysEqual(MatrixConfig.PreOffsets, other.MatrixConfig.PreOffsets) &&
                     AreDoubleArraysEqual(MatrixConfig.PostOffsets, other.MatrixConfig.PostOffsets),
-                _ => false
+                _ => true
             };
         }
 
@@ -7056,7 +7056,7 @@ namespace IGCLWrapper
                     hash.Add(OneDLutConfig.NumSamplesPerChannel);
                     hash.Add(OneDLutConfig.NumChannels);
                     AddDoubleArrayHash(ref hash, OneDLutConfig.SampleValues);
-                    AddDoubleArrayHash(ref hash, OneDLutConfig.SamplePositions);
+                    AddOptionalDoubleArrayHash(ref hash, OneDLutConfig.SamplePositions);
                     break;
                 case ctl_pixtx_block_type_t.CTL_PIXTX_BLOCK_TYPE_3D_LUT:
                     hash.Add(ThreeDLutConfig.NumSamplesPerChannel);
@@ -7100,6 +7100,13 @@ namespace IGCLWrapper
             return true;
         }
 
+        private static bool AreOptionalDoubleArraysEqual(double[]? left, double[]? right)
+        {
+            if ((left?.Length ?? 0) == 0 && (right?.Length ?? 0) == 0)
+                return true;
+            return AreDoubleArraysEqual(left, right);
+        }
+
         private static void AddDoubleArrayHash(ref HashCode hash, double[]? values)
         {
             if (values == null)
@@ -7126,6 +7133,16 @@ namespace IGCLWrapper
                 hash.Add(value.Green);
                 hash.Add(value.Blue);
             }
+        }
+
+        private static void AddOptionalDoubleArrayHash(ref HashCode hash, double[]? values)
+        {
+            if (values == null || values.Length == 0)
+            {
+                hash.Add(0);
+                return;
+            }
+            AddDoubleArrayHash(ref hash, values);
         }
 
     }
@@ -7171,9 +7188,9 @@ namespace IGCLWrapper
         {
             if (OpertaionType != other.OpertaionType || Flags != other.Flags)
                 return false;
-            if (Blocks == null || other.Blocks == null)
-                return Blocks == other.Blocks;
-            return Blocks.SequenceEqual(other.Blocks);
+            if (NumBlocks != other.NumBlocks)
+                return false;
+            return NumBlocks == 0 || Blocks!.SequenceEqual(other.Blocks!);
         }
 
         public override bool Equals(object? obj) => obj is PixtxPipeSetConfigDto other && Equals(other);
@@ -7182,9 +7199,8 @@ namespace IGCLWrapper
             var hash = new HashCode();
             hash.Add(OpertaionType);
             hash.Add(Flags);
-            if (Blocks == null)
-                hash.Add(-1);
-            else
+            hash.Add(NumBlocks);
+            if (Blocks != null)
                 foreach (var block in Blocks)
                     hash.Add(block);
             return hash.ToHashCode();
@@ -7215,11 +7231,10 @@ namespace IGCLWrapper
 
         public bool Equals(PixelTransformationGetResultDto other)
         {
-            if (Blocks == null && other.Blocks == null) return true;
-            if (Blocks == null || other.Blocks == null) return false;
-            if (Blocks.Count != other.Blocks.Count) return false;
-            for (var i = 0; i < Blocks.Count; i++)
-                if (!Blocks[i].Equals(other.Blocks[i])) return false;
+            var blockCount = Blocks?.Count ?? 0;
+            if (blockCount != (other.Blocks?.Count ?? 0)) return false;
+            for (var i = 0; i < blockCount; i++)
+                if (!Blocks![i].Equals(other.Blocks![i])) return false;
             return true;
         }
 
@@ -7227,9 +7242,8 @@ namespace IGCLWrapper
         public override int GetHashCode()
         {
             var hash = new HashCode();
-            if (Blocks == null)
-                hash.Add(-1);
-            else
+            hash.Add(Blocks?.Count ?? 0);
+            if (Blocks != null)
                 foreach (var block in Blocks)
                     hash.Add(block);
             return hash.ToHashCode();
